@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: fc49e923676b63e301b2d63b4274ae11b3043906
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 717f4087dabbb3286607498ab7f04bcbcce663dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737280"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitación del número de SMS, llamadas de voz, correos electrónicos, notificaciones push de App de Azure y publicaciones de webhooks
 La limitación de número supone una suspensión de las notificaciones que se produce cuando se envían demasiadas a un número de teléfono, dirección de correo electrónico o dispositivo determinados. La limitación del índice asegura que las alertas son fáciles de administrar y procesar.
@@ -31,5 +31,5 @@ Los umbrales del límite de número son:
 
 ## <a name="next-steps"></a>Pasos siguientes ##
 * Más información sobre el [comportamiento de las alertas por SMS](alerts-sms-behavior.md).
-* Consulte la [introducción a las alertas del registro de actividad](../platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
+* Consulte la [introducción a las alertas del registro de actividad](./alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).

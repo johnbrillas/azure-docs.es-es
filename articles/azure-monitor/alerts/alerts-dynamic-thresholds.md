@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602773"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718070"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
@@ -22,7 +22,7 @@ Agradecemos sus comentarios, así que puede enviarlos a <azurealertsfeedback@mic
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>¿Por qué y cuándo se recomienda el uso de un tipo de condición dinámica?
 
-1. **Alertas escalables**: las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción.  [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](../platform/alerts-metric-create-templates.md).
+1. **Alertas escalables**: las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción.  [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](./alerts-metric-create-templates.md).
 
 1. **Reconocimiento de patrones de métricas inteligentes**: mediante la tecnología Machine Learning podemos detectar automáticamente patrones de métricas y adaptarlos a los cambios que se producen en las métricas con el tiempo, lo que a menudo puede incluir estacionalidad (cada hora, cada día o cada semana). La adaptación al comportamiento de las métricas con el paso del tiempo y la generación de alertas en función de las desviaciones de su patrón permite que no sea imprescindible conocer el umbral "correcto" de cada métrica. El algoritmo de Machine Learning que se usa en umbrales dinámicos está diseñado para evitar umbrales con ruido (poca precisión) o amplios (poco recuerdo) que no tengan un patrón esperado.
 
@@ -75,7 +75,7 @@ Para desencadenar una alerta cuando se ha producido una infracción de un umbral
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>¿Cómo averiguar por qué se ha desencadenado una alerta de umbrales dinámicos?
 
-Puede explorar las instancias de alerta desencadenadas en la vista de alertas, haciendo clic en el vínculo en el correo electrónico o mensaje de texto, o en el explorador para mostrar la vista de alertas en Azure Portal. [Más información sobre la vista de alertas](../platform/alerts-overview.md#alerts-experience).
+Puede explorar las instancias de alerta desencadenadas en la vista de alertas, haciendo clic en el vínculo en el correo electrónico o mensaje de texto, o en el explorador para mostrar la vista de alertas en Azure Portal. [Más información sobre la vista de alertas](./alerts-overview.md#alerts-experience).
 
 La vista de alertas muestra:
 
@@ -188,4 +188,4 @@ Utilice la siguiente información para interpretar el gráfico anterior.
 - **Punto rojo con un círculo negro**: muestra el primer valor de la métrica fuera del intervalo permitido. Este es el valor que activa una alerta de métrica y la pone en estado activo.
 - **Puntos rojos**: indican valores medidos adicionales fuera del intervalo permitido. No activarán alertas de métricas adicionales, pero la alerta permanecerá activa.
 - **Área roja**: muestra la hora en que el valor de la métrica estaba fuera del intervalo permitido. La alerta permanecerá en estado activo siempre que los valores medidos posteriores estén fuera del intervalo permitido, pero no se activarán nuevas alertas.
-- **Final del área roja**: cuando la línea azul vuelve dentro de los valores permitidos, el área roja se detiene y la línea del valor medido se vuelve azul. El estado de la alerta de la métrica desencadenada en el momento que indica el punto rojo con el contorno negro se establece en resuelto. 
+- **Final del área roja**: cuando la línea azul vuelve dentro de los valores permitidos, el área roja se detiene y la línea del valor medido se vuelve azul. El estado de la alerta de la métrica desencadenada en el momento que indica el punto rojo con el contorno negro se establece en resuelto.

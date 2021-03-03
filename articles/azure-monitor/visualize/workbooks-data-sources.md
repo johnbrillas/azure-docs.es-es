@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604657"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700582"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 
@@ -34,7 +34,7 @@ Los autores de libros pueden realizar consultas fácilmente en varios recursos y
 
 ## <a name="metrics"></a>Métricas
 
-Los recursos de Azure emiten [métricas](../platform/data-platform-metrics.md) a las que se puede acceder mediante los libros. El acceso a las métricas de los libros se puede realizar mediante un control especializado que permite especificar los recursos de destino, las métricas deseadas y su agregación. Estos datos se pueden trazar en gráficos o cuadrículas.
+Los recursos de Azure emiten [métricas](../essentials/data-platform-metrics.md) a las que se puede acceder mediante los libros. El acceso a las métricas de los libros se puede realizar mediante un control especializado que permite especificar los recursos de destino, las métricas deseadas y su agregación. Estos datos se pueden trazar en gráficos o cuadrículas.
 
 ![Captura de pantalla de gráficos de métricas de libro de uso de CPU](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -145,6 +145,6 @@ Este proveedor admite [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comience](../platform/workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
-* [Controle](../platform/workbooks-access-control.md) y comparta el acceso a los recursos del libro.
-* [Sugerencias para la optimización de consultas de análisis de registros](../log-query/query-optimization.md)
+* [Comience](./workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
+* [Controle](./workbooks-access-control.md) y comparta el acceso a los recursos del libro.
+* [Sugerencias para la optimización de consultas de análisis de registros](../logs/query-optimization.md)

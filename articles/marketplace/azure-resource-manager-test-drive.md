@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730378"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -75,7 +75,7 @@ Puede utilizar cualquier nombre válido para los parámetros; la versión de pru
 
 | Tipo de metadatos   | Tipo de parámetro  | Descripción     | Valor de ejemplo    |
 |---|---|---|---|
-| **baseuri**     | string          | Identificador URI base del paquete de implementación| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | Identificador URI base del paquete de implementación| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | Nuevo nombre de usuario aleatorio.| admin68876      |
 | **password**    | cadena segura    | Nueva contraseña aleatoria. | Lp!ACS\^2kh     |
 | **Id. de sesión**   | string          | Id. exclusivo (GUID) de sesión de la versión de prueba    | b8c8693e-5673-449c-badd-257a405a6dee |

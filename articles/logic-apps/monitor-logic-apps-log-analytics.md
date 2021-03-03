@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: d72e3ffc8698d9f3a2df170bd87f2969475ca9ed
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580683"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721266"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps
 
@@ -142,9 +142,6 @@ Una vez ejecutada la aplicación lógica, puede ver los datos sobre esas ejecuci
    A continuación se muestra un ejemplo con todas las ejecuciones de una aplicación lógica específica:
 
    ![Vista de las ejecuciones y el estado de la aplicación lógica](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
-
-   > [!NOTE]
-   > La funcionalidad **Reenviar** de esta página no está disponible actualmente.
 
    En el caso de las acciones en las que [configura propiedades con seguimiento](#extend-data), también puede verlas seleccionando **Ver** en la columna **Propiedades controladas**. Para buscar las propiedades controladas, use el filtro de columna.
 

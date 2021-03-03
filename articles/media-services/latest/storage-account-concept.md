@@ -42,7 +42,7 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 ## <a name="storage-account-double-encryption"></a>Cifrado doble de la cuenta de almacenamiento
 
-Las cuentas de almacenamiento admiten el cifrado doble, pero la segunda capa debe estar habilitada explícitamente. Consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Las cuentas de almacenamiento admiten el cifrado doble, pero la segunda capa debe estar habilitada explícitamente. Consulte [Cifrado de Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Errores de cuentas de almacenamiento
 

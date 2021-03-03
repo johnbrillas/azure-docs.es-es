@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832052"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721470"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificación y compilación de los módulos de la puerta de enlace de análisis de vídeo en directo
 
@@ -25,11 +25,13 @@ En los tutoriales anteriores se usan imágenes precompiladas de los módulos.
 
 Para completar los pasos de este tutorial, necesitará lo siguiente:
 
-* [Node.js](https://nodejs.org/en/download/) versión 10 o posterior.
-* [Visual Studio Code](https://code.visualstudio.com/Download) con la extensión [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada.
-* El motor de [Docker](https://www.docker.com/products/docker-desktop).
-* Una instancia de [Azure Container Registry](../../container-registry/index.yml) para hospedar las versiones de los módulos.
-* Una cuenta de [Azure Media Services](../../media-services/index.yml). Si completó los tutoriales anteriores, puede volver a usar la que ha creado anteriormente.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) versión 10 o posterior.
+> * [Visual Studio Code](https://code.visualstudio.com/Download) con la extensión [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada.
+> * El motor de [Docker](https://www.docker.com/products/docker-desktop).
+> * Una instancia de [Azure Container Registry](../../container-registry/index.yml) para hospedar las versiones de los módulos.
+> * Una cuenta de [Azure Media Services](../../media-services/index.yml). Si completó los tutoriales anteriores, puede volver a usar la que ha creado anteriormente.
 
 ## <a name="clone-the-repository"></a>Clonación del repositorio
 

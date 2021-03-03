@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690539"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
-A los clientes se les avisará de antemano mediante notificaciones de estado del servicio de cualquier cambio en las puertas de enlace disponibles en cada región. Los clientes pueden [usar Azure Portal para configurar las alertas del registro de actividad](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+A los clientes se les avisará de antemano mediante notificaciones de estado del servicio de cualquier cambio en las puertas de enlace disponibles en cada región. Los clientes pueden [usar Azure Portal para configurar las alertas del registro de actividad](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 

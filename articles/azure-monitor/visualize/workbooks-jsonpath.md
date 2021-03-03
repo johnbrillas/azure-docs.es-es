@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722932"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Uso de JSONPath para transformar datos JSON en libros
 
@@ -22,7 +22,7 @@ Los libros pueden consultar datos de muchos orígenes. Algunos puntos de conexi�
 
 JSONPath es un lenguaje de consulta para JSON similar a XPath para XML. Al igual que XPath, JSONPath permite la extracción y el filtrado de datos a partir de una estructura JSON.
 
-Mediante la transformación JSONPath, los creadores de los libros pueden convertir JSON en una estructura de tabla. A continuación, la tabla se puede usar para trazar [visualizaciones de libros](../platform/workbooks-overview.md#visualizations).
+Mediante la transformación JSONPath, los creadores de los libros pueden convertir JSON en una estructura de tabla. A continuación, la tabla se puede usar para trazar [visualizaciones de libros](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Uso de JSONPath
 
@@ -84,5 +84,5 @@ Supongamos que se proporciona el objeto JSON anterior como una representación d
 ![ Edición del elemento de consulta con origen de datos JSON y el formato de resultado de la ruta de acceso JSON](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Información general sobre libros](../platform/workbooks-overview.md)
+- [Información general sobre libros](./workbooks-overview.md)
 - [Grupos en los libros de Azure Monitor](workbooks-groups.md)

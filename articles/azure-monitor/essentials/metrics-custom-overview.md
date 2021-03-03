@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 9fba5b7636bcef68b55528350ea63ce9d386bb16
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1e61d0b8eb8312c78acabbd087208bb64a2d0d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602861"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734458"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
-A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Estas métricas se denominan [estándar o de plataforma](../platform/metrics-supported.md). Sin embargo, están limitadas por naturaleza. 
+A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Estas métricas se denominan [estándar o de plataforma](./metrics-supported.md). Sin embargo, están limitadas por naturaleza. 
 
 Es posible que quiera recopilar algunos indicadores de rendimiento personalizados o métricas específicas del negocio para obtener conclusiones más detalladas. Estas métricas **personalizadas** pueden recopilarse a través de los datos de telemetría de la aplicación, un agente que se ejecute en sus recursos de Azure o, incluso, fuera del sistema de supervisión y enviarse directamente a Azure Monitor. Una vez publicadas en Azure Monitor, puede examinar, consultar y generar una alerta sobre métricas personalizadas para sus recursos y aplicaciones de Azure en paralelo con las métricas estándar emitidas por Azure.
 
@@ -223,5 +223,3 @@ Use métricas personalizadas desde distintos servicios:
  - [Máquina virtual Linux que usa el agente Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)
  - [Cloud Services clásico](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md)
- 
-

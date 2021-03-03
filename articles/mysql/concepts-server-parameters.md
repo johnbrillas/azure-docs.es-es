@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539491"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720960"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -118,12 +118,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|262 144|128|268435455|
-|De uso general|4|262 144|128|536870912|
-|De uso general|8|262 144|128|1073741824|
-|De uso general|16|262 144|128|2147483648|
-|De uso general|32|262 144|128|4294967295|
-|De uso general|64|262 144|128|4294967295|
+|Uso general|2|262 144|128|268435455|
+|Uso general|4|262 144|128|536870912|
+|Uso general|8|262 144|128|1073741824|
+|Uso general|16|262 144|128|2147483648|
+|Uso general|32|262 144|128|4294967295|
+|Uso general|64|262 144|128|4294967295|
 |Memoria optimizada|2|262 144|128|536870912|
 |Memoria optimizada|4|262 144|128|1073741824|
 |Memoria optimizada|8|262 144|128|2147483648|
@@ -136,12 +136,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|50|10|50|
 |Básico|2|100|10|100|
-|De uso general|2|300|10|600|
-|De uso general|4|625|10|1250|
-|De uso general|8|1250|10|2.500|
-|De uso general|16|2.500|10|5000|
-|De uso general|32|5000|10|10000|
-|De uso general|64|10000|10|20000|
+|Uso general|2|300|10|600|
+|Uso general|4|625|10|1250|
+|Uso general|8|1250|10|2.500|
+|Uso general|16|2.500|10|5000|
+|Uso general|32|5000|10|10000|
+|Uso general|64|10000|10|20000|
 |Memoria optimizada|2|625|10|1250|
 |Memoria optimizada|4|1250|10|2.500|
 |Memoria optimizada|8|2.500|10|5000|
@@ -167,12 +167,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|16777216|16384|268435455|
-|De uso general|4|16777216|16384|536870912|
-|De uso general|8|16777216|16384|1073741824|
-|De uso general|16|16777216|16384|2147483648|
-|De uso general|32|16777216|16384|4294967295|
-|De uso general|64|16777216|16384|4294967295|
+|Uso general|2|16777216|16384|268435455|
+|Uso general|4|16777216|16384|536870912|
+|Uso general|8|16777216|16384|1073741824|
+|Uso general|16|16777216|16384|2147483648|
+|Uso general|32|16777216|16384|4294967295|
+|Uso general|64|16777216|16384|4294967295|
 |Memoria optimizada|2|16777216|16384|536870912|
 |Memoria optimizada|4|16777216|16384|1073741824|
 |Memoria optimizada|8|16777216|16384|2147483648|
@@ -192,12 +192,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|0|0|16777216|
-|De uso general|4|0|0|33554432|
-|De uso general|8|0|0|67108864|
-|De uso general|16|0|0|134217728|
-|De uso general|32|0|0|134217728|
-|De uso general|64|0|0|134217728|
+|Uso general|2|0|0|16777216|
+|Uso general|4|0|0|33554432|
+|Uso general|8|0|0|67108864|
+|Uso general|16|0|0|134217728|
+|Uso general|32|0|0|134217728|
+|Uso general|64|0|0|134217728|
 |Memoria optimizada|2|0|0|33554432|
 |Memoria optimizada|4|0|0|67108864|
 |Memoria optimizada|8|0|0|134217728|
@@ -230,12 +230,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|524 288|32 768|4 194 304|
-|De uso general|4|524 288|32 768|8388608|
-|De uso general|8|524 288|32 768|16777216|
-|De uso general|16|524 288|32 768|33554432|
-|De uso general|32|524 288|32 768|33554432|
-|De uso general|64|524 288|32 768|33554432|
+|Uso general|2|524 288|32 768|4 194 304|
+|Uso general|4|524 288|32 768|8388608|
+|Uso general|8|524 288|32 768|16777216|
+|Uso general|16|524 288|32 768|33554432|
+|Uso general|32|524 288|32 768|33554432|
+|Uso general|64|524 288|32 768|33554432|
 |Memoria optimizada|2|524 288|32 768|8388608|
 |Memoria optimizada|4|524 288|32 768|16777216|
 |Memoria optimizada|8|524 288|32 768|33554432|
@@ -250,12 +250,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
 |Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|16777216|1024|67108864|
-|De uso general|4|16777216|1024|134217728|
-|De uso general|8|16777216|1024|268435456|
-|De uso general|16|16777216|1024|536870912|
-|De uso general|32|16777216|1024|1073741824|
-|De uso general|64|16777216|1024|1073741824|
+|Uso general|2|16777216|1024|67108864|
+|Uso general|4|16777216|1024|134217728|
+|Uso general|8|16777216|1024|268435456|
+|Uso general|16|16777216|1024|536870912|
+|Uso general|32|16777216|1024|1073741824|
+|Uso general|64|16777216|1024|1073741824|
 |Memoria optimizada|2|16777216|1024|134217728|
 |Memoria optimizada|4|16777216|1024|268435456|
 |Memoria optimizada|8|16777216|1024|536870912|
@@ -272,7 +272,7 @@ También es importante tener en cuenta que el rendimiento mejorado se produce a 
 Para guardar el estado del grupo de búferes al cerrar el servidor, establezca el parámetro de servidor `innodb_buffer_pool_dump_at_shutdown` en `ON`. Del mismo modo, establezca el parámetro de servidor `innodb_buffer_pool_load_at_startup` en `ON` para restaurar el estado del grupo de búferes al iniciar el servidor. Puede controlar el impacto en el inicio o reinicio si reduce y ajusta el valor del parámetro de servidor `innodb_buffer_pool_dump_pct`. De forma predeterminada, este parámetro se establece en `25`.
 
 > [!Note]
-> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](./concepts-pricing-tiers.md#storage).
 
 ### <a name="time_zone"></a>time_zone
 

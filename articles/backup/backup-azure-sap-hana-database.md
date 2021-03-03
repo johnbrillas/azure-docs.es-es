@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719617"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -172,7 +172,7 @@ Especifique la configuración de la directiva como se muestra a continuación:
     ![Directiva de copia de seguridad diferencial](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Ahora se admiten las copias de seguridad incrementales en la versión preliminar pública. Puede elegir entre una copia de seguridad diferencial o incremental como copia diaria, pero no ambas.
+    > Puede elegir si la copia de seguridad diaria es diferencial o incremental, pero no ambas.
 1. En **Incremental Backup policy** (Directiva de copia de seguridad incremental), seleccione **Habilitar** para abrir los controles de retención y frecuencia.
     * A lo sumo, puede desencadenar una copia de seguridad incremental al día.
     * Como máximo, las copias de seguridad incrementales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.

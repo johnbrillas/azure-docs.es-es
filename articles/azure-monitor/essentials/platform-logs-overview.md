@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d2162a5c3d88eaae69b3a67456fdc29f19b1a79a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725856"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Introducción a los registros de plataforma Azure
 Los registros de plataforma proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma Azure de la que dependen. Se generan automáticamente, aunque es necesario configurar determinados registros de plataforma para que se reenvíen a uno o varios destinos para la conservación. En este artículo se proporciona información general sobre los registros de plataforma, incluida la información que proporcionan y cómo puede configurarlos para la recopilación y el análisis.
@@ -22,7 +22,7 @@ En la tabla siguiente se enumeran los registros de plataforma específicos dispo
 
 | Log | Nivel | Descripción |
 |:---|:---|:---|
-| [Registros de recursos](../platform/resource-logs.md) | Recursos de Azure. | Proporcionan una visión general de las operaciones realizadas dentro del mismo recurso de Azure (en el *plano de datos*), por ejemplo, obtener un secreto de un almacén de claves o realizar una solicitud en una base de datos. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso.<br><br>*Los registros de recurso se conocían anteriormente como registros de diagnóstico*.  |
+| [Registros de recursos](./resource-logs.md) | Recursos de Azure. | Proporcionan una visión general de las operaciones realizadas dentro del mismo recurso de Azure (en el *plano de datos*), por ejemplo, obtener un secreto de un almacén de claves o realizar una solicitud en una base de datos. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso.<br><br>*Los registros de recurso se conocían anteriormente como registros de diagnóstico*.  |
 | [Registro de actividad](../essentials/activity-log.md) | Suscripción de Azure | Proporciona una visión general de las operaciones de cada recurso de Azure de la suscripción desde fuera (en el *plano de administración*) y de las actualizaciones de los eventos de Service Health. Use el registro de actividad para dar respuesta a los interrogantes _qué_, _quién_ y _cuándo_ de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. Hay un único registro de actividad para cada suscripción de Azure. |
 | [Registros de Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Inquilino de Azure |  Contienen el historial de la actividad de inicio de sesión y la traza de auditoría de los cambios realizados en Azure Active Directory para un inquilino determinado.   |
 
@@ -46,7 +46,7 @@ Puede enviar registros de plataforma a uno o varios de los destinos de la tabla 
 
 | Destination | Descripción |
 |:---|:---|
-| Área de trabajo de Log Analytics | Analice todos los registros de todos los recursos de Azure en conjunto y aproveche las ventajas de todas las características disponibles para los [registros de Azure Monitor](../platform/data-platform-logs.md), incluidas las [consultas de registro](../log-query/log-query-overview.md) y las [alertas de registro](../alerts/alerts-log.md). Ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo. |  |
+| Área de trabajo de Log Analytics | Analice todos los registros de todos los recursos de Azure en conjunto y aproveche las ventajas de todas las características disponibles para los [registros de Azure Monitor](../logs/data-platform-logs.md), incluidas las [consultas de registro](../logs/log-query-overview.md) y las [alertas de registro](../alerts/alerts-log.md). Ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo. |  |
 | Centro de eventos | Envíe datos de registro de la plataforma fuera de Azure, por ejemplo a un sistema SIEM de terceros o una plataforma de telemetría personalizada.
 | Almacenamiento de Azure | Archive los registros para la auditoría o la copia de seguridad. |
 
@@ -61,5 +61,4 @@ Puede enviar registros de plataforma a uno o varios de los destinos de la tabla 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información acerca del registro de actividad](../essentials/activity-log.md)
-* [Más información sobre los registros de recursos](../platform/resource-logs.md)
-
+* [Más información sobre los registros de recursos](./resource-logs.md)

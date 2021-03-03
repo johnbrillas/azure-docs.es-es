@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736211"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720246"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage (versión preliminar) como un recurso compartido de red desde un contenedor de App Service
 
 ::: zone pivot="container-windows"
 
-En esta guía se muestra cómo adjuntar archivos de Azure Storage como un recurso compartido de red a un contenedor de Windows en App Service. Solo se admiten [recursos compartidos de archivos de Azure Files](../storage/files/storage-how-to-use-files-cli.md) y [recursos compartidos de archivos Premium](../storage/files/storage-how-to-create-premium-fileshare.md). Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
+En esta guía se muestra cómo adjuntar archivos de Azure Storage como un recurso compartido de red a un contenedor de Windows en App Service. Solo se admiten [recursos compartidos de archivos de Azure Files](../storage/files/storage-how-to-use-files-cli.md) y [recursos compartidos de archivos Premium](../storage/files/storage-how-to-create-file-share.md). Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
 
 > [!NOTE]
 >Azure Storage en App Service se encuentra **en versión preliminar** y **no es compatible** con los **escenarios de producción**.

@@ -3,12 +3,12 @@ title: Solución de problemas de recuperación de archivos de máquina virtual d
 description: Solución de problemas al recuperar archivos y carpetas desde una copia de seguridad de máquina virtual de Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735884"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700310"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Solución de problemas con la recuperación de archivos de una copia de seguridad de máquina virtual de Azure
 
@@ -88,7 +88,7 @@ Para solucionar este problema, siga los pasos correspondientes a su sistema oper
 Al ejecutar el script por primera vez en Windows Server 2012 R2 y Windows Server 2016 (con bloques de almacenamiento), el bloque de almacenamiento podría estar asociado a la máquina virtual en modo de solo lectura.
 
 >[!Tip]
-> Asegúrese de que dispone de la [máquina correcta para ejecutar el script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Asegúrese de que dispone de la [máquina correcta para ejecutar el script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Para resolver este problema, asigne manualmente acceso de lectura y escritura al bloque de almacenamiento y asocie los discos virtuales:
 
@@ -108,7 +108,7 @@ Para resolver este problema, asigne manualmente acceso de lectura y escritura al
 
 Al realizar la recuperación de archivos, el servicio de copia de seguridad detecta los volúmenes y los monta automáticamente. Sin embargo, si los discos de copia de seguridad tienen particiones sin formato, esos discos no se montan automáticamente y no se puede ver el disco de datos para la recuperación.
 
-Para resolver este problema, vaya a [Recuperación de archivos de las copias de seguridad de máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Para resolver este problema, vaya a [Recuperación de archivos de las copias de seguridad de máquina virtual de Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>Se produce un error en la recuperación de archivos de Linux porque el sistema operativo no puede identificar el sistema de archivos
 
@@ -122,7 +122,7 @@ Para resolver este problema, compruebe si el volumen está cifrado con una aplic
 
    ![Captura de pantalla que muestra los resultados del comando para enumerar los dispositivos de bloqueo.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Compruebe el sistema de archivos y el cifrado. Si el volumen está cifrado, no se admite la recuperación de archivos. Puede encontrar más información en [Matriz de compatibilidad de copia de seguridad de máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Compruebe el sistema de archivos y el cifrado. Si el volumen está cifrado, no se admite la recuperación de archivos. Puede encontrar más información en [Matriz de compatibilidad de copia de seguridad de máquinas virtuales de Azure](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Los discos están asociados, pero los volúmenes no están montados
 
@@ -139,7 +139,7 @@ Al ejecutar el script de recuperación de archivos para Windows, verá un mensaj
 Para identificar y resolver este problema, siga estos pasos:
 
 >[!Tip]
->Asegúrese de que dispone de la [máquina correcta para ejecutar el script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Asegúrese de que dispone de la [máquina correcta para ejecutar el script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. En la ventana de **cmd**, ejecute **diskmgmt** para abrir **Administración de discos**.
 1. Busque cualquier disco adicional. En el ejemplo siguiente, el **disco 2** es un disco adicional.
@@ -159,9 +159,9 @@ Para identificar y resolver este problema, siga estos pasos:
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Asegúrese de que dispone de la [máquina correcta para ejecutar el script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Asegúrese de que dispone de la [máquina correcta para ejecutar el script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Si la máquina virtual Linux protegida usa matrices LVM o RAID, siga los pasos descritos en [Recuperación de archivos de las copias de seguridad de máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Si la máquina virtual Linux protegida usa matrices LVM o RAID, siga los pasos descritos en [Recuperación de archivos de las copias de seguridad de máquina virtual de Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>No se pueden copiar los archivos de volúmenes montados
 

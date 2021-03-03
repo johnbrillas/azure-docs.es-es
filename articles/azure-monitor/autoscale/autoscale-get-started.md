@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603429"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726060"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -128,7 +128,7 @@ En esta sección se describe cómo trasladar el escalado automático de Azure a 
 ### <a name="move"></a>Mover
 Use la [API REST](/rest/api/monitor/autoscalesettings/createorupdate) para crear una configuración de escalado automático en el nuevo entorno. La configuración creada en la región de destino será una copia de la configuración de la región de origen.
 
-Los [valores de configuración de diagnóstico](../platform/diagnostic-settings.md) que se crearon junto con la configuración del escalado automático de la región de origen no se pueden trasladar. Tendrá que volver a crear la configuración de diagnóstico en la región de destino, una vez creada la configuración de escalado automático. 
+Los [valores de configuración de diagnóstico](../essentials/diagnostic-settings.md) que se crearon junto con la configuración del escalado automático de la región de origen no se pueden trasladar. Tendrá que volver a crear la configuración de diagnóstico en la región de destino, una vez creada la configuración de escalado automático. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Más información sobre cómo trasladar recursos entre regiones de Azure
 Para más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md).

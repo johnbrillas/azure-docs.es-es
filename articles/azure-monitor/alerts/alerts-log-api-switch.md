@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603089"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718036"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Actualización a la API de alertas de registro actual desde la API de alertas heredada de Log Analytics
 
@@ -19,23 +19,23 @@ ms.locfileid: "100603089"
 > Este artículo solo es pertinente para la nube pública de Azure (**no** para la nube de Azure Government ni de Azure China).
 
 > [!NOTE]
-> Cuando un usuario opta por cambiar la preferencia a la versión [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) actual, no puede revertir la elección para usar la versión anterior [Alert API de Log Analytics heredada](../platform/api-alerts.md).
+> Cuando un usuario opta por cambiar la preferencia a la versión [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) actual, no puede revertir la elección para usar la versión anterior [Alert API de Log Analytics heredada](./api-alerts.md).
 
-En el pasado, los usuarios usaban [Alert API de Log Analytics heredada](../platform/api-alerts.md) para administrar las reglas de alertas de registro. Las áreas de trabajo actuales usan [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). En este artículo se describen las ventajas y el proceso de cambio de la API heredada a la API actual.
+En el pasado, los usuarios usaban [Alert API de Log Analytics heredada](./api-alerts.md) para administrar las reglas de alertas de registro. Las áreas de trabajo actuales usan [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). En este artículo se describen las ventajas y el proceso de cambio de la API heredada a la API actual.
 
 ## <a name="benefits"></a>Ventajas
 
 - Una sola plantilla para la creación de reglas de alertas (antes se necesitaban tres plantillas independientes).
 - API única para las áreas de trabajo de Log Analytics y los recursos de Application Insights.
-- [Compatibilidad con cmdlets de PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Compatibilidad con cmdlets de PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Correspondencia de la gravedad con los demás tipos de alerta.
-- Capacidad para crear [alertas de registro entre áreas de trabajo](../log-query/cross-workspace-query.md) que abarcan varios recursos externos, como áreas de trabajo de Log Analytics o recursos de Application Insights.
+- Capacidad para crear [alertas de registro entre áreas de trabajo](../logs/cross-workspace-query.md) que abarcan varios recursos externos, como áreas de trabajo de Log Analytics o recursos de Application Insights.
 - Los usuarios pueden especificar dimensiones para dividir las alertas mediante el parámetro "Agregado en".
 - Las alertas de registro tienen un período de hasta dos días de datos (antes estaba limitado a un día).
 
 ## <a name="impact"></a>Impacto
 
-- Todas las nuevas reglas deben crearse o editarse con la API actual. Consulte el [ejemplo de uso mediante la plantilla de Azure Resource](alerts-log-create-templates.md) y el [ejemplo de uso mediante PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Todas las nuevas reglas deben crearse o editarse con la API actual. Consulte el [ejemplo de uso mediante la plantilla de Azure Resource](alerts-log-create-templates.md) y el [ejemplo de uso mediante PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - A medida que las reglas se convierten en recursos con seguimiento de Azure Resource Manager en la API actual y deben pasar a ser recursos únicos, el identificador de recurso de las reglas cambiará a esta estructura: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. El nombre para mostrar de la regla de alertas se mantendrá sin cambios.
 
 ## <a name="process"></a>Proceso
@@ -104,7 +104,7 @@ Si no se efectuó el cambio en el área de trabajo Log Analytics, se muestra la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [Alertas de registro en Azure Monitor](../platform/alerts-unified-log.md).
+- Más información sobre las [Alertas de registro en Azure Monitor](./alerts-unified-log.md).
 - Aprenda a [administrar las alertas de registro mediante la API](alerts-log-create-templates.md).
-- Aprenda a [administrar las alertas de registro mediante PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Obtenga más información sobre la experiencia de [Alertas de Azure](../platform/alerts-overview.md).
+- Aprenda a [administrar las alertas de registro mediante PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Obtenga más información sobre la experiencia de [Alertas de Azure](./alerts-overview.md).

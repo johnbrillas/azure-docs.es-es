@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054964"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726400"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -751,7 +751,7 @@ La configuración siguiente muestra cómo se pasa el parámetro `{id}` al elemen
 
 Al usar parámetros de ruta, se crea automáticamente una plantilla `invoke_URL_template` para la función. Los clientes pueden usar la plantilla de dirección URL para comprender los parámetros que deben pasar en la dirección URL al llamar a la función mediante su dirección URL. Vaya a una de las funciones desencadenadas por HTTP en [Azure Portal](https://portal.azure.com) y seleccione **Obtener la dirección URL de la función**.
 
-Puede tener acceso mediante programación a la plantilla `invoke_URL_template` con las API de Azure Resource Manager para [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) (Funciones de lista) o [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction) (Get (función)).
+Puede tener acceso mediante programación a la plantilla `invoke_URL_template` con las API de Azure Resource Manager para [List Functions](/rest/api/appservice/webapps/listfunctions) (Funciones de lista) o [Get Function](/rest/api/appservice/webapps/getfunction) (Get (función)).
 
 ## <a name="working-with-client-identities"></a>Uso de identidades de cliente
 

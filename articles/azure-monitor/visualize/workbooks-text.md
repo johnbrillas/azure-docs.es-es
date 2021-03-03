@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d064b69f25ada4edf478f9c8b70d7aaad83754a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 22078f242ddeb882b39b85769537b9a282741250
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602563"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725533"
 ---
 # <a name="workbook-text-parameters"></a>Parámetros de texto de libros
 
@@ -85,5 +85,5 @@ Este es el aspecto que tendrá el libro en modo de lectura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comience](../platform/workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
-* [Controle](../platform/workbooks-access-control.md) y comparta el acceso a los recursos del libro.
+* [Comience](./workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
+* [Controle](./workbooks-access-control.md) y comparta el acceso a los recursos del libro.

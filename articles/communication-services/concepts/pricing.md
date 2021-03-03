@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558461"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657764"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Los precios de Azure Communication Services se suelen basar en un modelo de pago por uso. Los precios de los siguientes ejemplos solo tienen fines ilustrativos y puede que no reflejen los precios más recientes de Azure.
 
@@ -50,7 +47,7 @@ Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie.
 
 ### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Ejemplo de precios: un usuario de la biblioteca cliente JS de Communication Services participa en una reunión programada de Microsoft Teams
 
-Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conectará a la visita desde la aplicación de escritorio Teams. Bob recibirá un vínculo para conectarse mediante el sitio web del proveedor de atención sanitaria, que usa la biblioteca cliente de JS de Communication Services para conectarse a la cita. Bob usará su teléfono móvil para entrar en la reunión mediante un explorador web (iPhone con Safari). El chat estará disponible durante la visita virtual. 
+Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conectará a la visita desde la aplicación de escritorio Teams. Bob recibirá un vínculo para conectarse mediante el sitio web del proveedor de atención sanitaria, que usa la biblioteca cliente de JS de Communication Services para conectarse a la cita. Bob usará su teléfono móvil para entrar en la reunión mediante un explorador web (iPhone con Safari). El chat estará disponible durante la visita virtual.
 
 - La llamada dura un total de 30 minutos.
 - Alice y Bob participan durante toda la llamada. Alice activa su vídeo 5 minutos después de que se inicie la llamada y comparte la pantalla durante 13 minutos. Bob tiene su vídeo activado durante toda la llamada.
@@ -60,15 +57,15 @@ Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conect
 **Cálculos de costos**
 
 - 1 participante (Bob) x 30 minutos x 0,004 USD por participante y minuto = 0,12 USD [el vídeo y el audio se cobran a la misma tarifa]
-- 1 participante (Alice) x 30 minutos x 0,000 USD por participante y minuto = 0,0 USD*. 
+- 1 participante (Alice) x 30 minutos x 0,000 USD por participante y minuto = 0,0 USD*.
 - 1 participante (Bob) x 3 mensajes de chat x 0,0008 USD = 0,0024 USD.
-- 1 participante (Alice) x 5 mensajes de chat x 0,000 USD = 0,0* USD. 
+- 1 participante (Alice) x 5 mensajes de chat x 0,000 USD = 0,0* USD.
 
 \* La participación de Alice está incluida en su licencia de Teams. Para su comodidad, en la factura de Azure se mostrarán los minutos y mensajes de chat que los usuarios de Teams tenían con los usuarios de Communication Services, pero los minutos y mensajes que se originan en el cliente de Teams no costarán nada.
 
-**Costo total de la visita**: 
+**Costo total de la visita**:
 - Conexión del usuario mediante la biblioteca cliente JS de Communication Services: 0,12 USD + 0,0024 USD = 0,1224 USD
-- Conexión del usuario en la aplicación de escritorio Teams: 0 USD (incluido en la licencia de Teams) 
+- Conexión del usuario en la aplicación de escritorio Teams: 0 USD (incluido en la licencia de Teams)
 
 
 ## <a name="chat"></a>Chat
@@ -79,27 +76,27 @@ Con Communication Services puede mejorar su aplicación, puede permitirle enviar
 
 Se le cobrarán 0,0008 USD por cada mensaje de chat enviado.
 
-### <a name="pricing-example-chat-between-two-users"></a>Ejemplo de precios: Chat entre dos usuarios 
+### <a name="pricing-example-chat-between-two-users"></a>Ejemplo de precios: Chat entre dos usuarios
 
 Geeta inicia una conversación de chat con Emily para compartir una actualización y le envía cinco mensajes. El chat dura 10 minutos. Geeta y Emily envían otros 15 mensajes cada una.
 
-**Cálculos de costos** 
+**Cálculos de costos**
 - Número de mensajes enviados (5 + 15 + 15) x 0,0008 USD = 0,028 USD
 
-### <a name="pricing-example-group-chat-with-multiple-users"></a>Ejemplo de precios: Chat grupal con varios usuarios 
+### <a name="pricing-example-group-chat-with-multiple-users"></a>Ejemplo de precios: Chat grupal con varios usuarios
 
-Charlie inicia una conversación de chat con sus amigos Casey y Jasmine para planear unas vacaciones. Conversan por unos momentos, en los que Charlie, Casey y Jasmine envían 20, 30 y 18 mensajes, respectivamente. Saben que quizá a su amiga Rose también le interese unirse al viaje, de modo que la agregan a la conversación de chat y comparten todo el historial de mensajes con ella. 
+Charlie inicia una conversación de chat con sus amigos Casey y Jasmine para planear unas vacaciones. Conversan por unos momentos, en los que Charlie, Casey y Jasmine envían 20, 30 y 18 mensajes, respectivamente. Saben que quizá a su amiga Rose también le interese unirse al viaje, de modo que la agregan a la conversación de chat y comparten todo el historial de mensajes con ella.
 
 Rose ve los mensajes y comienza a responder. Mientras tanto, Casey recibe una llamada y decide ponerse al día con la conversación más adelante. Charlie, Jasmine y Rose deciden las fechas del viaje y envían otros 30, 25 y 35 mensajes, respectivamente.
 
-**Cálculos de costos** 
+**Cálculos de costos**
 
 - Número de mensajes enviados (20 + 30 + 18 + 30 + 25 + 35) x 0,0008 USD = 0,1264 USD
 
 
 ## <a name="telephony-and-sms"></a>Telefonía y SMS
 
-## <a name="price"></a>Price 
+## <a name="price"></a>Price
 
 Los precios de los servicios de telefonía se calculan por minuto, mientras que el precio de los SMS se calcula por mensaje. Los precios vienen determinados por el tipo y la ubicación del número que usa, así como el destino de las llamadas y los mensajes SMS.
 

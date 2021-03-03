@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a6355a08a936c74ae6a05f163a93a991ba82ab4d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953757"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702919"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -56,8 +56,8 @@ Si quiere configurar más detalles para la instancia, en la sección siguiente s
 
 Estas son las opciones adicionales que puede configurar durante la instalación, mediante las demás pestañas del proceso **Crear recurso**.
 
-* **Redes**: en esta pestaña, puede habilitar puntos de conexión privados con [Azure Private Link](../private-link/private-link-overview.md) para eliminar la exposición de la red pública a la instancia. Para instrucciones, consulte [*Procedimiento: para habilitar el acceso privado con Private Link (versión preliminar)* ](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Avanzadas**: en esta pestaña, puede habilitar una [identidad administrada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) para la instancia que se puede usar al reenviar eventos a [puntos de conexión](concepts-route-events.md). Para instrucciones, consulte [*Procedimiento: para habilitar identidades administradas para eventos de enrutamiento (versión preliminar)* ](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Redes**: en esta pestaña, puede habilitar puntos de conexión privados con [Azure Private Link](../private-link/private-link-overview.md) para eliminar la exposición de la red pública a la instancia. Para instrucciones, consulte [*Procedimiento: para habilitar el acceso privado con Private Link (versión preliminar)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Avanzadas**: en esta pestaña, puede habilitar una [identidad administrada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) para la instancia que se puede usar al reenviar eventos a [puntos de conexión](concepts-route-events.md). Para instrucciones, consulte [*Procedimiento: para habilitar identidades administradas para eventos de enrutamiento (versión preliminar)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Etiquetas**: en esta pestaña, puede agregar etiquetas a la instancia a fin de facilitar su organización entre los recursos de Azure. Para obtener más información sobre las etiquetas de recurso de Azure, vea [*Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes

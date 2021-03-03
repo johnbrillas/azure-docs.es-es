@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715724"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -76,7 +76,7 @@ Una vez que haya creado los recursos de punto de conexión, puede usarlos para u
 1. Seleccione _Guardar_ para terminar de crear el punto de conexión.
 
 >[!IMPORTANT]
-> Para usar correctamente la autenticación basada en identidades para el punto de conexión, tendrá que crear una identidad administrada para la instancia mediante los pasos descritos en [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)* ](how-to-enable-managed-identities.md).
+> Para usar correctamente la autenticación basada en identidades para el punto de conexión, tendrá que crear una identidad administrada para la instancia mediante los pasos descritos en [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)*](./how-to-enable-managed-identities-portal.md).
 
 Después de crear el punto de conexión, puede comprobar que se ha creado correctamente si examina el icono de notificación de la barra superior de Azure Portal: 
 

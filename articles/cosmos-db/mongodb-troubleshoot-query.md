@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340896"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659909"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solución de problemas de consultas al usar la API para MongoDB de Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Al reducir el cargo por RU de una consulta, normalmente se reducirá la latencia
 En este artículo se ofrecen ejemplos que se pueden volver a crear mediante el conjunto de datos [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> En este artículo se da por supuesto que usa la versión 3.6 de la API para MongoDB de Azure Cosmos DB. Algunas consultas que funcionan de manera deficiente en la versión 3.2 han mejorado significativamente en la versión 3.6. Para actualizar a la versión 3.6, presente una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> En este artículo se da por supuesto que está usando la cuenta de API de Azure Cosmos DB para MongoDB con la versión 3.6 y versiones posteriores. Algunas consultas que funcionan de manera deficiente en la versión 3.2 han mejorado significativamente en la versión 3.6. Para actualizar a la versión 3.6, presente una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Uso del comando $explain para obtener métricas
 

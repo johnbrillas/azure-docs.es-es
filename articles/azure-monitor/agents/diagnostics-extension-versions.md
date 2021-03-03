@@ -1,17 +1,16 @@
 ---
 title: Historial de versiones del esquema de configuración de Windows Azure Diagnostics (WAD) Extension
 description: Se utiliza para recopilar contadores de rendimiento en Azure Virtual Machines, VM Scale Sets, Service Fabric y Cloud Services.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 3b6dc0e19c181ebf4df2778633f981258023e046
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603295"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719821"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de Windows Azure Diagnostics (WAD) Extension
 En este artículo, puede consultar el historial de versiones del esquema de [Azure Diagnostics Extension para Windows (WAD)](diagnostics-extension-overview.md) que se incluye en el SDK de Microsoft Azure.  
@@ -47,7 +46,7 @@ Las distintas versiones de Azure Diagnostics utilizan esquemas de configuración
 ### <a name="diagnostics-extension-111"></a>Extensión Diagnostics 1.11
 Incorporación de compatibilidad con el receptor de Azure Monitor. Este receptor solo se puede aplicar a los contadores de rendimiento. Permite el envío a Azure Monitor de los contadores de rendimiento recopilados en la máquina virtual, VMSS o en el servicio en la nube como métricas personalizadas. El receptor de Azure Monitor admite:
 * La recuperación de todos los contadores de rendimiento que se envían a Azure Monitor a través de las [API de métricas de Azure Monitor](/rest/api/monitor/metrics/list).
-* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](../platform/alerts-overview.md) de Azure Monitor.
+* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](../alerts/alerts-overview.md) de Azure Monitor.
 * El tratamiento del operador comodín de los contadores de rendimiento como la dimensión "Instancia" de la métrica. Por ejemplo, si recopiló el contador de "LogicalDisk(\*)/DiskWrites/sec", debería poder filtrar y dividir en la dimensión "Instancia" para el trazado o una alerta en las escrituras en disco/s para cada disco lógico (C:, D:, etc.).
 
 Definición de Azure Monitor como un receptor nuevo de la configuración de la extensión Diagnostics
@@ -190,4 +189,3 @@ Si está actualizando su proyecto de Azure SDK 2.4 a Azure SDK 2.5 o versiones p
 * **El diagnóstico para aplicaciones de servicio en la nube solo se puede configurar en el nivel de rol, no en el nivel de instancia.**
 * **Cada vez que implementa la aplicación, se actualiza la configuración de diagnóstico** : esto puede provocar problemas de paridad si cambia la configuración de diagnóstico del Explorador de servidores y luego vuelve a implementar la aplicación.
 * **En Azure SDK 2.5 y versiones posteriores, los volcados de memoria se configuran en el archivo de configuración de diagnóstico, no en el código** : si tiene volcados de memoria configurados en el código, tendrá que transferir manualmente la configuración del código al archivo de configuración, porque los volcados de memoria no se transfieren durante la migración a Azure SDK 2.6.
-

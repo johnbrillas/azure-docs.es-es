@@ -3,18 +3,18 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707309"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
 Una de las principales responsabilidades de un administrador de copia de seguridad o de cumplimiento en una organización es asegurarse de que se realiza una copia de seguridad de todas las máquinas críticas para la empresa con el período de retención adecuado.
 
-En la actualidad, Azure Backup proporciona una variedad de directivas integradas (con [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)) para ayudarle a garantizar automáticamente que las máquinas virtuales de Azure estén configuradas para la copia de seguridad. En función de cómo estén organizados los equipos y los recursos de copia de seguridad, puede usar cualquiera de las siguientes directivas:
+En la actualidad, Azure Backup proporciona una variedad de directivas integradas (con [Azure Policy](../governance/policy/overview.md)) para ayudarle a garantizar automáticamente que las máquinas virtuales de Azure estén configuradas para la copia de seguridad. En función de cómo estén organizados los equipos y los recursos de copia de seguridad, puede usar cualquiera de las siguientes directivas:
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Directiva 1: Configuración de la copia de seguridad en las VM sin una etiqueta dada en un almacén de Recovery Services existente en la misma ubicación
 
@@ -29,7 +29,7 @@ Si organiza aplicaciones en grupos de recursos dedicados y desea que las copias 
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Directiva 4: [versión preliminar] Configuración de la copia de seguridad en las VM con una etiqueta dada en un nuevo almacén de Recovery Services con una directiva predeterminada
 Esta directiva funciona igual que la directiva 3 anterior, con la única diferencia de que puede usar esta directiva para **incluir** máquinas virtuales que contengan una etiqueta determinada en el ámbito de esta directiva. 
 
-Además de lo anterior, Azure Backup también proporciona una directiva de [ solo auditoría](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit): **Azure Backup debe estar habilitado para máquinas virtuales**. Esta directiva identifica las máquinas virtuales que no tienen habilitada la copia de seguridad, pero no configura automáticamente las copias de seguridad de estas máquinas virtuales. Esto resulta útil cuando solo está pensando en evaluar el cumplimiento general de las máquinas virtuales, pero no desea tomar medidas inmediatamente.
+Además de lo anterior, Azure Backup también proporciona una directiva de [ solo auditoría](../governance/policy/concepts/effects.md#audit): **Azure Backup debe estar habilitado para máquinas virtuales**. Esta directiva identifica las máquinas virtuales que no tienen habilitada la copia de seguridad, pero no configura automáticamente las copias de seguridad de estas máquinas virtuales. Esto resulta útil cuando solo está pensando en evaluar el cumplimiento general de las máquinas virtuales, pero no desea tomar medidas inmediatamente.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 

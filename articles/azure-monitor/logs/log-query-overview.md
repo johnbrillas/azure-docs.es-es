@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 623230b59d4f479b20b9b8532135bb2b70885ecb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704232"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 Los registros de Azure Monitor se basan en Azure Data Explorer y las consultas de registros se escriben con el mismo lenguaje de consulta de Kusto (KQL). Se trata de un lenguaje enriquecido que se ha diseñado para ser fácil de leer y de crear, por lo que debería poder empezar a escribir consultas con las instrucciones básicas.
@@ -19,9 +19,9 @@ Los registros de Azure Monitor se basan en Azure Data Explorer y las consultas d
 Las áreas de Azure Monitor donde usará las consultas incluyen lo siguiente:
 
 - [Log Analytics](../logs/log-analytics-overview.md). Esta es la herramienta principal en Azure Portal para escribir consultas de registros y analizar sus resultados de forma interactiva. Incluso si piensa usar una consulta de registro en otro lugar que no sea Azure Monitor, normalmente la escribirá y probará en Log Analytics antes de copiarla a su ubicación final.
-- [Reglas de alertas de registro](../platform/alerts-overview.md). Estas reglas identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una consulta de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
+- [Reglas de alertas de registro](../alerts/alerts-overview.md). Estas reglas identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una consulta de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
 - [Libros](../visualize/workbooks-overview.md). Incluyen los resultados de las consultas de registros mediante diferentes visualizaciones de informes visuales interactivos en Azure Portal.
-- [Paneles de Azure](../learn/tutorial-logs-dashboards.md). Con ellos puede anclar los resultados de cualquier consulta en un panel de Azure, que le permitirá visualizar los datos de registros y métricas en conjunto y, opcionalmente, compartirlos con otros usuarios de Azure.
+- [Paneles de Azure](../visualize/tutorial-logs-dashboards.md). Con ellos puede anclar los resultados de cualquier consulta en un panel de Azure, que le permitirá visualizar los datos de registros y métricas en conjunto y, opcionalmente, compartirlos con otros usuarios de Azure.
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Puede usar los resultados de una consulta de registro en un flujo de trabajo automatizado mediante Logic Apps.
 - [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Use los resultados de una consulta de registro en un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que use Get-AzOperationalInsightsSearchResults.
 - [API de registros de Azure Monitor](https://dev.loganalytics.io). Recupere los datos de registro del área de trabajo desde cualquier cliente de API de REST.  La solicitud de API incluye una consulta que se ejecuta en Azure Monitor para determinar los datos que se van a recuperar.
@@ -29,7 +29,7 @@ Las áreas de Azure Monitor donde usará las consultas incluyen lo siguiente:
 ## <a name="getting-started"></a>Introducción
 La mejor manera de empezar a aprender a escribir consultas de registros mediante KQL es aprovechar los tutoriales y ejemplos disponibles.
 
-- [Tutorial de Log Analytics](../log-query/log-analytics-tutorial.md): tutorial sobre el uso de las características de Log Analytics, que es la herramienta que utilizará en Azure Portal para editar y ejecutar consultas. También permite escribir consultas simples sin tener que trabajar directamente con el lenguaje de la consulta. Si no ha usado Log Analytics antes, empiece aquí para aprender a usar esta herramienta con otros tutoriales y ejemplos.
+- [Tutorial de Log Analytics](./log-analytics-tutorial.md): tutorial sobre el uso de las características de Log Analytics, que es la herramienta que utilizará en Azure Portal para editar y ejecutar consultas. También permite escribir consultas simples sin tener que trabajar directamente con el lenguaje de la consulta. Si no ha usado Log Analytics antes, empiece aquí para aprender a usar esta herramienta con otros tutoriales y ejemplos.
 - [Tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor): guía de los conceptos básicos de KQL y los operadores comunes. Este es el mejor lugar para comenzar a usar el lenguaje en si, y la estructura de las consultas de registro. 
 - [Consultas de ejemplo](../logs/example-queries.md): descripción de las consultas de ejemplo disponibles en Log Analytics. Puede usar las consultas sin modificaciones o utilizarlas como ejemplos para aprender a usar KQL.
 - [Ejemplos de consultas](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor): consultas de ejemplo que ilustran una variedad de conceptos diferentes.
@@ -73,10 +73,9 @@ Aunque Azure Monitor usa la misma instancia de KQL que Azure Data Explorer, exis
 Los operadores siguientes admiten características específicas de Azure Monitor que no están disponibles fuera de Azure Monitor.
 
 * [app()](../logs/app-expression.md)
-* [resource()](../log-query/resource-expression.md)
+* [resource()](./resource-expression.md)
 * [workspace()](../logs/workspace-expression.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Realice un [tutorial sobre cómo escribir consultas](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
 - Acceda a la [documentación de referencia completa del lenguaje de consulta de Kusto](/azure/kusto/query/).
-

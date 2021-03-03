@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574436"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Base de referencia de seguridad de Azure para Network Watcher
 
@@ -118,9 +118,9 @@ Network Watcher debe estar habilitado
 
 **Guía**: use el registro de actividad de Azure para supervisar los cambios realizados en Azure Network Watcher. Puede crear alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -142,7 +142,7 @@ Network Watcher debe estar habilitado
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones y detectar cambios en las instancias de Azure Network Watcher. Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), por sí mismo Network Watcher no genera registros relacionados con el tráfico de red. Network Watcher proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Descripción de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ Network Watcher debe estar habilitado
 
 **Instrucciones**: use el registro de actividad de Azure para supervisar las configuraciones y detectar cambios en las instancias de Azure Network Watcher. Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), por sí mismo Network Watcher no genera registros de auditoría. Network Watcher proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Descripción de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ Network Watcher debe estar habilitado
 
 **Guía**: En Azure Monitor, establezca el período de retención de registros en las áreas de trabajo de Log Analytics asociadas a Azure Network Watcher en función de las normativas de cumplimiento de la organización.
 
-* [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Establecimiento de parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -184,7 +184,7 @@ Network Watcher debe estar habilitado
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones y detectar cambios en las instancias de Azure Network Watcher. Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), por sí mismo Network Watcher no genera registros relacionados con el tráfico de red. Network Watcher proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Descripción de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Para usar las funcionalidades de Network Watcher, debe asignar la cuenta con la 
 
 **Guía**: use Azure Monitor con el registro de actividad de Azure para crear alertas cuando se produzcan cambios en Azure Network Watcher y en otros recursos críticos o relacionados.
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 

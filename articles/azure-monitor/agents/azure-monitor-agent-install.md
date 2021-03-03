@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f0d062766f0a5d58fbcaaa32b1df5a5e40c783b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719957"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Instalación del agente de Azure Monitor (versión preliminar)
 En este artículo se proporcionan las distintas opciones disponibles actualmente para instalar el [agente de Azure Monitor](azure-monitor-agent-overview.md) en máquinas virtuales de Azure y en los servidores habilitados para Azure Arc, así como las opciones para crear [asociaciones con reglas de recopilación de datos](data-collection-rule-azure-monitor-agent.md) que definen qué datos debe recopilar el agente.
@@ -42,7 +42,7 @@ Puede usar las plantillas de Resource Manager para instalar el agente de Azure M
 Obtenga plantillas de ejemplo para instalar el agente y crear la asociación de los siguientes vínculos: 
 
 - [Plantilla para instalar el agente de Azure Monitor (Azure y Azure Arc)](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Plantilla para crear una asociación con una regla de recopilación de datos](../samples/resource-manager-data-collection-rules.md)
+- [Plantilla para crear una asociación con una regla de recopilación de datos](./resource-manager-data-collection-rules.md)
 
 Instale las plantillas con [cualquier método de implementación para las plantillas de Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md), como los siguientes comandos.
 

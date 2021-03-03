@@ -1,24 +1,23 @@
 ---
 title: 'Preguntas más frecuentes: Solución Network Performance Monitor en Azure | Microsoft Docs'
 description: En este artículo se incluyen las preguntas más frecuentes sobre Network Performance Monitor en Azure. Network Performance Monitor (NPM) ayuda a supervisar el rendimiento de sus redes (en tiempo casi real) para detectar y localizar los cuellos de botella de rendimiento que afectan a la red.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909cbd6174fe7eceaa8b53b5ba44fe72990b56d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587274"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708057"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
 ![Símbolo de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 En este artículo se incluyen las preguntas más frecuentes (P+f) sobre Network Performance Monitor (NPM) en Azure.
 

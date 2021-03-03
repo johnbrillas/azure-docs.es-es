@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709825"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registros de Azure Monitor para Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
-El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](../azure-monitor/platform/activity-log.md). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
+El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](../azure-monitor/essentials/activity-log.md). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 Puede ver y analizar los datos del registro de actividad con cualquiera de los métodos siguientes:
 
@@ -113,4 +113,4 @@ La característica de exportación de métricas a registros para Load Balancer t
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Revise las métricas disponibles de Load Balancer](./load-balancer-standard-diagnostics.md)
-* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](../azure-monitor/logs/log-query-overview.md)

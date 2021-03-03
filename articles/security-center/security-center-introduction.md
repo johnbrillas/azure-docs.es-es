@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c4861192c7f2bbfb2a51e19b88daee45b501949b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806181"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634777"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -101,7 +101,7 @@ La protección contra amenazas de Security Center permite detectar y prevenir la
 
 La protección contra amenazas de Security Center incluye el análisis de la cadena de destrucción de fusión, que correlaciona de manera automática las alertas del entorno en función del análisis de la cadena de destrucción cibernética, para ayudarlo a entender mejor la historia completa de una campaña de ataque, dónde empezó y qué tipo de impacto tuvo en los recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de seguridad":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de seguridad de Security Center":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integración con Microsoft Defender para punto de conexión
 

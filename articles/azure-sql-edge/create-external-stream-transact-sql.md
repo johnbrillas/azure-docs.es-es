@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392306"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659229"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCATION** : especifica el nombre de los datos o la ubicación reales en el origen de datos. 
+- **LOCATION**: especifica el nombre de los datos o la ubicación reales en el origen de datos. 
    - En el caso de objetos de transmisión del centro de Edge o de Kafka, la ubicación especifica el nombre del centro de Edge o el tema Kafka del que se va a leer o en el que se va a escribir.
    - Si se trata de la ubicación de los objetos de transmisión de SQL (SQL Server, Azure SQL Database o Azure SQL Edge), especifica el nombre de la tabla. Si el flujo se crea en la misma base de datos y en el mismo esquema que la tabla de destino, con el nombre Tabla es suficiente. En caso contrario, debe proporcionar el nombre completo de la tabla (<database_name.schema_name.table_name).
    - En caso de la ubicación de los objetos de transmisión de Azure Blob Storage, consulte el patrón de la ruta de acceso que se va a usar dentro del contenedor de blobs. Para más información sobre esta característica, vea (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2).
 
-- **INPUT_OPTIONS** : especifique opciones como pares clave-valor para servicios como Kafka o el centro de IoT Edge que sean entradas para las consultas de streaming.
+- **INPUT_OPTIONS**: especifique opciones como pares clave-valor para servicios como Kafka o el centro de IoT Edge que sean entradas para las consultas de streaming.
     - PARTITIONS: número de particiones definidas para un tema. El número máximo de particiones que se pueden utilizar está limitado a 32.
       - Se aplica a los flujos de entrada de Kafka.
     - CONSUMER_GROUP: Event Hubs e IoT Hub limitan el número de lectores dentro de un grupo de consumidores (a 5). Si deja este campo en blanco se usará el grupo de consumidores "$Default".
@@ -111,7 +111,7 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE: Los eventos pueden llegar desordenados después de haber realizado el viaje desde la entrada a la consulta de streaming. Estos eventos se pueden aceptar tal cual, o puede optar por pausarlos durante un período establecido para reordenarlos.
       - Reservado para uso futuro. No se aplica a Azure SQL Edge.
         
-- **OUTPUT_OPTIONS** : especifique opciones como pares clave-valor para los servicios admitidos que sean entradas para las consultas de streaming. 
+- **OUTPUT_OPTIONS**: especifique opciones como pares clave-valor para los servicios admitidos que sean entradas para las consultas de streaming. 
   - REJECT_POLICY:  DROP | RETRY especifica directivas de control de errores de datos cuando se producen errores de conversión de datos. 
     - Se aplica a todas las salidas admitidas. 
   - MINIMUM_ROWS:  
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

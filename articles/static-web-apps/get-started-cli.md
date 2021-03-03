@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0de65c4546f5e87377b119370ee629f5a365b24e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680627"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650548"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Inicio rápido: creación del primer sitio estático mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ Azure Static Web Apps publica sitios web en entornos de producción mediante la 
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [GitHub](https://github.com)
 - [Token de acceso personal de GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
@@ -60,7 +60,7 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -72,7 +72,7 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -85,7 +85,7 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -98,7 +98,7 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```

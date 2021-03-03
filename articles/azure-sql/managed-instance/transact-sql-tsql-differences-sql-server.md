@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378628"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691202"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ Las opciones siguientes no se pueden modificar:
 - `SINGLE_USER`
 - `WITNESS`
 
-Es posible que algunas instrucciones `ALTER DATABASE` (por ejemplo, [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) no se puedan realizar de forma transitoria, por ejemplo, durante la copia de seguridad automatizada o justo después de crear una base de datos. En este caso, la instrucción `ALTER DATABASE` debe volver a intentarse. Para obtener más información sobre los mensajes de error relacionados, consulte la sección [Comentarios](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Es posible que algunas instrucciones `ALTER DATABASE` (por ejemplo, [SET CONTAINMENT](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) no se puedan realizar de forma transitoria, por ejemplo, durante la copia de seguridad automatizada o justo después de crear una base de datos. En este caso, la instrucción `ALTER DATABASE` debe volver a intentarse. Para obtener más información sobre los mensajes de error relacionados, consulte la sección [Comentarios](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
 
 Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -395,12 +395,12 @@ No se admite la [búsqueda semántica](/sql/relational-databases/search/semantic
 Los servidores vinculados en la Instancia administrada de SQL admiten un número limitado de destinos:
 
 - Los destinos admitidos son SQL Managed Instance, SQL Database, grupos de Azure Synapse SQL [sin servidor](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) y dedicados e instancias de SQL Server. 
-- Las transacciones de escritura distribuidas solo son posibles entre instancias administradas. Vea [Transacciones distribuidas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) para obtener más información. Sin embargo, no se admite MS DTC.
+- Las transacciones de escritura distribuidas solo son posibles entre instancias administradas. Vea [Transacciones distribuidas](../database/elastic-transactions-overview.md) para obtener más información. Sin embargo, no se admite MS DTC.
 - Destinos no admitidos: archivos, Analysis Services y otros RDBMS. Intente usar la importación de CSV nativa desde Azure Blob Storage mediante `BULK INSERT` o `OPENROWSET` como alternativa para la importación de archivos, o cargue los archivos mediante un [grupo de SQL sin servidor en Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operaciones: 
 
-- Las transacciones de escritura [entre instancias](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) solo se admiten para las instancias administradas.
+- Las transacciones de escritura [entre instancias](../database/elastic-transactions-overview.md) solo se admiten para las instancias administradas.
 - Se admite `sp_dropserver` para quitar un servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La función `OPENROWSET` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).

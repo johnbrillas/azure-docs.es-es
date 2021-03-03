@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733523"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -39,10 +39,10 @@ En el diagrama siguiente se resaltan los pasos necesarios para crear un modelo d
 
 ## <a name="custom-neural-voices"></a>Voces neuronales personalizadas
 
-La voz personalizada admite actualmente los niveles estándar y neuronal. Voz neuronal personalizada permite a los usuarios crear modelos de voz de mayor calidad, requiere menos datos y proporciona medidas para ayudarle a implementar la IA de manera responsable. Se recomienda usar Voz neuronal personalizada para desarrollar voces más realistas dirigidas a interfaces de conversación más naturales y permitir que clientes y usuarios finales se beneficien de la tecnología de texto a voz más moderna, de forma responsable. [Más información sobre Voz neuronal personalizada](https://aka.ms/CNV-Transparency-Note). 
+La voz personalizada admite actualmente los niveles estándar y neuronal. Voz neuronal personalizada permite a los usuarios crear modelos de voz de mayor calidad, requiere menos datos y proporciona medidas para ayudarle a implementar la IA de manera responsable. Se recomienda usar Voz neuronal personalizada para desarrollar voces más realistas dirigidas a interfaces de conversación más naturales y permitir que clientes y usuarios finales se beneficien de la tecnología de texto a voz más moderna, de forma responsable. [Más información sobre Voz neuronal personalizada](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> Como parte del compromiso de Microsoft de diseñar tecnología de IA responsable, hemos limitado el uso de Voz neuronal personalizada. Tan solo podrá obtener acceso a la tecnología una vez que se hayan revisado sus aplicaciones y se comprometa a utilizarla de acuerdo con nuestros principios éticos. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](https://aka.ms/gating-overview) y [haga una solicitud aquí](https://aka.ms/customneural). Los [idiomas](language-support.md#customization) y las [regiones](regions.md#custom-voices) compatibles con las versiones estándar y neuronal de la voz personalizada son diferentes. Compruebe los detalles antes de empezar.  
+> Como parte del compromiso de Microsoft de diseñar tecnología de IA responsable, hemos limitado el uso de Voz neuronal personalizada. Tan solo podrá obtener acceso a la tecnología una vez que se hayan revisado sus aplicaciones y se comprometa a utilizarla de acuerdo con nuestros principios éticos. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) y [haga una solicitud aquí](https://aka.ms/customneural). Los [idiomas](language-support.md#customization) y las [regiones](regions.md#custom-voices) compatibles con las versiones estándar y neuronal de la voz personalizada son diferentes. Compruebe los detalles antes de empezar.  
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
@@ -71,7 +71,7 @@ Para crear su primer proyecto, seleccione la pestaña **Text-to-Speech/Custom Vo
 
 Si usa la voz personalizada no neuronal (o estándar), considere la posibilidad de migrar a Voz neuronal personalizada inmediatamente siguiendo los pasos que se indican a continuación. Se recomienda pasar a Voz neuronal personalizada para desarrollar voces más realistas dirigidas a interfaces de conversación más naturales y permitir que clientes y usuarios finales se beneficien de la tecnología de texto a voz más moderna, de forma responsable. 
 
-1. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](https://aka.ms/gating-overview) y [haga una solicitud aquí](https://aka.ms/customneural). Tenga en cuenta que el acceso al servicio Voz neuronal personalizada está sujeto a la exclusiva discreción de Microsoft de acuerdo con sus criterios de idoneidad. Los clientes pueden obtener acceso a la tecnología solo después de que se haya revisado su solicitud y se les haya confirmado su uso de acuerdo con los [principios de IA responsable](https://microsoft.com/ai/responsible-ai) y el [código de conducta](https://aka.ms/custom-neural-code-of-conduct). 
+1. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) y [haga una solicitud aquí](https://aka.ms/customneural). Tenga en cuenta que el acceso al servicio Voz neuronal personalizada está sujeto a la exclusiva discreción de Microsoft de acuerdo con sus criterios de idoneidad. Los clientes pueden obtener acceso a la tecnología solo después de que se haya revisado su solicitud y se les haya confirmado su uso de acuerdo con los [principios de IA responsable](https://microsoft.com/ai/responsible-ai) y el [código de conducta](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 2. Una vez aprobada la solicitud, se le proporcionará acceso a la característica de entrenamiento "neuronal". Asegúrese de iniciar sesión en el [portal de Voz personalizado](https://speech.microsoft.com/customvoice) con la misma suscripción de Azure que facilita en la aplicación. 
     > [!IMPORTANT]
     > Para proteger al actor de voz y evitar el entrenamiento de modelos de voz con grabaciones no autorizadas o sin el consentimiento de dicha persona, es necesario que el cliente cargue una declaración grabada del actor de voz en la que dé su consentimiento. Cuando prepare el script de grabación, asegúrese de incluir esta oración. "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice." ("Yo [indique su nombre y apellido] acepto que [indique el nombre de empresa] use grabaciones de mi voz para crear y usar una versión sintética de la voz").

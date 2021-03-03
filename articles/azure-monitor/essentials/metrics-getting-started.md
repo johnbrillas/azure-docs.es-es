@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d914c9b5f96cf502247d40a913ce8ad4651a4a14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 68a9dd5cb24dda54e867580cf7c1bc869e692833
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602851"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734424"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -29,7 +29,7 @@ El explorador de métricas de Azure Monitor es un componente de Microsoft Azure 
 
 Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el recurso, el grupo de recursos, la suscripción o la vista de Azure Monitor y haga lo siguiente:
 
-1. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector de ámbito de recursos. Esto le permitirá seleccionar los recursos para los que desea ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. Para obtener información sobre cómo ver las métricas en varios recursos, [lea este artículo](../platform/metrics-dynamic-scope.md).
+1. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector de ámbito de recursos. Esto le permitirá seleccionar los recursos para los que desea ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. Para obtener información sobre cómo ver las métricas en varios recursos, [lea este artículo](./metrics-dynamic-scope.md).
     > ![Selección de un recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. En algunos recursos, debe elegir un espacio de nombres. El espacio de nombres es una forma de organizar las métricas para que se puedan encontrar fácilmente. Por ejemplo, las cuentas de almacenamiento tienen espacios de nombres aparte para almacenar las métricas de File service, Table service, Blob service y Queue service. Muchos tipos de recursos solo tienen un espacio de nombres.
@@ -72,7 +72,7 @@ Se puede personalizar el estilo y el título de un gráfico, así como modificar
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga información sobre las características avanzadas del Explorador de métricas](../essentials/metrics-charts.md)
-* [Visualización de varios recursos en el Explorador de métricas](../platform/metrics-dynamic-scope.md)
+* [Visualización de varios recursos en el Explorador de métricas](./metrics-dynamic-scope.md)
 * [Solución de problemas del Explorador de métricas](metrics-troubleshoot.md)
-* [Vea una lista de métricas disponibles para servicios de Azure](../platform/metrics-supported.md)
+* [Vea una lista de métricas disponibles para servicios de Azure](./metrics-supported.md)
 * [Vea ejemplos de gráficos configurados](../essentials/metric-chart-samples.md)

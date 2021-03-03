@@ -3,12 +3,12 @@ title: Supervisión del rendimiento en las VM de Azure - Azure Application Insig
 description: Supervisión del rendimiento de aplicaciones para máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711489"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementación de Azure Application Insights Agent en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -16,7 +16,7 @@ La habilitación de la supervisión para las aplicaciones web basadas en .NET o 
 
 En este artículo se le guía a través de la habilitación de la supervisión de Application Insights mediante Application Insights Agent y se proporcionan instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 > [!IMPORTANT]
-> Las aplicaciones basadas en **Java** que se ejecutan en VM y VMSS de Azure se supervisan con el **[agente de Java 3.0 de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** , que está disponible con carácter general.
+> Las aplicaciones basadas en **Java** que se ejecutan en VM y VMSS de Azure se supervisan con el **[agente de Java 3.0 de Application Insights](./java-in-process-agent.md)** , que está disponible con carácter general.
 
 > [!IMPORTANT]
 > Agente de Azure Application Insights para aplicaciones de ASP.NET que se ejecutan en **VM y VMSS de Azure** está en versión preliminar pública actualmente. Para supervisar las aplicaciones de ASP.NET que se ejecutan **en el entorno local**, use el [agente de Azure Application Insights para servidores locales](./status-monitor-v2-overview.md), que está disponible con carácter general y es totalmente compatible.
@@ -42,7 +42,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
   * Application Insights Agent recopila automáticamente las mismas señales de dependencia que el SDK de NET. Consulte [Recopilación automática de dependencias](./auto-collect-dependencies.md#net) para más información.
         
 #### <a name="java"></a>Java
-  * En el caso de Java, el **[agente de Java 3.0 de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** es el método recomendado. Las bibliotecas y los marcos más populares, así como los registros y las dependencias, se [recopilan automáticamente](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics) con una gran variedad de [configuraciones adicionales](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+  * En el caso de Java, el **[agente de Java 3.0 de Application Insights](./java-in-process-agent.md)** es el método recomendado. Las bibliotecas y los marcos más populares, así como los registros y las dependencias, se [recopilan automáticamente](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics) con una gran variedad de [configuraciones adicionales](./java-standalone-config.md).
 
 ### <a name="code-based-via-sdk"></a>Basado en código mediante SDK
     
@@ -55,19 +55,19 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
     > Únicamente en el caso de las aplicaciones de .NET, si se detectan tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar que se envíen datos duplicados. Para más información sobre este tema, consulte la [sección Solución de problemas](#troubleshooting) a continuación.
 
 #### <a name="net-core"></a>.NET Core
-Para supervisar aplicaciones de .NET Core, use el [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). 
+Para supervisar aplicaciones de .NET Core, use el [SDK](./asp-net-core.md). 
 
 #### <a name="java"></a>Java 
 
-Si necesita telemetría personalizada adicional para aplicaciones de Java, consulte qué [está disponible](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), agregue [dimensiones personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions) o use [procesadores de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+Si necesita telemetría personalizada adicional para aplicaciones de Java, consulte qué [está disponible](./java-in-process-agent.md#send-custom-telemetry-from-your-application), agregue [dimensiones personalizadas](./java-standalone-config.md#custom-dimensions) o use [procesadores de telemetría](./java-standalone-telemetry-processors.md). 
 
 #### <a name="nodejs"></a>Node.js
 
-Para instrumentar la aplicación de Node.js, use el [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+Para instrumentar la aplicación de Node.js, use el [SDK](./nodejs.md).
 
 #### <a name="python"></a>Python
 
-Para supervisar las aplicaciones de Python, use el [SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+Para supervisar las aplicaciones de Python, use el [SDK](./opencensus-python.md).
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Administración de Application Insights Agent para aplicaciones .NET en máquinas virtuales de Azure mediante PowerShell
 

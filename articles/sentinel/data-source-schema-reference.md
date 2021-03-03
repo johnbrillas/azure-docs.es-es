@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390834"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698355"
 ---
 # <a name="data-source-schema-reference"></a>Referencia del esquema del origen de datos
 
@@ -34,7 +34,7 @@ En este artículo se enumeran los esquemas de origen de datos de Azure y de terc
 | **Network**                          | Registros IIS               | W3CIISLog              | [Referencia de W3CIISLog de Azure Monitor](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [Referencia de VMConnection de Azure Monitor](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Solución Wire Data     | WireData               | [Referencia de Azure Monitor WireData](/azure/azure-monitor/reference/tables/wiredata) |
-| **Network**                          | Registro de flujo de NSG          | AzureNetworkAnalytics  | [Esquema y agregación de datos en Análisis de tráfico](/azure/network-watcher/traffic-analytics-schema) |
+| **Network**                          | Registro de flujo de NSG          | AzureNetworkAnalytics  | [Esquema y agregación de datos en Análisis de tráfico](../network-watcher/traffic-analytics-schema.md) |
 | | | | |
 
 > [!NOTE]

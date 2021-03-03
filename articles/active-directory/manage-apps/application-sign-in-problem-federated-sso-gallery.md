@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 97ce1fe43bc831661a8590921d8121a8a82ba7e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430418"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687182"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML
 Para solucionar estos problemas de inicio de sesión, se recomienda que siga los siguientes consejos para obtener un mejor diagnóstico y automatizar los pasos de resolución:
@@ -41,7 +41,8 @@ Para abrir la página de configuración del inicio de sesión único basado en S
 1. Seleccione Inicio de sesión único basado en SAML.
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
-`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
+
+`Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory.`
 
 **Causa posible**
 
@@ -69,7 +70,7 @@ Compruebe o actualice el valor en el cuadro de texto Dirección URL de respuesta
 Después de actualizar el valor de la dirección URL de respuesta en Azure AD y de comprobar que coincide con el valor enviado por la aplicación en la solicitud SAML, podrá iniciar sesión en la aplicación.
 
 ## <a name="user-not-assigned-a-role"></a>Usuario no asignado a un rol
-`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
+`Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application.`
 
 **Causa posible**
 

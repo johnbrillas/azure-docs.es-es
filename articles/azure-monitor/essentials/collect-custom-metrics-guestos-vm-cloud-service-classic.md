@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602501"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737076"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor en Cloud Services clásico 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Con la [extensión Diagnostics](../agents/diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+Con la [extensión Diagnostics](../agents/diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para Cloud Services clásico de Azure al almacén de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
 
@@ -26,7 +26,7 @@ Almacenarlas en esta ubicación permite tener acceso a las mismas acciones dispo
 
 El proceso descrito en este artículo solo funciona para los contadores de rendimiento en Azure Cloud Services. No funciona para otras métricas personalizadas. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 
@@ -34,7 +34,7 @@ El proceso descrito en este artículo solo funciona para los contadores de rendi
 
 - Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Su servicio en la nube debe estar en una [región que admita métricas personalizadas](../platform/metrics-custom-overview.md#supported-regions).
+- Su servicio en la nube debe estar en una [región que admita métricas personalizadas](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Aprovisionamiento de un servicio en la nube y una cuenta de almacenamiento 
 
@@ -191,4 +191,4 @@ Puede usar las funcionalidades de división y de filtrado de dimensiones para ve
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de las [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Más información acerca de las [métricas personalizadas](./metrics-custom-overview.md).

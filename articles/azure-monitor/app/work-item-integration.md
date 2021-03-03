@@ -3,12 +3,12 @@ title: 'Integración de elementos de trabajo (versión preliminar): Application 
 description: Aprenda a crear elementos de trabajo en GitHub o Azure DevOps con los datos de Application Insights insertados en ellos.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731925"
 ---
 # <a name="work-item-integration-preview"></a>Integración de elementos de trabajo (versión preliminar)
 
@@ -53,7 +53,7 @@ Para editar la plantilla, vaya a la pestaña **Elementos de trabajo** en *Config
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Captura de pantalla de la pestaña Elemento de trabajo con el icono de lápiz Editar seleccionado.":::
 
-Seleccione Editar ![icono Editar](./media/work-item-integration/edit-icon.png) en la parte superior para empezar a editar la plantilla. Las plantillas de elemento de trabajo se basan en [libros de Azure Monitor](../platform/workbooks-overview.md). La información del elemento de trabajo se genera mediante el lenguaje de consulta de palabras clave. Puede modificar las consultas para agregar más contexto esencial a su equipo. Cuando haya terminado de editar, guarde el libro; para ello, seleccione el icono Guardar ![icono Guardar](./media/work-item-integration/save-icon.png) en la barra de herramientas superior.
+Seleccione Editar ![icono Editar](./media/work-item-integration/edit-icon.png) en la parte superior para empezar a editar la plantilla. Las plantillas de elemento de trabajo se basan en [libros de Azure Monitor](../visualize/workbooks-overview.md). La información del elemento de trabajo se genera mediante el lenguaje de consulta de palabras clave. Puede modificar las consultas para agregar más contexto esencial a su equipo. Cuando haya terminado de editar, guarde el libro; para ello, seleccione el icono Guardar ![icono Guardar](./media/work-item-integration/save-icon.png) en la barra de herramientas superior.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Captura de pantalla del libro de la plantilla de elemento de trabajo en modo de edición." lightbox="./media/work-item-integration/edit-workbook.png":::
 

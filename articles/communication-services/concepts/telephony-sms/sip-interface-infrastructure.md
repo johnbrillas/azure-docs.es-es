@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b258f2ef82e74073e3e4f1aa61b036d423c30300
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100419428"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659263"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestructura de la interfaz SIP 
 
@@ -31,7 +31,7 @@ En la tabla siguiente se enumeran los requisitos de infraestructura para los SBC
 |Controlador de borde de sesión (SBC)|Un SBC compatible. Para más información, consulte [SBC compatibles](#supported-session-border-controllers-sbcs).|
 |Troncos de telefonía conectados al SBC|Uno o varios troncos de telefonía conectados al SBC. En un extremo, el SBC se conecta a Azure Communication Service a través de la interfaz SIP. El SBC también puede conectarse a entidades de telefonía de terceros, como PBX, adaptadores de telefonía analógicos, etc. Funcionará cualquier opción de conectividad de RTC conectada al SBC (para conocer la configuración de los troncos de RTC en el SBC, consulte los proveedores de SBC o los proveedores de troncos).|
 |Suscripción de Azure|Una suscripción de Azure que se usa para crear un recurso de ACS, así como la configuración y la conexión al SBC.|
-|Token de acceso de Communication Services|Para realizar llamadas, se necesita un token de acceso válido con el ámbito `voip`. Consulte [Tokens de acceso](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
+|Token de acceso de Communication Services|Para realizar llamadas, se necesita un token de acceso válido con el ámbito `voip`. Consulte [Tokens de acceso](../identity-model.md#access-tokens)|
 |Dirección IP pública del SBC|Una dirección IP pública que se puede usar para conectarse al SBC. En función de su tipo, el SBC puede usar NAT.|
 |Nombre de dominio completo (FQDN) del SBC|El nombre de dominio completo del SBC, donde la parte de dominio no coincide con los dominios registrados de una organización de Microsoft 365 u Office 365. Para más información, consulte [Nombres de dominio del SBC](#sbc-domain-names).|
 |Entrada DNS pública para el SBC |Una entrada DNS pública que asigna el nombre de dominio completo del SBC a la dirección IP pública. |
@@ -187,7 +187,7 @@ En el segmento entre el procesador de multimedia en la nube y la aplicación de 
 
 ## <a name="supported-session-border-controllers-sbcs"></a>Controlador de límites de sesión admitidos (SBC)
 
-La certificación está en curso. Entretanto, los clientes pueden usar los [controladores de límites de sesión certificados de Teams](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers). 
+La certificación está en curso. Entretanto, los clientes pueden usar los [controladores de límites de sesión certificados de Teams](/MicrosoftTeams/direct-routing-border-controllers). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

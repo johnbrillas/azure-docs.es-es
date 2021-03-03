@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728610"
 ---
 # <a name="composite-bar-renderer"></a>Representador de barra compuesta
 
@@ -193,4 +193,4 @@ La vista de barra compuesta para los grafos con la configuración anterior tendr
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implemente](../visualize/workbooks-automate.md) los libros con Azure Resource Manager.
-* [Controle](../platform/workbooks-access-control.md) y comparta el acceso a los recursos del libro.
+* [Controle](./workbooks-access-control.md) y comparta el acceso a los recursos del libro.

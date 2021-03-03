@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 6e65b828e2cf86614707c8a859abc0c4f2395899
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603104"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723646"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
 
@@ -82,7 +82,7 @@ Siga los pasos que se indican a continuación para crear una regla de recopilaci
 
 ## <a name="create-association-using-resource-manager-template"></a>Creación de una asociación mediante plantillas de Resource Manager
 
-No puede crear una regla de recopilación de datos mediante una plantilla de Resource Manager, pero puede crear una asociación entre una máquina virtual de Azure o un servidor habilitado para Azure Arc mediante una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para reglas de recopilación de datos en Azure Monitor](../samples/resource-manager-data-collection-rules.md) para obtener plantillas de ejemplo.
+No puede crear una regla de recopilación de datos mediante una plantilla de Resource Manager, pero puede crear una asociación entre una máquina virtual de Azure o un servidor habilitado para Azure Arc mediante una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para reglas de recopilación de datos en Azure Monitor](./resource-manager-data-collection-rules.md) para obtener plantillas de ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690590"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ La configuración con redundancia de zona para el nivel de servicio De uso gener
 
 La configuración con redundancia de zona para el nivel De uso general tiene dos capas:  
 
-- Una capa de datos con estado con los archivos de base de datos (.mdf o .ldf) que se almacenan en ZRS PFS ([recurso compartido de archivos Premium con almacenamiento](../../storage/files/storage-how-to-create-premium-fileshare.md) con redundancia de zona. El uso de [almacenamiento con redundancia de zona](../../storage/common/storage-redundancy.md), los archivos de datos y de registro se copian de forma sincrónica en tres zonas de disponibilidad de Azure aisladas físicamente.
+- Una capa de datos con estado con los archivos de base de datos (.mdf o .ldf) que se almacenan en ZRS PFS ([recurso compartido de archivos Premium con almacenamiento](../../storage/files/storage-how-to-create-file-share.md) con redundancia de zona. El uso de [almacenamiento con redundancia de zona](../../storage/common/storage-redundancy.md), los archivos de datos y de registro se copian de forma sincrónica en tres zonas de disponibilidad de Azure aisladas físicamente.
 - Una capa de proceso sin estado que ejecuta el proceso sqlservr.exe y que solo contiene datos transitorios y en caché, como las bases de datos modelo y TempDB en la memoria SSD conectada, y la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en memoria. Azure Service Fabric controla este nodo sin estado, que inicializa sqlservr.exe, controla el estado del nodo y realiza la conmutación por error a otro nodo si es necesario. En el caso de las bases de datos de uso general con redundancia de zona, los nodos con capacidad de reserva están disponibles fácilmente en otras zonas de disponibilidad para la conmutación por error.
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad para el nivel de servicio De uso general:

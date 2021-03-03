@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 6564e7263639f0a78df6f2674ce7a4b610fb0fc1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723119"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Retirada de versiones de la API OperationalInsights
 Microsoft notifica la retirada de una API con al menos 12 meses de antelación para facilitar la transición a una versión compatible o más reciente. Hemos publicado una versión nueva (2020-08-01) para las API del proveedor de recursos **OperationalInsights** y retiraremos las versiones anteriores de la API el 29 de octubre de 2024.
 
-Le recomendamos que empiece a usar ya la versión 2020-08-01 para obtener las ventajas de la nueva funcionalidad como, por ejemplo, un [clúster dedicado](../log-query/logs-dedicated-clusters.md), [claves administradas por el cliente](../logs/customer-managed-keys.md), [vínculo privado](./private-link-security.md) y [exportación de datos](./logs-data-export.md). Además, las nuevas características, funcionalidades y optimizaciones solo se han agregado a la API actual.
+Le recomendamos que empiece a usar ya la versión 2020-08-01 para obtener las ventajas de la nueva funcionalidad como, por ejemplo, un [clúster dedicado](./logs-dedicated-clusters.md), [claves administradas por el cliente](../logs/customer-managed-keys.md), [vínculo privado](./private-link-security.md) y [exportación de datos](./logs-data-export.md). Además, las nuevas características, funcionalidades y optimizaciones solo se han agregado a la API actual.
 
 Después del 29 de febrero de 2024, Azure Monitor ya no admitirá las versiones de API anteriores a la 2020-08-01. Si prefiere no realizar la actualización, el servidor de Azure Monitor seguirá atendiendo las solicitudes enviadas desde las versiones anteriores hasta el 29 de febrero de 2024.
 

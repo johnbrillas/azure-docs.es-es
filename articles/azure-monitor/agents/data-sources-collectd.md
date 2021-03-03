@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: a0efeaa3df0ecc69fa29dcb2cbb50874c4ab486a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6848b4e0463be803fb4f41797d933386cb575a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603234"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732112"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recopilación de datos de CollectD en agentes de Linux en Azure Monitor
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Azure Monitor.
@@ -132,5 +132,5 @@ Para mantener un modelo conocido entre las métricas de infraestructura ya recop
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
-* Use [Campos personalizados](../platform/custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Use [Campos personalizados](../logs/custom-fields.md) para analizar datos de registros de Syslog en campos individuales.

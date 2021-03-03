@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716591"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Cifrado de Comandos personalizados de datos en reposo
 
 Custom Commands cifra automáticamente los datos al guardarlos en la nube. El cifrado del servicio Custom Commands protege los datos y ayuda a cumplir los requisitos de cumplimiento y de seguridad de la organización.
 
 > [!NOTE]
-> El servicio Custom Commands no habilita automáticamente el cifrado de los recursos de LUIS asociados a la aplicación. Si lo necesita, debe habilitar el cifrado para el recurso de LUIS [aquí](./../LUIS/luis-encryption-of-data-at-rest.md).
+> El servicio Custom Commands no habilita automáticamente el cifrado de los recursos de LUIS asociados a la aplicación. Si lo necesita, debe habilitar el cifrado para el recurso de LUIS [aquí](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Información sobre el cifrado de Cognitive Services
 Los datos se cifran y descifran con el cifrado [AES de 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) compatible con [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). El cifrado y el descifrado son transparentes, lo que significa que el cifrado y el acceso se administran automáticamente. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código ni las aplicaciones para utilizar el cifrado.

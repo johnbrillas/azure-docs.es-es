@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: e1b6ba22c41e2061acfdf33351619512f9d7f424
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e421676ab8c44abc3432ab7ac45aecf98c98c304
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708040"
 ---
 # <a name="example-queries-in-azure-monitor-log-analytics"></a>Consultas de ejemplo en Log Analytics de Azure Monitor
 Log Analytics ofrece conjuntos de consultas de ejemplo que puede ejecutar de forma independiente o usar como punto de partida para consultas propias. En este artículo se describen las consultas de ejemplo y cómo usarlas.
@@ -109,5 +109,4 @@ La experiencia del explorador de consultas para guardar y compartir consultas ge
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción a las consultas KQL](../log-query/get-started-queries.md)
-
+[Introducción a las consultas KQL](./get-started-queries.md)

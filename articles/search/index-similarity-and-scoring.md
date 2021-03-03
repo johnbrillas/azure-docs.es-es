@@ -7,17 +7,38 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/02/2021
+ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520602"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676321"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
-La puntuación hace referencia al cálculo de una puntuación de búsqueda de todos los artículos devueltos en los resultados de la búsqueda de las consultas de búsqueda de texto completo. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los artículos están ordenados de mayor a menor, según las puntuaciones de búsqueda calculadas para cada uno. 
+En este artículo se describen los dos algoritmos de clasificación de similitudes de Azure Cognitive Search. También se presentan dos características relacionadas: los *perfiles de puntuación* (criterios para ajustar una puntuación de búsqueda) y el parámetro *featuresMode* (desempaqueta una puntuación de búsqueda para mostrar más detalles). 
+
+Un tercer algoritmo de reclasificación semántica se encuentra actualmente en versión preliminar pública. Para más información, empiece por [Introducción a la búsqueda semántica](semantic-search-overview.md).
+
+## <a name="similarity-ranking-algorithms"></a>Algoritmo de clasificación de similitud
+
+Azure Cognitive Search admite dos algoritmos de clasificación de similitudes.
+
+| Algoritmo | Puntuación | Disponibilidad |
+|-----------|-------|--------------|
+| ClassicSimilarity | @search.score | Algoritmo usado por todos los servicios de búsqueda hasta el 15 de julio de 2020. |
+| BM25Similarity | @search.score | Algoritmo que usan todos los servicios de búsqueda creados después del 15 de julio. Los servicios más antiguos que usan el algoritmo clásico de forma predeterminada pueden [participar en BM25](index-ranking-similarity.md). |
+
+Tanto el algoritmo clásico como el algoritmo BM25 son funciones de recuperación de tipo TF-IDF que usan la frecuencia del término (TF) y la frecuencia inversa del documento (IDF) como variables para calcular las puntuaciones de relevancia de cada par de documento-consulta, que luego se usan para la clasificación. Si bien es conceptualmente similar al algoritmo clásico, el algoritmo BM25 se basa en la recuperación de la información probabilística para mejorar a partir de ella. BM25 también ofrece opciones de personalización avanzadas, como permitir que el usuario decida cómo escala la puntuación de relevancia con la frecuencia de los términos coincidentes.
+
+El siguiente segmento de vídeo avanza rápidamente hasta una explicación de los algoritmos de clasificación de disponibilidad general que se usan en Azure Cognitive Search. Puede ver el vídeo completo para obtener más información.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+## <a name="relevance-scoring"></a>Puntuación de relevancia
+
+La puntuación hace referencia al cálculo de una puntuación de búsqueda de todos los artículos devueltos en los resultados de la búsqueda de las consultas de búsqueda de texto completo. La puntuación es un indicador de la relevancia de un elemento en el contexto de la consulta actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los artículos están ordenados de mayor a menor, según las puntuaciones de búsqueda calculadas para cada uno. La puntuación se devuelve en la respuesta como "@search.score" en todos los documentos.
 
 De forma predeterminada, se devuelven los 50 mejores en la respuesta, pero puede usar el parámetro **$top** para devolver un número mayor o menor de elementos (hasta 1000 en una sola respuesta) y **$skip** para obtener el siguiente conjunto de resultados.
 
@@ -25,16 +46,10 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
 Los valores de puntuación de búsqueda pueden repetirse a lo largo de un conjunto de resultados. Cuando varios resultados tienen la misma puntuación de búsqueda, el orden de estos elementos puntuados no se define y no es estable. Vuelva a ejecutar la consulta y podrá ver que los elementos cambian de posición, especialmente si usa el servicio gratuito o un servicio facturable con varias réplicas. Si dos elementos disponen de la misma puntuación, no hay ninguna garantía de cuál aparecerá en primer lugar.
 
-Si desea romper el vínculo entre las puntuaciones repetidas, puede agregar una cláusula **$orderby** para ordenar primero por puntuación y, a continuación, ordenar por otro campo que se pueda ordenar (por ejemplo, `$orderby=search.score() desc,Rating desc`). Para obtener más información, consulte [$orderby](./search-query-odata-orderby.md).
+Si desea romper el vínculo entre las puntuaciones repetidas, puede agregar una cláusula **$orderby** para ordenar primero por puntuación y, a continuación, ordenar por otro campo que se pueda ordenar (por ejemplo, `$orderby=search.score() desc,Rating desc`). Para obtener más información, consulte [$orderby](search-query-odata-orderby.md).
 
 > [!NOTE]
-> `@search.score = 1.00` indica un conjunto de resultados sin puntuar o sin clasificar. La puntuación es uniforme en todos los resultados. Los resultados sin puntuar se producen cuando el formulario de consulta es una búsqueda aproximada, una consulta con caracteres comodín o regex, o una expresión **$filter**. 
-
-## <a name="scoring-profiles"></a>Perfiles de puntuación
-
-Puede personalizar la forma en que se clasifican los distintos campos mediante la definición de un *perfil de puntuación* personalizado. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo. 
-
-Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros ponderados. Para obtener más información sobre cómo definir uno, consulte [Perfiles de puntuación](index-add-scoring-profiles.md).
+> `@search.score = 1.00` indica un conjunto de resultados sin puntuar o sin clasificar. La puntuación es uniforme en todos los resultados. Los resultados sin puntuar se producen cuando el formulario de consulta es una búsqueda aproximada, una consulta con caracteres comodín o regex, o una expresión **$filter**.
 
 <a name="scoring-statistics"></a>
 
@@ -51,6 +66,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringS
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 El uso de scoringStatistics garantizará que todas las particiones de la misma réplica proporcionen los mismos resultados. Dicho esto, diferentes réplicas pueden ser ligeramente distintas entre sí, ya que siempre se actualizan con los cambios más recientes en el índice. En algunos casos, puede que desee que los usuarios obtengan resultados más coherentes durante una "sesión de consulta". En esos casos, puede proporcionar un `sessionId` como parte de las consultas. El `sessionId` es una cadena única que se crea para hacer referencia a una sesión de usuario única.
 
 ```http
@@ -58,20 +74,17 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionI
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 Siempre y cuando se use el mismo `sessionId`, se intentará en lo posible dirigirse a la misma réplica, lo que aumentará la coherencia de los resultados que verán los usuarios. 
 
 > [!NOTE]
 > Reutilizar los mismos valores de `sessionId` repetidamente puede interferir en el equilibrio de carga de las solicitudes entre réplicas y afectar negativamente al rendimiento del servicio de búsqueda. El valor utilizado como sessionId no puede empezar con el carácter "_".
 
-## <a name="similarity-ranking-algorithms"></a>Algoritmo de clasificación de similitud
+## <a name="scoring-profiles"></a>Perfiles de puntuación
 
-Azure Cognitive Search admite dos algoritmos de clasificación de similitud diferentes: un algoritmo de *similitud clásico* y la implementación oficial del algoritmo *Okapi BM25* (actualmente en versión preliminar). El algoritmo de similitud clásico es el predeterminado, pero los nuevos servicios creados a partir del 15 de julio usarán el nuevo algoritmo BM25. Será el único algoritmo disponible en los nuevos servicios.
+Puede personalizar la forma en que se clasifican los distintos campos mediante la definición de un *perfil de puntuación*. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo. 
 
-Por ahora, puede especificar el algoritmo de clasificación de similitud que le gustaría usar. Para obtener más información, consulte [Algoritmo de clasificación](index-ranking-similarity.md).
-
-El siguiente segmento de vídeo avanza rápidamente para mostrar una explicación de cómo funciona el procesamiento de texto en Azure Cognitive Search. Puede ver el vídeo completo para obtener más información.
-
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros ponderados. Para obtener más información sobre cómo definir uno, consulte [Perfiles de puntuación](index-add-scoring-profiles.md).
 
 <a name="featuresMode-param"></a>
 
@@ -104,7 +117,9 @@ Para una consulta que tiene como destino los campos "descripción" y "título", 
 
 Puede utilizar estos puntos de datos en las [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial) o utilizar la información para depurar los problemas de relevancia de búsqueda.
 
-
 ## <a name="see-also"></a>Consulte también
 
- [Perfiles de puntuación](index-add-scoring-profiles.md) [Referencia de la API REST](/rest/api/searchservice/) [API de búsqueda de documentos](/rest/api/searchservice/search-documents) [SDK de Azure Cognitive Search para .NET](/dotnet/api/overview/azure/search)
++ [Perfiles de puntuación](index-add-scoring-profiles.md)
++ [Referencia de API de REST](/rest/api/searchservice/)
++ [API de búsqueda de documentos](/rest/api/searchservice/search-documents)
++ [SDK de .NET de Azure Cognitive Search](/dotnet/api/overview/azure/search)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2369a6380c7b74302d32366d0604fca616fc3ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698236"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Solución de problemas de Azure Spring Cloud en redes virtuales
 
@@ -24,20 +24,20 @@ Para crear una instancia de Azure Spring Cloud, debe tener permisos suficientes 
 
 Si usa Azure Portal para configurar la instancia de servicio en Azure Spring Cloud, Azure Portal validará los permisos.
 
-Para configurar la instancia de servicio de Azure Spring Cloud mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), compruebe lo siguiente:
+Para configurar la instancia de servicio de Azure Spring Cloud mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli), compruebe lo siguiente:
 
 - Que la suscripción está activa.
 - Que Azure Spring Cloud admite la ubicación.
 - Que se ha creado el grupo de recursos de la instancia.
 - Que el nombre del recurso se ajusta a la regla de nomenclatura Solo debe contener minúsculas, números y guiones. El primer carácter debe ser una letra. El último carácter debe ser una letra o un número. El valor tiene que contener entre 2 y 32 caracteres.
 
-Para configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Para configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 ### <a name="common-creation-issues"></a>Problemas habituales de creación
 
 | Mensaje de error | Solución |
 |------|------|
-| Resources created by Azure Spring Cloud were disallowed by policy (La directiva no permitió los recursos creados por Azure Spring Cloud). | Los recursos de red se crearán al implementar Azure Spring Cloud en su propia red virtual. Compruebe si se ha definido [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) para bloquear esa creación. Los recursos que no se pudieron crear se encuentran en el mensaje de error. |
+| Resources created by Azure Spring Cloud were disallowed by policy (La directiva no permitió los recursos creados por Azure Spring Cloud). | Los recursos de red se crearán al implementar Azure Spring Cloud en su propia red virtual. Compruebe si se ha definido [Azure Policy](../governance/policy/overview.md) para bloquear esa creación. Los recursos que no se pudieron crear se encuentran en el mensaje de error. |
 | Provided subnets have associated with route tables, please disassociate them (Las subredes proporcionadas están asociadas a tablas de rutas, debe desasociarlas). | Actualmente no se admite la implementación de Azure Spring Cloud en una subred asociada a tablas de rutas existentes, debe desasociarlas e intentarlo de nuevo. |
 | Required traffic is not allowlisted (El tráfico necesario no está en la lista de permitidos). | Vea [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario esté en la lista de permitidos. |
 
@@ -47,4 +47,4 @@ Este problema se produce si la red virtual está configurada con la configuraci�
 
 ## <a name="other-issues"></a>Otros problemas
 
-[Solución de problemas comunes de Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-troubleshoot).
+[Solución de problemas comunes de Azure Spring Cloud](./spring-cloud-troubleshoot.md).

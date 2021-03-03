@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 942698e5c42e1f46ff05dacdacdb0d124135a6c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690437"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatización de tareas de administración mediante Trabajos elásticos (versión preliminar)
 
@@ -56,7 +56,7 @@ Los trabajos elásticos pueden tener como destino [bases de datos de Azure SQL D
 
 Para la automatización de trabajos de los scripts de T-SQL en SQL Server y Azure SQL Managed Instance, tenga en cuenta el servicio [Agente SQL](job-automation-managed-instances.md). 
 
-Para la automatización de trabajos de los scripts de T-SQL en Azure Synapse Analytics, tenga en cuenta las [canalizaciones con desencadenadores recurrentes](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), que se [basan en Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+Para la automatización de trabajos de los scripts de T-SQL en Azure Synapse Analytics, tenga en cuenta las [canalizaciones con desencadenadores recurrentes](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), que se [basan en Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 Merece la pena tener en cuenta las diferencias entre el Agente SQL (disponible en SQL Server y como parte de SQL Managed Instance), y el agente de trabajos elásticos de base de datos (que puede ejecutar T-SQL en bases de datos Azure SQL Database o en bases de datos de SQL Server, Azure SQL Managed Instance y Azure Synapse Analytics).
 

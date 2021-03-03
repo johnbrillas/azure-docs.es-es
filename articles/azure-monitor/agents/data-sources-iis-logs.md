@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
-ms.openlocfilehash: 089c0739ff091d49734cad048c2bfb10d857617c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603211"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732061"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros de IIS con el agente de Log Analytics en Azure Monitor
-Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que el agente de Log Analytics puede recopilar y almacenar en [Registros de Azure Monitor](../platform/data-platform.md).
+Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que el agente de Log Analytics puede recopilar y almacenar en [Registros de Azure Monitor](../data-platform.md).
 
 > [!IMPORTANT]
-> En este artículo se trata la recopilación de registros de IIS con el [agente de Log Analytics](../platform/log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
+> En este artículo se trata la recopilación de registros de IIS con el [agente de Log Analytics](./log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Registros IIS](media/data-sources-iis-logs/overview.png)
 
@@ -75,4 +75,4 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure Azure Monitor para recopilar otros [orígenes de datos](../agents/agent-data-sources.md) para su análisis.
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

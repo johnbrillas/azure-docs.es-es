@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740450"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 
@@ -30,7 +30,7 @@ Si desea conservar los datos de ejecución de canalización durante más de 45 d
 
 ## <a name="pipeline-run-information"></a>Información de la ejecución de canalización
 
-Para conocer las propiedades de la ejecución de canalización, consulte la [referencia de la API de PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Una ejecución de canalización tiene un estado diferente durante su ciclo de vida. Los valores posibles del estado de ejecución se enumeran a continuación:
+Para conocer las propiedades de la ejecución de canalización, consulte la [referencia de la API de PipelineRun](/rest/api/datafactory/pipelineruns/get#pipelinerun). Una ejecución de canalización tiene un estado diferente durante su ciclo de vida. Los valores posibles del estado de ejecución se enumeran a continuación:
 
 * En cola
 * InProgress
@@ -163,5 +163,4 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 Para obtener la documentación completa sobre los cmdlets de PowerShell, consulte la [referencia de los cmdlets de PowerShell de Data Factory](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos. 
-
+Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos.

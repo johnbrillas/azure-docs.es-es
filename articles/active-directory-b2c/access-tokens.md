@@ -11,12 +11,12 @@ ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e5168d5e5e3935da267fb26f38735a88bdfd7837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631400"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654483"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -56,9 +56,9 @@ Si solicita más ámbitos que los que se conceden para la aplicación cliente, l
 
 El estándar OpenID Connect especifica varios valores de ámbito especiales. Los ámbitos siguientes representan el permiso para acceder al perfil del usuario:
 
-- **openid** : solicita un token de identificador.
-- **offline_access** : solicita un token de actualización con [flujos de código de autenticación](authorization-code-flow.md).
-- **00000000-0000-0000-0000-000000000000** : el uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.
+- **openid**: solicita un token de identificador.
+- **offline_access**: solicita un token de actualización con [flujos de código de autenticación](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000**: el uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.
 
 Si el parámetro **response_type** de una solicitud de `/authorize` incluye `token`, el parámetro **scope** debe incluir al menos un ámbito de recurso (distinto de `openid` y `offline_access`) para su concesión. En caso contrario, se produce un error en la solicitud `/authorize`.
 
@@ -91,7 +91,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 Después de recibir correctamente el código de autorización, puede usarlo para solicitar un token de acceso:
 
 ```http
-POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
+POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

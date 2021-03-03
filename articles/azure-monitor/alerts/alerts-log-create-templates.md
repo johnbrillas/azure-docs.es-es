@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603613"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714330"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creación de una alerta de registro con una plantilla de Resource Manager
 
-Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar la ejecución de una o varias acciones mediante [grupos de acciones](../platform/action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](../platform/alerts-unified-log.md).
+Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../logs/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar la ejecución de una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](./alerts-unified-log.md).
 
-En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registro](../platform/alerts-unified-log.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de registro se crean en el proveedor de recursos `Microsoft.Insights/scheduledQueryRules`. Consulte la referencia de API para la [API Reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/).
+En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registro](./alerts-unified-log.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de registro se crean en el proveedor de recursos `Microsoft.Insights/scheduledQueryRules`. Consulte la referencia de API para la [API Reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/).
 
 Los pasos básicos son los siguientes:
 
@@ -26,15 +26,15 @@ Los pasos básicos son los siguientes:
 4. Implemente la plantilla mediante cualquier método de implementación.
 
 > [!NOTE]
-> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](../platform/alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](../platform/alerts-metric-logs.md).
+> Los datos de registro de un [área de trabajo de Log Analytics](../logs/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](./alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Las alertas de registro de Log Analytics se solían administrar mediante [Alert API de Log Analytics](../platform/api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](alerts-log-api-switch.md).
+> Las alertas de registro de Log Analytics se solían administrar mediante [Alert API de Log Analytics](./api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Plantilla simple (hasta la versión de API 2018-04-16)
 
-Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) basada en el [número de alertas de registro de resultados](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de datos de ejemplo como variables):
+Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) basada en el [número de alertas de registro de resultados](./alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de datos de ejemplo como variables):
 
 ```json
 {
@@ -109,7 +109,7 @@ Este JSON se puede guardar e implementar mediante [Azure Resource Manager en Azu
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Plantilla con consulta entre recursos (hasta la versión de API 2018-04-16)
 
-Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) basada en [unidades métricas](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que realiza la consulta [entre recursos](../log-query/cross-workspace-query.md) (conjunto de datos de ejemplo como variables):
+Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) basada en [unidades métricas](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que realiza la consulta [entre recursos](../logs/cross-workspace-query.md) (conjunto de datos de ejemplo como variables):
 
 ```json
 {
@@ -432,7 +432,7 @@ Este JSON se puede guardar e implementar mediante [Azure Resource Manager en Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre las [alertas de registro](../platform/alerts-unified-log.md).
-* Obtenga información sobre la [administración de alertas de registro](../platform/alerts-log.md).
-* Conozca las [acciones de webhook para alertas de registro](../platform/alerts-log-webhook.md).
-* Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md).
+* Obtenga información sobre las [alertas de registro](./alerts-unified-log.md).
+* Obtenga información sobre la [administración de alertas de registro](./alerts-log.md).
+* Conozca las [acciones de webhook para alertas de registro](./alerts-log-webhook.md).
+* Obtenga más información sobre las [consultas de registro](../logs/log-query-overview.md).

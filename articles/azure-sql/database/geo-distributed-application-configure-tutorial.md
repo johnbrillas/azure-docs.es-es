@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422797"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659297"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
   > [!NOTE]
   > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT*.
 
-- Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java** , seleccione su entorno y, después, siga los pasos.
+- Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java**, seleccione su entorno y, después, siga los pasos.
 
 > [!IMPORTANT]
 > Asegúrese de configurar las reglas de firewall para usar la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Las reglas de firewall a nivel de base de datos se replicarán automáticamente al servidor secundario.
@@ -227,10 +227,10 @@ Las opciones de configuración de replicación geográfica también pueden cambi
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {

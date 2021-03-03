@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: caff705a03f7c4645eedc9423f6a9f9649c1167e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fb3aeb732166537dd4aa98acad0c4dfa5788a8ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732401"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Línea de base de seguridad de Azure para VPN Gateway
 
@@ -126,7 +126,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

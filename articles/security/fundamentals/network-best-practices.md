@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735733"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedimientos recomendados de seguridad de la red de Azure
 En este artículo se aborda un conjunto de procedimientos recomendados de Azure que sirven para mejorar la seguridad de la red. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
@@ -206,7 +206,7 @@ Azure Private Link proporciona las ventajas siguientes:
 - **Alcance global**: conéctese de forma privada a los servicios que se ejecutan en otras regiones. La red virtual del consumidor puede estar en la región A y puede conectarse a los servicios de la región B.
 - **Sencillo de configurar y administrar**: ya no necesita direcciones IP públicas y reservadas en sus redes virtuales para proteger los recursos de Azure a través de una dirección IP del firewall. No hay ningún dispositivo NAT o de puerta de enlace necesario para configurar los puntos de conexión privados. Los puntos de conexión privados se pueden configurar a través de un flujo de trabajo sencillo. En el lado del servicio, también puede administrar las solicitudes de conexión en el recurso del servicio de Azure con facilidad. Azure Private Link funciona también para los consumidores y los servicios que pertenecen a distintos inquilinos de Azure Active Directory. 
     
-Para obtener más información sobre los puntos de conexión privados y sobre los servicios de Azure y las regiones para las que están disponibles los puntos de conexión privados, consulte [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+Para obtener más información sobre los puntos de conexión privados y sobre los servicios de Azure y las regiones para las que están disponibles los puntos de conexión privados, consulte [Azure Private Link](../../private-link/private-link-overview.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

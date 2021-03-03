@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737654"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -55,7 +55,7 @@ Además, tenga en cuenta estos procedimientos recomendados para mantener la alta
 
 - **Discos:** use [Azure Backup](https://azure.microsoft.com/services/backup/) para crear copias de seguridad de los discos de VM que usan las máquinas virtuales de Azure. Considere también la posibilidad de usar [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger las máquinas virtuales en caso de un desastre regional.
 - **Blobs en bloques:** active la [eliminación temporal](../blobs/soft-delete-blob-overview.md) para proteger contra eliminaciones o sobrescrituras de nivel de objeto o copie los blobs en bloques en otra cuenta de almacenamiento de otra región mediante [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](storage-use-data-movement-library.md).
-- **Archivos:** Use [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) para hacer una copia de seguridad de los recursos compartidos de archivos. Habilite también la [eliminación temporal](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) para proteger contra eliminaciones accidentales de recursos compartidos de archivos. Para la redundancia geográfica cuando GRS no está disponible, use [AzCopy](./storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) para copiar los archivos en otra cuenta de almacenamiento de una región distinta.
+- **Archivos:** Use [Azure Backup](../../backup/azure-file-share-backup-overview.md) para hacer una copia de seguridad de los recursos compartidos de archivos. Habilite también la [eliminación temporal](../files/storage-files-prevent-file-share-deletion.md) para proteger contra eliminaciones accidentales de recursos compartidos de archivos. Para la redundancia geográfica cuando GRS no está disponible, use [AzCopy](./storage-use-azcopy-v10.md) o [Azure PowerShell](/powershell/module/az.storage/) para copiar los archivos en otra cuenta de almacenamiento de una región distinta.
 - **Tablas:** use [AzCopy](./storage-use-azcopy-v10.md) para exportar datos de tabla a otra cuenta de almacenamiento en una región distinta.
 
 ## <a name="track-outages"></a>Seguimiento de las interrupciones

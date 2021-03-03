@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: 304a7adf69ed3622cf2031cfbebb920bff5238cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602772"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714347"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
@@ -27,7 +27,7 @@ Los pasos básicos son los siguientes:
 
 1. Use una de las plantillas siguientes como archivo JSON que describa cómo crear la alerta.
 2. Editar y usar el archivo de parámetros correspondiente como archivo JSON para personalizar la alerta.
-3. Para el parámetro `metricName`, consulte las métricas disponibles en [Métricas compatibles de Azure Monitor](../platform/metrics-supported.md).
+3. Para el parámetro `metricName`, consulte las métricas disponibles en [Métricas compatibles de Azure Monitor](../essentials/metrics-supported.md).
 4. Implemente la plantilla mediante [cualquier método de implementación](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Plantilla para una alerta de métricas de umbral estático simple
@@ -1247,7 +1247,7 @@ az deployment group create \
 
 Puede usar la siguiente plantilla para crear una regla de alertas de métrica de umbral estático más avanzada sobre una métrica personalizada.
 
-Para más información sobre las métricas personalizadas en Azure Monitor, consulte [Métricas personalizadas en Azure Monitor](../platform/metrics-custom-overview.md).
+Para más información sobre las métricas personalizadas en Azure Monitor, consulte [Métricas personalizadas en Azure Monitor](../essentials/metrics-custom-overview.md).
 
 Al crear una regla de alertas sobre una métrica personalizada, debe especificar tanto el nombre de la métrica como el espacio de nombres de la métrica. También debe asegurarse de que ya se está notificando la métrica personalizada, ya que no se puede crear una regla de alertas en una métrica personalizada que todavía no existe.
 
@@ -1503,7 +1503,7 @@ az deployment group create \
 
 >[!NOTE]
 >
-> Para buscar el espacio de nombres de la métrica de una métrica personalizada específica, [vaya a las métricas personalizadas en Azure Portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal).
+> Para buscar el espacio de nombres de la métrica de una métrica personalizada específica, [vaya a las métricas personalizadas en Azure Portal](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal).
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Plantilla para alerta de métrica que supervisa varios recursos
@@ -3624,7 +3624,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre [alertas en Azure](../platform/alerts-overview.md)
+- Obtenga más información sobre [alertas en Azure](./alerts-overview.md)
 - Obtenga más información para [crear un grupo de acciones con plantillas de Resource Manager](../alerts/action-groups-create-resource-manager-template.md)
 - Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).
-

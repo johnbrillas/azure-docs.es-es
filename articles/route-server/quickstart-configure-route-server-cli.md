@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 518baa47fd16d69bf935cd3253f5bebeb413b513
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695250"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante la CLI de Azure 
 
@@ -23,7 +23,7 @@ Este artículo le ayuda a configurar Azure Route Server para su emparejamiento c
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-##  <a name="prerequisites"></a>Prerrequisitos 
+##  <a name="prerequisites"></a>Requisitos previos 
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 * Asegúrese de que tiene la versión de la CLI de Azure más reciente, o bien, puede usar Azure Cloud Shell en el portal. 
@@ -33,7 +33,23 @@ Este artículo le ayuda a configurar Azure Route Server para su emparejamiento c
 
 ###  <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Inicie sesión en la cuenta de Azure y seleccione su suscripción. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+Para empezar la configuración, inicie sesión en la cuenta de Azure. Si usa la opción "Pruébelo" de CloudShell, iniciará sesión de manera automática. Use los siguientes ejemplos para conectarse:
+
+```azurecli-interactive
+az login
+```
+
+Compruebe las suscripciones para la cuenta.
+
+```azurecli-interactive
+az account list
+```
+
+Seleccione la suscripción para la que desea crear un circuito ExpressRoute.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### <a name="create-a-resource-group-and-virtual-network"></a>Creación de un grupo de recursos y red virtual 
 

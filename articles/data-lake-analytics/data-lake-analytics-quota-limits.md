@@ -2,17 +2,14 @@
 title: Ajustar las cuotas y los límites en Azure Data Lake Analytics
 description: Obtenga información sobre cómo ajustar y aumentar las cuotas y los límites en cuentas de Azure Data Lake Analytics (ADLA).
 ms.service: data-lake-analytics
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 416b77fd86316acb8098531257e12b591a0ff052
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220846"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710182"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar las cuotas y los límites en Azure Data Lake Analytics
 
@@ -52,8 +49,8 @@ Es el número máximo de trabajos que se pueden ejecutar de forma simultánea en
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Elija una cuenta de ADLA existente.
-3. Haga clic en **Propiedades** .
-4. Ajuste los valores de **Número de AU máximo** , **Número máximo de trabajos en ejecución** y **Límites del envío de trabajos** para satisfacer sus necesidades.
+3. Haga clic en **Propiedades**.
+4. Ajuste los valores de **Número de AU máximo**, **Número máximo de trabajos en ejecución** y **Límites del envío de trabajos** para satisfacer sus necesidades.
 
 ## <a name="increase-maximum-quota-limits"></a>Aumento de los límites de cuota máximos
 
@@ -65,11 +62,11 @@ Puede encontrar más información sobre los límites de Azure en la [documentaci
 
    ![Nueva solicitud de soporte técnico del portal de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 
-2. Seleccione el tipo de problema **Cuota** .
+2. Seleccione el tipo de problema **Cuota**.
 
 3. Seleccione su **Suscripción** (asegúrese de que no sea una suscripción de "prueba").
 
-4. Seleccione el tipo de cuota **Data Lake Analytics** .
+4. Seleccione el tipo de cuota **Data Lake Analytics**.
 
    ![Tipo de cuota de solicitud de soporte técnico de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 

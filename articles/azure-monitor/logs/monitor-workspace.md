@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603376"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710947"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
 Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Revise periódicamente estos datos y cree alertas para recibir notificaciones de forma anticipada cuando haya incidentes importantes en el área de trabajo.
@@ -58,10 +58,10 @@ Las operaciones de ingesta son problemas que se produjeron durante la ingesta de
 | Registro personalizado | Error   | Se alcanzó el límite de columnas de campos personalizados. | [Límites de servicio de Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Registro personalizado | Error   | Error de ingesta de registros personalizados. | |
 | Metadatos. | Error | Se detectó un error de configuración. | |
-| datos, recopilación | Error   | Se descartaron los datos porque la solicitud se creó con anterioridad al número de días establecido. | [Administrar el uso y los costos con los registros de Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| datos, recopilación | Error   | Se descartaron los datos porque la solicitud se creó con anterioridad al número de días establecido. | [Administrar el uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | datos, recopilación | Información    | Se detectó la configuración de la máquina de recopilación.| |
-| datos, recopilación | Información    | Recopilación de datos iniciada debido a un nuevo día. | [Administrar el uso y los costos con los registros de Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| datos, recopilación | Advertencia | Recopilación de datos detenida debido a que se alcanzó el límite diario.| [Administrar el uso y los costos con los registros de Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| datos, recopilación | Información    | Recopilación de datos iniciada debido a un nuevo día. | [Administrar el uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| datos, recopilación | Advertencia | Recopilación de datos detenida debido a que se alcanzó el límite diario.| [Administrar el uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Procesamiento de datos | Error   | Formato JSON no válido. | [Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)](../logs/data-collector-api.md#request-body) | 
 | Procesamiento de datos | Advertencia | El valor se ha recortado al tamaño máximo permitido. | [Límites de servicio de Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Procesamiento de datos | Advertencia | Se ha recortado el valor de campo cuando se alcanzó el tamaño límite. | [Límites de servicio de Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
@@ -125,4 +125,4 @@ En el ejemplo siguiente se crea una alerta de advertencia cuando la recopilació
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [alertas de registro](../alerts/alerts-log.md).
-- [Recopile datos de auditoría de consultas](../log-query/query-audit.md) para el área de trabajo.
+- [Recopile datos de auditoría de consultas](./query-audit.md) para el área de trabajo.

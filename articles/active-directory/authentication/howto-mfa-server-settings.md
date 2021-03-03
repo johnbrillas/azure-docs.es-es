@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689052"
 ---
 # <a name="configure-mfa-server-settings"></a>Configuración del servidor MFA
 
@@ -44,7 +44,7 @@ Para crear una omisión por única vez, complete los pasos siguientes:
 1. Busque y seleccione **Azure Active Directory**, a continuación, vaya a **seguridad** > **MFA** > **Omisión por única vez**.
 1. Seleccione **Agregar**.
 1. Si es necesario, seleccione el grupo de replicación para esta omisión.
-1. Escriba el nombre de usuario de esta manera: `username\@domain.com`. Escriba el número de segundos que debe durar la omisión y el motivo de esta.
+1. Escriba el nombre de usuario de esta manera: `username@domain.com`. Escriba el número de segundos que debe durar la omisión y el motivo de esta.
 1. Seleccione **Agregar**. El límite de tiempo entra en vigor inmediatamente. El usuario tiene que iniciar sesión antes de que expire la omisión por única vez.
 
 También puede ver el informe de omisión por única vez desde esta misma ventana.

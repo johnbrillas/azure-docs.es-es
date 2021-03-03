@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734237"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Inicio rápido: Supervisión de recursos de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de los recursos de Azure en el momento en que se crean. Este inicio rápido proporciona un breve tutorial de los datos que se recopilan automáticamente para un recurso y de cómo verlos en la instancia de Azure Portal de un recurso determinado. Posteriormente puede agregar la configuración necesaria para recopilar datos adicionales y puede ir al menú de Azure Monitor para usar las mismas herramientas para acceder a los datos recopilados de todos los recursos de la suscripción.
@@ -67,7 +67,7 @@ Las métricas son valores numéricos que describen algún aspecto de un recurso 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha visto el registro de actividad y las métricas de un recurso de Azure que Azure Monitor recopilan automáticamente. Continúe con el siguiente inicio rápido, en el que se muestra cómo recopilar el registro de actividad en un área de trabajo de Log Analytics, donde se puede analizar con [consultas de registro](../log-query/log-query-overview.md).
+En este inicio rápido, ha visto el registro de actividad y las métricas de un recurso de Azure que Azure Monitor recopilan automáticamente. Continúe con el siguiente inicio rápido, en el que se muestra cómo recopilar el registro de actividad en un área de trabajo de Log Analytics, donde se puede analizar con [consultas de registro](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Envío del registro de actividad de Azure a un área de trabajo de Log Analytics](../learn/quick-collect-activity-log-portal.md)
+> [Envío del registro de actividad de Azure a un área de trabajo de Log Analytics](./quick-collect-activity-log-portal.md)

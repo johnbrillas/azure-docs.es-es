@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738657"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
 En este artículo se muestra cómo solucionar problemas habituales con las alertas de registro en Azure Monitor. Además, se proporcionan soluciones a los problemas comunes sobre la funcionalidad y la configuración de las alertas de registro.
 
-Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](../platform/action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](alerts-unified-log.md).
+Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../logs/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](alerts-unified-log.md).
 
 > [!NOTE]
 > En este artículo no se tienen en cuenta los casos en que Azure Portal muestra una regla de alertas desencadenada y no se realiza una notificación a través de un grupo de acciones asociado. Para estos casos, consulte los detalles sobre la solución de problemas [aquí](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -26,7 +26,7 @@ Las alertas de registro permiten a los usuarios usar una consulta de [Log Analyt
 
 ### <a name="data-ingestion-time-for-logs"></a>Tiempo de ingesta de datos para registros
 
-Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](../platform/data-ingestion-time.md).
+Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](../logs/data-ingestion-time.md).
 
 Los registros son datos semiestructurados e intrínsecamente con mayor latencia que las métricas. Si advierte que hay más de cuatro minutos de retraso en las alertas activadas, debería usar [alertas de métricas](alerts-metric-overview.md). Puede enviar datos al almacén de métricas desde los registros mediante [alertas de métricas para registros](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Es posible que una [regla de alertas de registro configurada en Azure Monitor](.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta desencadenada por datos parciales
 
-Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](../platform/data-ingestion-time.md).
+Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](../logs/data-ingestion-time.md).
 
 Los registros son datos semiestructurados e intrínsecamente con mayor latencia que las métricas. Si advierte que hay errores de activación en las alertas, debería usar [alertas de métricas](alerts-metric-overview.md). Puede enviar datos al almacén de métricas desde los registros mediante [alertas de métricas para registros](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 No es necesario agregar lógica de alerta a la consulta y hacerlo puede incluso provocar problemas. En el ejemplo anterior, si incluye `count` en la consulta, siempre dará como resultado el valor 1, ya que el servicio de alertas ejecutará el comando `count` sobre `count`.
 
-La consulta optimizada es lo que ejecuta el servicio de alertas de registro. Puede ejecutar la consulta modificada en el [portal](../log-query/log-query-overview.md) o en la [API](/rest/api/loganalytics/) de Log Analytics.
+La consulta optimizada es lo que ejecuta el servicio de alertas de registro. Puede ejecutar la consulta modificada en el [portal](../logs/log-query-overview.md) o en la [API](/rest/api/loganalytics/) de Log Analytics.
 
 En el caso de las áreas de trabajo y Application Insights, se llama **Consulta que se va a ejecutar** en el panel de condición. En los demás tipos de recursos, seleccione **See final alert Query** (Ver consulta de alerta final) en la pestaña de condición.
 
@@ -108,7 +108,7 @@ Azure Monitor deshabilitará la alerta de registro después de una semana si se 
 Cuando se crea una regla de alertas de registro, se valida la consulta para comprobar si la sintaxis es correcta. En ocasiones, sin embargo, la consulta proporcionada en la regla de alertas de registro puede empezar a fallar. Estos son algunos de los motivos habituales:
 
 - Las reglas se crearon a través de la API y el usuario omitió la validación.
-- La consulta [se ejecuta en varios recursos](../log-query/cross-workspace-query.md) y uno o varios de los recursos se eliminaron o se movieron.
+- La consulta [se ejecuta en varios recursos](../logs/cross-workspace-query.md) y uno o varios de los recursos se eliminaron o se movieron.
 - Se [produce un error en la consulta](https://dev.loganalytics.io/documentation/Using-the-API/Errors) por los siguientes motivos:
     - La solución de registro no se [implementó en el área de trabajo](../insights/solutions.md#install-a-monitoring-solution), por lo que no se crearon tablas.
     - Los datos dejaron de llegar a una tabla de la consulta durante más de 30 días.
@@ -219,5 +219,5 @@ Si se produce un error en la consulta durante siete días de forma continuada, A
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
-- Más información sobre la [configuración de alertas de registro](../log-query/log-query-overview.md).
-- Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md).
+- Más información sobre la [configuración de alertas de registro](../logs/log-query-overview.md).
+- Obtenga más información sobre las [consultas de registro](../logs/log-query-overview.md).

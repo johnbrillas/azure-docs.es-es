@@ -2,14 +2,14 @@
 title: Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Docs
 description: Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585950"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729035"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -72,7 +72,6 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 |Configuración| Explicación
 |----|----|----|
 |**Casi en tiempo real (versión preliminar)** | Se recomienda usar alertas casi en tiempo real. La configuración de este tipo de alertas se realiza después de crear la prueba de disponibilidad.  |
-|**Clásico** | Ya no se recomienda usar alertas clásicas para nuevas pruebas de disponibilidad.|
 |**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
 
 ### <a name="location-population-tags"></a>Etiquetas para rellenar la ubicación

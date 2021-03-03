@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 330b466360cc5687f78db81fbb4545e1c3409098
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572935"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729885"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Línea de base de seguridad de Azure para Security Center
 
@@ -142,7 +142,7 @@ Como alternativa, puede enviar los datos generados por Security Center a Azure S
 
 - [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervisión de Azure Security Center**: No aplicable
 

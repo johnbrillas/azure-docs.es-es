@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602941"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732027"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -89,7 +89,7 @@ La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 
 La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de datos en tránsito en Log Analytics, configure la puerta de enlace para que use como mínimo TLS 1.2. Las versiones anteriores de TLS o SSL son vulnerables. Aunque permiten actualmente compatibilidad con versiones anteriores, evite su uso.  
 
-Para información adicional, revise [Sending data securely using TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+Para información adicional, revise [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
 

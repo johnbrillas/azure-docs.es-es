@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451799"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674092"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
@@ -72,9 +72,9 @@ En cambio, se realiza sincrónicamente. Por lo tanto, puede generar una ligera d
 Para evitar la degradación del rendimiento cuantificable, debe asegurarse de que antes se han creado estadísticas. Para ello, ejecute la carga de trabajo de la prueba comparativa antes de generar los perfiles del sistema.
 
 > [!NOTE]
-> La creación de estadísticas también se registra en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un contexto de usuario diferente.
+> La creación de estadísticas también se registra en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptan la siguiente forma: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas ya creadas, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Cuando se crean las estadísticas automáticas, estas adoptan la siguiente forma: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas ya creadas, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -165,7 +165,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 
 #### <a name="create-single-column-statistics-with-default-options"></a>Crear estadísticas de columna única con las opciones predeterminadas
 
-Para crear estadísticas en una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
+Para crear estadísticas de una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
 Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el grupo de SQL dedicado muestrea el **20 %** de la tabla cuando crea estadísticas.
 
 ```sql
@@ -236,7 +236,7 @@ CREATE STATISTICS stats_col1
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="create-multi-column-statistics"></a>Crear estadísticas de varias columnas
 
@@ -433,7 +433,7 @@ Si el rendimiento no es un problema, este método es la forma más fácil y comp
 > Al actualizar todas las estadísticas de una tabla, el grupo de SQL dedicado realiza un análisis para muestrear los objetos de estadísticas de la tabla. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 
 Para ver una implementación del procedimiento `UPDATE STATISTICS`, consulte [Tablas temporales](develop-tables-temporary.md). El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS`, pero el resultado es el mismo.
-Para ver la sintaxis completa, consulte [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Para ver la sintaxis completa, consulte [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="statistics-metadata"></a>Metadatos de las estadísticas
 
@@ -445,13 +445,13 @@ Estas vistas del sistema proporcionan información acerca de las estadísticas:
 
 | Vista de catálogo | Descripción |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de la base de datos. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada esquema de la base de datos. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de estadísticas. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tabla (incluye tablas externas). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tipo de datos. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de la base de datos. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada esquema de la base de datos. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de estadísticas. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tabla (incluye tablas externas). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tipo de datos. |
 
 #### <a name="system-functions-for-statistics"></a>Funciones del sistema para las estadísticas
 
@@ -459,8 +459,8 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 | Función del sistema | Descripción |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Fecha en que se actualizó por última vez el objeto de estadísticas. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Información resumida y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Fecha en que se actualizó por última vez el objeto de estadísticas. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Información resumida y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
 
 #### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar funciones y columnas de estadísticas en una vista
 
@@ -827,13 +827,13 @@ Estas vistas del sistema proporcionan información acerca de las estadísticas:
 
 | Vista de catálogo                                                 | Descripción                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada columna.                                     |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada objeto de la base de datos.                     |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada esquema de la base de datos.                     |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada objeto de estadísticas.                          |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada tabla (incluye tablas externas).           |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Una fila por cada tipo de datos.                                  |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada columna.                                     |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada objeto de la base de datos.                     |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada esquema de la base de datos.                     |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada objeto de estadísticas.                          |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada tabla (incluye tablas externas).           |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Una fila por cada tipo de datos.                                  |
 
 #### <a name="system-functions-for-statistics"></a>Funciones del sistema para las estadísticas
 
@@ -841,7 +841,7 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 | Función del sistema                                              | Descripción                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Fecha en que se actualizó por última vez el objeto de estadísticas. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Fecha en que se actualizó por última vez el objeto de estadísticas. |
 
 #### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar funciones y columnas de estadísticas en una vista
 

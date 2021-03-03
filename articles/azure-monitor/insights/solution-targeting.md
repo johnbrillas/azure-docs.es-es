@@ -1,17 +1,16 @@
 ---
 title: Soluciones de supervisión como destino en Azure Monitor | Microsoft Docs
 description: La selección de destino de las soluciones de supervisión permite limitar las soluciones de supervisión a un conjunto específico de agentes.  En este artículo se describe cómo crear una configuración de ámbito y aplicarla a una solución.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728576"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluciones de supervisión como destino en Azure Monitor (versión preliminar)
 Cuando se agrega una solución de supervisión a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.

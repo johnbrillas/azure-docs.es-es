@@ -3,18 +3,18 @@ title: Creación de una máquina virtual Windows con Azure Image Builder mediant
 description: Cree una máquina virtual Windows con el módulo de PowerShell de Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 06/17/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4213b4d135d517dcf0e2ec025716be136f587f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 90d09763f2c9e167d6a0a34adbbc444ebad14c46
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693465"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder mediante PowerShell
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo puede crear una imagen personalizada de Windo
 > [!CAUTION]
 > Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública. Esta versión preliminar se proporciona sin un acuerdo de nivel de servicio. No se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -66,10 +66,11 @@ Registre los siguientes proveedores de recursos para usarlos con la suscripción
 - Microsoft.Compute
 - Microsoft.KeyVault
 - Microsoft.Storage
+- Microsoft.Network
 - Microsoft.VirtualMachineImages
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages |
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network |
   Where-Object RegistrationState -ne Registered |
     Register-AzResourceProvider
 ```
@@ -140,7 +141,7 @@ $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $image
 Descargue el archivo de configuración JSON y modifíquelo en función de la configuración definida en este artículo.
 
 ```azurepowershell-interactive
-$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
+$myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
 $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
@@ -248,7 +249,7 @@ $ImgCustomParams02 = @{
   FileCustomizer = $true
   CustomizerName = 'downloadBuildArtifacts'
   Destination = 'c:\\buildArtifacts\\index.html'
-  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+  SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
 }
 $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```

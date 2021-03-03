@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e1440feacd10935b15195110cd7ea3e20b4d523c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891710"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -61,7 +61,7 @@ Para configurar un inicio de sesión único en Azure AD, deberá agregar una nu
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **SAML SSO for Jira by resolution GmbH** , seleccione **SAML SSO for Jira by resolution GmbH** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación. También puede cambiar el nombre de la aplicación empresarial.
+4. En el cuadro de búsqueda, escriba **SAML SSO for Jira by resolution GmbH**, seleccione **SAML SSO for Jira by resolution GmbH** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación. También puede cambiar el nombre de la aplicación empresarial.
 
      ![SAML SSO for Jira by resolution GmbH en la lista de resultados](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. Para **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML** para habilitar el inicio de sesión único.
+2. Para **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
@@ -97,24 +97,24 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
     ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con los cuadros de texto "Identificador" y "Dirección U R L de respuesta" resaltados y el botón "Guardar" seleccionado.](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAML SSO for Jira by resolution GmbH](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
     > Para los valores de identificador, dirección URL de respuesta y dirección URL de inicio de sesión, reemplace **\<server-base-url>** por la dirección URL base de la instancia de Jira. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Si tiene algún problema, póngase en contacto con el [equipo de soporte técnico de clientes de SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support).
 
-4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , descargue el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
+4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, descargue el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -200,7 +200,7 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon". Con el usuario, probará el inicio de sesión único.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -208,13 +208,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Nuevo usuario](common/new-user.png)
 
-3. En las **propiedades de usuario** , siga estos pasos:
+3. En las **propiedades de usuario**, siga estos pasos:
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **Britta Simon**.
+    a. En el campo **Nombre**, escriba **Britta Simon**.
   
-    b. En el campo **Nombre de usuario** , escriba <b>BrittaSimon@contoso.com</b>.
+    b. En el campo **Nombre de usuario**, escriba <b>BrittaSimon@contoso.com</b>.
 
     c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro de contraseña.
 
@@ -240,11 +240,11 @@ En esta sección, agregará a Britta Simon a la aplicación empresarial, que le 
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-the-test-user-also-in-jira"></a>Creación del usuario de prueba también en Jira
 
@@ -270,9 +270,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAML SSO for Jira
 
     ![Agregar empleado](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. En el cuadro de texto **Dirección de correo electrónico** , escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>.
+    a. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>.
 
-    b. En el cuadro de texto **Nombre completo** , escriba el nombre completo del usuario: **Britta Simon**.
+    b. En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario: **Britta Simon**.
 
     c. En el cuadro de texto **Username** (Nombre de usuario), escriba la dirección de correo electrónico del usuario: <b>BrittaSimon@contoso.com</b>. 
 
@@ -295,7 +295,7 @@ Como se ha indicado en la sección anterior, actualmente hay dos formas de desen
 
 En esencia, todos los usuarios que tienen acceso a Jira se redirigirán al inicio de sesión único después de activar una opción en el complemento.
 
-Para activar el redireccionamiento de inicio de sesión único, realice lo siguiente en **la instancia de Jira** :
+Para activar el redireccionamiento de inicio de sesión único, realice lo siguiente en **la instancia de Jira**:
 
 1. Acceda a la página de configuración del complemento SAML SSO de Jira.
 1. Haga clic en **Redirección** en el panel izquierdo.
@@ -308,7 +308,7 @@ Para activar el redireccionamiento de inicio de sesión único, realice lo sigui
 
 1. Presione el botón **Save Settings** (Guardar configuración) en la esquina superior derecha.
 
-Después de activar la opción, todavía puede llegar a la solicitud de nombre de usuario y contraseña si la opción **Enable nosso** (Habilitar nosso) está activada cuando se navega a `https://\<server-base-url>/login.jsp?nosso`. Como siempre, sustituya **\<server-base-url>** por la dirección URL base.
+Después de activar la opción, todavía puede llegar a la solicitud de nombre de usuario y contraseña si la opción **Enable nosso** (Habilitar nosso) está activada cuando se navega a `https://<server-base-url>/login.jsp?nosso`. Como siempre, sustituya **\<server-base-url>** por la dirección URL base.
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

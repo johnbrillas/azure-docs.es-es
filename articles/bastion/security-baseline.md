@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b8f0cfdf3ca6e3b0bb0b455a5690d6a2727786ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392381"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586752"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Línea de base de seguridad de Azure para Azure Bastion
 
@@ -376,9 +376,9 @@ Habilite y recopile los registros de recursos y los registros de flujo de grupos
 
 **Guía**: Los registros de actividad, que están disponibles automáticamente, contienen todas las operaciones de escritura (PUT, POST y DELETE) de los recursos de Azure Bastion, excepto las operaciones de lectura (GET). Los registros de actividad se pueden usar para encontrar errores al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Habilitación de los registros de recursos de Azure para Azure Bastion](diagnostic-logs.md)
 
@@ -396,7 +396,7 @@ Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de 
 
 Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -410,9 +410,9 @@ Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso fre
 
 En Azure Monitor, puede establecer el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización.
 
-- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 - [Habilitación y uso de registros de Azure Bastion](diagnostic-logs.md)
 

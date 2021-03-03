@@ -3,19 +3,19 @@ title: Recepción de alertas del registro de actividad en las notificaciones del
 description: Aprenda a usar Azure Portal para configurar las alertas del registro de actividad para las notificaciones de mantenimiento de un servicio mediante Azure Portal.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48126d923cb0baa33058c6fd55e48f31d793fade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289793"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570174"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Creación de alertas del registro de actividad en notificaciones del servicio mediante Azure Portal
 ## <a name="overview"></a>Información general
 
 En este artículo se explica cómo usar Azure Portal para configurar las alertas del registro de actividad para las notificaciones de mantenimiento de un servicio mediante Azure Portal.  
 
-Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Debido al gran volumen de información almacenada en el registro de actividad, existe una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio. 
+Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md). Debido al gran volumen de información almacenada en el registro de actividad, existe una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio. 
 
 Puede recibir una alerta cuando Azure envía notificaciones de estado del servicio a la suscripción de Azure. Puede configurar la alerta en función de:
 
@@ -32,9 +32,9 @@ También puede configurar a quién se debe enviar la alerta:
 - Seleccione un grupo de acciones existente.
 - Cree un nuevo grupo de acciones (que puede usarse para futuras alertas).
 
-Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
+Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/alerts/action-groups.md).
 
-Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](../azure-monitor/platform/alerts-activity-log.md).
+Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](../azure-monitor/alerts/alerts-activity-log.md).
 
 ### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Ver un vídeo sobre cómo configurar su primera alerta de Azure Service Health
 
@@ -62,7 +62,7 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
 5. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problemas de servicio*, *Mantenimiento planeado*, *Avisos de estado* y *Avisos de seguridad*.
 
-6. Haga clic en **Seleccionar grupo de acciones** para elegir un grupo de acciones existente o para crear un nuevo grupo de acciones. Para obtener más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/platform/action-groups.md).
+6. Haga clic en **Seleccionar grupo de acciones** para elegir un grupo de acciones existente o para crear un nuevo grupo de acciones. Para obtener más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/alerts/action-groups.md).
 
 
 7. Para definir los detalles de la alerta, escriba un **nombre de regla de alertas** y una **descripción**.
@@ -73,7 +73,7 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
 En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 
-Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md). Para obtener información sobre el esquema de webhook para las alertas del registro de actividad, consulte [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md). Para obtener información sobre el esquema de webhook para las alertas del registro de actividad, consulte [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -81,7 +81,7 @@ Obtenga información acerca de cómo [configurar notificaciones de webhook para 
 - Obtenga información sobre cómo [configurar notificaciones de inserción móviles de Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Más información acerca de las [Notificaciones del estado del servicio](service-notifications.md).
-- Más información sobre la [Limitación del número de notificaciones](../azure-monitor/platform/alerts-rate-limiting.md).
-- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.
-- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).
+- Más información sobre la [Limitación del número de notificaciones](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/alerts/alerts-overview.md) y aprenda cómo puede recibir alertas.
+- Más información sobre los [grupos de acciones](../azure-monitor/alerts/action-groups.md).

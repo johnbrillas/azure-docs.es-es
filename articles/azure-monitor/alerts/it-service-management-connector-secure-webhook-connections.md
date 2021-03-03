@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604716"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728984"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conexión de Azure a las herramientas de ITSM mediante Exportación segura
 
 En este artículo se muestra cómo configurar la conexión entre un producto o servicio de la Administración de servicios de TI (ITSM) mediante Exportación segura.
 
-Exportación segura es una versión actualizada del [Conector de Administración de servicios de TI (ITSMC)](../platform/itsmc-overview.md). Ambas versiones le permiten crear elementos de trabajo en una herramienta de ITSM cuando Azure Monitor envía alertas. La funcionalidad incluye alertas de métricas, de registros y de registros de actividad.
+Exportación segura es una versión actualizada del [Conector de Administración de servicios de TI (ITSMC)](./itsmc-overview.md). Ambas versiones le permiten crear elementos de trabajo en una herramienta de ITSM cuando Azure Monitor envía alertas. La funcionalidad incluye alertas de métricas, de registros y de registros de actividad.
 
 ITSMC usa las credenciales de nombre de usuario y contraseña. Exportación segura tiene una autenticación más sólida porque usa Azure Active Directory (Azure AD). Azure AD es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. Ayuda a los usuarios a iniciar sesión y acceder a los recursos internos o externos. Usar Azure AD con ITSM ayuda a identificar las alertas de Azure (a través del id. de aplicación de Azure AD) que se enviaron al sistema externo.
 
@@ -55,4 +55,4 @@ Las principales ventajas de la integración son las siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](../platform/itsmc-overview.md)
+* [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](./itsmc-overview.md)

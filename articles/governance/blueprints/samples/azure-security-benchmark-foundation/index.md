@@ -3,16 +3,16 @@ title: Introducción al ejemplo de plano técnico de Azure Security Benchmark Fo
 description: Introducción y arquitectura del ejemplo de plano técnico de Azure Security Benchmark Foundation.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741878"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Azure Security Benchmark Foundation
 
-El ejemplo de plano técnico de Azure Security Benchmark Foundation proporciona un conjunto de patrones de infraestructura de la linea base que le ayuda a crear un entorno seguro y compatible con Azure. El plano técnico le ayuda a implementar una arquitectura basada en la nube que ofrece soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento. Este ejemplo de plano técnico fundamental es una extensión del [plano técnico de ejemplo de Azure Security Benchmark](../azure-security-benchmark/index.md). Implementa y configura los límites de la red, la supervisión y otros recurso en consonancia con las directivas y los límites de protección definidos en [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
+El ejemplo de plano técnico de Azure Security Benchmark Foundation proporciona un conjunto de patrones de infraestructura de la linea base que le ayuda a crear un entorno seguro y compatible con Azure. El plano técnico le ayuda a implementar una arquitectura basada en la nube que ofrece soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento. Este ejemplo de plano técnico fundamental es una extensión del [plano técnico de ejemplo de Azure Security Benchmark](../azure-security-benchmark.md). Implementa y configura los límites de la red, la supervisión y otros recurso en consonancia con las directivas y los límites de protección definidos en [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architecture
 
@@ -23,7 +23,7 @@ El plano técnico implementa una red virtual de centro de conectividad que conti
 
 Este plano técnico implementa varios servicios de Azure para proporcionar una base segura, administrada y lista para la empresa. Este entorno se compone de:
 
-- [Registros de Azure Monitor](../../../../azure-monitor/platform/data-platform-logs.md) y una cuenta de Azure Monitor para asegurarse de que los registros de recursos, los registros de actividad, las métricas y los flujos del tráfico de redes se almacenan en una ubicación central para facilitar la realización de consultas, análisis, archivado y generación de alertas.
+- [Registros de Azure Monitor](../../../../azure-monitor/logs/data-platform-logs.md) y una cuenta de Azure Monitor para asegurarse de que los registros de recursos, los registros de actividad, las métricas y los flujos del tráfico de redes se almacenan en una ubicación central para facilitar la realización de consultas, análisis, archivado y generación de alertas.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md) (versión estándar) para proporcionar protección contra amenazas a los recursos de Azure.
 - [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) en el centro de conectividad que da soporte a las subredes para devolver la conectividad a una red local, una pila de entrada y salida para la conectividad a Internet y subredes opcionales para la implementación de servicios de administración. Microsoft Azure Virtual Network en el radio contiene subredes que hospedan las cargas de trabajo de las aplicaciones. Después de la implementación se pueden crear tantas subredes como sea necesario para dar soporte a los escenarios aplicables.
 - [Azure Firewall](../../../../firewall/overview.md) para enrutar todo el tráfico de Internet saliente y para habilitar el tráfico de Internet entrante a través de jumpbox (las reglas de firewall predeterminadas bloquean todo el tráfico de entrada y salida de Internet, y se deben configurar reglas después de la implementación como corresponda).

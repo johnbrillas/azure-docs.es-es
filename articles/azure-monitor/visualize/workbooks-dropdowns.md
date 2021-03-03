@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: c3b44c7b8761010deeecba1f8ed80727fe635f2b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6fb4954ff616bccd9b237aedb3001b0a8d592dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604640"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717203"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parámetros de lista desplegable de libros
 
@@ -154,5 +154,5 @@ Este es un ejemplo de una lista desplegable de selección múltiple en el trabaj
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comience](../platform/workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
-* [Controle](../platform/workbooks-access-control.md) y comparta el acceso a los recursos del libro.
+* [Comience](./workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
+* [Controle](./workbooks-access-control.md) y comparta el acceso a los recursos del libro.

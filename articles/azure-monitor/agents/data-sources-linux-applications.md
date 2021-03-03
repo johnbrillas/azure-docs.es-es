@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f924bcdce0937c74c3deeab96f3d4b2a85e3944d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704453"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor 
 
@@ -167,4 +167,4 @@ Después de configurar el agente de Log Analytics para Linux de forma que envíe
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Recopilar contadores de rendimiento](data-sources-performance-counters.md) en agentes de Linux.
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

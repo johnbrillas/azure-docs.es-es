@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690930"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ En entornos en clúster tradicionales en el entorno local, un clúster de conmut
 
 SQL Server en VM de Azure ofrece varias opciones como solución de almacenamiento compartido para una implementación de instancias de clúster de conmutación por error de SQL Server: 
 
-||[Discos compartidos de Azure](../../../virtual-machines/disks-shared.md)|[Recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos compartidos de Azure](../../../virtual-machines/disks-shared.md)|[Recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-file-share.md) |[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versión mínima de sistema operativo**| All |Windows Server 2012|Windows Server 2016|
 |**Versión de SQL Server mínima**|All|SQL Server 2012|SQL Server 2016|
@@ -107,7 +107,7 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 
 ### <a name="premium-file-share"></a>Recurso compartido de archivos Premium
 
-[Los recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) son una característica de [Azure Files](../../../storage/files/index.yml). Los recursos compartidos de archivos Premium están respaldados por SSD y tienen una latencia baja constante. Son totalmente compatibles con las instancias de clúster de conmutación por error para SQL Server 2012 o posterior en Windows Server 2012 o posterior. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar un recurso compartido de archivos sin tiempo de inactividad.
+[Los recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-file-share.md) son una característica de [Azure Files](../../../storage/files/index.yml). Los recursos compartidos de archivos Premium están respaldados por SSD y tienen una latencia baja constante. Son totalmente compatibles con las instancias de clúster de conmutación por error para SQL Server 2012 o posterior en Windows Server 2012 o posterior. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar un recurso compartido de archivos sin tiempo de inactividad.
 
 **Sistema operativo compatible**: Windows Server 2012 y posteriores   
 **Versión de SQL compatible**: SQL Server 2012 y posterior   

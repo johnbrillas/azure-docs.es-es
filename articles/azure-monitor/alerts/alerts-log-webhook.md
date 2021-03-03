@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603177"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704402"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 
-La [alerta de registro](alerts-log.md) admite la [configuración de grupos de acciones de webhook](../platform/action-groups.md#webhook). En este artículo, describiremos qué propiedades están disponibles y cómo configurar un webhook JSON personalizado.
+La [alerta de registro](alerts-log.md) admite la [configuración de grupos de acciones de webhook](./action-groups.md#webhook). En este artículo, describiremos qué propiedades están disponibles y cómo configurar un webhook JSON personalizado.
 
 > [!NOTE]
 > Actualmente, el webhook personalizado basado en JSON no se admite en la versión `2020-05-01-preview` de la API.
@@ -47,7 +47,7 @@ Propiedades de acción de webhook predeterminadas y sus nombres de parámetros J
 | *SearchQuery* |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | *SearchResults* |"IncludeSearchResults": true|Los registros devueltos por la consulta en forma de una tabla JSON, limitados a los primeros 1000 registros. Se agrega "IncludeSearchResults": true en una definición personalizada de webhook de JSON como una propiedad de nivel superior. |
 | *Dimensiones* |"IncludeDimensions": true|Combinaciones de valores de dimensiones que desencadenaron esa alerta como una sección JSON. Se agrega "IncludeDimensions": true en una definición personalizada de webhook de JSON como una propiedad de nivel superior. |
-| *AlertType*| #alerttype | El tipo de regla de alertas de registro configurada, bien como [Unidades métricas o como Número de resultados](../platform/alerts-unified-log.md#measure).|
+| *AlertType*| #alerttype | El tipo de regla de alertas de registro configurada, bien como [Unidades métricas o como Número de resultados](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |Identificador del área de trabajo de Log Analytics. |
 | *Identificador de la aplicación* |#applicationid |Identificador de la aplicación Application Insights. |
 | *Subscription ID* |#subscriptionid |Identificador de la suscripción a Azure usada. |
@@ -84,7 +84,7 @@ En esta sección se muestran cargas de ejemplo para los webhooks de alertas de r
 La carga de ejemplo siguiente corresponde a una acción de webhook estándar que se usa para las alertas basadas en Log Analytics:
 
 > [!NOTE]
-> El valor del campo "Gravedad" cambia si ha [cambiado a la versión scheduledQueryRules API actual](../alerts/alerts-log-api-switch.md) de [Alert API de Log Analytics heredada](../platform/api-alerts.md).
+> El valor del campo "Gravedad" cambia si ha [cambiado a la versión scheduledQueryRules API actual](../alerts/alerts-log-api-switch.md) de [Alert API de Log Analytics heredada](./api-alerts.md).
 
 ```json
 {
@@ -318,8 +318,8 @@ A continuación se muestra una carga de ejemplo que corresponde a una acción de
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre las [alertas de registro en las alertas de Azure](../platform/alerts-unified-log.md).
+- Más información sobre las [alertas de registro en las alertas de Azure](./alerts-unified-log.md).
 - Aprenda a [administrar alertas de registro en Azure](alerts-log.md).
-- Cree y administre [grupos de acciones en Azure](../platform/action-groups.md).
-- Más información sobre [Application Insights](../log-query/log-query-overview.md).
-- Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md). 
+- Cree y administre [grupos de acciones en Azure](./action-groups.md).
+- Más información sobre [Application Insights](../logs/log-query-overview.md).
+- Obtenga más información sobre las [consultas de registro](../logs/log-query-overview.md).

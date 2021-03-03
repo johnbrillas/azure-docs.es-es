@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602596"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700548"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -38,10 +38,10 @@ Las vistas que se crean con el Diseñador de vistas contienen los elementos que 
 |:--- |:--- |
 | Iconos | Se muestran en la página **Información general** de Azure Monitor. Cada icono muestra un resumen visual de la vista personalizada que representa. Cada tipo de icono proporciona una visualización distinta de los registros. Seleccione un icono para mostrar una vista personalizada. |
 | Vista personalizada | Se muestra al seleccionar un icono. Cada vista contiene uno o varios elementos de visualización. |
-| Elementos de visualización | Presentan una visualización de los datos del área de trabajo de Log Analytics que se basa en una o varias [consultas de registros](../log-query/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccione los elementos para realizar una consulta de registro que proporcione registros detallados. |
+| Elementos de visualización | Presentan una visualización de los datos del área de trabajo de Log Analytics que se basa en una o varias [consultas de registros](../logs/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccione los elementos para realizar una consulta de registro que proporcione registros detallados. |
 
 ## <a name="required-permissions"></a>Permisos necesarios
-Requiere como mínimo [permisos de nivel de colaborador](../platform/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción Diseñador de vistas no se mostrará en el menú.
+Requiere como mínimo [permisos de nivel de colaborador](../logs/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción Diseñador de vistas no se mostrará en el menú.
 
 
 ## <a name="work-with-an-existing-view"></a>Uso de una vista existente
@@ -54,7 +54,7 @@ Las opciones se describen en la tabla siguiente:
 | Opción | Descripción |
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
-| Registros      | Abre [Log Analytics](../log-query/log-query-overview.md) para analizar los datos con consultas de registro. |
+| Registros      | Abre [Log Analytics](../logs/log-query-overview.md) para analizar los datos con consultas de registro. |
 | Editar       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
 | Clonar      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. Este intervalo de fechas se aplica antes de cualquier conjunto de intervalo de fechas en consultas de la vista.  |

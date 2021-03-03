@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e5872b6ab97a47c09081cf9c26fb7f140b110c3f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733455"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -63,7 +63,7 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Norte de Sudáfrica | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -279,5 +279,5 @@ Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntesis asincrónica para audio de formato largo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Síntesis asincrónica para audio de formato largo](./long-audio-api.md)
 - [Introducción a Voz personalizada](how-to-custom-voice.md)

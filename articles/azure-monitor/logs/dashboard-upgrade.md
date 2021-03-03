@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 139241d679007bf72680f91a1518a1ef90cc7efc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700633"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Actualización de las visualizaciones del panel de Log Analytics
 
@@ -82,4 +82,4 @@ Los paneles se actualizan en la carga. Se ejecutan todas las consultas relaciona
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación y uso compartido de paneles de Log Analytics](../learn/tutorial-logs-dashboards.md)
+[Creación y uso compartido de paneles de Log Analytics](../visualize/tutorial-logs-dashboards.md)

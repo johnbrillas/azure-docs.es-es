@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734135"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
-Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
+Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](./log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -135,5 +135,4 @@ En el área de trabajo de Log Analytics se crea un registro para cada pertenenci
 | `TimeGenerated` |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-
+* Obtenga información acerca de las [consultas de registros](./log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

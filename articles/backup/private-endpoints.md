@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362593"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728219"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -170,9 +170,9 @@ Si usa servidores DNS personalizados, deberá crear las zonas DNS necesarias y a
     > En el texto anterior, `<geo>` hace referencia al código de región (por ejemplo, *eus* y *ne* para Este de EE. UU. y Norte de Europa respectivamente). Consulte las siguientes listas para ver los códigos de región:
     >
     > - [Todas las nubes públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Alemania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 1. A continuación, es necesario agregar los registros DNS necesarios. Para ver los registros que deben agregarse a la zona DNS de Backup, navegue hasta el punto de conexión privado que creó anteriormente y vaya a la opción **Configuración DNS** en la barra de navegación izquierda.
 

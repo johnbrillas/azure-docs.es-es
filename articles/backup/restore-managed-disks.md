@@ -3,12 +3,12 @@ title: Restauración de Azure Managed Disks
 description: Aprenda a restaurar Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703756"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restauración de Azure Managed Disks (en versión preliminar)
 
@@ -66,7 +66,7 @@ Los siguientes requisitos previos son necesarios para realizar una operación de
     >
     >Durante las copias de seguridad programadas o una operación de copia de seguridad a petición, Azure Backup almacena las instantáneas incrementales del disco en el grupo de recursos de instantáneas que se proporciona durante la configuración de la copia de seguridad del disco. Azure Backup usa estas instantáneas incrementales durante la operación de restauración. Si las instantáneas se eliminan o se mueven desde el grupo de recursos de instantáneas o si se revocan las asignaciones de roles del almacén de Backup en el grupo de recursos de instantáneas, se producirá un error en la operación de restauración.
 
-1. Si el disco que se va a restaurar está cifrado con [claves administradas por el cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o con el [cifrado doble que usa claves administradas por la plataforma y claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), asigne el permiso del rol **Lector** a la identidad administrada del almacén de Backup del recurso **Conjunto de cifrado de disco**.
+1. Si el disco que se va a restaurar está cifrado con [claves administradas por el cliente (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) o con el [cifrado doble que usa claves administradas por la plataforma y claves administradas por el cliente](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), asigne el permiso del rol **Lector** a la identidad administrada del almacén de Backup del recurso **Conjunto de cifrado de disco**.
 
 Una vez cumplidos los requisitos previos, siga estos pasos para realizar la operación de restauración.
 

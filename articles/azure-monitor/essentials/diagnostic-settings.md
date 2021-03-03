@@ -7,15 +7,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: c7e18250a6f11504aa29d8df190da974499470ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dde18460862eb2ac61ed7e9bbf95d70ecf61496b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726026"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
-Los [registros de plataforma](../platform/platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](../platform/data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
+Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
 
 > [!IMPORTANT]
 > Antes de crear una configuración de diagnóstico para el registro de actividad, debe deshabilitar cualquier configuración heredada. Para más información, consulte [Métodos de recopilación heredados](../essentials/activity-log.md#legacy-collection-methods).
@@ -31,13 +31,13 @@ El siguiente vídeo describe cómo enrutar registros de plataforma con una confi
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
 > [!NOTE]
-> Las [métricas de plataforma](../platform/metrics-supported.md) se envían automáticamente a las [métricas de Azure Monitor](../platform/data-platform-metrics.md). Las configuraciones de diagnóstico se pueden usar para enviar métricas de determinados servicios de Azure a los registros de Azure Monitor a fin de analizarlas con otros datos de supervisión mediante [consultas de registro](../log-query/log-query-overview.md) con algunas limitaciones. 
+> Las [métricas de plataforma](./metrics-supported.md) se envían automáticamente a las [métricas de Azure Monitor](./data-platform-metrics.md). Las configuraciones de diagnóstico se pueden usar para enviar métricas de determinados servicios de Azure a los registros de Azure Monitor a fin de analizarlas con otros datos de supervisión mediante [consultas de registro](../logs/log-query-overview.md) con algunas limitaciones. 
 >  
 >  
-> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo*: La métrica "IOReadBytes" de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos. Además, debido a limitaciones internas, no todas las métricas se exportan a los registros de Azure Monitor o Log Analytics. Para más información, consulte la [lista de métricas exportables](../platform/metrics-supported-export-diagnostic-settings.md). 
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo*: La métrica "IOReadBytes" de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos. Además, debido a limitaciones internas, no todas las métricas se exportan a los registros de Azure Monitor o Log Analytics. Para más información, consulte la [lista de métricas exportables](./metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
-> Para solucionar estas limitaciones de métricas específicas, se recomienda extraerlas manualmente mediante la [API REST de métricas](/rest/api/monitor/metrics/list) e importarlas a los registros de Azure Monitor con [Data Collector API de Azure Monitor](../platform/data-collector-api.md).  
+> Para solucionar estas limitaciones de métricas específicas, se recomienda extraerlas manualmente mediante la [API REST de métricas](/rest/api/monitor/metrics/list) e importarlas a los registros de Azure Monitor con [Data Collector API de Azure Monitor](../logs/data-collector-api.md).  
 
 
 ## <a name="destinations"></a>Destinations
@@ -45,7 +45,7 @@ Los registros y las métricas de plataforma se pueden enviar a los destinos de l
 
 | Destination | Descripción |
 |:---|:---|
-| [Área de trabajo de Log Analytics](../platform/design-logs-deployment.md) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
+| [Área de trabajo de Log Analytics](../logs/design-logs-deployment.md) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
 | [Event Hubs](../../event-hubs/index.yml) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
 | [Cuenta de Almacenamiento de Azure](../../storage/blobs/index.yml) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  |
 
@@ -99,7 +99,7 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
 
 4. **Detalles de la categoría (qué enrutar)** : active la casilla de cada categoría de datos que desee enviar a los destinos que especificará más adelante. La lista de categorías es diferente en cada servicio de Azure.
 
-     - **AllMetrics** enruta las métricas de plataforma de un recurso al almacén de registros de Azure, pero en forma de registro. Normalmente, estas métricas solo se envían a la base de datos de series temporales de métricas de Azure Monitor. Si se envían al almacén de registros de Azure Monitor (que se puede buscar mediante Log Analytics), podrá integrarlas en consultas que realicen búsquedas en otros registros. Es posible que esta opción no esté disponible en todos los tipos de recursos. Cuando sí está disponible, en las [métricas compatibles con Azure Monitor](../platform/metrics-supported.md), se indica qué métricas se recopilan para cada tipo de recurso.
+     - **AllMetrics** enruta las métricas de plataforma de un recurso al almacén de registros de Azure, pero en forma de registro. Normalmente, estas métricas solo se envían a la base de datos de series temporales de métricas de Azure Monitor. Si se envían al almacén de registros de Azure Monitor (que se puede buscar mediante Log Analytics), podrá integrarlas en consultas que realicen búsquedas en otros registros. Es posible que esta opción no esté disponible en todos los tipos de recursos. Cuando sí está disponible, en las [métricas compatibles con Azure Monitor](./metrics-supported.md), se indica qué métricas se recopilan para cada tipo de recurso.
 
        > [!NOTE]
        > Consulte las limitaciones para enrutar métricas a los registros de Azure Monitor anteriormente en este artículo.  
@@ -111,7 +111,7 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
 
       ![Envío a Log Analytics o centros de eventos](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics**: especifique la suscripción y el área de trabajo.  Si no tiene ningún área de trabajo, tendrá que [crear una antes de continuar](../learn/quick-create-workspace.md).
+    1. **Log Analytics**: especifique la suscripción y el área de trabajo.  Si no tiene ningún área de trabajo, tendrá que [crear una antes de continuar](../logs/quick-create-workspace.md).
 
     1. **Centro de eventos**: especifique los criterios siguientes:
        - La suscripción de la que forma parte el centro de eventos.
@@ -132,14 +132,14 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
 
 6. Haga clic en **Save**(Guardar).
 
-Transcurridos unos instantes, la nueva configuración aparece en la lista de configuraciones para este recurso y los registros se transmiten a los destinos especificados en cuanto se generan nuevos datos de eventos. Pueden pasar hasta quince minutos desde que se emite un evento hasta que [aparece en un área de trabajo de Log Analytics](../platform/data-ingestion-time.md).
+Transcurridos unos instantes, la nueva configuración aparece en la lista de configuraciones para este recurso y los registros se transmiten a los destinos especificados en cuanto se generan nuevos datos de eventos. Pueden pasar hasta quince minutos desde que se emite un evento hasta que [aparece en un área de trabajo de Log Analytics](../logs/data-ingestion-time.md).
 
 ## <a name="create-using-powershell"></a>Creación mediante PowerShell
 
-Use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para crear una configuración de diagnóstico con [Azure PowerShell](../samples/powershell-samples.md). Consulte la documentación de este cmdlet para las descripciones de sus parámetros.
+Use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para crear una configuración de diagnóstico con [Azure PowerShell](../powershell-samples.md). Consulte la documentación de este cmdlet para las descripciones de sus parámetros.
 
 > [!IMPORTANT]
-> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](../samples/resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con PowerShell.
+> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](./resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con PowerShell.
 
 A continuación se muestra un cmdlet de PowerShell de ejemplo para crear una configuración de diagnóstico con los tres destinos.
 
@@ -152,7 +152,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Use el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) para crear una configuración de diagnóstico con la [CLI de Azure](/cli/azure/monitor). Consulte la documentación de este comando para las descripciones de sus parámetros.
 
 > [!IMPORTANT]
-> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](../samples/resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con la CLI.
+> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](./resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con la CLI.
 
 A continuación se muestra un comando de la CLI de ejemplo para crear una configuración de diagnóstico con los tres destinos.
 
@@ -168,7 +168,7 @@ az monitor diagnostic-settings create  \
 ```
 
 ## <a name="create-using-resource-manager-template"></a>Creación mediante una plantilla de Resource Manager
-Consulte [Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor](../samples/resource-manager-diagnostic-settings.md) para crear o actualizar la configuración de diagnóstico con una plantilla de Resource Manager.
+Consulte [Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor](./resource-manager-diagnostic-settings.md) para crear o actualizar la configuración de diagnóstico con una plantilla de Resource Manager.
 
 ## <a name="create-using-rest-api"></a>Creación mediante la API REST
 Consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings) para crear o actualizar configuraciones de diagnóstico mediante la [API REST de Azure Monitor](/rest/api/monitor/).
@@ -197,4 +197,4 @@ Si recibe este error, actualice las implementaciones para reemplazar los nombres
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Más información sobre los registros de plataforma de Azure](../platform/platform-logs-overview.md)
+- [Más información sobre los registros de plataforma de Azure](./platform-logs-overview.md)

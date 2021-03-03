@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602662"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717424"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -25,11 +25,11 @@ Se recomienda revisar la sección [Limitaciones y restricciones](#limitationsand
 
 Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado con su propia clave que se almacena en [Azure Key Vault](../../key-vault/general/overview.md) y le otorga el control para revocar el acceso a los datos en cualquier momento. El uso del cifrado de Azure Monitor es idéntico a la forma en que funciona el [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La clave administrada por el cliente se entrega en [clústeres dedicados](../log-query/logs-dedicated-clusters.md) que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](#customer-lockbox-preview).
+La clave administrada por el cliente se entrega en [clústeres dedicados](./logs-dedicated-clusters.md) que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](#customer-lockbox-preview).
 
 Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la primera mitad de 2021.
 
-Los clústeres dedicados de Log Analytics usan un [modelo de precios](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidad que parte de 1000 GB/día.
+Los clústeres dedicados de Log Analytics usan un [modelo de precios](./logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidad que parte de 1000 GB/día.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funcionamiento de las claves administradas por el cliente en Azure Monitor
 
@@ -145,7 +145,7 @@ Los clústeres admiten dos [tipos de identidad administrada](../../active-direct
 > [!IMPORTANT]
 > No se puede usar una identidad administrada asignada por el usuario si su instancia de Key Vault está en un vínculo privado (vNet). En este escenario puede usar la identidad administrada asignada por el sistema.
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Concesión de permisos a Key Vault
 
@@ -253,7 +253,7 @@ Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se compl
 
 Debe tener permisos de "escritura" en el área de trabajo y en el clúster para realizar esta operación, que incluye `Microsoft.OperationalInsights/workspaces/write` y `Microsoft.OperationalInsights/clusters/write`.
 
-Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## <a name="key-revocation"></a>Revocación de claves
 
@@ -387,7 +387,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
 
 ## <a name="customer-managed-key-operations"></a>Operaciones de la clave administrada por el cliente
 
-La clave administrada por el cliente se proporciona en un clúster dedicado, y se hace referencia a estas operaciones en el [artículo sobre el clúster dedicado](../log-query/logs-dedicated-clusters.md#change-cluster-properties).
+La clave administrada por el cliente se proporciona en un clúster dedicado, y se hace referencia a estas operaciones en el [artículo sobre el clúster dedicado](./logs-dedicated-clusters.md#change-cluster-properties).
 
 - Obtención de todos los clústeres de un grupo de recursos  
 - Obtención de todos los clústeres de una suscripción
@@ -470,8 +470,8 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 
   **Actualización del clúster:**
   -  400: El clúster está en estado de eliminación. La operación asincrónica está en curso. El clúster debe completar su operación antes de realizar cualquier operación de actualización.
-  -  400: KeyVaultProperties no está vacío, pero tiene un formato incorrecto. Consulte [actualización de identificador de clave](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400: No se pudo validar la clave en Key Vault. Podría deberse a la falta de permisos o a que la clave no existe. Verifique que [estableció la clave y la directiva de acceso](../platform/customer-managed-keys.md#grant-key-vault-permissions) en Key Vault.
+  -  400: KeyVaultProperties no está vacío, pero tiene un formato incorrecto. Consulte [actualización de identificador de clave](#update-cluster-with-key-identifier-details).
+  -  400: No se pudo validar la clave en Key Vault. Podría deberse a la falta de permisos o a que la clave no existe. Verifique que [estableció la clave y la directiva de acceso](#grant-key-vault-permissions) en Key Vault.
   -  400: No se puede recuperar la clave. Key Vault debe establecerse para la eliminación temporal y protección de purga. Consulte la [documentación de Key Vault](../../key-vault/general/soft-delete-overview.md).
   -  400: No se puede ejecutar la operación ahora. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
   -  400: El clúster está en estado de eliminación. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
@@ -492,5 +492,5 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
   -  409: Operación en curso de vinculación o desvinculación del área de trabajo.
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [facturación de clústeres dedicados de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- Obtenga más información sobre el [diseño adecuado de áreas de trabajo de Log Analytics](../platform/design-logs-deployment.md)
+- Obtenga más información sobre la [facturación de clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Obtenga más información sobre el [diseño adecuado de áreas de trabajo de Log Analytics](./design-logs-deployment.md)

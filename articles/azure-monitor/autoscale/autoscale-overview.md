@@ -4,12 +4,12 @@ description: Escalado automático en Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726009"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Información general sobre el escalado automático en Microsoft Azure
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -90,8 +90,8 @@ En contraste, el escalado vertical es diferente. Mantiene el mismo número de m�
 Puede configurar el escalado automático en los siguientes lugares:
 
 * [Azure Portal](autoscale-get-started.md)
-* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
-* [Interfaz de línea de comandos (CLI) multiplataforma](../samples/cli-samples.md#autoscale)
+* [PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
+* [Interfaz de línea de comandos (CLI) multiplataforma](../cli-samples.md#autoscale)
 * [API de REST de Azure Monitor](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>Servicios compatibles con el escalado automático

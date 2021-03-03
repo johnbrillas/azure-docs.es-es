@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703773"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -149,8 +149,6 @@ Puede cambiar la directiva subyacente para un elemento de copia de seguridad de 
 
 >[!NOTE]
 > Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
->
-> Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admiten actualmente para estas bases de datos.
 
 ### <a name="modify-policy"></a>Modificación de directivas
 

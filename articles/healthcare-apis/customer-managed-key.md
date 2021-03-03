@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f810769529569309656193d41f28cca201a85c07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100105188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719226"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configuración de claves administradas por el cliente en reposo
 
@@ -140,4 +140,4 @@ New-AzResourceGroupDeployment `
 En este artículo ha aprendido a configurar las claves administradas por el cliente en reposo mediante Azure Portal, PowerShell, la CLI y la plantilla de Resource Manager. Puede consultar la sección de preguntas más frecuentes de Azure Cosmos DB para más preguntas: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: procedimientos para configurar CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: procedimientos para configurar CMK](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

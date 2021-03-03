@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6e6ad96da5f5c7901fda1f041c55075552edecde
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591438"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720348"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Base de referencia de seguridad de Azure para Stream Analytics
 
@@ -168,7 +168,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 * [Azure Stream Analytics proporciona registros de diagnóstico y datos de actividad para revisión](./stream-analytics-job-diagnostic-logs.md)
 
-* [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 

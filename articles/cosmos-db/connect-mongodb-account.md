@@ -6,18 +6,18 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 03/02/2021
 ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./connect-mongodb-account-experimental
-ms.openlocfilehash: 702c2d896da2316a2e75c4dbbe4f16249537832b
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b3e10931307914f1471b8a6fbffd38953ee4717b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093442"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659484"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,7 +29,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 - [El método de inicio rápido](#get-the-mongodb-connection-string-by-using-the-quick-start), para su uso con controladores de .NET, Node.js, MongoDB Shell, Java y Python.
 - [El método de la cadena de conexión personalizada](#get-the-mongodb-connection-string-to-customize), para su uso con otros controladores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de Cosmos. Para obtener instrucciones, consulte [Compilación de una aplicación web con la API de Azure Cosmos DB para MongoDB y .NET SDK](create-mongodb-dotnet.md).
@@ -74,6 +74,12 @@ Los valores de esta cadena están disponibles en la hoja **Cadena de conexión**
 Por ejemplo, considere la cuenta que aparece en la hoja **Cadena de conexión**. Una cadena de conexión válida es:
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
+
+## <a name="driver-requirements"></a>Requisitos para controladores
+
+Todos los controladores que admiten la versión 3.4 o posteriores del protocolo de conexión admitirán de API de Azure Cosmos DB para MongoDB.
+
+En concreto, los controladores de cliente deben admitir la extensión TLS de la identificación de nombre de servicio (SNI) o la opción de cadena de conexión appName. Si se proporciona el parámetro `appName`, debe incluirse como se encuentra en el valor de la cadena de conexión en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

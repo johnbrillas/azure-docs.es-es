@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e2d4b47f8f37a8e6d69a7846b8b0f92247121da
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ad19c976cceab76d6eb0dbfbea5840d9764bffec
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685198"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092949"
 ---
 # <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Protección de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -92,7 +92,7 @@ En el ejemplo siguiente, se concede acceso de lectura a un esquema definido por 
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-La administración de bases de datos y servidores lógicos desde Azure Portal o mediante la API de Azure Resource Manager la controlan las asignaciones de roles de su cuenta de usuario del portal. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+La administración de bases de datos y servidores lógicos desde Azure Portal o mediante la API de Azure Resource Manager la controlan las asignaciones de roles de su cuenta de usuario del portal. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Cifrado
 

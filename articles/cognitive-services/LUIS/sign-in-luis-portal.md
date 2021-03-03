@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706782"
 ---
 # <a name="sign-in-to-luis-portal"></a>Inicio de sesión en el portal de LUIS
 
@@ -48,7 +48,7 @@ Use este artículo para comenzar con el portal de LUIS y crear un recurso de cre
     * **Grupo de recursos**: nombre del grupo de recursos personalizado que elige en la suscripción. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración. Si actualmente no tiene ningún grupo de recursos en la suscripción, no se le permitirá crear uno en el portal de LUIS. Vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para crear uno y vuelva a LUIS para continuar con el proceso de inicio de sesión.
     * **Nombre del recurso**: el nombre personalizado que elija, que se usa como parte de la dirección URL para las transacciones de creación. Este nombre solo puede incluir caracteres alfanuméricos o el carácter `-`, y no puede terminar ni comenzar por `-`. Si se incluye algún otro símbolo en el nombre, se producirá un error al crear el recurso.
     * **Ubicación**: elija la opción de crear las aplicaciones en una de las [tres ubicaciones de creación](./luis-reference-regions.md) que se admiten actualmente en LUIS, incluidas: Oeste de EE. UU., Oeste de Europa y Este de Australia.
-    * **Plan de tarifa**: de manera predeterminada, se selecciona el plan de tarifa de creación F0, ya que es el recomendado. Cree una [clave administrada por el cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) desde Azure Portal si está buscando una capa adicional de seguridad.
+    * **Plan de tarifa**: de manera predeterminada, se selecciona el plan de tarifa de creación F0, ya que es el recomendado. Cree una [clave administrada por el cliente](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) desde Azure Portal si está buscando una capa adicional de seguridad.
 8. Ha cerrado sesión correctamente en LUIS. Ahora puede empezar a crear aplicaciones.
 
 ## <a name="troubleshooting"></a>Solución de problemas

@@ -4,18 +4,18 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: cfe44fb5220b217b73c17280d5c8aaf87c57ebaf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a8ab9520527a0d5ebc1de698f84e9f64e28b869a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603178"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718121"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
 ## <a name="overview"></a>Información general
 
-Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](../essentials/activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](../platform/platform-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
+Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](../essentials/activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](../essentials/platform-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
 
 > [!NOTE]
 > * **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
@@ -54,12 +54,12 @@ Cuando se activa una alerta del registro de actividad, usa un grupo de acciones 
 * Usar un grupo de acciones existente en la alerta del registro de actividad.
 * Crear un nuevo grupo de acciones.
 
-Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../platform/action-groups.md).
+Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](./action-groups.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtener una [Introducción a las alertas](../platform/alerts-overview.md).
+- Obtener una [Introducción a las alertas](./alerts-overview.md).
 - Obtenga información sobre la [creación y modificación de las alertas del registro de actividad](alerts-activity-log.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](../alerts/activity-log-alerts-webhook.md).
 - Más información acerca de las [Notificaciones del estado del servicio](../../service-health/service-notifications.md).

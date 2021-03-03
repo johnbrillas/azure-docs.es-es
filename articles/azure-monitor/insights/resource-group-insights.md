@@ -1,18 +1,17 @@
 ---
 title: Información del grupo de recursos de Azure Monitor | Microsoft Docs
 description: Comprenda el estado y el rendimiento de sus aplicaciones y servicios distribuidos en el nivel Grupo de recursos con Azure Monitor
-ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573443"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704334"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 

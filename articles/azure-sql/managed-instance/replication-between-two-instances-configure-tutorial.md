@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690692"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configuración de la replicación entre dos instancias administradas
 
@@ -51,7 +51,7 @@ Para configurar Instancia administrada de SQL de forma que funcione como un pub
 - La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se han configurado unas [puertas de enlace de VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre las redes virtuales de las tres entidades. 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
-- El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure.  Si aparece el error `failed to connect to azure storage \<storage account name> with os error 53`, deberá agregar una regla de salida al grupo de seguridad de red de la subred de Instancia administrada de SQL adecuada.
+- El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure.  Si aparece el error `failed to connect to azure storage <storage account name> with os error 53`, deberá agregar una regla de salida al grupo de seguridad de red de la subred de Instancia administrada de SQL adecuada.
 
 ## <a name="1---create-a-resource-group"></a>1 - Creación de un grupo de recursos
 

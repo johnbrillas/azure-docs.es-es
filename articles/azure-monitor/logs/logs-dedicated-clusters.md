@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602640"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707649"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -34,7 +34,7 @@ Una vez que se crea el clúster, se puede configurar y se le pueden vincular ár
 
 Los datos ingeridos en clústeres dedicados se cifran dos veces, una vez en el nivel de servicio mediante claves administradas por Microsoft o [claves administradas por el cliente](../logs/customer-managed-keys.md), y una vez en el nivel de infraestructura mediante dos algoritmos de cifrado diferentes y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](../logs/customer-managed-keys.md#customer-lockbox-preview).
 
-Todas las operaciones en el nivel de clúster requieren el permiso de acción `Microsoft.OperationalInsights/clusters/write` en el clúster. Este permiso se puede conceder a través del rol Propietario o Colaborador que contiene la acción `*/write` o a través del rol Colaborador de Log Analytics que contiene la acción `Microsoft.OperationalInsights/*`. Para obtener más información sobre los permisos de Log Analytics, consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../platform/manage-access.md). 
+Todas las operaciones en el nivel de clúster requieren el permiso de acción `Microsoft.OperationalInsights/clusters/write` en el clúster. Este permiso se puede conceder a través del rol Propietario o Colaborador que contiene la acción `*/write` o a través del rol Colaborador de Log Analytics que contiene la acción `Microsoft.OperationalInsights/*`. Para obtener más información sobre los permisos de Log Analytics, consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Modelo de precios de clúster
@@ -77,7 +77,7 @@ Deben especificarse las siguientes propiedades:
 - **Nombre del clúster**: Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
 - **ResourceGroupName**: Como para cualquier recurso de Azure, los clústeres pertenecen a un grupo de recursos. Se recomienda usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md).
 - **Ubicación**: Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
-- **SkuCapacity**: Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso *cluster*. El nivel de *reserva de capacidad* puede estar en el intervalo de 1000 a 3000 GB por día. Puede actualizarlo en incrementos de 100 más adelante si es necesario. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **SkuCapacity**: Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso *cluster*. El nivel de *reserva de capacidad* puede estar en el intervalo de 1000 a 3000 GB por día. Puede actualizarlo en incrementos de 100 más adelante si es necesario. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 Después de crear el recurso *cluster*, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
@@ -300,7 +300,7 @@ Después de crear el recurso *cluster* y de que esté totalmente aprovisionado, 
 - **keyVaultProperties**: actualiza la clave en Azure Key Vault. Consulte [Actualización del clúster con detalles del identificador de clave](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contiene los parámetros siguientes: *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType**: La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
   - **Cluster** (valor predeterminado): Los costos de Reserva de capacidad para el clúster se atribuyen al recurso *cluster*.
-  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
+  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
 
 > [!NOTE]
 > La propiedad *billingType* no se admite en PowerShell.
@@ -573,5 +573,5 @@ Use la llamada de REST siguiente para eliminar un clúster:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [facturación de clústeres dedicados de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Obtenga más información sobre la [facturación de clústeres dedicados de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Obtenga más información sobre el [diseño adecuado de áreas de trabajo de Log Analytics](../logs/design-logs-deployment.md)

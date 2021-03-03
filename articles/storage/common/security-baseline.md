@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714721"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Línea de referencia de seguridad de Azure para Azure Storage
 
@@ -190,7 +190,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 **Guía**: Azure Storage Analytics proporciona registros para blobs, colas y tablas. Puede usar Azure Portal para configurar los registros que se registran para su cuenta. 
 
-- [Configuración de la supervisión para la cuenta de Azure Storage](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Configuración de la supervisión para la cuenta de Azure Storage](./manage-storage-analytics-logs.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -208,7 +208,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 **Guía**: Al almacenar los registros de eventos de seguridad en la cuenta de Azure Storage o el área de trabajo de Log Analytics, puede establecer la directiva de retención según los requisitos de la organización. 
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](./storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Una manera eficaz de reducir el riesgo de acceso a cuentas de usuario no sospech
 
 - [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/anonymous-read-access-configure.md)
 
-- [Supervisión de una cuenta de almacenamiento en Azure Portal](./storage-monitor-storage-account.md)
+- [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md)
 
 - [Administración de las claves de acceso de la cuenta de almacenamiento](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Cree una configuración de diagnóstico para las cuentas de usuario de Azure Act
 
 - [Integración de los registros de actividad de Azure en Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Configuración de alertas de métricas para cuentas de Azure Storage](./storage-monitor-storage-account.md)
+- [Configuración de alertas de métricas para cuentas de Azure Storage](./manage-storage-analytics-logs.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -576,7 +576,7 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 - [Registro de Azure Storage Analytics](./storage-analytics-logging.md)
 
-- [Configuración de alertas de métricas para cuentas de Azure Storage](./storage-monitor-storage-account.md)
+- [Configuración de alertas de métricas para cuentas de Azure Storage](./manage-storage-analytics-logs.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

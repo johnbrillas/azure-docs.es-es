@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581240"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737416"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Línea base de seguridad de Azure Web Application Firewall
 
@@ -164,7 +164,7 @@ Azure Sentinel tiene un libro de Azure WAF integrado que proporciona informació
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configuración de la retención del almacenamiento de registros de seguridad
 
 **Guía**: Envíe los registros de Azure Web Application Firewall (WAF) a una cuenta de almacenamiento personalizada y defina las directivas de retención. Utilice Azure Monitor para establecer el período de retención del área de trabajo de Log Analytics en función de los requisitos de cumplimiento de su organización.
-- [la supervisión para una cuenta de almacenamiento](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [la supervisión para una cuenta de almacenamiento](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704351"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100603837"
 >
 >Las conexiones existentes continuarán funcionando hasta el 30 de junio de 2019.  Con el desuso del portal de OMS, no hay manera de configurar y quitar las conexiones existentes del portal. Consulte [Eliminación del conector con PowerShell](#removing-the-connector-with-powershell) que aparece a continuación para obtener un script que usa PowerShell para eliminar las conexiones existentes.
 >
->Para obtener instrucciones sobre la realización de consultas en datos de registro de Application Insights, consulte [Unificación de varios recursos de Application Insights de Azure Monitor](../log-query/unify-app-resource-data.md). Para más información sobre el abandono del portal de OMS, consulte [Traslado del portal de OMS a Azure](../platform/oms-portal-transition.md).
+>Para obtener instrucciones sobre la realización de consultas en datos de registro de Application Insights, consulte [Unificación de varios recursos de Application Insights de Azure Monitor](./unify-app-resource-data.md). Para más información sobre el abandono del portal de OMS, consulte [Traslado del portal de OMS a Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -318,5 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Use [Búsqueda de registros](../log-query/log-query-overview.md) para ver información detallada de las aplicaciones de Application Insights.
-
+- Use [Búsqueda de registros](./log-query-overview.md) para ver información detallada de las aplicaciones de Application Insights.

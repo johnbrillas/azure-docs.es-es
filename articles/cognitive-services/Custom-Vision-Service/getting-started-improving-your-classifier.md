@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731092"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Mejora del modelo de Custom Vision
 
-En esta guía aprenderá a mejorar la calidad del modelo del servicio Custom Vision. La calidad de su [clasificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) o del [detector de objetos](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) depende de la cantidad, calidad y variedad de los datos con etiqueta que proporcione, así como del grado de equilibrio del conjunto de datos en general. Un buen modelo tiene un conjunto de datos de aprendizaje equilibrado que es representativo de lo que se enviará al modelo. El proceso de creación de un modelo de este tipo es iterativo; es habitual requerir algunos ciclos de aprendizaje para alcanzar los resultados esperados.
+En esta guía aprenderá a mejorar la calidad del modelo del servicio Custom Vision. La calidad de su [clasificador](./getting-started-build-a-classifier.md) o del [detector de objetos](./get-started-build-detector.md) depende de la cantidad, calidad y variedad de los datos con etiqueta que proporcione, así como del grado de equilibrio del conjunto de datos en general. Un buen modelo tiene un conjunto de datos de aprendizaje equilibrado que es representativo de lo que se enviará al modelo. El proceso de creación de un modelo de este tipo es iterativo; es habitual requerir algunos ciclos de aprendizaje para alcanzar los resultados esperados.
 
 Este es un patrón general que le ayudará a entrenar un modelo más preciso:
 

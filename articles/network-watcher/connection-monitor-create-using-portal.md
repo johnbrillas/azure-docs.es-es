@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702171"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creación de un monitor en Connection Monitor mediante Azure Portal
 
@@ -121,7 +121,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
 
    * Para elegir los agentes locales, seleccione la pestaña **Non–Azure endpoints** (Puntos de conexión que no son de Azure). De forma predeterminada, los agentes se agrupan en áreas de trabajo por región. Todas estas áreas de trabajo tienen configurado Network Performance Monitor. 
    
-       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
+       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        En **Crear un monitor de conexión**, en la pestaña **Aspectos básicos**, aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**. También puede cambiar el selector **Agrupar por** para agrupar por agentes.
 

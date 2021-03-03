@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400410"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649519"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Inicio rápido: Creación de una nueva instancia de servicio de Azure API Management mediante Visual Studio Code
 
 Azure API Management (APIM) ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos a fin de desbloquear el potencial de sus datos y servicios. API Management proporciona las competencias esenciales para garantizar un programa de API de éxito mediante compromisos con desarrolladores, información detallada empresarial, análisis, seguridad y protección. APIM le permite crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar. Para obtener más información, consulte el tema de [introducción](api-management-key-concepts.md).
 
-Este inicio rápido describe los pasos que deben seguirse para crear una nueva instancia de API Management mediante la *versión preliminar de la extensión de Azure API Management* para Visual Studio Code. También puede usar la extensión para realizar operaciones comunes de administración en la instancia de API Management.
+En esta guía de inicio rápido, se indican los pasos necesarios para crear una nueva instancia de API Management utilizando la *extensión de Azure API Management* para Visual Studio Code. También puede usar la extensión para realizar operaciones comunes de administración en la instancia de API Management.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,7 +28,7 @@ Además, asegúrese de que tenga instalado lo siguiente:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Extensión de Azure API Management para Visual Studio Code (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Extensión de Azure API Management para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

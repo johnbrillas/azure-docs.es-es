@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 213437e68efb27c483c8013d209261408ab9d4ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604689"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736957"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
-En este artículo se incluyen varios ejemplos de [consultas](../log-query/log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
+En este artículo se incluyen varios ejemplos de [consultas](./log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
 
-Consulte la [referencia del lenguaje Kusto](/azure/kusto/query/) para más información sobre las diferentes palabras clave usadas en estos ejemplos. Puede consultar una [lección sobre cómo crear consultas](../log-query/get-started-queries.md) si no está familiarizado con Azure Monitor.
+Consulte la [referencia del lenguaje Kusto](/azure/kusto/query/) para más información sobre las diferentes palabras clave usadas en estos ejemplos. Puede consultar una [lección sobre cómo crear consultas](./get-started-queries.md) si no está familiarizado con Azure Monitor.
 
 ## <a name="events"></a>Eventos
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Uso
 
-El tipo de datos `Usage` se puede usar para realizar un seguimiento del volumen de datos ingerido por solución o tipo de datos. Hay otras técnicas para estudiar los volúmenes de datos ingeridos por [equipo](../platform/manage-cost-storage.md#data-volume-by-computer) o por [suscripción, grupo de recursos o recurso de Azure](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
+El tipo de datos `Usage` se puede usar para realizar un seguimiento del volumen de datos ingerido por solución o tipo de datos. Hay otras técnicas para estudiar los volúmenes de datos ingeridos por [equipo](./manage-cost-storage.md#data-volume-by-computer) o por [suscripción, grupo de recursos o recurso de Azure](./manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Data volume by solution (Volumen de datos por solución)
 
@@ -438,4 +438,4 @@ Update
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte la [referencia del lenguaje Kusto](/azure/kusto/query) para más información sobre el lenguaje.
-- Consulte una [lección sobre la escritura de consultas de registro en Azure Monitor](../log-query/get-started-queries.md).
+- Consulte una [lección sobre la escritura de consultas de registro en Azure Monitor](./get-started-queries.md).

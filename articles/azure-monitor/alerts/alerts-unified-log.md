@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602717"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714160"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
 ## <a name="overview"></a>Introducción
 
-Las alertas de registro son uno de los tipos de alerta que se admiten en [Alertas de Azure](../platform/alerts-overview.md). Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](../platform/action-groups.md).
+Las alertas de registro son uno de los tipos de alerta que se admiten en [Alertas de Azure](./alerts-overview.md). Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../logs/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md).
 
 > [!NOTE]
-> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
+> Los datos de registro de un [área de trabajo de Log Analytics](../logs/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
 
 > [!NOTE]
 > Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../platform/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/log-analytics-tutorial.md).
+Las alertas de registro ejecutan consultas sobre los datos de Log Analytics. En primer lugar, debe comenzar a [recopilar datos de registro](../essentials/resource-logs.md) y consultar estos datos de registro para detectar problemas. Puede usar el [tema de ejemplos de consultas de alertas](../logs/example-queries.md) en Log Analytics para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../logs/log-analytics-tutorial.md).
 
-El [colaborador de supervisión de Azure](../platform/roles-permissions-security.md) es un rol común necesario para crear, modificar y actualizar las alertas de registro. También se necesitan derechos de acceso y de ejecución de consulta para los registros de recursos. El acceso parcial a los registros de recursos puede producir errores en las consultas o devolver resultados parciales. [Más información sobre la configuración de alertas de registro en Azure](./alerts-log.md).
+El [colaborador de supervisión de Azure](../roles-permissions-security.md) es un rol común necesario para crear, modificar y actualizar las alertas de registro. También se necesitan derechos de acceso y de ejecución de consulta para los registros de recursos. El acceso parcial a los registros de recursos puede producir errores en las consultas o devolver resultados parciales. [Más información sobre la configuración de alertas de registro en Azure](./alerts-log.md).
 
 > [!NOTE]
-> Las alertas de registro de Log Analytics se administraban antes mediante la versión [Alert API heredada de Log Analytics](../platform/api-alerts.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](../alerts/alerts-log-api-switch.md).
+> Las alertas de registro de Log Analytics se administraban antes mediante la versión [Alert API heredada de Log Analytics](./api-alerts.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>Definición de la evaluación de la consulta
 
@@ -44,17 +44,17 @@ La definición de la condición de las reglas de búsqueda de registros comienza
 En las secciones siguientes se describen los distintos parámetros que se pueden usar para establecer la lógica anterior.
 
 ### <a name="log-query"></a>Consulta de registro
-La consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) se utiliza para evaluar la regla. Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. El ámbito de la consulta puede ser:
+La consulta de [Log Analytics](../logs/log-analytics-tutorial.md) se utiliza para evaluar la regla. Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. El ámbito de la consulta puede ser:
 
 - Un recurso específico, como una máquina virtual.
 - Un recurso a gran escala, como una suscripción o un grupo de recursos.
-- Varios recursos, mediante el uso de una [consulta entre recursos](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Varios recursos, mediante el uso de una [consulta entre recursos](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > Las consultas de alerta tienen restricciones para garantizar un rendimiento óptimo y la pertinencia de los resultados. [Obtenga más información aquí](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> Las consultas orientadas a los recursos y las [consultas entre recursos](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) solo se admiten con la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](../platform/api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre el cambio](./alerts-log-api-switch.md)
+> Las consultas orientadas a los recursos y las [consultas entre recursos](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) solo se admiten con la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre el cambio](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Intervalo de tiempo de consulta
 
@@ -154,7 +154,7 @@ Por ejemplo, supongamos que desea supervisar los errores de varias máquinas vir
 Esta regla supervisa si alguna máquina virtual presentó eventos de error en los últimos 15 minutos. Cada máquina virtual se supervisa por separado y desencadena acciones de forma individual.
 
 > [!NOTE]
-> La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](../platform/api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-05-01-preview` y versiones posteriores de la API.
+> La división por dimensiones de alerta solo está disponible en la versión scheduledQueryRules API actual. Si usa la versión [Alert API de Log Analytics heredada](./api-alerts.md), tendrá que cambiar a la nueva. [Más información sobre cómo cambiar](./alerts-log-api-switch.md). Las alertas orientadas a recursos a gran escala solo se admiten en la versión `2020-05-01-preview` y versiones posteriores de la API.
 
 ## <a name="alert-logic-definition"></a>Definición de la lógica de alerta
 
@@ -197,17 +197,17 @@ La información de precios se encuentra en la [página de precios de Azure Monit
 
 - Las alertas de registro en Application Insights se muestran con el nombre exacto del recurso junto con las propiedades del grupo de recursos y la alerta.
 - Las alertas de registro de Log Analytics se muestran con el nombre exacto del recurso junto con las propiedades del grupo de recursos y la alerta, cuando se crean mediante [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules).
-- Las alertas de registro creadas con la [API heredada de Log Analytics](../platform/api-alerts.md) no son [recursos de Azure](../../azure-resource-manager/management/overview.md) con seguimiento y no tienen nombres de recurso únicos. Estas alertas se siguen creando en `microsoft.insights/scheduledqueryrules` como recursos ocultos, que tienen la estructura de nomenclatura de recursos `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Las alertas de registro de la API heredada se muestran con el nombre de recurso oculto anterior junto con las propiedades del grupo de recursos y la alerta.
+- Las alertas de registro creadas con la [API heredada de Log Analytics](./api-alerts.md) no son [recursos de Azure](../../azure-resource-manager/management/overview.md) con seguimiento y no tienen nombres de recurso únicos. Estas alertas se siguen creando en `microsoft.insights/scheduledqueryrules` como recursos ocultos, que tienen la estructura de nomenclatura de recursos `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Las alertas de registro de la API heredada se muestran con el nombre de recurso oculto anterior junto con las propiedades del grupo de recursos y la alerta.
 
 > [!NOTE]
 > Los caracteres de recursos no admitidos como `<, >, %, &, \, ?, /` se reemplazan por `_` en los nombres de recursos ocultos, lo que también se reflejará en la información de facturación.
 
 > [!NOTE]
-> Las alertas de registro de Log Analytics se solían administrar mediante [Alert API de Log Analytics](../platform/api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](../alerts/alerts-log-api-switch.md). Deberá realizar cualquier administración de reglas de alertas mediante la [API heredada de Log Analytics](../platform/api-alerts.md) hasta que decida cambiar y no pueda usar los recursos ocultos.
+> Las alertas de registro de Log Analytics se solían administrar mediante [Alert API de Log Analytics](./api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../insights/solutions.md). [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](../alerts/alerts-log-api-switch.md). Deberá realizar cualquier administración de reglas de alertas mediante la [API heredada de Log Analytics](./api-alerts.md) hasta que decida cambiar y no pueda usar los recursos ocultos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre la [creación de alertas de registro en Azure](./alerts-log.md).
 * Información sobre [webhooks en alertas de registro en Azure](../alerts/alerts-log-webhook.md).
-* Más información acerca de las [Alertas de Azure](../platform/alerts-overview.md).
-* Más información sobre [Log Analytics](../log-query/log-query-overview.md).
+* Más información acerca de las [Alertas de Azure](./alerts-overview.md).
+* Más información sobre [Log Analytics](../logs/log-query-overview.md).

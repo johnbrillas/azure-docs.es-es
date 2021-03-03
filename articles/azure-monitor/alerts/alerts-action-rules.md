@@ -4,12 +4,12 @@ description: Descripción de qué son las reglas de acción en Azure Monitor y c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718155"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -209,7 +209,7 @@ Contoso quiere suprimir las notificaciones en todos los registros de alertas gen
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Escenario 3: Grupo de acciones definido en un grupo de recursos
 
-Contoso ha definido [una alerta de métricas en el nivel de suscripción](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Pero quiere definir las acciones que se desencadenan específicamente para las alertas generadas desde el grupo de recursos **ContosoRG**.
+Contoso ha definido [una alerta de métricas en el nivel de suscripción](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Pero quiere definir las acciones que se desencadenan específicamente para las alertas generadas desde el grupo de recursos **ContosoRG**.
 
 **Solución:** Cree una regla de acción con:
 * Ámbito = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Las alertas de registro creadas con la opción [número de resultados](../platform/alerts-unified-log.md) generan una sola instancia de alerta con el resultado de búsqueda completo (que, por ejemplo, podría extenderse a varios equipos). En este escenario, si una regla de acción usa el filtro **Contexto de alerta (carga)** , actuará sobre la instancia de alerta siempre que haya una coincidencia. En el escenario 2, descrito anteriormente, si los resultados de la búsqueda de la alerta de registro generada contienen **Equipo 01** y **Equipo 02**, se suprime toda la notificación. No se ha generado ninguna notificación para **Equipo 02**.
+Las alertas de registro creadas con la opción [número de resultados](./alerts-unified-log.md) generan una sola instancia de alerta con el resultado de búsqueda completo (que, por ejemplo, podría extenderse a varios equipos). En este escenario, si una regla de acción usa el filtro **Contexto de alerta (carga)** , actuará sobre la instancia de alerta siempre que haya una coincidencia. En el escenario 2, descrito anteriormente, si los resultados de la búsqueda de la alerta de registro generada contienen **Equipo 01** y **Equipo 02**, se suprime toda la notificación. No se ha generado ninguna notificación para **Equipo 02**.
 
 ![Diagrama que muestra las reglas de acción y las alertas de registros con una sola instancia de alerta resaltada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Para usar mejor las alertas de registro con las reglas de acción, cree alertas de registro con la opción [unidades métricas](../platform/alerts-unified-log.md). Con esta opción, se generan instancias de alerta independientes según el campo de grupo definido. A continuación, en el escenario 2, se generan instancias de alerta independientes para **Equipo 01** y **Equipo 02**. Debido a la regla de acción descrita en el escenario, solo se suprime la notificación de **Equipo 01**. La notificación de **Equipo 02** se sigue activando de forma normal.
+Para usar mejor las alertas de registro con las reglas de acción, cree alertas de registro con la opción [unidades métricas](./alerts-unified-log.md). Con esta opción, se generan instancias de alerta independientes según el campo de grupo definido. A continuación, en el escenario 2, se generan instancias de alerta independientes para **Equipo 01** y **Equipo 02**. Debido a la regla de acción descrita en el escenario, solo se suprime la notificación de **Equipo 01**. La notificación de **Equipo 02** se sigue activando de forma normal.
 
 ![Reglas de acción y alertas del registro (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Después de definir el recurso de destino para la regla de alerta, puede ver la 
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>¿Puedo ver las alertas que han sido suprimidas por una regla de acción?
 
-En la [página de lista de alertas](../platform/alerts-managing-alert-instances.md), puede elegir una columna adicional denominada **Estado de supresión**. Si se suprimiera la notificación para una instancia de alerta, mostraría ese estado en la lista.
+En la [página de lista de alertas](./alerts-managing-alert-instances.md), puede elegir una columna adicional denominada **Estado de supresión**. Si se suprimiera la notificación para una instancia de alerta, mostraría ese estado en la lista.
 
 ![Instancias de alertas suprimidas](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Para cada alerta en VM1, el grupo de acciones AG1 se desencadenaría una vez. Ca
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga más información sobre alertas en Azure](../platform/alerts-overview.md)
+- [Obtenga más información sobre alertas en Azure](./alerts-overview.md)

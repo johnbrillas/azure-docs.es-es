@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732282"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
@@ -35,11 +35,11 @@ Las siguientes son limitaciones de la característica actual:
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./automation-security-overview.md#run-as-accounts). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
-- Un [área de trabajo de Log Analytics de Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) que almacene los registros de trabajo de los runbooks y los resultados de los flujos de trabajo en un área de trabajo para consultarlos y analizarlos. La cuenta de Automation se puede vincular a un área de trabajo de Log Analytics nueva o existente, y ambos recursos deben estar en el mismo grupo de recursos.
+- Un [área de trabajo de Log Analytics de Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) que almacene los registros de trabajo de los runbooks y los resultados de los flujos de trabajo en un área de trabajo para consultarlos y analizarlos. La cuenta de Automation se puede vincular a un área de trabajo de Log Analytics nueva o existente, y ambos recursos deben estar en el mismo grupo de recursos.
 
 Se recomienda usar otra cuenta de Automation para trabajar con máquinas virtuales habilitadas para la característica Start/Stop VMs during off-hours. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La característica no se actualiza al mismo ritmo y es posible que no funcione con versiones más recientes de los cmdlets que usa. Antes de importar los módulos actualizados en las cuentas de Automation de producción, se recomienda importarlos en una cuenta de prueba, para comprobar que no hay problemas de compatibilidad.
 

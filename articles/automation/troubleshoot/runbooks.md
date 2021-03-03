@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723816"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solución de incidencias de runbooks
 
@@ -50,7 +50,7 @@ Si se producen errores durante la ejecución del runbook en Azure Automation, pu
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Escenario: Se produce un error en el runbook del tipo Sin permisos o Prohibido (403).
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Se produce un error en el runbook del tipo Sin permisos, Prohibido (403) o equivalente.
 
@@ -58,13 +58,13 @@ Se produce un error en el runbook del tipo Sin permisos, Prohibido (403) o equiv
 
 Es posible que las cuentas de ejecución no tengan los mismos permisos en los recursos de Azure que su cuenta de Automation actual. 
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Asegúrese de que su cuenta de ejecución tiene [permisos para acceder a todos los recursos](../../role-based-access-control/role-assignments-portal.md) que se usan en el script.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Escenario: Error al iniciar sesión en la cuenta de Azure
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Se produce uno de los siguientes errores al trabajar con el cmdlet `Connect-AzAccount`:
 
@@ -80,7 +80,7 @@ No certificate was found in the certificate store with thumbprint
 
 Estos errores se producen si el nombre de recurso de credencial no es válido. También pueden producirse si el nombre de usuario y la contraseña que usó para configurar el recurso de credencial de Automation no son válidos.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para determinar cuál es el problema, siga estos pasos:
 
@@ -123,7 +123,7 @@ Para determinar cuál es el problema, siga estos pasos:
 
 ## <a name="scenario-run-login-azurermaccount-to-log-in"></a><a name="login-azurerm"></a>Escenario: Ejecución de Login-AzureRMAccount para iniciar sesión
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Recibe el error siguiente al ejecutar un runbook:
 
@@ -140,7 +140,7 @@ Este error tiene dos causas principales:
 * Hay versiones diferentes del módulo de AzureRM o Az.
 * Intenta acceder a los recursos de otra suscripción.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si recibe este error después de actualizar un módulo de AzureRM o Az, actualice todos los módulos a la misma versión.
 
@@ -160,7 +160,7 @@ Si intenta acceder a los recursos de otra suscripción, siga estos pasos para co
 
 1. Copie el nombre de la suscripción.
 
-1. Ahora puede usar el código del runbook siguiente para probar los permisos de la cuenta de Automation en la otra suscripción. Reemplace `"\<CertificateThumbprint\>"` por el valor que copió en el paso 1. Reemplace `"\<SubscriptionName\>"` por el valor que copió en el paso 4.
+1. Ahora puede usar el código del runbook siguiente para probar los permisos de la cuenta de Automation en la otra suscripción. Reemplace `<CertificateThumbprint>` por el valor que copió en el paso 1. Reemplace `"<SubscriptionName>"` por el valor que copió en el paso 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -179,7 +179,7 @@ Si intenta acceder a los recursos de otra suscripción, siga estos pasos para co
 
 ## <a name="scenario-unable-to-find-the-azure-subscription"></a><a name="unable-to-find-subscription"></a>Escenario: No se encuentra la suscripción de Azure
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Recibirá el siguiente error al trabajar con el cmdlet `Select-AzureSubscription`, `Select-AzureRMSubscription` o `Select-AzSubscription`:
 
@@ -195,7 +195,7 @@ Este error se puede generar si:
 * El usuario de Azure AD que intenta obtener los detalles de la suscripción no está configurado como administrador de la suscripción.
 * El cmdlet no está disponible.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Siga estos pasos para determinar si se ha autenticado en Azure y tiene acceso a la suscripción que intenta seleccionar:
 
@@ -217,7 +217,7 @@ Siga estos pasos para determinar si se ha autenticado en Azure y tiene acceso a 
 
 ## <a name="scenario-runbooks-fail-when-dealing-with-multiple-subscriptions"></a><a name="runbook-auth-failure"></a>Escenario: se produce un error en los runbooks cuando se trabaja con varias suscripciones
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Cuando se ejecuta un runbook, este no puede administrar los recursos de Azure.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2a5c31270f18c2e6149d93fa522818704b9747d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42aea886e38622c773ac1ca0ea2533d8aa1c47bb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717033"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Base de referencia de seguridad de Azure para Azure Managed Applications
 
@@ -447,7 +447,7 @@ En Azure Monitor, puede establecer el período de retención del área de trabaj
 
 - [Configuración del período de retención del área de trabajo de Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: Sí
 

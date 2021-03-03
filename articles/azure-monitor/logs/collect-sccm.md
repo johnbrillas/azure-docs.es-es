@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603749"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710986"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conexión de Configuration Manager con Azure Monitor
 Puede conectar el entorno de Microsoft Endpoint Configuration Manager con Azure Monitor para sincronizar los datos de recopilación del dispositivo y hacer referencia a estas recopilaciones en Azure Monitor y Azure Automation.  
@@ -44,7 +44,7 @@ Los pasos siguientes son un resumen de los pasos necesarios para configurar la i
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Concesión de permisos a Configuration Manager para acceder a Log Analytics
 
-En el procedimiento siguiente, concede el rol *Colaborador* del área de trabajo de Log Analytics a la aplicación de AD y a la entidad de servicio que creó anteriormente para Configuration Manager. Si no dispone de un área de trabajo, consulte [Creación de un área de trabajo en Azure Monitor](../learn/quick-create-workspace.md) antes de continuar. Esto permite a Configuration Manager autenticarse y conectarse a su área de trabajo de Log Analytics.  
+En el procedimiento siguiente, concede el rol *Colaborador* del área de trabajo de Log Analytics a la aplicación de AD y a la entidad de servicio que creó anteriormente para Configuration Manager. Si no dispone de un área de trabajo, consulte [Creación de un área de trabajo en Azure Monitor](./quick-create-workspace.md) antes de continuar. Esto permite a Configuration Manager autenticarse y conectarse a su área de trabajo de Log Analytics.  
 
 > [!NOTE]
 > Debe especificar permisos en el área de trabajo de Log Analytics para Configuration Manager. De lo contrario, recibirá un mensaje de error cuando utilice el Asistente para configuración de Configuration Manager.
@@ -148,9 +148,8 @@ Después de importar las recopilaciones, puede ver cuántos equipos con pertenen
 
 ![Captura de pantalla de la configuración avanzada de grupos de equipos para S C C M que muestra la opción Import Configuration Manager collection memberships (Importar pertenencias de la recopilación de Configuration Manager) seleccionada.](./media/collect-sccm/sccm-computer-groups02.png)
 
-Al hacer clic en cualquiera de ellos, se abre el editor de consultas de registro con todos los grupos importados o todos los equipos que pertenecen a cada grupo. Con [Búsqueda de registros](../log-query/log-query-overview.md), puede analizar con más profundidad los datos de pertenencia de las colecciones.
+Al hacer clic en cualquiera de ellos, se abre el editor de consultas de registro con todos los grupos importados o todos los equipos que pertenecen a cada grupo. Con [Búsqueda de registros](./log-query-overview.md), puede analizar con más profundidad los datos de pertenencia de las colecciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use [Búsqueda de registros](../log-query/log-query-overview.md) para ver información detallada sobre los datos de Configuration Manager.
-
+Use [Búsqueda de registros](./log-query-overview.md) para ver información detallada sobre los datos de Configuration Manager.

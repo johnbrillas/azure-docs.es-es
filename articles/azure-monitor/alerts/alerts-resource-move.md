@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714211"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Actualización de reglas de alertas o reglas de acción cuando su recurso de destino se mueve a otra región de Azure
 
-En este artículo se describe por qué las [reglas de alerta ](../platform/alerts-overview.md) y [reglas de acción](./alerts-action-rules.md) existentes pueden verse afectadas cuando se mueven otros recursos de Azure entre regiones, y cómo identificar y resolver esos problemas. Consulte la [documentación principal de movimiento de recursos](../../azure-resource-manager/management/move-region.md) para obtener información adicional sobre cuándo es útil el movimiento de recursos entre regiones y una lista de comprobación del diseño de un proceso de movimiento.
+En este artículo se describe por qué las [reglas de alerta ](./alerts-overview.md) y [reglas de acción](./alerts-action-rules.md) existentes pueden verse afectadas cuando se mueven otros recursos de Azure entre regiones, y cómo identificar y resolver esos problemas. Consulte la [documentación principal de movimiento de recursos](../../azure-resource-manager/management/move-region.md) para obtener información adicional sobre cuándo es útil el movimiento de recursos entre regiones y una lista de comprobación del diseño de un proceso de movimiento.
 
 ## <a name="why-the-problem-exists"></a>Por qué existe el problema
 
@@ -48,7 +48,6 @@ El problema se aplica a estos tipos de reglas:
 
 - Reglas de alertas de registro de actividad
 - Reglas de acción
-- Alertas clásicas
 - Alertas de métricas; para obtener más información, consulte la sección siguiente [Reglas de alertas basadas en métricas](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -112,4 +111,4 @@ Si se han movido **solo algunos** de los recursos del ámbito, debe quitar de la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo corregir otros problemas de las [notificaciones de alerta](alerts-troubleshoot.md), [alertas de métricas](alerts-troubleshoot-metric.md) y [alertas del registro](alerts-troubleshoot-log.md). 
+Obtenga información sobre cómo corregir otros problemas de las [notificaciones de alerta](alerts-troubleshoot.md), [alertas de métricas](alerts-troubleshoot-metric.md) y [alertas del registro](alerts-troubleshoot-log.md).

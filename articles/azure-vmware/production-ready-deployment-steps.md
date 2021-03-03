@@ -2,13 +2,13 @@
 title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733674"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -51,12 +51,6 @@ Identifique los hosts de tamaño que quiere usar al implementar Azure VMware Sol
 Defina el número de hosts que quiere implementar en la nube privada de Azure VMware Solution.  El número mínimo de hosts es tres y el máximo es 16 por clúster.  Para más información, consulte la documentación de [nubes privadas y clústeres de Azure VMware Solution](concepts-private-clouds-clusters.md#clusters).
 
 Siempre puede extender el clúster más adelante si necesita aumentar el número de implementación inicial.
-
-## <a name="vcenter-admin-password"></a>Contraseña del administrador de vCenter
-Defina la contraseña del administrador de vCenter.  Durante la implementación, creará una contraseña de administrador de vCenter. La contraseña es para la cuenta de administrador de cloudadmin@vsphere.local durante la compilación de vCenter. La usará para iniciar sesión en vCenter.
-
-## <a name="nsx-t-admin-password"></a>Contraseña de administrador de NSX-T
-Defina la contraseña del administrador de NSX-T.  Durante la implementación, creará una contraseña de administrador de NSX-T. La contraseña se asigna al usuario administrador en la cuenta de NSX durante la compilación de NSX. La usará para iniciar sesión en NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento de dirección IP
 

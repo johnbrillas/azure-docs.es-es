@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545925"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703100"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Habilitación de una identidad administrada para el enrutamiento de eventos de Azure Digital Twins (versión preliminar): Azure portal
 
@@ -89,8 +89,7 @@ Para obtener más información sobre los puntos de conexión, las rutas y los ti
 
 ### <a name="assign-the-role"></a>Asignación del rol
 
->[!NOTE]
-> Esta sección la debe completar un usuario de Azure con permisos para administrar el acceso de los usuarios a los recursos de Azure (incluidas la concesión y delegación de permisos). Los roles comunes que cumplen este requisito son *propietario*, *administrador de cuentas* o la combinación de *administrador de acceso de usuarios* y *colaborador*. Para obtener más información sobre los requisitos de permisos para los roles de Azure Digital Twins, vea [*Procedimiento para configuración de una instancia de Azure Digital Twins y autenticación*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Para asignar un rol a la identidad, abra primero [Azure Portal](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ Para asignar un rol a la identidad, abra primero [Azure Portal](https://portal.a
 
 Cuando acabe de escribir los detalles, seleccione **Guardar**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Creación de un punto de conexión con autorización basada en identidades
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Creación de un punto de conexión con autenticación basada en identidades
 
 Después de configurar una identidad administrada por el sistema para la instancia de Azure Digital Twins y asignarle los roles adecuados, puede crear [puntos de conexión](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) de Azure Digital Twins que sean capaces de usar la identidad para la autenticación. Esta opción solo está disponible para los puntos de conexión de centro de eventos y de tipo Service Bus (no se admite para Event Grid).
 

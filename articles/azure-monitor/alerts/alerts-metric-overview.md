@@ -4,16 +4,16 @@ description: Obtenga información general acerca de lo que puede hacer con las a
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 989c3b8a50c3e613e67726684f35c6adce9c8b96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc0f41f23f1d9387f806c947ac27e6f31cc0e053
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723612"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
-Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../platform/metrics-custom-overview.md), [registros populares de Azure Monitor convertidos en métricas](./alerts-metric-logs.md) y métricas de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
+Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../essentials/metrics-custom-overview.md), [registros populares de Azure Monitor convertidos en métricas](./alerts-metric-logs.md) y métricas de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
 
 ## <a name="how-do-metric-alerts-work"></a>Cómo funcionan las alertas de métricas
 
@@ -26,7 +26,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](../platform/metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
+- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](../essentials/metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -43,7 +43,7 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](../platform/metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
+- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](../essentials/metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -180,9 +180,8 @@ En este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-sup
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprenda a crear, ver y administrar las alertas de métricas en Azure](../alerts/alerts-metric.md)
-- [Aprenda a crear alertas en el Explorador de métricas de Azure Monitor](../platform/metrics-charts.md#alert-rules)
+- [Aprenda a crear alertas en el Explorador de métricas de Azure Monitor](../essentials/metrics-charts.md#alert-rules)
 - [Aprenda a implementar alertas de métricas con plantillas de Azure Resource Manager](./alerts-metric-create-templates.md)
-- [Obtenga más información sobre los grupos de acciones](../platform/action-groups.md)
+- [Obtenga más información sobre los grupos de acciones](./action-groups.md)
 - [Más información sobre el tipo de condición de umbrales dinámicos](../alerts/alerts-dynamic-thresholds.md)
 - [Más información sobre la solución de problemas de alertas de métricas](alerts-troubleshoot-metric.md)
-

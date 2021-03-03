@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259345"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687675"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -57,7 +57,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicar el punto de conexión del host de RD
 
 1. [Publique una nueva aplicación del proxy de aplicación](application-proxy-add-on-premises-application.md) con los valores siguientes:
-   - Dirección URL interna: `https://\<rdhost\>.com/`, donde `\<rdhost\>` es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
+   - Dirección URL interna: `https://<rdhost>.com/`, donde `<rdhost>` es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
    - Traducir URL en encabezados: No
@@ -69,7 +69,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
 
 4. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Elija la aplicación en la lista.
 5. En **Administrar**, seleccione **Personalización de marca**.
-6. Actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión web de Escritorio remoto (por ejemplo, `https://\<rdhost\>.com/RDWeb`).
+6. Actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión web de Escritorio remoto (por ejemplo, `https://<rdhost>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigir el tráfico RDS al proxy de aplicación
 

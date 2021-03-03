@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945543"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741844"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -216,7 +216,7 @@ Cada tipo de clúster tiene su propio número de nodos, terminología para los n
 | Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo ZooKeeper (3) |![Configuración del tipo de clúster de Storm en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Configuración del tipo de clúster de Spark en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
-Para más información, vea [Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) en "¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?"
+Para más información, vea [Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres](hdinsight-supported-node-configuration.md) en "¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?"
 
 El costo de los clústeres de HDInsight viene determinado por el número de nodos y por los tamaños de las máquinas virtuales de los nodos.
 

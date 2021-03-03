@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603098"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711559"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
 
 > [!IMPORTANT]
-> En este artículo se trata la recopilación de datos de rendimiento con el [agente de Log Analytics](../platform/log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
+> En este artículo se trata la recopilación de datos de rendimiento con el [agente de Log Analytics](./log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Contadores de rendimiento](media/data-sources-performance-counters/overview.png)
 
@@ -224,5 +224,5 @@ La tabla siguiente proporciona distintos ejemplos de consultas de registros que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Recopilación de contadores de rendimiento desde aplicaciones de Linux](data-sources-linux-applications.md), lo que incluye MySQL y Apache HTTP Server.
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-* Exporte los datos recopilados a [Power BI](../platform/powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+* Exporte los datos recopilados a [Power BI](../visualize/powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.

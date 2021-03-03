@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602514"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731721"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para una máquina virtual Windows
-Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](../insights/monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](../agents/diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager. 
+Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](./monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](../agents/diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager. 
 
 > [!NOTE]
 > Para obtener más información sobre la configuración de la extensión de diagnósticos para recopilar métricas del SO invitado mediante Azure Portal, consulte [Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 - Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](../platform/metrics-custom-overview.md#supported-regions). 
+- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos
@@ -250,7 +250,7 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Recuerde [usar una región de Azure que esté habilitada para las métricas personalizadas](../platform/metrics-custom-overview.md).
+   > Recuerde [usar una región de Azure que esté habilitada para las métricas personalizadas](./metrics-custom-overview.md).
 
 1. Ejecute los comandos siguientes para implementar la máquina virtual mediante la plantilla de Resource Manager.
    > [!NOTE]
@@ -285,4 +285,4 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información acerca de las [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Más información acerca de las [métricas personalizadas](./metrics-custom-overview.md).

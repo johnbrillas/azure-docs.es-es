@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879955"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667738"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas de Azure Purview en Azure Monitor
 
@@ -24,7 +24,7 @@ Los administradores de Azure Purview pueden usar Azure Monitor para realizar un 
 
 ## <a name="aggregated-metrics"></a>Métricas agregadas
 
-Es posible acceder a las métricas desde Azure Portal para una cuenta de Purview. El acceso a las métricas se controla mediante la asignación de roles de la cuenta de Purview. Los usuarios deben formar parte del rol "Lector de supervisión" en Azure Purview para ver las métricas. Consulte los [permisos del rol Lector de supervisión](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) para obtener más información sobre los niveles de acceso de los roles.
+Es posible acceder a las métricas desde Azure Portal para una cuenta de Purview. El acceso a las métricas se controla mediante la asignación de roles de la cuenta de Purview. Los usuarios deben formar parte del rol "Lector de supervisión" en Azure Purview para ver las métricas. Consulte los [permisos del rol Lector de supervisión](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) para obtener más información sobre los niveles de acceso de los roles.
 
 La persona que crea la cuenta de Purview obtiene automáticamente los permisos para ver las métricas. Si otras personas desean ver las métricas, debe agregarlas al rol **Lector de supervisión** mediante los pasos siguientes:
 
@@ -58,7 +58,7 @@ Los usuarios de Azure Purview también pueden acceder a la página de métricas 
 
 ### <a name="available-metrics"></a>Métricas disponibles
 
-Para familiarizarse con el uso de la sección de métricas en Azure Portal, lea previamente los dos documentos siguientes. [Introducción al Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md) y [Características avanzadas del Explorador de métricas de Azure](../azure-monitor/platform/metrics-charts.md).
+Para familiarizarse con el uso de la sección de métricas en Azure Portal, lea previamente los dos documentos siguientes. [Introducción al Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md) y [Características avanzadas del Explorador de métricas de Azure](../azure-monitor/essentials/metrics-charts.md).
 
 La tabla siguiente contiene la lista de métricas disponibles para explorar en Azure Portal:
 
@@ -75,7 +75,7 @@ Los eventos de telemetría sin procesar se emiten a Azure Monitor. Los eventos s
 
 Siga los pasos para crear una configuración de diagnóstico para la cuenta de Azure Purview.
 
-1. Cree de una configuración de diagnóstico para recopilar registros de plataforma y métricas mediante las instrucciones de este artículo: [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../azure-monitor/platform/diagnostic-settings.md). Seleccione el destino solamente como la cuenta de almacenamiento de Azure.
+1. Cree de una configuración de diagnóstico para recopilar registros de plataforma y métricas mediante las instrucciones de este artículo: [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../azure-monitor/essentials/diagnostic-settings.md). Seleccione el destino solamente como la cuenta de almacenamiento de Azure.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Captura de pantalla que muestra cómo se crea un registro de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
@@ -83,7 +83,7 @@ Siga los pasos para crear una configuración de diagnóstico para la cuenta de A
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Captura de pantalla que muestra la asignación de la cuenta de almacenamiento para el registro de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Puede tardar 15 minutos en empezar a recibir registros en la cuenta de almacenamiento recién creada. [Consulte la retención de datos y el esquema de registros de recursos en la cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Una vez configurados los registros de diagnóstico, los eventos fluyen a la cuenta de almacenamiento.
+Puede tardar 15 minutos en empezar a recibir registros en la cuenta de almacenamiento recién creada. [Consulte la retención de datos y el esquema de registros de recursos en la cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Una vez configurados los registros de diagnóstico, los eventos fluyen a la cuenta de almacenamiento.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

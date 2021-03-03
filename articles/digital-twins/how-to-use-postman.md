@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715707"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -140,7 +140,7 @@ Para continuar con una consulta de ejemplo, en este artículo se usará Query AP
 1. Compruebe que los encabezados que se muestran para la solicitud en la pestaña *Headers* (Encabezados) coinciden con los descritos en la documentación de referencia. Para esta solicitud, se han rellenado automáticamente varios encabezados. Para Query API, no se requiere ninguna de las opciones de encabezado, por lo que este paso ha finalizado.
 1. Compruebe que el cuerpo que se muestra para la solicitud en la pestaña *Body* (Cuerpo) coincide con las necesidades descritas en la documentación de referencia. Para Query API, se requiere un cuerpo JSON que proporcione el texto de la consulta. Este es un cuerpo de ejemplo para esta solicitud que consulta todos los gemelos digitales de la instancia:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="En los detalles de la nueva solicitud, se muestra la pestaña Body (Cuerpo). Contiene un cuerpo JSON sin formato con una consulta de &quot;SELECT * FROM DIGITALTWINS&quot;."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="En los detalles de la nueva solicitud, se muestra la pestaña Body (Cuerpo). Contiene un cuerpo JSON sin formato con una consulta de &quot;SELECT * FROM DIGITALTWINS&quot;." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Para más información sobre cómo crear consultas de Azure Digital Twins, consulte [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 

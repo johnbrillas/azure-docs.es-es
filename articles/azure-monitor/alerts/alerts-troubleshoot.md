@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602728"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717866"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solución de problemas en las alertas de Azure Monitor
 
 En este artículo se describen los problemas comunes en las alertas y notificaciones de Azure Monitor.
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../platform/alerts-overview.md).
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](./alerts-overview.md).
 
 Si tiene un problema en el que a veces una alerta no se desencadena según lo esperado, consulte los artículos siguientes. Puede ver las alertas "desencadenadas" en Azure Portal.
 
@@ -36,7 +36,7 @@ Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el corre
 
 1. **¿Se suprimió el correo electrónico mediante una [regla de acción](../alerts/alerts-action-rules.md)** ?
 
-    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](../platform/action-groups.md) suprimidos:
+    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](./action-groups.md) suprimidos:
 
     ![Historial de supresiones de reglas de acción de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Si puede ver una alerta desencadenada en el portal pero no recibió el SMS, la l
 
 1. **¿Se suprimió la acción mediante una [regla de acción](../alerts/alerts-action-rules.md)?**
 
-    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](../platform/action-groups.md) suprimidos: 
+    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](./action-groups.md) suprimidos: 
 
     ![Historial de supresiones de reglas de acción de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Si puede ver una alerta desencadenada en el portal, pero su acción configurada 
 
 1. **¿Se suprimió la acción mediante una regla de acción?**
 
-    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](../platform/action-groups.md) suprimidos:
+    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](./action-groups.md) suprimidos:
 
     ![Historial de supresiones de reglas de acción de alerta](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -135,7 +135,7 @@ Si puede ver una alerta desencadenada en el portal, pero su acción configurada 
 
     1. **¿Se han bloqueado las direcciones IP de origen?**
     
-       Agregue las [direcciones IP](../platform/action-groups.md#action-specific-information) desde las que se llama al webhook a su lista de permitidos.
+       Agregue las [direcciones IP](./action-groups.md#action-specific-information) desde las que se llama al webhook a su lista de permitidos.
 
     1. **¿Funciona correctamente el punto de conexión de webhook?**
 
@@ -180,12 +180,12 @@ Si ha recibido la alerta pero cree que faltan algunos de sus campos o son incorr
 
     Compruebe si el formato especificado en el nivel de acción es el esperado. Por ejemplo, puede que haya desarrollado un código que responda a las alertas (webhook, función, aplicación lógica, etc.), que espera un formato, pero más adelante en la acción usted u otra persona especificó un formato diferente.  
 
-    Además, compruebe el formato de carga útil (JSON) para [alertas de registro de actividad](../alerts/activity-log-alerts-webhook.md), para [alertas de búsqueda de registros](../alerts/alerts-log-webhook.md) (Application Insights y análisis de registros), para [alertas de métricas](alerts-metric-near-real-time.md#payload-schema), para el [esquema de alerta común](../alerts/alerts-common-schema-definitions.md) y para las [alertas de métricas clásicas](../platform/alerts-webhooks.md) en desuso.
+    Además, compruebe el formato de carga útil (JSON) para [alertas de registro de actividad](../alerts/activity-log-alerts-webhook.md), para [alertas de búsqueda de registros](../alerts/alerts-log-webhook.md) (Application Insights y análisis de registros), para [alertas de métricas](alerts-metric-near-real-time.md#payload-schema), para el [esquema de alerta común](../alerts/alerts-common-schema-definitions.md) y para las [alertas de métricas clásicas](./alerts-webhooks.md) en desuso.
 
  
 1. **Alertas de registros de actividad: ¿La información está disponible en el registro de actividad?** 
 
-    Las [alertas del registro de actividad](../platform/activity-log-alerts.md) son alertas basadas en eventos escritos en el registro de actividad de Azure, tales como eventos sobre la creación, actualización o eliminación de recursos de Azure, eventos sobre el estado de los servicios y recursos o hallazgos de Azure Advisor y Azure Policy. Si ha recibido una alerta basada en el registro de actividad pero algunos campos que necesita faltan o son incorrectos, compruebe primero los eventos en el propio registro de actividad. Si el recurso de Azure no escribió los campos que está buscando en su evento de registro de actividad, esos campos no se incluirán en la alerta correspondiente. 
+    Las [alertas del registro de actividad](./activity-log-alerts.md) son alertas basadas en eventos escritos en el registro de actividad de Azure, tales como eventos sobre la creación, actualización o eliminación de recursos de Azure, eventos sobre el estado de los servicios y recursos o hallazgos de Azure Advisor y Azure Policy. Si ha recibido una alerta basada en el registro de actividad pero algunos campos que necesita faltan o son incorrectos, compruebe primero los eventos en el propio registro de actividad. Si el recurso de Azure no escribió los campos que está buscando en su evento de registro de actividad, esos campos no se incluirán en la alerta correspondiente. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>La regla de acción no funciona como se esperaba 
 
@@ -250,4 +250,4 @@ Si ha recibido un error al intentar crear, actualizar o eliminar una [regla de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Si usa una alerta de registro, consulte también [Solución de problemas de alertas de registro en Azure Monitor](./alerts-troubleshoot-log.md).
-- Vuelva a [Azure Portal](https://portal.azure.com) para comprobar si ha resuelto el problema con las instrucciones anteriores. 
+- Vuelva a [Azure Portal](https://portal.azure.com) para comprobar si ha resuelto el problema con las instrucciones anteriores.

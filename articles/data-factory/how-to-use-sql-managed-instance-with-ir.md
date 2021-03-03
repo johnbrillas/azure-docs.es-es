@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392585"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710216"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Uso de Instancia administrada de Azure SQL con SQL Server Integration Services (SSIS) en Azure Data Factory
 
@@ -22,7 +22,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
 - [Aprovisionamiento de una instancia de Azure-SSIS IR con el catálogo de SSIS (SSISDB) hospedada por Instancia administrada de Azure SQL](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Ejecución de paquetes SSIS del trabajo del agente de Instancia administrada de Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpieza de los registros de SSISDB del trabajo del agente de Instancia administrada de Azure SQL](#clean-up-ssisdb-logs)
-- [Conmutación por error de Azure-SSIS IR con Instancia administrada de Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Conmutación por error de Azure-SSIS IR con Instancia administrada de Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migración de las cargas de trabajo de SSIS locales a SSIS en ADF con Instancia administrada de Azure SQL como destino de la carga de trabajo de base de datos](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Aprovisionamiento de Azure-SSIS IR con SSISDB hospedado por Instancia administrada de Azure SQL

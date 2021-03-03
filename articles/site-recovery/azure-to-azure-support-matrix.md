@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534689"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735546"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -188,7 +188,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.36](https://suppo
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.29-azure </br> 5.3.18-18.32-azure, 4.12.14-8.58-azure mediante la revisión urgente 9.40**
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.47-azure, </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.21-azure </br> 4.12.14-8.52-azure, 5.3.18-18.24-azure, 4.12.14-8.55-azure, 5.3.18-18.29-azure mediante la revisión urgente 9.39**
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.18-azure </br> 4.12.14-8.47-azure, 5.3.18-18.21-azure mediante la revisión urgente 9.38**
-SUSE Linux Enterprise Server 15 y 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.38-azure </br> 4.12.14-8.41-azure, 4.12.14-8.44-azure mediante la revisión urgente 9.37**
+SUSE Linux Enterprise Server 15 y 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.38-azure </br> 4.12.14-8.41-azure, 4.12.14-8.44-azure mediante la revisión urgente 9.37**
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux
@@ -258,6 +258,7 @@ Cifrado en reposo doble | Compatible | Más información sobre las regiones admi
 Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. <br/><br/> No se admite el cifrado de volúmenes individuales en un solo disco. |
 Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. <br/><br/> No se admite el cifrado de volúmenes individuales en un solo disco. <br><br> Problema conocido en la habilitación de la replicación. [Más información.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotación de claves SAS | No compatible | Si se gira la clave SAS de las cuentas de almacenamiento, el cliente debe deshabilitar y volver a habilitar la replicación. |
+Almacenamiento en caché del host | Compatible
 Adición en caliente    | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados. <br/><br/> Solo se puede agregar un disco a una máquina virtual de Azure a la vez. No se admite la adición paralela de varios discos. |
 Eliminación de disco en caliente    | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
 Excluir el disco | Compatible. Debe usar [PowerShell](azure-to-azure-exclude-disks.md) para configurarlo. |    Los discos temporales se excluyen de forma predeterminada.

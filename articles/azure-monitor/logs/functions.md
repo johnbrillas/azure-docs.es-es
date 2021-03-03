@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604692"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708873"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso de funciones en consultas de registros de Azure Monitor
 
@@ -35,7 +35,7 @@ Para crear una función con Log Analytics en Azure Portal, haga clic en **Guar
 Use una función al incluir su alias en otra consulta. Se puede usar como cualquier otra tabla.
 
 ## <a name="function-parameters"></a>Parámetros de función 
-Puede agregar parámetros a una función para que pueda proporcionar valores de determinadas variables al llamarla. La única manera de crear una función con parámetros es usar una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para consultas de registros en Azure Monitor](../samples/resource-manager-log-queries.md#parameterized-function) para obtener un ejemplo.
+Puede agregar parámetros a una función para que pueda proporcionar valores de determinadas variables al llamarla. La única manera de crear una función con parámetros es usar una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para consultas de registros en Azure Monitor](./resource-manager-log-queries.md#parameterized-function) para obtener un ejemplo.
 
 ## <a name="example"></a>Ejemplo
 La siguiente consulta de ejemplo devuelve todas las actualizaciones de seguridad faltantes que se notificaron en el último día. Guarde esta consulta como función con el alias _security_updates_last_day_. 

@@ -3,16 +3,17 @@ title: Cree un grupo de selección de ubicación de proximidad con el portal
 description: Aprenda cómo crear un grupo de selección de ubicación de proximidad con el Azure Portal.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
-ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 201f2f585c907ff82f28b96562efe3622dae6422
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871441"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666034"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Cree un grupo de selección de ubicación de proximidad con el portal
 
@@ -29,7 +30,7 @@ Un grupo de selección de ubicación de proximidad es una agrupación lógica qu
 ## <a name="create-the-proximity-placement-group"></a>Creación de un grupo de selección de ubicación de proximidad
 
 1. Escriba **proximity placement group** 'grupo de selección de ubicación de proximidad' en el cuadro de búsqueda.
-1. En **Servicios** en los resultados de la búsqueda, seleccione **Proximity placement groups (Grupos de selección de ubicación de proximidad)** .
+1. En **Servicios** en los resultados de la búsqueda, seleccione **Proximity placement groups (Grupos de selección de ubicación de proximidad)**.
 1. En la página **Grupos de selección de ubicación de proximidad**, seleccione **Agregar**.
 1. En la pestaña **Datos básicos**, en **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
 1. En **Grupo de recursos** seleccione **Crear nuevo** para crear un nuevo grupo o seleccione un grupo de recursos vacío existente de la lista desplegable. 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 48c7323a630f5c79c7ecb16e26c9ec79ec2014a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f0c97d128837e77325e68ae28161a98938510ff8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723289"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado a la base de datos de métricas de Azure Monitor para una máquina virtual Windows (clásica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-La [extensión Diagnostics](../agents/diagnostics-extension-overview.md) de Azure Monitor (conocida como "WAD" o "Diagnostics") le permite recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+La [extensión Diagnostics](../agents/diagnostics-extension-overview.md) de Azure Monitor (conocida como "WAD" o "Diagnostics") le permite recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows (clásica) a la base de datos de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
 
@@ -26,7 +26,7 @@ Almacenarlas en esta ubicación permite acceder a las mismas acciones disponible
 
 El proceso descrito en este artículo solo funciona para máquinas virtuales clásicas que ejecutan el sistema operativo Windows.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 
@@ -34,7 +34,7 @@ El proceso descrito en este artículo solo funciona para máquinas virtuales cl�
 
 - Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](../platform/metrics-custom-overview.md#supported-regions).
+- El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creación de una máquina virtual clásica y una cuenta de almacenamiento
 
@@ -203,4 +203,4 @@ Asigne a esta aplicación permisos "Supervisión del publicador de métricas" pa
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información acerca de las [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Más información acerca de las [métricas personalizadas](./metrics-custom-overview.md).

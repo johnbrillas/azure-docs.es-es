@@ -5,7 +5,7 @@
     - name: Acerca de AKS
       href: intro-kubernetes.md
     - name: Arquitecturas de las soluciones
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -294,14 +294,14 @@
     - name: Supervisión y registro
       items:
         - name: Azure Monitor para contenedores
-          href: ../azure-monitor/insights/container-insights-overview.md
+          href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: Visualización de los registros de componentes del plano de control
           href: view-control-plane-logs.md
         - name: Visualización de los registros de kubelet
           href: kubelet-logs.md
         - name: Visualización de datos de contenedor en tiempo real
-          href: ../azure-monitor/insights/container-insights-livedata-overview.md
+          href: ../azure-monitor/containers/container-insights-livedata-overview.md
           maintainContext: true
     - name: Uso de contenedores de Windows Server
       items:

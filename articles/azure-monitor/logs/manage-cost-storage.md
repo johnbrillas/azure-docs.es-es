@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731398"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -268,7 +268,7 @@ Para empezar, esta es la configuración recomendada para la alerta al consultar 
 - Nombre de regla de alertas: Límite de datos diario alcanzado
 - Gravedad: advertencia (gravedad 1)
 
-Una vez que se define la alerta y se alcanza el límite, se desencadena una alerta que realiza la respuesta que se define en el grupo de acciones. Puede notificar a su equipo a través de mensajes de correo electrónico y de texto, o automatizar acciones mediante webhooks, runbooks de Automation o [integrar con una solución de ITSM externa](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Una vez que se define la alerta y se alcanza el límite, se desencadena una alerta que realiza la respuesta que se define en el grupo de acciones. Puede notificar a su equipo a través de mensajes de correo electrónico y de texto, o automatizar acciones mediante webhooks, runbooks de Automation o [integrar con una solución de ITSM externa](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Solución del problema de un uso mayor de lo esperado
 
@@ -488,8 +488,8 @@ Algunas sugerencias para reducir el volumen de registros recopilados incluyen:
 | AzureDiagnostics           | Cambie la [colección de registros de recursos](../essentials/diagnostic-settings.md#create-in-azure-portal) para: <br> - Reducir el número de registros de recursos enviados a Log Analytics <br> - Recopilar solo los registros necesarios |
 | Datos de la solución procedentes de equipos que no necesitan la solución | Use la [selección de destino de solución](../insights/solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios. |
 | Application Insights | Revisión de las opciones de [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) para ajustar la configuración de auditoría. |
-| Azure Sentinel | Revise los [orígenes de datos de Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que ha habilitado recientemente como orígenes del volumen de datos adicional. |
+| [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) para ajustar la configuración de auditoría. |
+| Azure Sentinel | Revise los [orígenes de datos de Sentinel](../../sentinel/connect-data-sources.md) que ha habilitado recientemente como orígenes del volumen de datos adicional. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtención de nodos facturados en el plan de tarifa Por nodo
 

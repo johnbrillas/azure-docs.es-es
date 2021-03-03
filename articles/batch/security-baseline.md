@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d8ef3efcda55868abec188c10ef904ae40a56722
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728151"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -140,7 +140,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con los grupos de Azure Batch. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
 - [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -516,7 +516,7 @@ Configure los valores de diagnóstico para las cuentas de almacenamiento asociad
 
 - [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Habilitación de registro o auditoría adicionales para una cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md)
+- [Habilitación de registro o auditoría adicionales para una cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md)
 
 **Supervisión de Azure Security Center**: Sí
 

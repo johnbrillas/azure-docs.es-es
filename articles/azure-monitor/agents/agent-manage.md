@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: e8ee45a1bf6a45be1fd976d3fb1b8aba60d2b989
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602545"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734968"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -164,7 +164,7 @@ En los pasos siguientes se muestra cómo volver a configurar el agente de Linux 
 El servicio del agente no tiene que reiniciarse para que los cambios surtan efecto.
 
 ## <a name="update-proxy-settings"></a>Actualizar la configuración de proxy
-Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o la [puerta de enlace de Log Analytics](../platform/gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
+Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o la [puerta de enlace de Log Analytics](./gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
 
 ### <a name="windows-agent"></a>Agente de Windows
 

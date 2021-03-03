@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: f8a828d27b69fedefe7ccbc2ad7290bf300afc16
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526795"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698763"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -41,7 +41,7 @@ Consulte estos artículos antes de empezar:
 Estos son los requisitos previos para conectar el módulo de análisis espacial a un módulo de Live Video Analytics.
 
 * [Visual Studio Code](https://code.visualstudio.com/) en la máquina de desarrollo. Asegúrese de tener la [extensión Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-    * Asegúrese de que la red a la que está conectada su máquina de desarrollo permita usar el protocolo Advanced Message Queueing Protocol en el puerto 5671. Esta configuración permite a Azure IoT Tools comunicarse con Azure IoT Hub.
+    * Asegúrese de que la red a la que está conectada la máquina de desarrollo permita Advanced Message Queueing Protocol a través del puerto 5671. Esta configuración permite a Azure IoT Tools comunicarse con Azure IoT Hub.
 * [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) con aceleración de GPU.  
     Se recomienda usar Azure Stack Edge con aceleración de GPU; sin embargo, el contenedor funciona en cualquier otro dispositivo con una [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). 
 * [Contenedor de Computer Vision de Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análisis espacial.  
@@ -110,7 +110,7 @@ Siga [estos pasos](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) par
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  

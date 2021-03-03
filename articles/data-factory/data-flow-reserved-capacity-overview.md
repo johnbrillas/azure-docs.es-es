@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526313"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699698"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Ahorro de costos para los recursos con capacidad reservada: flujos de datos de Azure Data Factory
 
@@ -21,12 +21,12 @@ Ahorre dinero en los costos de flujo de datos de Azure Data Factory al compromet
 
 No es necesario asignar la reserva a una fábrica o entorno de ejecución de integración específicos. Las fábricas existentes o recién implementadas obtienen la ventaja automáticamente. Al comprar una reserva, se compromete a usar el servicio por los costos de proceso de flujo de datos durante un período de uno a tres años. Tan pronto como se compra una reserva, los costos de proceso que coinciden con los atributos de la reserva dejan de pagarse según las tarifas de pago por uso. 
 
-Puede comprar [capacidad reservada](https://portal.azure.com) si elige reservas [por adelantado o con pagos mensuales](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). Para adquirir capacidad reservada:
+Puede comprar [capacidad reservada](https://portal.azure.com) si elige reservas [por adelantado o con pagos mensuales](../cost-management-billing/reservations/prepare-buy-reservation.md). Para adquirir capacidad reservada:
 
 - Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción. Capacidad reservada.
 
-Para obtener más información sobre cómo se les cobra a los clientes de empresa y a los de Pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) e [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
+Para obtener más información sobre cómo se les cobra a los clientes de empresa y a los de Pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 > [!NOTE]
 > La compra de capacidad reservada no asigna previamente ni reserva recursos de infraestructura específicos (máquinas virtuales o clústeres) para su uso.
@@ -49,7 +49,7 @@ Por ejemplo, supongamos que ejecuta una canalización cada hora usando con 32 n
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

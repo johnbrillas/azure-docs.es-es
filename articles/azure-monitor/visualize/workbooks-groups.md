@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602951"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731364"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Uso de grupos en los libros
 
@@ -143,5 +143,5 @@ Para convertir una plantilla más grande en varias subplantillas, haga lo siguie
 6. Después, podrá cambiar el paso de grupo para que se cargue desde la plantilla y establecer el campo "Id. de plantilla" en el libro o plantilla que creó en el paso 5. Para trabajar con los identificadores de los libros, el origen debe ser un identificador de recurso de libro compartido. Presione *Cargar* y el contenido de ese grupo ahora se cargará desde esa subplantilla, en lugar de guardarse dentro de este libro externo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Información general sobre los libros](../platform/workbooks-overview.md)
+- [Información general sobre los libros](./workbooks-overview.md)
 - [Uso de JSONPath con libros](workbooks-jsonpath.md)

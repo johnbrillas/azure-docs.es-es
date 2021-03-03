@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610274"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708720"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -154,7 +154,7 @@ La ejecución en una máquina con más memoria no siempre significa que la aplic
 
 Por ejemplo, una aplicación de funciones de JavaScript está restringida por el límite de memoria predeterminado en Node.js. Para aumentar este límite de memoria fijo, agregue la configuración de la aplicación `languageWorkers:node:arguments` con un valor de `--max-old-space-size=<max memory in MB>`.
 
-Además, en el caso de los planes con más de 4 GB de memoria, asegúrese de que la configuración de la plataforma de valor de bits esté establecida en `64 Bit` en [Configuración general](/azure/app-service/configure-common#configure-general-settings).
+Además, en el caso de los planes con más de 4 GB de memoria, asegúrese de que la configuración de la plataforma de valor de bits esté establecida en `64 Bit` en [Configuración general](../app-service/configure-common.md#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Escalabilidad horizontal máxima en regiones
 

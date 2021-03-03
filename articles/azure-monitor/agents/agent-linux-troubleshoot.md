@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 7e01d234b5b94997cbfd275c4b4566ec4fa332a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 136e063f6d272589c609bad93532df025a15a68d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602552"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723629"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -92,7 +92,7 @@ Hemos visto que una reinstalación limpia del agente corregirá la mayoría de l
 | NOT_DEFINED | Dado que las dependencias necesarias no están instaladas, no se instalará el complemento de auoms auditd | No se pudo instalar auoms, instale el paquete auditd. |
 | 2 | Opción no válida proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso |
 | 3 | Ninguna opción proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso. |
-| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent-*rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent-*deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, revise para comprobar la configuración de proxy. |
+| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent-*rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent-*deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, revise para comprobar la configuración de proxy. |
 | 5 | La agrupación de shell se debe ejecutar como raíz, o bien se devolvió el error 403 durante la incorporación. Ejecute el comando con `sudo`. |
 | 6 | Arquitectura de paquete no válida, o bien se devolvió el error 200 durante la incorporación; los paquetes omsagent-*x64.sh solo pueden instalarse en sistemas de 64 bits, y los paquetes omsagent-* x86.sh solo pueden instalarse en sistemas de 32 bits. Descargue el paquete correcto para su arquitectura de la [versión más reciente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | No se pudo instalar el paquete de OMS. Examine el resultado del comando para conocer el error raíz. |
@@ -116,7 +116,7 @@ Hemos visto que una reinstalación limpia del agente corregirá la mayoría de l
 | --- | --- |
 | 2 | Opción no válida proporcionada al script omsadmin. Ejecute `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para el uso. |
 | 3 | Configuración no válida proporcionada al script omsadmin. Ejecute `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para el uso. |
-| 4 | Proxy no válido proporcionado al script omsadmin. Compruebe el proxy y consulte nuestra [documentación para usar un proxy HTTP](../platform/log-analytics-agent.md#firewall-requirements). |
+| 4 | Proxy no válido proporcionado al script omsadmin. Compruebe el proxy y consulte nuestra [documentación para usar un proxy HTTP](./log-analytics-agent.md#firewall-requirements). |
 | 5 | Error HTTP 403 recibido de Azure Monitor. Vea el resultado completo del script omsadmin para obtener más información. |
 | 6 | Error HTTP distinto de 200 recibido de Azure Monitor. Vea el resultado completo del script omsadmin para obtener más información. |
 | 7 | No se puede conectar a Azure Monitor. Vea el resultado completo del script omsadmin para obtener más información. |
@@ -198,7 +198,7 @@ Debajo del complemento de salida, quite la marca de comentario de la siguiente s
 
 2. Revise la sección [Actualizar la configuración de proxy](agent-manage.md#update-proxy-settings) para comprobar que el agente se haya configurado correctamente para comunicarse a través de un servidor proxy.    
 
-3. Asegúrese de que los puntos de conexión descritos en la lista de [requisitos de firewall de red](../platform/log-analytics-agent.md#firewall-requirements) de Azure Monitor se agregan correctamente a una lista de permitidos. Si usa Azure Automation, en el vínculo también se incluyen los pasos de configuración de red necesarios.
+3. Asegúrese de que los puntos de conexión descritos en la lista de [requisitos de firewall de red](./log-analytics-agent.md#firewall-requirements) de Azure Monitor se agregan correctamente a una lista de permitidos. Si usa Azure Automation, en el vínculo también se incluyen los pasos de configuración de red necesarios.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Recibe un error 403 al intentar incorporarse
 
@@ -447,7 +447,7 @@ Puede continuar con la repetición de la incorporación después de usar la opci
 ### <a name="resolution"></a>Solución 
 Siga los pasos a continuación para corregir el problema.
 1. Quite la extensión de Azure Portal.
-2. Instale el agente siguiendo las [instrucciones](../learn/quick-collect-linux-computer.md).
+2. Instale el agente siguiendo las [instrucciones](../vm/quick-collect-linux-computer.md).
 3. Reinicie el agente con el comando siguiente: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Espere unos minutos y el estado de aprovisionamiento cambia a **Aprovisionamiento realizado correctamente**.
 

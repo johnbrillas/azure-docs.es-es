@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390409"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738232"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -50,8 +50,8 @@ Se ha lanzado una nueva versión del [contenedor de análisis espacial](spatial-
 * **Cambio importante**: se ha cambiado el nombre del evento *personZoneEvent* a *personZoneEnterExitEvent*. Este evento lo genera la operación *personZoneEnterExitEvent* cuando una persona entra o sale de la zona y proporciona información direccional con el lado numerado de la zona que se ha atravesado.
 * La dirección URL de vídeo se puede proporcionar como "parámetro privado/ofuscado" en todas las operaciones. La ofuscación es opcional ahora y solo funcionará si se proporcionan `KEY` y `IV` como variables de entorno.
 * La calibración está habilitada de forma predeterminada para todas las operaciones. Establezca `do_calibration: false` para deshabilitarla.
-* Se ha agregado compatibilidad con la recalibración automática (que está deshabilitada de forma predeterminada) mediante el parámetro `enable_recalibration`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
-* Parámetros de calibración de la cámara en `DETECTOR_NODE_CONFIG`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Se ha agregado compatibilidad con la recalibración automática (que está deshabilitada de forma predeterminada) mediante el parámetro `enable_recalibration`. Para más información, consulte [Operaciones de análisis espacial](./spatial-analysis-operations.md).
+* Parámetros de calibración de la cámara en `DETECTOR_NODE_CONFIG`. Para más información, consulte [Operaciones de análisis espacial](./spatial-analysis-operations.md).
 
 
 ## <a name="october-2020"></a>Octubre de 2020

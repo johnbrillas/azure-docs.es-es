@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f56270d853bf47faebbd6026586111ead6fb0495
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091155"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742388"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Base de referencia de seguridad de Azure para Azure Firewall Manager
 
@@ -437,7 +437,7 @@ En Azure Monitor, puede establecer el período de retención del área de trabaj
 
 - [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

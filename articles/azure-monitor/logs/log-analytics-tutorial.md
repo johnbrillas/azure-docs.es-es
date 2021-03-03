@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723187"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial de Log Analytics
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros en los datos que se recopilan en los registros de Azure Monitor, y analizar los resultados de forma interactiva. Puede usar consultas de Log Analytics para recuperar registros que coincidan con determinados criterios, identificar tendencias, analizar patrones y proporcionar una gran variedad de información sobre los datos. 
@@ -33,7 +33,7 @@ Este tutorial le guía por la interfaz de Log Analytics, le permite comenzar con
 En este tutorial se usa el [entorno de demostración de Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que incluye una gran cantidad de datos de ejemplo que se utilizan en las consultas de ejemplo. También puede usar su propia suscripción de Azure, pero es posible que no tenga datos en las mismas tablas.
 
 ## <a name="open-log-analytics"></a>Apertura de Log Analytics
-Abra el [entorno de demostración de Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) o seleccione **Registros** en el menú de Azure Monitor de su suscripción. Esto establecerá el ámbito inicial en un área de trabajo de Log Analytics, lo que significa que la consulta seleccionará de entre todos los datos de esa área de trabajo. Si selecciona **Registros** en el menú de un recurso de Azure, el ámbito se establecerá solo en los registros de ese recurso. Consulte [Ámbito de la consulta de registro](../log-query/scope.md) para más información sobre el ámbito.
+Abra el [entorno de demostración de Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) o seleccione **Registros** en el menú de Azure Monitor de su suscripción. Esto establecerá el ámbito inicial en un área de trabajo de Log Analytics, lo que significa que la consulta seleccionará de entre todos los datos de esa área de trabajo. Si selecciona **Registros** en el menú de un recurso de Azure, el ámbito se establecerá solo en los registros de ese recurso. Consulte [Ámbito de la consulta de registro](./scope.md) para más información sobre el ámbito.
 
 Puede ver el ámbito en la esquina superior izquierda de la pantalla. Si usa su propio entorno, verá una opción para seleccionar un ámbito diferente, pero esta opción no está disponible en el entorno de demostración.
 

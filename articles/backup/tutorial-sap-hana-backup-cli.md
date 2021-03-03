@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a hacer una copia de seguridad de las b
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710607"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 La respuesta le proporcionará el nombre del trabajo. Este nombre de trabajo se puede usar para realizar el seguimiento del estado del trabajo mediante el cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
->Además de programar una copia de seguridad completa o diferencial, también se pueden desencadenar estas manualmente. Las copias de seguridad de registros se desencadenan y administran desde SAP HANA interna y automáticamente.
->
-> Azure Backup no admite actualmente las copias de seguridad incrementales.
+>Las copias de seguridad de registros se desencadenan y administran desde SAP HANA interna y automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

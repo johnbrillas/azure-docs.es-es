@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720756"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Directiva de SQL Information Protection en Azure Security Center
  
@@ -58,7 +58,7 @@ Cada una de ellas se muestra en la pestaña correspondiente a continuación.
 En la página **Precios y configuración** de Security Center, seleccione **SQL Information Protection**.
 
 > [!NOTE]
-> Esta opción solo aparece para los usuarios con permisos a nivel de inquilino. [Concesión de permisos de todo el inquilino a uno mismo](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
+> Esta opción solo aparece para los usuarios con permisos a nivel de inquilino. [Concesión de permisos de todo el inquilino a uno mismo](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acceso a la directiva de SQL Information Protection desde la página Precios y configuración de Azure Security Center":::
 

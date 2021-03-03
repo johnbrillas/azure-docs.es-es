@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603119"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708091"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmisión de datos de supervisión de Azure a un centro de eventos o asociado externo
 
@@ -58,10 +58,9 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure M
 | LogRhythm | No| Las instrucciones necesarias para configurar LogRhythm con el fin de recopilar registros de un centro de eventos están disponibles [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Sí | Para más información, consulte [Introducción a la supervisión y el registro con Logz.io para aplicaciones Java que se ejecutan en Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
-También pueden estar disponibles otros asociados. Para obtener una lista completa de todos los asociados de Azure Monitor y sus funcionalidades, consulte [Integraciones de asociados de Azure Monitor](../platform/partners.md).
+También pueden estar disponibles otros asociados. Para obtener una lista completa de todos los asociados de Azure Monitor y sus funcionalidades, consulte [Integraciones de asociados de Azure Monitor](../partners.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Archivar el registro de actividad en una cuenta de almacenamiento](./activity-log.md#legacy-collection-methods)
 * [Leer la introducción sobre el registro de actividad de Azure](../essentials/platform-logs-overview.md)
 * [Configurar una alerta basada en un evento del registro de actividad](../alerts/alerts-log-webhook.md)
-

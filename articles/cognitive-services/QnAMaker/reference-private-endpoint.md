@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
-ms.openlocfilehash: 5a7ddcf25993ab4ce87bdc47c5e0ae32fa24b07f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7907c81e45680de49f6653891fb4204a59db1002
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710556"
 ---
 # <a name="private-endpoints"></a>Puntos de conexión privados
 
 Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. Ahora, QnA Maker proporciona soporte para crear puntos de conexión privados para el servicio Azure Search. Esta funcionalidad está disponible en QnA Maker administrado. 
 
-Los puntos de conexión privados se proporcionan mediante [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview), como un servicio independiente. Para obtener más información sobre los costos, vea la [página de precios](https://azure.microsoft.com/pricing/details/private-link/). 
+Los puntos de conexión privados se proporcionan mediante [Azure Private Link](../../private-link/private-link-overview.md), como un servicio independiente. Para obtener más información sobre los costos, vea la [página de precios](https://azure.microsoft.com/pricing/details/private-link/). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 > [!div class="checklist"]

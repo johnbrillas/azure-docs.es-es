@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a administrar las bases de datos de SAP
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371777"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713293"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Administración de las bases de datos de SAP HANA de una máquina virtual de Azure con la CLI de Azure
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="create-incremental-backup-policy"></a>Directiva de creación de copias de seguridad incrementales
 
-Para crear una directiva de copia de seguridad incremental, ejecute el comando [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) con los parámetros siguientes:
+Para crear una directiva de copia de seguridad incremental, ejecute el comando [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) con los parámetros siguientes:
 
 * **--backup-management-type**: carga de trabajo de Azure
 * **--workload-type**: SAPHana
@@ -231,6 +231,7 @@ JSON de ejemplo (sappolicy.json):
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
 Una vez que la directiva se crea correctamente, la salida del comando mostrará el JSON de la directiva que pasó como parámetro al ejecutar el comando.
 
 Puede modificar la siguiente sección de la directiva para especificar la frecuencia de copia de seguridad deseada y la retención de las copias de seguridad incrementales.

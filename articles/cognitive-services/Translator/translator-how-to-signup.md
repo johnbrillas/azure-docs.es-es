@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 37b9860546f9fd16045906ce9385a1590c46b970
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556348"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712936"
 ---
 # <a name="create-a-translator-resource"></a>Creación de un recurso de Traductor
 
@@ -57,7 +57,7 @@ Se puede acceder al servicio Translator a través de dos tipos de recursos difer
 
 1. **Grupo de recursos**. El grupo de recursos de Azure que elija actúa como un contenedor virtual para el nuevo recurso. Puede crear un nuevo grupo de recursos o agregar el recurso a un grupo ya existente que comparta el mismo ciclo de vida, permisos y directivas.
 
-1. **Región del recurso**. Elija **Global** a menos que su empresa o aplicación requiera una región específica. Translator es un servicio no regional ya que no hay ninguna dependencia de una región específica de Azure. *Consulte* [Regiones y Availability Zones en Azure](/azure/availability-zones/az-overview).
+1. **Región del recurso**. Elija **Global** a menos que su empresa o aplicación requiera una región específica. Translator es un servicio no regional ya que no hay ninguna dependencia de una región específica de Azure. *Consulte* [Regiones y Availability Zones en Azure](../../availability-zones/az-overview.md).
 
 1. **Nombre**. Escriba el nombre que ha elegido para el recurso. El nombre que elija debe ser único en Azure.
 

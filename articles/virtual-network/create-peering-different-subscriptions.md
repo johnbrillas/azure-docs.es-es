@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694961"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Creación de un emparejamiento de redes virtuales: Resource Manager, diferentes suscripciones e inquilinos de Azure Active Directory
 
@@ -55,7 +55,7 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
     - **Suscripción**: Seleccione la suscripción A.
     - **Grupo de recursos**: seleccione **Crear nuevo** y escriba *myResourceGroupA*.
     - **Ubicación**: *Este de EE. UU.*
-4. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Seleccione **myVnetA** cuando aparezca en los resultados de la búsqueda. 
+4. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Seleccione **myVnetA** cuando aparezca en los resultados de la búsqueda.
 5. Seleccione **Control de acceso (IAM)** en la lista de opciones vertical que aparece a la izquierda.
 6. En **myVnetA: control de acceso (IAM)** , seleccione **+ Agregar asignación de roles**.
 7. Seleccione **Colaborador de la red** en la casilla **Rol**.
@@ -99,7 +99,7 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
-En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. 
+En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB.
 
 Los scripts siguientes:
 
@@ -165,7 +165,7 @@ En lugar de instalar la CLI y sus dependencias, puede usar Azure Cloud Shell. Az
 
 8. Cierre sesión en Azure como UserA e inicie sesión en Azure como UserB.
 9. Cree el emparejamiento de myVnetB a myVnetA. Copie el contenido del script del paso 6 en un editor de texto del equipo. Reemplace `<SubscriptionB-Id>` por el identificador de SubscriptionA, todas las apariciones de A por B, y todas las apariciones de B por A. Una vez realizados los cambios, copie el script modificado, péguelo en la sesión de la CLI y pulse `Enter`.
-10. Compruebe el estado de emparejamiento de myVnetB. Copie el contenido del script del paso 7 en un editor de texto del equipo. Reemplace A por B en el nombre del grupo de recursos y de la red virtual, copie el script, pegue el script modificado en la sesión de la CLI y pulse `Enter`. El estado de emparejamiento es **Conectado**. El estado de emparejamiento de myVnetA cambiará a **Conectado** después de que haya creado el emparejamiento de myVnetB a myVnetA. Puede volver a iniciar sesión como UserA en Azure y realizar el paso 7 de nuevo para comprobar el estado de emparejamiento de myVnetA. 
+10. Compruebe el estado de emparejamiento de myVnetB. Copie el contenido del script del paso 7 en un editor de texto del equipo. Reemplace A por B en el nombre del grupo de recursos y de la red virtual, copie el script, pegue el script modificado en la sesión de la CLI y pulse `Enter`. El estado de emparejamiento es **Conectado**. El estado de emparejamiento de myVnetA cambiará a **Conectado** después de que haya creado el emparejamiento de myVnetB a myVnetA. Puede volver a iniciar sesión como UserA en Azure y realizar el paso 7 de nuevo para comprobar el estado de emparejamiento de myVnetA.
 
     > [!NOTE]
     > El emparejamiento no se habrá establecido mientras el estado de emparejamiento de ambas redes virtuales no sea **Conectado**.
@@ -181,7 +181,7 @@ Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pue
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB.
 
-1. Confirme que tiene Azure PowerShell versión 1.0.0 o superior. Puede hacerlo mediante la ejecución de `Get-Module -Name Az`. Recomendamos instalar la última versión del [módulo Az](/powershell/azure/install-az-ps) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme que tiene Azure PowerShell versión 1.0.0 o superior. Puede hacerlo mediante la ejecución de `Get-Module -Name Az`. Recomendamos instalar la última versión del [módulo Az](/powershell/azure/install-az-ps) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie una sesión de PowerShell.
 3. En PowerShell, inicie sesión en Azure como UserA. Para ello, escriba el comando `Connect-AzAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 4. Cree un grupo de recursos y una red virtual A. Copie el script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionA. Si no conoce el identificador de la suscripción, escriba el comando `Get-AzSubscription` para verlo. El valor de **id** en la salida devuelta es el identificador de la suscripción. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
@@ -276,7 +276,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
    }
    ```
 
-3. Inicie sesión en Azure como UserA e implemente la plantilla mediante el [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique el nombre de archivo que ha guardado en el paso 2 para el texto del archivo json de ejemplo.
+3. Inicie sesión en Azure como UserA e implemente la plantilla mediante el [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique el nombre de archivo que ha guardado en el paso 2 para el texto del archivo json de ejemplo.
 4. Copie el archivo json de ejemplo del paso 2 en un archivo del equipo y realice cambios en las líneas que comienzan por:
    - **name**: cambie *myVnetA/myVnetAToMyVnetB* por *myVnetB/myVnetBToMyVnetA*.
    - **id**: reemplace `<subscription ID>` por el identificador de suscripción de UserB y cambie *myVnetB* por *myVnetA*.

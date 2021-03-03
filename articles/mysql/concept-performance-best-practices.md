@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217761"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727165"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Procedimientos recomendados para un rendimiento óptimo de Azure Database for MySQL: servidor único
 
@@ -65,7 +65,7 @@ Se recomienda probar y supervisar el tiempo de reinicio para garantizar que el r
 Para guardar el estado del grupo de búferes al cerrar el servidor, establezca el parámetro de servidor `innodb_buffer_pool_dump_at_shutdown` en `ON`. Del mismo modo, establezca el parámetro de servidor `innodb_buffer_pool_load_at_startup` en `ON` para restaurar el estado del grupo de búferes al iniciar el servidor. Puede controlar el impacto del tiempo de inicio o reinicio si reduce y ajusta el valor del parámetro de servidor `innodb_buffer_pool_dump_pct`. De manera predeterminada, este parámetro está establecido en `25`.
 
 > [!Note]
-> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](./concepts-pricing-tiers.md#storage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

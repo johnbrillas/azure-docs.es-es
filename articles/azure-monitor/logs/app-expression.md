@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: cbfc9c8a32eb5345cfc69f51f40e0634e05bd978
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4789594cef0f7e900582dd9aad231b81547d3b3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728423"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
@@ -73,6 +73,5 @@ union
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte la [expresión workspace](../logs/workspace-expression.md) para hacer referencia al área de trabajo de Log Analytics.
-- Obtenga información sobre cómo se almacenan los [datos de Azure Monitor](../log-query/log-query-overview.md).
+- Obtenga información sobre cómo se almacenan los [datos de Azure Monitor](./log-query-overview.md).
 - Acceda a toda la documentación del [lenguaje de consulta de Kusto](/azure/kusto/query/).
-

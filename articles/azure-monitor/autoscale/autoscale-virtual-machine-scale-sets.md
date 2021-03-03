@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603393"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717747"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -243,9 +243,9 @@ Siga estos vínculos para más información sobre el escalado automático:
 
 [Procedimientos recomendados de escalado automático](autoscale-best-practices.md)
 
-[Administración del escalado automático con PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Administración del escalado automático con PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Administración del escalado automático con CLI](../samples/cli-samples.md#autoscale)
+[Administración del escalado automático con CLI](../cli-samples.md#autoscale)
 
 [Configuración de webhooks y notificaciones por correo electrónico en el escalado automático](autoscale-webhook-email.md)
 

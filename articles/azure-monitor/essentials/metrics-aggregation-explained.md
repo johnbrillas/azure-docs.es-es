@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602877"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725873"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explicación de la visualización y agregación de métricas de Azure Monitor
 
@@ -101,7 +101,7 @@ Las métricas se capturan para cada recurso individual. Sin embargo, el nivel en
 
 Al representar una métrica mediante gráficos en el explorador de métricas, tiene la opción de "dividir" el gráfico por una dimensión.  La división de un gráfico significa que está examinando los datos subyacentes para obtener más detalles y ver que los datos se han filtrado o representado mediante gráficos en el explorador de métricas.
 
-Por ejemplo, [Microsoft.ApiManagement/service](../platform/metrics-supported.md#microsoftapimanagementservice) tiene la *ubicación* como dimensión para muchas métricas. 
+Por ejemplo, [Microsoft.ApiManagement/service](./metrics-supported.md#microsoftapimanagementservice) tiene la *ubicación* como dimensión para muchas métricas. 
 
 - La **capacidad** es una métrica de este tipo. Tener la dimensión de la *ubicación* implica que el sistema subyacente almacena un registro de métricas para la capacidad de cada ubicación, en lugar de solo uno para la cantidad agregada. A continuación, puede recuperar o dividir esa información en un gráfico de métricas.  
 
@@ -109,7 +109,7 @@ Por ejemplo, [Microsoft.ApiManagement/service](../platform/metrics-supported.md#
 
 - Una de las métricas más flexibles, **Solicitudes**, tiene siete dimensiones diferentes. 
  
-Consulte el artículo de [métricas compatibles](../platform/metrics-supported.md) con Azure Monitor para obtener más información sobre cada métrica y las dimensiones disponibles. Además, la documentación de cada proveedor y tipo de recursos puede proporcionar información adicional sobre las dimensiones y lo que miden.
+Consulte el artículo de [métricas compatibles](./metrics-supported.md) con Azure Monitor para obtener más información sobre cada métrica y las dimensiones disponibles. Además, la documentación de cada proveedor y tipo de recursos puede proporcionar información adicional sobre las dimensiones y lo que miden.
 
 Puede usar la división y el filtrado juntos para profundizar en un problema. A continuación se presenta un ejemplo de un gráfico que muestra el *promedio de bytes de escritura de disco* para un grupo de máquinas virtuales en un grupo de recursos. Tenemos una acumulación de todas las máquinas virtuales con esta métrica, pero es posible que queramos profundizar en ver cuáles son realmente responsables de los picos en torno a las 06:00. ¿Son la misma máquina? ¿Cuántas máquinas intervienen?  
 

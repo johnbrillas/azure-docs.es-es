@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 9fd8a17deeb49d836ff5902042bdb88696e29f31
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692188"
 ---
 # <a name="use-managed-identities-net"></a>Uso de las identidades administradas (.NET)
 
@@ -25,7 +25,7 @@ En este inicio rápido se muestra cómo autorizar el acceso a las bibliotecas cl
 ## <a name="prerequisites"></a>Prerrequisitos
 
  - Una cuenta de Azure con una suscripción activa. [Cree su cuenta de forma gratuita](https://azure.microsoft.com/free).
- - Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+ - Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## <a name="setting-up"></a>Instalación
 
@@ -76,7 +76,7 @@ using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
-En los ejemplos siguientes se usa [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential). Esta credencial es adecuada para entornos de producción y desarrollo.
+En los ejemplos siguientes se usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Esta credencial es adecuada para entornos de producción y desarrollo.
 
 ### <a name="create-an-identity-and-issue-a-token"></a>Creación de una identidad y emisión de un token
 
@@ -124,7 +124,7 @@ En el ejemplo de código siguiente se muestra cómo crear un objeto de cliente d
 Puede que también le interese:
 
 - [Más información sobre el control de acceso basado en rol de Azure](../../../articles/role-based-access-control/index.yml).
-- [Más información sobre la biblioteca de identidades de Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+- [Más información sobre la biblioteca de identidades de Azure para .NET](/dotnet/api/overview/azure/identity-readme)
 - [Creación de tokens de acceso de usuario](../quickstarts/access-tokens.md)
 - [Enviar un mensaje SMS](../quickstarts/telephony-sms/send.md)
 - [Más información acerca de SMS](../concepts/telephony-sms/concepts.md)

@@ -3,12 +3,12 @@ title: Creación de una nube privada de Azure VMware Solution
 description: Pasos para crear una nube privada de Azure VMware Solution mediante Azure Portal.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653149"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725411"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "100653149"
    | **Nombre del recurso** | Nombre de la nube privada de Azure VMware Solution. |
    | **SKU** | Seleccione el valor de SKU siguiente: AV36 |
    | **Hosts** | Número de hosts que se van a agregar al clúster de nube privada. El valor predeterminado es 3, que se puede aumentar o reducir después de la implementación.  |
-   | **Contraseña del administrador de vCenter** | Escriba una contraseña de administrador de la nube. |
-   | **Contraseña de administrador de NSX-T** | Escriba una contraseña de administrador de NSX-T. |
    | **Bloque de direcciones** | Escriba un bloque de direcciones IP para la red CIDR para la nube privada; por ejemplo, 10.175.0.0/22. |
    | **Virtual Network** | Seleccione una red virtual o cree una nueva para la nube privada de Azure VMware Solution.  |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 80a508aeb7eff9567bea67cb84350fc2e77551da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1db5f5e4164d971dff3ec6b042fa4b0a969e508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602641"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704249"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Integración de Log Analytics con Power BI
 
@@ -19,7 +19,7 @@ Este artículo se centra en las maneras de insertar datos desde Log Analytics en
 
 ## <a name="background"></a>Información previa 
 
-Los registros de Azure Monitor son una plataforma que proporciona una solución de un extremo a otro para la ingesta de registros. [Log Analytics de Azure Monitor](../platform/data-platform.md#) es la interfaz para consultar estos registros. Para más información sobre toda la plataforma de datos de Azure Monitor, incluido Log Analytics, consulte [Plataforma de datos de Azure Monitor](../platform/data-platform.md). 
+Los registros de Azure Monitor son una plataforma que proporciona una solución de un extremo a otro para la ingesta de registros. [Log Analytics de Azure Monitor](../platform/data-platform.md#) es la interfaz para consultar estos registros. Para más información sobre toda la plataforma de datos de Azure Monitor, incluido Log Analytics, consulte [Plataforma de datos de Azure Monitor](../data-platform.md). 
 
 Microsoft Power BI es la plataforma de visualización de datos de Microsoft. Para más información sobre cómo empezar, consulte la [página principal de Power BI](https://powerbi.microsoft.com/). 
 
@@ -82,4 +82,4 @@ Puede encontrar información adicional en [Integración de Log Analytics y Excel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción a las consultas de registro en Azure Monitor](../log-query/log-query-overview.md)
+[Introducción a las consultas de registro en Azure Monitor](./log-query-overview.md)

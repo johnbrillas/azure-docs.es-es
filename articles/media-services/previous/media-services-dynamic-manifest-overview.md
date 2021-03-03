@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266925"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727335"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -29,7 +29,7 @@ ms.locfileid: "89266925"
 > * [Versión 2](media-services-dynamic-manifest-overview.md)
 > * [Versión 3](../latest/filters-dynamic-manifest-overview.md)
 
-A partir de la versión 2.17, Media Services le permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo) o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las representaciones asociadas al recurso). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos**que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
+A partir de la versión 2.17, Media Services le permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo) o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las representaciones asociadas al recurso). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos** que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
 En este tema, se describen escenarios comunes en los que el uso de filtros resultaría muy beneficioso para los clientes y se proporcionan vínculos a temas donde se explica cómo crear filtros mediante programación.
 
@@ -37,7 +37,7 @@ En este tema, se describen escenarios comunes en los que el uso de filtros resul
 Cuando entrega su contenido a los clientes (streaming de eventos en directo o vídeo bajo demanda), su objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Para lograr este objetivo, haga lo siguiente:
 
 * codifique la secuencia a secuencia de vídeo de velocidad de bits múltiple ([velocidad de bits adaptativa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (esto se encargará de las condiciones de calidad y red) y 
-* use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Media Services dinámicamente para volver a empaquetar dinámicamente su secuencia en distintos protocolos (esto se encargará de la transmisión por secuencias en dispositivos diferentes). Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH. 
+* use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Media Services dinámicamente para volver a empaquetar dinámicamente su secuencia en distintos protocolos (esto se encargará de la transmisión por secuencias en dispositivos diferentes). Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG-DASH. 
 
 ### <a name="manifest-files"></a>Archivos de manifiesto
 Cuando codifique un activo para transmisión por secuencias de velocidad de bits adaptativa, se crea un archivo de **manifiesto** (lista de reproducción) (el archivo se basa en texto o XML). El archivo de **manifiesto** incluye metadatos de transmisión por secuencias como: el tipo de pista (audio, vídeo o texto), el nombre de la pista, la hora inicial y final, la velocidad de bits (calidades), los idiomas de pista, la ventana de presentación (ventana deslizante de duración fija), el códec de vídeo (FourCC). También indica al reproductor que recupere el siguiente fragmento ofreciendo información sobre los próximos fragmentos de vídeo reproducibles disponibles y su ubicación. Los fragmentos (o segmentos) son "fragmentos" reales de un contenido de vídeo.
@@ -88,11 +88,11 @@ Para lograr esta flexibilidad, los Media Services ofrecen **manifiestos dinámic
 
 URL de MPEG DASH con filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 URL de Smooth Streaming con filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Para obtener más información sobre cómo entregar el contenido y crear URL de streaming, vea [Información general de entregar contenido](media-services-deliver-content-overview.md).
@@ -110,7 +110,7 @@ Hay dos tipos de filtros de activos:
 
 Los tipos de filtros globales y locales tienen exactamente las mismas propiedades. La diferencia principal entre los dos es para qué escenarios es más adecuado cada tipo de filtro. Los filtros globales suelen ser adecuados para los perfiles de dispositivos (filtrado de representaciones) donde los filtros locales podrían usarse para recortar un activo específico.
 
-## <a name="common-scenarios"></a><a id="scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a><a id="scenarios"></a>Escenarios frecuentes
 Tal y como se mencionó anteriormente, cuando entrega contenido a los clientes (transmisión de eventos en directo o vídeo bajo demanda), su objetivo es proporcionar un vídeo de alta calidad a diferentes dispositivos en condiciones de red variables. Pueden darse también otros requisitos que obliguen a filtrar los recursos y a utilizar **manifiestos dinámicos**. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
 
 * Especifique solo un subconjunto de representaciones de audio y vídeo que pueden controlar determinados dispositivos (en lugar de todas las representaciones asociadas al activo). 
@@ -124,7 +124,7 @@ Con el manifiesto dinámico, puede crear perfiles de dispositivo como móvil, co
 
 ![Ejemplo de filtrado de representaciones][renditions2]
 
-En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El recurso codificado puede empaquetarse dinámicamente en cualquiera de los siguientes protocolos de transmisión: HLS, Smooth y MPEG DASH.  En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones).  En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
+En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El recurso codificado puede empaquetarse dinámicamente en cualquiera de los siguientes protocolos de streaming: HLS, Smooth y MPEG-DASH.  En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones).  En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
 
 ![Filtrado de representaciones][renditions1]
 

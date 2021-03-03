@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701525"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutorial: Uso de la configuración dinámica mediante una actualización de inserción en una aplicación de .NET Core
 
@@ -27,7 +27,7 @@ La biblioteca cliente para .NET Core de App Configuration admite la actualizaci�
 
 1. Modelo de sondeo: este es el comportamiento predeterminado, que usa el sondeo para detectar los cambios en la configuración. Una vez que el valor almacenado en caché de una configuración expira, la siguiente llamada a `TryRefreshAsync` o `RefreshAsync` envía una solicitud al servidor para comprobar si la configuración ha cambiado y extrae la configuración actualizada si es necesario.
 
-1. Modo de inserción: este modo utiliza [eventos de App Configuration](./concept-app-configuration-event.md) para detectar los cambios en la configuración. Una vez que App Configuration está configurado para enviar eventos de cambio de valor de clave a Azure Event Grid, la aplicación puede usar estos eventos para optimizar el número total de solicitudes necesarias para mantener la configuración actualizada. Las aplicaciones pueden optar por suscribirse a ellos directamente desde Event Grid o bien mediante uno de los [controladores de eventos admitidos](https://docs.microsoft.com/azure/event-grid/event-handlers), como un webhook, una función de Azure o un tema de Service Bus.
+1. Modo de inserción: este modo utiliza [eventos de App Configuration](./concept-app-configuration-event.md) para detectar los cambios en la configuración. Una vez que App Configuration está configurado para enviar eventos de cambio de valor de clave a Azure Event Grid, la aplicación puede usar estos eventos para optimizar el número total de solicitudes necesarias para mantener la configuración actualizada. Las aplicaciones pueden optar por suscribirse a ellos directamente desde Event Grid o bien mediante uno de los [controladores de eventos admitidos](../event-grid/event-handlers.md), como un webhook, una función de Azure o un tema de Service Bus.
 
 Las aplicaciones pueden optar por suscribirse a estos eventos directamente desde Event Grid, mediante un webhook o mediante el reenvío de eventos a Azure Service Bus. El SDK de Azure Service Bus proporciona una API para registrar un controlador de mensajes que simplifica este proceso para las aplicaciones que no tienen un punto de conexión HTTP o que no desean sondear los cambios continuamente en Event Grid.
 
@@ -50,7 +50,7 @@ Para realizar este tutorial, instale el [SDK de .NET Core](https://dotnet.micros
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Configuración de un tema y una suscripción de Azure Service Bus
 
-En este tutorial se usa la integración de Service Bus con Event Grid para simplificar la detección de cambios de configuración para las aplicaciones que no desean sondear los cambios de App Configuration de forma continua. El SDK de Azure Service Bus proporciona una API para registrar un controlador de mensajes que se puede usar para actualizar la configuración cuando se detectan cambios en App Configuration. Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) para crear un espacio de nombres, un tema y una suscripción de Service Bus.
+En este tutorial se usa la integración de Service Bus con Event Grid para simplificar la detección de cambios de configuración para las aplicaciones que no desean sondear los cambios de App Configuration de forma continua. El SDK de Azure Service Bus proporciona una API para registrar un controlador de mensajes que se puede usar para actualizar la configuración cuando se detectan cambios en App Configuration. Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) para crear un espacio de nombres, un tema y una suscripción de Service Bus.
 
 Una vez creados los recursos, agregue las siguientes variables de entorno. Se usarán para registrar un controlador de eventos para los cambios de configuración en el código de la aplicación.
 
@@ -81,7 +81,7 @@ Una vez creados los recursos, agregue las siguientes variables de entorno. Se us
     ![Suscripciones de eventos de App Configuration](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Al suscribirse a los cambios de configuración, se pueden usar uno o varios filtros para reducir el número de eventos que se envían a la aplicación. Se pueden configurar como [filtros de suscripción de Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering) o [filtros de suscripción de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). Por ejemplo, un filtro de suscripción se puede utilizar para suscribirse solo a eventos de cambios en una clave que empieza por una cadena específica.
+> Al suscribirse a los cambios de configuración, se pueden usar uno o varios filtros para reducir el número de eventos que se envían a la aplicación. Se pueden configurar como [filtros de suscripción de Event Grid](../event-grid/event-filtering.md) o [filtros de suscripción de Service Bus](../service-bus-messaging/topic-filters.md). Por ejemplo, un filtro de suscripción se puede utilizar para suscribirse solo a eventos de cambios en una clave que empieza por una cadena específica.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Registro del controlador de eventos para volver a cargar los datos de App Configuration
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-El método [SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) se usa para establecer el valor almacenado en caché para los pares de clave y valor registrados para la actualización como modificados. Esto garantiza que la siguiente llamada a `RefreshAsync` o `TryRefreshAsync` vuelva a validar los valores almacenados en caché con App Configuration y los actualice si es necesario.
+El método [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) se usa para establecer el valor almacenado en caché para los pares de clave y valor registrados para la actualización como modificados. Esto garantiza que la siguiente llamada a `RefreshAsync` o `TryRefreshAsync` vuelva a validar los valores almacenados en caché con App Configuration y los actualice si es necesario.
 
 Se agrega un retraso aleatorio antes de que el valor almacenado en caché se marque como modificado para reducir la limitación potencial en caso de que varias instancias se actualicen al mismo tiempo. El retraso máximo predeterminado antes de que el valor almacenado en caché se marque como modificado es de 30 segundos, pero se puede invalidar mediante el paso del parámetro opcional `TimeSpan` al método `SetDirty`.
 

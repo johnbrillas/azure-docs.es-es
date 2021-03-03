@@ -1,24 +1,23 @@
 ---
 title: Solución Network Performance Monitor en Azure | Microsoft Docs
 description: Network Performance Monitor en Azure ayuda a supervisar el rendimiento de las redes, casi en tiempo real, para detectar y localizar cuellos de botella de rendimiento.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711134"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
 ![Símbolo de Network Performance Monitor](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Network Performance Monitor es una solución de supervisión de red híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los puntos de conexión del servicio y la aplicación, y supervisar el rendimiento de Azure ExpressRoute. 
 
@@ -301,4 +300,4 @@ La información sobre los precios está disponible [en línea](network-performan
 * **Únase a nuestra cohorte**. Siempre estamos interesados en que se unan nuevos clientes a nuestra cohorte. Como parte de todo ello, podrá obtener un acceso anticipado a las nuevas características y tendrá la oportunidad de ayudarnos a mejorar Network Performance Monitor. Si está interesado en unirse, rellene esta [encuesta rápida](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Pasos siguientes 
-Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md). 
+Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md).

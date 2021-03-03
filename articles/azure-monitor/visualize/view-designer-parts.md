@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710879"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
@@ -39,7 +39,7 @@ En la tabla siguiente se describen los tipos de icono disponibles del Diseñador
 Las siguientes secciones describen los tipos de icono y sus propiedades en detalle.
 
 > [!NOTE]
-> Los elementos de las vistas se basan en [consultas de registros](../log-query/log-query-overview.md) del área de trabajo de Log Analytics. Actualmente no se admiten las [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar datos de Application Insights.
+> Los elementos de las vistas se basan en [consultas de registros](../logs/log-query-overview.md) del área de trabajo de Log Analytics. Actualmente no se admiten las [consultas entre recursos](../logs/cross-workspace-query.md) para recuperar datos de Application Insights.
 
 ## <a name="list-of-queries-part"></a>Elemento Lista de consultas
 El elemento Lista de consultas muestra una lista de las consultas de registros. Puede seleccionar cada una de las consultas para mostrar los resultados. La vista incluye una sola consulta de forma predeterminada y puede seleccionar **+ Query** (+ Consulta) para agregar más.
@@ -318,7 +318,7 @@ El separador de nombre y valor es el delimitador de carácter único para analiz
 Por ejemplo, una propiedad llamada *Location* que incluya valores como *Redmond-Building 41* y *Bellevue-Building 12*. Puede especificar un guión (-) para el separador de nombre y valor, y *City-Building* para el nombre. Este enfoque analiza cada valor en dos propiedades denominadas *City* y *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegación a través de un clic
-La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../log-query/log-query-overview.md) o se iniciará otra vista.
+La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../logs/log-query-overview.md) o se iniciará otra vista.
 
 En la tabla siguiente se describe la configuración de la navegación a través de un clic.
 
@@ -357,4 +357,4 @@ En la tabla siguiente se describe la configuración de los umbrales:
 | Color |Color que indica el valor de umbral. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre las [consultas de registros](../log-query/log-query-overview.md) para poder realizar consultas en elementos de visualización.
+* Obtenga información sobre las [consultas de registros](../logs/log-query-overview.md) para poder realizar consultas en elementos de visualización.

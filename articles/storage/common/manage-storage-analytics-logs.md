@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701712"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Habilitación y administración de los registros de Azure Storage Analytics (clásico)
 
-[Azure Storage Analytics](storage-analytics.md) proporciona registros para blobs, colas y tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar los registros que se registran para su cuenta. En este artículo se muestra cómo habilitar y administrar los registros. Para obtener información sobre cómo habilitar las métricas, vea [Habilitación y administración de las métricas de Azure Storage Analytics (clásico)](storage-monitor-storage-account.md).  Existen costos asociados con el análisis y el almacenamiento de los datos de supervisión en Azure Portal. Para más información, consulte [Storage Analytics](storage-analytics.md).
+[Azure Storage Analytics](storage-analytics.md) proporciona registros para blobs, colas y tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar los registros que se registran para su cuenta. En este artículo se muestra cómo habilitar y administrar los registros. Para obtener información sobre cómo habilitar las métricas, vea [Habilitación y administración de las métricas de Azure Storage Analytics (clásico)]().  Existen costos asociados con el análisis y el almacenamiento de los datos de supervisión en Azure Portal. Para más información, consulte [Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
 > Se recomienda usar los registros de Azure Storage en Azure Monitor en lugar de los registros de Storage Analytics. Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Para más información, consulte cualquiera de los siguientes artículos:
@@ -191,7 +191,7 @@ Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo 
 
    * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento. 
 
-6. Use [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) para ver la directiva de retención de registros actual. En el ejemplo siguiente, se imprime en la consola el período de retención para los servicios de almacenamiento de blobs y colas.
+6. Use [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) para ver la directiva de retención de registros actual. En el ejemplo siguiente, se imprime en la consola el período de retención para los servicios de almacenamiento de blobs y colas.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ Los datos de registro se pueden acumular en la cuenta a lo largo del tiempo, lo 
    > [!div class="mx-imgBorder"]
    > ![Directiva de retención en la salida de PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Use [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) para cambiar el período de retención. En el ejemplo siguiente se cambia el período de retención a 4 días.  
+7. Use [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) para cambiar el período de retención. En el ejemplo siguiente se cambia el período de retención a 4 días.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Cuando haya descargado los datos de registro, puede ver las entradas de registro
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Storage Analytics, vea [Storage Analytics](storage-analytics.md) para Storage Analytics.
-* [Configuración de las métricas de Storage Analytics](storage-monitor-storage-account.md).
 * Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](/previous-versions/azure/dn261237(v=azure.100)). 
 * Para obtener información general sobre cómo configurar el registro de almacenamiento con la API de REST, vea [Habilitar y configurar Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Obtenga más información sobre el formato de los registros de Storage Analytics. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).

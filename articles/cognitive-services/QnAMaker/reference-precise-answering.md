@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703412"
 ---
 # <a name="precise-answering"></a>Respuestas precisas
 
@@ -32,7 +32,7 @@ El servicio también devuelve la puntuación de confianza de la respuesta precis
 
 ## <a name="publishing-a-qna-maker-bot"></a>Publicación de un bot de QnA Maker
 
-Cuando se publica un bot, se obtiene de forma predeterminada la experiencia habilitada de la respuesta precisa en la aplicación, donde verá una respuesta corta junto con el pasaje de la respuesta. Consulte la referencia de la API en [Generación de respuestas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) para ver cómo usar la respuesta precisa (denominada AnswerSpan) en la respuesta. El usuario tiene la flexibilidad de elegir otras experiencias mediante la actualización de la plantilla a través del servicio de aplicaciones de bots. 
+Cuando se publica un bot, se obtiene de forma predeterminada la experiencia habilitada de la respuesta precisa en la aplicación, donde verá una respuesta corta junto con el pasaje de la respuesta. Consulte la referencia de la API en [Generación de respuestas](/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) para ver cómo usar la respuesta precisa (denominada AnswerSpan) en la respuesta. El usuario tiene la flexibilidad de elegir otras experiencias mediante la actualización de la plantilla a través del servicio de aplicaciones de bots. 
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 

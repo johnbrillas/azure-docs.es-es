@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700752"
 ---
 # <a name="metric-chart-examples"></a>Ejemplos de gráficos de métricas 
 
-La plataforma Azure ofrece [más de mil métricas](../platform/metrics-supported.md), muchas de ellas con dimensiones. Mediante el uso de [filtros de dimensión](./metrics-charts.md), la aplicación de [divisiones](./metrics-charts.md), el control del tipo de gráfico y el ajuste de la configuración del gráfico puede crear paneles y vistas de diagnóstico eficaces que proporcionan información detallada sobre el estado de la infraestructura y las aplicaciones. En este artículo se muestran algunos ejemplos de los gráficos que se pueden compilar mediante el [Explorador de métricas](./metrics-charts.md) y se explican los pasos necesarios para configurar cada uno de estos gráficos.
+La plataforma Azure ofrece [más de mil métricas](./metrics-supported.md), muchas de ellas con dimensiones. Mediante el uso de [filtros de dimensión](./metrics-charts.md), la aplicación de [divisiones](./metrics-charts.md), el control del tipo de gráfico y el ajuste de la configuración del gráfico puede crear paneles y vistas de diagnóstico eficaces que proporcionan información detallada sobre el estado de la infraestructura y las aplicaciones. En este artículo se muestran algunos ejemplos de los gráficos que se pueden compilar mediante el [Explorador de métricas](./metrics-charts.md) y se explican los pasos necesarios para configurar cada uno de estos gráficos.
 
 ¿Quiere compartir sus estupendos ejemplos de gráficos con todo el mundo? Contribuya con esta página en GitHub y comparta sus propios ejemplos de gráfico aquí.
 
@@ -54,4 +54,3 @@ En el selector de métricas, seleccione la cuenta de almacenamiento y la métric
 
 * Más información acerca de Azure Monitor [Workbooks](../visualize/workbooks-overview.md).
 * Más información acerca del [Explorador de métricas](metrics-charts.md).
-

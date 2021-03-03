@@ -4,12 +4,12 @@ description: Seguimiento de problemas con la escalabilidad automática de Azure 
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711406"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  
@@ -24,14 +24,14 @@ El servicio de escalabilidad automática proporciona métricas y registros para 
   
 ## <a name="autoscale-metrics"></a>Métricas de escalabilidad automática
 
-La escalabilidad automática le proporciona [cuatro métricas](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) para comprender su funcionamiento. 
+La escalabilidad automática le proporciona [cuatro métricas](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) para comprender su funcionamiento. 
 
 - **Valor de métrica observado**: el valor de la métrica en la que ha elegido llevar a cabo la acción de escalado, tal como lo ha detectado o calculado el motor de escalabilidad automática. Dado que una única configuración de escalabilidad automática puede tener varias reglas y, por lo tanto, varios orígenes de métricas, puede filtrar mediante "origen de métrica" como dimensión.
 - **Umbral de métrica**: el umbral establecido para realizar la acción de escalado. Como una única configuración de escalabilidad automática puede tener varias reglas y, por lo tanto, varios orígenes de métricas, puede filtrar mediante "regla de métrica" como dimensión.
 - **Capacidad observada**: el número activo de instancias del recurso de destino tal como lo ha detectado el motor de escalabilidad automática.
 - **Acciones de escalado iniciadas**: el número de acciones de escalabilidad horizontal y reducción horizontal iniciadas por el motor de escalabilidad automática. Puede filtrar por acciones de escalabilidad horizontal y de reducción horizontal.
 
-Puede utilizar el [Explorador de métricas](../platform/metrics-getting-started.md) para representar todas las métricas anteriores en un único lugar. El gráfico debería mostrar:
+Puede utilizar el [Explorador de métricas](../essentials/metrics-getting-started.md) para representar todas las métricas anteriores en un único lugar. El gráfico debería mostrar:
 
   - la métrica real
   - la métrica tal como la ha detectado o calculado el motor de escalabilidad automática
@@ -87,7 +87,7 @@ En el gráfico de la parte inferior se muestran algunos valores.
  - La **Capacidad observada** (púrpura) muestra el recuento de instancias que detecta el motor de escalabilidad automática. 
  - El **Umbral de métrica** (verde claro) se establece en 10. 
 
-Si hay varias reglas de acción de escalado, puede usar la división o la opción **Agregar filtro** en el gráfico del Explorador de métricas para ver la métrica de una regla o un origen específico. Para más información sobre cómo dividir un gráfico de métricas, consulte [Características avanzadas de gráficos de métricas: división](../platform/metrics-charts.md#apply-splitting)
+Si hay varias reglas de acción de escalado, puede usar la división o la opción **Agregar filtro** en el gráfico del Explorador de métricas para ver la métrica de una regla o un origen específico. Para más información sobre cómo dividir un gráfico de métricas, consulte [Características avanzadas de gráficos de métricas: división](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Ejemplo 3: descripción de los eventos de escalabilidad automática
 
@@ -97,13 +97,13 @@ En la pantalla de configuración de escalabilidad automática, vaya a la pestañ
 
 ## <a name="autoscale-resource-logs"></a>Escalabilidad automática de registros de recursos
 
-Igual que cualquier otro recurso de Azure, el servicio de escalabilidad automática proporciona [registros de recursos](../platform/platform-logs-overview.md). Existen dos categorías de registros.
+Igual que cualquier otro recurso de Azure, el servicio de escalabilidad automática proporciona [registros de recursos](../essentials/platform-logs-overview.md). Existen dos categorías de registros.
 
 - **Evaluaciones de escalabilidad automática**: el motor de escalabilidad automática registra las entradas de registro para cada evaluación de condición única cada vez que realiza una comprobación.  La entrada incluye detalles sobre los valores observados de las métricas, las reglas evaluadas y si la evaluación ha dado como resultado una acción de escalado o no.
 
 - **Acciones de escalabilidad automática**: el motor registra los eventos de acción de escalado iniciados por el servicio de escalabilidad automática y los resultados de estas acciones de escalado (correcto, error y cantidad de escalado que ha detectado el servicio de escalabilidad automática).
 
-Al igual que con cualquier servicio compatible con Azure Monitor, puede usar [Configuración de diagnóstico](../platform/diagnostic-settings.md) para enrutar estos registros:
+Al igual que con cualquier servicio compatible con Azure Monitor, puede usar [Configuración de diagnóstico](../essentials/diagnostic-settings.md) para enrutar estos registros:
 
 - al área de trabajo de Log Analytics para análisis detallados
 - a Event Hubs y, a continuación, a herramientas que no son de Azure
@@ -206,4 +206,4 @@ Cree reglas de alertas para recibir notificaciones de errores o acciones de esca
 Para más información, consulte los [registros de recursos de escalabilidad automática](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Lea información sobre [Procedimientos recomendados de escalabilidad automática](autoscale-best-practices.md). 
+Lea información sobre [Procedimientos recomendados de escalabilidad automática](autoscale-best-practices.md).

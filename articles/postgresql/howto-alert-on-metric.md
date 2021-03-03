@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b4c10d152afba708eb176e89355ed31ec809168
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020116"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586743"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL con un único servidor
 
@@ -25,8 +25,8 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 * Llamar a un webhook.
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI de Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI de Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API de REST de Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
@@ -84,5 +84,5 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 * **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenga [información general sobre la colección de métricas](../azure-monitor/platform/data-platform.md) para garantizar que el servicio está disponible y que responder adecuadamente.
+* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/alerts/alerts-webhooks.md).
+* Obtenga [información general sobre la colección de métricas](../azure-monitor/data-platform.md) para garantizar que el servicio está disponible y que responder adecuadamente.

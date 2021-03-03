@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499941"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592471"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recopilación y análisis de datos de registro para Azure Cognitive Search
 
@@ -25,7 +25,7 @@ Al configurar el registro de diagnóstico, se le pedirá que especifique un meca
 
 | Recurso | Se usa para |
 |----------|----------|
-| [Envío al área de trabajo de Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Los eventos y las métricas se envían a un área de trabajo de Log Analytics que se puede consultar en el portal para devolver información detallada. Para ver una introducción, consulte [Introducción a los registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). |
+| [Envío al área de trabajo de Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Los eventos y las métricas se envían a un área de trabajo de Log Analytics que se puede consultar en el portal para devolver información detallada. Para ver una introducción, consulte [Introducción a los registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). |
 | [Archivado con Blob Storage](../storage/blobs/storage-blobs-overview.md) | Los eventos y las métricas se archivan en un contenedor de blobs y se almacenan en archivos JSON. Los registros pueden ser bastante detallados (por hora o minuto), útiles para investigar un incidente específico, pero no para una investigación abierta. Use un editor de JSON para ver un archivo de registro sin formato o Power BI para agregar y visualizar datos de registro.|
 | [Transmisión a Event Hubs](../event-hubs/index.yml) | Los eventos y las métricas se transmiten al servicio Azure Event Hubs. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
 
@@ -33,7 +33,7 @@ Al configurar el registro de diagnóstico, se le pedirá que especifique un meca
 
 Cree recursos de antemano para que pueda seleccionar uno o más al configurar el registro de diagnóstico.
 
-+ [Cree un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Cree un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Cree una cuenta de almacenamiento](../storage/common/storage-account-create.md)
 

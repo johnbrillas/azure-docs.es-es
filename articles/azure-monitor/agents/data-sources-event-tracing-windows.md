@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: 6239cf48794c74c5dd810fda42476df399300578
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603222"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719906"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Recopilación de eventos de Seguimiento de eventos para Windows (ETW) para análisis en registros de Azure Monitor
 
-*Seguimiento de eventos para Windows (ETW)* proporciona un mecanismo para la instrumentación de aplicaciones en modo de usuario y controladores de modo de kernel. El agente de Log Analytics se usa para [recopilar eventos de Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events) escritos en los [canales de ETW](https://docs.microsoft.com/windows/win32/wes/eventmanifestschema-channeltype-complextype) administrativo y operativo. Sin embargo, en ocasiones es necesario capturar y analizar otros eventos, como los que se escriben en el canal analítico.  
+*Seguimiento de eventos para Windows (ETW)* proporciona un mecanismo para la instrumentación de aplicaciones en modo de usuario y controladores de modo de kernel. El agente de Log Analytics se usa para [recopilar eventos de Windows](./data-sources-windows-events.md) escritos en los [canales de ETW](/windows/win32/wes/eventmanifestschema-channeltype-complextype) administrativo y operativo. Sin embargo, en ocasiones es necesario capturar y analizar otros eventos, como los que se escriben en el canal analítico.  
 
 ## <a name="event-flow"></a>Flujo de eventos
 
-Para recopilar correctamente [eventos ETW basados en un manifiesto](https://docs.microsoft.com/windows/win32/etw/about-event-tracing#types-of-providers) para el análisis en registros de Azure Monitor, debe usar la [extensión de Azure Diagnostics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview) para Windows (WAD). En este escenario, la extensión de diagnóstico actúa como consumidor de ETW, y escribe eventos en Azure Storage (tablas) como almacén intermedio. Aquí se almacenará en una tabla denominada **WADETWEventTable**. Luego Log Analytics recopila los datos de la tabla de Azure Storage y los presenta como una tabla denominada **ETWEvent**.
+Para recopilar correctamente [eventos ETW basados en un manifiesto](/windows/win32/etw/about-event-tracing#types-of-providers) para el análisis en registros de Azure Monitor, debe usar la [extensión de Azure Diagnostics](./diagnostics-extension-overview.md) para Windows (WAD). En este escenario, la extensión de diagnóstico actúa como consumidor de ETW, y escribe eventos en Azure Storage (tablas) como almacén intermedio. Aquí se almacenará en una tabla denominada **WADETWEventTable**. Luego Log Analytics recopila los datos de la tabla de Azure Storage y los presenta como una tabla denominada **ETWEvent**.
 
 ![Flujo de eventos](./media/data-sources-event-tracing-windows/event-flow.png)
 
@@ -46,7 +46,7 @@ Registre el nombre del proveedor de ETW y el GUID que se alinee con el registro 
 
 ### <a name="step-2-diagnostics-extension"></a>Paso 2: Extensión Diagnostics
 
-Asegúrese de que de la *extensión de Diagnostics para Windows* esté [instalada](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-windows-install#install-with-azure-portal) en todos los sistemas de origen.
+Asegúrese de que de la *extensión de Diagnostics para Windows* esté [instalada](./diagnostics-extension-windows-install.md#install-with-azure-portal) en todos los sistemas de origen.
 
 ### <a name="step-3-configure-etw-log-collection"></a>Paso 3: Configuración de la recopilación de registros de ETW
 
@@ -58,13 +58,13 @@ Asegúrese de que de la *extensión de Diagnostics para Windows* esté [instalad
 
 4. Establezca el GUID del proveedor o la clase del proveedor en función del proveedor para el que esté configurando la recopilación.
 
-5. Establezca el [**Nivel de registro**](https://docs.microsoft.com/windows/win32/etw/configuring-and-starting-an-event-tracing-session) según corresponda.
+5. Establezca el [**Nivel de registro**](/windows/win32/etw/configuring-and-starting-an-event-tracing-session) según corresponda.
 
 6. Haga clic en los puntos suspensivos junto al proveedor proporcionado y haga clic en **Configurar**.
 
 7. Asegúrese de que la **Tabla de destino predeterminada** esté establecida en **etweventtable**.
 
-8. Establezca un [**Filtro de palabra clave**](https://docs.microsoft.com/windows/win32/wes/defining-keywords-used-to-classify-types-of-events) de ser necesario.
+8. Establezca un [**Filtro de palabra clave**](/windows/win32/wes/defining-keywords-used-to-classify-types-of-events) de ser necesario.
 
 9. Guarde la configuración del proveedor y del registro.
 
@@ -72,8 +72,8 @@ Una vez generados los eventos coincidentes, debe empezar a ver los eventos ETW a
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Paso 4: Configuración de la colección de cuentas de almacenamiento de Log Analytics
 
-Siga [estas instrucciones](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) para recopilar los registros de Azure Storage. Una vez configurados, los datos de eventos ETW deben aparecer en Log Analytics en la tabla **ETWEvent**.
+Siga [estas instrucciones](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) para recopilar los registros de Azure Storage. Una vez configurados, los datos de eventos ETW deben aparecer en Log Analytics en la tabla **ETWEvent**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Use los [campos personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) para crear una estructura en los eventos ETW.
-- Obtenga información acerca de las [consultas de registros](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) para analizar los datos recopilados de soluciones y orígenes de datos.
+- Use los [campos personalizados](../logs/custom-fields.md) para crear una estructura en los eventos ETW.
+- Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

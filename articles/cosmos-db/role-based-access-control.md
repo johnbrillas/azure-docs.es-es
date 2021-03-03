@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 813bb99be0d072ebc9b21dba07ed85671a925910
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8f3e2e96a529ea3347f09729146e73d5517ed759
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692154"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Control de acceso basado en rol de Azure en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -72,7 +72,7 @@ Esta configuración impedirá que se realicen cambios en cualquier recurso de Co
 
 - Modificar procedimientos almacenados, desencadenadores o funciones definidas por el usuario.
 
-Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), la [CLI de Azure](manage-with-cli.md), REST o la [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](../index.yml?product=featured#languages-and-tools).
+Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), la [CLI de Azure](manage-with-cli.md), REST o la [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](../index.yml?product=developer-tools#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Definición mediante una plantilla de ARM
 

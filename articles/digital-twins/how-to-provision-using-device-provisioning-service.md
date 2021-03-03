@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736549"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -223,7 +223,7 @@ Para desencadenar el proceso de retirada, debe eliminar manualmente el dispositi
 
 En la [primera mitad de este artículo](#auto-provision-device-using-device-provisioning-service), creó un dispositivo en IoT Hub y un dispositivo gemelo digital correspondiente. 
 
-Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 El dispositivo se eliminará automáticamente de Azure Digital Twins. 
 

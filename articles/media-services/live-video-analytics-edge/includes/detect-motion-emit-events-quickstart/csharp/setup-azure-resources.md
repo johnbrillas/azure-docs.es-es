@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99530863"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750130"
 ---
 Este tutorial requiere los siguientes recursos de Azure:
 
@@ -36,10 +36,10 @@ Para este inicio rápido, se recomienda usar el [script de configuración de rec
     1. **Interfaz de red**: permite que una máquina virtual de Azure se comunique con recursos de Internet o Azure, entre otros.
     1. **Conexión bastión**: le permite conectarse a la máquina virtual mediante el explorador y Azure Portal.
     1. **Dirección IP pública**: facilita la comunicación de los recursos de Azure con los servicios de Azure orientados al público y a Internet.
-    1. **Red virtual**: hace posible que muchos tipos de recursos de Azure, como las máquinas virtuales, se comuniquen de forma segura entre sí, con Internet y con las redes locales. Obtenga más información sobre las [redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Red virtual**: hace posible que muchos tipos de recursos de Azure, como las máquinas virtuales, se comuniquen de forma segura entre sí, con Internet y con las redes locales. Obtenga más información sobre las [redes virtuales](../../../../../virtual-network/virtual-networks-overview.md)
     1. **IoT Hub**: funciona como un centro de mensajes común para la comunicación bidireccional entre la aplicación de IoT, los módulos de IoT Edge y los dispositivos que administra.
     1. **Cuenta de Media Services**: ayuda a administrar y transmitir contenido multimedia en Azure.
-    1. **Cuenta de almacenamiento**: debe tener una cuenta de almacenamiento principal y puede tener cualquier número de cuentas de almacenamiento secundarias asociadas a la cuenta de Media Services. Para más información, consulte [Cuentas de Azure Storage con cuentas de Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Cuenta de almacenamiento**: debe tener una cuenta de almacenamiento principal y puede tener cualquier número de cuentas de almacenamiento secundarias asociadas a la cuenta de Media Services. Para más información, consulte [Cuentas de Azure Storage con cuentas de Azure Media Services](../../../../latest/storage-account-concept.md).
     1. **Registro de contenedor**: ayuda a almacenar y administrar las imágenes privadas del contenedor de Docker y los artefactos relacionados.
 
 1. Después de que finalice el script, seleccione las llaves para exponer la estructura de carpetas. Verá algunos archivos en el directorio *~/clouddrive/lva-sample*. Archivos de interés en este inicio rápido:

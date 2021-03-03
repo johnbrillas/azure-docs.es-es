@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 0841bbd8baa524d3eea3afcbffc0aa5ead41409e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703055"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Instalación del microagente de Defender para IoT (versión preliminar)
 
@@ -25,7 +25,7 @@ Antes de instalar el módulo Defender para IoT, debe crear una identidad de mód
 
 ## <a name="install-the-package"></a>Instalar el paquete
 
-Instale y configure el repositorio de paquetes de Microsoft siguiendo [estas instrucciones](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
+Instale y configure el repositorio de paquetes de Microsoft siguiendo [estas instrucciones](/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
 Para Debian 9, las instrucciones no incluyen el repositorio que debe agregarse; use los siguientes comandos para agregarlo: 
 

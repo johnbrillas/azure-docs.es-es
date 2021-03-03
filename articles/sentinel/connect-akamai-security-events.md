@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c833d87b8d85c75c4f050f0130ddfd74342f4c52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8aa5a52a06713b4f00b43205a57148049a8ef8da
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711967"
 ---
 # <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Conexión del recopilador Akamai Security Events a Azure Sentinel
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo conectar el recopilador Akamai Security Event
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Envío de registros de Akamai Security Events a Azure Sentinel
 
@@ -158,7 +158,7 @@ Este conector de datos depende de un analizador basado en una función de Kusto 
             , Custom
     ```
 
-1. Haga clic en la lista desplegable **Guardar** y, luego, en **Guardar**. En el panel **Guardar**:
+1. Haga clic en el menú desplegable **Guardar** y haga clic en **Guardar**. En el panel **Guardar**:
 
     1. En **Nombre**, escriba **AkamaiSIEMEvent**.
 

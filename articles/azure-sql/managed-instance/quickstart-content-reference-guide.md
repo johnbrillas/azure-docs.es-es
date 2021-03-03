@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690973"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introducción a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Como primer paso, tendría que crear su primera instancia administrada de SQL co
   > - También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
   > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención).
 
-Como alternativa a la creación manual de una instancia administrada de SQL, puede usar [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
+Como alternativa a la creación manual de una instancia administrada de SQL, puede usar [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](./create-template-quickstart.md) o la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
 
 ### <a name="migrate-your-databases"></a>Migración de las bases de datos
 

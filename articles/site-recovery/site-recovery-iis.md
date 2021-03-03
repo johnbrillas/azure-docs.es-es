@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083776"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735512"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
 
@@ -122,10 +122,10 @@ Todos los sitios se componen de información de enlace. La información de enlac
 
 ![Captura de pantalla que muestra la configuración del enlace de TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Si la dirección IP está asociada con un sitio, actualice todos los enlaces de sitio con la nueva dirección IP. Para cambiar los enlaces de sitio, agregue un [script de actualización de capa web de IIS](https://aka.ms/asr-web-tier-update-runbook-classic) después del grupo 3 en el plan de recuperación.
+Si la dirección IP está asociada con un sitio, actualice todos los enlaces de sitio con la nueva dirección IP. Para cambiar los enlaces de sitio, agregue un [script de actualización de capa web de IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) después del grupo 3 en el plan de recuperación.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Actualización de la dirección IP del equilibrador de carga
-Si tiene una máquina virtual de ARR, para actualizar la dirección IP, agregue un [script de conmutación por error de ARR para IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) después al grupo 4.
+Si tiene una máquina virtual de ARR, para actualizar la dirección IP, agregue un [script de conmutación por error de ARR para IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) después al grupo 4.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Enlace de certificado TLS/SSL para una conexión HTTPS
 Un sitio web puede tener un certificado TLS/SSL asociado que ayude a garantizar una comunicación segura entre el servidor web y el explorador del usuario. Si el sitio web tiene una conexión HTTPS y también tiene un enlace de sitio HTTPS asociado a la dirección IP del servidor IIS con un enlace de certificado TLS/SSL, debe agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual de IIS después de la conmutación por error.

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eec9cf199068db6b87e69dd97dd0e105f629a14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750606"
 ---
 <a name="HOLTop"></a>
 
@@ -105,7 +105,7 @@ En el método **main** de la aplicación, agregue llamadas para los métodos que
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
 > [!div class="nextstepaction"]
-> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -132,7 +132,7 @@ En un nuevo método, cree una instancia de un objeto [ComputerVisionClient](/jav
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
@@ -215,7 +215,7 @@ El código siguiente imprime información sobre el tipo de imagen (si es una ima
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
-> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
@@ -261,7 +261,7 @@ Por último, agregue el otro método auxiliar usado anteriormente, que extrae el
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -278,7 +278,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -288,7 +288,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

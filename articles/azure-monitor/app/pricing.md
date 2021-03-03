@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726195"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -294,7 +294,7 @@ Para ver los precios vigentes actualmente en su moneda y región, consulte [Prec
 
 ### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Descripción del uso facturado en el nivel Enterprise heredado (por nodo) 
 
-Tal y como se describe a continuación con más detalle, el nivel Enterprise heredado (por nodo) combina el uso de todos los recursos de Application Insights de una suscripción para calcular el número de nodos y el uso de datos por encima del límite. Debido a este proceso de combinación, el **uso de todos los recursos de Application Insights de una suscripción se muestran solo en uno de los recursos**.  Esto hace que la conciliación del [uso facturado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) con el uso que se observa en cada Application Insights recursos sea muy complicada. 
+Tal y como se describe a continuación con más detalle, el nivel Enterprise heredado (por nodo) combina el uso de todos los recursos de Application Insights de una suscripción para calcular el número de nodos y el uso de datos por encima del límite. Debido a este proceso de combinación, el **uso de todos los recursos de Application Insights de una suscripción se muestran solo en uno de los recursos**.  Esto hace que la conciliación del [uso facturado](#viewing-application-insights-usage-on-your-azure-bill) con el uso que se observa en cada Application Insights recursos sea muy complicada. 
 
 > [!WARNING]
 > Debido a la complejidad del seguimiento y la comprensión del uso de los recursos de Application Insights en el nivel Enterprise heredado (por nodo), se recomienda encarecidamente usar el plan de tarifa Pago por uso actual. 

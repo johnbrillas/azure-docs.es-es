@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428561"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698865"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring Your Own Key (claves administradas por el cliente) con Media Services
 
@@ -42,7 +42,7 @@ Puede especificar un nombre de clave y una versión de clave, o simplemente un n
 Media Services admite automáticamente el cifrado doble. En el caso de los datos en reposo, la primera capa de cifrado utiliza una clave administrada por el cliente o una clave administrada por Microsoft, en función del valor de `AccountEncryption` de la cuenta.  La segunda capa de cifrado de datos en reposo se proporciona automáticamente mediante una clave administrada de Microsoft independiente. Para más información sobre el cifrado doble, consulte [Cifrado doble de Azure](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> El cifrado doble se habilita automáticamente en la cuenta de Media Services. Sin embargo, la clave administrada por el cliente y el cifrado doble en la cuenta de almacenamiento se deben configurar por separado. Vea el artículo sobre el [cifrado de Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+> El cifrado doble se habilita automáticamente en la cuenta de Media Services. Sin embargo, la clave administrada por el cliente y el cifrado doble en la cuenta de almacenamiento se deben configurar por separado. Vea el artículo sobre el [cifrado de Storage](../../storage/common/storage-service-encryption.md).
 
 ## <a name="tutorials"></a>Tutoriales
 

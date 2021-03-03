@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736498"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 >[!TIP]
->Este tutorial es una versión simplificada del proyecto de ejemplo de [Custom Vision y Azure IoT Edge en un Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi). Este tutorial se ha diseñado para ejecutarse en una máquina virtual en la nube y usa imágenes estáticas para entrenar y probar el clasificador de imágenes, lo que resulta útil para cualquiera que acabe de empezar a evaluar Custom Vision en IoT Edge. El proyecto de ejemplo usa hardware físico y configura una cámara en directo para entrenar y probar el clasificador de imágenes, que es útil para cualquiera que desee probar un escenario real más detallado.
+>Este tutorial es una versión simplificada del proyecto de ejemplo de [Custom Vision y Azure IoT Edge en un Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi). Este tutorial se ha diseñado para ejecutarse en una máquina virtual en la nube y usa imágenes estáticas para entrenar y probar el clasificador de imágenes, lo que resulta útil para cualquiera que acabe de empezar a evaluar Custom Vision en IoT Edge. El proyecto de ejemplo usa hardware físico y configura una cámara en directo para entrenar y probar el clasificador de imágenes, que es útil para cualquiera que desee probar un escenario real más detallado.
 
 Antes de comenzar este tutorial es preciso haber realizado el anterior, en el que se configuraba el entorno para el desarrollo de contenedores en Linux: [Desarrollo de módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos:
 

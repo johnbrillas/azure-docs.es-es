@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220860"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700480"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -397,6 +397,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | actionGroups | resource group | 1-260 | No puede usar:<br>`/&%\?` <br><br>No puede terminar con un espacio ni punto.  |
 > | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
+> | scheduledQueryRules | resource group | 1-260 | No puede usar:<br>`*<>%{}&:\\?/#` <br><br>No puede terminar con un espacio ni punto.  |
+> | metricAlerts | resource group | 1-260 | No puede usar:<br>`*#&+:<>?@%{}\/` <br><br>No puede terminar con un espacio ni punto.  |
+> | activityLogAlerts | resource group | 1-260 | No puede usar:<br>`<>*%{}&:\\?+/#` <br><br>No puede terminar con un espacio ni punto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 

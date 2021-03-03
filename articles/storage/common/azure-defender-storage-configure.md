@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdfc54b1eca3b07202148b7099884a04f35939ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789019"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698151"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configuración de Azure Defender para Storage
 
@@ -23,7 +23,7 @@ Azure Defender para Storage proporciona una capa adicional de inteligencia de se
 
 Las alertas de seguridad se desencadenan cuando se producen anomalías en una actividad. Estas alertas de seguridad se integran en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y también se envían por correo electrónico a los administradores de las suscripciones, con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas.
 
-El servicio ingiere los registros de recursos de las solicitudes de lectura, escritura y eliminación en Blob Storage y en Azure Files para la detección de amenazas. Para investigar las alertas de Azure Defender para Storage, puede ver la actividad de almacenamiento relacionada mediante el registro de Storage Analytics. Para más información, consulte **Configuración del registro** en [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md#configure-logging).
+El servicio ingiere los registros de recursos de las solicitudes de lectura, escritura y eliminación en Blob Storage y en Azure Files para la detección de amenazas. Para investigar las alertas de Azure Defender para Storage, puede ver la actividad de almacenamiento relacionada mediante el registro de Storage Analytics. Para más información, consulte **Configuración del registro** en [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -53,10 +53,10 @@ Azure Defender para Storage se puede configurar de distintas formas, que se desc
 Cuando se suscribe al nivel Estándar en Azure Security Center, Azure Defender se configura automáticamente en las cuentas de almacenamiento. Puede habilitar o deshabilitar Azure Defender para las cuentas de almacenamiento en una suscripción específica de la manera siguiente:
 
 1. Inicie **Azure Security Center** en [Azure Portal](https://portal.azure.com).
-1. En el menú principal, en **Administración** , seleccione **Precios y configuración** .
+1. En el menú principal, en **Administración**, seleccione **Precios y configuración**.
 1. Seleccione la suscripción para la que desea habilitar o deshabilitar Azure Defender.
 1. Seleccione **Azure Defender en** para habilitar Azure Defender para la suscripción.
-1. En **Select Azure Defender plan by resource type** (Seleccionar plan de Azure Defender por tipo de recurso), busque la fila **Almacenamiento** y seleccione **Habilitado** en la columna **Plan** .
+1. En **Select Azure Defender plan by resource type** (Seleccionar plan de Azure Defender por tipo de recurso), busque la fila **Almacenamiento** y seleccione **Habilitado** en la columna **Plan**.
 1. Guarde los cambios.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
@@ -66,10 +66,10 @@ Azure Defender ya está habilitado para todas las cuentas de almacenamiento de e
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie [Azure Portal](https://portal.azure.com/).
-1. Vaya a la cuenta de almacenamiento. En **Configuración** , seleccione **Seguridad avanzada** .
+1. Vaya a la cuenta de almacenamiento. En **Configuración**, seleccione **Seguridad avanzada**.
 1. Seleccione **Enable Azure Defender for Storage** (Habilitar Azure Defender para Storage).
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Azure Storage en Security Center":::
 
 Azure Defender ya está habilitado para esta cuenta de almacenamiento.
 
@@ -82,17 +82,17 @@ Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure
 Use una instancia de Azure Policy para habilitar Azure Defender en las cuentas de almacenamiento de un grupo de recursos o suscripción específicos.
 
 1. Inicie la página **Directiva: Definiciones** de Azure.
-1. Busque la directiva **Implementar Azure Defender en cuentas de Storage** .
+1. Busque la directiva **Implementar Azure Defender en cuentas de Storage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Aplicación de una directiva para habilitar Azure Defender para cuentas de Storage":::
 
 1. Seleccione una suscripción a Azure o un grupo de recursos.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Selección de una suscripción o grupo de recursos para el ámbito de la directiva":::
 
 1. Asigne la directiva.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Asignación de una directiva para habilitar Azure Defender para Storage":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Cuando se producen anomalías en la actividad de almacenamiento, recibe una noti
 
 El correo electrónico también incluye detalles acerca de las posibles causas y las medidas recomendadas para investigar y mitigar la potencial amenaza.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Correo electrónico de alerta de Azure Defender para Storage":::
 
 Las alertas de seguridad actuales se pueden revisar y administrar desde el [mosaico de alertas de seguridad](../../security-center/security-center-managing-and-responding-alerts.md) de Azure Security Center. Al hacer clic en una alerta específica se proporcionan detalles y acciones para investigar la amenaza actual y afrontar las amenazas futuras.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Alerta de Azure Defender para Storage":::
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 

@@ -4,12 +4,12 @@ description: Con la API REST de alertas de Log Analytics, se pueden crear y admi
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717815"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST 
 
@@ -21,7 +21,7 @@ La API REST de alertas de Log Analytics le permite crear y administrar alertas e
 La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de REST de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API desde una línea de comandos de PowerShell a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de RESTful de Azure Resource Manager para realizar llamadas a las áreas de trabajo de Log Analytics y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Analytics.  Para obtener más información, consulte [API de búsqueda de registros de Log Analytics](../log-query/log-query-overview.md) .
+Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Analytics.  Para obtener más información, consulte [API de búsqueda de registros de Log Analytics](../logs/log-query-overview.md) .
 
 ## <a name="schedules"></a>Programaciones
 Una búsqueda guardada puede tener una o varias programaciones. La programación define la frecuencia con que se realiza la búsqueda y el intervalo de tiempo en el que se identifican los criterios.
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use la [API de búsqueda de registros de Log Analytics](../log-query/log-query-overview.md) en Log Analytics.
+* Use la [API de búsqueda de registros de Log Analytics](../logs/log-query-overview.md) en Log Analytics.
 * Más información sobre las [alertas de registro en Azure Monitor](./alerts-unified-log.md)
 * [Creación, edición o administración de reglas de alertas de registro en Azure Monitor](./alerts-log.md)
-

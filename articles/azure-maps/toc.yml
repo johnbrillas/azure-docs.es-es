@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: Adición de una capa de símbolo
               href: map-add-pin.md
-            - name: Adición de un elemento emergente
-              href: map-add-popup.md
             - name: Adición de una capa de burbuja
               href: map-add-bubble-layer.md
+            - name: Adición de un elemento emergente
+              href: map-add-popup.md
             - name: Adición de marcadores HTML
               href: map-add-custom-html.md
             - name: Adición de una capa de línea
@@ -250,14 +250,14 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Adición de una capa de burbuja
           href: map-add-bubble-layer-android.md
-        - name: Agregar formas
+        - name: Mostrar información de características
+          href: display-feature-information-android.md
+        - name: Adición de una capa de línea
+          href: android-map-add-line-layer.md
+        - name: Adición de una capa de polígono
           href: how-to-add-shapes-to-android-map.md
         - name: Adición de capa de mapa térmico
           href: map-add-heat-map-layer-android.md
-        - name: Adición de una capa de línea
-          href: android-map-add-line-layer.md
-        - name: Mostrar información de características
-          href: display-feature-information-android.md
         - name: Adición de una capa de icono
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar datos del tráfico

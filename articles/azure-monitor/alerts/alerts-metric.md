@@ -6,18 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: e3a9810aef356b7acf5ae2522645c14ee445812b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bf55d66f7099717079190a538bad8bf777581825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723561"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
-Las alertas de métricas en Azure Monitor proporcionan una forma de recibir notificaciones cuando una de sus métricas cruza un umbral. Las alertas de métricas funcionan en una amplia variedad de métricas de plataforma multidimensionales, métricas personalizadas y métricas personalizadas y estándar de Application Insights. En este artículo describiremos cómo crear, ver y administrar las reglas de alertas de métricas a través de Azure Portal y la CLI de Azure. También puede crear reglas de alertas de métricas mediante plantillas de Azure Resource Manager, que se describen en [otro artículo](../platform/alerts-metric-create-templates.md).
+Las alertas de métricas en Azure Monitor proporcionan una forma de recibir notificaciones cuando una de sus métricas cruza un umbral. Las alertas de métricas funcionan en una amplia variedad de métricas de plataforma multidimensionales, métricas personalizadas y métricas personalizadas y estándar de Application Insights. En este artículo describiremos cómo crear, ver y administrar las reglas de alertas de métricas a través de Azure Portal y la CLI de Azure. También puede crear reglas de alertas de métricas mediante plantillas de Azure Resource Manager, que se describen en [otro artículo](./alerts-metric-create-templates.md).
 
-Puede obtener más información acerca del funcionamiento de las alertas de métricas en el artículo sobre [información general de las alertas de métricas](../platform/alerts-metric-overview.md).
+Puede obtener más información acerca del funcionamiento de las alertas de métricas en el artículo sobre [información general de las alertas de métricas](./alerts-metric-overview.md).
 
 ## <a name="create-with-azure-portal"></a>Creación con Azure Portal
 
@@ -32,7 +32,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 
 3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
 
-4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
 
@@ -45,7 +45,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
     - Si no se muestra el valor de dimensión que está buscando, haga clic en "Agregar valor personalizado" para agregar un valor de dimensión personalizado.
     - También puede **Seleccionar todos los valores actuales y futuros** para cualquiera de las dimensiones. Esto escala dinámicamente la selección a todos los valores actuales y futuros de una dimensión.
 
-    La regla de alertas de métricas evaluará la condición para todas las combinaciones de valores seleccionados. [Obtenga más información sobre cómo funciona la creación de alertas en las métricas multidimensionales](../platform/alerts-metric-overview.md).
+    La regla de alertas de métricas evaluará la condición para todas las combinaciones de valores seleccionados. [Obtenga más información sobre cómo funciona la creación de alertas en las métricas multidimensionales](./alerts-metric-overview.md).
 
 9. Seleccione el tipo de **Umbral**, **Operador** y **Tipo de agregación**. Esto determinará la lógica que evaluará la regla de alertas de métricas.
     - Si usa un umbral **Estático**, siga para definir un **Valor de umbral**. El gráfico de métricas puede ayudar a determinar cuál podría ser un umbral razonable.
@@ -154,8 +154,8 @@ Las reglas de alertas de métricas disponen de cmdlets dedicados de PowerShell:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una alerta de métrica con una plantilla de Resource Manager](../platform/alerts-metric-create-templates.md)
-- [Comprender cómo funcionan las alertas de métricas](../platform/alerts-metric-overview.md)
+- [Creación de una alerta de métrica con una plantilla de Resource Manager](./alerts-metric-create-templates.md)
+- [Comprender cómo funcionan las alertas de métricas](./alerts-metric-overview.md)
 - [Alertas de métricas con umbrales dinámicos en Azure Monitor](../alerts/alerts-dynamic-thresholds.md)
-- [Comprender el esquema de webhook para las alertas de métricas](../platform/alerts-metric-near-real-time.md#payload-schema)
-- [Solución de problemas en las alertas de métricas](../platform/alerts-troubleshoot-metric.md)
+- [Comprender el esquema de webhook para las alertas de métricas](./alerts-metric-near-real-time.md#payload-schema)
+- [Solución de problemas en las alertas de métricas](./alerts-troubleshoot-metric.md)

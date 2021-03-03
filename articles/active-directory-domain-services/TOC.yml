@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Configuración de la sincronización de hash de contraseñas
       href: tutorial-configure-password-hash-sync.md
-    - name: Creación de un conjunto de réplicas (versión preliminar)
+    - name: Creación de un conjunto de réplicas
       href: tutorial-create-replica-set.md
     - name: Creación de un dominio administrado personalizado
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Escenarios habituales de implementación
       href: scenarios.md
-    - name: Conjuntos de réplicas (versión preliminar)
+    - name: Conjuntos de réplicas
       href: concepts-replica-sets.md
     - name: Bosques y confianzas
       items:

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717220"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guía de referencia de los iconos del Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
@@ -36,7 +36,7 @@ En la tabla siguiente se describen los iconos disponibles del Diseñador de vist
 Las siguientes secciones describen los tipos de icono y sus propiedades en detalle.
 
 > [!NOTE]
-> Los iconos de las vistas se basan en [consultas de registros](../log-query/log-query-overview.md) del área de trabajo de Log Analytics. Actualmente no se admiten las [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar datos de Application Insights.
+> Los iconos de las vistas se basan en [consultas de registros](../logs/log-query-overview.md) del área de trabajo de Log Analytics. Actualmente no se admiten las [consultas entre recursos](../logs/cross-workspace-query.md) para recuperar datos de Application Insights.
 
 ## <a name="number-tile"></a>Icono de Número
 El icono de **Número** muestra tanto el número de registros de una consulta de registro como una etiqueta.
@@ -173,5 +173,5 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre las [consultas de registros](../log-query/log-query-overview.md) para poder realizar consultas en iconos.
+* Obtenga información sobre las [consultas de registros](../logs/log-query-overview.md) para poder realizar consultas en iconos.
 * Agregue [elementos de visualización](view-designer-parts.md) a la vista personalizada.

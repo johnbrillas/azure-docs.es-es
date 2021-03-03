@@ -8,14 +8,16 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cd535227b421f4fb56dac3afb37033e3d77f75f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658070"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691542"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutorial: Preparación de una aplicación web para Azure Communication Services (Node.js)
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services le permite agregar comunicaciones en tiempo real a las aplicaciones. En este tutorial aprenderá a configurar una aplicación web que admita Azure Communication Services. Este es un tutorial de introducción destinado a los nuevos desarrolladores que desean empezar a trabajar con comunicaciones en tiempo real.
 
@@ -55,7 +57,7 @@ El entorno de desarrollo local se configurará de la siguiente manera:
 
 Utilizaremos Node.js para descargar e instalar varias dependencias que necesitamos para la aplicación cliente. Lo usaremos para generar archivos estáticos que luego hospedaremos en Azure, por lo que no tiene que preocuparse por configurarlos en el servidor.
 
-Los desarrolladores de Windows pueden seguir el tutorial [Configuración del entorno de desarrollo de Node.js directamente en Windows](/windows/nodejs/setup-on-windows) para configurar Node, nvm y npm.
+Los desarrolladores de Windows pueden seguir el tutorial [Configuración del entorno de desarrollo de Node.js directamente en Windows](/windows/nodejs/setup-on-windows) para configurar Node, nvm y npm. 
 
 Hemos probado este tutorial con la versión LTS 12.20.0. Después de instalar nvm, use el siguiente comando de PowerShell para implementar la versión que desea usar:
 
@@ -159,7 +161,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }
+    }     
 }
 ```
 
@@ -216,7 +218,7 @@ El archivo debe tener ahora el siguiente aspecto:
 }
 ```
 
-Ha agregado el comando que se puede usar desde npm.
+Ha agregado el comando que se puede usar desde npm. 
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modificación de package.json":::
 
@@ -277,13 +279,13 @@ npm run build:dev
 La consola mostrará el lugar en el que se ejecuta el servidor. De forma predeterminada, es `http://localhost:8080`. El comando build:dev es el comando que agregamos al archivo `package.json` anteriormente.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Inicio de un servidor de desarrollo":::
-
+ 
  Vaya a la dirección en el explorador y debería ver la página y la alerta configuradas en los pasos anteriores.
-
+ 
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Página HTML":::
-
-
-Mientras se ejecuta el servidor, puede cambiar el código, y el servidor y la página HTML se recargarán automáticamente.
+  
+ 
+Mientras se ejecuta el servidor, puede cambiar el código, y el servidor y la página HTML se recargarán automáticamente. 
 
 A continuación, vaya al archivo `app.js` en Visual Studio Code y elimine `alert('Hello world alert!');`. Guarde el archivo y compruebe que la alerta desaparece del explorador.
 
@@ -321,11 +323,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Tenga en cuenta que esta configuración se combinará con el archivo webpack.common.js (en el que se especifica el archivo de entrada y dónde se almacenan los resultados) y se establecerá el modo en "production" (producción).
-
+ 
 En `package.json`, agregue el código siguiente:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js"
+"build:prod": "webpack --config webpack.prod.js" 
 ```
 
 El archivo debería tener este aspecto:
@@ -339,14 +341,14 @@ El archivo debería tener este aspecto:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "build:prod": "webpack --config webpack.prod.js" 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.6",
-    "@azure/communication-common": "^1.0.0"
+    "@azure/communication-calling": "^1.0.0-beta.3",
+    "@azure/communication-common": "^1.0.0-beta.3"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -366,13 +368,13 @@ En el terminal, ejecute:
 npm run build:prod
 ```
 
-El comando creará la carpeta `dist` y el archivo estático `app.js` listo para la producción.
+El comando creará la carpeta `dist` y el archivo estático `app.js` listo para la producción. 
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Compilación de producción":::
-
-
+ 
+ 
 ### <a name="deploy-your-app-to-azure-storage"></a>Implementación de la aplicación en Azure Storage
-
+ 
 Copie los archivos `index.html` y `app.css` en la carpeta `dist`.
 
 En la carpeta `dist`, cree un nuevo archivo y asígnele el nombre `404.html`. Copie el código de marcado siguiente en ese archivo:
@@ -397,45 +399,45 @@ Guarde el archivo (Ctrl + S).
 Haga clic con el botón derecho y seleccione Deploy to Static Website via Azure Storage (Implementar en sitio web estático mediante Azure Storage).
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Inicio de la implementación en Azure":::
-
+ 
 En el campo `Select subscription` (Seleccionar suscripción), seleccione "Sign in to Azure" (Iniciar sesión en Azure) (o"Create a Free Azure Account" [Crear una cuenta de Azure gratis] si no ha creado una suscripción antes).
-
+ 
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Inicio de sesión en Azure":::
-
+ 
 Seleccione `Create new Storage Account` > `Advanced`:
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Creación del grupo de la cuenta de almacenamiento":::
-
+ 
  Proporcione el nombre de la cuenta de almacenamiento:
-
+ 
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Adición de un nombre para la cuenta":::
-
+ 
 Si es necesario, cree un nuevo grupo de recursos:
-
+ 
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Creación de un nuevo grupo":::
-
+  
   Responda "Yes" (Sí) a la pregunta "Would you like to enable static website hosting?" (¿Desea habilitar el hospedaje de sitios web estáticos?).
-
+  
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Selección de la opción para habilitar el hospedaje de sitios web estáticos":::
-
+  
 Acepte el nombre de archivo predeterminado en "Enter the index document name" (Especificar el nombre del documento de índice), ya que hemos creado el archivo `index.html`.
 
-Escriba `404.html` para "Enter the 404 error document path" (Especificar la ruta de acceso del documento de error 404).
-
-Seleccione la ubicación de la aplicación. La ubicación que seleccione definirá el procesador multimedia que se usará en la futura aplicación de llamadas en las llamadas de grupo.
+Escriba `404.html` para "Enter the 404 error document path" (Especificar la ruta de acceso del documento de error 404).  
+  
+Seleccione la ubicación de la aplicación. La ubicación que seleccione definirá el procesador multimedia que se usará en la futura aplicación de llamadas en las llamadas de grupo. 
 
 Azure Communication Services selecciona el procesador multimedia en función de la ubicación de la aplicación.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Seleccionar ubicación":::
-
-Espere hasta que se creen el recurso y el sitio web.
-
+  
+Espere hasta que se creen el recurso y el sitio web. 
+ 
 Haga clic en "Browse to website" (Ir al sitio web):
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Implementación completada":::
-
+ 
 Desde las herramientas de desarrollo del explorador, puede inspeccionar el código fuente y ver el archivo, preparado para producción.
-
+ 
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Sitio web":::
 
 Vaya a [Azure Portal](https://portal.azure.com/#home), seleccione el grupo de recursos, seleccione la aplicación que ha creado y vaya a `Settings` > `Static website` (Configuración > Sitio web estático). Puede ver que los sitios web estáticos están habilitados y anotar el punto de conexión principal, el documento de índice y el documento de la ruta de acceso de error.
@@ -446,7 +448,7 @@ En "Blob service", seleccione "Contenedores" y verá dos contenedores creados, u
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Configuración del contenedor":::
 
-Si va a `$web`, verá los archivos que ha creado en Visual Studio y que se han implementado en Azure.
+Si va a `$web`, verá los archivos que ha creado en Visual Studio y que se han implementado en Azure. 
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Implementación":::
 

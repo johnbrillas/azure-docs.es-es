@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 27ffbafb92dd3269e38092b64e2b74f17ff9f09f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3c499dcb5233cbf5cd4048c641d1b38e289cc35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739719"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Envío de mensajes a las colas de Azure Service Bus (JavaScript) y recepción desde allí
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a una cola de Service Bus, y recibirlos de ella.
@@ -206,6 +206,6 @@ Seleccione la cola en esta página **Información general** para ir a la página
 Consulte la documentación y los ejemplos siguientes: 
 
 - [Biblioteca cliente de Azure Service Bus para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [Ejemplos de JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Ejemplos de TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Ejemplos de JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Documentación de referencia de API](/javascript/api/overview/azure/service-bus)

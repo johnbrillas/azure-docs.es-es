@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 13017424c1b9f0406ad60dc25f61f198f3655323
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6753b9e50ec8304c85f4079cf917339b6beac42f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750778"
 ---
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
 > [!div class="nextstepaction"]
-> [Configuro el cliente](?success=set-up-client#object-model) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Configuro el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -116,7 +116,7 @@ Luego, defina una función `computerVision` y declare una serie asincrónica con
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
 
 > [!div class="nextstepaction"]
-> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
@@ -232,7 +232,7 @@ Defina la función auxiliar `describeType`:
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
 > [!div class="nextstepaction"]
-> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
@@ -266,7 +266,7 @@ Seguidamente, defina la función auxiliar `printRecText`, que imprime los result
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
 > [!div class="nextstepaction"]
-> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -277,7 +277,7 @@ node index.js
 ```
 
 > [!div class="nextstepaction"]
-> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -287,7 +287,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Javascript&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

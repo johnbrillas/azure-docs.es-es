@@ -156,7 +156,7 @@
             - name: "SDK de .NET\_(C#)"
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: SDK de Java
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
         - name: Plano de datos
           items:
             - name: "SDK de .NET\_(C#)"

@@ -13,12 +13,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6a173ed4dae9237d8aae991c943817ed70246eea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95756407"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649062"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Uso del modo de dispositivo compartido en la aplicación Android
 
@@ -96,7 +96,7 @@ Use `isSharedDevice()` para determinar si una aplicación se está ejecutando en
 Este es un fragmento de código que muestra cómo puede usar `isSharedDevice()`.  Procede de la clase `SingleAccountModeFragment` de la aplicación de ejemplo:
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicialización del objeto PublicClientApplication

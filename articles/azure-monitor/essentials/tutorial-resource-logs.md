@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734152"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure
 
@@ -93,7 +93,7 @@ Los datos se recuperan de un área de trabajo de Log Analytics mediante una cons
 
 
 5. Escriba una consulta y haga clic en **Ejecutar** para inspeccionar los resultados. 
-6. Para un tutorial sobre cómo escribir consultas de registro, consulte [Introducción a las consultas de registro en Azure Monitor](../log-query/get-started-queries.md).
+6. Para un tutorial sobre cómo escribir consultas de registro, consulte [Introducción a las consultas de registro en Azure Monitor](../logs/get-started-queries.md).
 
     ![Consulta de registro](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ Los datos se recuperan de un área de trabajo de Log Analytics mediante una cons
 Ahora que ha aprendido a recopilar registros de recurso en un área de trabajo Log Analytics, complete un tutorial sobre cómo escribir consultas de registro para analizar estos datos.
 
 > [!div class="nextstepaction"]
-> [Introducción a las consultas de registro en Azure Monitor](../log-query/get-started-queries.md)
+> [Introducción a las consultas de registro en Azure Monitor](../logs/get-started-queries.md)

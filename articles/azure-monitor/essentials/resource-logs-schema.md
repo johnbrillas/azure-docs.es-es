@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603126"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717543"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -73,7 +73,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Front Door | [Registro de Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operaciones de IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Registro de Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/view-master-logs.md#log-event-schema) |
+| Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |

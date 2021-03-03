@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: a95cacafc5b1d00b1e4d04fd84cdda2de72b6a59
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4545c3529baf92e2f90d9289ec6828ad9a720e3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738011"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
@@ -132,7 +132,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
  
 - **Mensaje**: el clúster ha tenido un problema de memoria insuficiente durante la ejecución. Vuelva a intentar usar un entorno de ejecución de integración con un mayor recuento de núcleos o un tipo de proceso optimizado para memoria
 - **Causas**: El clúster se está quedando sin memoria.
-- **Recomendación:** los clústeres de depuración están diseñados con fines de desarrollo. Aproveche el muestreo de datos, el tipo de proceso adecuado y el tamaño para ejecutar la carga. Consulte la [Guía de rendimiento de flujo de datos](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) para optimizar los flujos de datos para obtener el mejor rendimiento.
+- **Recomendación:** los clústeres de depuración están diseñados con fines de desarrollo. Aproveche el muestreo de datos, el tipo de proceso adecuado y el tamaño para ejecutar la carga. Consulte la [Guía de rendimiento de flujo de datos](./concepts-data-flow-performance.md) para optimizar los flujos de datos para obtener el mejor rendimiento.
 
 ### <a name="error-code-df-executor-illegalargument"></a>Código de error: DF-Executor-illegalArgument
 - **Mensaje**: Asegúrese de que la clave de acceso del servicio vinculado es correcta.
@@ -182,7 +182,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Mensaje**: Invalid range is provided (Se proporcionó un intervalo no válido).
 - **Causas**: Indeterminada
-- **Recomendación:** Compruebe el valor de los parámetros y especifique un intervalo válido por referencia: [propiedades de Excel](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recomendación:** Compruebe el valor de los parámetros y especifique un intervalo válido por referencia: [propiedades de Excel](./format-excel.md#dataset-properties).
 
 - **Mensaje**: Invalid excel file is provided while only .xlsx and .xls are supported (Se proporcionó un archivo de Excel no válido mientras que solo se admiten .xlsx y .xls)
 - **Causas**: Indeterminada
@@ -204,7 +204,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 ### <a name="error-code-4502"></a>Código de error: 4502
 - **Mensaje**: hay importantes ejecuciones de MappingDataflow simultáneas que están causando errores debido a la limitación en Integration Runtime.
-- **Causas**: una gran cantidad de ejecuciones de actividad de flujo de datos se están realizando simultáneamente en Integration Runtime. Obtenga más información sobre los [Límites de Azure Data Factory](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Causas**: una gran cantidad de ejecuciones de actividad de flujo de datos se están realizando simultáneamente en Integration Runtime. Obtenga más información sobre los [Límites de Azure Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recomendación:** en caso de que quiera ejecutar más actividades de flujo de datos en paralelo, distribúyalas en varios entornos de ejecución de integración.
 
 

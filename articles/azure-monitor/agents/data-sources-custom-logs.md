@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603230"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719940"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 
 El origen de datos de registros personalizados para el agente de Log Analytics en Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
 
 > [!IMPORTANT]
-> En este artículo se trata la recopilación de registros personalizados con el [agente de Log Analytics](../platform/log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
+> En este artículo se trata la recopilación de registros personalizados con el [agente de Log Analytics](./log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](../agents/agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Recopilación de registros personalizados](media/data-sources-custom-logs/overview.png)
 
@@ -105,7 +105,7 @@ Una vez que Azure Monitor empieza a recopilar del registro personalizado, sus re
 > Si falta la propiedad RawData en la búsqueda, es posible que tenga que cerrar y volver a abrir el explorador.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
-La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente le interesará separar los diferentes fragmentos de información de cada entrada en propiedades individuales para cada registro. Consulte [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener opciones de análisis de **RawData** en varias propiedades.
+La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente le interesará separar los diferentes fragmentos de información de cada entrada en propiedades individuales para cada registro. Consulte [Análisis de datos de texto en Azure Monitor](../logs/parse-text.md) para obtener opciones de análisis de **RawData** en varias propiedades.
 
 ## <a name="removing-a-custom-log"></a>Eliminación de un registro personalizado
 Use el proceso siguiente en Azure Portal para eliminar un registro personalizado que haya definido anteriormente.
@@ -116,7 +116,7 @@ Use el proceso siguiente en Azure Portal para eliminar un registro personalizado
 ## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopilará nuevas entradas de cada registro personalizado aproximadamente cada cinco minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente se desconecta durante un período de tiempo, Azure Monitor recopilará entradas a partir de donde lo haya dejado, incluso si se crearon mientras el agente estaba sin conexión.
 
-Todo el contenido de la entrada del registro se escribe en una sola propiedad denominada **RawData**.  Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
+Todo el contenido de la entrada del registro se escribe en una sola propiedad denominada **RawData**.  Vea [Análisis de datos de texto en Azure Monitor](../logs/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
 
 ## <a name="custom-log-record-properties"></a>Propiedades de las entradas del registro personalizado
 Las entradas del registro personalizado tienen un tipo con el nombre del registro que asigne y las propiedades en la tabla siguiente.
@@ -125,7 +125,7 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Azure Monitor recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
 | SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br> Linux: todos los agentes de Linux. |
-| RawData |Texto completo de la entrada recopilada. Probablemente le interesará [analizar estos datos en propiedades individuales](../log-query/parse-text.md). |
+| RawData |Texto completo de la entrada recopilada. Probablemente le interesará [analizar estos datos en propiedades individuales](../logs/parse-text.md). |
 | ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, es AOI-\<workspace ID\> |
 
 
@@ -171,8 +171,8 @@ Aunque los registros personalizados son útiles si los datos cumplen los criteri
 En los casos donde no se pueden recopilar los datos con los registros personalizados, tenga en cuenta las siguientes estrategias alternativas:
 
 - Use un script personalizado u otro método para escribir datos en [Eventos de Windows](data-sources-windows-events.md) o en [Syslog](data-sources-syslog.md) que recopila Azure Monitor. 
-- Envíe los datos directamente a Azure Monitor mediante la [API del recopilador de datos HTTP](../platform/data-collector-api.md). 
+- Envíe los datos directamente a Azure Monitor mediante la [API del recopilador de datos HTTP](../logs/data-collector-api.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.
+* Vea [Análisis de datos de texto en Azure Monitor](../logs/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

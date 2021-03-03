@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 4d4e868a181c216c29eeb5772b3e4c6108f514b1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cd216e277a64d6e3edc87dc4027550bc8c7c5bfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726247"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recopilación de orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Los orígenes de datos JSON personalizados se pueden recopilar en [Azure Monitor](../platform/data-platform.md) mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](https://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
+Los orígenes de datos JSON personalizados se pueden recopilar en [Azure Monitor](../data-platform.md) mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](https://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
 
 
 > [!NOTE]
@@ -104,4 +104,4 @@ Se admiten datos JSON anidados, pero se indexan en función del campo principal.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [consultas de registros](../logs/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

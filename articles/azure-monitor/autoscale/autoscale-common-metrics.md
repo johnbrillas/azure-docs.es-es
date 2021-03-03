@@ -4,12 +4,12 @@ description: Aprenda qué métricas se utilizan normalmente para el escalado aut
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717781"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 
@@ -33,8 +33,8 @@ Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager
 Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático.
 
-- [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager
 Cuando crea una nueva máquina virtual en Azure, los diagnósticos se habilitan mediante la extensión Diagnósticos. La extensión de diagnósticos emite un conjunto de métricas realizadas desde dentro de la máquina virtual. Esto significa que puede escalar automáticamente fuera de las métricas que no se emiten de forma predeterminada.
@@ -186,4 +186,3 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 > Para Service Bus, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 >
 >
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693197"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093985"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger las aplicaciones web y móviles PaaS (plataforma como servicio). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
@@ -64,7 +64,7 @@ Puede que las organizaciones que no aplican el control de acceso de datos median
 
 Para obtener más información sobre Azure RBAC, consulte:
 
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md)
 - [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)
 - [Guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md) 
 

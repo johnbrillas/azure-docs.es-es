@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 02/08/2021
-ms.openlocfilehash: 92d75289fd4459db8c469a4cb562fe28e8aab779
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1cea159e6939463352102d7d3ff3dafbdea71b5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989004"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710334"
 ---
 # <a name="cognitive-services-docs-whats-new-for-january-1-2021---january-31-2021"></a>Documentación de Cognitive Services: Novedades en el período del 1 al 31 de enero de 2021
 
@@ -29,31 +29,31 @@ Estas son las novedades de la documentación de Cognitive Services en el períod
 
 **Artículos nuevos**
 
-- [Tutorial: Extracción masiva de datos de formularios mediante Azure Data Factory](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
+- [Tutorial: Extracción masiva de datos de formularios mediante Azure Data Factory](./form-recognizer/tutorial-bulk-processing.md)
 
 **Artículos actualizados**
 
-- [¿Qué es Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
+- [¿Qué es Form Recognizer?](./form-recognizer/overview.md)
 
 ## <a name="immersive-reader"></a>Lector inmersivo
 
 **Artículos actualizados**
 
-- [Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory](./immersive-reader/how-to-create-immersive-reader.md)
 
 ## <a name="personalizer"></a>Personalizer
 
 **Artículos actualizados**
 
-- [Las características son información acerca de las acciones y del contexto](/azure/cognitive-services/personalizer/concepts-features.md)
+- [Las características son información acerca de las acciones y del contexto](./personalizer/concepts-features.md)
 
 ## <a name="text-analytics"></a>Text Analytics
 
 **Artículos actualizados**
 
-- [Idiomas admitidos en Text Analytics API v3](/azure/cognitive-services/text-analytics/language-support.md)
-- [Migración a la versión 3.x de la API Text Analytics](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Novedades de Text Analytics API](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Idiomas admitidos en Text Analytics API v3](./text-analytics/language-support.md)
+- [Migración a la versión 3.x de la API Text Analytics](./text-analytics/migration-guide.md)
+- [Novedades de Text Analytics API](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>Colaboradores de la comunidad
 

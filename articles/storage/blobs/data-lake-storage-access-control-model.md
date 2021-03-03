@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017719"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650395"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de control de acceso de Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Este artículo se centra en RBAC de Azure y las listas de control de acceso y en
 
 RBAC de Azure usa las asignaciones de roles para aplicar conjuntos de permisos a [entidades de seguridad](../../role-based-access-control/overview.md#security-principal). Una entidad de seguridad es un objeto que representa a un usuario, un grupo, una entidad de servicio o una identidad administrada que está definido en Azure Active Directory (AD). Un conjunto de permisos puede dar a una entidad de seguridad un nivel de acceso más "general", como acceso de lectura o escritura a **todos** los datos de una cuenta de almacenamiento o a **todos** los datos de un contenedor. 
 
-Los roles siguientes permiten que una entidad de seguridad acceda a los datos de una cuenta de almacenamiento. 
+Los roles siguientes permiten que una entidad de seguridad acceda a los datos de una cuenta de almacenamiento.
 
 |Rol|Descripción|
 |--|--|

@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712460"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
-En este artículo, se explica cómo acceder a los recursos de SAP desde Logic Apps mediante el [conector de SAP](https://docs.microsoft.com/connectors/sap/).
+En este artículo, se explica cómo acceder a los recursos de SAP desde Logic Apps mediante el [conector de SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -547,14 +547,14 @@ En el caso de las versiones de puerta de enlace de datos local de abril de 2020 
 
 Si usa una [puerta de enlace de datos local para Logic Apps](../logic-apps/logic-apps-gateway-install.md), puede configurar un archivo de registro ampliado para el conector de SAP. Puede usar la puerta de enlace de datos local para redirigir los eventos de Seguimiento de eventos para Windows (ETW) en los archivos de registro giratorios que se incluyen en los archivos .zip de registro de la puerta de enlace. 
 
-Puede [exportar todos los registros de configuración y servicio de la puerta de enlace](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) a un archivo .zip en desde la configuración de la aplicación de puerta de enlace.
+Puede [exportar todos los registros de configuración y servicio de la puerta de enlace](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) a un archivo .zip en desde la configuración de la aplicación de puerta de enlace.
 
 > [!NOTE]
 > El registro ampliado puede afectar al rendimiento de las aplicaciones lógicas cuando está siempre habilitado. Se recomienda desactivar los archivos de registro ampliados una vez que haya terminado de analizar y solucionar un problema.
 
 #### <a name="capture-etw-events"></a>Captura de eventos ETW
 
-Opcionalmente, los usuarios avanzados pueden capturar eventos ETW directamente. Puede [consumir los datos de Azure Diagnostics en Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) o [recopilar los datos para registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Para obtener más información, consulte [Procedimientos recomendados para recopilar y almacenar datos](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Puede usar [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) para trabajar con los archivos ETL resultantes o puede escribir su propio programa. Este tutorial usa PerfView:
+Opcionalmente, los usuarios avanzados pueden capturar eventos ETW directamente. Puede [consumir los datos de Azure Diagnostics en Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) o [recopilar los datos para registros de Azure Monitor](/azure/azure-monitor/agents/diagnostics-extension-logs). Para obtener más información, consulte [Procedimientos recomendados para recopilar y almacenar datos](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Puede usar [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) para trabajar con los archivos ETL resultantes o puede escribir su propio programa. Este tutorial usa PerfView:
 
 1. En el menú de PerfView, seleccione **Recopilar** &gt; **Recopilar** para capturar los eventos.
 
@@ -1336,7 +1336,7 @@ Para obtener ejemplos detallados de cómo usar la acción Llamar a BAPI, consult
 
 ### <a name="send-idoc-action"></a>Acción Enviar IDoc
 
-La acción [Enviar IDoc (`SendIDoc`)](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) envía el mensaje de IDoc al servidor de SAP.
+La acción [Enviar IDoc (`SendIDoc`)](/connectors/sap/) envía el mensaje de IDoc al servidor de SAP.
 
 Debe usar los parámetros siguientes con la llamada: 
 
