@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ccd01f8c351ac2a7326a3b893bd78d14599db50
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487932"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588315"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
-Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un [historial de hasta 93 días](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un [historial de hasta 93 días](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for PostgreSQL:
@@ -42,7 +42,7 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |pg_replica_log_delay_in_seconds|Retraso entre réplicas|Segundos|El tiempo transcurrido desde la última transacción reproducida. Esta métrica está disponible únicamente para los servidores de réplica.|
 
 ## <a name="server-logs"></a>Registros del servidor
-Puede habilitar el registro en el servidor. Estos registros de recursos se pueden enviar a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs y una cuenta de Storage. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
+Puede habilitar el registro en el servidor. Estos registros de recursos se pueden enviar a los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md), Event Hubs y una cuenta de Storage. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Almacén de consultas
 El [Almacén de consultas](concepts-query-store.md) realiza un seguimiento del rendimiento de las consultas a lo largo del tiempo, que incluye las estadísticas en tiempo de ejecución y los eventos de espera de consultas. La característica conserva información del rendimiento en tiempo de ejecución de las consultas en una base de datos del sistema denominada **azure_sys** bajo el esquema query_store. Puede controlar la recopilación y el almacenamiento de datos mediante diversos botones de configuración.
@@ -61,6 +61,6 @@ Puede encontrar más información sobre cómo configurar notificaciones en el do
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Configuración de alertas](howto-alert-on-metric.md) para obtener instrucciones sobre cómo crear una alerta en una métrica.
-- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
+- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
 - Lea nuestro blog sobre [procedimientos recomendados para supervisar el servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
 - Más información sobre las [notificaciones de mantenimiento planeado](./concepts-planned-maintenance-notification.md) en Azure Database for PostgreSQL: servidor único.

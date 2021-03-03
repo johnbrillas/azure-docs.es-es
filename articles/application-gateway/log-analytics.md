@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 881dbd02a6bf069fbe68108cc6eab0cb6b909a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c7acdda3dce3b1338888cdf36f1623597c11fc3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586081"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Uso de Log Analytics para examinar registros del firewall de aplicaciones web (WAF) de Application Gateway
 
-Una vez que el WAF de Application Gateway está operativo, puede habilitar registros para inspeccionar lo que sucede con cada solicitud. Los registros del firewall proporcionan información sobre lo que el WAF evalúa, empareja y bloquea. Con Log Analytics, puede examinar los datos de los registros del firewall para ofrecer aún más información. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Para obtener más información sobre las consultas de registro, vea [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Una vez que el WAF de Application Gateway está operativo, puede habilitar registros para inspeccionar lo que sucede con cada solicitud. Los registros del firewall proporcionan información sobre lo que el WAF evalúa, empareja y bloquea. Con Log Analytics, puede examinar los datos de los registros del firewall para ofrecer aún más información. Para obtener más información sobre la creación de un área de trabajo de Log Analytics, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md). Para obtener más información sobre las consultas de registro, vea [Análisis de datos de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importar registros de WAF
 

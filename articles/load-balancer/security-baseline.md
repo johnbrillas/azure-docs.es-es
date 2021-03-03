@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07dd369ceeefee85f4d9180a0b9b33a0d4c8bbdb
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3701d9dde569432d8bf1910f04395df0b916b75a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698213"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575162"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Línea de base de seguridad de Azure para Azure Load Balancer
 
@@ -212,9 +212,9 @@ Use Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los re
 
 Cree alertas en Azure Monitor para recibir una notificación cuando se produzcan cambios en recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -236,13 +236,13 @@ Habilite los datos integrados en Azure Sentinel o en una SIEM de terceros, en fu
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Registros de actividad de plataforma](../azure-monitor/platform/activity-log.md)
+- [Registros de actividad de plataforma](../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -294,7 +294,7 @@ Habilite los datos integrados en Azure Sentinel o en una SIEM de terceros, en fu
 
 - [Artículo de visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md)
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -346,7 +346,7 @@ Habilite e incorpore datos en Azure Sentinel o en una herramienta SIEM de tercer
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -426,7 +426,7 @@ Para garantizar la seguridad de los datos de los clientes en Azure, Microsoft ha
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos críticos de Azure, como instancias de Load Balancer usadas para importantes cargas de trabajo de producción.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 

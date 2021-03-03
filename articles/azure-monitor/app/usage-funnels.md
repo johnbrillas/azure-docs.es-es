@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e5cb5097a2f8833b10fec16a99b67c5c109fc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583466"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra cómo los clientes usan la aplicación con los embudos de Application Insights.
 
@@ -46,7 +46,7 @@ La captura de pantalla anterior incluye cinco áreas resaltadas. Se trata de car
   * [Información general del uso](usage-overview.md)
   * [Usuarios, sesiones y eventos](usage-segmentation.md)
   * [Retención](usage-retention.md)
-  * [Libros](../platform/workbooks-overview.md)
+  * [Libros](../visualize/workbooks-overview.md)
   * [Adición de contexto de usuario](usage-send-user-context.md)
   * [Exportación a Power BI](./export-power-bi.md)
 

@@ -4,12 +4,12 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f4de3aaba4acf86df37048134089326196e87ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587546"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](./app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -31,7 +31,7 @@ Los detalles de la alerta le indicarán lo siguiente:
 * Vínculo directos a búsquedas significativas en los datos de Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Ventajas de la detección inteligente
-Las [alertas de métricas](../platform/alerts-log.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
+Las [alertas de métricas](../alerts/alerts-log.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
 
 ## <a name="how-it-works"></a>Funcionamiento
 La detección inteligente supervisa los datos recibidos de su aplicación y, en particular, las tasas de errores. Esta regla cuenta el número de solicitudes para el que la propiedad `Successful request` es falsa y el número de llamadas de dependencia para el que la propiedad `Successful call` es falsa. De manera predeterminada, para las solicitudes, `Successful request == (resultCode < 400)` (a no ser que haya escrito código personalizado para [filtrar](./api-filtering-sampling.md#filtering) o generar sus propias llamadas de [TrackRequest](./api-custom-events-metrics.md#trackrequest)). 
@@ -48,7 +48,7 @@ Si se instrumenta el servicio con estas llamadas de datos, el analizador busca u
 
 El análisis resultante se le envía como una alerta, a no ser que configurara lo contrario.
 
-Al igual que con las [alertas que establece de forma manual](../platform/alerts-log.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
+Al igual que con las [alertas que establece de forma manual](../alerts/alerts-log.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
 ### <a name="alert-logic-details"></a>Detalles de la lógica de alerta
 
@@ -64,11 +64,11 @@ Las alertas se desencadenan por nuestro algoritmo de aprendizaje automático pro
 
 Puede deshabilitar la regla de alertas de la detección inteligente desde el portal o a través de Azure Resource Manager ([consulte el ejemplo de plantilla](./proactive-arm-config.md)).
 
-Esta regla de alertas está creada con un [grupo de acciones](../platform/action-groups.md) asociado denominado "Detección inteligente de Application Insights" que contiene acciones de correo electrónico y webhook y se puede extender para desencadenar acciones adicionales cuando se activa la alerta.
+Esta regla de alertas está creada con un [grupo de acciones](../alerts/action-groups.md) asociado denominado "Detección inteligente de Application Insights" que contiene acciones de correo electrónico y webhook y se puede extender para desencadenar acciones adicionales cuando se activa la alerta.
 
 > [!NOTE]
 > Las notificaciones por correo electrónico que se envían desde esta regla de alertas ahora se envían de manera predeterminada a los usuarios asociados con los roles Lector de supervisión y Colaborador de supervisión de la suscripción. Encontrará más información sobre esto [aquí](./proactive-email-notification.md).
-> Las notificaciones enviadas desde esta regla de alertas siguen el [esquema de alertas comunes](../platform/alerts-common-schema.md).
+> Las notificaciones enviadas desde esta regla de alertas siguen el [esquema de alertas comunes](../alerts/alerts-common-schema.md).
 >
 
 Abra la página Alertas. Las reglas de alertas de anomalías de error se incluyen junto con las alertas que se han establecido manualmente, y puede ver si están actualmente en el estado de alerta.
@@ -410,7 +410,7 @@ Haga clic en **Alertas** en la página de recursos de Application Insights para 
 ## <a name="whats-the-difference-"></a>¿Cuál es la diferencia ...
 La detección inteligente de anomalías de errores complementa otras características similares pero distintas de Application Insights.
 
-* Las [alertas de métricas](../platform/alerts-log.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, las tasas de solicitudes y los tiempos de carga de las páginas, entre otras. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
+* Las [alertas de métricas](../alerts/alerts-log.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, las tasas de solicitudes y los tiempos de carga de las páginas, entre otras. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
 
 * La [detección inteligente de anomalías de rendimiento](proactive-performance-diagnostics.md) también usa la inteligencia automática para detectar patrones inusuales en las métricas y no requiere ninguna configuración por parte del usuario. Pero a diferencia de la detección inteligente de anomalías de errores, el objetivo de la detección inteligente de anomalías de rendimiento es encontrar segmentos del colector de uso que pudieran haberse servidor incorrectamente, por ejemplo, por páginas específicas de un tipo específico de explorador. El análisis se realiza diariamente y, si se encuentra algún resultado, probablemente sea mucho menos urgente que una alerta. Por el contrario, el análisis de anomalías de error se realiza continuamente sobre los datos de aplicación entrantes, y se le notificará en unos minutos si las tasas de errores del servidor son mayores de lo esperado.
 
@@ -441,16 +441,16 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 
 *Algunas de las alertas se refieren a problemas conocidos y no deseo recibirlas.*
 
-* Puede usar la característica de supresión de las [reglas de acción de alerta](../platform/alerts-action-rules.md).
+* Puede usar la característica de supresión de las [reglas de acción de alerta](../alerts/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de su aplicación:
 
-* [Explorador de métricas](../platform/metrics-charts.md)
+* [Explorador de métricas](../essentials/metrics-charts.md)
 * [Explorador de búsqueda](./diagnostic-search.md)
-* [Analytics: Lenguaje de consulta eficaz](../log-query/log-analytics-tutorial.md)
+* [Analytics: Lenguaje de consulta eficaz](../logs/log-analytics-tutorial.md)
 
 Las detecciones inteligentes son automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
+* [Alertas de métricas configuradas manualmente](../alerts/alerts-log.md)
 * [Pruebas web de disponibilidad](./monitor-web-app-availability.md)

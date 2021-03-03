@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d8940d791920daca6ef0af186a4bb5e17009637b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586119"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Compatibilidad con tráfico elevado en Application Gateway
 
@@ -23,7 +23,7 @@ Puede usar Application Gateway con el firewall de aplicaciones web (WAF) para co
 
 Es importante que escale su instancia de Application Gateway en función del tráfico e incluya un poco de búfer; de este modo, estará preparado para cualquier aumento de tráfico o actividad, y minimizará el impacto que pueda tener en su calidad de servicio. Las sugerencias siguientes lo ayudarán a configurar Application Gateway con WAF para administrar el tráfico adicional.
 
-Consulte la [documentación de métricas](./application-gateway-metrics.md) para obtener una lista completa de las métricas que ofrece Application Gateway. Consulte la [visualización de métricas](./application-gateway-metrics.md#metrics-visualization) en Azure Portal y la [documentación de Azure Monitor](../azure-monitor/platform/alerts-metric.md) sobre cómo establecer alertas para las métricas.
+Consulte la [documentación de métricas](./application-gateway-metrics.md) para obtener una lista completa de las métricas que ofrece Application Gateway. Consulte la [visualización de métricas](./application-gateway-metrics.md#metrics-visualization) en Azure Portal y la [documentación de Azure Monitor](../azure-monitor/alerts/alerts-metric.md) sobre cómo establecer alertas para las métricas.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Escalado para la SKU de Application Gateway v1 (SKU estándar/WAF)
 
@@ -65,7 +65,7 @@ Compruebe la métrica de unidad de proceso durante el último mes. La métrica d
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-Para recibir notificaciones de las anomalías de tráfico o uso, puede configurar alertas sobre determinadas métricas. Consulte la [documentación de métricas](./application-gateway-metrics.md) para obtener una lista completa de las métricas que ofrece Application Gateway. Consulte la [visualización de métricas](./application-gateway-metrics.md#metrics-visualization) en Azure Portal y la [documentación de Azure Monitor](../azure-monitor/platform/alerts-metric.md) sobre cómo establecer alertas para las métricas.
+Para recibir notificaciones de las anomalías de tráfico o uso, puede configurar alertas sobre determinadas métricas. Consulte la [documentación de métricas](./application-gateway-metrics.md) para obtener una lista completa de las métricas que ofrece Application Gateway. Consulte la [visualización de métricas](./application-gateway-metrics.md#metrics-visualization) en Azure Portal y la [documentación de Azure Monitor](../azure-monitor/alerts/alerts-metric.md) sobre cómo establecer alertas para las métricas.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Alertas para la SKU de Application Gateway v1 (Estándar/WAF)
 

@@ -4,12 +4,12 @@ description: Recomendaciones para proteger las imágenes y los secretos de Azure
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cbceeea24501bc9815cb07e1b0a054914ba8e964
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579279"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Consideraciones de seguridad para Azure Container Instances
 
@@ -115,9 +115,9 @@ Por ejemplo, la herramienta de partner [Aqua](https://azuremarketplace.microsoft
 
 Al igual que con cualquier entorno de TI, debe supervisar constantemente la actividad y el acceso de los usuario al ecosistema de contenedores para identificar rápidamente cualquier actividad sospechosa o malintencionada. Azure proporciona soluciones de supervisión de contenedores, entre otras:
 
-* [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para supervisar el rendimiento de las cargas de trabajo implementadas en entornos de Kubernetes hospedados en Azure Kubernetes Service (AKS). Azure Monitor para contenedores le brinda la posibilidad de visibilizar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante la API de métricas. 
+* [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) para supervisar el rendimiento de las cargas de trabajo implementadas en entornos de Kubernetes hospedados en Azure Kubernetes Service (AKS). Azure Monitor para contenedores le brinda la posibilidad de visibilizar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante la API de métricas. 
 
-* La [solución de supervisión de contenedores en Azure](../azure-monitor/insights/containers.md) le ayuda a ver y administrar otros hosts de contenedores de Docker y Windows en una sola ubicación. Por ejemplo:
+* La [solución de supervisión de contenedores en Azure](../azure-monitor/containers/containers.md) le ayuda a ver y administrar otros hosts de contenedores de Docker y Windows en una sola ubicación. Por ejemplo:
 
   * Ver información de auditoría detallada que muestre los comandos usados con los contenedores. 
   * Solucionar los problemas de los contenedores al ver y buscar registros centralizados sin tener que ver los hosts de Docker o Windows de forma remota.  
@@ -139,7 +139,7 @@ Supervise la actividad de los recursos, como archivos, red y otros recursos, a l
 Mantenga un registro de auditoría preciso del acceso administrativo a su ecosistema de contenedores, incluido el clúster de Kubernetes, el registro de contenedores y las imágenes de contenedor. Estos registros podrían ser necesarios para fines de auditoría y serán útiles como prueba forense después de un incidente de seguridad. Las soluciones de Azure incluyen:
 
 * [Integración de Azure Kubernetes Service con Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) para supervisar la configuración de seguridad del entorno del clúster y generar recomendaciones de seguridad
-* [Solución de supervisión de contenedores de Azure](../azure-monitor/insights/containers.md)
+* [Solución de supervisión de contenedores de Azure](../azure-monitor/containers/containers.md)
 * Registros de recurso para [Azure Container Instances](container-instances-log-analytics.md) y [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

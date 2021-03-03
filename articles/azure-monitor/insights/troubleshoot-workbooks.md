@@ -6,12 +6,12 @@ ms.author: lagayhar
 author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a823b5e2ae31e62ff6d876f0b3468953c0ed9c35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208529"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587154"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Solución de problemas de conclusiones basadas en libros
 
@@ -72,4 +72,4 @@ Para cambiar el nombre de un paso en el libro guardado, seleccione Editar en el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).
+Obtenga más información sobre los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../visualize/workbooks-overview.md).

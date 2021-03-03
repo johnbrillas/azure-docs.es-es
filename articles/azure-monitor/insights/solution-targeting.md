@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498685"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587242"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluciones de supervisión como destino en Azure Monitor (versión preliminar)
 Cuando se agrega una solución de supervisión a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
@@ -23,7 +23,7 @@ Hay tres pasos para seleccionar un destino para una solución, tal como se descr
 
 
 ### <a name="1-create-a-computer-group"></a>1. Crear un grupo de equipos
-Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../platform/computer-groups.md) en Azure Monitor.  El grupo de equipos puede basarse en una consulta de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Azure Monitor se incluirán en el ámbito.
+Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../logs/computer-groups.md) en Azure Monitor.  El grupo de equipos puede basarse en una consulta de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Azure Monitor se incluirán en el ámbito.
 
 Una vez se haya creado el grupo de equipos en el área de trabajo, deberá incluirlo en una configuración de ámbito que se pueda aplicar a una o varias soluciones.
  
@@ -69,4 +69,4 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las soluciones de supervisión, incluidas las soluciones que están disponibles para instalar en su entorno, en [Add Azure Log Analytics monitoring solutions to your workspace](solutions.md) (Adición de soluciones de supervisión de Azure Log Analytics al área de trabajo).
-- Para más información sobre la creación de grupos de equipos, consulte [Computer groups in Azure Monitor log queries](../platform/computer-groups.md) (Grupos de equipos en búsquedas de registros de Azure Monitor).
+- Para más información sobre la creación de grupos de equipos, consulte [Computer groups in Azure Monitor log queries](../logs/computer-groups.md) (Grupos de equipos en búsquedas de registros de Azure Monitor).

@@ -3,16 +3,16 @@ title: Visualización de las notificaciones de mantenimiento del servicio median
 description: Visualice las notificaciones de mantenimiento del servicio en Azure Portal. Las notificaciones de mantenimiento del servicio se publican mediante la infraestructura de Azure en el registro de actividad de Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f9f3e7b10d9aa0014e4e00e7bfa72c9dc66e142
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967769"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587997"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
-Las notificaciones de mantenimiento del servicio se publican mediante la infraestructura de Azure en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md).  Las notificaciones contienen información acerca de los recursos en la suscripción. Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio. 
+Las notificaciones de mantenimiento del servicio se publican mediante la infraestructura de Azure en el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md).  Las notificaciones contienen información acerca de los recursos en la suscripción. Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio. 
 
 En función de la clase, las notificaciones de mantenimiento del servicio pueden ser meramente informativas o pueden requerir acciones.
 
@@ -34,4 +34,4 @@ Para obtener más información sobre las distintas clases de notificaciones de m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre las [alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md).
+* Más información sobre las [alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts.md).

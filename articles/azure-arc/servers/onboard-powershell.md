@@ -3,12 +3,12 @@ title: Conexión de máquinas híbridas a Azure mediante PowerShell
 description: En este artículo se aprende a instalar el agente y a conectar una máquina a Azure mediante servidores habilitados para Azure Arc. Puede hacer esto con PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0218235179e1a8a883360d0061e685c04079cbf4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492948"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584938"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Conexión de máquinas híbridas a Azure mediante PowerShell
 
@@ -103,6 +103,6 @@ Después de instalar y configurar el agente para que se registre en los servidor
 
 * Si es necesario, vea la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-* Obtenga información sobre cómo administrar la máquina mediante [Azure Policy](../../governance/policy/overview.md). Para usar la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, compruebe que la máquina está notificando al área de trabajo de Log Analytics esperada y habilite la supervisión con [Azure Monitor para VM](../../azure-monitor/insights/vminsights-enable-policy.md).
+* Obtenga información sobre cómo administrar la máquina mediante [Azure Policy](../../governance/policy/overview.md). Para usar la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de máquina virtual, compruebe que la máquina está notificando al área de trabajo de Log Analytics esperada y habilite la supervisión con [Azure Monitor para VM](../../azure-monitor/vm/vminsights-enable-policy.md).
 
-* Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Se necesita el agente de Log Analytics para Windows y Linux si se quieren recopilar datos de supervisión del sistema operativo y las cargas de trabajo o administrarlos con runbooks de Azure Automation o características como Update Management. Este agente también es necesario para usar otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).
+* Más información sobre el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). Se necesita el agente de Log Analytics para Windows y Linux si se quieren recopilar datos de supervisión del sistema operativo y las cargas de trabajo o administrarlos con runbooks de Azure Automation o características como Update Management. Este agente también es necesario para usar otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-introduction.md).

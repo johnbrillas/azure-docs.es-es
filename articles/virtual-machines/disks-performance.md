@@ -7,12 +7,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5e9f6ecc733eccf317e3013752ee2f5b0586ea78
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d3a89e7733cc033792056b8de5232232b8327025
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540418"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580375"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Rendimiento de la máquina virtual y del disco
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
@@ -22,6 +22,3 @@ Las máquinas virtuales que están habilitadas tanto para Premium Storage como p
 
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-2.md)]
 
-Se ejecutará una prueba comparativa en esta combinación de máquina virtual y disco que crea la actividad de E/S. Para obtener información sobre cómo realizar pruebas comparativas de E/S de almacenamiento en Azure, vea [Pruebas comparativas de la aplicación en Azure Disk Storage](disks-benchmarks.md). Desde la herramienta de pruebas comparativas, puede ver que la combinación de discos y máquinas virtuales es capaz de lograr 22 800 IOPS:
-
-[!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-3.md)]

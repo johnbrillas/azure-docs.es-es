@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318987"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587373"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (antes Monitor de estado v2): Instrucciones detalladas
 
@@ -231,9 +231,9 @@ Consulte la [referencia de la API](./status-monitor-v2-api-reference.md#enable-a
 
  Vea la telemetría:
 
-- [Explore las métricas](../platform/metrics-charts.md) para supervisar el rendimiento y el uso.
+- [Explore las métricas](../essentials/metrics-charts.md) para supervisar el rendimiento y el uso.
 - [Busque en los eventos y los registros](./diagnostic-search.md) para diagnosticar problemas.
-- [Use Analytics](../log-query/log-query-overview.md) para consultas más avanzadas.
+- [Use Analytics](../logs/log-query-overview.md) para consultas más avanzadas.
 - [Cree paneles](./overview-dashboard.md).
 
  Agregue más telemetría:

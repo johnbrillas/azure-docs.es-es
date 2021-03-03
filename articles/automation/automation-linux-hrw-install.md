@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183624"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581190"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -26,13 +26,13 @@ Antes de empezar, asegúrese de que dispone de lo siguiente.
 
 ### <a name="a-log-analytics-workspace"></a>Un área de trabajo de Log Analytics
 
-El rol Hybrid Runbook Worker depende de un área de trabajo de Log Analytics de Azure Monitor para instalar y configurar el rol. Puede usar [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), mediante [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json) o [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), para crearla.
+El rol Hybrid Runbook Worker depende de un área de trabajo de Log Analytics de Azure Monitor para instalar y configurar el rol. Puede usar [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), mediante [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json) o [Azure Portal](../azure-monitor/logs/quick-create-workspace.md), para crearla.
 
-Si no tiene ningún área de trabajo de Log Analytics de Azure Monitor, revise la [guía de diseño de registros de Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) antes de crear el área de trabajo.
+Si no tiene ningún área de trabajo de Log Analytics de Azure Monitor, revise la [guía de diseño de registros de Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) antes de crear el área de trabajo.
 
 ### <a name="log-analytics-agent"></a>Agente de Log Analytics
 
-El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) para el sistema operativo Linux compatible. En el caso de servidores o máquinas hospedados fuera de Azure, puede instalar el agente de Log Analytics con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md).
+El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para el sistema operativo Linux compatible. En el caso de servidores o máquinas hospedados fuera de Azure, puede instalar el agente de Log Analytics con [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md).
 
 >[!NOTE]
 >Después de instalar el agente de Log Analytics para Linux, no debe cambiar los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere el permiso sudo para la cuenta **nxautomation**, que es el contexto de usuario en el que se ejecuta Hybrid Runbook Worker. No se deberían quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.

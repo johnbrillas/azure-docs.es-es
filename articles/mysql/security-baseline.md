@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0ccba15e210f1737deae00448d63053907e90aeb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: c05abc6b761b9839df83f3170ce295d4480ca96a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807808"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577913"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Línea de base de seguridad de Azure para Azure Database for MySQL
 
@@ -160,9 +160,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en dichos recursos relacionados con las instancias de Azure Database for MySQL. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -202,7 +202,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Configuración y acceso a los registros de auditoría de Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -220,9 +220,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: En Azure Monitor, en el área de trabajo de Log Analytics que se usa para almacenar los registros de Azure Database for MySQL, establezca el período de retención de acuerdo con las normas de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
-- [Configuración de parámetros de retención de registros de áreas de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Configuración de parámetros de retención de registros de áreas de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -234,9 +234,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Para más información sobre Log Analytics, consulte ](../azure-monitor/log-query/log-analytics-tutorial.md).
+- [Para más información sobre Log Analytics, consulte ](../azure-monitor/logs/log-analytics-tutorial.md).
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -256,7 +256,7 @@ Además, puede habilitar los registros de servidor y la configuración de diagn�
 
 - [Configuración y acceso a los registros de auditoría de Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -588,7 +588,7 @@ AskAzureDBforMySQL@service.microsoft.com
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure Database for MySQL y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210382"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573458"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Exploración de Azure Monitor para Azure Cache for Redis
 
@@ -186,6 +186,6 @@ Para obtener instrucciones para la solución de problemas, consulte el [artícul
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automáticas que ayuden a detectar los problemas.
+* Configure [alertas de métricas](../alerts/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automáticas que ayuden a detectar los problemas.
 
-* Conozca los escenarios compatibles con libros, cómo crear o personalizar informes y muchos otros temas en el artículo sobre cómo [crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).
+* Conozca los escenarios compatibles con libros, cómo crear o personalizar informes y muchos otros temas en el artículo sobre cómo [crear informes interactivos con libros de Azure Monitor](../visualize/workbooks-overview.md).

@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045767"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573443"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 
@@ -46,9 +46,9 @@ La página de información del grupo de recursos proporciona otras herramientas 
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](../platform/alerts-overview.md)      |  Ver, crear y administrar las alertas. |
-   | [**Métricas**](../platform/data-platform.md) | Visualizar y explorar los datos en función de las métricas.    |
-   | [**Registros de actividad**](../platform/platform-logs-overview.md) | Eventos de nivel de suscripción que se han producido en Azure.  |
+   | [**Alertas**](../alerts/alerts-overview.md)      |  Ver, crear y administrar las alertas. |
+   | [**Métricas**](../data-platform.md) | Visualizar y explorar los datos en función de las métricas.    |
+   | [**Registros de actividad**](../essentials/platform-logs-overview.md) | Eventos de nivel de suscripción que se han producido en Azure.  |
    | [**Mapa de aplicación**](../app/app-map.md) | Vaya a la topología de la aplicación distribuida para identificar los cuellos de botella en el rendimiento o las zonas activas de un error. |
 
 ## <a name="failures-and-performance"></a>Errores y rendimiento
@@ -117,6 +117,6 @@ Azure Monitor para grupos de recursos se basa en el sistema de administración d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Libros de Azure Monitor](../platform/workbooks-overview.md)
+- [Libros de Azure Monitor](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alertas de Azure Monitor](../platform/alerts-overview.md)
+- [Alertas de Azure Monitor](../alerts/alerts-overview.md)

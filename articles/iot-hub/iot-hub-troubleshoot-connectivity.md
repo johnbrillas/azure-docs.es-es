@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446413"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579252"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Supervisión, diagnóstico y solución de problemas de desconexión con Azure IoT Hub
 
@@ -82,7 +82,7 @@ La métrica [*Dispositivos conectados (versión preliminar)*](monitor-iot-hub-re
 
 Puede usar reglas de alertas de métricas para supervisar las anomalías de desconexión de los dispositivo a gran escala. Es decir, cuando un número significativo de dispositivos se desconecta inesperadamente. Cuando se detecta este tipo de repetición, puede consultar los registros para ayudar a solucionar el problema. Sin embargo, para supervisar las conexiones y desconexiones por dispositivo para los dispositivos críticos debe usar Event Grid. Event Grid también proporciona una experiencia más en tiempo real que las métricas de Azure.
 
-Para más información sobre las alertas con IoT Hub, consulte la sección Alertas de [Supervisión de Azure IoT Hub](monitor-iot-hub.md#alerts). Para ver un tutorial sobre la creación de alertas en IoT Hub, consulte [Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub](tutorial-use-metrics-and-diags.md). Para obtener información general más detallada sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/platform/alerts-overview.md) en la documentación de Azure Monitor.
+Para más información sobre las alertas con IoT Hub, consulte la sección Alertas de [Supervisión de Azure IoT Hub](monitor-iot-hub.md#alerts). Para ver un tutorial sobre la creación de alertas en IoT Hub, consulte [Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub](tutorial-use-metrics-and-diags.md). Para obtener información general más detallada sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) en la documentación de Azure Monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: uso de los registros para resolver errores de conectividad
 

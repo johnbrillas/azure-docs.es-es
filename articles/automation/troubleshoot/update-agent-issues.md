@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: d4fbc566cb82eb3b728b37aa1f1cc20ff92f4fca
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896247"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580893"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Solución de problemas del agente de actualización de Windows
 
@@ -87,7 +87,7 @@ Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid R
 
 Esta comprobación determina si el agente de Log Analytics para Windows (`healthservice`) se ejecuta en la máquina. Para obtener más información sobre cómo solucionar problemas del servicio, consulte [El agente de Log Analytics para Windows no está en ejecución](hybrid-runbook-worker.md#mma-not-running).
 
-Para reinstalar el agente de Log Analytics para Windows, consulte [Instalación del agente de Log Analytics para Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar el agente de Log Analytics para Windows, consulte [Instalación del agente de Log Analytics para Windows](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Supervisión de eventos de servicio del agente
 

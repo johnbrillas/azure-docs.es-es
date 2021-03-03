@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573371"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593991"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planeamiento y administración de costos de Azure App Service
 
@@ -38,7 +38,7 @@ En función de la característica que use en App Service, se pueden crear los si
 - Un **plan de App Service**: necesario para hospedar una aplicación de App Service.
 - **Nivel aislado**: se requiere una [red virtual](../virtual-network/index.yml) para un entorno de App Service.
 - **Copia de seguridad**: se requiere una [cuenta de almacenamiento](../storage/index.yml) para realizar copias de seguridad.
-- **Registros de diagnóstico**: puede seleccionar [Cuenta de almacenamiento](../storage/index.yml) como opción de registro, o bien integrarse con [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Registros de diagnóstico**: puede seleccionar [Cuenta de almacenamiento](../storage/index.yml) como opción de registro, o bien integrarse con [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **Certificados de App Service**: los certificados que adquiera en Azure se deben mantener en [Azure Key Vault](../key-vault/index.yml).
 
 Otros recursos de costo de App Service son (consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/) para más información):
@@ -114,7 +114,7 @@ Para las cargas de trabajo de producción se recomienda el plan de tarifa dedica
 > [!NOTE]
 > **Premium V3** admite contenedores de Windows y de Linux. 
 
-Una vez que elija el plan de tarifa que desee, debe minimizar las instancias inactivas. En una implementación escalada, puede desperdiciar dinero en instancias de proceso infrautilizadas. Debe [configurar el escalado automático](../azure-monitor/platform/autoscale-get-started.md), disponible en el nivel **Estándar** y en niveles superiores. Mediante la creación de programaciones de escalado horizontal, así como de reglas de escalado horizontal basadas en métricas, solo paga por las instancias que realmente necesita en un momento dado.
+Una vez que elija el plan de tarifa que desee, debe minimizar las instancias inactivas. En una implementación escalada, puede desperdiciar dinero en instancias de proceso infrautilizadas. Debe [configurar el escalado automático](../azure-monitor/autoscale/autoscale-get-started.md), disponible en el nivel **Estándar** y en niveles superiores. Mediante la creación de programaciones de escalado horizontal, así como de reglas de escalado horizontal basadas en métricas, solo paga por las instancias que realmente necesita en un momento dado.
 
 ### <a name="azure-reservations"></a>Reservas de Azure
 

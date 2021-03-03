@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f885416c5e9cb656d01a65b9c503f8897d2f9f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83743756"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593898"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Habilitación de Start/Stop VMs during off-hours
 
@@ -82,7 +82,7 @@ Después de hacer clic en **Aceptar**, se validan las opciones de configuración
   
 4. Use el campo **Programación** para seleccionar una programación para la administración de máquinas virtuales mediante la característica. Seleccione la fecha y hora de inicio de la programación para crear una programación diaria periódica que comience a la hora seleccionada. No se puede seleccionar otra región. Para configurar la programación según una zona horaria específica después de configurar la característica, consulte [Modificación de las programaciones de inicio y apagado](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Para recibir notificaciones por correo electrónico de un [grupo de acciones](../azure-monitor/platform/action-groups.md), acepte el valor predeterminado de **Sí** en el campo **Notificaciones por correo electrónico** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero decide en un momento posterior que desea recibir notificaciones por correo electrónico, puede actualizar el grupo de acciones que se crea con direcciones de correo electrónico válidas separadas por coma. 
+5. Para recibir notificaciones por correo electrónico de un [grupo de acciones](../azure-monitor/alerts/action-groups.md), acepte el valor predeterminado de **Sí** en el campo **Notificaciones por correo electrónico** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero decide en un momento posterior que desea recibir notificaciones por correo electrónico, puede actualizar el grupo de acciones que se crea con direcciones de correo electrónico válidas separadas por coma. 
 
 6. Habilite las reglas de alerta siguientes:
 
@@ -92,7 +92,7 @@ Después de hacer clic en **Aceptar**, se validan las opciones de configuración
 
 ## <a name="create-alerts"></a>Creación de alertas
 
-La característica Start/Stop VMs during off-hours no incluye un conjunto predefinido de alertas. Consulte el artículo [Creación de alertas de registro con Azure Monitor](../azure-monitor/platform/alerts-log.md) para aprender a crear alertas de errores de trabajo con el fin de ayudar a los procesos y procedimientos operativos o de DevOps.
+La característica Start/Stop VMs during off-hours no incluye un conjunto predefinido de alertas. Consulte el artículo [Creación de alertas de registro con Azure Monitor](../azure-monitor/alerts/alerts-log.md) para aprender a crear alertas de errores de trabajo con el fin de ayudar a los procesos y procedimientos operativos o de DevOps.
 
 ## <a name="deploy-the-feature"></a>Habilitación de la característica
 

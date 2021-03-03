@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783001"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580749"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de un instancia de Azure SQL Database o conmutación por error a una base de datos secundaria
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ La operación de recuperación repercute en la aplicación. Este proceso requier
 
 En función de la tolerancia de la aplicación al tiempo de inactividad y de la posible responsabilidad civil, puede considerar las siguientes opciones de recuperación.
 
-Use la opción [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (Obtener base de datos recuperable) ( *LastAvailableBackupDate* ) para obtener el último punto de restauración de replicación geográfica.
+Use la opción [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (Obtener base de datos recuperable) (*LastAvailableBackupDate*) para obtener el último punto de restauración de replicación geográfica.
 
 ## <a name="wait-for-service-recovery"></a>Espera para la recuperación del servicio
 
@@ -109,7 +109,7 @@ Es preciso asegurarse de que todos los inicios de sesión que usa la aplicación
 
 Debe asegurarse de que la configuración actual de la regla de alertas está actualizada para asignarla a la base de datos recuperada y al otro servidor.
 
-Para obtener más información sobre las reglas de alerta de las bases de datos, consulte [Recibir notificaciones de alerta](../../azure-monitor/platform/alerts-overview.md) y [Realización de seguimiento del estado](../../service-health/service-notifications.md).
+Para obtener más información sobre las reglas de alerta de las bases de datos, consulte [Recibir notificaciones de alerta](../../azure-monitor/alerts/alerts-overview.md) y [Realización de seguimiento del estado](../../service-health/service-notifications.md).
 
 ### <a name="enable-auditing"></a>Habilitar auditoría
 

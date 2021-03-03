@@ -4,12 +4,12 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937423"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585950"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -151,7 +151,7 @@ Haga clic en la fila de excepciones para ver los detalles de la excepción del l
 
 ![Diagnósticos del servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
-Además de los resultados sin formato, también puede ver dos métricas de disponibilidad clave en el [Explorador de métricas](../platform/metrics-getting-started.md):
+Además de los resultados sin formato, también puede ver dos métricas de disponibilidad clave en el [Explorador de métricas](../essentials/metrics-getting-started.md):
 
 1. Disponibilidad: Porcentaje de las pruebas que obtuvieron resultados satisfactorios en todas las ejecuciones de prueba.
 2. Duración de la prueba: Duración media de las pruebas en todas las ejecuciones de prueba.
@@ -159,7 +159,7 @@ Además de los resultados sin formato, también puede ver dos métricas de dispo
 ## <a name="automation"></a>Automation
 
 * [Use scripts de PowerShell para configurar una prueba de disponibilidad](./powershell.md#add-an-availability-test) automáticamente.
-* Configure un [webhook](../platform/alerts-webhooks.md) que se llama cuando se genera una alerta.
+* Configure un [webhook](../alerts/alerts-webhooks.md) que se llama cuando se genera una alerta.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

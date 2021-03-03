@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007013"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593827"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
-La característica Start/Stop VMs during off-hours inicia o detiene las máquinas virtuales de Azure habilitadas. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). La característica se puede habilitar en la mayoría de los escenarios tanto en máquinas virtuales clásicas como de Azure Resource Manager.
+La característica Start/Stop VMs during off-hours inicia o detiene las máquinas virtuales de Azure habilitadas. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/alerts/action-groups.md). La característica se puede habilitar en la mayoría de los escenarios tanto en máquinas virtuales clásicas como de Azure Resource Manager. 
 
 Esta característica usa el cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar las máquinas virtuales. Usa [Stop-AzVm](/powershell/module/az.compute/stop-azvm) para detener las máquinas virtuales.
 
@@ -35,7 +35,7 @@ Las siguientes son limitaciones de la característica actual:
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./automation-security-overview.md#run-as-accounts). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
@@ -84,11 +84,11 @@ Puede habilitar la característica Start/Stop VMs during off-hours en las máqui
 
 | Permiso |Ámbito|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Suscripción|
-| Microsoft.Authorization/permissions/read |Suscripción|
-| Microsoft.Authorization/roleAssignments/read | Suscripción |
-| Microsoft.Authorization/roleAssignments/write | Suscripción |
-| Microsoft.Authorization/roleAssignments/delete | Suscripción || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |

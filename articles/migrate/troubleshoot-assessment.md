@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753452"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581797"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solución de problemas de evaluación o visualización de dependencias
 
@@ -160,12 +160,12 @@ Para las máquinas virtuales de Windows:
 
     ![Estado de MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Para las máquinas virtuales Linux, asegúrese de que se hayan completado correctamente los comandos de instalación de MMA y el agente de dependencias. Consulte la guía de solución de problemas [aquí](../azure-monitor/insights/service-map.md#post-installation-issues).
+Para las máquinas virtuales Linux, asegúrese de que se hayan completado correctamente los comandos de instalación de MMA y el agente de dependencias. Consulte la guía de solución de problemas [aquí](../azure-monitor/vm/service-map.md#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-- **Agente de MMS**: Revise los sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems) y [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) admitidos.
-- **Agente de dependencias**: sistemas operativos [Windows y Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) admitidos.
+- **Agente de MMS**: Revise los sistemas operativos [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems) y [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) admitidos.
+- **Agente de dependencias**: sistemas operativos [Windows y Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) admitidos.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualización de dependencias de > hora
 

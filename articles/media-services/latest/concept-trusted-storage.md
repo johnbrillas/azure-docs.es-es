@@ -9,16 +9,19 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098085"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585396"
 ---
 # <a name="trusted-storage-for-media-services"></a>Almacenamiento de confianza para Media Services
 
 Al crear una cuenta de Media Services, debe asociarla a una cuenta de almacenamiento. Media Services puede acceder a esa cuenta de almacenamiento mediante la autenticación del sistema o la autenticación de identidad administrada. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción y valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con Azure Resource Manager RBAC.
+
+>[!NOTE]
+>El almacenamiento de confianza solo está disponible en la API y actualmente no está habilitado en Azure Portal.
 
 ## <a name="trusted-storage-with-a-firewall"></a>Almacenamiento de confianza con un firewall
 

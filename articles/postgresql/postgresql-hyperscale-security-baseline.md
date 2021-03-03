@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ead666cecbc3208fe103aa740578ca36339c3e30
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804978"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588284"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Línea de base de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -60,7 +60,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 Además, ingiera registros a través de Azure Monitor para agregar datos de seguridad generados por Hiperescala (Citus). En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros. 
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Métricas en Hiperescala (Citus)](./concepts-hyperscale-monitoring.md)
 
@@ -80,7 +80,7 @@ Además, ingiera registros a través de Azure Monitor para agregar datos de segu
 
 - [Métricas en Hiperescala (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -92,9 +92,9 @@ Además, ingiera registros a través de Azure Monitor para agregar datos de segu
 
 **Instrucciones**: En Azure Monitor, en el área de trabajo de Log Analytics que se usa para almacenar los registros de Hiperescala (Citus), establezca el período de retención de acuerdo con las normas de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
-- [Configuración de parámetros de retención de registros de áreas de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Configuración de parámetros de retención de registros de áreas de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -106,9 +106,9 @@ Además, ingiera registros a través de Azure Monitor para agregar datos de segu
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Para más información sobre Log Analytics, consulte ](../azure-monitor/log-query/log-analytics-tutorial.md).
+- [Para más información sobre Log Analytics, consulte ](../azure-monitor/logs/log-analytics-tutorial.md).
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -122,7 +122,7 @@ Incorpore el área de trabajo de Log Analytics a Azure Sentinel, ya que proporci
 
 - [Métricas en Hiperescala (Citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Al menos una vez al día, Azure Database for PostgreSQL - Hiperescala (Citus) re
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure con el fin de crear alertas para cuando se produzcan cambios en las instancias de producción de Hiperescala (Citus) y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 

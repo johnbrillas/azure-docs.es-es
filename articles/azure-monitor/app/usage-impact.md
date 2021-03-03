@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583517"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análisis de impacto con Application Insights
 
-La herramienta Impacto analiza cómo influyen los tiempos de carga y otras propiedades en las tasas de conversión para las distintas partes de su aplicación. Para ser más exactos, detecta cómo **cualquier dimensión** de una **vista de página** , **evento personalizado** o **solicitud** afecta el uso de una diferente **vista de página** o **evento personalizado**. 
+La herramienta Impacto analiza cómo influyen los tiempos de carga y otras propiedades en las tasas de conversión para las distintas partes de su aplicación. Para ser más exactos, detecta cómo **cualquier dimensión** de una **vista de página**, **evento personalizado** o **solicitud** afecta el uso de una diferente **vista de página** o **evento personalizado**. 
 
 ![Herramienta Impacto](./media/usage-impact/0001-impact.png)
 
@@ -40,7 +40,7 @@ Para empezar a responder a preguntas con la herramienta Impacto, elija una vista
 
 1. Seleccione una vista de página en la lista desplegable **For the page view** (Para la vista de página).
 2. Deje la lista desplegable **analyze how its** (Analizar su) en la selección predeterminada de **Duración** (en este contexto **Duración** es un alias para **Tiempo de carga de la página**.)
-3. Para la lista desplegable **afecta al uso de** , seleccione un evento personalizado. Este evento debe corresponder a un elemento de la interfaz de usuario en la vista de página que seleccionó en el paso 1.
+3. Para la lista desplegable **afecta al uso de**, seleccione un evento personalizado. Este evento debe corresponder a un elemento de la interfaz de usuario en la vista de página que seleccionó en el paso 1.
 
 ![Captura de resultados](./media/usage-impact/0003-results.png)
 
@@ -54,7 +54,7 @@ Impacto admite propiedades y medidas personalizadas y estándar, así que puede 
 
 1. Seleccione una vista de página en la lista desplegable **For the page view** (Para la vista de página).
 2. Elija "País o región" en la lista desplegable **analyze how its** (Analizar su).
-3. En la lista desplegable **afecta el uso de** , seleccione un evento personalizado que corresponda a un elemento de la interfaz de usuario en la vista de página que eligió en el paso 1.
+3. En la lista desplegable **afecta el uso de**, seleccione un evento personalizado que corresponda a un elemento de la interfaz de usuario en la vista de página que eligió en el paso 1.
 
 En este caso, los resultados ya no se ajustan en un modelo de eje x continuo como lo hacían en el primer ejemplo. En su lugar, se presenta una visualización similar a un embudo segmentado. Ordenar por **Uso** para ver la variación de conversión para el evento personalizado basándose en el país o región.
 
@@ -65,9 +65,9 @@ En segundo plano, la herramienta Impacto se basa en el [coeficiente de correlaci
 
 El análisis básico de cómo funciona Análisis de impacto es el siguiente:
 
-_A_ = la vista de página/evento personalizado/solicitud principal que seleccionó en la primera lista desplegable. ( **Para la vista de página** ).
+_A_ = la vista de página/evento personalizado/solicitud principal que seleccionó en la primera lista desplegable. (**Para la vista de página**).
 
-_B_ = la vista de página/evento personalizado secundario que seleccionó ( **afecta al uso de** ).
+_B_ = la vista de página/evento personalizado secundario que seleccionó (**afecta al uso de**).
 
 Impacto examina una muestra de todas las sesiones de los usuarios en el intervalo de tiempo seleccionado. Para cada sesión, busca cada aparición de _A_.
 
@@ -85,6 +85,6 @@ La manera en la que se calcula el impacto varía en función de si estamos reali
     - [Embudos](usage-funnels.md)
     - [Retención](usage-retention.md)
     - [Flujos de usuario](usage-flows.md)
-    - [Libros](../platform/workbooks-overview.md)
+    - [Libros](../visualize/workbooks-overview.md)
     - [Adición de contexto de usuario](usage-send-user-context.md)
 

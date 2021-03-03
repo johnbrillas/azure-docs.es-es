@@ -4,12 +4,12 @@ description: Obtenga notificaciones personalizadas sobre los eventos del estado 
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588196"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envío de alertas de Azure Service Health con ServiceNow mediante webhooks
 
@@ -154,7 +154,7 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
     a. **Tipo de acción:** *Webhook*
 
-    b. **Detalles:** la **dirección URL de integración** de ServiceNow guardada anteriormente.
+    b. **Detalles**: la **dirección URL de integración** de ServiceNow guardada anteriormente.
 
     c. **Nombre:** el identificador, alias o nombre de webhook.
 
@@ -171,14 +171,14 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
     a. **Tipo de acción:** *Webhook*
 
-    b. **Detalles:** la **dirección URL de integración** de ServiceNow guardada anteriormente.
+    b. **Detalles**: la **dirección URL de integración** de ServiceNow guardada anteriormente.
 
     c. **Nombre:** el identificador, alias o nombre de webhook.
 
 1. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
-1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Cree una solicitud HTTP POST de la siguiente manera:
 
@@ -195,6 +195,6 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
-- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
-- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).
+- Más información sobre los [grupos de acciones](../azure-monitor/alerts/action-groups.md).

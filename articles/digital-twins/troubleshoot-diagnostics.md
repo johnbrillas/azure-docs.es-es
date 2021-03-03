@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588601"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -57,7 +57,7 @@ Active la configuración de diagnóstico para empezar a recopilar registros en u
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado en la página **Configuración de diagnóstico** de la instancia. 
 
-Para obtener información más detallada sobre la configuración de diagnóstico y sus opciones, puede visitar [*Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos*](../azure-monitor/platform/diagnostic-settings.md).
+Para obtener información más detallada sobre la configuración de diagnóstico y sus opciones, puede visitar [*Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Categorías de registro
 
@@ -255,10 +255,10 @@ Así es como se realizan consultas en los registros de una instancia.
     - La pestaña *Queries* (Consultas) contiene las consultas de ejemplo que se pueden cargar en el editor.
     - La pestaña *Filter* (Filtro) permite personalizar una vista filtrada de los datos que devuelve la consulta.
 
-Para más información sobre consultas del registro y cómo escribirlas, puede visitar [*Introducción a las consultas de registro en Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
+Para más información sobre consultas del registro y cómo escribirlas, puede visitar [*Introducción a las consultas de registro en Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la configuración de diagnóstico, consulte el artículo [*Recopilación y consumo de los datos de registro provenientes de los recursos de Azure*](../azure-monitor/platform/platform-logs-overview.md).
+* Para más información sobre la configuración de diagnóstico, consulte el artículo [*Recopilación y consumo de los datos de registro provenientes de los recursos de Azure*](../azure-monitor/essentials/platform-logs-overview.md).
 * Para información sobre las métricas de Azure Digital Twins, consulte el artículo [*Solución de problemas: visualización de las métricas con Azure Monitor*](troubleshoot-metrics.md).
 * Para ver cómo habilitar las alertas de las métricas, consulte [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md).

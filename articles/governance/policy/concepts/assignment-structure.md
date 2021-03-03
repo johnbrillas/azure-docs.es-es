@@ -3,12 +3,12 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558446"
+ms.locfileid: "100581953"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -63,7 +63,7 @@ Use **displayName** y **description** para identificar la asignación de directi
 
 ## <a name="enforcement-mode"></a>Modo de cumplimiento
 
-La propiedad **enforcementMode** proporciona a los clientes la capacidad de probar el resultado de una directiva en los recursos existentes sin necesidad de iniciar el efecto de la directiva ni de desencadenar entradas en el [registro de actividad de Azure](../../../azure-monitor/platform/platform-logs-overview.md). Este escenario se conoce comúnmente como "What If" y se alinea con las prácticas de implementación segura. **enforcementMode** es diferente del efecto [Deshabilitado](./effects.md#disabled), ya que ese efecto evita que se produzca la evaluación de recursos.
+La propiedad **enforcementMode** proporciona a los clientes la capacidad de probar el resultado de una directiva en los recursos existentes sin necesidad de iniciar el efecto de la directiva ni de desencadenar entradas en el [registro de actividad de Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Este escenario se conoce comúnmente como "What If" y se alinea con las prácticas de implementación segura. **enforcementMode** es diferente del efecto [Deshabilitado](./effects.md#disabled), ya que ese efecto evita que se produzca la evaluación de recursos.
 
 Esta propiedad tiene los siguientes valores:
 

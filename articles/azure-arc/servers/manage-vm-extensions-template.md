@@ -3,12 +3,12 @@ title: Habilitación de la extensión de máquina virtual mediante la plantilla 
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555110"
+ms.locfileid: "100580918"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitación de las extensiones de máquina virtual de Azure mediante la plantilla de ARM
 
@@ -545,7 +545,7 @@ Para usar la extensión DSC de PowerShell, el siguiente ejemplo puede ejecutarse
 
 ## <a name="deploy-the-dependency-agent-extension"></a>Implementación de la extensión del agente de dependencia
 
-Para usar la extensión de Dependency Agent de Azure Monitor, el siguiente ejemplo puede ejecutarse en Windows y Linux. Si no está familiarizado con Dependency Agent, consulte [Información general sobre los agentes de Azure Monitor](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+Para usar la extensión de Dependency Agent de Azure Monitor, el siguiente ejemplo puede ejecutarse en Windows y Linux. Si no está familiarizado con Dependency Agent, consulte [Información general sobre los agentes de Azure Monitor](../../azure-monitor/agents/agents-overview.md#dependency-agent).
 
 ### <a name="template-file-for-linux"></a>Archivo de plantilla para Linux
 

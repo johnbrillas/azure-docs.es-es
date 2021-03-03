@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c8427e92f89804f64741ab86aa9903b0de23b3ec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9e75b159f994a869a2bbd4498332a1e160bf5462
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966860"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580313"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Azure Monitor Dependency para Linux
 
@@ -30,7 +30,7 @@ La característica Service Map de Azure Monitor para VM obtiene sus datos de Mic
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión de Dependency Agent de Azure VM para Linux se puede ejecutar en los sistemas operativos compatibles que se indican en la sección [Sistemas operativos compatibles](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) del artículo de implementación de Azure Monitor para VM.
+La extensión de Dependency Agent de Azure VM para Linux se puede ejecutar en los sistemas operativos compatibles que se indican en la sección [Sistemas operativos compatibles](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) del artículo de implementación de Azure Monitor para VM.
 
 ## <a name="extension-schema"></a>Esquema de extensión
 

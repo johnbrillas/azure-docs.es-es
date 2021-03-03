@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585282"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -35,7 +35,7 @@ Puede sacar el máximo partido de la experiencia de Azure Sentinel al usar una s
 | Propiedad de los datos | Los límites de la propiedad de los datos, por ejemplo de subsidiarias o empresas afiliadas, se delimitan mejor mediante áreas de trabajo independientes. |  |
 | Varios inquilinos de Azure | Azure Sentinel admite la recopilación de datos de los recursos SaaS de Azure y Microsoft solo dentro de su propio límite de inquilino de Azure Active Directory (Azure AD). Por lo tanto, cada inquilino de Azure AD requiere un área de trabajo independiente. |  |
 | Control de acceso a datos pormenorizado | Es posible que una organización tenga que permitir que grupos diferentes, dentro o fuera de la organización, accedan a algunos de los datos recopilados por Azure Sentinel. Por ejemplo:<br><ul><li>Acceso de los propietarios de recursos a los datos que pertenecen a sus recursos</li><li>Acceso de SOC regional o subsidiario a los datos relevantes para sus partes de la organización</li></ul> | Usar [Azure RBAC de recursos](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) o [Azure RBAC de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| Configuración de retención pormenorizada | Históricamente, la única manera de establecer diferentes períodos de retención para tipos de datos diferentes era con varias áreas de trabajo. Esto ya no es necesario en muchos casos, gracias a la introducción de la configuración de retención de nivel de tabla. | Usar la [configuración de retención de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizar la [eliminación de datos](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Configuración de retención pormenorizada | Históricamente, la única manera de establecer diferentes períodos de retención para tipos de datos diferentes era con varias áreas de trabajo. Esto ya no es necesario en muchos casos, gracias a la introducción de la configuración de retención de nivel de tabla. | Usar la [configuración de retención de nivel de tabla](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizar la [eliminación de datos](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Facturación dividida | Al colocar áreas de trabajo en suscripciones independientes, se pueden facturar a distintas entidades. | Informes de uso y cargos cruzados |
 | Arquitectura heredada | El uso de varias áreas de trabajo puede provenir de un diseño histórico que tuvo en cuenta limitaciones o procedimientos recomendados que ya no son válidos. También podría ser una opción de diseño arbitraria que se puede modificar para adaptarse mejor a Azure Sentinel.<br><br>Algunos ejemplos son:<br><ul><li>Uso de un área de trabajo predeterminada por suscripción al implementar Azure Security Center.</li><li>Necesidad de la configuración de retención o el control de acceso pormenorizado, soluciones para las que son relativamente nuevos.</li></ul> | Volver a diseñar las áreas de trabajo |
 
@@ -81,12 +81,12 @@ Azure Sentinel admite una [vista de incidentes de varias áreas de trabajo](./mu
 
 ### <a name="cross-workspace-querying"></a>Consultas entre áreas de trabajo
 
-Azure Sentinel admite la consulta [varias áreas de trabajo en una sola consulta](../azure-monitor/log-query/cross-workspace-query.md), lo que permite buscar y correlacionar datos de varias áreas de trabajo en una sola consulta. 
+Azure Sentinel admite la consulta [varias áreas de trabajo en una sola consulta](../azure-monitor/logs/cross-workspace-query.md), lo que permite buscar y correlacionar datos de varias áreas de trabajo en una sola consulta. 
 
-- Use la [expresión workspace()](../azure-monitor/log-query/workspace-expression.md) para hacer referencia a una tabla de un área de trabajo diferente. 
+- Use la [expresión workspace()](../azure-monitor/logs/workspace-expression.md) para hacer referencia a una tabla de un área de trabajo diferente. 
 - Use el [operador unión](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto con la expresión workspace() para aplicar una consulta en las tablas de varias áreas de trabajo.
 
-Puede usar las [funciones](../azure-monitor/log-query/functions.md) guardadas para simplificar las consultas entre áreas de trabajo. Por ejemplo, si una referencia a un área de trabajo es larga, puede que quiera guardar la expresión `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como una función llamada `SecurityEventCustomerA`. Después, puede escribir consultas como `SecurityEventCustomerA | where ...`.
+Puede usar las [funciones](../azure-monitor/logs/functions.md) guardadas para simplificar las consultas entre áreas de trabajo. Por ejemplo, si una referencia a un área de trabajo es larga, puede que quiera guardar la expresión `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como una función llamada `SecurityEventCustomerA`. Después, puede escribir consultas como `SecurityEventCustomerA | where ...`.
 
 Una función también puede simplificar una unión de uso frecuente. Por ejemplo, puede guardar la siguiente expresión como una función llamada `unionSecurityEvent`:
 

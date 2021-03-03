@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e52f0f22065d89788d08659476d14af0351cc493
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492359"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590591"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configuración y acceso a los registros en un servidor flexible de Azure Database for PostgreSQL
 
@@ -40,13 +40,13 @@ Para habilitar los registros de recursos mediante Azure Portal:
 
 7. Guarde la configuración.
 
-Para habilitar registros de recursos mediante PowerShell, la CLI o la API REST, vea el artículo sobre la [configuración del diagnóstico](../../azure-monitor/platform/diagnostic-settings.md).
+Para habilitar registros de recursos mediante PowerShell, la CLI o la API REST, vea el artículo sobre la [configuración del diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="access-resource-logs"></a>Acceso a los registros de recursos
 
-La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
-Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 A continuación se muestran consultas que puede intentar iniciar. Puede configurar alertas basadas en las consultas.
 
@@ -71,5 +71,5 @@ La consulta anterior mostrará los resultados de las últimas 6 horas para cualq
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introducción a las consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 - Información acerca de [Azure Event Hubs](../../event-hubs/event-hubs-about.md)

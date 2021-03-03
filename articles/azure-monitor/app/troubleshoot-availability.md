@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583735"
 ---
 # <a name="troubleshooting"></a>Solución de problemas
 
@@ -62,7 +62,7 @@ Compruebe la configuración de alertas clásicas para confirmar que su correo el
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>No recibí la notificación de webhook.
 
-Compruebe que la aplicación que recibe la notificación de webhook esté disponible y procese correctamente las solicitudes de webhook. Para obtener más información, consulte [este artículo](../platform/alerts-log-webhook.md).
+Compruebe que la aplicación que recibe la notificación de webhook esté disponible y procese correctamente las solicitudes de webhook. Para obtener más información, consulte [este artículo](../alerts/alerts-log-webhook.md).
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Obtengo errores 403 Prohibido, ¿qué significa esto?
 
@@ -113,7 +113,7 @@ Actualmente no se admite.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
 
-Esta sección solo se aplica a las alertas clásicas y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para más información sobre la diferencia entre [alertas clásicas](../platform/alerts-classic.overview.md) y la nueva experiencia de alertas, consulte el [artículo de información general de alertas](../platform/alerts-overview.md). Para controlar las notificaciones de alertas en la nueva experiencia de alertas, use [grupos de acciones](../platform/action-groups.md).
+Esta sección solo se aplica a las alertas clásicas y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para más información sobre la diferencia entre [alertas clásicas](../alerts/alerts-classic.overview.md) y la nueva experiencia de alertas, consulte el [artículo de información general de alertas](../alerts/alerts-overview.md). Para controlar las notificaciones de alertas en la nueva experiencia de alertas, use [grupos de acciones](../alerts/action-groups.md).
 
 * Se recomienda el uso de destinatarios específicos para las notificaciones de alerta clásicas.
 
@@ -124,7 +124,7 @@ Esta sección solo se aplica a las alertas clásicas y le ayudará a optimizar l
 > [!NOTE]
 > Si actualmente usa la opción de casilla de verificación **masiva o grupo** y la deshabilita, no podrá revertir el cambio.
 
-Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real si tiene que enviar notificaciones a los usuarios según sus roles. Con los [grupos de acciones](../platform/action-groups.md), puede configurar el envío de notificaciones por correo electrónico a usuarios con cualquiera de los roles de propietario, colaborador o lector (no combinados conjuntamente como única opción).
+Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real si tiene que enviar notificaciones a los usuarios según sus roles. Con los [grupos de acciones](../alerts/action-groups.md), puede configurar el envío de notificaciones por correo electrónico a usuarios con cualquiera de los roles de propietario, colaborador o lector (no combinados conjuntamente como única opción).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

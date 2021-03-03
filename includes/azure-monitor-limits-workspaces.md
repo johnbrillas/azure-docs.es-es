@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 56afc81794bb18bfb7c9146eeb4ed61a0a75ea0f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100529737"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587020"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -72,7 +72,7 @@ ms.locfileid: "100529737"
 
 **<a name="data-ingestion-volume-rate">Velocidad de volumen de ingesta de datos</a>**
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Lo que se pretende con el límite de velocidad de volumen es evitar que los clientes de Azure Monitor tengan clientes de picos de ingesta repentinos en entornos con varios inquilinos. En las áreas de trabajo se define un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), lo que se traduce en, aproximadamente, **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). El límite de velocidad se aplica a los datos ingeridos de recursos de Azure a través de [Configuración de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md). Cuando se alcanza el límite de velocidad, un mecanismo de reintento intenta ingerir los datos 4 veces en un período de 30 minutos y quitarlos si se produce algún error en la operación. No se aplica a los datos ingeridos de [agentes](../articles/azure-monitor/platform/agents-overview.md) ni a [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Lo que se pretende con el límite de velocidad de volumen es evitar que los clientes de Azure Monitor tengan clientes de picos de ingesta repentinos en entornos con varios inquilinos. En las áreas de trabajo se define un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), lo que se traduce en, aproximadamente, **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). El límite de velocidad se aplica a los datos ingeridos de recursos de Azure a través de [Configuración de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md). Cuando se alcanza el límite de velocidad, un mecanismo de reintento intenta ingerir los datos 4 veces en un período de 30 minutos y quitarlos si se produce algún error en la operación. No se aplica a los datos ingeridos de [agentes](../articles/azure-monitor/agents/agents-overview.md) ni a [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
 
 Cuando la velocidad de los datos enviados a un área de trabajo es superior al 80 % del umbral configurado en dicha área, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta del sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 

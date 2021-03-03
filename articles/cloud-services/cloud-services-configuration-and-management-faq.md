@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742597"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578229"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Azure Cloud Services (clásico): Preguntas más frecuentes (P+F)
 
@@ -240,9 +240,9 @@ Actualmente no se admite el escalado automático en función de las métricas de
 
 Para solucionar este problema, puede usar Application Insights. El escalado automático admite Application Insights como origen de métricas y puede escalar el número de instancias de rol en función de una métrica de invitado como "Memoria".  Tiene que configurar Application Insights en el archivo de paquete del proyecto del servicio en la nube (*.cspkg) y habilitar la extensión de Azure Diagnostics en el servicio para implementar esta operación.
 
-Para más información acerca de cómo usar una métrica personalizada a través de Application Insights para configurar el escalado automático en Cloud Services, consulte [Introducción al escalado automático mediante métricas personalizadas en Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+Para más información acerca de cómo usar una métrica personalizada a través de Application Insights para configurar el escalado automático en Cloud Services, consulte [Introducción al escalado automático mediante métricas personalizadas en Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-Para más información acerca de cómo integrar Azure Diagnostics con Application Insights para Cloud Services, consulte [Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Para más información acerca de cómo integrar Azure Diagnostics con Application Insights para Cloud Services, consulte [Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 Para más información acerca de cómo habilitar Application Insights para Cloud Services, consulte [Application Insights para Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 

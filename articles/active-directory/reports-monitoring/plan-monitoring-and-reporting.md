@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362406"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577764"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -47,7 +47,7 @@ Con la supervisión de Azure AD, puede enrutar los registros a:
 * un centro de eventos de Azure en el que puede realizar la integración con sus herramientas de SIEM existentes, como Splunk, Sumologic o QRadar.
 
 > [!NOTE]
-Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](../../azure-monitor/platform/data-platform.md). Consulte [Azure Monitor terminology changes](../../azure-monitor/terminology.md) (Cambios en la terminología de Azure Monitor) para obtener más información.
+Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](../../azure-monitor/data-platform.md). Consulte [Azure Monitor terminology changes](../../azure-monitor/terminology.md) (Cambios en la terminología de Azure Monitor) para obtener más información.
 
 [Más información sobre las directivas de retención de informes](./reference-reports-data-retention.md).
 
@@ -101,11 +101,11 @@ Los informes y la supervisión se usan para cumplir los requisitos empresariales
 
 |Área |Descripción |
 |-|-|
-|Retención| **Retención del registro durante más de 30 días** . Los requisitos legales o empresariales obligan a almacenar tanto los registros de auditoría como los registros de inicio de sesión de Azure AD durante más de 30 días. |
-|Análisis| **Es preciso poder realizar búsquedas en los registros** . ‎Es necesario realizar búsquedas en los registros almacenados con las herramientas de análisis. |
-| Operational Insights| **Información para varios equipos** . La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
-| Información de seguridad| **Información para varios equipos** . La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
-| Integración en sistemas SIEM      | **Integración de SIEM** . ‎La necesidad de integrar y transmitir en secuencias los registros de inicio de sesión de Azure AD y los registros de auditoría a sistemas de SIEM existentes. |
+|Retención| **Retención del registro durante más de 30 días**. Los requisitos legales o empresariales obligan a almacenar tanto los registros de auditoría como los registros de inicio de sesión de Azure AD durante más de 30 días. |
+|Análisis| **Es preciso poder realizar búsquedas en los registros**. ‎Es necesario realizar búsquedas en los registros almacenados con las herramientas de análisis. |
+| Operational Insights| **Información para varios equipos**. La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
+| Información de seguridad| **Información para varios equipos**. La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
+| Integración en sistemas SIEM      | **Integración de SIEM**. ‎La necesidad de integrar y transmitir en secuencias los registros de inicio de sesión de Azure AD y los registros de auditoría a sistemas de SIEM existentes. |
 
 ### <a name="choose-a-monitoring-solution-architecture"></a>Elección de una arquitectura de soluciones de supervisión
 
@@ -121,7 +121,7 @@ Obtenga información sobre cómo [enrutar datos a la cuenta de almacenamiento](.
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Envío de registros a registros de Azure Monitor
 
-Los [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) consolidan los datos de supervisión de distintos orígenes. También proporciona un lenguaje de consulta y un motor de análisis que ofrece información detallada acerca del funcionamiento de las aplicaciones y del uso de los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y enviar alertas rápidamente de los datos recopilados. Use este método si no tiene una solución SIEM existente a la que desee enviar los datos directamente, pero desea realizar consultas y análisis. Una vez que los datos estén en los registros de Azure Monitor, puede enviarlos al centro de eventos y desde ahí a un SIEM si lo desea.
+Los [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md) consolidan los datos de supervisión de distintos orígenes. También proporciona un lenguaje de consulta y un motor de análisis que ofrece información detallada acerca del funcionamiento de las aplicaciones y del uso de los recursos. Al enviar los registros de actividad de Azure AD a los registros de Azure Monitor, puede recuperar, supervisar y enviar alertas rápidamente de los datos recopilados. Use este método si no tiene una solución SIEM existente a la que desee enviar los datos directamente, pero desea realizar consultas y análisis. Una vez que los datos estén en los registros de Azure Monitor, puede enviarlos al centro de eventos y desde ahí a un SIEM si lo desea.
 
 Aprenda a [enviar datos a los registros de Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 
@@ -153,7 +153,7 @@ Los siguientes roles pueden leer informes de Azure AD:
 
 Más información acerca de los [roles administrativos de Azure AD](../roles/permissions-reference.md).
 
-*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro* . Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para aumentar la protección de su organización.
+*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro*. Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para aumentar la protección de su organización.
 
 ##  
 

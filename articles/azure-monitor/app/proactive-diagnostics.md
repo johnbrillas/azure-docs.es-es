@@ -3,12 +3,12 @@ title: Detección inteligente en Azure Application Insights | Microsoft Docs
 description: Application Insights realiza un análisis profundo automático de la telemetría de la aplicación y le advierte de los posibles problemas.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 974795e853416ff7a4c051530b050fc663c9423d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186259"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585654"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights
  La detección inteligente avisa automáticamente de posibles problemas de rendimiento y anomalías en los errores en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](./app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
@@ -53,11 +53,11 @@ Como alternativa, puede cambiar la configuración mediante plantillas de Azure R
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
-* [Explorador de métricas](../platform/metrics-charts.md)
+* [Explorador de métricas](../essentials/metrics-charts.md)
 * [Explorador de búsqueda](./diagnostic-search.md)
-* [Analytics: Lenguaje de consulta eficaz](../log-query/log-analytics-tutorial.md)
+* [Analytics: Lenguaje de consulta eficaz](../logs/log-analytics-tutorial.md)
 
 La detección inteligente es completamente automática. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
+* [Alertas de métricas configuradas manualmente](../alerts/alerts-log.md)
 * [Pruebas web de disponibilidad](./monitor-web-app-availability.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73a9d9c7ab321aebd615922e5d4395c0318e809c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873508"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580450"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Conexión de la solución de Proofpoint On Demand Email Security (POD) con Azure Sentinel
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo conectar el dispositivo de Proofpoint On Dema
 
 - Debe tener permiso de lectura y escritura en el área de trabajo de Azure Sentinel.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Debe tener permisos de lectura y escritura para Azure Functions con el fin de crear una aplicación de funciones. [Obtenga más información sobre Azure Functions](../azure-functions/index.yml).
 

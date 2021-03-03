@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 07bf22cfc683d8c6f2c765364334ed1594e2fdaa
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745891"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582807"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Azure Data Lake Storage Gen1 y cómo ver los registros recopilados relativos a su cuenta.
@@ -46,7 +46,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
         
         * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-        * Seleccione la opción **Enviar a Log Analytics** para usar el servicio de Azure Monitor con el fin de analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) para obtener más información sobre el uso de los registros de Azure Monitor.
+        * Seleccione la opción **Enviar a Log Analytics** para usar el servicio de Azure Monitor con el fin de analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) para obtener más información sobre el uso de los registros de Azure Monitor.
      
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
    * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.
@@ -185,7 +185,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | StreamName |String |Ruta de acceso en la que se ha realizado la operación. |
 
 ## <a name="samples-to-process-the-log-data"></a>Ejemplos para procesar los datos de registro
-Al enviar registros de Data Lake Storage Gen1 a los registros de Azure Monitor (consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) para obtener más información sobre el uso de los registros de Azure Monitor), la consulta siguiente devolverá una tabla que contiene una lista de nombres para mostrar de usuarios, la hora de los eventos y el recuento de eventos para la hora del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
+Al enviar registros de Data Lake Storage Gen1 a los registros de Azure Monitor (consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) para obtener más información sobre el uso de los registros de Azure Monitor), la consulta siguiente devolverá una tabla que contiene una lista de nombres para mostrar de usuarios, la hora de los eventos y el recuento de eventos para la hora del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
 
 ```
 search *

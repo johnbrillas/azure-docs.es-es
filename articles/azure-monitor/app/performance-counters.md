@@ -4,12 +4,12 @@ description: Supervise los contadores de rendimiento de .NET, tanto del sistema 
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937394"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583896"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de rendimiento en Analytics
-Puede buscar y mostrar informes de contador de rendimiento en [Analytics](../log-query/log-query-overview.md).
+Puede buscar y mostrar informes de contador de rendimiento en [Analytics](../logs/log-query-overview.md).
 
 El esquema **performanceCounters** expone `category`, el nombre de `counter` y el nombre de `instance` de cada contador de rendimiento.  En la telemetría de cada aplicación, solo se ven los contadores de dicha aplicación. Por ejemplo, para ver qué contadores están disponibles: 
 
@@ -148,7 +148,7 @@ La compatibilidad con los contadores de rendimiento en ASP.Net Core es limitada:
 * Las versiones 2.8.0 y posteriores del SDK admiten el contador de CPU/memoria de Linux. No se admite ningún otro contador en Linux. La manera recomendada de obtener contadores del sistema en Linux (y otros entornos que no son Windows) es mediante [EventCounters](eventcounters.md).
 
 ## <a name="alerts"></a>Alertas
-Al igual que otras métricas, puede [establecer una alerta](../platform/alerts-log.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
+Al igual que otras métricas, puede [establecer una alerta](../alerts/alerts-log.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 

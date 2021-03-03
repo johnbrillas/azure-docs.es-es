@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388012"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580989"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solución de incidencias de Hybrid Runbook Worker
 
@@ -128,7 +128,7 @@ Los siguientes problemas son posibles causas:
 #### <a name="resolution"></a>Solución
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Identificador o clave de área de trabajo mal escritos
-Para comprobar si el identificador o la clave del área de trabajo del agente están escritos de manera incorrecta, consulte el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) para el agente de Windows, o bien el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para el agente de Linux. Asegúrese de seleccionar la cadena completa de Azure Portal y cópiela y péguela con cuidado.
+Para comprobar si el identificador o la clave del área de trabajo del agente están escritos de manera incorrecta, consulte el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) para el agente de Windows, o bien el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) para el agente de Linux. Asegúrese de seleccionar la cadena completa de Azure Portal y cópiela y péguela con cuidado.
 
 ##### <a name="configuration-not-downloaded"></a>Configuración no descargada
 
@@ -169,7 +169,7 @@ Coloque este archivo en la misma carpeta que el archivo ejecutable `Orchestrator
 
 ## <a name="linux"></a>Linux
 
-Hybrid Runbook Worker de Linux depende del [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
+Hybrid Runbook Worker de Linux depende del [agente de Log Analytics para Linux](../../azure-monitor/agents/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Escenario: Una instancia de Hybrid Runbook Worker de Linux recibe una solicitud de contraseña al firmar un runbook
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Hybrid Runbook Worker de Windows depende del [agente de Log Analytics para Windows ](../../azure-monitor/platform/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error en el registro del trabajo, en esta sección se incluyen algunas razones posibles.
+Hybrid Runbook Worker de Windows depende del [agente de Log Analytics para Windows ](../../azure-monitor/agents/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error en el registro del trabajo, en esta sección se incluyen algunas razones posibles.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Escenario: el agente de Log Analytics para Windows no está en ejecución
 
@@ -253,7 +253,7 @@ Este problema se puede deber a que el firewall de red o de proxy está bloqueand
 
 #### <a name="resolution"></a>Solución
 
-Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de advertencia o de error en los registros de eventos **Registro de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registro de aplicaciones y servicios\Operations Manager**. Estos registros indican una conectividad u otro tipo de problema que afecta a la habilitación del rol a Azure Automation, o bien a un problema detectado durante las operaciones normales. Para obtener ayuda adicional para solucionar problemas relacionados con el agente de Log Analytics, consulte [Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de advertencia o de error en los registros de eventos **Registro de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registro de aplicaciones y servicios\Operations Manager**. Estos registros indican una conectividad u otro tipo de problema que afecta a la habilitación del rol a Azure Automation, o bien a un problema detectado durante las operaciones normales. Para obtener ayuda adicional para solucionar problemas relacionados con el agente de Log Analytics, consulte [Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Los roles de Hybrid Worker envían [salida y mensajes de los runbooks](../automation-runbook-output-and-messages.md) a Azure Automation de la misma manera en que los trabajos de runbook que se ejecutan en la nube envían salida y mensajes. Puede habilitar los flujos Detallado y Progreso del mismo modo que haría para los runbooks.
 
