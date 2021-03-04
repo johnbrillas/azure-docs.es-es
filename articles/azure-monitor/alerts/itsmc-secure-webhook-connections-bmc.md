@@ -1,17 +1,16 @@
 ---
 title: 'Conector de Administración de servicios de TI: exportación segura en Azure Monitor y configuración con BMC'
 description: En este artículo se muestra cómo conectar los productos o servicios de ITSM con BMC en Exportación segura de Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 5a78dc3923c8183db6dd2ddea1d2233149201c07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c50d533f95e1131e26ddd808c77023ae4591a26
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604700"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041712"
 ---
 # <a name="connect-bmc-helix-to-azure-monitor"></a>Conexión de BMC Helix a Azure Monitor
 

@@ -1,17 +1,16 @@
 ---
 title: Instalación del agente de Azure Monitor
 description: Opciones para instalar el agente de Azure Monitor (AMA) en máquinas virtuales de Azure y servidores habilitados para Azure Arc.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6bf0e8b90ca50a90f84c18981ab6accae8477b46
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719957"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034323"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Instalación del agente de Azure Monitor (versión preliminar)
 En este artículo se proporcionan las distintas opciones disponibles actualmente para instalar el [agente de Azure Monitor](azure-monitor-agent-overview.md) en máquinas virtuales de Azure y en los servidores habilitados para Azure Arc, así como las opciones para crear [asociaciones con reglas de recopilación de datos](data-collection-rule-azure-monitor-agent.md) que definen qué datos debe recopilar el agente.

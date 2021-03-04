@@ -1,17 +1,16 @@
 ---
 title: 'Conector de Administración de servicios de TI: exportación segura en Azure Monitor: configuración con ServiceNow'
 description: En este artículo se muestra cómo conectar los productos o servicios de ITSM con ServiceNow en Exportación segura de Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 02b167219a4f1604d340d72f9dc47e67919c2542
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f296037a56b25255c7f7c7d48a8e8b7d4889052f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041644"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Conexión de ServiceNow a Azure Monitor
 

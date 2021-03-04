@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c70c575464d82f714022291406418cdd1ca0f8d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954671"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102094973"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -46,7 +46,7 @@ Red virtual:
 
 No se necesitan rutas definidas por el usuario.
 
-## <a name="resource"></a>Recurso
+## <a name="resource"></a>Resource
 
 El recurso se ha diseñado para que sea muy sencillo, como se puede ver en el siguiente ejemplo de Azure Resource Manager en un formato de tipo plantilla.  Este formato se muestra aquí para ilustrar los conceptos y la estructura.  Modifique el ejemplo para adecuarlo a sus necesidades.  No se pretende que este documento sea un tutorial.
 
@@ -133,7 +133,7 @@ El escenario de solo salida a Internet que proporciona la puerta de enlace de NA
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia*
 
-| Dirección | Recurso |
+| Dirección | Resource |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia |
 | Salida | NAT Gateway |
@@ -148,7 +148,7 @@ La máquina virtual usará una puerta de enlace de NAT para la salida.  La entra
 
 *Ilustración: Virtual Network NAT y máquina virtual con equilibrador de carga público*
 
-| Dirección | Recurso |
+| Dirección | Resource |
 |:---:|:---:|
 | Entrada | Equilibrador de carga público |
 | Salida | NAT Gateway |
@@ -163,7 +163,7 @@ La puerta de enlace de NAT sustituye la configuración de salida de una regla de
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública*
 
-| Dirección | Recurso |
+| Dirección | Resource |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública |
 | Salida | NAT Gateway |
@@ -224,7 +224,7 @@ Aunque parece que el escenario funciona, su modelo de estado y modo de error no 
 >La propiedad de zonas de un recurso de puerta de enlace NAT no es mutable.  Vuelva a implementar el recurso de la puerta de enlace de NAT con la preferencia regional o de zona pretendida.
 
 >[!NOTE] 
->Las direcciones IP en sí no tienen redundancia de zona si no se especifica ninguna zona.  El servidor front-end de un [equilibrador de carga estándar tiene redundancia de zona](../load-balancer/load-balancer-standard-availability-zones.md#frontend) si una dirección IP no se crea en una zona concreta.  Esto no se aplica a la NAT.  Solo se admite el aislamiento regional o de zona.
+>Las direcciones IP en sí no tienen redundancia de zona si no se especifica ninguna zona.  El servidor front-end de un [equilibrador de carga estándar tiene redundancia de zona](../load-balancer/load-balancer-standard-availability-zones.md) si una dirección IP no se crea en una zona concreta.  Esto no se aplica a la NAT.  Solo se admite el aislamiento regional o de zona.
 
 ## <a name="performance"></a>Rendimiento
 
@@ -350,20 +350,3 @@ Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Pro
 * Obtenga información sobre [Virtual Network NAT](nat-overview.md).
 * Obtenga información acerca de las [métricas y alertas de los recursos de puerta de enlace NAT](nat-metrics.md).
 * Obtenga información sobre la [solución de los problemas de los recursos de la puerta de enlace de NAT](troubleshoot-nat.md).
-* Tutorial para validar una puerta de enlace de NAT
-  - [CLI de Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
-* Inicio rápido para implementar recursos de puerta de enlace de NAT
-  - [CLI de Azure](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md)
-  - [Plantilla](./quickstart-create-nat-gateway-template.md)
-* Información acerca de la API de recursos de la puerta de enlace de NAT
-  - [REST API](/rest/api/virtualnetwork/natgateways)
-  - [CLI de Azure](/cli/azure/network/nat/gateway)
-  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
-* Información acerca de las [zonas de disponibilidad](../availability-zones/az-overview.md).
-* Información acerca del [equilibrador de carga estándar](../load-balancer/load-balancer-overview.md).
-* Información sobre las [zonas de disponibilidad y el equilibrador de carga estándar](../load-balancer/load-balancer-standard-availability-zones.md).
-* [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).

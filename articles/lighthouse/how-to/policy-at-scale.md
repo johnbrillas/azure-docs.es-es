@@ -1,14 +1,14 @@
 ---
 title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo Azure Lighthouse permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412075"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049787"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Si bien puede implementar directivas en varios inquilinos, actualmente no puede [ver los detalles de cumplimiento](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de los recursos no compatibles en estos inquilinos.
+
 ## <a name="validate-the-policy-deployment"></a>Validación de la implementación de directivas
 
 Una vez que haya implementado la plantilla de Azure Resource Manager, puede confirmar que la definición de directivas se ha aplicado correctamente; para ello, intente crear una cuenta de almacenamiento con **EnableHttpsTrafficOnly** establecido en **false** en una de las suscripciones delegadas. Debido a la asignación de directivas, no debería ser capaz de crear esta cuenta de almacenamiento.  
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> Si bien puede implementar directivas en varios inquilinos, actualmente no puede [ver los detalles de cumplimiento](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de los recursos no compatibles en estos inquilinos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

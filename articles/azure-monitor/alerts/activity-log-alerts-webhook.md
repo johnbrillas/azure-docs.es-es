@@ -3,13 +3,12 @@ title: Información del esquema de webhook usado en las alertas del registro de 
 description: Obtenga información acerca del esquema del archivo JSON que se publica en una dirección URL de webhook cuando se activa una alerta del registro de actividad.
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.subservice: alerts
-ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 31b9f4b41d741475a031efd4392c7df2fd2260c4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701151"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034343"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.

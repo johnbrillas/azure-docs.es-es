@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 01/14/2021
+ms.date: 03/03/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 1665f8f595e2bb9ba2a5f2c8528f85854630ab4f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: dbb2aeefc22fae4a3c83956dd7681b49fc435500
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216587"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034003"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Incorporación de un proveedor de identidades en su inquilino de Azure Active Directory B2C
 
@@ -35,6 +35,7 @@ Por lo general, solo se usa un proveedor de identidades en las aplicaciones, per
 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)
+* [Apple](identity-provider-apple-id.md)
 * [Azure AD (inquilino único)](identity-provider-azure-ad-single-tenant.md)
 * [Azure AD (multiinquilino)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)

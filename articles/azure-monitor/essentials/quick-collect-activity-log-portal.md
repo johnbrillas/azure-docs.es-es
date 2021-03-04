@@ -1,17 +1,16 @@
 ---
 title: Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante Azure Portal
 description: Use Azure Portal para crear un área de trabajo de Log Analytics y una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fec1f4f3ae13f6c9ed5fdd7ffbcd143e5c5e5f52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734288"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033255"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante Azure Portal
 El registro de actividad es un registro de la plataforma de Azure que proporciona información de los eventos en el nivel de suscripción. Este registro incluye información como, por ejemplo, cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. En este inicio rápido se muestra cómo usar Azure Portal para crear un área de trabajo de Log Analytics y una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor donde podrá analizarlo mediante [consultas de registro](../logs/log-query-overview.md) y habilitar otras características como [alertas de registro](../alerts/alerts-log-query.md) y [libros](../visualize/workbooks-overview.md). 
