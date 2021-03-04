@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 24dac044982d59e93da17ee75190f378d5e3cdea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736549"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050926"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -85,7 +85,7 @@ En el proyecto de la aplicación de funciones, agregue una nueva función. Agreg
 
 En el archivo de código de la función recién creada, pegue el código siguiente.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_allocate.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
 Guarde el archivo y, a continuación, vuelva a publicar la aplicación de funciones. Para obtener instrucciones sobre la publicación de la aplicación de funciones, consulte la sección [*Publicación de la aplicación*](tutorial-end-to-end.md#publish-the-app) del tutorial general.
 
@@ -182,7 +182,7 @@ Esta función usará el evento del ciclo de vida del dispositivo IoT Hub para re
 
 Dentro de la aplicación de funciones publicada, agregue una nueva clase de función del tipo *Desencadenador de centro de eventos* y pegue el código siguiente.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_delete.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
 Guarde el proyecto y, a continuación, vuelva a publicar la aplicación de funciones. Para obtener instrucciones sobre la publicación de la aplicación de funciones, consulte la sección [*Publicación de la aplicación*](tutorial-end-to-end.md#publish-the-app) del tutorial general.
 
@@ -223,7 +223,7 @@ Para desencadenar el proceso de retirada, debe eliminar manualmente el dispositi
 
 En la [primera mitad de este artículo](#auto-provision-device-using-device-provisioning-service), creó un dispositivo en IoT Hub y un dispositivo gemelo digital correspondiente. 
 
-Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_iot_hub_module_identity_delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 El dispositivo se eliminará automáticamente de Azure Digital Twins. 
 

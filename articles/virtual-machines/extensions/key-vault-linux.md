@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 73bd2ac3159b674dd01c853bb540989fa10c8c28
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895026"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051368"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -154,7 +154,7 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
 ```
 
 ### <a name="extension-dependency-ordering"></a>Orden de las dependencias de la extensión
-La extensión de máquina virtual de Key Vault admite el orden de las extensiones si está configurado. De forma predeterminada, la extensión informa de que se ha iniciado correctamente en cuanto se ha iniciado el sondeo. Sin embargo, se puede configurar para esperar hasta que se haya descargado correctamente la lista completa de certificados antes de informar de un inicio correcto. Si otras extensiones dependen de tener instalado el conjunto completo de certificados para iniciarse, la habilitación de esta opción permitirá a esa extensión declarar una dependencia en la extensión de Key Vault. Esto evitará que se inicien esas extensiones hasta que se hayan instalado todos los certificados de los que dependen. La extensión volverá a intentar la descarga inicial de forma indefinida y permanecerá en un estado `Transitioning`.
+La extensión de máquina virtual de Key Vault admite el orden de las extensiones si está configurado. De forma predeterminada, la extensión informa de que se ha iniciado correctamente en cuanto se ha iniciado el sondeo. Sin embargo, se puede configurar para que espere hasta que se haya descargado correctamente la lista completa de certificados antes de informar de un inicio correcto. Si otras extensiones dependen de tener instalado el conjunto completo de certificados para iniciarse, la habilitación de esta opción permitirá a esa extensión declarar una dependencia de la extensión de Key Vault. Esto evitará que se inicien esas extensiones hasta que se hayan instalado todos los certificados de los que dependen. La extensión volverá a intentar la descarga inicial de forma indefinida y permanecerá en un estado `Transitioning`.
 
 Para activar esta opción, establezca lo siguiente:
 ```
@@ -163,7 +163,7 @@ Para activar esta opción, establezca lo siguiente:
     ...
 }
 ```
-> [Nota] El uso de esta característica no es compatible con una plantilla de ARM que crea una identidad asignada por el sistema y actualiza una directiva de acceso de Key Vault con esa identidad. Su utilización producirá un interbloqueo porque la directiva de acceso al almacén no se puede actualizar hasta que se hayan iniciado todas las extensiones. En su lugar, debe usar una *identidad MSI asignada por el usuario única* y establecer una ACL previamente en los almacenes con esa identidad antes de la implementación.
+> [Nota] El uso de esta característica no es compatible con una plantilla de Resource Manager que crea una identidad asignada por el sistema y actualiza una directiva de acceso de Key Vault con esa identidad. Su utilización producirá un interbloqueo porque la directiva de acceso al almacén no se puede actualizar hasta que se hayan iniciado todas las extensiones. En su lugar, debe usar una *identidad MSI asignada por el usuario única* y establecer una ACL previamente en los almacenes con esa identidad antes de la implementación.
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
 > [!WARNING]
@@ -235,7 +235,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
         az vmss extension set -n "KeyVaultForLinux" `
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
-        --vm-name "<vmName>" `
+        --vmss-name "<vmssName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Tenga en cuenta las restricciones y los requisitos siguientes:

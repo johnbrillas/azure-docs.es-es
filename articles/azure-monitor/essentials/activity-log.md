@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.subservice: logs
-ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049192"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](./platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](../logs/data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.

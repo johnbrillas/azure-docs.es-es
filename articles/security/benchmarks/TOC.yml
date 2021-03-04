@@ -241,5 +241,5 @@
       href: ../fundamentals/shared-responsibility.md
     - name: Azure Security Center
       href: ../../security-center/index.yml
-    - name: Ejemplo de plano técnico de Azure Security Benchmark Foundation
-      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml
+    - name: Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md

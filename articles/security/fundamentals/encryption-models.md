@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854621"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051385"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -199,8 +199,8 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | Azure Databricks                 | Sí                | Sí                | -                  |
 | Azure Database Migration Service | Sí                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Sí                | -                  | Sí                |
-| Azure Repos                      | Sí                | -                  | Sí                |
+| Azure DevOps Services            | Sí                | -                  | -                  |
+| Azure Repos                      | Sí                | -                  | -                  |
 | **Identidad**                     |                    |                    |                    |
 | Azure Active Directory           | Sí                | -                  | -                  |
 | Azure Active Directory Domain Services | Sí          | Sí                | -                  |
