@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 89d04588d07407be5dbd7ddbafd6543ed461462e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: cc88561f8882b1712648a261d1f0208a18bab26d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945726"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095483"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a las máquinas virtuales Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a las máquinas virtuales. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Configuración de una directiva de control de aplicación
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Para recorrer las características descritas en este tutorial, debe tener habilitado Azure Defender. Puede probar Azure Defender sin costo alguno. Para más información, consulte [Prueba de Azure Defender](security-center-pricing.md).
+Para recorrer las características descritas en este tutorial, debe tener habilitado Azure Defender. Hay una evaluación gratuita disponible. Para actualizar, consulte [Habilitación de Azure Defender](enable-azure-defender.md).
 
 ## <a name="manage-vm-access"></a>Administración de acceso a VM
 El acceso a VM JIT se puede usar para bloquear el tráfico entrante a las VM de Azure. Para ello, se reduce la exposición a ataques al mismo tiempo que se proporciona un acceso sencillo para conectarse a las VM cuando sea necesario.

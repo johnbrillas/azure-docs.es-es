@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727828"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042443"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -831,7 +831,7 @@ En este artículo se exploran las formas más comunes de solucionar problemas co
 
     Si el contenido de la clave privada procede del almacén de claves, el archivo de clave original puede funcionar si lo carga directamente en el servicio vinculado de SFTP.
 
-    Para más información, consulte [Copia de datos hacia y desde un servidor SFTP mediante Azure Data Factory](./connector-sftp.md#using-ssh-public-key-authentication). El contenido de la clave privada es contenido de clave privada SSH codificado en Base64.
+    Para más información, consulte [Copia de datos hacia y desde un servidor SFTP mediante Azure Data Factory](./connector-sftp.md#use-ssh-public-key-authentication). El contenido de la clave privada es contenido de clave privada SSH codificado en Base64.
 
     Codifique *todo* el archivo de clave privada original con codificación Base64 y almacene la cadena codificada en el almacén de claves. El archivo de clave privada original es el que puede funcionar en el servicio vinculado de SFTP si selecciona **Cargar** en el archivo.
 

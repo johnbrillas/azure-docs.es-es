@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 27064ecfce0114f7d80e464e2a51928a24919856
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f43d2979ad9770c63504d46666dffd78f761a73
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653412"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097115"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión y obtención de un token de acceso en una SPA de Angular mediante el flujo de código de autorización
 
@@ -27,7 +27,9 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL Angular 1 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](./quickstart-v2-angular.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+Esta característica [!INCLUDE [active-directory-develop-preview](../../../includes/active-directory-develop-preview.md)]
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
