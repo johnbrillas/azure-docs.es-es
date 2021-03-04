@@ -133,15 +133,15 @@
       href: core/overview-iot-central-solution-builder.md
     - name: ¿Qué son las plantillas de aplicación?
       href: core/concepts-app-templates.md
-    - name: Plantillas de aplicaciones específicas del sector
+    - name: Plantillas de aplicaciones del sector
       items:
         - name: Minoristas
           items:
             - name: Información general
               href: retail/overview-iot-central-retail.md
-            - name: Arquitectura de la comprobación del análisis en el almacén
+            - name: 'Análisis en el almacén: finalización de la compra'
               href: retail/store-analytics-architecture.md
-            - name: Arquitectura de administración inteligente del inventario
+            - name: Arquitectura de la plantilla de aplicación de administración inteligente de inventario
               href: retail/architecture-smart-inventory-management.md
             - name: Arquitectura de logística conectada
               href: retail/architecture-connected-logistics.md
@@ -163,7 +163,7 @@
           items:
             - name: Información general
               href: government/overview-iot-central-government.md
-            - name: Arquitectura de supervisión de residuos conectada
+            - name: Arquitectura de supervisión de residuos conectados
               href: government/concepts-connectedwastemanagement-architecture.md
             - name: Arquitectura de supervisión del consumo de agua
               href: government/concepts-waterconsumptionmonitoring-architecture.md
@@ -183,6 +183,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Conexión de dispositivos de IoT Edge
       href: core/concepts-iot-edge.md
+    - name: Procedimientos recomendados
+      href: core/concepts-best-practices.md
 - name: Guías paso a paso
   items:
     - name: Desarrollo y conexión de dispositivos
@@ -231,7 +233,7 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualización de datos en Power BI
           href: core/howto-connect-powerbi.md
-        - name: "Conexión de una aplicación a Dynamics\_365 Field Services"
+        - name: "Conexión de una aplicación de Azure IoT Central con los servicios de campo de Dynamics\_365"
           href: government/how-to-configure-connected-field-services.md
     - name: Administración de los dispositivos
       items:

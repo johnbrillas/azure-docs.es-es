@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 30c7e6b1412373cf3bfe1c511206aa4b916bf1ee
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: efc3bfef7c182ea005ac17a59793ac8f6484a424
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557496"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042018"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -33,7 +33,7 @@ Si es un administrador global, es posible que haya momentos en los que quiera re
 
 ## <a name="how-does-elevated-access-work"></a>¿Cómo funciona el acceso con privilegios elevados?
 
-Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es [administrador global](../active-directory/roles/permissions-reference.md#global-administrator-permissions) de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
+Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es [administrador global](../active-directory/roles/permissions-reference.md#global-administrator) de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
 
 Al elevar los privilegios de acceso, se le asignará el rol [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) en Azure en el ámbito raíz (`/`). Esto le permite ver todos los recursos y asignar acceso en cualquier suscripción o grupo de administración en el directorio. Se pueden quitar las asignaciones de roles de administrador de acceso de usuario mediante Azure PowerShell, CLI de Azure o la API de REST.
 
@@ -41,7 +41,7 @@ Debe quitar este acceso con privilegios elevados una vez que haya hecho los camb
 
 ![Elevación de los privilegios de acceso](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
 

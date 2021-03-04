@@ -2,13 +2,13 @@
 title: 'Configuraciones recomendadas para clientes de Apache Kafka: Azure Event Hubs'
 description: En este artículo se proporcionan configuraciones de Apache Kafka recomendadas para los clientes que interactúan con Azure Event Hubs para Apache Kafka.
 ms.topic: reference
-ms.date: 01/07/2021
-ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 03/03/2021
+ms.openlocfilehash: be009aae41b2cb26ab02fdbe14bc4e18311ad235
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028835"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042358"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configuraciones recomendadas para clientes de Apache Kafka
 Estas son las configuraciones recomendadas para usar Azure Event Hubs desde las aplicaciones cliente de Apache Kafka. 
@@ -33,7 +33,6 @@ Propiedad | Valores recomendados | Intervalo permitido | Notas
 `metadata.max.idle.ms` | 180000 | >5000 | Controla cuánto tiempo el productor almacenará en memoria caché los metadatos de un tema que está inactivo. Si el tiempo transcurrido desde la última vez que se generó un tema supera la duración de inactividad de los metadatos, los metadatos del tema se olvidan y el siguiente acceso a estos forzará la solicitud de captura de metadatos.
 `linger.ms` | >0 | | En escenarios de alto rendimiento, el valor de permanencia debe ser igual al valor tolerable más alto para aprovechar el procesamiento por lotes.
 `delivery.timeout.ms` | | | Se establece según la fórmula (`request.timeout.ms` + `linger.ms`) * `retries`.
-`enable.idempotence` | false | | La idempotencia no se admite actualmente.
 `compression.type` | `none` | | La compresión no se admite actualmente.
 
 ### <a name="consumer-configurations-only"></a>Solo configuraciones de consumidor
@@ -62,7 +61,6 @@ Propiedad | Valores recomendados | Intervalo permitido | Notas
 `retries` | >0 | | El valor predeterminado es 2. Se recomienda mantener este valor. 
 `request.timeout.ms` | 30 000 .. 60000 | >20 000| EH se establecerá internamente de forma predeterminada en un mínimo de 20 000 ms.  El valor predeterminado de `librdkafka` es 5000, que puede ser problemático. *Aunque se aceptan solicitudes con valores de tiempo de espera menores, no se garantiza el comportamiento del cliente.*
 `partitioner` | `consistent_random` | Véase la documentación de librdkafka | `consistent_random` es el valor predeterminado y el mejor.  Las claves vacías y nulas se controlan idealmente en la mayoría de los casos.
-`enable.idempotence` | false | | La idempotencia no se admite actualmente.
 `compression.codec` | `none` || La compresión no se admite actualmente.
 
 ### <a name="consumer-configurations-only"></a>Solo configuraciones de consumidor

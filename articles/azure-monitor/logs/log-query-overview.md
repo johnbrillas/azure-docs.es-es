@@ -1,17 +1,16 @@
 ---
 title: Consultas de registro en Azure Monitor
 description: Información de referencia del lenguaje de consulta de Kusto que utiliza Azure Monitor. Incluye elementos adicionales específicos de Azure Monitor y elementos no admitidos en las consultas del registro de Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704232"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041032"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 Los registros de Azure Monitor se basan en Azure Data Explorer y las consultas de registros se escriben con el mismo lenguaje de consulta de Kusto (KQL). Se trata de un lenguaje enriquecido que se ha diseñado para ser fácil de leer y de crear, por lo que debería poder empezar a escribir consultas con las instrucciones básicas.

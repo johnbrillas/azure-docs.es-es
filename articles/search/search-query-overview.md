@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400818"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043021"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultas de Azure Cognitive Search
 
@@ -84,8 +84,8 @@ También podría necesitar filtros para invocar un formulario de consulta especi
 
 | Escenario de filtrado | Descripción |
 |-----------------|-------------|
-| Filtros de rango | En Azure Cognitive Search, las consultas de intervalo se compilan con el parámetro de filtro. Para más información y ejemplos, consulte [Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters). |
-| Búsqueda de ubicación geográfica | Si un campo utilizable en búsqueda es del [tipo Edm.GeographyPoint](/rest/api/searchservice/supported-data-types) puede crear una expresión de filtro para "buscar cerca de mí" o utilizar controles de búsqueda basados en mapas. Los campos que proporcionan búsquedas geográficas contienen coordenadas. Para más información y para poder ver un ejemplo, consulte [Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search). |
+| Filtros de rango | En Azure Cognitive Search, las consultas de intervalo se compilan con el parámetro de filtro. Para más información y ejemplos, consulte [Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-5-range-filters). |
+| Búsqueda de ubicación geográfica | Si un campo utilizable en búsqueda es del [tipo Edm.GeographyPoint](/rest/api/searchservice/supported-data-types) puede crear una expresión de filtro para "buscar cerca de mí" o utilizar controles de búsqueda basados en mapas. Los campos que proporcionan búsquedas geográficas contienen coordenadas. Para más información y para poder ver un ejemplo, consulte [Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-6-geo-search). |
 | Navegación por facetas | Una estructura de navegación por facetas se convierte en fundamental en la navegación dirigida por el usuario cuando se invoca un filtro en respuesta a un evento `onclick` en una faceta. Como puede verse, las facetas y los filtros están relacionados. Si agrega navegación por facetas, necesitará filtros para completar la experiencia. Para más información, consulte [Creación de filtro de faceta](search-filters-facets.md). |
 
 > [!NOTE]
@@ -101,12 +101,12 @@ Un formulario de consulta avanzado depende de los operadores y el analizador com
 
 | Tipo de consulta | Uso | Más información y ejemplos |
 |------------|--------|------------------------------|
-| [Búsqueda clasificada por campos](query-lucene-syntax.md#bkmk_fields) | parámetro **`search`** , **`queryType=full`**  | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de búsqueda clasificada por campos](search-query-lucene-examples.md#example-2-fielded-search) |
-| [Búsqueda aproximada](query-lucene-syntax.md#bkmk_fuzzy) | parámetro **`search`** , **`queryType=full`** | Coincidencias en términos con construcción u ortografía similares. <br/>[Ejemplo de búsqueda aproximada](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [Búsqueda por proximidad](query-lucene-syntax.md#bkmk_proximity) | parámetro **`search`** , **`queryType=full`** | Busca términos que están cerca uno del otro en un documento. <br/>[Ejemplo de búsqueda por proximidad](search-query-lucene-examples.md#example-4-proximity-search) |
-| [Priorización de términos](query-lucene-syntax.md#bkmk_termboost) | parámetro **`search`** , **`queryType=full`** | Clasifica un documento superior si contiene el término prioritario con respecto a otros que no lo tienen. <br/>[Ejemplo de priorización de términos](search-query-lucene-examples.md#example-5-term-boosting) |
-| [Búsqueda de expresiones regulares](query-lucene-syntax.md#bkmk_regex) | parámetro **`search`** , **`queryType=full`** | Coincidencias basadas en el contenido de una expresión regular. <br/>[Ejemplo de expresión regular](search-query-lucene-examples.md#example-6-regex) |
-|  [búsqueda de prefijo o de carácter comodín](query-lucene-syntax.md#bkmk_wildcard) | parámetro **`search`** con **_`~`_* o **`?`** , **`queryType=full`**| Coincidencias según un prefijo y una virgulilla (`~`) o carácter individual (`?`). <br/>[Ejemplo de búsqueda con caracteres comodín](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Búsqueda clasificada por campos](query-lucene-syntax.md#bkmk_fields) | parámetro **`search`** , **`queryType=full`**  | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de búsqueda clasificada por campos](search-query-lucene-examples.md#example-1-fielded-search) |
+| [Búsqueda aproximada](query-lucene-syntax.md#bkmk_fuzzy) | parámetro **`search`** , **`queryType=full`** | Coincidencias en términos con construcción u ortografía similares. <br/>[Ejemplo de búsqueda aproximada](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [Búsqueda por proximidad](query-lucene-syntax.md#bkmk_proximity) | parámetro **`search`** , **`queryType=full`** | Busca términos que están cerca uno del otro en un documento. <br/>[Ejemplo de búsqueda por proximidad](search-query-lucene-examples.md#example-3-proximity-search) |
+| [Priorización de términos](query-lucene-syntax.md#bkmk_termboost) | parámetro **`search`** , **`queryType=full`** | Clasifica un documento superior si contiene el término prioritario con respecto a otros que no lo tienen. <br/>[Ejemplo de priorización de términos](search-query-lucene-examples.md#example-4-term-boosting) |
+| [Búsqueda de expresiones regulares](query-lucene-syntax.md#bkmk_regex) | parámetro **`search`** , **`queryType=full`** | Coincidencias basadas en el contenido de una expresión regular. <br/>[Ejemplo de expresión regular](search-query-lucene-examples.md#example-5-regex) |
+|  [búsqueda de prefijo o de carácter comodín](query-lucene-syntax.md#bkmk_wildcard) | parámetro **`search`** con **_`~`_* o **`?`** , **`queryType=full`**| Coincidencias según un prefijo y una virgulilla (`~`) o carácter individual (`?`). <br/>[Ejemplo de búsqueda con caracteres comodín](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

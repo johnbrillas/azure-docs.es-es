@@ -1,17 +1,16 @@
 ---
 title: Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 description: Azure Monitor puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y los detalles de los registros que crean en Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719940"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042715"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 
