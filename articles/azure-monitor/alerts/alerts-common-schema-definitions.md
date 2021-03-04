@@ -3,14 +3,13 @@ title: Definiciones del esquema de alertas en Azure Monitor
 description: Información sobre las definiciones del esquema de alertas comunes para Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: e4ab05b595b9961960371d3e13e85ccffd0d9401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602792"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045401"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 

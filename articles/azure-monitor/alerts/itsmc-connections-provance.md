@@ -1,17 +1,16 @@
 ---
 title: Conexión de Provance al Conector de Administración de servicios de TI
 description: En este artículo se ofrece información sobre cómo conectar Provance al Conector de Administración de servicios de TI (ITSMC) en Azure Monitor para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 38aff6bf0851e97558fb8870a08f33bb0bcb0392
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 542b127823a73058f319e6a39c001bd563f042ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603569"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045384"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Conexión de Provance al Conector de Administración de servicios de TI
 

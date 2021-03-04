@@ -1,17 +1,16 @@
 ---
 title: Ejemplos de plantillas de Azure Resource Manager para alertas de consultas
 description: Plantillas de ejemplo de Azure Resource Manager para implementar alertas de consulta de registros de Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19bbeba3db7e3df5ea5120d3562f24b447848f7f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714125"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044041"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de registros en Azure Monitor
 Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para crear y configurar alertas de consulta de registros en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.

@@ -1,17 +1,16 @@
 ---
 title: Ejemplos de plantillas de Azure Resource Manager para agentes
 description: Ejemplos de plantillas de Azure Resource Manager para implementar y configurar agentes de máquina virtual en Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9aae62b9f4ca74b11c4f62c44f6d310628d36316
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737348"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045775"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para agentes en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](./diagnostics-extension-overview.md) y el [agente de Log Analytics](./log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.

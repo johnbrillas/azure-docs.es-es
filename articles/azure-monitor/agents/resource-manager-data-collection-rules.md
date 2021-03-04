@@ -1,17 +1,16 @@
 ---
 title: Ejemplos de plantillas de Resource Manager para las reglas de recopilación de datos
 description: Ejemplos de plantillas de Azure Resource Manager para crear asociaciones entre las reglas de recopilación de datos y las máquinas virtuales en Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5ceaaa7ed9288299019f3e87d8c214e53013f5ec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737331"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045758"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de recopilación de datos en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](./diagnostics-extension-overview.md) y el [agente de Log Analytics](./log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.

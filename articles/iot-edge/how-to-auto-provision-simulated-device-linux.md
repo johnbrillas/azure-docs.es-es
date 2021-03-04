@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ace0847f1b6df646bf0d9a6c8507f4660ab02c8b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430635"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046217"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -31,7 +31,7 @@ Las tareas son las siguientes:
 >
 > Si usa un dispositivo físico, puede ir directamente a la sección [Recuperación de la información de aprovisionamiento de un dispositivo físico](#retrieve-provisioning-information-from-a-physical-device) de este artículo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un equipo de desarrollo de Windows [habilitado para Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). En este artículo se usa Windows 10 que ejecuta una máquina virtual de servidor de Ubuntu.
 * Una instancia de IoT Hub activa.
@@ -240,8 +240,8 @@ Puede conceder acceso TPM al entorno de ejecución de Azure IoT Edge mediante la
 4. Copie la siguiente información de acceso en el archivo de reglas.
 
    ```input
-   # allow iotedge access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
    ```
 
 5. Guarde y cierre el archivo.

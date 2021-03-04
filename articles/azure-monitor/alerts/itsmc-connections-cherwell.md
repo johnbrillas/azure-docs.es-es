@@ -1,17 +1,16 @@
 ---
 title: Conexión de Cherwell al Conector de Administración de servicios de TI
 description: En este artículo, se proporciona información sobre cómo conectar Cherwell al Conector de Administración de servicios de TI (ITSMC) en Azure Monitor para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 6d9d8136ef0936927af238726e30c7feed7d0b83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1fe5e20c06648aa6efc899fabb3ced3345ab41f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603573"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045418"
 ---
 # <a name="connect-cherwell-with-it-service-management-connector"></a>Conexión de Cherwell al Conector de Administración de servicios de TI
 
