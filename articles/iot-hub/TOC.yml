@@ -352,13 +352,13 @@
     - name: Implementación de actualizaciones
       items:
         - name: Creación de una cuenta de Device Update
-          href: /iot-hub-device-update/create-device-update-account.md
+          href: ../iot-hub-device-update/create-device-update-account.md
         - name: Importación de una actualización
-          href: /iot-hub-device-update/import-update.md
+          href: ../iot-hub-device-update/import-update.md
         - name: Creación de un grupo de actualización
-          href: /iot-hub-device-update/create-update-group.md
+          href: ../iot-hub-device-update/create-update-group.md
         - name: Implementación de una actualización
-          href: /iot-hub-device-update/deploy-update.md
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Uso de dispositivos reales
       items:
         - name: Uso de un simulador en línea

@@ -174,7 +174,7 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Azure Object Understanding
+    - name: Conocimiento de objetos de Azure
       tocHref: /azure/object-understanding/
       topicHref: /azure/object-understanding/
     - name: Container Registry
@@ -212,7 +212,7 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
-        - name: Azure Percept
+        - name: Introducción a Azure Percept
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
         - name: Device Update para IoT Hub
@@ -266,8 +266,8 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka para Confluent Cloud
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: Servicio SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -691,7 +691,7 @@
         - name: Peering Service
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
-        - name: Route Server (versión preliminar)
+        - name: Acerca de Azure Route Server (versión preliminar)
           tocHref: /azure/route-server/
           topicHref: /azure/route-server/
         - name: Traffic Manager

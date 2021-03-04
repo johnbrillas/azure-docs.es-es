@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218781"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095806"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Las funcionalidades de las directivas personalizadas se encuentran en constante 
 | [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciales de contraseña del propietario del recurso OAuth2](ropc-custom.md) |  | X |  |  |
 | [Conexión OIDC](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | Enlaces POST y de redirección. |
+| [SAML2](saml-service-provider.md)  |  |  |X  | Enlaces POST y de redirección. |
 | OAuth1 |  |  |  | No compatible. |
 | WSFED | X |  |  |  |
 
@@ -81,7 +81,7 @@ Las funcionalidades de las directivas personalizadas se encuentran en constante 
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por ejemplo, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Por ejemplo, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Por ejemplo, Twitter. |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | Por ejemplo, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 77dab865b2b023f59e6776349b4045107bdb3a29
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556824"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095500"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -134,7 +134,7 @@ Más información sobre las directivas personalizadas en [Directivas personaliza
 
 ## <a name="protocols-and-tokens"></a>Protocolos y tokens
 
-- Para las aplicaciones, Azure AD B2C admite los protocolos [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) y [SAML](connect-with-saml-service-providers.md) para los recorridos del usuario. Su aplicación inicia este recorrido del usuario mediante la emisión de solicitudes de autenticación a Azure AD B2C. El resultado de una solicitud a Azure AD B2C es un token de seguridad como, por ejemplo, un [token de identificador, un token de acceso](tokens-overview.md) o un token de SAML. Este token de seguridad define la identidad del usuario en la aplicación.
+- Para las aplicaciones, Azure AD B2C admite los protocolos [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) y [SAML](saml-service-provider.md) para los recorridos del usuario. Su aplicación inicia este recorrido del usuario mediante la emisión de solicitudes de autenticación a Azure AD B2C. El resultado de una solicitud a Azure AD B2C es un token de seguridad como, por ejemplo, un [token de identificador, un token de acceso](tokens-overview.md) o un token de SAML. Este token de seguridad define la identidad del usuario en la aplicación.
 
 - En el caso de identidades externas, Azure AD B2C admite la federación con los proveedores de identidades de OAuth 1.0, OAuth 2.0, OpenID Connect y SAML.
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805401"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096044"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -40,8 +40,8 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [OpenID Connect](openid-connect-technical-profile.md): federación con cualquier proveedor de identidades del protocolo OpenID Connect.
 - [Factor de teléfono](phone-factor-technical-profile.md): es compatible con la inscripción y comprobación de números de teléfono.
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de la API de REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
-- [Proveedor de identidades SAML](saml-identity-provider-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
-- [Emisor de tokens de SAML](saml-issuer-technical-profile.md): emite un token de SAML que se devuelve a la aplicación de usuario de confianza.
+- [Proveedor de identidades SAML](identity-provider-generic-saml.md) : federación con cualquier proveedor de identidades del protocolo SAML.
+- [Emisor de tokens de SAML](saml-service-provider.md): emite un token de SAML que se devuelve a la aplicación de usuario de confianza.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
 - [Administración de sesiones](custom-policy-reference-sso.md): administración de distintos tipos de sesiones.
 
@@ -175,9 +175,9 @@ En el ejemplo siguiente se muestra el uso de metadatos pertinentes para el [perf
 
 Para establecer la confianza con los servicios con los que se integra, Azure AD B2C almacena secretos y certificados en forma de [claves de directiva](policy-keys-overview.md). Durante la ejecución del perfil técnico, Azure AD B2C recupera las claves criptográficas de las claves de directiva de Azure AD B2C. A continuación, usa las claves para establecer la confianza, cifrar o firmar un token. Estas confianzas constan de los siguientes componentes:
 
-- Federación con los proveedores de identidades [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys) y [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
+- Federación con los proveedores de identidades [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys) y [SAML](identity-provider-generic-saml.md)
 - Protección de la conexión con los [servicios de la API de REST](secure-rest-api.md)
-- Firma y cifrado de los tokens [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) y [SAML](saml-issuer-technical-profile.md#cryptographic-keys)
+- Firma y cifrado de los tokens [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) y [SAML](saml-service-provider.md)
 
 El elemento **CryptographicKeys** contiene el elemento siguiente:
 
