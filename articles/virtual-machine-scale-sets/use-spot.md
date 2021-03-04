@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558666"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675013"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
@@ -46,19 +46,38 @@ Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft
 -   Contrato Enterprise
 -   Código de oferta de pago por uso 003P
 -   Patrocinados
-- Para obtener un proveedor de servicios en la nube (CSP), póngase en contacto con su asociado.
+- Para el proveedor de servicios en la nube (CSP), consulte el [Centro de partners](https://docs.microsoft.com/partner-center/azure-plan-get-started) o contacte con su partner directamente.
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
-Al crear conjuntos de escalado de máquinas virtuales de acceso puntual de Azure, puede establecer la directiva de expulsión en *Deallocate* (Desasignar) (valor predeterminado) o *Delete* (Eliminar). 
+Al crear un conjunto de escalado mediante máquinas virtuales de acceso puntual de Azure, puede establecer la directiva de expulsión en *Desasignar* (opción predeterminada) o *Eliminar*. 
 
 La directiva *Deallocate* (Desasignar) cambia las instancias expulsadas al estado stopped-deallocated para que pueda volver a implementarlas. Sin embargo, no hay ninguna garantía de que la asignación se realizará correctamente. Las máquinas virtuales desasignadas se siguen teniendo en cuenta en la cuota de instancias del conjunto de escalado y se le cobra por los discos subyacentes. 
 
-Si quiere que las instancias del conjunto de escalado de máquinas virtuales de acceso puntual de Azure se eliminen al expulsarse, establezca la directiva de expulsión en *Delete* (Eliminar). Con la directiva de expulsión establecida para eliminar, puede crear nuevas máquinas virtuales mediante el aumento de la propiedad de recuento de instancias del conjunto de escalado. Las máquinas virtuales expulsadas se eliminan junto con sus discos subyacentes y, por tanto, no se le cobra el almacenamiento. También puede usar la característica de escalado automático de los conjuntos de escalado para probar y compensar automáticamente las máquinas virtuales expulsadas; sin embargo, no hay ninguna garantía de que la asignación se realice correctamente. Con el fin de evitar el costo de los discos y alcanzar los límites de cuota, se recomienda usar únicamente la característica de escalado automático en los conjuntos de escalado de Spot al establecer la directiva de expulsión en Delete (Eliminar). 
+Si quiere que las instancias se eliminen al expulsarse, puede establecer la directiva de expulsión en *Eliminar*. Con la directiva de expulsión establecida para eliminar, puede crear nuevas máquinas virtuales mediante el aumento de la propiedad de recuento de instancias del conjunto de escalado. Las máquinas virtuales expulsadas se eliminan junto con sus discos subyacentes y, por tanto, no se le cobra el almacenamiento. También puede usar la característica de escalado automático de los conjuntos de escalado para probar y compensar automáticamente las máquinas virtuales expulsadas; sin embargo, no hay ninguna garantía de que la asignación se realice correctamente. Con el fin de evitar el costo de los discos y alcanzar los límites de cuota, se recomienda usar únicamente la característica de escalado automático en los conjuntos de escalado de Spot al establecer la directiva de expulsión en Delete (Eliminar). 
 
 Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Prueba y restauración (versión preliminar)
+
+Esta nueva característica de nivel de plataforma usará IA para intentar restaurar automáticamente las instancias de máquina virtual de acceso puntual de Azure expulsadas dentro de un conjunto de escalado para mantener el recuento de instancias de destino. 
+
+> [!IMPORTANT]
+> La característica Prueba y restauración se encuentra en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Ventajas de Prueba y restauración:
+- La característica está habilitada de forma predeterminada al implementar una máquina virtual de acceso puntual de Azure en un conjunto de escalado.
+- Intenta restaurar las máquinas virtuales de acceso puntual de Azure expulsadas por motivos de capacidad.
+- Se espera que las máquinas virtuales de acceso puntual de Azure restauradas se ejecuten durante más tiempo con menos probabilidad de que se produzca una expulsión desencadenada por la capacidad.
+- Mejora la duración de una máquina virtual de acceso puntual de Azure, por lo que las cargas de trabajo se ejecutan durante más tiempo.
+- Permite que los conjuntos de escalado de máquinas virtuales conserven el recuento de destinos de las máquinas virtuales de acceso puntual de Azure, de la misma forma que la característica que sirve para conservar el recuento de destinos que ya existen para las máquinas virtuales de pago por uso.
+
+La característica Prueba y restauración está deshabilitada en los conjuntos de escalado en los que se usa [Escalado automático](virtual-machine-scale-sets-autoscale-overview.md). El número de máquinas virtuales del conjunto de escalado está controlado por las reglas de escalado automático.
+
 ## <a name="placement-groups"></a>Grupos de selección de ubicación
+
 Un grupo de selección de ubicación es una construcción similar a un conjunto de disponibilidad de Azure, con sus propios dominios de error y dominios de actualización. De forma predeterminada, un conjunto de escalado consta de un único grupo de selección de ubicación con un tamaño máximo de 100 máquinas virtuales. Si la propiedad `singlePlacementGroup` de un conjunto de escalado se establece en *false*, el conjunto de escalado puede estar compuesto por varios grupos de selección de ubicación y tiene un intervalo de 0 a 1000 máquinas virtuales. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sec
 ```
 
 Para eliminar la instancia después de que se haya expulsado, cambie el parámetro `evictionPolicy` a `Delete`.
+
+
+## <a name="simulate-an-eviction"></a>Simulación de una expulsión
+
+Puede [simular una expulsión](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar la capacidad de respuesta de una aplicación ante una expulsión repentina. 
+
+Reemplazar lo siguiente por su propia información: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` significa que la expulsión simulada se ha realizado correctamente. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

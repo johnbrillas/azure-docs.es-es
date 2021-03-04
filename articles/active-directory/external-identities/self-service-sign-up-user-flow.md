@@ -5,22 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586030"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647343"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
-> [!NOTE]
-> El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación
 
 Puede crear flujos de usuario para aplicaciones compiladas por la organización. La asociación del flujo de usuario con una aplicación le permite habilitar el registro en esa aplicación. Puede optar por asociar más de una aplicación al flujo de usuario. Una vez asociado el flujo de usuario a una o más aplicaciones, los usuarios que visiten esa aplicación podrán registrarse y obtener una cuenta de invitado mediante las opciones configuradas en el flujo de usuario.
 
@@ -36,9 +34,6 @@ Azure AD es el proveedor de identidades predeterminado para el registro de auto
 - [Incorporación de Facebook a la lista de proveedores de identidades sociales](facebook-federation.md)
 - [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)
 
-> [!NOTE]
-> En la versión preliminar, si un flujo de usuario de registro de autoservicio se asocia a una aplicación y le envía a un usuario una invitación a esa aplicación, el usuario no podrá utilizar una cuenta de Gmail para canjear la invitación. Como solución alternativa, el usuario puede pasar por el proceso de registro de autoservicio. O bien, para canjear la invitación, puede acceder a otra aplicación o usar el portal Mis aplicaciones en https://myapps.microsoft.com.
-
 ### <a name="define-custom-attributes-optional"></a>Definición de atributos personalizados (opcional)
 
 Los atributos de usuario son valores recopilados del usuario durante el registro de autoservicio. Azure AD incluye un conjunto de atributos integrado, pero puede crear atributos personalizados para utilizar en el flujo de usuario. También puede leer y escribir estos atributos mediante Microsoft Graph API. Consulte [Definición de atributos personalizados para flujos de usuario](user-flow-add-custom-attributes.md).
@@ -50,7 +45,7 @@ Para poder agregar un flujo de usuario de registro de autoservicio a las aplicac
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. Seleccione **Configuración de usuario** y, a continuación, en **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
-4. Establezca la alternancia **Habilitación del registro de invitados de autoservicio mediante flujos de usuario (versión preliminar)** en **Sí**.
+4. Establezca el conmutador de alternancia **Enable guest self-service sign up via user flows** (Habilitación del registro de autoservicio de invitados mediante flujos de usuario) en **Yes** (Sí).
 
    ![Habilitación del registro de invitados de autoservicio](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Seleccione **Guardar**.
@@ -61,7 +56,7 @@ A continuación, debe crear el flujo de usuario para el registro de autoservicio
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
-4. Seleccione **Flujos de usuario (versión preliminar)** y, a continuación, seleccione **Nuevo flujo de usuario**.
+4. Seleccione **Flujos de usuario** y, después, **Nuevo flujo de usuario**.
 
    ![Botón para agregar un nuevo flujo de usuario](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -75,14 +70,14 @@ A continuación, debe crear el flujo de usuario para el registro de autoservicio
 > Solo puede recopilar atributos cuando un usuario se registra por primera vez. Una vez que un usuario se registra, ya no se le pedirá que recopile información de atributos, aunque cambie el flujo de usuario.
 
 8. Seleccione **Crear**.
-9. El nuevo flujo de usuario aparece en la lista **Flujos de usuario (versión preliminar)** . Si es necesario, actualice la página.
+9. El nuevo flujo de usuario aparece en la lista **Flujos de usuario**. Si es necesario, actualice la página.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Selección del diseño del formulario de colección de atributos
 
 Puede elegir el orden en que se muestran los atributos en la página de registro. 
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
-2. Seleccione **External Identities** y, después, **Flujos de usuario (versión preliminar)** .
+2. Select **Identidades externas** y, después, **Flujos de usuario**.
 3. Seleccione el flujo de usuario de registro de autoservicio de la lista.
 4. En **Personalizar**, seleccione **Diseños de página**.
 5. Aparecen los atributos que eligió recopilar. Para cambiar el orden de visualización, seleccione un atributo y, a continuación, seleccione **Subir**, **Bajar**, **Mover a la parte superior** o **Mover a la parte inferior**.
@@ -95,7 +90,7 @@ Ya puede asociar aplicaciones al flujo de usuario.
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
-4. En **Registro de autoservicio**, seleccione **Flujos de usuario (versión preliminar)** .
+4. En **Self-service sign up** (Registro de autoservicio), seleccione **User flows** (Flujos de usuario).
 5. Seleccione el flujo de usuario de registro de autoservicio de la lista.
 6. En el menú de la izquierda, en **Usar**, seleccione **Aplicaciones**.
 7. Seleccione **Agregar una aplicación**.
