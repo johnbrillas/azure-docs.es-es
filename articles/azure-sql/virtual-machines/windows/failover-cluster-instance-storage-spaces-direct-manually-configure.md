@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048648"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -70,7 +70,7 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
    Para instalar clústeres de conmutación por error desde la interfaz de usuario, realice los pasos siguientes en las dos máquinas virtuales.
 
    1. En el **Administrador del servidor**, seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
-   1. En el **Asistente para agregar roles y características**, seleccione **Siguiente** hasta llegar a **Seleccionar características**.
+   1. En el Asistente para **agregar roles y características**, seleccione **Siguiente** hasta llegar a **Seleccionar características**.
    1. En **Seleccionar características**, seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
    1. Seleccione **Agregar características**.
    1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
@@ -104,7 +104,7 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
 1. Seleccione **Next** (Siguiente).
 1. En **Confirmación**, seleccione **Siguiente**.
 
-    El **Asistente para validar una configuración** ejecuta las pruebas de validación.
+    El Asistente para **validar una configuración** ejecuta las pruebas de validación.
 
 Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
 
@@ -124,7 +124,7 @@ Para crear el clúster de conmutación por error, necesita:
 - Una dirección IP para el clúster de conmutación por error. Puede usar una dirección IP que no se utilice en la misma red virtual de Azure y subred como nodos del clúster.
 
 
-# <a name="windows-server-2012---2016"></a>[Windows Server 2012 - Windows Server 2016](#tab/windows2012)
+# <a name="windows-server-2012---2016"></a>[Windows Server 2012 a 2016](#tab/windows2012)
 
 El siguiente script de PowerShell crea un clúster de conmutación por error para Windows Server 2012 a través de Windows Server 2016. Actualice el script con los nombres de los nodos (los nombres de las máquinas virtuales) y una dirección IP disponible desde la red virtual de Azure.
 
@@ -235,6 +235,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
 Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear una instancia de [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 (o posterior) y Windows Server 2016 (o posterior), puede usar en su lugar la característica [Nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
+Para más información sobre las opciones de conectividad de clústeres, consulte [Enrutamiento de conexiones de HADR a SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ## <a name="limitations"></a>Limitaciones
 

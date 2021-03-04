@@ -1,17 +1,16 @@
 ---
 title: Ámbito de la consulta de registro en Log Analytics de Azure Monitor
 description: Describe el ámbito y el intervalo de tiempo para una consulta de registro en Log Analytics de Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 892c79d7908903b95a3bbbae2857933d877c7fba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604160"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047186"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
 Al ejecutar una [consulta de registro](../logs/log-query-overview.md) en [Log Analytics en Azure Portal](../logs/log-analytics-tutorial.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.

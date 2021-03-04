@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674650"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047679"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Creación de un origen de datos (Android SDK)
 
@@ -360,14 +360,17 @@ Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](h
 - [Documentación](/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
 - El Creador de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2 de obtención de mosaicos](/rest/api/maps/renderv2/getmaptilepreview).
 
+> [!TIP]
+> Al usar mosaicos de imagen vectoriales o de trama del servicio de representación de Azure Maps con el SDK web, puede reemplazar `atlas.microsoft.com` por el marcador de posición `azmapsdomain.invalid`. Este marcador de posición se reemplazará por el mismo dominio usado por el mapa y también anexará automáticamente los mismos detalles de autenticación. Esto simplifica considerablemente la autenticación con el servicio de representación al usar la autenticación de Azure Active Directory.
+
 Para mostrar los datos de un origen de mosaico vectorial en el mapa, conecte el origen a una de las capas de representación de datos. Todas las capas que usan un origen vectorial deben especificar un valor `sourceLayer` en las opciones. El código siguiente carga el servicio de mosaico vectorial de flujo de tráfico de Azure Maps como un origen de mosaico vectorial y, a continuación, lo muestra en un mapa mediante una capa de línea. Este origen de mosaico vectorial tiene un único conjunto de datos en la capa de origen denominado "Traffic flow". Los datos de línea de este conjunto de datos tienen una propiedad denominada `traffic_level` que se usa en este código para seleccionar el color y escalar el tamaño de las líneas.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );
