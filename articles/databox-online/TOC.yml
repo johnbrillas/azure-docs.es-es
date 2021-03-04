@@ -102,7 +102,7 @@
     - name: Información general
       items:
         - name: ¿Qué es Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
+          href: azure-stack-edge-mini-r-overview.md
     - name: Conceptos
       items:
         - name: Seguridad lista

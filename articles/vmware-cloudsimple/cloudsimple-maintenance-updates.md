@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Describe el proceso de servicio de CloudSimple para las operaciones de mantenimiento y las actualizaciones programadas
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/04/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 814a901fba065e36ea3ba9e3a6fe1175365de6c5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025034"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120715"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Mantenimiento y actualizaciones de CloudSimple
 
@@ -39,7 +39,7 @@ CloudSimple también supervisa continuamente si hay errores en los elementos sig
 * Puertos de NIC física
 * Servidores
 * Ventiladores
-* Power
+* Potencia
 * Conmutadores
 * Puertos de conmutador
 
@@ -100,7 +100,7 @@ Entre las actualizaciones de software se incluyen las siguientes:
 * **Actualizaciones**. Cambio de versión secundaria de un componente de la pila de VMware.
 * **Actualizaciones**. Cambio de versión principal de un componente de la pila de VMware.
 
-CloudSimple prueba una revisión de seguridad crítica en cuanto esté disponible desde VMware. Según el SLA, CloudSimple implementa la revisión de seguridad en los entornos de nube privada en el plazo de una semana.
+CloudSimple prueba una revisión de seguridad crítica en cuanto esté disponible desde VMware. 
 
 CloudSimple proporciona actualizaciones de mantenimiento trimestrales para los componentes de software de VMware. Cuando hay una nueva versión principal disponible del software de VMware, CloudSimple trabaja con los clientes para coordinar una ventana de mantenimiento adecuada para la actualización.
 

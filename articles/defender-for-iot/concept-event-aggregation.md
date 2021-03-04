@@ -1,5 +1,5 @@
 ---
-title: Agregación de eventos (versión preliminar)
+title: Agregación de datos
 titleSuffix: Azure Defender for IoT
 description: Los agentes de seguridad de Defender para IoT recopilan datos y eventos del sistema de un dispositivo local, y envían los datos a la nube de Azure para su procesamiento y análisis.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
-ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 53811c20330d96b279eeb24e1aa90248b60fcb32
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120052"
 ---
-# <a name="event-aggregation-preview"></a>Agregación de eventos (versión preliminar)
+# <a name="event-aggregation"></a>Agregación de datos 
 
 Los agentes de seguridad de Defender para IoT recopilan datos y eventos del sistema de un dispositivo local, y envían los datos a la nube de Azure para su procesamiento y análisis. El microagente de Defender para IoT recopila muchos tipos de eventos de dispositivo, incluidos los nuevos procesos y todos los nuevos eventos de conexión. Tanto el nuevo proceso como los nuevos eventos de conexión pueden producirse con frecuencia en un dispositivo en un segundo. Esta capacidad es importante para proporcionar una seguridad completa; sin embargo, el número de mensajes que envían los agentes de seguridad puede alcanzar rápidamente, o incluso superar, los límites de cuota y costo de IoT Hub. No obstante, estos eventos contienen información de seguridad muy valiosa que es crucial para proteger el dispositivo. 
 

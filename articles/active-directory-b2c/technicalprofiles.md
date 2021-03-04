@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096044"
+ms.locfileid: "102120511"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -555,7 +555,7 @@ La referencia de elementos **UseTechnicalProfileForSessionManagement** a un [per
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para recorridos de usuario
 
-El elemento [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) en un recorrido del usuario define la lista de opciones de selección de proveedor de notificaciones y el orden en que se mostrarán. Con el elemento **EnabledForUserJourneys**, puede filtrar los proveedores de notificaciones que estarán disponibles para el usuario. El elemento **EnabledForUserJourneys** contiene uno de los valores siguientes:
+El elemento [ClaimsProviderSelections](userjourneys.md#identity-provider-selection) en un recorrido del usuario define la lista de opciones de selección de proveedor de notificaciones y el orden en que se mostrarán. Con el elemento **EnabledForUserJourneys**, puede filtrar los proveedores de notificaciones que estarán disponibles para el usuario. El elemento **EnabledForUserJourneys** contiene uno de los valores siguientes:
 
 - **Always**: ejecuta el perfil técnico.
 - **Never**: omite el perfil técnico.
