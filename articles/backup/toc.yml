@@ -68,6 +68,8 @@
           href: azure-file-share-support-matrix.md
         - name: Matriz de compatibilidad de Azure Disk Backup
           href: disk-backup-support-matrix.md
+        - name: Matriz de compatibilidad con copias de seguridad de blobs de Azure
+          href: blob-backup-support-matrix.md
         - name: Controladores de dominio de Active Directory
           href: active-directory-backup-restore.md
         - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
@@ -132,6 +134,8 @@
           href: backup-center-govern-environment.md
         - name: Realización de acciones
           href: backup-center-actions.md
+        - name: Recursos de la comunidad
+          href: backup-center-community.md
     - name: Copia de seguridad de máquina virtual de Azure
       items:
         - name: Información general
@@ -164,7 +168,7 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -224,6 +228,14 @@
           href: backup-managed-disks.md
         - name: Restauración
           href: restore-managed-disks.md
+    - name: Copia de seguridad de blobs de Azure
+      items:
+        - name: Información general
+          href: blob-backup-overview.md
+        - name: Configuración y administración
+          href: blob-backup-configure-manage.md
+        - name: Restauración
+          href: blob-restore.md
     - name: Copia de seguridad de un recurso compartido de archivos de Azure
       items:
         - name: Información general
@@ -234,7 +246,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -242,7 +254,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -437,6 +449,10 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
+    - name: Nivel de acceso
+      items:
+        - name: nivel de archivo
+          href: archive-tier-support.md
     - name: Solución de problemas
       items:
         - name: Azure VM

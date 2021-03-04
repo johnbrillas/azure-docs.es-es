@@ -1,17 +1,16 @@
 ---
 title: Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
 description: Se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla Operation (Operación).
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710947"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034972"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
 Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Revise periódicamente estos datos y cree alertas para recibir notificaciones de forma anticipada cuando haya incidentes importantes en el área de trabajo.

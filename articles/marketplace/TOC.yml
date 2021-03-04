@@ -47,12 +47,19 @@
       items:
         - name: Sus ventajas de Marketplace
           href: gtm-your-marketplace-benefits.md
-        - name: Participación de asociados de venta conjunta
-          href: marketplace-co-sell.md
-        - name: Opción de venta conjunta en el Centro de partners
-          href: commercial-marketplace-co-sell.md
-        - name: Migración de soluciones de venta conjunta de OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Venta conjunta con Microsoft
+          items:
+            - name: Introducción a la venta conjunta
+              href: marketplace-co-sell.md
+            - name: Requisitos de venta conjunta
+              href: co-sell-requirements.md
+            - name: Configuración de la venta conjunta
+              href: commercial-marketplace-co-sell.md
+            - name: Comprobación del estado de la venta conjunta
+              href: co-sell-status.md
+            - name: Migración de soluciones de venta conjunta de OCP GTM
+              href: co-sell-solution-migration.md
         - name: Reventa a través de asociados de CSP
           href: cloud-solution-providers.md
         - name: Guía de incorporación de programas de conexión
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparación de recursos técnicos del módulo de IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Lista de comprobación previa a la certificación
+          href: iot-edge-checklist.md
     - name: Ofertas de servicio administrado
       items:
         - name: Planeamiento de una oferta de servicio administrado
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado de venta conjunta
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagrama de arquitectura de referencia
+      href: reference-architecture-diagram.md
     - name: Categorías y subcategorías
       href: categories.md
     - name: Etiquetas HTML que se admiten

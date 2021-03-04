@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: "Uso de Azure Files y AD\_DS"
           href: create-file-share.md
+        - name: Instalación de Office con contenedores de aplicaciones de FSLogix
+          href: fslogix-office-app-rule-editor.md
     - name: Configuración de los valores de un grupo de hosts
       items:
         - name: Propiedades de RDP
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: Configuración de un recurso compartido de archivos
           href: app-attach-file-share.md
+        - name: Configuración de la herramienta MSIXMGR
+          href: app-attach-msixmgr.md
     - name: Uso de Microsoft Teams
       href: teams-on-wvd.md
     - name: Configuración de Azure AD Multi-Factor Authentication

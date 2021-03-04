@@ -6,7 +6,7 @@
   items:
     - name: ¿Qué es Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Herramientas incluidas en Data Science Virtual Machine
+    - name: Herramientas en Data Science Virtual Machine
       href: tools-included.md
 - name: Guías de inicio rápido
   expanded: true

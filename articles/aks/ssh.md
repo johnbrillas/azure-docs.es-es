@@ -4,12 +4,12 @@ description: Aprenda a crear una conexión SSH con los nodos de clúster de Azur
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 96334985862c65000d783df3a205406f046be07a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7455b98348f2b8c40f2ffc125abe1297af88fbd8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740552"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034462"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -168,7 +168,7 @@ Para crear una conexión SSH a un nodo AKS, ejecute un pod asistente en el clús
 1. Vuelva a la sesión de terminal en el contenedor, actualice los permisos de la clave SSH privada copiada `id_rsa` para que sea de solo lectura para el usuario:
 
     ```console
-    chmod 0600 id_rsa
+    chmod 0400 id_rsa
     ```
 
 1. Cree una conexión SSH al nodo de Azure Kubernetes Service. De nuevo, el nombre de usuario para los nodos de AKS es *azureuser*. Acepte el aviso para continuar con la conexión, ya que la clave SSH es la primera en la que se confía. A continuación, se proporcionan con el aviso de bash del nodo de AKS:

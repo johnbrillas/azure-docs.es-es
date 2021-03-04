@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660473"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689035"
 ---
 # <a name="two-way-sms-unsupported"></a>Incompatibilidad del SMS bidireccional
 
@@ -27,7 +27,7 @@ Se enviaron notificaciones por correo electrónico y por Service Health en Azure
 ## <a name="required-actions"></a>Acciones necesarias
 
 1. Habilite la aplicación móvil para los usuarios, si todavía no lo ha hecho. Para obtener más información, consulte [Habilitación de la autenticación de aplicación móvil con el Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
-1. Indique a los usuarios finales que visiten el [portal de usuarios](howto-mfaserver-deploy-userportal.md) del servidor MFA para activar la aplicación móvil. La [aplicación Microsoft Authenticator](https://www.microsoft.com/account/authenticator) es la opción de verificación recomendada, ya que es más segura que la del SMS bidireccional. Para obtener más información, consulte [Ha llegado el momento de abandonar los transportes telefónicos para la autenticación](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Indique a los usuarios finales que visiten el [portal de usuarios](howto-mfaserver-deploy-userportal.md) del servidor MFA para activar la aplicación móvil. La [aplicación Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) es la opción de verificación recomendada, ya que es más segura que la del SMS bidireccional. Para obtener más información, consulte [Ha llegado el momento de abandonar los transportes telefónicos para la autenticación](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Cambie la configuración del usuario de mensaje de texto bidireccional a aplicación móvil como método predeterminado.
 
 ## <a name="faq"></a>Preguntas más frecuentes

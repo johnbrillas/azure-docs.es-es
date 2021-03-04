@@ -176,7 +176,7 @@
     - name: Notificación
       items:
         - name: Actividad de los métodos de autenticación
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: Informes de SSPR
           href: howto-sspr-reporting.md
         - name: Informes de MFA

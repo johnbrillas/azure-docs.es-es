@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750947"
 ---
 Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../articles/key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
 
@@ -43,3 +43,7 @@ En la lista siguiente se explica el diagrama más detalladamente:
 1. Para leer o escribir datos, los discos administrados envían solicitudes a Azure Key Vault para cifrar (encapsular) y descifrar (desencapsular) la clave de cifrado de datos con el fin de realizar el cifrado y descifrado de los datos. 
 
 Para revocar el acceso a las claves administradas por el cliente, vea [PowerShell de Azure Key Vault](/powershell/module/azurerm.keyvault/) y [CLI de Azure Key Vault](/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los datos de la cuenta de almacenamiento, ya que Azure Storage no puede acceder a la clave de cifrado.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotación automática de claves administradas por el cliente (versión preliminar)
+
+Puede optar por habilitar la rotación automática de claves para la versión más reciente de la clave. Los discos hacen referencia a las claves a través de su conjunto de cifrado de disco. Al habilitar la rotación automática de un conjunto de cifrado de disco, el sistema actualiza automáticamente todos los discos administrados, instantáneas e imágenes que hagan referencia a él para usar la nueva versión de la clave en una hora. La característica está actualmente disponible en versión preliminar en algunas regiones. Puede consultar la disponibilidad regional en [Regiones admitidas](#supported-regions).

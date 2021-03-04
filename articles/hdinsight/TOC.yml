@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Conceptos
       items:
-        - name: Componentes de Apache en HDInsight
-          href: ./hdinsight-component-versioning.md
+        - name: Control de versiones
+          items:
+            - name: Introducción al control de versiones
+              href: ./hdinsight-overview-versioning.md
+            - name: Versiones de HDInsight
+              href: ./hdinsight-component-versioning.md
+            - name: HDInsight versión 4.0
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight versión 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: Versiones de HDInsight retiradas
+              href: ./hdinsight-retired-versions.md
         - name: Enterprise Security Package
           href: ./enterprise-security-package.md
         - name: Notas de la versión de Hortonworks
@@ -650,7 +660,7 @@
             - name: Uso de Apache Kafka con IoT Hub
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Registro de esquema de Confluent
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Creación de canalizaciones de streaming
               items:
                 - name: 'Apache Spark, Apache Kafka y Azure Cosmos DB'
@@ -659,7 +669,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Uso de Apache Kafka con Azure Container Service
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Uso de Apache Kafka en una red virtual
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -712,7 +722,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Carga masiva de datos en Apache Phoenix mediante psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Escrituras aceleradas
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Administrar
           items:
+            - name: Copia de tablas de Hive en cuentas de almacenamiento
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Migración de metastore de Hive predeterminado a una metastore externa en Azure HDInsight
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Migración de cargas de trabajo de Hive en HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Optimización de consultas de Apache Hive
@@ -884,7 +898,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR y SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de clústeres de Machine Learning Services
               href: ./r-server/r-server-hdinsight-manage.md

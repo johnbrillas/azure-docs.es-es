@@ -235,3 +235,11 @@
   items:
     - name: Asignación entre el punto de referencia de ASB y CIS
       href: v2-cis-benchmark.md
+    - name: Aspectos básicos de la seguridad de Azure
+      href: ../fundamentals/index.yml
+    - name: Responsabilidad compartida en la nube
+      href: ../fundamentals/shared-responsibility.md
+    - name: Azure Security Center
+      href: ../../security-center/index.yml
+    - name: Ejemplo de plano técnico de Azure Security Benchmark Foundation
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml

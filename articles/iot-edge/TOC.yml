@@ -169,7 +169,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -177,7 +177,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
@@ -251,6 +251,8 @@
       href: how-to-create-test-certificates.md
     - name: Scripts de administración de dispositivos de Windows
       href: reference-windows-scripts.md
+    - name: Scripts de IoT Edge para Linux en Windows
+      href: reference-iot-edge-for-linux-on-windows-scripts.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos

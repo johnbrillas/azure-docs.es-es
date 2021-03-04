@@ -419,7 +419,7 @@
           items:
             - name: Creación de puntos de restauración
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Restauración de un grupo de Synapse SQL
+            - name: Restauración de un grupo de SQL dedicado
               href: ./backuprestore/restore-sql-pool.md
         - name: Administración y supervisión
           items:
@@ -552,6 +552,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Envío de definiciones de trabajos de Spark
           href: ./spark/apache-spark-job-definitions.md
+        - name: Conexión y supervisión de las métricas de nivel de aplicación de Azure Synapse Spark
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Supervisión de las métricas de nivel de aplicación de Apache Spark con Prometheus y Grafana
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Conceptos
       items:
         - name: Spark de Apache
@@ -566,17 +570,21 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Cuaderno
           href: ./spark/apache-spark-notebook-concept.md
+        - name: Administración de paquetes
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Herramientas de supervisión
           href: monitoring/how-to-monitor-spark-applications.md
     - name: Guías paso a paso
       items:
         - name: Uso de Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Administración de bibliotecas
+        - name: Administración de paquetes
           items:
-            - name: Adición y administración de bibliotecas
-              href: ./spark/apache-spark-azure-portal-add-libraries.md
-            - name: Solución de errores de instalación de biblioteca
+            - name: Administración de paquetes de Python
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Administración de paquetes de Scala
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Solución de problemas de errores de instalación de paquetes de Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Uso de cuadernos y de herramientas IDE
           items:
@@ -738,7 +746,7 @@
               href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json

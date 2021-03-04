@@ -66,10 +66,8 @@
     - name: Soluciones específicas del sector
       items:
         - name: Retail
-          href: retail/overview-iot-central-retail.md
           items:
             - name: 'Análisis en el almacén: finalización de la compra'
-              href: retail/store-analytics-architecture.md
               items:
                 - name: '1: Creación de una aplicación de comercio minorista'
                   href: retail/tutorial-in-store-analytics-create-app.md
@@ -77,28 +75,15 @@
                   href: retail/tutorial-in-store-analytics-customize-dashboard.md
                 - name: '3: Exportación de datos y visualización de conclusiones'
                   href: retail/tutorial-in-store-analytics-export-data-visualize-insights.md
-            - name: Administración inteligente del inventario
-              href: retail/architecture-smart-inventory-management.md
-              items:
-                - name: Creación de una aplicación de administración inteligente del inventario
-                  href: retail/tutorial-iot-central-smart-inventory-management.md
-            - name: Logística conectada
-              href: retail/architecture-connected-logistics.md
-              items:
-                - name: Creación de una aplicación de logística conectada
-                  href: retail/tutorial-iot-central-connected-logistics.md
-            - name: Centro de distribución digital
-              href: retail/architecture-digital-distribution-center.md
-              items:
-                - name: Creación de una aplicación del centro de distribución digital
-                  href: retail/tutorial-iot-central-digital-distribution-center.md
-            - name: Centro de micrologística
-              href: retail/architecture-micro-fulfillment-center.md
-              items:
-                - name: Creación de una aplicación del centro de micrologística
-                  href: retail/tutorial-micro-fulfillment-center.md
+            - name: Creación de una aplicación de administración inteligente del inventario
+              href: retail/tutorial-iot-central-smart-inventory-management.md
+            - name: Creación de una aplicación de logística conectada
+              href: retail/tutorial-iot-central-connected-logistics.md
+            - name: Creación de una aplicación del centro de distribución digital
+              href: retail/tutorial-iot-central-digital-distribution-center.md
+            - name: Creación de una aplicación del centro de micrologística
+              href: retail/tutorial-micro-fulfillment-center.md
             - name: 'Análisis de vídeo: detección de objetos y movimiento'
-              href: retail/architecture-video-analytics.md
               items:
                 - name: '0: Implementación de una aplicación de detección de objetos y de movimiento'
                   href: retail/tutorial-video-analytics-deploy.md
@@ -119,38 +104,21 @@
                 - name: '4: Modificación y compilación de los módulos de la puerta de enlace de análisis de vídeo en directo'
                   href: retail/tutorial-video-analytics-build-module.md
         - name: Sector energético
-          href: energy/overview-iot-central-energy.md
           items:
-            - name: Arquitectura de aplicaciones de medidores inteligentes
-              href: energy/concept-iot-central-smart-meter-app.md
             - name: Creación de una aplicación de supervisión de medidores inteligentes
               href: energy/tutorial-smart-meter-app.md
-            - name: Arquitectura de aplicaciones de paneles solares
-              href: energy/concept-iot-central-solar-panel-app.md
             - name: Creación de una aplicación de supervisión de paneles solares
               href: energy/tutorial-solar-panel-app.md
         - name: Gobierno
-          href: government/overview-iot-central-government.md
           items:
-            - name: Arquitectura de referencia de supervisión de residuos conectada
-              href: government/concepts-connectedwastemanagement-architecture.md
             - name: Creación de una aplicación de administración de residuos conectada
               href: government/tutorial-connected-waste-management.md
-            - name: Arquitectura de referencia de supervisión del consumo de agua
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
             - name: Creación de una aplicación de supervisión del consumo de agua
               href: government/tutorial-water-consumption-monitoring.md
-            - name: Arquitectura de referencia de supervisión de calidad del agua
-              href: government/concepts-waterqualitymonitoring-architecture.md
             - name: Creación de una aplicación de supervisión de calidad del agua
               href: government/tutorial-water-quality-monitoring.md
-            - name: "Conexión de una aplicación de Azure IoT Central con los servicios de campo de Dynamics\_365"
-              href: government/how-to-configure-connected-field-services.md
         - name: Atención sanitaria
-          href: healthcare/overview-iot-central-healthcare.md
           items:
-            - name: Arquitectura de la supervisión de pacientes continua
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
             - name: Creación de una aplicación de supervisión de pacientes continua
               href: healthcare/tutorial-continuous-patient-monitoring.md
             - name: Creación de un panel de evaluación de prioridades de datos de salud
@@ -162,9 +130,51 @@
     - name: Guía para desarrolladores de dispositivos
       href: core/overview-iot-central-developer.md
     - name: Guía del generador de soluciones
-      href: core/overview-iot-central-developer.md
+      href: core/overview-iot-central-solution-builder.md
     - name: ¿Qué son las plantillas de aplicación?
       href: core/concepts-app-templates.md
+    - name: Plantillas de aplicaciones específicas del sector
+      items:
+        - name: Minoristas
+          items:
+            - name: Información general
+              href: retail/overview-iot-central-retail.md
+            - name: Arquitectura de la comprobación del análisis en el almacén
+              href: retail/store-analytics-architecture.md
+            - name: Arquitectura de administración inteligente del inventario
+              href: retail/architecture-smart-inventory-management.md
+            - name: Arquitectura de logística conectada
+              href: retail/architecture-connected-logistics.md
+            - name: Centro de distribución digital
+              href: retail/architecture-digital-distribution-center.md
+            - name: Arquitectura del centro de micrologística
+              href: retail/architecture-micro-fulfillment-center.md
+            - name: 'Análisis de vídeo: detección de objetos y movimiento'
+              href: retail/architecture-video-analytics.md
+        - name: Sector energético
+          items:
+            - name: Información general
+              href: energy/overview-iot-central-energy.md
+            - name: Arquitectura de aplicaciones de medidores inteligentes
+              href: energy/concept-iot-central-smart-meter-app.md
+            - name: Arquitectura de aplicaciones de paneles solares
+              href: energy/concept-iot-central-solar-panel-app.md
+        - name: Gobierno
+          items:
+            - name: Información general
+              href: government/overview-iot-central-government.md
+            - name: Arquitectura de supervisión de residuos conectada
+              href: government/concepts-connectedwastemanagement-architecture.md
+            - name: Arquitectura de supervisión del consumo de agua
+              href: government/concepts-waterconsumptionmonitoring-architecture.md
+            - name: Arquitectura de supervisión de la calidad del agua
+              href: government/concepts-waterqualitymonitoring-architecture.md
+        - name: Atención sanitaria
+          items:
+            - name: Información general
+              href: healthcare/overview-iot-central-healthcare.md
+            - name: Arquitectura de la supervisión de pacientes continua
+              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: ¿Qué son las plantillas de dispositivo?
       href: core/concepts-device-templates.md
     - name: Conectividad de dispositivos
@@ -221,6 +231,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualización de datos en Power BI
           href: core/howto-connect-powerbi.md
+        - name: "Conexión de una aplicación a Dynamics\_365 Field Services"
+          href: government/how-to-configure-connected-field-services.md
     - name: Administración de los dispositivos
       items:
         - name: Adición y eliminación de dispositivos

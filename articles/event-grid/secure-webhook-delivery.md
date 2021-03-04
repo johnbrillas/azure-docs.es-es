@@ -3,12 +3,12 @@ title: Protección de la entrega de webhooks con Azure AD en Azure Event Grid
 description: Describe cómo enviar eventos a puntos de conexión HTTPS protegidos por Azure Active Directory mediante Azure Event Grid
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549159"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035452"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicación de eventos en puntos de conexión protegidos por Azure Active Directory
 
@@ -26,7 +26,7 @@ Empiece por crear una aplicación de Azure AD para el punto de conexión proteg
 En esta sección se muestra cómo habilitar Event Grid para usar la aplicación Azure AD. 
 
 > [!NOTE]
-> Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../active-directory/roles/permissions-reference.md#available-roles) para ejecutar este script.
+> Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../active-directory/roles/permissions-reference.md#all-roles) para ejecutar este script.
 
 ### <a name="connect-to-your-azure-tenant"></a>Conéctese a su inquilino de Azure
 En primer lugar, conéctese a su inquilino de Azure mediante el comando `Connect-AzureAD`. 

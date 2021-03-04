@@ -1,0 +1,56 @@
+### YamlMime:Landing
+title: Documentación de las soluciones de asociados validados en Azure Storage
+summary: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en la plataforma de Azure Storage.
+metadata:
+  title: Soluciones de asociados validados en Azure Storage
+  description: Las soluciones de asociados validados en Azure Storage habilitan escenarios avanzados en la plataforma de Azure Storage.
+  services: storage
+  ms.service: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101742725"
+landingContent:
+- title: Asociados de Azure Storage Analytics y Big Data
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Asociados validados de Azure Storage Analytics
+      url: .\validated-partners\analytics\partner-overview.md
+- title: Asociados de continuidad empresarial y recuperación ante desastres, copia de seguridad y archivo de Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Asociados validados de Azure Storage Archive y BCDR
+      url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Guía de inicio rápido de Commvault
+      url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - text: Guía de inicio rápido de Veeam
+      url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+- title: Asociados de soluciones de contenedor de Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Asociados de soluciones de contenedor de Azure Storage validados
+      url: .\validated-partners\container-solutions\partner-overview.md
+- title: Asociados de migración y administración de datos de Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Asociados validados de continuidad empresarial y recuperación ante desastres, copia de seguridad y archivo de Azure Storage
+      url: .\validated-partners\data-management\partner-overview.md
+- title: Asociados de almacenamiento principal y secundario de Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Asociados de almacenamiento principal y secundario de Azure Storage validados
+      url: .\validated-partners\primary-secondary-storage\partner-overview.md

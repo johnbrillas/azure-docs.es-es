@@ -5,18 +5,17 @@ services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 06/22/2018
+ms.date: 02/22/2021
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 8bae952db0bb1617bddcd736fba6fd60652f2ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4f7490e93e5b0ea94d22f4959ecfd8b911e3e09
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68968936"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750266"
 ---
 > [!NOTE]
-> Azure Data Lake Storage Gen2 ya está disponible con carácter general. Se recomienda que empiece a usarlo hoy mismo. Para más información, consulte la [página del producto](https://aka.ms/adlsgen2-product).
-> 
+> El **29 de febrero de 2024** se retirará Azure Data Lake Storage Gen1. Para obtener más información, consulte el [anuncio oficial](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). Si usa Azure Data Lake Storage Gen1, asegúrese de migrar a Azure Data Lake Storage Gen2 antes de esa fecha. Para saber cómo, consulte [Migración de Azure Data Lake Storage de Gen1 a Gen2](../articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). 
 
 

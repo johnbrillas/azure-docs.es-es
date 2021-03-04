@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750459"
 ---
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes
 
@@ -93,10 +93,7 @@ La imagen puede tardar un rato en replicarse en todas las regiones de destino.
 
 Se recomienda compartir el acceso en el nivel de la galería de imágenes. Los siguientes pasos le guían por el uso compartido de la galería que acaba de crear.
 
-1. Abra [Azure Portal](https://portal.azure.com).
-1. En el menú de la izquierda, seleccione **Grupos de recursos**. 
-1. En la lista de grupos de recursos, seleccione **myGalleryRG**. Se abrirá la hoja del grupo de recursos.
-1. En el menú de la izquierda de la página **myGalleryRG**, seleccione **Control de acceso (IAM)** . 
+1. En la página de la nueva galería de imágenes, en el menú de la izquierda, seleccione **Control de acceso (IAM)** . 
 1. En **Agregar una asignación de roles**, seleccione **Agregar**. Se abre el panel **Agregar una asignación de roles**. 
 1. En **Rol**, seleccione **Lector**.
 1. En **Asignar acceso a**, deje el valor predeterminado de **Usuario, grupo o entidad de servicio de Azure AD**.

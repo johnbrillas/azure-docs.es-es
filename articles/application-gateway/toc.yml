@@ -120,7 +120,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -158,6 +158,8 @@
           href: ingress-controller-install-existing.md
         - name: Entrada para AKS a través de Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Migración de la implementación de Helm al complemento de AKS
+          href: ingress-controller-migration.md
         - name: Deshabilitar y volver a habilitar el complemento Controlador de entrada de AKS
           href: ingress-controller-disable-addon.md
         - name: Habilitar afinidad de cookies
@@ -200,7 +202,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md

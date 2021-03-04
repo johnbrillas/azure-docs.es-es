@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668306"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036935"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
 
@@ -55,7 +55,7 @@ Los conjuntos de escalado de máquinas virtuales simplifican el diseño para log
 
 **Modos de orquestación para conjuntos de escalado**
 
-Los modos de orquestación de los conjuntos de escalado de máquinas virtuales permiten tener un mayor control sobre la forma en que el conjunto de escalado administra las instancias de máquina virtual. En cualquier conjunto de escalado se puede habilitar un modo de orquestación uniforme o flexible. La orquestación uniforme está optimizada para cargas de trabajo sin estado a gran escala con instancias idénticas. La orquestación flexible (versión preliminar) está pensada para una alta disponibilidad a escala con tipos de máquinas virtuales idénticos o múltiples. Obtenga más información no solo sobre estos [modos de orquestación](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md), sino también sobre cómo habilitarlos.
+Los modos de orquestación de los conjuntos de escalado de máquinas virtuales permiten tener un mayor control sobre la forma en que el conjunto de escalado administra las instancias de máquina virtual. En cualquier conjunto de escalado se puede habilitar un modo de orquestación uniforme o flexible. La orquestación uniforme está optimizada para cargas de trabajo sin estado a gran escala con instancias idénticas. La orquestación flexible (versión preliminar) está pensada para una alta disponibilidad a escala con tipos de máquinas virtuales idénticos o múltiples. Obtenga más información no solo sobre estos [modos de orquestación](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md), sino también sobre cómo habilitarlos.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
