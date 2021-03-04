@@ -1,15 +1,14 @@
 ---
 title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 01/29/2021
-ms.openlocfilehash: 39ff78cd97682096fb284e137868c246dfdd7f14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603129"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033153"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 

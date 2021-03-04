@@ -1,24 +1,24 @@
 ---
 title: 'Preguntas más frecuentes sobre la implementación híbrida de llaves de seguridad FIDO2: Azure Active Directory'
-description: Más información sobre algunas de las preguntas más frecuentes sobre la implementación híbrida del inicio de sesión sin contraseña con llaves de seguridad FIDO2 a través de Azure Active Directory (versión preliminar)
+description: Más información sobre algunas de las preguntas más frecuentes sobre la implementación híbrida del inicio de sesión sin contraseña con claves de seguridad FIDO2 a través de Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743537"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646391"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Preguntas más frecuentes sobre la implementación híbrida de llaves de seguridad FIDO2 en Azure AD (versión preliminar)
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Preguntas más frecuentes sobre la implementación híbrida de claves de seguridad FIDO2 en Azure AD 
 
 En este artículo se tratan las preguntas más frecuentes sobre la implementación de dispositivos unidos a Azure AD híbrido y el inicio de sesión sin contraseña en recursos locales. Con esta característica sin contraseña, puede habilitar la autenticación de Azure AD en dispositivos con Windows 10 unidos a Azure AD híbrido mediante llaves de seguridad FIDO2. Los usuarios pueden iniciar sesión en Windows en sus dispositivos usando credenciales modernas como las llaves FIDO2, y acceder a recursos tradicionales basados en Active Directory Domain Services (AD DS) con una experiencia de inicio de sesión único (SSO) que permite acceder directamente a sus recursos locales.
 
@@ -32,9 +32,6 @@ Para ver una introducción de las llaves de seguridad FIDO2 y del acceso híbrid
 * [Claves de seguridad FIDO2 sin contraseñas](howto-authentication-passwordless-security-key.md)
 * [Windows 10 sin contraseña](howto-authentication-passwordless-security-key-windows.md)
 * [Entorno local sin contraseña](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="security-keys"></a>Llaves de seguridad
 

@@ -1,42 +1,39 @@
 ---
-title: 'Inicio de sesión con clave de seguridad sin contraseña (versión preliminar): Azure Active Directory'
-description: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante llaves de seguridad FIDO2 (versión preliminar)
+title: 'Inicio de sesión con clave de seguridad sin contraseña: Azure Active Directory'
+description: Habilitación del inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante claves de seguridad FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743435"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653837"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
+# <a name="enable-passwordless-security-key-sign-in"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña 
 
 En el caso de las empresas que usan las contraseñas hoy en día y tienen un entorno de PC compartido, las claves de seguridad proporcionan una manera perfecta para que los trabajadores se autentiquen sin escribir un nombre de usuario o una contraseña. Las claves de seguridad proporcionan productividad mejorada para los trabajadores y tienen una mejor seguridad.
 
 Este documento se centra en la habilitación de la autenticación sin contraseña basada en claves de seguridad. Al final de este artículo, será capaz de iniciar sesión en aplicaciones basadas en Web con su cuenta de Azure AD mediante una llave de seguridad FIDO2.
 
-> [!NOTE]
-> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="requirements"></a>Requisitos
 
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
-- Habilitar el [registro de información de seguridad combinado (versión preliminar)](concept-registration-mfa-sspr-combined.md)
+- Habilitar el [registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md)
 - [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
 - WebAuthN requiere Windows 10, versión 1903 o posterior**
 
 Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones web, debe tener un explorador que admita el protocolo WebAuthN. Entre ellas se incluyen Microsoft Edge, Chrome, Firefox y Safari.
 
-## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
+## <a name="prepare-devices"></a>Preparación de dispositivos
 
 En el caso de los dispositivos unidos a Azure AD, la mejor experiencia está disponible en Windows 10, versión 1903 o posterior.
 
@@ -51,7 +48,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 ### <a name="enable-fido2-security-key-method"></a>Habilitar el método de llaves de seguridad FIDO2
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación**.
 1. En el método **Llave de seguridad FIDO2**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No
    1. **Destino**: Todos los usuarios o Seleccionar usuarios
@@ -79,19 +76,19 @@ En el ejemplo siguiente, un usuario ya ha aprovisionado su clave de seguridad FI
 
 ## <a name="troubleshooting-and-feedback"></a>Solución de problemas y comentarios
 
-Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
+Si quiere compartir comentarios o detectar problemas con esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
 
 1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
 1. Envíe los comentarios bajo la categorización siguiente:
    - Categoría: Seguridad y privacidad
    - Subcategoría: FIDO
-1. Para capturar registros, use la opción **Recreate my Problem** (Recrear mi problema).
+1. Para capturar registros, use la opción **Volver a crear mi problema**.
 
 ## <a name="known-issues"></a>Problemas conocidos
 
 ### <a name="security-key-provisioning"></a>Aprovisionamiento de claves de seguridad
 
-El aprovisionamiento y desaprovisionamiento de administrador de claves de seguridad no está disponible en la versión preliminar pública.
+El aprovisionamiento y desaprovisionamiento de administrador de claves de seguridad no está disponible.
 
 ### <a name="upn-changes"></a>Cambios de UPN
 

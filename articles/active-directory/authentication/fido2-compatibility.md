@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a8f96fabdff3543222077f5113b0bd602997b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416739"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649247"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Compatibilidad del explorador con la autenticación sin contraseña FIDO2
 
-Azure Active Directory permite usar [claves de seguridad FIDO2](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) como un dispositivo sin contraseña. La disponibilidad de la autenticación FIDO2 para las cuentas de Microsoft se [anunció en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Como se describe en el anuncio, se deben implementar ciertas características y extensiones opcionales en la especificación CTAP de FIDO2 para admitir la autenticación segura con cuentas de Microsoft y Azure Active Directory. En el diagrama siguiente se muestra qué combinaciones de exploradores y sistemas operativos admiten la autenticación sin contraseña mediante claves de autenticación FIDO2 con Azure Active Directory.
+Azure Active Directory permite usar [claves de seguridad FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) como un dispositivo sin contraseña. La disponibilidad de la autenticación FIDO2 para las cuentas de Microsoft se [anunció en 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Como se describe en el anuncio, se deben implementar ciertas características y extensiones opcionales en la especificación CTAP de FIDO2 para admitir la autenticación segura con cuentas de Microsoft y Azure Active Directory. En el diagrama siguiente se muestra qué combinaciones de exploradores y sistemas operativos admiten la autenticación sin contraseña mediante claves de autenticación FIDO2 con Azure Active Directory.
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 
@@ -33,18 +33,32 @@ En esta tabla se muestra la compatibilidad con la autenticación de cuentas de A
 | **macOS**  | ![Chrome admite USB en macOS para las cuentas de AAD.][y] | ![Chrome no admite NFC en macOS para las cuentas de AAD.][n] | ![Chrome no admite BLE en macOS para las cuentas de AAD.][n] | ![Edge admite USB en macOS para las cuentas de AAD.][y] | ![Edge no admite NFC en macOS para las cuentas de AAD.][n] | ![Edge no admite BLE en macOS para las cuentas de AAD.][n] | ![Firefox no admite USB en macOS para las cuentas de AAD.][n] | ![Firefox no admite NFC en macOS para las cuentas de AAD.][n] | ![Firefox no admite BLE en macOS para las cuentas de AAD.][n] |
 | **Linux**  | ![Chrome admite USB en Linux para las cuentas de AAD.][y] | ![Chrome no admite NFC en Linux para las cuentas de AAD.][n] | ![Chrome no admite BLE en Linux para las cuentas de AAD.][n] | ![Edge no admite USB en Linux para las cuentas de AAD.][n] | ![Edge no admite NFC en Linux para las cuentas de AAD.][n] | ![Edge no admite BLE en Linux para las cuentas de AAD.][n] | ![Firefox no admite USB en Linux para las cuentas de AAD.][n] | ![Firefox no admite NFC en Linux para las cuentas de AAD.][n] | ![Firefox no admite BLE en Linux para las cuentas de AAD.][n] |
 
-## <a name="operating-system-versions-tested"></a>Versiones probadas del sistema operativo
+## <a name="unsupported-browsers"></a>Exploradores no admitidos
 
-La información de la tabla anterior se probó para las siguientes versiones de sistema operativo.
+Las siguientes combinaciones de sistemas operativos y exploradores no son compatibles, pero se está investigando la compatibilidad y las pruebas futuras. Si desea ver otra compatibilidad de sistema operativo y explorador, deje comentarios mediante la herramienta de comentarios del producto en la parte inferior de la página.
 
-| Sistema operativo | Última versión probada |
-| --- | --- |
-| Windows | Windows 10 20H2 1904 |
-| macOS | OS X 11 Big Sur |
-| Linux | Estación de trabajo Fedora 32 |
+| Sistema operativo | Browser |
+| ---- | ---- |
+| iOS | Safari, Brave |
+| macOS | Safari |
+| Android | Chrome |
+| ChromeOS | Chrome |
+
+## <a name="minimum-browser-version"></a>Versión mínima del explorador
+
+Estos son los requisitos mínimos de la versión del explorador. 
+
+| Browser | Versión mínima |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10, versión 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup>Todas las versiones del nuevo Microsoft Edge basado en Chromium son compatibles con Fido2. La compatibilidad con versiones anteriores de Microsoft Edge se agregó en la 1903.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

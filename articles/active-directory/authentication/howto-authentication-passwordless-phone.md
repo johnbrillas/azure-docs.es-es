@@ -1,6 +1,6 @@
 ---
 title: 'Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator: Azure Active Directory'
-description: Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
+description: Habilitación del inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626162"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653480"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator 
 
 La aplicación Microsoft Authenticator se puede utilizar para iniciar sesión en cualquier cuenta de Azure AD sin utilizar una contraseña. Microsoft Authenticator usa la autenticación basada en claves para habilitar una credencial de usuario vinculada a un dispositivo que usa un PIN o un elemento biométrico. [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification) usa una tecnología similar.
 
@@ -40,7 +40,7 @@ Para usar el inicio de sesión en el teléfono sin contraseña con la aplicació
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
 
 > [!NOTE]
-> Si habilitó la versión preliminar del inicio de sesión sin contraseña de Microsoft Authenticator mediante Azure AD PowerShell, se habilitó para todo el directorio. Si habilita con este nuevo método, reemplaza a la directiva de PowerShell. Se recomienda habilitarla para todos los usuarios del inquilino mediante el menú de los nuevos *métodos de autenticación*; de lo contrario, los usuarios que no estén en la nueva directiva ya no podrán iniciar sesión sin contraseña.
+> Si habilitó el inicio de sesión sin contraseña de Microsoft Authenticator mediante Azure AD PowerShell, se habilitó para todo el directorio. Si habilita con este nuevo método, reemplaza a la directiva de PowerShell. Se recomienda habilitarla para todos los usuarios del inquilino mediante el menú de los nuevos *métodos de autenticación*; de lo contrario, los usuarios que no estén en la nueva directiva ya no podrán iniciar sesión sin contraseña.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Habilitar métodos de autenticación sin contraseña
 
@@ -58,7 +58,7 @@ Siga estos pasos para habilitar el método de autenticación para el inicio de s
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de *administrador global*.
 1. Busque y seleccione *Azure Active Directory*, a continuación, vaya a **Seguridad** > **Métodos de autenticación** > **Directivas**.
-1. En **Microsoft Authenticator (versión preliminar)** , elija las opciones siguientes:
+1. En **Microsoft Authenticator**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No
    1. **Destino**: Todos los usuarios o Seleccionar usuarios
 1. Cada grupo o usuario agregado está habilitado de manera predeterminada para usar Microsoft Authenticator en los modos de notificación push y sin contraseña (modo "Cualquiera"). Para cambiar esto, para cada fila:
@@ -104,7 +104,7 @@ Una vez que el usuario ha utilizado el inicio de sesión en el teléfono sin con
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-La experiencia en versión preliminar actual presenta los siguientes problemas conocidos.
+Existen los siguientes problemas conocidos.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>No se ve la opción para el inicio de sesión con el teléfono sin contraseña.
 

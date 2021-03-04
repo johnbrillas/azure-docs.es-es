@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744370"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648805"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticación en Azure Active Directory: aplicación Microsoft Authenticator
 
@@ -23,7 +23,7 @@ La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicion
 
 Los usuarios pueden recibir una notificación a través de la aplicación móvil para que aprueben o rechacen, o usar la aplicación Authenticator para generar un código de verificación de OATH que se pueda escribir en una interfaz de inicio de sesión. Si habilita tanto una notificación como un código de verificación, los usuarios que registran la aplicación Authenticator podrán utilizar cualquiera de los métodos para verificar su identidad.
 
-Para usar la aplicación Authenticator en una solicitud de inicio de sesión en lugar de una combinación de nombre de usuario y contraseña, consulte [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)](howto-authentication-passwordless-phone.md).
+Para usar la aplicación Authenticator en una solicitud de inicio de sesión en lugar de una combinación de nombre de usuario y contraseña, consulte [Habilitación del inicio de sesión sin contraseña con la aplicación Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Los usuarios no tienen la opción de registrar su aplicación móvil cuando habilitan el autoservicio de restablecimiento de contraseña. En su lugar, los usuarios pueden registrar su aplicación móvil en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o como parte del registro de información de seguridad combinado en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -34,7 +34,7 @@ En lugar de ver la petición de una contraseña después de escribir un nombre d
 
 ![Ejemplo de un inicio de sesión de explorador que solicita al usuario que apruebe el inicio de sesión](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Este método de autenticación proporciona un alto nivel de seguridad y elimina la necesidad de que el usuario proporcione una contraseña en el inicio de sesión. El inicio de sesión sin contraseña con la aplicación Microsoft Authenticator está actualmente en versión preliminar.
+Este método de autenticación proporciona un alto nivel de seguridad y elimina la necesidad de que el usuario proporcione una contraseña en el inicio de sesión. 
 
 Para empezar a usar el inicio de sesión sin contraseña, consulte [Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

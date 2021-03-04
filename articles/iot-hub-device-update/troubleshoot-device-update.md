@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6329e93bb5e628d68afbb2700ce0b9e3a2a711ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678843"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030637"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Guía para la solución de problemas de Device Update para Azure IoT Hub
 
@@ -46,7 +46,7 @@ _El estado de cumplimiento del dispositivo puede tardar hasta 5 minutos en actu
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>P: el estado de implementación del dispositivo muestra que no es compatible, ¿qué debo hacer?
 _Es posible que se hayan cambiado propiedades de fabricante y modelo de un dispositivo de destino después de conectar el dispositivo a IoT Hub, lo que hace que el dispositivo se considere ahora incompatible con el contenido de actualización de la implementación actual._
 
-_Compruebe la [interfaz principal de ADU](./device-update-plug-and-play) para ver qué fabricante y modelo indica el dispositivo al servicio Device Update, y asegúrese de que coinciden con el fabricante y modelo que especificó en el [manifiesto de importación](./import-concepts.md) del contenido de actualización que se va a implementar. Estas propiedades se pueden cambiar para un dispositivo determinado mediante el [archivo de configuración de Device Update](./device-update-cofiguration-file.md)._
+_Compruebe la [interfaz principal de ADU](./device-update-plug-and-play.md) para ver qué fabricante y modelo indica el dispositivo al servicio Device Update, y asegúrese de que coinciden con el fabricante y modelo que especificó en el [manifiesto de importación](./import-concepts.md) del contenido de actualización que se va a implementar. Estas propiedades se pueden cambiar para un dispositivo determinado mediante el [archivo de configuración de Device Update](./device-update-configuration-file.md)._
 
 ### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>P: veo que una implementación está en la fase "Activa" (Activo), pero ninguno de los dispositivos está "In progress" (En curso) con la actualización. ¿Qué debo hacer?
 _Asegúrese de que la fecha de inicio de la implementación no se ha establecido en el futuro. Cuando se crea una implementación, una forma de protegerla es hacer que el valor predeterminado de su fecha de inicio sea el día siguiente al de la creación, salvo que se cambie explícitamente. Puede esperar a que llegue la fecha de inicio de la implementación o cancelar la implementación en curso y crear una implementación con la fecha de inicio deseada._

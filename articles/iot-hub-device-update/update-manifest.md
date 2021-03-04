@@ -1,17 +1,17 @@
 ---
 title: Manifiesto de actualización de Device Update para IoT Hub | Microsoft Docs
 description: Aprenda cómo enviar las propiedades desde el servicio Device Update al dispositivo durante una actualización.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea438a4a8db8dce9cf2acb0b5b3ff4e250c3cf39
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bbd39f7752a1a482350a7231a0bb5a3710591b1d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660740"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030688"
 ---
 # <a name="device-update-for-iot-hub-update-manifest"></a>Manifiesto de actualización de Device Update para IoT Hub
 

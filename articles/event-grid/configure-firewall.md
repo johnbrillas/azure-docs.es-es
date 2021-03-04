@@ -2,13 +2,13 @@
 title: Configuración del firewall de IP para temas o dominios de Azure Event Grid
 description: En este artículo se describe cómo configurar las opciones de firewall para los temas o dominios de Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324168"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031844"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configuración del firewall de IP para temas o dominios de Azure Event Grid 
 De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IPv4 o intervalos de direcciones IPv4 en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido). Para más información sobre las características de seguridad de red admitidas por Event Grid, consulte [Seguridad de red para Event Grid](network-security.md).
@@ -34,19 +34,6 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 ## <a name="use-azure-cli"></a>Uso de CLI de Azure
 En esta sección se muestra cómo usar los comandos de la CLI de Azure para crear temas con reglas de IP de entrada. Los pasos que se muestran en esta sección son para los temas. Puede usar pasos similares para crear reglas de IP de entrada para **dominios**. 
 
-
-### <a name="prerequisites"></a>Requisitos previos
-Actualice la extensión de Azure Event Grid para la CLI mediante el siguiente comando: 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-Si la extensión no está instalada, ejecute el siguiente comando para instalarla: 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>Habilitación o deshabilitación del acceso a la red pública
 De forma predeterminada, el acceso de red pública está habilitado para los temas y los dominios. También puede habilitarlo explícitamente o deshabilitarlo. Puede restringir el tráfico mediante la configuración de reglas de firewall de IP de entrada. 

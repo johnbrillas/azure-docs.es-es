@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530355"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651134"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -149,7 +149,7 @@ Hay tres tipos de implementaciones de inicio de sesión sin contraseña disponib
 
 -    Aplicaciones web de Azure Active Directory en un explorador compatible
 -    Dispositivos de Windows 10 unidos a Azure Active Directory
--    Dispositivos de Windows 10 unidos a Azure Active Directory híbrido (versión preliminar)
+-    Dispositivos de Windows 10 unidos a Azure Active Directory híbrido
      -    Proporciona acceso a los recursos locales y a los basados en la nube. Para más información sobre el acceso a los recursos locales, consulte [Inicio de sesión único en los recursos locales mediante claves de FIDO2](./howto-authentication-passwordless-security-key-on-premises.md).
 
 Debe habilitar las **claves de seguridad de FIDO2 compatibles**. Microsoft anunció [importantes asociaciones con los proveedores de claves de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -193,7 +193,7 @@ Para habilitar el inicio de sesión de Windows 10 con llaves de seguridad FIDO2
 
 #### <a name="enable-on-premises-integration"></a>Habilitación de la integración local
 
-Para habilitar el acceso a los recursos locales, siga los pasos de [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales (versión preliminar)](howto-authentication-passwordless-security-key-on-premises.md).
+Para habilitar el acceso a los recursos locales, siga los pasos de [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > Estos pasos también se deben completar para que los dispositivos unidos a Azure AD híbridos usen claves de seguridad FIDO2 para el inicio de sesión de Windows 10.

@@ -1,17 +1,16 @@
 ---
 title: Clave administrada por el cliente de Azure Monitor
 description: Información y pasos para configurar la clave administrada por el cliente para cifrar los datos en las áreas de trabajo de Log Analytics mediante una clave de Azure Key Vault
-ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717424"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030994"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 

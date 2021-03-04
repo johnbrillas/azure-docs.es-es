@@ -1,22 +1,22 @@
 ---
-title: Inicio de sesión sin contraseña de Azure Active Directory (versión preliminar)
+title: Inicio de sesión sin contraseña de Azure Active Directory
 description: Conozca las opciones para el inicio de sesión sin contraseña en Azure Active Directory con las claves de seguridad FIDO2 o la aplicación Microsoft Authenticator.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013012"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647564"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -62,8 +62,6 @@ También puede permitir que el teléfono del empleado se convierta en un método
 
 La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo. Consulte [Descarga e instalación de la aplicación Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para conocer los detalles de la instalación.
 
-El inicio de sesión sin contraseña con la aplicación Microsoft Authenticator en Azure AD está actualmente en versión preliminar. El uso de la aplicación Microsoft Authenticator para la autenticación secundaria con Multi-Factor Authentication de Azure AD, el autoservicio de restablecimiento de contraseña (SSPR) o los tokens de software OATH está disponible con carácter general. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 La autenticación sin contraseñas mediante la aplicación Authenticator sigue el mismo patrón básico que Windows Hello para empresas. Es un poco más complicado, ya que el usuario debe identificarse para que Azure AD pueda encontrar la versión de la aplicación Microsoft Authenticator que se está usando:
 
 ![Diagrama que describe los pasos necesarios para el inicio de sesión de un usuario con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -91,8 +89,6 @@ Las claves de seguridad FIDO2 son un método de autenticación sin contraseña b
 Los usuarios pueden registrarse y luego seleccionar una llave de seguridad de FIDO2 en la interfaz de inicio de sesión como medio principal de autenticación. Estas llaves de seguridad de FIDO2 suelen ser dispositivos USB, pero también pueden usar Bluetooth o NFC. Con un dispositivo de hardware que controla la autenticación, se aumenta la seguridad de una cuenta, ya que no hay ninguna contraseña que pueda quedar expuesta ni adivinarse.
 
 Las claves de seguridad FIDO2 se pueden usar para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD o Azure AD híbrido y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
-
-Actualmente, el inicio de sesión con las claves de seguridad FIDO2 en Azure AD se encuentran en versión preliminar. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ Para empezar a usar las claves de seguridad FIDO2, realice el procedimiento sigu
 > [!div class="nextstepaction"]
 > [Habilitar el inicio de sesión con claves de seguridad FIDO2 sin contraseña](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>¿Qué escenarios funcionan con la versión preliminar?
+## <a name="supported-scenarios"></a>Escenarios admitidos
 
-Las características de inicio de sesión sin contraseña de Azure AD se encuentran actualmente en versión preliminar. Se aplican las siguientes consideraciones:
+Se aplican las siguientes consideraciones:
 
 - Los administradores pueden habilitar métodos de autenticación sin contraseña para su inquilino
 - Los administradores pueden establecer como destino a todos los usuarios o seleccionar usuarios o grupos dentro de su inquilino para cada método
 - Los usuarios finales pueden registrar y administrar estos métodos de autenticación sin contraseña en el portal de la cuenta
-- Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña
-   - Aplicación Microsoft Authenticator: Funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración rápida (OOBE) de Windows 10 y con aplicaciones móviles integradas en cualquier sistema operativo.
+- Los usuarios finales pueden iniciar sesión con estos métodos de autenticación sin contraseña:
+   - Aplicación Microsoft Authenticator: funciona en los escenarios donde se usa la autenticación de Azure AD, lo que incluye todos los exploradores, durante la configuración de Windows 10, y con aplicaciones móviles integradas en cualquier sistema operativo.
    - Claves de seguridad: funcionan en la pantalla de bloqueo de Windows 10 e Internet en exploradores compatibles como Microsoft Edge (tanto versiones heredadas como la nueva Edge).
 
 ## <a name="choose-a-passwordless-method"></a>Elección de un método sin contraseña

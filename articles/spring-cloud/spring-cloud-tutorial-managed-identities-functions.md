@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 8ea8376307807abff8227d82bb6de7956fa3de99
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a33ba6813b4a67de7f46f3576a44fa7411278ba7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088540"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031793"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
 
@@ -119,7 +119,7 @@ az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup 
 En el ejemplo siguiente, se crea una aplicación denominada `msiapp` con una identidad administrada asignada por el sistema, según solicitó el parámetro `--assign-identity`.
 
 ```azurecli
-az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --is-public true --assign-identity
+az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
 ```
 
 ## <a name="build-sample-spring-boot-app-to-invoke-the-function"></a>Creación de una aplicación de Spring Boot de ejemplo para invocar la función

@@ -1,36 +1,33 @@
 ---
 title: 'Inicio de sesión con clave de seguridad sin contraseña en Windows: Azure Active Directory'
-description: Información sobre cómo habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure Active Directory mediante llaves de seguridad FIDO2 (versión preliminar)
+description: Información sobre cómo habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure Active Directory mediante claves de seguridad FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743469"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653514"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory 
 
 Este documento se centra en la habilitación de la autenticación sin contraseña basada en claves de seguridad FIDO2 para dispositivos Windows 10. Al final de este artículo, será capaz de iniciar sesión en los dispositivos Windows 10 unidos a Azure AD y a Azure AD híbrido con la cuenta de Azure AD mediante una clave de seguridad FIDO2.
-
-> [!NOTE]
-> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
 | Tipo de dispositivo | Unido a Azure AD | Híbrido unido a Azure AD |
 | --- | --- | --- |
 | [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Registro de información de seguridad combinado (vista preliminar)](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN requiere Windows 10 versión 1903 o superior | X | X |
 | Los [dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md) requieren Windows 10 versión 1909 o superior | X |   |
@@ -54,9 +51,9 @@ No se admiten los escenarios siguientes:
 - Inicie sesión o desbloquee un dispositivo de Windows 10 con una clave de seguridad que contenga varias cuentas de Azure AD. En este escenario se utiliza la última cuenta agregada a la clave de seguridad. WebAuthN permite a los usuarios elegir la cuenta que desean usar.
 - Desbloquee un dispositivo que ejecute Windows 10, versión 1809. Para disfrutar de la mejor experiencia, utilice Windows 10, versión 1903 o superior.
 
-## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
+## <a name="prepare-devices"></a>Preparación de dispositivos
 
-Los dispositivos unidos a Azure AD de los que realiza una prueba piloto durante la versión preliminar de características deben ejecutar Windows 10, versión 1909 o posterior.
+Los dispositivos unidos a Azure AD deben ejecutar la versión 1909, o posterior, de Windows 10.
 
 Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10, versión 2004 o una versión más reciente.
 
@@ -150,7 +147,7 @@ En el ejemplo siguiente, un usuario llamado Bala Sandhu ya ha aprovisionado su c
 
 ## <a name="troubleshooting-and-feedback"></a>Solución de problemas y comentarios
 
-Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
+Si quiere compartir comentarios o detectar problemas sobre esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
 
 1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
 1. Envíe los comentarios bajo la categorización siguiente:

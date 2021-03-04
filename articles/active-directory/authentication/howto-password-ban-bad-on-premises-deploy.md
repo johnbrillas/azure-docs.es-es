@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091047"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653820"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -48,7 +48,7 @@ También es posible que la validación de contraseñas más seguras afecte a la 
 * [No se puede realizar la promoción de la réplica del controlador de dominio debido a una contraseña de Modo de reparación de servicios de directorio no segura](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [No se puede realizar la degradación del controlador de dominio debido a una contraseña no segura del administrador local](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-Después de que la característica se haya ejecutado en modo de auditoría durante un período razonable, puede cambiar la configuración de *Auditoría* a *Exigir* para requerir contraseñas más seguras. Es conveniente enfocar una supervisión adicional durante dicho período.
+Después de que la característica se haya ejecutado en modo de auditoría durante un período razonable, puede cambiar la configuración de *Auditoría* a *Exigir* para requerir contraseñas más seguras. Es conveniente aumentar la supervisión durante dicho período.
 
 Es importante tener en cuenta que la protección con contraseña de Azure AD solo puede validar contraseñas durante las operaciones de cambio o establecimiento de contraseñas. Las contraseñas que se hayan aceptado y almacenado en Active Directory antes de la implementación de la protección con contraseña de Azure AD nunca se validarán y seguirán funcionando tal cual. Con el tiempo, todos los usuarios y las cuentas comenzarán a usar una contraseña validada por la protección con contraseña de Azure AD, ya que las contraseñas existentes suelen expirar. Las cuentas configuradas con la opción "la contraseña nunca expira" están exentas de esta situación.
 
@@ -102,7 +102,8 @@ Los siguientes requisitos se aplican al agente de controlador de dominio de prot
 
 * Todas las máquinas donde se instale el software del agente de controlador de dominio de protección con contraseña de Azure AD deben ejecutar Windows Server 2012 o posterior, incluidas las ediciones Windows Server Core.
     * El dominio o el bosque de Active Directory no tiene necesariamente que estar en el nivel funcional del dominio (DFL) o del bosque (FFL) de Windows Server 2012. Tal como se mencionó en [Principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), no se necesita ningún DFL o FFL mínimo para la ejecución del agente de controlador de dominio o software de proxy.
-* Todas las maquinas que ejecutan el agente de controlador de dominio de protección con contraseña de Azure AD deben tener .NET 4.5 instalado.
+* Todas las máquinas en las que se instale el servicio de proxy de protección con contraseña de Azure AD deben tener .NET 4.7.2 instalado.
+    * Si .NET 4.7.2 no está instalado aún, descargue y ejecute el instalador que se encuentra en [el instalador sin conexión de .NET Framework 4.7.2 para Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Cualquier dominio de Active Directory que ejecute el servicio de agente de controlador de dominio de protección con contraseña de Azure AD debe usar la replicación del Sistema de archivos distribuido (DFSR) para la replicación de sysvol.
    * Si el dominio no usa aún DFSR, debe migrarlo antes de instalar la protección con contraseña de Azure AD. Para más información, consulte la [guía de migración de la replicación de SYSVOL: Replicación de FRS a DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
@@ -122,8 +123,8 @@ Los siguientes requisitos se aplican al servicio de proxy de protección con con
     > [!NOTE]
     > La implementación del servicio de proxy de protección con contraseña de Azure AD es un requisito obligatorio para la implementación de protección con contraseña de Azure AD, aunque el controlador de dominio pueda tener conectividad saliente directa a Internet.
 
-* Todas las máquinas en las que se instale el servicio de proxy de protección con contraseña de Azure AD deben tener .NET 4.7 instalado.
-    * NET 4.7 ya debería estar instalado en un servidor Windows completamente actualizado. Si es necesario, descargue y ejecute el instalador que se encuentra en [ El instalador fuera de línea de .NET Framework 4.7 para Windows ](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Todas las máquinas en las que se instale el servicio de proxy de protección con contraseña de Azure AD deben tener .NET 4.7.2 instalado.
+    * Si .NET 4.7.2 no está instalado aún, descargue y ejecute el instalador que se encuentra en [el instalador sin conexión de .NET Framework 4.7.2 para Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Esta capacidad se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para permitir el tráfico TLS 1.2 HTTP de salida.
 * Una cuenta de *administrador global* o *administrador de seguridad* para registrar el servicio de proxy de protección de contraseñas de Azure AD y el bosque con Azure AD.
@@ -157,7 +158,7 @@ En la siguiente sección, instalará los agentes de controlador de dominio de pr
 Elija uno o varios servidores para hospedar el servicio de proxy de protección con contraseña de Azure AD. Las siguientes consideraciones se aplican a este servidor o servidores:
 
 * Cada servicio de este tipo solo puede proporcionar directivas de contraseñas para un único bosque. El equipo host debe estar unido a cualquier dominio de ese bosque.
-* Admite la instalación del proxy del servicio en dominios raíz o secundarios, o en una combinación de ellos.
+* Puede instalar el servicio proxy en los dominios raíz o secundario, o en una combinación de ellos.
 * Se necesita conectividad de red entre al menos un controlador de dominio en cada dominio del bosque y un servidor proxy con protección de contraseñas.
 * Puede ejecutar el servicio de proxy de protección con contraseña de Azure AD en un controlador de dominio para pruebas, pero este controlador de dominio requiere conectividad a Internet. Esta conectividad puede ser un problema de seguridad. Esta configuración es recomendable solo para realizar pruebas.
 * Se recomiendan al menos dos servidores proxy con protección de contraseñas de Azure AD por cada bosque para la redundancia, tal como se indica en la sección anterior acerca de las [consideraciones sobre la alta disponibilidad](#high-availability-considerations).
@@ -200,7 +201,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
 
     Este cmdlet requiere credenciales de *administrador global* o *administrador de seguridad* para el inquilino de Azure. Este cmdlet también se debe ejecutar mediante una cuenta con privilegios de administrador local.
 
-    Cuando este comando se ejecute correctamente una vez para un servicio de proxy de protección con contraseña de Azure AD, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
+    Después de que este comando se ejecute correctamente una vez, las invocaciones adicionales también se realizarán correctamente, aunque no son necesarias.
 
     El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure AD Multi-Factor Authentication, pero el tercero no.
 

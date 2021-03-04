@@ -1,29 +1,26 @@
 ---
-title: 'Inicio de sesión con una clave de seguridad sin contraseña en recursos locales (versión preliminar): Azure Active Directory'
-description: Información sobre cómo habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)
+title: 'Inicio de sesión con una clave de seguridad sin contraseña en recursos locales: Azure Active Directory'
+description: Información sobre cómo habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743486"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647479"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
 Este documento gira en torno a la habilitación de la autenticación sin contraseña en los recursos locales en entornos con dispositivos Windows 10 **unidos a Azure AD** y **unidos a Azure AD híbrido**. Esta funcionalidad proporciona inicio de sesión único (SSO) de conexión directa a recursos locales mediante claves de seguridad compatibles con Microsoft.
-
-> [!NOTE]
-> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Inicio de sesión único en los recursos locales mediante claves de FIDO2
 
@@ -42,7 +39,7 @@ Se crea un objeto de servidor Kerberos de Azure AD en Active Directory local y
 
 ## <a name="requirements"></a>Requisitos
 
-Las organizaciones deben completar los pasos de [Habilitar el inicio de sesión con clave de seguridad sin contraseña en dispositivos Windows 10 (versión preliminar)](howto-authentication-passwordless-security-key.md) antes de realizar los pasos de este artículo.
+Las organizaciones deben completar los pasos de [Habilitación del inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10](howto-authentication-passwordless-security-key.md) antes de realizar los pasos de este artículo.
 
 Las organizaciones también deben cumplir los siguientes requisitos de software.
 
@@ -156,13 +153,13 @@ Si la contraseña ha expirado, se bloquea el inicio de sesión con FIDO. La expe
 
 ## <a name="troubleshooting-and-feedback"></a>Solución de problemas y comentarios
 
-Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
+Si quiere compartir comentarios o detectar problemas con esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows. Para ello, realice los pasos siguientes:
 
 1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
 1. Envíe los comentarios bajo la categorización siguiente:
    - Categoría: Seguridad y privacidad
    - Subcategoría: FIDO
-1. Para capturar registros, use la opción **Recreate my Problem** (Recrear mi problema).
+1. Para capturar registros, use la opción **Volver a crear mi problema**.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

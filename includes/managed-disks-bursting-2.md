@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061092"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585051"
 ---
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
@@ -37,9 +37,10 @@ Hay tres estados que puede tener el recurso con la expansión habilitada:
 - **Constante**: el tráfico del recurso tiene un rendimiento igual al de destino.
 
 ## <a name="examples-of-bursting"></a>Ejemplos de expansión
+
 En los siguientes ejemplos se muestra cómo funciona la expansión con varias combinaciones de máquinas virtuales y discos. Para facilitar el seguimiento de los ejemplos, nos centraremos en los MB/s, pero se aplica la misma lógica independientemente de las IOPS.
 
-### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual no expansible con discos expansibles
+### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual no ampliable con discos ampliables
 **Combinación de VM y discos:** 
 - Standard_D8as_v4 
     - MB/s no almacenados en caché: 192
@@ -50,17 +51,17 @@ En los siguientes ejemplos se muestra cómo funciona la expansión con varias co
     - MB/s aprovisionados: 100
     - Máximo de MB/s de expansión: 170
 
- Cuando la VM se inicie, recuperará los datos del disco del SO. Puesto que el disco de SO forma parte de una VM que se está iniciando, el disco del SO estará lleno de créditos de expansión. Estos créditos permitirán expandir el inicio del disco del SO a 170 MB/s segundos, tal como se muestra a continuación:
+ Cuando la VM se inicia, recupera los datos del disco del SO. Puesto que el disco de SO forma parte de una VM que se está iniciando, el disco del SO estará lleno de créditos de expansión. Estos créditos permitirán expandir el inicio del disco del SO a 170 MB/s segundos.
 
-![Inicio del disco de expansión de VM sin expansión](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![La máquina virtual envía una solicitud de 192 MB/s de rendimiento al disco del sistema operativo, el disco del sistema operativo responde con datos de 170 MB/s.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
-Una vez completado el arranque, se ejecuta una aplicación en la VM y tiene una carga de trabajo no crítica. Esta carga de trabajo requiere 15 MB/s que se distribuyen uniformemente entre todos los discos:
+Una vez completado el arranque, se ejecuta una aplicación en la VM y tiene una carga de trabajo no crítica. Esta carga de trabajo requiere 15 MB/s que se distribuyen uniformemente entre todos los discos.
 
-![Inactividad del disco de expansión de VM sin expansión](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![La aplicación envía una solicitud de 15 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía a cada uno de sus discos una solicitud de 5 MB/s, cada disco devuelve 5 MB/s, la máquina virtual devuelve 15 MB/s a la aplicación.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
-A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 192 MB/s. El disco del SO usa 2 MB/s y el resto se divide uniformemente entre los discos de datos:
+A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 192 MB/s. El disco del SO usa 2 MB/s y el resto se divide uniformemente entre los discos de datos.
 
-![Expansión del disco de expansión de VM sin expansión](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![La aplicación envía una solicitud de 192 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía la mayor parte de su solicitud a los discos de datos (95 MB/s cada uno) y 2 MB/s al disco del sistema operativo, los discos de datos se expanden para satisfacer la demanda y todos los discos devuelven el rendimiento solicitado a la máquina virtual, que lo devuelve a la aplicación.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>Máquina virtual expansible con discos no expansibles
 **Combinación de VM y discos:** 
@@ -72,12 +73,13 @@ A continuación, la aplicación necesita procesar un trabajo por lotes que requi
 - 2 discos de datos P10 
     - MB/s aprovisionados: 250
 
- Una vez completado el arranque inicial, se ejecuta una aplicación en la VM y tiene una carga de trabajo no crítica. Esta carga de trabajo requiere 30 MB/s que se distribuyen uniformemente entre todos los discos: ![Inactividad del disco sin expansión de la VM de expansión](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Una vez completado el arranque inicial, se ejecuta una aplicación en la VM y tiene una carga de trabajo no crítica. Esta carga de trabajo requiere 30 MB/s, que se distribuyen uniformemente entre todos los discos.
+![La aplicación envía una solicitud de 30 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía a cada uno de sus discos una solicitud de 10 MB/s, cada disco devuelve 10 MB/s, la máquina virtual devuelve 30 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
-A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 600 MB/s. Standard_L8s_v2 se expande para satisfacer esta demanda y, a continuación, las solicitudes a los discos se distribuyen uniformemente para los discos P50:
+A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 600 MB/s. Standard_L8s_v2 se expande para satisfacer esta demanda y, a continuación, las solicitudes a los discos se distribuyen uniformemente para los discos P50.
 
-![Expansión del disco sin expansión de VM de expansión](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
-### <a name="burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual expansible con discos expansibles
+![La aplicación envía una solicitud de 600 MB/s de rendimiento a la máquina virtual, la máquina virtual se expande para tomar la solicitud y envía a cada uno de sus discos una solicitud de 200 MB/s, cada disco devuelve 200 MB/s, la máquina virtual se expande para devolver 600 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+### <a name="burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual ampliable con discos ampliables
 **Combinación de VM y discos:** 
 - Standard_L8s_v2 
     - MB/s no almacenados en caché: 160
@@ -89,14 +91,14 @@ A continuación, la aplicación necesita procesar un trabajo por lotes que requi
     - MB/s aprovisionados: 25
     - Máximo de MB/s de expansión: 170 
 
-Cuando arranca la VM, se expande para solicitar su límite de ráfagas de 1280 MB/s del disco de SO y este disco responde con su rendimiento de expansión de 170 MB/s:
+Cuando se inicia la VM, se expande para solicitar su límite de expansión de 1280 MB/s del disco de SO y este disco responde con su rendimiento de expansión de 170 MB/s.
 
-![Inicio del disco de expansión de VM de expansión](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![En el inicio, la máquina virtual se expande para enviar una solicitud de 1280 MB/s al disco del sistema operativo, el disco del sistema operativo se expande para devolver los 1280 MB/s.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-Una vez completado el arranque, se ejecuta una aplicación en la VM. La aplicación tiene una carga de trabajo no crítica que requiere 15 MB/s que se distribuyen uniformemente entre todos los discos:
+Después del inicio, inicie una aplicación que tenga una carga de trabajo no crítica. Esta aplicación requiere 15 MB/s que se distribuyen uniformemente entre todos los discos.
 
-![Inactividad del disco de expansión de VM de expansión](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![La aplicación envía una solicitud de 15 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía a cada uno de sus discos una solicitud de 5 MB/s, cada disco devuelve 5 MB/s, la máquina virtual devuelve 15 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 360 MB/s. Standard_L8s_v2 se expande para satisfacer esta demanda y, a continuación, realiza una solicitud. El disco del SO solo necesita 20 MB/s. Los 340 MB/s restantes se administran mediante los discos de datos P4 de expansión:  
+A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 360 MB/s. Standard_L8s_v2 se expande para satisfacer esta demanda y, a continuación, realiza una solicitud. El disco del SO solo necesita 20 MB/s. Los 340 MB/s restantes se administran mediante los discos de datos P4 de expansión.
 
-![Expansión del disco de expansión de VM de expansión](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![La aplicación envía una solicitud de 360 MB/s de rendimiento a la máquina virtual, la máquina virtual se expande para tomar la solicitud y envía a cada uno de sus discos de datos una solicitud de 170 MB/s y 20 MB/s desde el disco del sistema operativo, cada disco devuelve los MB/s solicitados, la máquina virtual se expande para devolver 360 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
