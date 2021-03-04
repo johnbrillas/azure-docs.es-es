@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132739"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100719"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -76,7 +76,7 @@ Security Center filtra y clasifica los resultados del análisis. Cuando una imag
 Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Asimismo, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un análisis específico.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>¿Qué tipos de registros se analizan? ¿Qué tipos se facturan?
-Para ver los tipos de registros de contenedor que admite Azure Defender para registros de contenedor, consulte [Disponibilidad](defender-for-container-registries-usage.md#availability).
+Para ver los tipos de registros de contenedor que admite Azure Defender para registros de contenedor, consulte [Disponibilidad](#availability).
 
 Si conecta registros no compatibles con su suscripción de Azure, no se examinarán y no se le facturarán.
 

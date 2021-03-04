@@ -3,17 +3,18 @@ title: Establecimiento de un estilo de mapa en los mapas de Android | Microsoft 
 description: Obtenga información sobre dos maneras de establecer el estilo de un mapa. Vea cómo usar el SDK para Android de Azure Maps en el archivo de diseño o en la clase de actividad para ajustar el estilo.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 04/26/2019
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1cce355c8ffbcd4704bd32b0e4d1739c77c2b623
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678483"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100991"
 ---
 # <a name="set-map-style-android-sdk"></a>Establecimiento del estilo de mapa (Android SDK)
 
@@ -47,6 +48,8 @@ En la siguiente captura de pantalla se muestra cómo el código anterior present
 
 El estilo de mapa se puede establecer mediante programación en código con el método `setStyle` del mapa. En el siguiente código se establece la ubicación central y el nivel de zoom mediante el método `setCamera` de los mapas y el estilo de mapa en `SATELLITE_ROAD_LABELS`.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
 
@@ -58,6 +61,22 @@ mapControl.onReady(map -> {
 });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Set the camera of the map.
+    map.setCamera(center(Point.fromLngLat(-122.33, 47.64)), zoom(14))
+
+    //Set the style of the map.
+    map.setStyle(style(MapStyle.SATELLITE_ROAD_LABELS))
+}
+```
+
+::: zone-end
+
 En la siguiente captura de pantalla se muestra cómo el código anterior presenta un mapa con el estilo de etiquetas de carretera de satélite.
 
 ![Mapa con estilo de etiquetas de carretera de satélite](media/set-android-map-styles/android-satellite-road-labels.png)
@@ -65,6 +84,8 @@ En la siguiente captura de pantalla se muestra cómo el código anterior present
 ## <a name="setting-the-map-camera"></a>Establecimiento de la cámara del mapa
 
 La cámara del mapa controla la parte del mapa que se muestra. La cámara puede estar en el diseño o establecerse mediante programación en código. Cuando se establece en el código, hay dos métodos principales para determinar la posición del mapa: usar el centro y el zoom o indicar un rectángulo delimitador. En el siguiente código se muestra cómo establecer todas las opciones posibles de la cámara cuando se usan `center` y `zoom`.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Set the camera of the map using center and zoom.
@@ -88,7 +109,37 @@ map.setCamera(
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Set the camera of the map using center and zoom.
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.64)), 
+
+    //The zoom level. Typically a value between 0 and 22.
+    zoom(14),
+
+    //The amount of tilt in degrees the map where 0 is looking straight down.
+    pitch(45),
+
+    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
+    bearing(90),
+
+    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
+    minZoom(10),
+    
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+)
+```
+
+::: zone-end
+
 A menudo conviene centrar el mapa en un conjunto de datos. Se puede calcular un rectángulo delimitador a partir de las características mediante el método `MapMath.fromData`, que después se puede pasar en la opción `bounds` de la cámara del mapa. Al establecer una vista de mapa en función de un rectángulo delimitador, a menudo resulta útil especificar un valor `padding` para tener en cuenta el tamaño de píxel de los puntos que se representan como burbujas o símbolos. En el siguiente código se muestra cómo establecer todas las opciones posibles de la cámara cuando se usa un rectángulo delimitador para establecer la posición de la cámara.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Set the camera of the map using a bounding box.
@@ -115,6 +166,38 @@ map.setCamera(
     maxZoom(14)
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Set the camera of the map using a bounding box.
+map.setCamera(
+    //The area to focus the map on.
+    bounds(BoundingBox.fromLngLats(
+        //West
+        -122.4594,
+
+        //South
+        47.4333,
+        
+        //East
+        -122.21866,
+        
+        //North
+        47.75758
+    )),
+
+    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
+    padding(20),
+
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+)
+```
+
+::: zone-end
 
 Tenga en cuenta que la relación de aspecto de un rectángulo delimitador puede ser diferente de la del mapa, ya que el mapa mostrará a menudo toda el área del rectángulo delimitador, pero a menudo solo se ajustará vertical u horizontalmente.
 

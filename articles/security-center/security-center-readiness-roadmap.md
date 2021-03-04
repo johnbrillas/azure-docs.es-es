@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784174"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100328"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
 Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
@@ -59,7 +59,6 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
 Utilice los siguientes recursos como ayuda para administrar las alertas de seguridad y proteger los recursos.
 
 Artículos    
-- [Supervisión del estado de seguridad en Azure Security Center](./security-center-monitoring.md)
 - [Protección de las redes en Azure Security Center](./security-center-network-recommendations.md)
 - [Protección del servicio SQL de Azure en Azure Security Center](./security-center-remediate-recommendations.md)
 

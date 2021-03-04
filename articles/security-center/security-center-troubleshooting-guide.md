@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e49d8bcc55036b21f53720aab17be02edb114d4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570834"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100260"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 
@@ -141,7 +141,6 @@ Algunos problemas pueden identificarse mediante las instrucciones proporcionadas
 En este documento ha aprendido a configurar directivas de seguridad en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes recursos:
 
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Descripción de las alertas de seguridad en Azure Security Center](./security-center-alerts-overview.md)
 * [Tutorial: Respuesta a incidentes de seguridad](tutorial-security-incident.md)

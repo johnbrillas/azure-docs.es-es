@@ -3,17 +3,18 @@ title: Adición de una capa de burbujas a mapas de Android | Microsoft Azure Ma
 description: Obtenga información sobre cómo representar puntos en mapas como círculos con tamaños fijos. Vea cómo usar Android SDK de Azure Maps para agregar y personalizar las capas de burbujas con este fin.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/07/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 7506a2083a34832ee3f6f6222f86d35d10228728
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: f3c175f30c5c0e6206f4fee274e0f3f000e55a74
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681397"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100175"
 ---
 # <a name="add-a-bubble-layer-to-a-map-android-sdk"></a>Adición de una capa de burbujas a un mapa (Android SDK)
 
@@ -29,6 +30,8 @@ Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Cre
 ## <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 
 En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, conecta los puntos de datos a una capa de burbujas. La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -58,6 +61,41 @@ BubbleLayer layer = new BubbleLayer(source,
 map.layers.add(layer);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create point locations.
+val points: Array<Point> = arrayOf<Point>(
+    Point.fromLngLat(-73.985708, 40.75773),
+    Point.fromLngLat(-73.985600, 40.76542),
+    Point.fromLngLat(-73.985550, 40.77900),
+    Point.fromLngLat(-73.975550, 40.74859),
+    Point.fromLngLat(-73.968900, 40.78859)
+)
+
+//Add multiple points to the data source.
+source.add(points)
+
+//Create a bubble layer to render the filled in area of the circle, and add it to the map.
+val layer = BubbleLayer(
+    source,
+    bubbleRadius(5f),
+    bubbleColor("white"),
+    bubbleStrokeColor("#4288f7"),
+    bubbleStrokeWidth(6f)
+)
+
+map.layers.add(layer)
+```
+
+::: zone-end
+
 En la captura de pantalla siguiente se muestra cómo el código anterior representa los puntos en una capa de burbujas.
 
 ![Mapa con puntos que se representan mediante la capa de burbujas](media/map-add-bubble-layer-android/android-bubble-layer.png)
@@ -65,6 +103,8 @@ En la captura de pantalla siguiente se muestra cómo el código anterior represe
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar etiquetas con una capa de burbuja
 
 Este código muestra cómo usar una capa de burbujas para representar un punto en el mapa y cómo usar una capa de símbolos para representar una etiqueta. Para ocultar el icono de la capa de símbolos, establezca la opción `iconImage` en `"none"`.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -91,6 +131,43 @@ map.layers.add(new SymbolLayer(source,
     textOffset(new Float[]{0f, -2.2f})
 ));
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Add a data point to the map.
+source.add(Point.fromLngLat(-122.336641, 47.627631))
+
+//Add a bubble layer.
+map.layers.add(
+    BubbleLayer(
+        source,
+        bubbleRadius(5f),
+        bubbleColor("white"),
+        bubbleStrokeColor("#4288f7"),
+        bubbleStrokeWidth(6f)
+    )
+)
+
+//Add a symbol layer to display text, hide the icon image.
+map.layers.add(
+    SymbolLayer(
+        source,  //Hide the icon image.
+        iconImage("none"),
+        textField("Museum of History & Industry (MOHAI)"),
+        textColor("#005995"),
+        textOffset(arrayOf(0f, -2.2f))
+    )
+)
+```
+
+::: zone-end
 
 En la captura de pantalla siguiente se muestra el código anterior que representa un punto en una capa de burbujas y una etiqueta de texto para el punto con una capa de símbolos.
 
