@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586200"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571265"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -126,7 +126,7 @@ En la tabla siguiente se incluyen los costos estimados al mes para un centro de 
 
 
 
-Para revisar los costos relacionados con la administración de registros de Azure Monitor, consulte [Administración de los costos mediante el control del volumen de datos y la retención en registros de Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Para revisar los costos relacionados con la administración de registros de Azure Monitor, consulte [Administración de los costos mediante el control del volumen de datos y la retención en registros de Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -180,7 +180,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué herramientas SIEM se admiten actualmente?** 
 
-**R.** : **R.** : Actualmente, Azure Monitor es compatible con [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm y Logz.io. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R.** : **R.** : Actualmente, Azure Monitor es compatible con [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm y Logz.io. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ---
 

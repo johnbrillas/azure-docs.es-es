@@ -4,12 +4,12 @@ description: Envíe notificaciones personalizadas de eventos de Service Health a
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
-ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a70c4fcd01a1a95c598d980004ee60292a6cf24b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518935"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594610"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Uso de un webhook para configurar las notificaciones relativas al estado en sistemas de administración de problemas
 
@@ -31,7 +31,7 @@ Si desea usar una integración preconfigurada, consulte:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configuración de una notificación personalizada mediante la carga del webhook de Service Health
 Para configurar su propia integración de webhook personalizada, es preciso que analice la carga JSON que se envía en las notificaciones de Service Health.
 
-Consulte [un ejemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) de la carga del webhook de `ServiceHealth`.
+Consulte [un ejemplo de la carga del webhook de ](../azure-monitor/alerts/activity-log-alerts-webhook.md) `ServiceHealth`.
 
 Para confirmar que se trata de una alerta de Service Health examine `context.eventSource == "ServiceHealth"`. Las siguientes propiedades son las más importantes:
 - **data.context.activityLog.status**
@@ -46,14 +46,14 @@ Para confirmar que se trata de una alerta de Service Health examine `context.eve
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Creación de un vínculo al panel de Service Health en caso de algún incidente
 Para crear un vínculo directo al panel de Service Health en cualquier escritorio o dispositivo móvil, genere una dirección URL especializada. Use *trackingId* y los tres primeros y últimos dígitos de *subscriptionId* con este formato:
 
-https<i></i>://app.azure.com/h/ *&lt;trackingId&gt;* / *&lt;tres primeros y tres últimos dígitos de subscriptionId&gt;*
+https <i></i>://app.azure.com/h/ *&lt;trackingId&gt;* / *&lt;tres primeros y tres últimos dígitos de subscriptionId&gt;*
 
 Por ejemplo, si *subscriptionId* es bba14129-e895-429b-8809-278e836ecdb3 y *trackingId* es 0DET-URB, la dirección URL del Service Health es:
 
 https<i></i>://app.azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Uso de level para detectar la gravedad del problema
-De menor a mayor gravedad, la propiedad**level** de la carga puede tener los siguientes valores: *Informational* (Información), *Warning (Advertencia)* , *Error* o *Critical* (Crítico).
+De menor a mayor gravedad, la propiedad **level** de la carga puede tener los siguientes valores: *Informational* (Información), *Warning (Advertencia)*, *Error* o *Critical* (Crítico).
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Análisis de los servicios afectados para determinar el ámbito del incidente
 Las alertas de Service Health pueden informar acerca de los problemas que aparecen en varias regiones y servicios. Para obtener todos los detalles, es preciso analizar el valor de `impactedServices`.
@@ -98,7 +98,7 @@ En este ejemplo se muestran los problemas de:
 
 Siga estos pasos:
 
-1. Cree la carga de Service Health que desee enviar. Puede ver una carga del webhook de Service Health de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Cree la carga de Service Health que desee enviar. Puede ver una carga del webhook de Service Health de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Cree una solicitud HTTP POST de la siguiente manera:
 
@@ -114,6 +114,6 @@ Siga estos pasos:
 1. Vaya a [PagerDuty](https://www.pagerduty.com/) para confirmar que la integración se ha configurado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
-- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).
+- Más información sobre los [grupos de acciones](../azure-monitor/alerts/action-groups.md).

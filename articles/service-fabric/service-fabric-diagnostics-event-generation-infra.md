@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9db0df9370197190c11b740f1fd1af3fb69f19c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247622"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581410"
 ---
 # <a name="monitoring-the-cluster"></a>Supervisar el clúster
 
@@ -52,14 +52,14 @@ Para sacar provecho de estos registros, se recomienda encarecidamente dejar "Dia
 
 Service Fabric tiene su propio modelo de mantenimiento, que se describe en detalle en estos artículos:
 
-- [Introducción a la supervisión del mantenimiento de Service Fabric](service-fabric-health-introduction.md)
+- [Introduction to Service Fabric health monitoring (Introducción al seguimiento de estado de Service Fabric)](service-fabric-health-introduction.md) 
 - [Notificación y comprobación del estado del servicio](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 - [Incorporación de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
 - [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 La supervisión del mantenimiento es fundamental para diversos aspectos operativos de un servicio, especialmente durante la actualización de una aplicación. Cuando estén actualizados los dominios del servicio, deben pasar las comprobaciones de mantenimiento para que la implementación pase al siguiente dominio de actualización. Si no se puede alcanzar un mantenimiento correcto, la implementación se revierte y deja la aplicación en un estado correcto conocido. Aunque algunos clientes resultaran afectados antes de que los servicios se pudieran revertir, la mayoría no experimenta ningún problema. Además, la resolución se produce de forma relativamente rápida, sin necesidad de esperar a la acción de un operador humano. Cuantas más comprobaciones de mantenimiento se integren en el código, más resistente será el servicio a los problemas de implementación.
 
-Otro aspecto del estado del servicio es la notificación de métricas desde el servicio. Las métricas son importantes en Service Fabric, porque se usan para equilibrar el uso de los recursos. Además, también pueden ser un indicador del estado del sistema. Por ejemplo, supongamos que tiene una aplicación con muchos servicios y que cada instancia informa sobre una métrica de solicitudes por segundo (RPS). Si uno de los servicios usa más recursos que otro, Service Fabric mueve instancias de servicio en el clúster para intentar mantener un uso uniforme de los recursos. Para una explicación más detallada sobre cómo funciona el uso de los recursos, consulte [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
+Otro aspecto del estado del servicio es informar de las métricas del servicio. Las métricas son importantes en Service Fabric, porque se usan para equilibrar el uso de los recursos. Además, también pueden ser un indicador del estado del sistema. Por ejemplo, supongamos que tiene una aplicación con muchos servicios y que cada instancia informa sobre una métrica de solicitudes por segundo (RPS). Si uno de los servicios usa más recursos que otro, Service Fabric mueve instancias de servicio en el clúster para intentar mantener un uso uniforme de los recursos. Para una explicación más detallada sobre cómo funciona el uso de los recursos, consulte [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
 
 Las métricas también pueden ayudarle con una visión general de rendimiento del servicio. Con el tiempo, las métricas se pueden usar para comprobar que el servicio funciona con los parámetros previstos. Por ejemplo, si las tendencias muestran que a las 9 de la mañana del lunes, el promedio de solicitudes por segundo es de 1000, podría configurar un informe de mantenimiento que emita una alerta si descienden de 500 o aumentan por encima de las 1500. Todo puede estar funcionando correctamente, pero quizá valga la pena echar un vistazo para asegurarse de que los clientes disfrutan de una gran experiencia. El servicio puede definir un conjunto de métricas que se pueden notificar para controlar el mantenimiento, pero que no afecten al equilibrio de los recursos del clúster. Para ello, establezca la ponderación métrica en cero. Se recomienda iniciar todas las métricas con una ponderación de cero y no aumentarla hasta que se sepa con certeza la repercusión que tiene en el equilibrio de los recursos para el clúster.
 
@@ -81,7 +81,7 @@ Para obtener una lista de contadores de rendimiento para recopilar datos cuando 
 A continuación se indican dos formas habituales de configurar la recopilación de datos de rendimiento del clúster:
 
 * **Uso de un agente**  
-Se trata de la mejor manera de recopilar datos de rendimiento de una máquina, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso para elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Consulte la oferta de Azure Monitor en los artículos sobre la [integración de los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y la [configuración del agente de Log Analytics](../azure-monitor/platform/agent-windows.md) de Service Fabric para obtener más información sobre el agente de Log Analytics, que es un agente de supervisión que puede recopilar datos de rendimiento de las máquinas virtuales del clúster y los contenedores implementados.
+Se trata de la mejor manera de recopilar datos de rendimiento de una máquina, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso para elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Consulte la oferta de Azure Monitor en los artículos sobre la [integración de los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y la [configuración del agente de Log Analytics](../azure-monitor/agents/agent-windows.md) de Service Fabric para obtener más información sobre el agente de Log Analytics, que es un agente de supervisión que puede recopilar datos de rendimiento de las máquinas virtuales del clúster y los contenedores implementados.
 
 * **Contadores de rendimiento para Azure Table Storage**  
 También puede enviar métricas de rendimiento a la misma instancia de Table Storage que los eventos. Esto exige cambiar la configuración de Azure Diagnostics, de modo que recopile los contadores de rendimiento correspondientes a las máquinas virtuales del clúster y pueda reunir estadísticas de Docker si va a implementar contenedores. Obtenga más información sobre cómo configurar [contadores de rendimiento de WAD](service-fabric-diagnostics-event-aggregation-wad.md) en Service Fabric para configurar una colección de contadores de rendimiento.

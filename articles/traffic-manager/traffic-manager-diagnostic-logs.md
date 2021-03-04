@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184550"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577878"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitación del registro de recursos en Azure Traffic Manager
 
@@ -64,7 +64,7 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de registro de Traffic Manager
 
-Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos. Para ver el esquema de registros de recursos de nivel superior, consulte [Esquemas, categorías y servicios admitidos para registros de recursos de Azure](../azure-monitor/platform/resource-logs-schema.md).
+Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos. Para ver el esquema de registros de recursos de nivel superior, consulte [Esquemas, categorías y servicios admitidos para registros de recursos de Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 En la tabla siguiente se incluye el esquema de registros específico del recurso del perfil de Azure Traffic Manager.
 

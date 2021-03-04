@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090797"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594293"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -212,7 +212,7 @@ Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook, no deben us
 
 #### <a name="monitor-azure-activity"></a>Supervise la actividad de Azure
 
-El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../azure-monitor/platform/alerts-activity-log.md).
+El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Pasos adicionales para las organizaciones que administran el acceso a otras aplicaciones en la nube a través de Azure AD
 

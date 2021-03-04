@@ -6,22 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247019"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659756"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Uso de Power BI y de un grupo de Synapse SQL (versión preliminar) sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Uso de Power BI y un grupo de Synapse SQL sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 En este artículo va a aprender a compilar una base de datos de grupos de SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB. Va a consultar los contenedores de Azure Cosmos DB y, después, va a compilar un modelo con Power BI de esas vistas que refleje esa consulta.
 
 En este escenario usará datos ficticios sobre las ventas de productos de Surface en un comercio asociado. Analizará los ingresos por tienda en función de la proximidad a núcleos familiares grandes y el impacto de la publicidad durante una semana específica. En este artículo creará dos vistas denominadas **RetailSales** y **StoreDemographics** y una consulta entre ellas. Puede obtener los datos del producto de ejemplo en este repositorio de [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
-
-> [!IMPORTANT]
-> La compatibilidad con el grupo de SQL sin servidor de Synapse de Azure Synapse Link para Azure Cosmos DB está actualmente en su versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

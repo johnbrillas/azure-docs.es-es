@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 801f4840d0d1447f839e5c2c4bc3168741b62b63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147535"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586244"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en Azure App Service
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](./overview.md). Este artículo le ayuda a solucionar estos errores.
@@ -60,7 +60,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación son:
 Para más información, consulte:
 
 * [Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
-* [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-overview.md)
+* [Recibir notificaciones de alerta](../azure-monitor/alerts/alerts-overview.md)
 
 <a name="collect"></a>
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380413"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576380"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ En este artículo se describe cómo supervisar, administrar y depurar las canali
 > La aplicación de supervisión y administración proporciona una mejor compatibilidad con la supervisión y la administración de las canalizaciones de datos y la solución de problemas. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../azure-monitor/platform/alerts-metric.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
+> La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ActivityResume</td><td>La actividad está en pausa y no puede ejecutar los segmentos hasta que se reanude.</td>
 </tr>
 <tr>
-<td>Reintento</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
+<td>Volver a intentar</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
 </tr>
 <tr>
 <td>Validación</td><td>Aún no ha iniciado la validación.</td>
@@ -157,7 +157,7 @@ Cuando se implementa una factoría de datos y las canalizaciones tienen un perí
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-El flujo de transición de estado del conjunto de datos en la factoría de datos es el siguiente: Espera -> En curso/En curso (validando) -> Listo/error.
+El flujo de transición de estado del conjunto de datos de la factoría de datos es el siguiente: En espera -> En curso /En curso (Validando) -> Listo/Error.
 
 El segmento se inicia con un estado **En espera**, mientras se espera a que se cumplan las condiciones previas que deben cumplirse antes de su ejecución. Luego, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de esta actividad se completará correctamente o dará error. El segmento se marca como **Listo** o **Error** según el resultado de la ejecución.
 

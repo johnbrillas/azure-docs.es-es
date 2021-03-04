@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101062"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650998"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Supervisión del estado de inicio de sesión de la aplicación para la resistencia
 
@@ -51,7 +51,7 @@ En este artículo se explica cómo configurar el libro de estado de inicio de se
 
 * Un área de trabajo de Log Analytics en la suscripción a Azure para enviar registros a los registros de Azure Monitor. 
 
-   * Aprenda a [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Aprenda a [crear un área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Registros de Azure AD integrados con los registros de Azure Monitor.
 
@@ -94,7 +94,7 @@ Use las siguientes instrucciones para crear alertas por correo electrónico basa
 
  Para configurar la consulta subyacente y establecer alertas, realice los pasos siguientes. Usará la consulta de ejemplo como base para realizar su configuración. Al final de esta sección se encuentra una explicación de la estructura de la consulta.
 
-Para obtener más información sobre cómo crear, ver y administrar alertas de registro mediante Azure Monitor, consulte [Administración de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Para obtener más información sobre cómo crear, ver y administrar alertas de registro mediante Azure Monitor, consulte [Administración de alertas de registro](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. En el libro, seleccione **Editar** y, a continuación, seleccione el **icono de consulta** sobre el lado derecho del grafo.   
@@ -280,10 +280,9 @@ Una vez que haya configurado la consulta y las alertas, cree los procesos empres
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información acerca de los libros](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Más información acerca de los libros](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

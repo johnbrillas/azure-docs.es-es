@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583544"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
@@ -28,7 +28,7 @@ Puede definir una cohorte de usuarios en la que todos hayan probado una nueva ca
 > [!NOTE]
 > Una vez creadas, las cohortes están disponibles en las herramientas Usuarios, Sesiones, Eventos y Flujos de usuario.
 
-## <a name="example-engaged-users"></a>Ejemplo: Usuarios dedicados
+## <a name="example-engaged-users"></a>Ejemplo: usuarios dedicados
 
 El equipo define como usuario dedicado a cualquier persona que use la aplicación cinco o más veces en un mes determinado. En esta sección, definirá una cohorte de estos usuarios dedicados.
 
@@ -71,7 +71,7 @@ Hay varios aspectos importantes que se deben tener en cuenta:
 
 Estos filtros admiten preguntas más sofisticadas que son imposibles de expresas mediante el generador de consultas. Por ejemplo, _las personas que estaban dedicadas en los últimos 28 días. ¿Cómo se han comportado esas mismas personas durante los últimos 60 días?_
 
-## <a name="example-events-cohort"></a>Ejemplo: Cohorte de eventos
+## <a name="example-events-cohort"></a>Ejemplo: cohortes de eventos
 
 También puede hacer cohortes de eventos. En esta sección, definirá una cohorte de los eventos y las vistas de página. Luego verá cómo usarlos desde las otras herramientas. Esta cohorte puede definir un conjunto de eventos que su equipo considere de _uso activo_ o un conjunto relacionado con una nueva característica específica.
 
@@ -131,7 +131,7 @@ Las cohortes y los filtros son diferentes. Suponga que tiene una cohorte de usua
 
 ## <a name="learn-more"></a>Más información
 
-* [Lenguaje de consulta de Analytics](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Lenguaje de consulta de Analytics](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Usuarios, sesiones, eventos](usage-segmentation.md)
 * [Flujos de usuario](usage-flows.md)
 * [Información general del uso](usage-overview.md)

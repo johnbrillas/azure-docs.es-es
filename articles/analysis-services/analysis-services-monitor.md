@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84690383"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582663"
 ---
 # <a name="monitor-server-metrics"></a>Supervisión de las métricas del servidor
 
-Analysis Services proporciona métricas en el Explorador de métricas de Azure, una herramienta gratuita del portal, que permiten supervisar el rendimiento y el estado de los servidores. Por ejemplo, puede supervisar la memoria y el uso de CPU, el número de conexiones de cliente y el consumo de recursos de consulta. Analysis Services utiliza el mismo marco de supervisión que la mayoría de los demás servicios de Azure. Para más información, vea [Introducción al Explorador de métricas de Azure.](../azure-monitor/platform/metrics-getting-started.md)
+Analysis Services proporciona métricas en el Explorador de métricas de Azure, una herramienta gratuita del portal, que permiten supervisar el rendimiento y el estado de los servidores. Por ejemplo, puede supervisar la memoria y el uso de CPU, el número de conexiones de cliente y el consumo de recursos de consulta. Analysis Services utiliza el mismo marco de supervisión que la mayoría de los demás servicios de Azure. Para más información, vea [Introducción al Explorador de métricas de Azure.](../azure-monitor/essentials/metrics-getting-started.md)
 
 Para realizar diagnósticos más detallados, hacer un seguimiento del rendimiento e identificar tendencias en diferentes recursos de servicio de un grupo de recursos o de una suscripción, use [Azure Monitor](../azure-monitor/overview.md). Es posible que se apliquen cargos por el servicio Azure Monitor.
 
@@ -40,7 +40,7 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Longitud de cola de trabajos de grupo de comandos|Count|Average|Número de trabajos en la cola del grupo de subprocesos de comandos.|
-|CurrentConnections|Conexión: conexiones actuales|Count|Average|Número actual de conexiones de cliente establecidas.|
+|CurrentConnections|Conexión: Conexiones actuales|Count|Average|Número actual de conexiones de cliente establecidas.|
 |CurrentUserSessions|Sesiones de usuario actuales|Count|Average|Número actual de sesiones de usuario establecidas.|
 |mashup_engine_memory_metric|Memoria del motor M|Bytes|Average|Uso de memoria por los procesos del motor de mashup|
 |mashup_engine_qpu_metric|QPU de motor M|Count|Average|Uso de QPU por los procesos del motor de mashup|
@@ -53,12 +53,12 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |MemoryLimitHigh|Memoria: límite alto de memoria|Bytes|Average|Límite alto de memoria del archivo de configuración.|
 |MemoryLimitLow|Memoria: límite bajo de memoria|Bytes|Average|Límite bajo de memoria del archivo de configuración.|
 |MemoryLimitVertiPaq|Memoria: VertiPaq de límite de memoria|Bytes|Average|Límite en memoria del archivo de configuración.|
-|MemoryUsage|Memoria: uso de memoria|Bytes|Average|Uso de memoria del proceso de servidor tal como se usa para calcular el precio de la memoria del limpiador. Es igual que el contador Process\PrivateBytes más el tamaño de los datos asignados a la memoria; no se tiene en cuenta ninguna memoria asignada por el sistema de análisis en memoria (VertiPaq) que supere el límite de memoria del sistema.|
+|MemoryUsage|Memoria: Uso de la memoria|Bytes|Average|Uso de memoria del proceso de servidor tal como se usa para calcular el precio de la memoria del limpiador. Es igual que el contador Process\PrivateBytes más el tamaño de los datos asignados a la memoria; no se tiene en cuenta ninguna memoria asignada por el sistema de análisis en memoria (VertiPaq) que supere el límite de memoria del sistema.|
 |private_bytes_metric|Bytes privados |Bytes|Average|La cantidad total de memoria que el proceso del motor de Analysis Services y los procesos de contenedor de Mashup han asignado, sin incluir la memoria compartida con otros procesos.|
 |virtual_bytes_metric|Bytes virtuales |Bytes|Average|Tamaño actual del espacio de direcciones virtuales que están usando el proceso del motor de Analysis Services y los procesos de contenedor de Mashup.|
 |mashup_engine_private_bytes_metric|Bytes privados del motor M |Bytes|Average|Cantidad total de procesos de contenedor de mashup de memoria asignados, sin incluir la memoria compartida con otros procesos.|
 |mashup_engine_virtual_bytes_metric|Bytes virtuales del motor M |Bytes|Average|Tamaño actual del espacio de direcciones virtuales que están usando los proceso de contenedor de Mashup.|
-|Quota|Memoria: cuota|Bytes|Average|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
+|Quota|Memoria: Quota|Bytes|Average|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
 |QuotaBlocked|Memoria: cuota bloqueada|Count|Average|Número actual de solicitudes de cuota que están bloqueadas hasta que se liberen otras cuotas de memoria.|
 |VertiPaqNonpaged|Memoria: VertiPaq no paginado|Bytes|Average|Bytes de memoria bloqueados en el espacio de trabajo para que los use el motor en memoria.|
 |VertiPaqPaged|Memoria: VertiPaq paginado|Bytes|Average|Bytes de memoria paginada en uso para datos en memoria.|
@@ -74,13 +74,13 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |LongParsingBusyThreads|Subprocesos: subprocesos ocupados en análisis largos|Count|Average|Número de subprocesos ocupados del grupo de subprocesos de análisis largos.|
 |LongParsingIdleThreads|Subprocesos: subprocesos inactivos en análisis largos|Count|Average|Número de subprocesos inactivos del grupo de subprocesos en análisis largos.|
 |LongParsingJobQueueLength|Subprocesos: longitud de cola de trabajos en análisis largos|Count|Average|Número de trabajos en la cola del grupo de subprocesos en análisis largos.|
-|ProcessingPoolIOJobQueueLength|Subprocesos: longitud de cola de trabajos de E/S del grupo de procesamiento|Count|Average|Número de trabajos de E/S en la cola del grupo de subprocesos de procesamiento.|
+|ProcessingPoolIOJobQueueLength|Subprocesos: Longitud de cola de trabajos de E/S de grupo de procesamiento|Count|Average|Número de trabajos de E/S en la cola del grupo de subprocesos de procesamiento.|
 |ProcessingPoolBusyIOJobThreads|Subprocesos: subprocesos de trabajo de E/S ocupados del grupo de procesamiento|Count|Average|Número de subprocesos que ejecutan trabajos de E/S en el grupo de subprocesos de procesamiento.|
 |ProcessingPoolBusyNonIOThreads|Subprocesos: subprocesos de trabajo ocupados que no son de E/S del grupo de procesamiento|Count|Average|Número de subprocesos que ejecutan trabajos que no son de E/S del grupo de subprocesos de procesamiento.|
 |ProcessingPoolIdleIOJobThreads|Subprocesos: subprocesos de trabajo de E/S inactivos del grupo de procesamiento|Count|Average|Número de subprocesos inactivos para trabajos de E/S en el grupo de subprocesos de procesamiento.|
 |ProcessingPoolIdleNonIOThreads|Subprocesos: subprocesos de trabajo inactivos que no son de E/S del grupo de procesamiento|Count|Average|Número de subprocesos inactivos del grupo de subprocesos de procesamiento dedicado a trabajos que no son de E/S.|
 |QueryPoolIdleThreads|Subprocesos: subprocesos inactivos del grupo de consultas|Count|Average|Número de subprocesos inactivos para trabajos de E/S en el grupo de subprocesos de procesamiento.|
-|QueryPoolJobQueueLength|Subprocesos: longitud de la cola de trabajos del grupo de consultas|Count|Average|Número de trabajos en la cola del grupo de subprocesos de consultas.|
+|QueryPoolJobQueueLength|Subprocesos: longitud de cola de trabajos del grupo de consultas|Count|Average|Número de trabajos en la cola del grupo de subprocesos de consultas.|
 |ShortParsingBusyThreads|Subprocesos: subprocesos ocupados en análisis cortos|Count|Average|Número de subprocesos ocupados del grupo de subprocesos de análisis cortos.|
 |ShortParsingIdleThreads|Subprocesos: subprocesos inactivos en análisis cortos|Count|Average|Número de subprocesos inactivos del grupo de subprocesos de análisis cortos.|
 |ShortParsingJobQueueLength|Subprocesos: longitud de cola de trabajos en análisis cortos|Count|Average|Número de trabajos en la cola del grupo de subprocesos en análisis cortos.|
@@ -89,5 +89,5 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a Azure Monitor](../azure-monitor/overview.md)      
-[Introducción al Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md)      
+[Introducción al Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md)      
 [Métricas de la API de REST de Azure Monitor](/rest/api/monitor/metrics)

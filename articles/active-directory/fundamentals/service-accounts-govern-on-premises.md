@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416752"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649213"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Control de cuentas de servicio locales
 
@@ -60,11 +60,11 @@ Utilice los siguientes criterios para crear una nueva cuenta de servicio.
 
 Use la siguiente configuración con las cuentas de usuario empleadas como cuentas de servicio:
 
-* [**Expiración de la cuenta**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): configure la cuenta de servicio para que expire automáticamente a una hora establecida después del período de revisión, a menos que se determine que debe continuar.
+* [**Expiración de la cuenta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): configure la cuenta de servicio para que expire automáticamente a una hora establecida después del período de revisión, a menos que se determine que debe continuar.
 
 *  **LogonWorkstations**: restrinja los permisos de ubicación donde la cuenta de servicio puede iniciar sesión. Si se ejecuta localmente en una máquina y solo tiene acceso a los recursos de esa máquina, restrinja el inicio de sesión en cualquier otra parte.
 
-* [**No se puede cambiar la contraseña**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
+* [**No se puede cambiar la contraseña**](/powershell/module/addsadministration/set-aduser?view=win10-ps): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Creación de un proceso de administración del ciclo de vida
@@ -149,17 +149,17 @@ La evaluación de riesgos, una vez realizada y documentada, puede afectar a los 
 
 Cree una cuenta de servicio solo después de documentar la información pertinente en su CMDB y de realizar una evaluación de riesgos. Las restricciones de cuenta deben estar alineadas con la evaluación de riesgos. Tenga en cuenta las siguientes restricciones cuando sea pertinente para su evaluación:
 
-* [Expiración de la cuenta](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiración de la cuenta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Para todas las cuentas de usuario usadas como cuentas de servicio, defina una fecha de finalización realista y precisa para su uso. Establezca esta opción mediante la marca "La cuenta expira". Para obtener más información, consulte [ Set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Para todas las cuentas de usuario usadas como cuentas de servicio, defina una fecha de finalización realista y precisa para su uso. Establezca esta opción mediante la marca "La cuenta expira". Para obtener más información, consulte [ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Iniciar sesión en ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Iniciar sesión en ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* Requisitos de [directiva de contraseñas](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Requisitos de [directiva de contraseñas](../../active-directory-domain-services/password-policy.md)
 
-* Creación en una [Ubicación de unidad organizativa](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garantice la administración solo para los usuarios con privilegios
+* Creación en una [Ubicación de unidad organizativa](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garantice la administración solo para los usuarios con privilegios
 
-* Configuración y recopilación de auditoría [que detecte los cambios](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) en la cuenta de servicio (y en el [uso de la cuenta de servicio](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)).
+* Configuración y recopilación de auditoría [que detecte los cambios](/windows/security/threat-protection/auditing/audit-directory-service-changes) en la cuenta de servicio (y en el [uso de la cuenta de servicio](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html)).
 
 Cuando esté a punto para pasar a producción, conceda acceso a la cuenta de servicio de forma segura. 
 
@@ -193,7 +193,7 @@ Después de quitar todos los permisos, use este proceso para quitar la cuenta.
 
 3. Elimine la cuenta de servicio cuando se cumpla la directiva de mantenimiento de cuenta deshabilitada. 
 
-   * Para las cuentas MSA, puede [desinstalarla](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) mediante PowerShell o eliminarla manualmente desde el contenedor de la cuenta de servicio administrada.
+   * Para las cuentas MSA, puede [desinstalarla](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) mediante PowerShell o eliminarla manualmente desde el contenedor de la cuenta de servicio administrada.
 
    * En el caso de las cuentas de equipo o de usuario, puede eliminar manualmente la cuenta desde Active Directory.
 

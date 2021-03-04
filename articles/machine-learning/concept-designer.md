@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322254"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661093"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>¿Qué es el diseñador de Azure Machine Learning? 
 
@@ -81,7 +81,7 @@ Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tien
 
 Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo. Puede establecer los recursos de proceso para módulos individuales del diseñador. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propiedades del módulo":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propiedades del módulo":::
 
 
 Si desea ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, consulte [Información general sobre la referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md). Para obtener ayuda para elegir un algoritmo, vea la [hoja de referencia rápida de algoritmos de Azure Machine Learning](algorithm-cheat-sheet.md).

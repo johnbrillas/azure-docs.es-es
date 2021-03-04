@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560532"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094657"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administración de los roles del Contrato Enterprise de Azure
 
@@ -197,12 +197,12 @@ En la tabla siguiente se muestra la relación entre los roles de administrador d
 |Propietario de la cuenta o administrador de departamento|✘ Deshabilitado |None|No hay precios|
 |None|No aplicable |Propietario|Precio de venta|
 
-El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de Azure puede actualizarse en Azure Portal. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de Azure puede actualizarse en Azure Portal. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración del acceso a la información de facturación de Azure](manage-billing-access.md)
-- [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md)
 - [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)

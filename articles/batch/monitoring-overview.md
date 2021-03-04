@@ -3,12 +3,12 @@ title: Supervisión de Azure Batch
 description: Más información sobre los servicios de supervisión de Azure, las métricas, los registros de diagnóstico y otras características de supervisión para Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b926f9c6d173cd0b8d886047eae490e4a151988f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144937"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595435"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 
@@ -18,15 +18,15 @@ Para información general de los componentes y servicios de Azure disponibles pa
 
 ## <a name="subscription-level-monitoring"></a>Supervisión a nivel de suscripción
 
-El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/platform/activity-log.md#view-the-activity-log).
+El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 Para las cuentas de Batch en concreto, el registro de actividad recopila eventos relacionados con la creación y la eliminación de cuentas, y la administración de claves.
 
-Una manera de recuperar eventos del registro de actividad es usar Azure Portal. Haga clic en **Todos los servicios** > **Registro de actividad**. O consulte los eventos con la CLI de Azure, los cmdlets de PowerShell o la API REST de Azure Monitor. También puede exportar el registro de actividad o configurar [alertas del registro de actividad](../azure-monitor/platform/alerts-activity-log.md).
+Una manera de recuperar eventos del registro de actividad es usar Azure Portal. Haga clic en **Todos los servicios** > **Registro de actividad**. O consulte los eventos con la CLI de Azure, los cmdlets de PowerShell o la API REST de Azure Monitor. También puede exportar el registro de actividad o configurar [alertas del registro de actividad](../azure-monitor/alerts/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Supervisión a nivel de la cuenta de Batch
 
-Supervise las cuentas de Batch con características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-platform-metrics.md) y, opcionalmente, [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para los recursos del nivel de cuenta de Batch, como grupos, trabajos y tareas. Recopile y consuma estos datos manualmente o mediante programación para supervisar las actividades de la cuenta de Batch y para diagnosticar problemas. Para detalles, consulte [Métricas, alertas y registros de Batch para la evaluación diagnóstica y la supervisión](batch-diagnostics.md).
+Supervise las cuentas de Batch con características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/essentials/data-platform-metrics.md) y, opcionalmente, [registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) para los recursos del nivel de cuenta de Batch, como grupos, trabajos y tareas. Recopile y consuma estos datos manualmente o mediante programación para supervisar las actividades de la cuenta de Batch y para diagnosticar problemas. Para detalles, consulte [Métricas, alertas y registros de Batch para la evaluación diagnóstica y la supervisión](batch-diagnostics.md).
  
 > [!NOTE]
 > Las métricas están disponibles de manera predeterminada en la cuenta de Batch sin configuración adicional y su historial se acumula durante 30 días. Debe habilitar el registro de diagnóstico para una cuenta de Batch; puede incurrir en costos adicionales por almacenar o procesar datos del registro de diagnóstico. 
