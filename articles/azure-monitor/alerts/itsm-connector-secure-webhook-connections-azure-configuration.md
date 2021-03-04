@@ -1,17 +1,16 @@
 ---
 title: 'Conector de Administración de servicios de TI: exportación segura en Azure Monitor y configuraciones de Azure'
 description: En este artículo se muestra cómo configurar Azure para conectar los productos o servicios de ITSM con Exportación segura de Azure Monitor para supervisar y administrar de manera centralizada elementos de trabajo de ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 62167b8fd72c660e50378a9492528aa5b70bbee7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eb9430e3d280c52cf84c61f0a44cb12152ac054
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604701"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037547"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configuración de Azure para conectar herramientas de ITSM mediante Exportación segura
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 376c61f6a5ba94492cac26950465c61e3d8fe4ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756343"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038567"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Escenario: API web que llama a API web
 
@@ -30,9 +30,7 @@ Este escenario, en el que una API web protegida llama a otras API web, se basa e
 ## <a name="overview"></a>Información general
 
 - Un cliente de aplicación web, de escritorio, móvil o de página única (no se representa en el diagrama siguiente) llama a una API web protegida y proporciona un token de portador JSON Web Token (JWT) en el encabezado HTTP "Autorización".
-- La API web protegida valida el token y usa el método `AcquireTokenOnBehalfOf` de la biblioteca de autenticación de Microsoft (MSAL) para solicitar otro token de Azure Active Directory (Azure AD) para que la API web protegida pueda llamar a una segunda API web o a una API web de bajada en nombre del usuario.
-- La API web protegida también puede llamar `AcquireTokenSilent`más tarde para solicitar tokens para otras API de bajada en nombre del mismo usuario. `AcquireTokenSilent` actualiza el token cuando sea necesario.
-
+- La API web protegida valida el token y usa el método `AcquireTokenOnBehalfOf` de la biblioteca de autenticación de Microsoft (MSAL) para solicitar otro token de Azure Active Directory (Azure AD) para que la API web protegida pueda llamar a una segunda API web o a una API web de bajada en nombre del usuario. `AcquireTokenOnBehalfOf` actualiza el token cuando sea necesario.
 ![Diagrama de una API web que llama a una API web](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>Características específicas

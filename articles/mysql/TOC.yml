@@ -413,7 +413,7 @@
         - name: ¿Qué es un servidor flexible?
           href: flexible-server/overview.md
         - name: Versiones compatibles
-          href: flexible-server/concepts-supported-versions.md
+          href: concepts-supported-versions.md
         - name: Proceso y almacenamiento
           href: flexible-server/concepts-compute-storage.md
     - name: Guías de inicio rápido

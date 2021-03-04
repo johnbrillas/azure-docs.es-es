@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861996"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040199"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalación y ejecución de contenedores de Docker para LUIS
 
@@ -281,7 +281,7 @@ Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta 
 |`staging`|boolean|Si está establecido en true, devuelve la consulta a partir de los resultados del entorno de ensayo. |
 |`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es true.|
 
-**_
+***
 
 ### <a name="query-the-luis-app"></a>Consulta de la aplicación de LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para realizar consultas en el entorno de *almacenamiento provisional** reemplace `production` en la ruta por `staging`:
+Para realizar consultas en el entorno de **ensayo**, reemplace `production` en la ruta por `staging`:
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 El nombre de la versión tiene un máximo de 10 caracteres y solamente contiene los caracteres que se permiten en las direcciones URL.
 
-**_
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importación de los registros de punto de conexión para el aprendizaje activo
 
@@ -346,7 +346,7 @@ En la siguiente ubicación, se muestra la estructura anidada de directorios de l
 /output/luis/{INSTANCE_ID}/
 ```
 
-En el portal de LUIS, seleccione la aplicación y la opción *Import endpoint logs** (Importar registros de puntos de conexión) para cargar estos registros.
+En el portal de LUIS, seleccione la aplicación y la opción **Import endpoint logs** (Importar registros de puntos de conexión) para cargar estos registros.
 
 ![Importación de los archivos de registro del contenedor para el aprendizaje activo](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
