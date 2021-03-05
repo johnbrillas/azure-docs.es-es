@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560861"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204191"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluciones en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ Comience a implementar una máquina virtual de la serie DCsv2 a través del Mark
 
 ### <a name="current-available-sizes-and-regions"></a>Tamaños y regiones disponibles actualmente
 
-Para obtener una lista de todos los tamaños de máquina virtual de proceso confidencial disponibles con carácter general en las regiones disponibles y en las zonas de disponibilidad, ejecute el siguiente comando en la [CLI de Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Para obtener una lista de todos los tamaños de máquina virtual de proceso confidencial disponibles con carácter general en las regiones disponibles y en las zonas de disponibilidad, ejecute el siguiente comando en la [CLI de Azure](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879989"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202695"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
@@ -39,7 +39,7 @@ Si no ejecuta Samba en el servidor de Linux y prefiere migrar carpetas a una imp
 * Cree una instancia de Windows Server 2019 como una máquina virtual o un servidor físico. El requisito mínimo es Windows Server 2012 R2. También se admite un clúster de conmutación por error de Windows Server.
 * Aprovisione o agregue almacenamiento de conexión directa (DAS). No se admite el almacenamiento conectado a la red (NAS).
 
-  La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux, si usa la característica de [nube por niveles](storage-sync-cloud-tiering.md) de Azure File Sync. Sin embargo, cuando en una fase posterior copie los archivos del espacio del servidor Samba de Linux más grande al volumen más pequeño de Windows Server, tendrá que trabajar en lotes:
+  La cantidad de almacenamiento que aprovisione puede ser menor que la que usa actualmente en el servidor Samba de Linux, si usa la característica de [nube por niveles](storage-sync-cloud-tiering-overview.md) de Azure File Sync. Sin embargo, cuando en una fase posterior copie los archivos del espacio del servidor Samba de Linux más grande al volumen más pequeño de Windows Server, tendrá que trabajar en lotes:
 
   1. Mueva un conjunto de archivos que quepa en el disco.
   2. Deje que la sincronización de archivos y la nube por niveles interactúen.
@@ -98,7 +98,7 @@ Ejecute la primera copia local en la carpeta de destino de Windows Server:
 
 El comando de Robocopy siguiente copiará los archivos desde el almacenamiento de los servidores Samba de Linux a la carpeta de destino de la instancia de Windows Server. Windows Server los sincronizará con los recursos compartidos de archivos de Azure. 
 
-Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el servidor Samba de Linux, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](storage-sync-cloud-tiering.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el servidor Samba de Linux. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar la directiva del 99 % de espacio libre para un volumen.
+Si ha aprovisionado menos almacenamiento en la instancia de Windows Server que el que ocupan los archivos en el servidor Samba de Linux, ha configurado la nube por niveles. A medida que el volumen local de Windows Server se llena, la [nube por niveles](storage-sync-cloud-tiering-overview.md) se iniciará y organizará por niveles los archivos que ya se han sincronizado correctamente. La nube por niveles generará espacio suficiente para continuar con la copia desde el servidor Samba de Linux. La nube por niveles realiza comprobaciones cada hora para averiguar qué se ha sincronizado y para liberar espacio en disco para alcanzar la directiva del 99 % de espacio libre para un volumen.
 
 Es posible que Robocopy mueva los archivos más rápido de lo que se pueden sincronizar con la nube y los organice por niveles de manera local, lo que hará que se quede sin espacio en el disco local. Robocopy generará un error. Se recomienda trabajar con los recursos compartidos en una secuencia que evite este problema. Por ejemplo, considere la posibilidad de no iniciar trabajos de Robocopy en todos los recursos compartidos al mismo tiempo. O bien considere la posibilidad de mover los recursos compartidos que se ajustan a la cantidad actual de espacio libre en la instancia de Windows Server. Si se produce un error en el trabajo de Robocopy, puede volver a ejecutar el comando siempre que use la opción de reflejo/purga siguiente:
 

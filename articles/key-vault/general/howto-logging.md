@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108745"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204021"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
@@ -34,7 +34,7 @@ A los comandos de esta guía se les da formato para [Cloud Shell](https://shell.
 
 El primer paso para configurar el registro de claves es conectarse a la suscripción que contiene el almacén de claves. Este es un paso especialmente importante si tiene varias suscripciones asociadas a su cuenta.
 
-Con la CLI de Azure, puede ver todas las suscripciones mediante el comando [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list); después puede conectarse a una de ellas mediante [az account set](/cli/azure/account?view=azure-cli-latest#az_account_set):
+Con la CLI de Azure, puede ver todas las suscripciones mediante el comando [az account list](/cli/azure/account#az_account_list); después puede conectarse a una de ellas mediante [az account set](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Para una mayor facilidad de administración, también usaremos el grupo de recur
 
 También será necesario indicar un nombre de cuenta de almacenamiento. Los nombres de cuentas de almacenamiento deben ser únicos, tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.  Por último, vamos a crear una cuenta de almacenamiento de la SKU "Standard_LRS".
 
-Con la CLI de Azure, use el comando [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+Con la CLI de Azure, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ El valor "id" de la cuenta de almacenamiento tendrá el formato "/subscriptions/
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Obtención del identificador de recurso del almacén de claves
 
-En el [inicio rápido de la CLI](quick-create-cli.md) y el [inicio rápido de PowerShell](quick-create-powershell.md), creó una clave con un nombre único.  Vuelva a usar ese nombre en los pasos siguientes.  Si no recuerda el nombre del almacén de claves, puede usar el comando [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) de la CLI de Azure o el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) de Azure PowerShell para obtenerlo.
+En el [inicio rápido de la CLI](quick-create-cli.md) y el [inicio rápido de PowerShell](quick-create-powershell.md), creó una clave con un nombre único.  Vuelva a usar ese nombre en los pasos siguientes.  Si no recuerda el nombre del almacén de claves, puede usar el comando [az keyvault list](/cli/azure/keyvault#az_keyvault_list) de la CLI de Azure o el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) de Azure PowerShell para obtenerlo.
 
-Use el nombre del almacén de claves para encontrar su identificador de recurso.  Con la CLI de Azure, use el comando [az keyvault show](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show).
+Use el nombre del almacén de claves para encontrar su identificador de recurso.  Con la CLI de Azure, use el comando [az keyvault show](/cli/azure/keyvault#az_keyvault_show).
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ El identificador de recurso del almacén de claves tendrá el formato "/subscrip
 
 ## <a name="enable-logging-using-azure-powershell"></a>Habilitación del registro con Azure PowerShell
 
-Para habilitar el registro de Key Vault, usaremos el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) de la CLI de Azure, o el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0), junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
+Para habilitar el registro de Key Vault, usaremos el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) de la CLI de Azure, o el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0), junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Si lo desea, puede establecer una directiva de retención para los registros, de forma que los registros más antiguos se eliminen automáticamente tras un período de tiempo especificado. Por ejemplo, podría establecer una directiva de retención que elimine automáticamente los registros que tengan más de 90 días.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ Esto es lo que se registra:
 
 Los registros de Key Vault se almacenan en el contenedor "insights-logs-auditevent" de la cuenta de almacenamiento que ha proporcionado. Para ver los registros, tendrá que descargar blobs.
 
-En primer lugar, enumere todos los blobs del contenedor.  Con la CLI de Azure, use el comando [az storage blob list](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list).
+En primer lugar, enumere todos los blobs del contenedor.  Con la CLI de Azure, use el comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Como podrá ver en la salida del comando de la CLI de Azure o del cmdlet de Azur
 
 Puesto que la misma cuenta de almacenamiento puede usarse para recopilar registros de varios recursos, el identificador de recurso completo en el nombre del blob es útil para acceder o descargar solo los blobs que necesita. Pero antes de hacerlo, primero explicaremos cómo descargar todos los blobs.
 
-Con la CLI de Azure, use el comando [az storage blob download](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download); pásele los nombres de los blobs y la ruta de acceso al archivo en el que desea guardar los resultados.
+Con la CLI de Azure, use el comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download); pásele los nombres de los blobs y la ruta de acceso al archivo en el que desea guardar los resultados.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

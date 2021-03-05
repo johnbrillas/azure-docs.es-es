@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203545"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual en Python
 
@@ -58,7 +58,7 @@ az login
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
-Create una máquina virtual llamada **myVM** , para lo que debe usar uno de los siguientes métodos:
+Create una máquina virtual llamada **myVM**, para lo que debe usar uno de los siguientes métodos:
 
 | Linux | Windows |
 |--|--|
@@ -66,7 +66,7 @@ Create una máquina virtual llamada **myVM** , para lo que debe usar uno de los 
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Portal de Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
-Para crear una máquina virtual Linux mediante la CLI de Azure, use el comando [az vm create](/cli/azure/vm).  En el ejemplo siguiente se agrega una cuenta de usuario llamada *azureuser*. El parámetro `--generate-ssh-keys` se usa para generar automáticamente una clave SSH y colocarla en la ubicación de la clave predeterminada ( *~/.ssh* ). 
+Para crear una máquina virtual Linux mediante la CLI de Azure, use el comando [az vm create](/cli/azure/vm).  En el ejemplo siguiente se agrega una cuenta de usuario llamada *azureuser*. El parámetro `--generate-ssh-keys` se usa para generar automáticamente una clave SSH y colocarla en la ubicación de la clave predeterminada ( *~/.ssh*). 
 
 ```azurecli-interactive
 az vm create \
@@ -81,7 +81,7 @@ Anote el valor de `publicIpAddress` en la salida.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Asignación de una identidad a la máquina virtual
 
-Cree una identidad asignada por el sistema para la máquina virtual mediante el comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) de la CLI de Azure:
+Cree una identidad asignada por el sistema para la máquina virtual mediante el comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) de la CLI de Azure:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

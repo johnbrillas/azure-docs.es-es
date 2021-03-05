@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bfc7a851442d6dd70d55c9f00e6d2f18d37e56bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964786"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203409"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migración de zonas privadas de Azure DNS heredadas al nuevo modelo de recursos
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que ha instalado la versión más reciente de Azure PowerShell. Para obtener más información sobre Azure PowerShell (Az) y cómo instalarlo, visite https://docs.microsoft.com/powershell/azure/new-azureps-module-az.
 
@@ -108,7 +108,7 @@ Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después c
 
 Si está usando automatización que incluye plantillas, scripts de PowerShell o código personalizado desarrollado con el SDK, debe actualizar la automatización para que use el nuevo modelo de recursos para las zonas DNS privadas. A continuación se incluyen los vínculos a la documentación de los nuevos CLI, PowerShell y SDK de DNS privados.
 * [API REST de zonas privadas de Azure DNS](/rest/api/dns/privatedns/privatezones)
-* [CLI de zonas privadas de Azure DNS](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [CLI de zonas privadas de Azure DNS](/cli/azure/ext/privatedns/network/private-dns)
 * [PowerShell de zonas privadas de Azure DNS](/powershell/module/az.privatedns/?view=azps-2.3.2)
 * [SDK de zonas privadas de Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 

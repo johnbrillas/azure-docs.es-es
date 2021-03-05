@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 2005b24e9a5692adda8c8e3a5100a6450c67663c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653854"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203307"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidad en Azure Cache for Redis
 
@@ -23,7 +23,7 @@ Azure Cache for Redis implementa alta disponibilidad usando varias máquinas vir
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Replicación estándar](#standard-replication)| Configuración replicada de dos nodos en un único centro de recursos con conmutación automática por error | 99,9 % |✔|✔|-|
 | [Redundancia de zona](#zone-redundancy) | Configuración replicada de varios nodos en varias zonas de disponibilidad, con conmutación automática por error | 99,95 % (nivel Premium), 99,99 % (niveles Enterprise) |-|Versión preliminar|Vista previa|
-| [Replicación geográfica](#geo-replication) | Instancias de caché vinculadas en dos regiones, con conmutación por error controlada por el usuario | 99,999 % (nivel de empresa) |-|✔|-|
+| [Replicación geográfica](#geo-replication) | Instancias de caché vinculadas en dos regiones, con conmutación por error controlada por el usuario | 99,999 % (nivel de empresa) |-|✔|Vista previa|
 
 ## <a name="standard-replication"></a>Replicación estándar
 
