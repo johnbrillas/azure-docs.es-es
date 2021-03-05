@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67565725"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184396"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Rotación de claves de acceso para Azure SignalR Service
 
@@ -35,7 +35,7 @@ Por motivos de seguridad y para cumplir los requisitos de cumplimiento, cambie p
 
    ![Regeneración de claves](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Las claves también se pueden regenerar mediante la [CLI de Azure](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
+Las claves también se pueden regenerar mediante la [CLI de Azure](/cli/azure/signalr/key#az-signalr-key-renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Actualización de configuraciones con nuevas cadenas de conexión
 
@@ -59,4 +59,4 @@ En esta guía ha aprendido a volver a generar las claves de acceso. Continúe co
 > [Integración con la identidad de ASP.NET Core](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Creación de una aplicación en tiempo real sin servidor con autenticación](./signalr-tutorial-authenticate-azure-functions.md)
+> [Compilación de una aplicación en tiempo real sin servidor con autenticación](./signalr-tutorial-authenticate-azure-functions.md)

@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 63fd0af819fde7d78df289a1b8f5cefa2e415101
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 80146b4da376f3a1d43bcecc89a4a335263ac5ad
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779637"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102193829"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- Un recurso implementado de Communication Services. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un número de teléfono adquirido en el recurso de Communication Services. [Obtención de un número de teléfono](../../telephony-sms/get-phone-number.md).
 - `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener `User Access Token`](../../access-tokens.md)
 - Complete el inicio rápido para [empezar a agregar llamadas a su aplicación](../getting-started-with-calling.md)
@@ -42,7 +42,7 @@ func startCall() {
         if granted {
             let startCallOptions = ACSStartCallOptions()
             startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
             self.callDelegate = CallDelegate(self)
             self.call!.delegate = self.callDelegate
         }
