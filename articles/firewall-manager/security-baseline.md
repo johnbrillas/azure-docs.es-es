@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742388"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200145"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Base de referencia de seguridad de Azure para Azure Firewall Manager
 
@@ -338,7 +338,7 @@ Aplique etiquetas a los recursos, grupos de recursos y suscripciones de Azure co
 
 **Guía**: Quite los recursos de Azure Firewall Manager cuando ya no sean necesarios para minimizar la superficie expuesta a ataques. Los usuarios pueden administrar sus recursos de Azure Firewall Manager mediante Azure Portal, la CLI o las API REST.
 
-- [CLI de la directiva de Azure Firewall](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [CLI de la directiva de Azure Firewall](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [CLI de red de Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -557,7 +557,7 @@ Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclat
 
 - [Referencia de plantillas de la directiva de Azure Firewall](/azure/templates/microsoft.network/firewallpolicies)
 
-- [CLI de la directiva de Azure Firewall](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [CLI de la directiva de Azure Firewall](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Ilustración de la implementación de límites de protección en la zona de aterrizaje de escala empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

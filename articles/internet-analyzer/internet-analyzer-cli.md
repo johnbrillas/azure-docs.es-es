@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676211"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200094"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)
 
@@ -29,15 +29,15 @@ La versión preliminar pública está disponible para su uso global; sin embargo
 
 ## <a name="object-model"></a>Modelo de objetos
 La CLI de Internet Analyzer expone los siguientes tipos de recursos:
-* **Pruebas** : una prueba compara el rendimiento de usuario final de dos puntos de conexión de Internet (A y B) a lo largo del tiempo.
-* **Perfiles** : las pruebas se crean en un perfil de Internet Analyzer. Los perfiles permiten agrupar las pruebas relacionadas; un único perfil puede contener una o varias pruebas.
-* **Puntos de conexión preconfigurados** : hemos configurado puntos de conexión con una variedad de configuraciones (regiones, tecnologías de aceleración, etc.). Puede usar cualquiera de estos puntos de conexión preconfigurados en las pruebas.
-* **Cuadros de mandos** : un cuadro de mandos proporciona resúmenes rápidos y significativos de los resultados de las mediciones. Consulte [Interpretación del cuadro de mandos](internet-analyzer-scorecard.md).
-* **Series temporales** : una serie temporal muestra cómo cambia una métrica con el tiempo.
+* **Pruebas**: una prueba compara el rendimiento de usuario final de dos puntos de conexión de Internet (A y B) a lo largo del tiempo.
+* **Perfiles**: las pruebas se crean en un perfil de Internet Analyzer. Los perfiles permiten agrupar las pruebas relacionadas; un único perfil puede contener una o varias pruebas.
+* **Puntos de conexión preconfigurados**: hemos configurado puntos de conexión con una variedad de configuraciones (regiones, tecnologías de aceleración, etc.). Puede usar cualquiera de estos puntos de conexión preconfigurados en las pruebas.
+* **Cuadros de mandos**: un cuadro de mandos proporciona resúmenes rápidos y significativos de los resultados de las mediciones. Consulte [Interpretación del cuadro de mandos](internet-analyzer-scorecard.md).
+* **Series temporales**: una serie temporal muestra cómo cambia una métrica con el tiempo.
 
 ## <a name="profile-and-test-creation"></a>Creación de perfiles y pruebas
 1. Obtenga acceso a la versión preliminar de Internet Analyzer siguiendo las instrucciones de **¿Cómo participar en la versión preliminar?** de las [preguntas frecuentes sobre Azure Internet Analyzer](internet-analyzer-faq.md).
-2. [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 3. Ejecute el comando `login` para iniciar una sesión de la CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 5. Seleccione el identificador de la suscripción a la que se ha concedido acceso a la versión preliminar pública de Internet Analyzer.
 
-    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
 
 6. **[Opcional]** Creación de un nuevo grupo de recursos de Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Examine la [Referencia de la CLI de Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para ver la lista completa de comandos y ejemplos de uso admitidos.
+* Examine la [Referencia de la CLI de Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer) para ver la lista completa de comandos y ejemplos de uso admitidos.
 * Consulte las [preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md).
 * Más información sobre la inserción del [cliente de Internet Analyzer](internet-analyzer-embed-client.md) y la creación de un [punto de conexión personalizado](internet-analyzer-custom-endpoint.md).

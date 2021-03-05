@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628924"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202355"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -153,4 +153,4 @@ A continuación, le incluimos más información sobre las tecnologías de Azure 
 
 * [¿Qué es Azure Files](storage-files-introduction.md)
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
-* [Información general de nube por niveles ](storage-sync-cloud-tiering.md)
+* [Información general de nube por niveles ](storage-sync-cloud-tiering-overview.md)

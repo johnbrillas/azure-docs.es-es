@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179374"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200944"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas de Resource Manager
 
@@ -357,7 +357,7 @@ El valor predeterminado de la ruta de montaje es `/mnt/azscripts/azscriptinput`.
 La imagen de contenedor predeterminada especificada en la plantilla es **mcr.microsoft.com/azure-cli:2.9.1**. Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se necesita aproximadamente un mes para certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si usa una versión no compatible, el mensaje de error mostrará las versiones admitidas.
+> El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se necesita aproximadamente un mes para certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli). Si usa una versión no compatible, el mensaje de error mostrará las versiones admitidas.
 
 La plantilla suspende la instancia de contenedor después de 1800 segundos. Dispone de 30 minutos antes de que la instancia de contenedor pase al estado terminal y la sesión finalice.
 

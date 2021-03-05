@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364378"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202049"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminación de recursos de Azure
 
@@ -43,8 +43,8 @@ Si ha utilizado un grupo de recursos específico y dedicado para los servicios d
 Para eliminar un grupo de recursos en Azure Portal, realice los pasos siguientes:
 
 - En Azure Portal, vaya al grupo de recursos en el que se han creado los recursos de los servicios de datos habilitados para Azure Arc.
-- Haga clic en el botón **Eliminar grupo de recursos** .
-- Para confirmar la eliminación, escriba el nombre del grupo de recursos y haga clic en **Eliminar** .
+- Haga clic en el botón **Eliminar grupo de recursos**.
+- Para confirmar la eliminación, escriba el nombre del grupo de recursos y haga clic en **Eliminar**.
 
 ## <a name="delete-specific-resources-in-the-resource-group"></a>Eliminación de recursos específicos del grupo de recursos
 
@@ -53,7 +53,7 @@ Para eliminar recursos específicos de los servicios de datos habilitados para A
 - En Azure Portal, vaya al grupo de recursos en el que se han creado los recursos de los servicios de datos habilitados para Azure Arc.
 - Seleccione todos los recursos que se van a eliminar.
 - Haga clic en el botón Eliminar.
-- Escriba "Sí" para confirmar la eliminación y haga clic en **Eliminar** .
+- Escriba "Sí" para confirmar la eliminación y haga clic en **Eliminar**.
 
 ## <a name="delete-resources-using-the-azure-cli"></a>Eliminación de recursos mediante la CLI de Azure
 
@@ -64,10 +64,10 @@ Puede eliminar recursos específicos de los servicios de datos habilitados para 
 Para eliminar de Azure los recursos de SQL Managed Instance mediante la CLI de Azure, reemplace los valores de marcador de posición en el comando siguiente y ejecútelo.
 
 ```azurecli
-az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
+az resource delete --name <sql instance name> --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name sql1 --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group rg1
+#az resource delete --name sql1 --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group rg1
 ```
 
 ### <a name="delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli"></a>Eliminación de los recursos del grupo de servidores de Hiperescala de PostgreSQL mediante la CLI de Azure
@@ -75,10 +75,10 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 Para eliminar de Azure un recurso del grupo de servidores de Hiperescala de PostgreSQL mediante la CLI de Azure, reemplace los valores de marcador de posición en el comando siguiente y ejecútelo.
 
 ```azurecli
-az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
+az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureArcData/postgresInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name pg1 --resource-type Microsoft.AzureData/postgresInstances --resource-group rg1
+#az resource delete --name pg1 --resource-type Microsoft.AzureArcData/postgresInstances --resource-group rg1
 ```
 
 ### <a name="delete-azure-arc-data-controller-resources-using-the-azure-cli"></a>Eliminación de los recursos del controlador de datos de Azure Arc mediante la CLI de Azure
@@ -89,10 +89,10 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 Para eliminar de Azure un controlador de datos de Azure Arc mediante la CLI de Azure, reemplace los valores de marcador de posición en el comando siguiente y ejecútelo.
 
 ```azurecli
-az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
+az resource delete --name <data controller name> --resource-type Microsoft.AzureArcData/dataControllers --resource-group <resource group name>
 
 #Example
-#az resource delete --name dc1 --resource-type Microsoft.AzureData/dataControllers --resource-group rg1
+#az resource delete --name dc1 --resource-type Microsoft.AzureArcData/dataControllers --resource-group rg1
 ```
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Eliminación de un grupo de recursos mediante la CLI de Azure

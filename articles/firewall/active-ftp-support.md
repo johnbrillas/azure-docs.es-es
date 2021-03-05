@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 2c89eb19025212490d29c97a061da52e779ecf42
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 47bced3c3c4f01212af6919d51adc5dfc2e6e1b5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704404"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200076"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Compatibilidad de FTP activo con Azure Firewall
 
@@ -29,7 +29,7 @@ Para realizar la implementación mediante Azure PowerShell, use el parámetro `A
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Para realizar la implementación mediante la CLI de Azure, use el parámetro `--allow-active-ftp`. Para más información, consulte [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
+Para realizar la implementación mediante la CLI de Azure, use el parámetro `--allow-active-ftp`. Para más información, consulte [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
 
 ## <a name="azure-resource-manager-arm-template"></a>Plantilla de Azure Resource Manager (ARM)
 
