@@ -1346,7 +1346,7 @@
             - name: Preguntas frecuentes acerca de la disponibilidad general
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Preguntas más frecuentes
-              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
+              href: ../azure-monitor/faq.md
             - name: Habilitar supervisión
               items:
                 - name: Habilitar información general de la supervisión
