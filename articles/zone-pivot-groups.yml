@@ -958,6 +958,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Páginas del portal de Security Center
+- id: manage-asc-initiatives
+  title: Administración de iniciativas de Security Center
+  prompt: ¿Cómo se administran las iniciativas de Security Center?
+  pivots:
+  - id: azure-portal
+    title: En Azure Portal
+  - id: rest-api
+    title: Con las API REST
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Sistema operativo/consola
   prompt: Elección de un sistema operativo y una consola
@@ -1036,10 +1044,18 @@ groups:
     title: Ruby
   - id: rest
     title: Rest
+- id: azure-maps-android
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
 metadata:
-  ms.openlocfilehash: a687c5b93d92dae95d2d92896a19913c5261f5bd
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: 3e17c3c00f5df915394ee81646d8bc3883a8e1ee
+  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101735240"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102097519"

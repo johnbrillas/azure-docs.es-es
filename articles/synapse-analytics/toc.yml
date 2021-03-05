@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Cambio a Grupo de SQL dedicado (anteriormente SQL DW)
+- name: Cambio a grupo de SQL dedicado (anteriormente SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Información general
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Guías de inicio rápido
       items:
-        - name: Creación de un área de trabajo mediante Azure Portal
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Creación de un área de trabajo mediante la CLI de Azure
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Creación de un área de trabajo mediante Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Implementación con una plantilla
-          href: quickstart-deployment-template-workspaces.md
+        - name: Crear un área de trabajo
+          items:
+            - name: Azure Portal
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: Azure CLI
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Plantilla ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Vinculación de un área de trabajo de Power BI
           href: quickstart-power-bi.md
@@ -586,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Solución de problemas de errores de instalación de paquetes de Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Creación de un canal de Conda privado
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Uso de cuadernos y de herramientas IDE
           items:
             - name: Administración de cuadernos

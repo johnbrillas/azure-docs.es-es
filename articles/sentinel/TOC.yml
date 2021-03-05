@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: Conceptos
   items:
-    - name: Asignación de permisos mediante roles
-      href: roles.md
+    - name: Administración del acceso
+      items:
+        - name: Permisos de Azure Sentinel
+          href: roles.md
+        - name: Administración del acceso por recurso
+          href: resource-context-rbac.md
     - name: Detección avanzada de ataques de varias fases
       href: fusion.md
     - name: Plataforma de aprendizaje automático Traiga el suyo
@@ -236,7 +240,7 @@
           href: connect-azure-stack.md
         - name: Supervisión del estado del conector de datos
           href: monitor-data-connector-health.md
-    - name: Habilitación del análisis de comportamiento de usuarios y entidades
+    - name: Habilitación del análisis del comportamiento de usuarios y entidades
       href: enable-entity-behavior-analytics.md
     - name: Administración de varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: Mejora en la administración de SOC con métricas de incidentes
       href: manage-soc-with-incident-metrics.md
+    - name: Auditoría de consultas y actividades de Azure Sentinel
+      href: audit-sentinel-data.md
     - name: Búsqueda
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
+    - name: Implementación de RBAC avanzado
+      items: null
 - name: Referencia
   items:
     - name: Roles RBAC de Azure
@@ -293,8 +301,8 @@
   items:
     - name: Recursos útiles
       href: resources.md
-    - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure'
-      href: /archive/blogs/azuresecurity/
+    - name: "Blog de Azure\_Sentinel"
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Precios

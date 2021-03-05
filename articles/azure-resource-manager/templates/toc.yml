@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué son las plantillas de Resource Manager?
       href: overview.md
+    - name: Introducción a Bicep
+      href: bicep-overview.md
 - name: Guías de inicio rápido
   items:
     - name: 'Creación de plantillas: portal'
@@ -246,7 +248,7 @@
           href: template-tutorial-use-parameter-file.md
     - name: Bicep para principiantes
       items:
-        - name: '1: creación de la primera plantilla'
+        - name: '1: Creación de la primera plantilla'
           href: bicep-tutorial-create-first-bicep.md
         - name: 2. Incorporación de parámetros
           href: bicep-tutorial-add-parameters.md
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: Información general
-          href: bicep-overview.md
-        - name: Paso de JSON a Bicep
+        - name: Comparación de JSON con Bicep
           href: compare-template-syntax.md
     - name: Preguntas más frecuentes
       href: frequently-asked-questions.md

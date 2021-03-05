@@ -122,8 +122,6 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: Administración de plantillas de términos
             href: how-to-manage-term-templates.md
-          - name: Edición masiva de recursos para asignar términos del glosario
-            href: how-to-bulk-edit-assets.md
       - name: Editar elementos de forma masiva
         items:
           - name: Edición masiva de recursos para etiquetar anotaciones y contactos
@@ -168,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: Visualización de información de la extensión de archivo
             href: file-extension-insights.md
+      - name: Seguridad y redes
+        items:
+          - name: Administración de puntos de conexión privados
+            href: catalog-private-link.md
   - name: Referencia
     items:
       - name: Clasificaciones admitidas

@@ -101,9 +101,14 @@
           href: tutorial-register-applications.md
         - name: Registro de una aplicación de página única (SPA)
           href: tutorial-register-spa.md
-        - name: Registro de un proveedor de servicios de SAML
-          href: connect-with-saml-service-providers.md
-          displayName: 'SP, RP, service provider, connect'
+        - name: Aplicación SAML
+          items:
+            - name: Configuración de una aplicación SAML
+              href: saml-service-provider.md
+              displayName: 'SP, service provider'
+            - name: Configuración de las opciones de la aplicación SAML
+              href: saml-service-provider-options.md
+              displayName: 'SP, service provider'
         - name: Registro de una aplicación de Microsoft Graph
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
@@ -125,7 +130,7 @@
           items:
             - name: Restablecimiento de la contraseña de autoservicio
               href: add-password-reset-policy.md
-            - name: Autoservicio de cambio de contraseña
+            - name: Cambio de la contraseña de autoservicio
               href: add-password-change-policy.md
             - name: Forzar el restablecimiento de contraseñas
               href: force-password-reset.md
@@ -150,6 +155,8 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
+        - name: Apple (versión preliminar)
+          href: identity-provider-apple-id.md
         - name: Azure AD (inquilino único)
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD (multiinquilino)
@@ -158,8 +165,14 @@
           href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
-        - name: Proveedores de identidades genéricas
+        - name: OpenId Connect genérico
           href: identity-provider-generic-openid-connect.md
+        - name: Proveedor de identidades de SAML genérico
+          items:
+            - name: Configuración de un proveedor de identidades de SAML
+              href: identity-provider-generic-saml.md
+            - name: Configuración de opciones del proveedor de identidades de SAML
+              href: identity-provider-generic-saml-options.md
         - name: GitHub
           href: identity-provider-github.md
         - name: Google
@@ -217,11 +230,11 @@
           href: configure-tokens.md
     - name: Definición de atributos personalizados
       href: user-flow-custom-attributes.md
-    - name: Identity Protection y acceso condicional
+    - name: Autenticación basada en riesgos
       items:
-        - name: Configuración de Identity Protection y acceso condicional
-          href: conditional-access-identity-protection-setup.md
-        - name: Adición de acceso condicional
+        - name: Investigación del riesgo con Identity Protection
+          href: identity-protection-investigate-risk.md
+        - name: Configuración del acceso condicional
           href: conditional-access-user-flow.md
     - name: Configuración de la restricción de acceso por edad
       href: basic-age-gating.md
@@ -327,9 +340,6 @@
                       href: aad-sspr-technical-profile.md
                     - name: Transformación de notificaciones
                       href: claims-transformation-technical-profile.md
-                    - name: Acceso condicional
-                      href: conditional-access-technical-profile.md
-                      displayName: ca
                     - name: Sugerencia de token de identificador
                       href: id-token-hint.md
                     - name: Emisor de tokens JWT
