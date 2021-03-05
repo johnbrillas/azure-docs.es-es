@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886080"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656234"
 ---
 # <a name="client-and-server-architecture"></a>Arquitectura de cliente y servidor
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,11 +54,11 @@ Muchos escenarios se atienden mejor con las aplicaciones nativas. Azure Communic
 La comunicación a través del sistema telefónico puede aumentar drásticamente el alcance de la aplicación. Para admitir escenarios de voz y SMS de RTC, Azure Communication Services le ayuda a [adquirir números de teléfono](../quickstarts/telephony-sms/get-phone-number.md) directamente desde Azure Portal o mediante las API REST y las bibliotecas cliente. Una vez que se adquieren los números de teléfono, se pueden usar para llegar a los clientes mediante llamadas RTC y SMS tanto en escenarios de entrada como de salida. A continuación se muestra un flujo de arquitectura de ejemplo:
 
 > [!Note]
-> Durante la versión preliminar pública, el aprovisionamiento de los números de teléfono de EE. UU. está disponible para los clientes con direcciones de facturación ubicadas en Estados Unidos y Canadá. 
+> Durante la versión preliminar pública, el aprovisionamiento de los números de teléfono de EE. UU. está disponible para los clientes con direcciones de facturación ubicadas en Estados Unidos y Canadá.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagrama que muestra la arquitectura RTC de Communication Services.":::
 
-Para obtener más información sobre las soluciones de RTC y SMS, consulte [Planeación de la solución de RTC y SMS](../concepts/telephony-sms/plan-solution.md).
+Para más información sobre los números de teléfono RTC, consulte [Tipos de número de teléfono](../concepts/telephony-sms/plan-solution.md).
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Personas que se comunican con bots y otros servicios
 
@@ -83,7 +81,7 @@ Es posible que desee intercambiar datos arbitrarios entre usuarios, por ejemplo,
 Para más información, consulte los siguientes artículos.
 
 - Más información sobre la [autenticación](../concepts/authentication.md).
-- Más información sobre las [soluciones de RTC y SMS](../concepts/telephony-sms/plan-solution.md).
+- Más información sobre los [tipos de número de teléfono](../concepts/telephony-sms/plan-solution.md)
 
 - [Incorporación de chat a una aplicación](../quickstarts/chat/get-started.md)
 - [Adición de la llamada de voz a una aplicación](../quickstarts/voice-video-calling/getting-started-with-calling.md)

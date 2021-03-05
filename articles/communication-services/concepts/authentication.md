@@ -9,187 +9,30 @@ ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: e20c822c2e792c67ed655080385a3c90794d53fd
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1267fc53bd6dcbae504b01610267059545353dc5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545146"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655911"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticación en Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Se debe autenticar cada interacción del cliente con Azure Communication Services. En una arquitectura típica, se usa la [arquitectura de cliente y servidor](./client-and-server-architecture.md), las *claves de acceso* o la *identidad administrada* en el servicio de acceso de usuarios de confianza para crear usuarios y emitir tokens. Y el *token de acceso de usuario* que emite el servicio de acceso de usuarios de confianza se utiliza para que las aplicaciones cliente accedan a otros servicios de comunicación como, por ejemplo, un servicio de chat o de llamada.
 
-En este artículo se proporciona información sobre la autenticación de clientes en Azure Communication Services mediante *claves de acceso* y *tokens de acceso de usuario*. Se debe autenticar cada interacción del cliente con Azure Communication Services.
-
-En la tabla siguiente se describen las opciones de autenticación que son compatibles con las bibliotecas cliente de Azure Communication Services:
-
-| Biblioteca de cliente | Clave de acceso    | Tokens de acceso de usuario |
-| -------------- | ------------- | ------------------ |
-| Administración | Compatible     | No compatible      |
-| SMS            | Compatible     | No compatible      |
-| Chat           | No compatible | Compatible          |
-| Llamar        | No compatible | Compatible          |
+El servicio de SMS de Azure Communication Services también acepta *claves de acceso* o *identidades administradas* para la autenticación. Esto ocurre normalmente en una aplicación de servicio que se ejecuta en un entorno de servicio de confianza.
 
 Cada opción de autorización se describe brevemente a continuación:
 
-- Autenticación con **clave de acceso** para operaciones de SMS y administración. La autenticación con clave de acceso es adecuada para las aplicaciones que se ejecutan en un entorno de servicio de confianza. Para autenticar con una clave de acceso, un cliente genera un [código de autenticación de mensaje basado en hash (HMAC)](https://en.wikipedia.org/wiki/HMAC) e incluye en el encabezado `Authorization` de cada solicitud HTTP. Para obtener más información, vea [Autenticación con una clave de acceso](#authenticate-with-an-access-key).
-- Autenticación con **token de acceso de usuario** para chat y llamadas. Los tokens de acceso de usuario permiten que las aplicaciones cliente se autentiquen directamente en Azure Communication Services. Estos tokens se generan en un servicio de aprovisionamiento de token del lado servidor que cree. A continuación, se proporcionan a los dispositivos cliente que usan el token para inicializar las bibliotecas cliente de chat y llamadas. Para obtener más información, vea [Autenticación con un token de acceso de usuario](#authenticate-with-a-user-access-token).
-
-## <a name="authenticate-with-an-access-key"></a>Autenticación con una clave de acceso
-
-La autenticación con clave de acceso usa una clave secreta compartida para generar un HMAC para cada solicitud HTTP calculada mediante el algoritmo SHA256 y la envía en el encabezado `Authorization` mediante el esquema `HMAC-SHA256`.
-
-```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
-```
-
-Las bibliotecas cliente de Azure Communication Services que usan la autenticación con clave de acceso se deben inicializar con la cadena de conexión del recurso. Si no está usando una biblioteca cliente, puede generar HMAC mediante programación con la clave de acceso del recurso. Para obtener más información sobre las cadenas de conexión, visite el [inicio rápido del aprovisionamiento de recursos](../quickstarts/create-communication-resource.md).
-
-### <a name="sign-an-http-request"></a>Envío de una solicitud HTTP
-
-Si no usa una biblioteca cliente para hacer solicitudes HTTP a las API REST de Azure Communication Services, deberá crear mediante programación HMAC para cada solicitud HTTP. En los pasos siguientes se describe cómo construir el encabezado de autorización:
-
-1. Especifique la marca de tiempo de la hora universal coordinada (UTC) para la solicitud en el encabezado `x-ms-date` o en el encabezado `Date` HTTP estándar. El servicio lo valida para protegerse frente a determinados ataques de seguridad, incluidos los ataques de reproducción.
-1. Aplique un algoritmo hash al cuerpo de la solicitud HTTP mediante el algoritmo SHA256 y, a continuación, páselo con la solicitud, a través del encabezado `x-ms-content-sha256`.
-1. Construya la cadena que se va a firmar mediante la concatenación del verbo HTTP (por ejemplo, `GET` o `PUT`), la ruta de acceso de la solicitud HTTP y los valores de los encabezados HTTP `Date`, `Host` y `x-ms-content-sha256` en el formato siguiente:
-    ```
-    VERB + "\n"
-    URLPathAndQuery + "\n"
-    DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
-    ```
-1. Genere una firma HMAC-256 de la cadena con codificación UTF-8 que creó en el paso anterior. A continuación, codifique los resultados como Base64. Tenga en cuenta que también debe descodificar en Base64 la clave de acceso. Utilice el formato siguiente (mostrado como pseudocódigo):
-    ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
-    ```
-1. Especifique el encabezado de autorización del modo siguiente:
-    ```
-    Authorization="HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"  
-    ```
-    Donde `<hmac-sha256-signature>` es el HMAC calculado en el paso anterior.
-
-## <a name="authenticate-with-a-user-access-token"></a>Autenticación con un token de acceso de usuario
-
-Los tokens de acceso de usuario permiten que las aplicaciones cliente se autentiquen directamente en Azure Communication Services. Para ello, debe configurar un servicio de confianza que autentique a los usuarios de la aplicación y emita tokens de acceso de usuario con la biblioteca cliente de administración. Visite la documentación conceptual sobre la [arquitectura de cliente y servidor](./client-and-server-architecture.md) para obtener más información sobre nuestras consideraciones de arquitectura.
-
-La clase `CommunicationTokenCredential` contiene la lógica para proporcionar credenciales de token de acceso de usuario a las bibliotecas cliente y administrar su ciclo de vida.
-
-### <a name="initialize-the-client-libraries"></a>Inicialización del objeto cliente
-
-Para inicializar las bibliotecas cliente de Azure Communication Services que requieren la autenticación de token de acceso de usuario, primero debe crear una instancia de la clase `CommunicationTokenCredential` y, a continuación, usarla para inicializar un cliente de API.
-
-En los fragmentos de código siguientes se muestra cómo inicializar la biblioteca cliente de chat con un token de acceso de usuario:
-
-#### <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-// user access tokens should be created by a trusted service using the Administration client library
-var token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-var userCredential = new CommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-// user access tokens should be created by a trusted service using the Administration client library
-const token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
-const userCredential = new AzureCommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-// user access tokens should be created by a trusted service using the Administration client library
-let token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-let userCredential = try CommunicationTokenCredential(token: token)
-
-// initialize the chat client library with the credential
-let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
-```
-
-#### <a name="java"></a>[Java](#tab/java)
-
-```java
-// user access tokens should be created by a trusted service using the Administration client library
-String token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
-
-// Initialize the chat client
-final ChatClientBuilder builder = new ChatClientBuilder();
-builder.endpoint(ENDPOINT_URL)
-    .credential(userCredential)
-    .httpClient(HTTP_CLIENT);
-ChatClient chatClient = builder.buildClient();
-```
-
----
-
-### <a name="refreshing-user-access-tokens"></a>Actualización de tokens de acceso de usuario
-
-Los tokens de acceso de usuario son credenciales de corta duración que deben volver a emitirse para evitar que los usuarios experimenten interrupciones del servicio. El constructor `CommunicationTokenCredential` acepta una función de devolución de llamada de actualización que le permite actualizar los tokens de acceso de usuario antes de que expiren. Debe usar esta devolución de llamada para capturar un nuevo token de acceso de usuario desde el servicio de confianza.
-
-#### <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-var userCredential = new CommunicationTokenCredential(
-    initialToken: token,
-    refreshProactively: true,
-    tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
-);
-```
-
-#### <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-const userCredential = new AzureCommunicationTokenCredential({
-  tokenRefresher: async () => fetchNewTokenForCurrentUser(),
-  refreshProactively: true,
-  initialToken: token
-});
-```
-
-#### <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
- let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
-   let updatedToken = fetchTokenForCurrentUser()
-   completionHandler(updatedToken, nil)
- }
-```
-
-#### <a name="java"></a>[Java](#tab/java)
-
-```java
-TokenRefresher tokenRefresher = new TokenRefresher() {
-    @Override
-    Future<String> getFetchTokenFuture() {
-        return fetchNewTokenForCurrentUser();
-    }
-}
-
-CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
-```
----
-
-La opción `refreshProactively` le permite decidir cómo va a administrar el ciclo de vida del token. De forma predeterminada, cuando un token está obsoleto, la devolución de llamada bloqueará las solicitudes de API e intentará actualizarlas. Cuando `refreshProactively` se establece en `true`, la devolución de llamada se programa y se ejecuta de forma asincrónica antes de que expire el token.
+- Autenticación con **clave de acceso** para operaciones de SMS e identidad. La autenticación con clave de acceso es adecuada para las aplicaciones de servicio que se ejecutan en un entorno de servicio de confianza. La clave de acceso se puede encontrar en el portal de Azure Communication Services. Para autenticarse con una clave de acceso, una aplicación de servicio usa la clave de acceso como credencial para inicializar las bibliotecas cliente de SMS o identidad correspondientes. Consulte [Creación y administración de tokens de acceso](../quickstarts/access-tokens.md). Como la clave de acceso forma parte de la cadena de conexión del recurso, consulte [Creación y administración de recursos de Communication Services](../quickstarts/create-communication-resource.md). La autenticación con una cadena de conexión equivale a la autenticación con clave de acceso.
+- Autenticación con **identidad administrada** para operaciones de SMS e identidad. La identidad administrada (consulte el documento sobre [identidad administrada](../quickstarts/managed-identity.md)), es adecuada para las aplicaciones de servicio que se ejecutan en un entorno de servicio de confianza. Para autenticarse con una identidad administrada, una aplicación de servicio crea una credencial con el identificador y un secreto de la identidad administrada y, a continuación, inicializa las bibliotecas cliente de SMS o identidad correspondientes. Consulte [Creación y administración de tokens de acceso](../quickstarts/access-tokens.md).
+- Autenticación con **token de acceso de usuario** para chat y llamadas. Los tokens de acceso de usuario permiten que las aplicaciones cliente se autentiquen en los servicios de chat y llamadas de Azure Communication Services. Estos tokens se generan en un "servicio de acceso de usuarios de confianza" que se crea. A continuación, se proporcionan a los dispositivos cliente que usan el token para inicializar las bibliotecas cliente de chat y llamadas. Para más información, consulte [Incorporación de chat a una aplicación](../quickstarts/chat/get-started.md), por ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
+> [Creación y administración de recursos de Communication Services](../quickstarts/create-communication-resource.md)
+> [Creación de una aplicación de identidad administrada de Azure Active Directory mediante la CLI de Azure](../quickstarts/managed-identity-from-cli.md)
 > [Creación de tokens de acceso de usuario](../quickstarts/access-tokens.md)
 
 Para más información, consulte los siguientes artículos.

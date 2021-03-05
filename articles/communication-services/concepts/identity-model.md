@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 254d35331459e70ad56bcef43569f51ff6f50a93
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888715"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656217"
 ---
 # <a name="identity-model"></a>Modelo de identidad
 
@@ -28,15 +28,15 @@ En lugar de duplicar la información del sistema, conservará la relación de as
 
 ## <a name="identity"></a>Identidad
 
-Puede crear identidades mediante la biblioteca de administración de Azure Communication Services. Una identidad sirve de identificador en las conversaciones. Se usa para crear tokens de acceso. La misma identidad podría participar en varias sesiones simultáneas en varios dispositivos. Una identidad puede tener varios tokens de acceso activos al mismo tiempo. 
+Puede crear identidades mediante la biblioteca de identidades de Azure Communication Services. Una identidad sirve de identificador en las conversaciones. Se usa para crear tokens de acceso. La misma identidad podría participar en varias sesiones simultáneas en varios dispositivos. Una identidad puede tener varios tokens de acceso activos al mismo tiempo.
 
-La eliminación de una identidad, un recurso o una suscripción invalida todos sus tokens de acceso. Esta acción también elimina todos los datos que se almacenan para la identidad. Una identidad eliminada no puede crear nuevos tokens de acceso ni acceder a los datos previamente almacenados (por ejemplo, mensajes de chat). 
+La eliminación de una identidad, un recurso o una suscripción invalida todos sus tokens de acceso. Esta acción también elimina todos los datos que se almacenan para la identidad. Una identidad eliminada no puede crear nuevos tokens de acceso ni acceder a los datos previamente almacenados (por ejemplo, mensajes de chat).
 
-No se le cobra por el número de identidades que tenga. En su lugar, se le cobrará por el uso de primitivos. El número de identidades no debe restringir cómo se asignan las identidades de la aplicación a las identidades de Azure Communication Services. 
+No se le cobra por el número de identidades que tenga. En su lugar, se le cobrará por el uso de primitivos. El número de identidades no debe restringir cómo se asignan las identidades de la aplicación a las identidades de Azure Communication Services.
 
 La libertad de asignación implica la responsabilidad de la privacidad. Si un usuario quiere que se le elimine del sistema, debe eliminar todas las identidades asociadas a ese usuario.
 
-Azure Communication Services no proporciona identidades especiales para los usuarios anónimos. No mantiene la asignación entre usuarios e identidades, y no puede determinar si la identidad es anónima. Puede diseñar el concepto de identidad para que se adapte a sus necesidades. Nuestra recomendación es crear una nueva identidad para cada usuario anónimo de cada aplicación. 
+Azure Communication Services no proporciona identidades especiales para los usuarios anónimos. No mantiene la asignación entre usuarios e identidades, y no puede determinar si la identidad es anónima. Puede diseñar el concepto de identidad para que se adapte a sus necesidades. Nuestra recomendación es crear una nueva identidad para cada usuario anónimo de cada aplicación.
 
 Cualquier persona que tenga un token de acceso válido puede acceder al contenido de la identidad actual. Por ejemplo, los usuarios pueden acceder a los mensajes de chat que enviaron. El acceso está restringido solo a determinados ámbitos que forman parte del token de acceso. Para más información, vea la sección [Tokens de acceso](#access-tokens) de este artículo.
 
@@ -44,7 +44,7 @@ Cualquier persona que tenga un token de acceso válido puede acceder al contenid
 
 Azure Communication Services no replican la funcionalidad del sistema de administración de identidades de Azure. No proporciona una manera para que los clientes usen identidades específicas del cliente. Por ejemplo, los clientes no pueden usar un número de teléfono o una dirección de correo electrónico. En su lugar, Azure Communication Services proporciona identificadores únicos. Puede asignar identificadores únicos a las identidades de la aplicación. Azure Communication Services no almacena ningún tipo de información que pueda revelar la identidad real de los usuarios.
 
-Para evitar la duplicación de información en su sistema, planifique cómo asignar los usuarios de su dominio de identidad a identidades de Azure Communication Services. Puede seguir cualquier tipo de patrón. Por ejemplo, puede usar 1:1, 1: N, N:1 o M:N. Decida si un usuario único se asigna a una identidad única o a varias identidades. 
+Para evitar la duplicación de información en su sistema, planifique cómo asignar los usuarios de su dominio de identidad a identidades de Azure Communication Services. Puede seguir cualquier tipo de patrón. Por ejemplo, puede usar 1:1, 1: N, N:1 o M:N. Decida si un usuario único se asigna a una identidad única o a varias identidades.
 
 Cuando cree una nueva identidad, almacene su asignación al usuario o usuarios de la aplicación. Dado que las identidades requieren tokens de acceso para el uso de primitivos, el usuario o los usuarios de la aplicación deben conocer la identidad.
 
@@ -52,14 +52,14 @@ Si usa una base de datos relacional para almacenar información de usuario, pued
 
 ## <a name="access-tokens"></a>Tokens de acceso
 
-Un token de acceso es una instancia de JSON Web Token (JWT) que se puede usar para acceder a los primitivos de Azure Communication Services. Un token de acceso que se emite tiene protección de integridad. Es decir, no se pueden cambiar sus notificaciones después de que se emita. Por lo tanto, un cambio manual de propiedades, como la identidad, la expiración o los ámbitos hará que el token de acceso no sea válido. Si se usan primitivos con tokens no válidos, se denegará el acceso a los primitivos. 
+Un token de acceso es una instancia de JSON Web Token (JWT) que se puede usar para acceder a los primitivos de Azure Communication Services. Un token de acceso que se emite tiene protección de integridad. Es decir, no se pueden cambiar sus notificaciones después de que se emita. Por lo tanto, un cambio manual de propiedades, como la identidad, la expiración o los ámbitos hará que el token de acceso no sea válido. Si se usan primitivos con tokens no válidos, se denegará el acceso a los primitivos.
 
 Las propiedades de un token de acceso son:
 * Identidad
 * Expiration.
 * Ámbitos.
 
-Un token de acceso siempre es válido durante 24 horas. Después de expirar, el token de acceso se invalida y no se puede usar para acceder a ningún primitivo. 
+Un token de acceso siempre es válido durante 24 horas. Después de expirar, el token de acceso se invalida y no se puede usar para acceder a ningún primitivo.
 
 La identidad necesita una manera de solicitar un token de acceso nuevo desde un servicio del lado servidor. El parámetro *scope* define un conjunto no vacío de primitivos que se pueden usar. Azure Communication Services admite los siguientes ámbitos para los tokens de acceso.
 
@@ -69,13 +69,13 @@ La identidad necesita una manera de solicitar un token de acceso nuevo desde un 
 |VoIP|  Concede la capacidad de llamar a identidades y números de teléfono.|
 
 
-Para revocar un token de acceso antes de su expiración, puede usar la biblioteca de administración de Azure Communication Services. La revocación del token no es inmediata. Tarda hasta 15 minutos en propagarse. La eliminación de una identidad, recurso o suscripción revocará todos los tokens de acceso. 
+Para revocar un token de acceso antes de su expiración, puede usar la biblioteca de identidades de Azure Communication Services. La revocación del token no es inmediata. Tarda hasta 15 minutos en propagarse. La eliminación de una identidad, recurso o suscripción revocará todos los tokens de acceso.
 
 Si quiere eliminar la capacidad de un usuario para acceder a una funcionalidad específica, revoque todos los tokens de acceso. Después, emita un nuevo token de acceso que tenga un conjunto de ámbitos más limitado.
 
-En Azure Communication Services, una rotación de las claves de acceso revoca todos los tokens de acceso activos creados con la clave de acceso anterior. Todas las identidades pierden el acceso a Azure Communication Services y deben emitir nuevos tokens de acceso. 
+En Azure Communication Services, una rotación de las claves de acceso revoca todos los tokens de acceso activos creados con la clave de acceso anterior. Todas las identidades pierden el acceso a Azure Communication Services y deben emitir nuevos tokens de acceso.
 
-Se recomienda emitir los tokens de acceso en el servicio del servidor y no en la aplicación del cliente. El motivo es que la emisión requiere una clave de acceso o una identidad administrada. Por motivos de seguridad, no se recomienda compartir las claves de acceso con la aplicación del cliente. 
+Se recomienda emitir los tokens de acceso en el servicio del servidor y no en la aplicación del cliente. El motivo es que la emisión requiere una clave de acceso o una identidad administrada. Por motivos de seguridad, no se recomienda compartir las claves de acceso con la aplicación del cliente.
 
 La aplicación cliente debe usar un punto de conexión de servicio de confianza que pueda autenticar a los clientes. El punto de conexión debe emitir tokens de acceso en su nombre. Para más información, vea [Arquitectura de cliente y servidor](./client-and-server-architecture.md).
 

@@ -8,22 +8,24 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572036"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656200"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services se compromete a ayudar a nuestros clientes a cumplir sus requisitos sobre privacidad y datos personales. Como desarrollador que usa Communication Services con una relación directa con las personas que usan la aplicación, es posible que actúe como un controlador de sus datos. Dado que Azure Communication Services almacena estos datos en su nombre, seremos probablemente un procesador de estos datos. En esta página se resume cómo conserva los datos el servicio y cómo puede identificar, exportar y eliminar estos datos.
 
 ## <a name="data-residency"></a>Residencia de datos
 
-Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los datos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Aunque los datos pueden estar en tránsito o ser procesados en otras geografías, estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
+Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los datos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Los datos pueden estar en tránsito o procesarse en otras regiones geográficas. Estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
+
+## <a name="data-residency-and-events"></a>Residencia de datos y eventos
+
+Cualquier tema del sistema de Event Grid configurado con Azure Communication Services se creará en una ubicación global. Para respaldar unas entregas confiables, un tema global del sistema de Event Grid puede almacenar los datos de eventos en cualquier centro de datos de Microsoft. Cuando configura Event Grid con Azure Communication Services, está entregando sus datos de eventos a Event Grid, que es un recurso de Azure bajo su control. Aunque Azure Communication Services se puede configurar para que use Azure Event Grid, el usuario es responsable de administrar el recurso de Event Grid y los datos almacenados en él.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Relación de las personas con las identidades de Azure Communication Services
 
@@ -61,7 +63,7 @@ Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitame
 
 ### <a name="sms"></a>SMS
 
-El servicio procesa de forma efímera los mensajes SMS enviados y recibidos y no se conservan. 
+El servicio procesa de forma efímera los mensajes SMS enviados y recibidos y no se conservan.
 
 ### <a name="pstn-voice-calling"></a>Llamada de voz RTC
 

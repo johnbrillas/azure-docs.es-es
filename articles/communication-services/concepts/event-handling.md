@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cb253ebfd8269779adf02dcbc01d7998590ce78c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888732"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657169"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Control de eventos en Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services se integra con [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para ofrecer notificaciones de eventos en tiempo real de manera confiable, escalable y segura. Este artículo tiene como objetivo ayudarle a configurar las aplicaciones para que escuchen eventos de Communication Services. Por ejemplo, puede que quiera actualizar una base de datos, crear un elemento de trabajo y entregar una notificación de inserción al recibir un SMS de un número de teléfono asociado al recurso de Communication Services.
 
@@ -26,9 +24,12 @@ Azure Event Grid es un servicio de enrutamiento de eventos totalmente administra
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagrama que muestra el modelo de evento de Azure Event Grid.":::
 
+> [!NOTE]
+> Para más información sobre cómo se relaciona la residencia de datos con el control de eventos, visite la [documentación conceptual sobre residencia de datos](./privacy.md).
+
 ## <a name="events-types"></a>Tipos de eventos
 
-Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. 
+Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores.
 
 Azure Communication Services emite los siguientes tipos de evento:
 
@@ -204,7 +205,7 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Evento Microsoft.Communication.ChatThreadCreatedWithUser 
+### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Evento Microsoft.Communication.ChatThreadCreatedWithUser
 
 ```json
 [{
@@ -262,7 +263,7 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Evento Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser 
+### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Evento Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser
 
 ```json
 [{
