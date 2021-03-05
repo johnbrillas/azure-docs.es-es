@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 6112247a99c519aad8aadf7946c7707480b3b491
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a9f8fe10c5ffa787a6c170a29188cba21427b602
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558420"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175165"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -231,7 +231,7 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 
     Reemplace `<app-name>` por el nombre usado anteriormente en el comando `az webapp up`.
 
-    Puede conectarse alternativamente a una sesión SSH mediante el comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh). En Windows, este comando requiere la CLI de Azure 2.18.0 o posterior.
+    Puede conectarse alternativamente a una sesión SSH mediante el comando [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh). En Windows, este comando requiere la CLI de Azure 2.18.0 o posterior.
 
     Si no puede conectarse a la sesión SSH, significa que no se pudo iniciar la propia aplicación. [Compruebe los registros de diagnóstico](#6-stream-diagnostic-logs) para más información. Por ejemplo, si no ha creado la configuración de la aplicación necesaria en la sección anterior, los registros indicarán `KeyError: 'DBNAME'`.
 

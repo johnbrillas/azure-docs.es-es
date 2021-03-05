@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172416"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -127,7 +127,7 @@ Todas las ranuras escalan al mismo número de trabajos que la ranura de producci
 
 ## <a name="add-a-slot"></a>Incorporación de una ranura
 
-Una ranura se puede agregar a través de la [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) o mediante el portal. En los siguientes pasos se describe cómo crear una ranura en el portal:
+Una ranura se puede agregar a través de la [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) o mediante el portal. En los siguientes pasos se describe cómo crear una ranura en el portal:
 
 1. Vaya a la aplicación de funciones.
 
@@ -141,7 +141,7 @@ Una ranura se puede agregar a través de la [CLI](/cli/azure/functionapp/deploym
 
 ## <a name="swap-slots"></a>Intercambio de ranuras
 
-Las ranuras se pueden intercambiar a través de la [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) o mediante el portal. En los siguientes pasos se describe cómo intercambiar ranuras en el portal:
+Las ranuras se pueden intercambiar a través de la [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) o mediante el portal. En los siguientes pasos se describe cómo intercambiar ranuras en el portal:
 
 1. Vaya a la aplicación de función.
 1. Seleccione **Ranuras de implementación** y, luego, seleccione **Intercambiar**.
@@ -160,7 +160,7 @@ Si un intercambio genera errores o simplemente quiere "deshacer" un intercambio,
 
 ## <a name="remove-a-slot"></a>Eliminación de una ranura
 
-Una ranura se puede quitar a través de la [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) o mediante el portal. En los siguientes pasos se describe cómo quitar una ranura en el portal:
+Una ranura se puede quitar a través de la [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) o mediante el portal. En los siguientes pasos se describe cómo quitar una ranura en el portal:
 
 1. Vaya a **Ranuras de implementación** en la aplicación de funciones y, luego, seleccione el nombre de la ranura.
 
@@ -180,13 +180,13 @@ Una ranura se puede quitar a través de la [CLI](/cli/azure/functionapp/deployme
 
 ## <a name="automate-slot-management"></a>Automatización de la administración de ranuras
 
-Con la [CLI de Azure](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest) se pueden automatizar las siguientes acciones en una ranura:
+Con la [CLI de Azure](/cli/azure/functionapp/deployment/slot) se pueden automatizar las siguientes acciones en una ranura:
 
-- [crear](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [auto-swap](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [crear](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
+- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
+- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
+- [swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
+- [auto-swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Cambio del plan de App Service
 

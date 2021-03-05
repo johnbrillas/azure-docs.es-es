@@ -90,6 +90,8 @@
           href: vision-solution-troubleshooting.md
         - name: Solución de problemas de Azure Percept Audio
           href: troubleshoot-audio-accessory-speech-module.md
+        - name: Problemas conocidos
+          href: known-issues.md
 - name: Referencia
   items:
     - name: Fichas técnicas de los dispositivos Azure Percept

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: e28b66844eaa0b73c2654175dea2e31d3cd75f5d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900287"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172103"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Administración de grupos de recursos de Azure Resource Manager mediante la CLI de Azure
 
@@ -125,7 +125,7 @@ Después de configurar el grupo de recursos correctamente, quizás quiera ver la
 - Automatice las futuras implementaciones de la solución porque la plantilla contiene la infraestructura completa.
 - Obtenga más información sobre la sintaxis de la plantilla consultando la notación de objetos JavaScript (JSON) que representa la solución.
 
-Para exportar todos los recursos de un grupo de recursos, use [az group export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) y proporcione el nombre del grupo de recursos.
+Para exportar todos los recursos de un grupo de recursos, use [az group export](/cli/azure/group#az_group_export) y proporcione el nombre del grupo de recursos.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

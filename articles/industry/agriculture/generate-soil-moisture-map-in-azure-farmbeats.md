@@ -4,13 +4,13 @@ description: Describe cómo generar un mapa térmico de humedad del suelo en Azu
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165560"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173790"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generación de un mapa térmico de humedad del suelo
 
@@ -87,7 +87,7 @@ Siga estos pasos:
 2. Cuando el estado del trabajo muestre **Succeeded** (Correcto), haga clic en **Maps** (Mapas) en el menú.
 3. Busque el mapa por el día en que se creó con el formato <soil-moisture_miGranja_AAAA-MM-DD>.
 4. Seleccione un mapa de la columna **Name** (Nombre) y aparecerá una ventana emergente con la vista previa del mapa seleccionado.
-5. Seleccione **Descargar** . El mapa se descarga y se almacena en la carpeta local del equipo.
+5. Seleccione **Descargar**. El mapa se descarga y se almacena en la carpeta local del equipo.
 
     ![Proyecto de FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 

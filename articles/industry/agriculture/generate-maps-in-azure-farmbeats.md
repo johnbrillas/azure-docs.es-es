@@ -4,13 +4,13 @@ description: En este artículo se describe cómo generar mapas en Azure FarmBeat
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709069"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173871"
 ---
 # <a name="generate-maps"></a>Generación de mapas
 
@@ -214,7 +214,7 @@ Siga estos pasos.
     ![Selección de Filter (Filtro) en el panel de navegación izquierdo](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
 3.  Seleccione valores de **Type** (Tipo), **Date** (Fecha) y **Name** (nombre) en los menús desplegables. A continuación, seleccione **Apply** (Aplicar) para buscar el mapa que desea ver. La fecha en la que se creó el trabajo se muestra con formato tipo_nombreDeGranja_AAAA-MM-DD.
-4. Seleccione el icono **Sort** (Ordenar) junto a los encabezados de tabla para ordenar estas por**Farm** (Granja), **Date** (Fecha), **Created On** (Fecha de creación), **Job ID** (Identificador de trabajo) y **Job Type** (Tipo de trabajo).
+4. Seleccione el icono **Sort** (Ordenar) junto a los encabezados de tabla para ordenar estas por **Farm** (Granja), **Date** (Fecha), **Created On** (Fecha de creación), **Job ID** (Identificador de trabajo) y **Job Type** (Tipo de trabajo).
 5. Desplácese por la lista de mapas disponibles mediante los botones de navegación situados al final de la página.
 6. Seleccione el trabajo que desee ver. Una ventana emergente mostrará la vista previa del mapa seleccionado.
 7. Seleccione **Download** (Descargar) en el menú desplegable para seleccionar el formato de descarga. El mapa se descarga y almacena en la carpeta especificada.

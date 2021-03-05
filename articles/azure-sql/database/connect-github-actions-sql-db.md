@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 335879af93834665985fe2c14ce3cbd827387920
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606987"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172146"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Uso de Acciones de GitHub para conectarse a Azure SQL Database
 
-Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions) mediante un flujo de trabajo para implementar actualizaciones de base de datos en [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions) mediante un flujo de trabajo para implementar actualizaciones de base de datos en [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ El archivo tiene dos secciones:
 
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
-Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
+Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 Reemplace los marcadores de posición `server-name` por el nombre del servidor SQL hospedado en Azure. Reemplace `subscription-id` y `resource-group` por el identificador de suscripción y el grupo de recursos conectado a su servidor SQL.  
 
