@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 2feabda5ea3f0c0748b92de9fcb7ef05abbdcf4c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209447"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182492"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
@@ -33,16 +33,16 @@ En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
-    data_df = data.to_spark_dataframe()
+    df = data.to_spark_dataframe()
     # Display 10 rows
-    display(data_df.limit(10))
+    display(df.limit(10))
     ```
 1. En el cuaderno, en el menú **Attach to** (Asociar a), elija el grupo de Spark sin servidor **Spark1** que se creó anteriormente.
 1. Seleccione **Ejecutar** en la celda.
 1. Si solo desea ver el esquema de la trama de datos, ejecute una celda con el siguiente código:
     ```
 
-    data_df.printSchema()
+    df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carga de los datos de los taxis de Nueva York en la base de datos nyctaxi de Spark

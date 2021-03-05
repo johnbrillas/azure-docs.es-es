@@ -4,13 +4,13 @@ description: Se describe cómo configurar reglas y administrar alertas en FarmBe
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: a04f973cbfa3a68016065f50e9e2ff4f7566da94
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168552"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182934"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configuración de reglas y administración de alertas
 
@@ -79,7 +79,7 @@ Para editar una regla, siga estos pasos:
 
 9.  Seleccione el valor de **Severity level** (Nivel de gravedad).  
 10. En **Action** (Acción), active el botón de conmutación **Email enabled** (Habilitada por correo electrónico) para habilitar las alertas por correo electrónico.
-11. Edite las **direcciones de correo electrónico** a las que quiere enviar la alerta de correo electrónico, junto con la información de **Email Subject** (Asunto de correo electrónico) y **Additional Notes** (Notas adicionales).  
+11. Edite las **direcciones de correo electrónico** a las que quiere enviar la alerta de correo electrónico, junto con la información de **Email Subject** (Asunto de correo electrónico) y **Additional Notes**(Notas adicionales).  
 12. En **Rule Status** (Estado de la regla), active el botón de conmutación **Enabled** (Habilitado) para habilitar o deshabilitar la regla.
 Puede ver el número de dispositivos que resultarán afectados por esta regla.
 13. Seleccione **Apply** (Aplicar) para editar la regla.
@@ -114,4 +114,4 @@ Para eliminar una regla, siga estos pasos:
 
     ![Proyecto de FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-1.png)
 
-4. Aparece el cuadro de diálogo **Delete Rule** (Eliminar regla). Seleccione **Eliminar** .
+4. Aparece el cuadro de diálogo **Delete Rule** (Eliminar regla). Seleccione **Eliminar**.

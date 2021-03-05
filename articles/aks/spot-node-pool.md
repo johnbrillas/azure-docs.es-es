@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f838b2a78f1c6993aa247f2944d4f2a9b1e9556
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078958"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181132"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Incorporación de un grupo de nodos de Spot a un clúster de Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Al crear y administrar clústeres de AKS con un grupo de nodos de Spot se aplica
 * Los grupos de nodos de Spot deben usar Virtual Machine Scale Sets.
 * Una vez creados ScaleSetPriority y SpotMaxPrice no se pueden modificar.
 * Al establecer SpotMaxPrice, el valor debe ser -1 o un valor positivo con hasta cinco decimales.
-* Un grupo de nodos de Spot tendrá la etiqueta *kubernetes.azure.com/scalesetpriority:spot* y un valor taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* , y los pods del sistema, antiafinidad.
+* Un grupo de nodos de Spot tendrá la etiqueta *kubernetes.azure.com/scalesetpriority:spot* y un valor taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, y los pods del sistema, antiafinidad.
 * Para programar cargas de trabajo en un grupo de nodos de Spot, debe agregar el valor [toleration correspondiente][spot-toleration].
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Incorporación de un grupo de nodos de Spot a un clúster de AKS
@@ -64,7 +64,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-De forma predeterminada, al crear un clúster con varios grupos de nodos, se crea un grupo de nodos con *priority* *Regular* en el clúster de AKS. El comando anterior agrega un grupo de nodos auxiliar a un clúster de AKS existente con *priority* *Spot*. *priority* *Spot* hace que el grupo de nodos sea un grupo de nodos de Spot. El parámetro *eviction-policy* está establecido en *Delete* en el ejemplo anterior, que es el valor predeterminado. Al establecer [eviction-policy][eviction-policy] en *Delete* , los nodos del grupo de escalado subyacente del grupo de nodos se eliminan al ser expulsados. También puede establecer eviction-policy en *Deallocate*. Al establecer eviction-policy en *Deallocate* , los nodos del conjunto de escalado subyacente se establecen en estado stopped-deallocated durante la expulsión. Los nodos en estado stopped-deallocated se consideran también a efectos de la cuota de proceso, lo cual puede generar problemas de escalado o actualización del clúster. Los valores de *priority* y *eviction-policy* solo se pueden establecer durante la creación del grupo de nodos. Estos valores no se pueden actualizar más adelante.
+De forma predeterminada, al crear un clúster con varios grupos de nodos, se crea un grupo de nodos con *priority* *Regular* en el clúster de AKS. El comando anterior agrega un grupo de nodos auxiliar a un clúster de AKS existente con *priority* *Spot*. *priority* *Spot* hace que el grupo de nodos sea un grupo de nodos de Spot. El parámetro *eviction-policy* está establecido en *Delete* en el ejemplo anterior, que es el valor predeterminado. Al establecer [eviction-policy][eviction-policy] en *Delete*, los nodos del grupo de escalado subyacente del grupo de nodos se eliminan al ser expulsados. También puede establecer eviction-policy en *Deallocate*. Al establecer eviction-policy en *Deallocate*, los nodos del conjunto de escalado subyacente se establecen en estado stopped-deallocated durante la expulsión. Los nodos en estado stopped-deallocated se consideran también a efectos de la cuota de proceso, lo cual puede generar problemas de escalado o actualización del clúster. Los valores de *priority* y *eviction-policy* solo se pueden establecer durante la creación del grupo de nodos. Estos valores no se pueden actualizar más adelante.
 
 El comando también habilita el [escalador automático de clúster][cluster-autoscaler], recomendado para los grupos de nodos de Spot. En función de las cargas de trabajo que se ejecuten en el clúster, el escalador automático de clúster escala y reduce verticalmente el número de nodos del grupo. En el caso de los grupos de nodos de Spot, el escalador automático de clúster escala verticalmente el número de nodos después de una expulsión si aún se necesitan nodos adicionales. Si cambia el máximo de nodos que puede tener un grupo, también debe ajustar el valor de `maxCount` relativo al escalador automático de clúster. Si no usa un escalador automático de clúster, en la expulsión el grupo de Spot disminuirá a cero y requerirá una operación manual para recibir nodos de Spot adicionales.
 
@@ -100,7 +100,7 @@ Al implementar un pod con este valor toleration, Kubernetes programa el pod corr
 ## <a name="max-price-for-a-spot-pool"></a>Precio máximo de un grupo de Spot
 [Los precios de las instancias de Spot varían][pricing-spot] en función de la región y la SKU. Para más información, consulte los precios para [Linux][pricing-linux] y [Windows][pricing-windows].
 
-La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor *0.98765* correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en *-1* , la instancia no se expulsará según el precio. El precio de la instancia será el actual de Spot o el de una instancia estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles.
+La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor *0.98765* correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en *-1*, la instancia no se expulsará según el precio. El precio de la instancia será el actual de Spot o el de una instancia estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -113,7 +113,7 @@ En este artículo ha aprendido a agregar un grupo de nodos de Spot a un clúster
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md
