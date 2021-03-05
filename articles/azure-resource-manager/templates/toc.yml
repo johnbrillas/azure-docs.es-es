@@ -248,7 +248,7 @@
           href: template-tutorial-use-parameter-file.md
     - name: Bicep para principiantes
       items:
-        - name: '1: Creación de la primera plantilla'
+        - name: '1: creación de la primera plantilla'
           href: bicep-tutorial-create-first-bicep.md
         - name: 2. Incorporación de parámetros
           href: bicep-tutorial-add-parameters.md
@@ -328,6 +328,8 @@
       items:
         - name: Comparación de JSON con Bicep
           href: compare-template-syntax.md
+    - name: Tipos de datos
+      href: data-types.md
     - name: Preguntas más frecuentes
       href: frequently-asked-questions.md
     - name: Plantillas para mantener la coherencia en la nube
