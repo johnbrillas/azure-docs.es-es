@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350150"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179058"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
 
 Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager (plantillas de ARM). En este inicio rápido usará la extensión para crear una plantilla de ARM desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
 
-Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/?view=azure-cli-latest) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
+Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

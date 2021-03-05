@@ -4,13 +4,13 @@ description: En este artículo se describe cómo la recuperación de datos prote
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
-ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 9ece624546cab1b8b6fab8c19f4401bd050f6267
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164217"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179891"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperación ante desastres de FarmBeats
 
@@ -26,10 +26,10 @@ En las secciones siguientes se proporciona información sobre cómo configurar l
 
 ## <a name="enable-data-redundancy"></a>Habilitación de la redundancia de datos
 
-FarmBeats almacena los datos en tres servicios propios de Azure, que son **Azure Storage** , **Cosmos DB** y **Time Series Insights** . Siga estos pasos para habilitar la redundancia de datos para estos servicios en una región de Azure emparejada:
+FarmBeats almacena los datos en tres servicios propios de Azure, que son **Azure Storage**, **Cosmos DB** y **Time Series Insights**. Siga estos pasos para habilitar la redundancia de datos para estos servicios en una región de Azure emparejada:
 
-1.  **Azure Storage** : siga estas instrucciones para permitir la redundancia de datos para cada cuenta de almacenamiento de la implementación de FarmBeats.
-2.  **Azure Cosmos DB** : siga estas instrucciones para habilitar la redundancia de datos para la cuenta de Cosmos DB de la implementación de FarmBeats.
+1.  **Azure Storage**: siga estas instrucciones para permitir la redundancia de datos para cada cuenta de almacenamiento de la implementación de FarmBeats.
+2.  **Azure Cosmos DB**: siga estas instrucciones para habilitar la redundancia de datos para la cuenta de Cosmos DB de la implementación de FarmBeats.
 3.  **Azure Time Series Insights (TSI)** : TSI no ofrece actualmente la redundancia de datos. Para recuperar datos de Time Series Insights, vaya a su partner de sensores o meteorológico e inserte los datos de nuevo en la implementación de FarmBeats.
 
 ## <a name="restore-service-from-online-backup"></a>Restauración del servicio desde Online Backup

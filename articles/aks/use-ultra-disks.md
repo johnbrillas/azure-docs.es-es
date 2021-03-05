@@ -4,12 +4,12 @@ description: Aprenda a habilitar y configurar discos Ultra en un clúster de Azu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d66b806adb7285e0ce2a21d8fe9254b3dbe89bcb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900043"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178854"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service (versión preliminar)
 
@@ -32,7 +32,7 @@ Registro de `EnableUltraSSD` la marca de característica con el comando de [cara
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado* . Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
@@ -117,7 +117,7 @@ parameters:
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
 
-Cree la clase de almacenamiento con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-sc.yaml* :
+Cree la clase de almacenamiento con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-sc.yaml*:
 
 ```console
 $ kubectl apply -f azure-ultra-disk-sc.yaml
@@ -130,7 +130,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 Una notificación de volumen persistente (PVC) se usa para aprovisionar automáticamente el almacenamiento en función de una clase de almacenamiento. En este caso, un PVC puede usar la clase de almacenamiento creada anteriormente para crear un disco Ultra.
 
-Cree un archivo denominado `azure-ultra-disk-pvc.yaml` y cópielo en el siguiente código manifiesto. La notificación solicita un disco llamado `ultra-disk` que tiene un tamaño de *1000 GB* con acceso *ReadWriteOnce* . La clase de almacenamiento *ultra-disk-sc* se especifica como la clase de almacenamiento.
+Cree un archivo denominado `azure-ultra-disk-pvc.yaml` y cópielo en el siguiente código manifiesto. La notificación solicita un disco llamado `ultra-disk` que tiene un tamaño de *1000 GB* con acceso *ReadWriteOnce*. La clase de almacenamiento *ultra-disk-sc* se especifica como la clase de almacenamiento.
 
 ```yaml
 apiVersion: v1
@@ -146,7 +146,7 @@ spec:
       storage: 1000Gi
 ```
 
-Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-pvc.yaml* :
+Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-pvc.yaml*:
 
 ```console
 $ kubectl apply -f azure-ultra-disk-pvc.yaml
@@ -246,8 +246,8 @@ Events:
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -43,10 +43,6 @@
           href: tutorial-sql-server-to-managed-instance.md
         - name: a Instancia administrada de Azure SQL (en línea)
           href: tutorial-sql-server-managed-instance-online.md
-    - name: Migración de SQL Server de RDS
-      items:
-        - name: a Azure SQL Database o Instancia administrada de SQL
-          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: Migración de MySQL
       items:
         - name: a Azure Database for MySQL
@@ -137,8 +133,6 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Problemas de migración conocidos
           items:
-            - name: SQL Database
-              href: known-issues-azure-sql-online.md
             - name: Instancia administrada de SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
             - name: Base de datos MySQL en Azure

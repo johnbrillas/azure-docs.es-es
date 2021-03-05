@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cca8a93330e5ddd965d27532895ed1d6702c123
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881018"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179653"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
 
@@ -125,7 +125,7 @@ Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--inclu
 
 También puede excluir archivos mediante la opción `--exclude-pattern`. Para más información, consulte los documentos de referencia de [azcopy copy ](storage-ref-azcopy-copy.md).
 
-Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de archivo, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto que existen en un árbol de directorios, use la opción `–recursive` para obtener todo el árbol de directorios y, a continuación, use el `–include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
+Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de archivo, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto que existen en un árbol de directorios, use la opción `--recursive` para obtener todo el árbol de directorios y, a continuación, use el `--include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
 
 #### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Carga de archivos modificados después de una fecha y hora 
 
@@ -220,7 +220,7 @@ Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--inclu
 
 También puede excluir archivos mediante la opción `--exclude-pattern`. Para más información, consulte los documentos de referencia de [azcopy copy ](storage-ref-azcopy-copy.md).
 
-Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de archivo, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto que existen en un árbol de directorios, use la opción `–recursive` para obtener todo el árbol de directorios y, a continuación, use el `–include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
+Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de archivo, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto que existen en un árbol de directorios, use la opción `--recursive` para obtener todo el árbol de directorios y, a continuación, use el `--include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
 
 #### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Descarga de archivos modificados después de una fecha y hora 
 

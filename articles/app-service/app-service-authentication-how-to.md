@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 50587feff29e1c02a639d63d0c99156dcec4f68e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630334"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180877"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -648,7 +648,7 @@ Para ver la versión actual del middleware de autenticación de la plataforma, u
 
 ##### <a name="from-the-azure-cli"></a>Desde la CLI de Azure
 
-En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show).
+En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show).
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -679,7 +679,7 @@ También puede consultar el punto de conexión de /.auth/version en una aplicaci
 
 #### <a name="update-the-current-runtime-version"></a>Actualización de la versión de tiempo de ejecución
 
-En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update).
+En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update).
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

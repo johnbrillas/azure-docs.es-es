@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/19/2019
-ms.openlocfilehash: 8298c673ddc707130d0873f686e1baed3677a46f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 68fa089713c3dd89b4699011ded7d667bca6f73f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593960"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178090"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adición de una base de datos de Azure SQL Database a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
 - Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
-- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli).
 
 ---
 
@@ -199,7 +199,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor que hospeda las bases de datos y los grupos elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea las reglas de firewall de un servidor. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crea un grupo de conmutación por error. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crea un grupo de conmutación por error. |
 
 ---
 
@@ -322,8 +322,8 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 
 | Get-Help | Notas |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Enumera los grupos de conmutación por error de un servidor. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Enumera los grupos de conmutación por error de un servidor. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
 
 ---
 
@@ -409,14 +409,14 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Establece una suscripción como la suscripción activa actual. |
+| [az account set](/cli/azure/account#az-account-set) | Establece una suscripción como la suscripción activa actual. |
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor que hospeda bases de datos únicas y grupos elásticos en Azure SQL Database. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea reglas de firewall de IP en el nivel de servidor en Azure SQL Database. |
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest&preserve-view=true) | Crea una base de datos en Azure SQL Database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create&preserve-view=true) | Crea un grupo de conmutación por error en Azure SQL Database. |
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list&preserve-view=true) | Enumera los grupos de conmutación por error en un servidor en Azure SQL Database. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary&preserve-view=true) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
+| [az sql db create](/cli/azure/sql/db) | Crea una base de datos en Azure SQL Database. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Crea un grupo de conmutación por error en Azure SQL Database. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Enumera los grupos de conmutación por error en un servidor en Azure SQL Database. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
 | [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 # <a name="the-portal"></a>[Portal](#tab/azure-portal)

@@ -1,17 +1,17 @@
 ---
 title: Detección de anomalías en Azure Stream Analytics
 description: En este artículo se describe cómo usar Azure Stream Analytics y Azure Machine Learning conjuntamente para detectar anomalías.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 78730b011e508f98779b9e00624882466d6a03a0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020305"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178513"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
@@ -132,14 +132,14 @@ En la siguiente tabla se incluyen las observaciones de rendimiento para un solo 
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2200 |
 | 600 | 728 | 1650 |
-| 6,000 | 10 910 | 1100 |
+| 6,000 | 10 910 | 1 100 |
 
 En la siguiente tabla se incluyen las observaciones de rendimiento para un solo nodo (6 SU) para el caso con particiones:
 
 | Tamaño del historial (eventos) | Duración de la ventana (ms) | Total de eventos de entrada por segundo | Recuento de dispositivos |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1091 | 1100 | 10 |
-| 600 | 10 910 | 1100 | 10 |
+| 60 | 1091 | 1 100 | 10 |
+| 600 | 10 910 | 1 100 | 10 |
 | 6,000 | 218 182 | <550 | 10 |
 | 60 | 21 819 | 550 | 100 |
 | 600 | 218 182 | 550 | 100 |

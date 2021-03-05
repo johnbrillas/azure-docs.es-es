@@ -1,18 +1,18 @@
 ---
 title: Integración de Azure Stream Analytics con Azure Machine Learning Studio (versión clásica)
 description: En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning Studio (versión clásica) mediante una función definida por el usuario.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 89b1b91270d1fe30ffcb5ae0caa5f319aa616683
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015307"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178531"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realización de análisis de opinión con Azure Stream Analytics y Azure Machine Learning Studio (clásico)
 
@@ -46,7 +46,7 @@ En este paso, cargará un archivo CSV en el contenedor de almacenamiento.
 
 2. Rellene la pestaña *Aspectos básicos* con los detalles siguientes y deje los valores predeterminados en el resto de campos:
 
-   |Campo  |Value  |
+   |Campo  |Valor  |
    |---------|---------|
    |Subscription|Elija su suscripción.|
    |Resource group|Elija el grupo de recursos.|

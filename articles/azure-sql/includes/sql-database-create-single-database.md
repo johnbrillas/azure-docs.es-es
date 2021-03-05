@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682418"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178085"
 ---
 En este paso, se crea un [servidor de SQL Server lógico](../database/logical-servers.md) y una [base de datos única](../database/single-database-overview.md) que use los datos de ejemplo de AdventureWorksLT. Puede crear la base de datos mediante menús y pantallas de Azure Portal, o mediante un script de la CLI de Azure o de PowerShell en Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ El código anterior usa estos comandos de la CLI de Azure:
 
 | Get-Help | Descripción |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Establece una suscripción como la suscripción activa actual. |
+| [az account set](/cli/azure/account#az-account-set) | Establece una suscripción como la suscripción activa actual. |
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor que hospeda las bases de datos y los grupos elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Crea una regla de firewall en el nivel de servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Crea una base de datos. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Crea una base de datos. |
 
 Para obtener más ejemplos de la CLI de Azure de Azure SQL Database, consulte [Ejemplos de la CLI de Azure](../database/az-cli-script-samples-content-guide.md).
 
