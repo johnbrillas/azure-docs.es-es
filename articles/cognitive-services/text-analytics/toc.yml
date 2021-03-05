@@ -91,7 +91,7 @@
 - name: Referencia
   items:
     - name: Referencia sobre la CLI
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Referencia de PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Text Analytics API

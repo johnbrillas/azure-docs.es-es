@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660764"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048628"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configuración de la ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ En los pasos siguientes se establece la ventana de mantenimiento en una base de 
 1. Navegue hasta la instancia administrada para la que desea establecer la ventana de mantenimiento.
 1. En el menú **Configuración**, seleccione **Mantenimiento** y, a continuación, seleccione la ventana de mantenimiento deseada.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Página Mantenimiento de la base de datos SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Página de mantenimiento de instancia administrada de SQL":::
 
 
 

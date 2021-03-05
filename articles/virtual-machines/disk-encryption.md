@@ -2,18 +2,18 @@
 title: Cifrado del lado servidor de Azure Managed Disks
 description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede usar las claves administradas por el cliente para administrar el cifrado con sus propias claves, o bien puede utilizar las claves administradas por Microsoft para el cifrado de los discos administrados.
 author: roygara
-ms.date: 10/22/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a1fbd536943023d3e6724b9c1638f7a0bd97d847
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677441"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036952"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -66,6 +66,8 @@ La rotación automática de claves está en versión preliminar y solo está dis
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
+Para habilitar las claves administradas por el cliente en los discos administrados, consulte nuestros artículos sobre cómo llevarlo a cabo con el [módulo de Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), la [CLI de Azure](linux/disks-enable-customer-managed-keys-cli.md) o [Azure Portal](disks-enable-customer-managed-keys-portal.md). Para obtener información sobre cómo habilitar las claves administradas por el cliente con la rotación automática de claves, consulte [Configuración de Azure Key Vault y DiskEncryptionSet con rotación de claves automática (versión preliminar)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Cifrado en el host: cifrado de un extremo a otro de los datos de la máquina virtual
 
 Al habilitar el cifrado en el host, dicho cifrado se inicia en el host de VM mismo, el servidor de Azure al que está asignada la máquina virtual. Los datos de las caché de disco temporal y de disco de datos/SO se almacenan en el host de VM. Después de habilitar el cifrado en el host, todos estos datos se cifran en reposo y los flujos se cifran en el servicio de almacenamiento, donde se conservan. Esencialmente, el cifrado en el host cifra los datos de un extremo a otro. El cifrado en el host no usa la CPU de la VM y no afecta el rendimiento de la VM. 
@@ -84,6 +86,8 @@ Los discos temporales y los discos de SO efímeros se cifran en reposo con clave
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
+Para habilitar el cifrado de un extremo a otro mediante el cifrado en el host, consulte los artículos que explican cómo hacerlo con el [módulo de Azure PowerShell](windows/disks-enable-host-based-encryption-powershell.md), la [CLI de Azure](linux/disks-enable-host-based-encryption-cli.md) o [Azure Portal](disks-enable-host-based-encryption-portal.md).
+
 ## <a name="double-encryption-at-rest"></a>Cifrado doble en reposo
 
 Los clientes confidenciales de alto nivel de seguridad que están preocupados por el riesgo asociado a cualquier algoritmo de cifrado, implementación o clave en peligro concretos pueden optar por una capa adicional de cifrado con un algoritmo o modo de cifrado diferente en el nivel de infraestructura mediante claves de cifrado administradas por la plataforma. Esta capa nueva se puede aplicar a discos de datos y de sistema operativo persistentes, instantáneas e imágenes, los cuales se cifrarán en reposo con el cifrado doble.
@@ -91,6 +95,8 @@ Los clientes confidenciales de alto nivel de seguridad que están preocupados po
 ### <a name="supported-regions"></a>Regiones admitidas
 
 El doble cifrado está disponible en todas las regiones en las que están disponibles los discos administrados.
+
+Para habilitar el cifrado doble en reposo para los discos administrados, consulte nuestros artículos sobre cómo llevarlo a cabo con el [módulo de Azure PowerShell](windows/disks-enable-double-encryption-at-rest-powershell.md), la [CLI de Azure](linux/disks-enable-double-encryption-at-rest-cli.md) o [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Cifrado del lado servidor frente a Azure Disk Encryption
 

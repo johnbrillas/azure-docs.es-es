@@ -1,6 +1,6 @@
 - name: Grupo de SQL dedicado (anteriormente SQL DW)
   href: sql-data-warehouse-overview-what-is.md
-- name: Cambio a Azure Synapse
+- name: "Cambio a Azure Synapse\_>"
   href: ../overview-what-is.md
 - name: Información general
   items:

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071705"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198547"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -48,7 +48,7 @@ En esta sección se explica cómo crear estos puntos de conexión mediante la CL
 
 ### <a name="create-the-endpoint"></a>Creación del punto de conexión
 
-Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para la [CLI de Azure Digital Twins](how-to-use-cli.md). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
+Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. En los siguientes ejemplos se muestra cómo crear puntos de conexión con el comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md). Reemplace los marcadores de posición de los comandos con los detalles de los recursos propios.
 
 Para crear un punto de conexión de Event Grid:
 
@@ -119,7 +119,7 @@ Siga los pasos que se indican a continuación para configurar estos recursos de 
     
 #### <a name="create-the-dead-letter-endpoint"></a>Creación del punto de conexión de cola de mensajes fallidos
 
-Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Para crear un punto de conexión que tenga habilitada la cola de mensajes fallidos, agregue el siguiente parámetro de cola de mensajes fallidos al comando [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) para la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 El valor del parámetro es el **URI de SAS de cola de mensajes fallidos** formado por el nombre de la cuenta de almacenamiento, el nombre del contenedor y el token de SAS que ha recopilado en la [sección anterior](#set-up-storage-resources). Este parámetro crea el punto de conexión con la autenticación basada en claves.
 
@@ -204,7 +204,7 @@ Si no hay ningún nombre de ruta, no se enruta ningún mensaje fuera de Azure Di
 
 Una ruta debe permitir que se seleccionen varias notificaciones y tipos de evento. 
 
-Las rutas de eventos se pueden crear con las [API de plano de datos **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los [comandos **az dt route** de la CLI](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). En el resto de esta sección se le guía a través del proceso de creación.
+Las rutas de eventos se pueden crear con las [API de plano de datos **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) de Azure Digital Twins o los [comandos **az dt route** de la CLI](/cli/azure/ext/azure-iot/dt/route). En el resto de esta sección se le guía a través del proceso de creación.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creación de rutas con las API y el SDK de C#
 
@@ -225,7 +225,7 @@ En el método de ejemplo siguiente se muestra cómo crear, enumerar y eliminar u
 
 ### <a name="create-routes-with-the-cli"></a>Creación de rutas con la CLI
 
-Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) de la CLI de Azure Digital Twins. 
+Las rutas también se pueden administrar mediante los comandos [az dt route](/cli/azure/ext/azure-iot/dt/route) de la CLI de Azure Digital Twins. 
 
 Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 

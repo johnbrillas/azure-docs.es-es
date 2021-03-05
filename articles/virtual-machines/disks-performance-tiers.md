@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 429845aa22b6d069b8d7233132de8eb3b24b2985
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674924"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043684"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>El nivel de rendimiento se puede cambiar mediante el módulo Azure PowerShell o la CLI de Azure
 
@@ -117,7 +117,7 @@ $disk.Tier
 
 ## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Cambio del nivel de rendimiento de un disco sin que haya tiempo de inactividad (versión preliminar)
 
-También puede cambiar el nivel de rendimiento sin tiempo de inactividad, por lo que no es preciso desasignar la máquina virtual ni desasociar el disco para cambiar el nivel. Para obtener más información y el vínculo de registro para la versión preliminar, consulte la sección [Cambio del nivel de rendimiento sin que haya tiempo de inactividad (versión preliminar)](#changing-performance-tier-without-downtime-preview).
+También puede cambiar el nivel de rendimiento sin tiempo de inactividad, por lo que no es preciso desasignar la máquina virtual ni desasociar el disco para cambiar el nivel. Para obtener más información y el vínculo de registro para la versión preliminar, consulte la sección [Cambio del nivel de rendimiento sin que haya tiempo de inactividad (versión preliminar)](#change-performance-tier-without-downtime-preview).
 
 
 El siguiente script actualizará el nivel de un disco a un nivel superior al de la linea base mediante la plantilla de ejemplo [CreateUpdateDataDiskWithTier.jsen](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Reemplace `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>` y `<yourDesiredPerformanceTier>`, y, después, ejecute el script:

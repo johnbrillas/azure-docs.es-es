@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f441a1cf97c069c4755b436bbb8cb9268b469eb3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199754"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
 
@@ -282,7 +282,7 @@ Inicie sesión en su cuenta de [Power BI](https://powerbi.microsoft.com/). Vaya 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Uso de la CLI de Azure para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group#az-group-delete). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

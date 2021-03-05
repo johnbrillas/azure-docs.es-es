@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3540204d66bb589c567514f92a9a8acb2159e343
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041695"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Instalación de Azure Percept DK e implementación del primer modelo de inteligencia artificial
 
@@ -205,8 +205,6 @@ Si desea crear una suscripción, siga [estos pasos](https://docs.microsoft.com/a
     
 1. Implemente una nuevo ejemplo pregenerado en el dispositivo conectado. Seleccione un ejemplo de la biblioteca y haga clic en "Deploy to Device" (Implementar en el dispositivo).
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Selección de un ejemplo pregenerado.":::
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Ver detección de objetos en acción.":::
 
 ## <a name="next-steps"></a>Pasos siguientes

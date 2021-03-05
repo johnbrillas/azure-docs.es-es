@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5d26d36c9f4ecb4aa0c7114b1ebef066e104f175
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278128"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198870"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configuración del motor de reglas
 
@@ -58,7 +58,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Configuración del motor de reglas en la CLI de Azure
 
-1. Si aún no lo ha hecho, instale la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Agregue la extensión "front-Door":- az extension add --name front-door. A continuación, inicie sesión y cambie a la suscripción: az account set --subscription <nombre_o_Id>.
+1. Si aún no lo ha hecho, instale la [CLI de Azure](/cli/azure/install-azure-cli). Agregue la extensión "front-Door":- az extension add --name front-door. A continuación, inicie sesión y cambie a la suscripción: az account set --subscription <nombre_o_Id>.
 
 1. Empiece por crear un motor de reglas: este ejemplo muestra una regla con una acción basada en el encabezado y una condición de coincidencia. 
 
@@ -96,7 +96,7 @@ En este tutorial, aprenderá a:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Para más información, puede encontrar una lista completa de los comandos del motor de reglas de Azure Front Door [aquí](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest).   
+Para más información, puede encontrar una lista completa de los comandos del motor de reglas de Azure Front Door [aquí](/cli/azure/ext/front-door/network/front-door/rules-engine).   
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -108,11 +108,11 @@ En los pasos anteriores, ha configurado y asociado la configuración del motor d
 
 1. Desactive todas las reglas de enrutamiento a las que está asociada esta configuración del motor de reglas y haga clic en Guardar.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Asociación de reglas de enrutamiento":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Asociación de la regla de enrutamiento":::
 
 1. Ahora puede eliminar la configuración del motor de reglas de Front Door.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Asociación de reglas de enrutamiento":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Eliminación de la configuración del motor de reglas":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

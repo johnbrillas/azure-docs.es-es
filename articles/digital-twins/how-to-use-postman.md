@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715707"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199669"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -21,7 +21,7 @@ ms.locfileid: "101715707"
 
 En este artículo se describe cómo configurar el [cliente REST de Postman](https://www.getpostman.com/) para interactuar con las API de Azure Digital Twins. Para ello, es preciso seguir estos pasos:
 
-1. Use la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para obtener un token de portador que usará para realizar solicitudes de API en Postman.
+1. Use la [CLI de Azure](/cli/azure/install-azure-cli) para obtener un token de portador que usará para realizar solicitudes de API en Postman.
 1. Configure una colección de Postman y configure el cliente de REST de Postman para que use el token de portador para la autenticación.
 1. Use la versión de Postman configurada para crear y enviar una solicitud a las API de Azure Digital Twins.
 
@@ -41,9 +41,9 @@ A continuación, descargue la versión de escritorio del cliente de Postman. Vay
 
 Ahora que ha configurado Postman y su instancia de Azure Digital Twins, deberá obtener un token de portador que las solicitudes de Postman puedan usar para la autorización en las API de Azure Digital Twins.
 
-Este token se puede obtener de varias formas. En este artículo se usa la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para iniciar sesión en su cuenta de Azure y obtener así un token.
+Este token se puede obtener de varias formas. En este artículo se usa la [CLI de Azure](/cli/azure/install-azure-cli) para iniciar sesión en su cuenta de Azure y obtener así un token.
 
-Si tiene una CLI de Azure [instalada localmente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), puede iniciar un símbolo del sistema en la máquina para ejecutar los siguientes comandos.
+Si tiene una CLI de Azure [instalada localmente](/cli/azure/install-azure-cli), puede iniciar un símbolo del sistema en la máquina para ejecutar los siguientes comandos.
 De lo contrario, puede abrir una ventana de [Azure Cloud Shell](https://shell.azure.com) en el explorador y ejecutar los comandos en ella.
 
 1. En primer lugar, asegúrese de que ha iniciado sesión en Azure con las credenciales apropiadas. Para ello, ejecute este comando:
@@ -52,7 +52,7 @@ De lo contrario, puede abrir una ventana de [Azure Cloud Shell](https://shell.az
     az login
     ```
 
-1. Luego, use el comando [az account get-access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) para obtener un token de portador con acceso al servicio Azure Digital Twins.
+1. Luego, use el comando [az account get-access-token](/cli/azure/account#az_account_get_access_token) para obtener un token de portador con acceso al servicio Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

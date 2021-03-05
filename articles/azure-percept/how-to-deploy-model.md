@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6e1ed39edfd3c395fbc3e4d26a4aa358d48a1d5b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 01bd3709050d8a2b57c1bf51920308188546fb31
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660601"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035490"
 ---
 # <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Implementación de un modelo de IA de visión en Azure Percept DK
 
@@ -40,13 +40,11 @@ Siga esta guía para implementar un modelo de IA de visión en Azure Percept DK
 
 1. En la página siguiente, haga clic en **Deploy a sample model** (Implementar un modelo de ejemplo) si desea implementar uno de los modelos de visión de ejemplo previamente entrenados. Si desea implementar una [solución de visión sin código personalizada](./tutorial-nocode-vision.md) existente, haga clic en **Deploy a Custom Vision project** (Implementar un proyecto de Custom Vision).
 
-    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Lista de dispositivos Percept.":::
+    :::image type="content" source="./media/how-to-deploy-model/deploy-model.png" alt-text="Opciones de modelo para la implementación.":::
 
 1. Si ha optado por implementar una solución sin código, seleccione el proyecto y la iteración del modelo que prefiera y haga clic en **Deploy** (Implementar).
 
 1. Si ha optado por implementar un modelo de ejemplo, seleccione el modelo y haga clic en **Deploy to device** (Implementar en el dispositivo).
-
-    :::image type="content" source="./media/how-to-deploy-model/select-sample-model.png" alt-text="Lista de dispositivos Percept.":::
 
 1. Cuando la implementación del modelo se realice correctamente, recibirá un mensaje de estado en la esquina superior derecha de la pantalla. Para ver la inferencia del modelo en acción, haga clic en el vínculo **View stream** (Ver flujo) en el mensaje de estado para ver la secuencia de vídeo RTSP del módulo de sistema de visión de su dispositivo DevKit.
 

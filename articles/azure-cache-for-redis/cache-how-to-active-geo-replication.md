@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: d52998e477e44f89a35a70f7e2b5d49cbc68e386
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: edf7a7cdbd24249205fedb4654aa092755700910
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660488"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035660"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configuración de la replicación geográfica activa para las instancias de Azure Cache for Redis Enterprise (versión preliminar)
 
@@ -36,7 +36,7 @@ La replicación geográfica activa agrupa dos o más instancias de Azure Cache f
 
 1. Haga clic en **Configurar** para finalizar.
 
-    ![Vincular cachés](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
+    ![Replicación geográfica activa configurada](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
 1. Repita los pasos anteriores para cada instancia de caché adicional en el grupo de replicación geográfica.
 

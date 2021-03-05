@@ -3,12 +3,12 @@ title: Dominios de eventos de Azure Event Grid
 description: En este artículo se describe cómo usar dominios de eventos para administrar el flujo de eventos personalizados a sus diversas organizaciones empresariales, clientes o aplicaciones.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328834"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198683"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -25,15 +25,8 @@ Un dominio de eventos es una herramienta de administración para un gran número
 
 Los dominios de eventos ponen a su disposición la misma arquitectura que usan los servicios de Azure (por ejemplo, Storage e IoT Hub) para publicar sus eventos. Le permiten publicar eventos en miles de temas. Los dominios también proporcionan control de autenticación y autorización sobre cada tema para que pueda dividir los inquilinos.
 
-### <a name="example-use-case"></a>Ejemplo de caso de uso
-
-Los dominios de eventos se explican más fácilmente con un ejemplo. Supongamos que dirige Contoso Construction Machinery, donde se encarga de fabricar tractores, equipos de excavación y otra maquinaria pesada. Entre las tareas de la empresa se incluye el envío de información en tiempo real a los clientes sobre el mantenimiento de los equipos, el estado de los sistemas y las actualizaciones de contratos. Toda esta información llega a diferentes puntos de conexión, entre los que están su aplicación, los puntos de conexión de los clientes y otras infraestructuras que estos han configurado.
-
-Los dominios de eventos le permiten modelar Contoso Construction Machinery como una única entidad de creación de eventos. Cada uno de los clientes se representa como un tema dentro del dominio. La autenticación y la autorización se controlan mediante Azure Active Directory. Cada uno de los clientes puede suscribirse a su tema para recibir eventos relacionados. El acceso administrado a través del dominio de eventos garantiza que solo pueden acceder a su tema.
-
-También le ofrece un punto de conexión único, en el que puede publicar todos sus eventos de cliente. Event Grid se encarga de asegurarse de que cada tema solo esté al tanto de los eventos asignados a su inquilino.
-
-![Ejemplo de Contoso Construction](./media/event-domains/contoso-construction-example.png)
+## <a name="example-use-case"></a>Ejemplo de caso de uso
+[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>Administración de acceso
 
@@ -107,6 +100,8 @@ Si estos límites no son los adecuados para usted, póngase en contacto con el e
 Los dominios de eventos usan el mismo [precio por operaciones](https://azure.microsoft.com/pricing/details/event-grid/) que el resto de características de Event Grid.
 
 Las operaciones funcionan igual en dominios de eventos que en temas personalizados. Cada entrada de un evento a un dominio de eventos es una operación, y cada intento de entrega de un evento es una operación.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 0af868f62f9bc62ee6b4b2a10d16f8eed632b6d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693652"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creación de consultas semánticas en Cognitive Search
 
@@ -22,7 +22,7 @@ ms.locfileid: "101678923"
 
 En este artículo, aprenderá a formular una solicitud de búsqueda que usa la clasificación semántica y generará subtítulos y respuestas semánticos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Un servicio de búsqueda en un nivel Estándar (S1, S2, S3), ubicado en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Europa del Norte y Oeste de Europa. Si tiene un servicio S1 o superior en una de estas regiones, puede solicitar acceso sin tener que crear un servicio.
 
@@ -82,7 +82,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formulación de la solicitud
 
-1. Establezca "queryType" en "semantic" y "queryLanguage" en "en-us. Ambos parámetros son obligatorios.
+1. Establezca **`"queryType"`** en "semantic" y **`"queryLanguage"`** en "en-us". Ambos parámetros son obligatorios.
 
    El parámetro queryLanguage debe ser coherente con los [analizadores del lenguaje](index-add-language-analyzers.md) asignados a las definiciones de campo en el esquema de índice. Si queryLanguage es "en-us", todos los analizadores del lenguaje también deben tener una variante inglesa ("en.microsoft" o "en.lucene"). Los analizadores independientes del lenguaje, como Keyword o Simple, no tienen ningún conflicto con los valores de queryLanguage.
 
@@ -90,7 +90,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Aunque el contenido de un índice de búsqueda puede estar redactado en varios idiomas, es más probable que la entrada de la consulta lo esté en uno. El motor de búsqueda no comprueba la compatibilidad de queryLanguage, el analizador del lenguaje ni el idioma en que está redactado el contenido, por lo que debe asegurarse de establecer el ámbito de las consultas en consecuencia para evitar que se generen resultados incorrectos.
 
-1. Aunque es opcional, se recomienda establecer "searchFields".
+<a name="searchfields"></a>
+
+1. Establezca **`"searchFields"`** (opcional, pero recomendable).
 
    En una consulta semántica, el orden de los campos en "searchFields" refleja la prioridad o la importancia relativa del campo en las clasificaciones semánticas. Solo se usan campos de cadena de nivel superior (solos o de una colección). Dado que searchFields se comporta de forma diferente en las consultas de Lucene simples y completas (donde no hay un orden de prioridad implícito), otros campos y subcampos que no sean de cadena no producirán un error, pero tampoco se usarán en la clasificación semántica.
 
@@ -104,9 +106,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + Si no se especifica ningún campo, todos los campos de búsqueda se tienen en cuenta para la clasificación semántica de los documentos. Sin embargo, esta opción no se recomienda, ya que puede que el índice de búsqueda no produzca los resultados más óptimos.
 
-1. Quite las cláusulas "orderBy", si las hay en una solicitud existente. La puntuación semántica se usa para ordenar los resultados y, si incluye la lógica de ordenación explícita, se devuelve un error HTTP 400.
+1. Quite las cláusulas **`"orderBy"`** , si las hay en una solicitud existente. La puntuación semántica se usa para ordenar los resultados y, si incluye la lógica de ordenación explícita, se devuelve un error HTTP 400.
 
-1. Opcionalmente, agregue el parámetro "answers" establecido en "extractive" y especifique el número de respuestas si quiere más de 1.
+1. Opcionalmente, agregue el parámetro **`"answers"`** establecido en "extractive" y especifique el número de respuestas si quiere más de 1.
 
 1. También tiene la opción de personalizar el estilo de resaltado que se aplica a los subtítulos. Los subtítulos aplican el formato de resaltado sobre los pasajes principales del documento que resumen la respuesta. El valor predeterminado es `<em>`. Si quiere especificar el tipo de formato (por ejemplo, fondo amarillo), puede establecer los parámetros highlightPreTag y highlightPostTag.
 

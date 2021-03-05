@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558953"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198326"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -53,13 +53,13 @@ Para usar una identidad administrada, la identidad debe tener acceso a uno o má
 
 En los ejemplos de este artículo se usa una identidad administrada de Azure Container Instances para acceder a un secreto de Azure Key Vault. 
 
-En primer lugar, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) siguiente:
+En primer lugar, cree un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* con el comando [az group create](/cli/azure/group#az-group-create) siguiente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Use el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
+Use el comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) para crear un almacén de claves. Asegúrese de especificar un nombre de almacén de claves único. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Almacene un secreto de ejemplo en el almacén de claves con el comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set):
+Almacene un secreto de ejemplo en el almacén de claves con el comando [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Continúe con los siguientes ejemplos para acceder al almacén de claves mediant
 
 ### <a name="create-an-identity"></a>Creación de una identidad
 
-En primer lugar, cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). Puede usar el mismo grupo de recursos empleado para crear el almacén de claves o uno diferente.
+En primer lugar, cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az-identity-create). Puede usar el mismo grupo de recursos empleado para crear el almacén de claves o uno diferente.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Para utilizar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) para almacenar en variables los identificadores de la entidad de servicio y del recurso de la identidad.
+Para utilizar la identidad en los pasos siguientes, use el comando [az identity show](/cli/azure/identity#az-identity-show) para almacenar en variables los identificadores de la entidad de servicio y del recurso de la identidad.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -109,7 +109,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Concesión de acceso a la identidad asignada por el usuario al almacén de claves
 
-Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad asignada por el usuario obtenga secretos del almacén de claves:
+Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault) siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad asignada por el usuario obtenga secretos del almacén de claves:
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -121,7 +121,7 @@ Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-l
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Habilitación de una identidad asignada por el usuario en un grupo de contenedores
 
-Ejecute el siguiente comando [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. En esta sección, solo se usa el sistema operativo base. Puede encontrar un ejemplo de cómo usar la CLI de Azure en el contenedor en [Habilitación de la identidad asignada por el sistema en un grupo de contenedores](#enable-system-assigned-identity-on-a-container-group). 
+Ejecute el siguiente comando [az container create](/cli/azure/container#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. En esta sección, solo se usa el sistema operativo base. Puede encontrar un ejemplo de cómo usar la CLI de Azure en el contenedor en [Habilitación de la identidad asignada por el sistema en un grupo de contenedores](#enable-system-assigned-identity-on-a-container-group). 
 
 El parámetro `--assign-identity` pasa la identidad administrada asignada por el usuario al grupo. El comando de ejecución prolongada mantiene el contenedor en ejecución. En este ejemplo se usa el mismo grupo de recursos empleado para crear el almacén de claves, pero puede especificarse otro distinto.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show).
+En unos segundos, debería recibir una respuesta de la CLI de Azure que indica que la implementación ha finalizado. Compruebe su estado con el comando [az container show](/cli/azure/container#az-container-show).
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ La respuesta será similar a la siguiente, que muestra el secreto. En el código
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Habilitación de una identidad asignada por el sistema en un grupo de contenedores
 
-Ejecute el siguiente comando [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. 
+Ejecute el siguiente comando [az container create](/cli/azure/container#az-container-create) para crear una instancia de contenedor basada en la imagen `azure-cli` de Microsoft. En este ejemplo se proporciona un solo grupo de contenedores que puede usarse para ejecutar de forma interactiva la CLI de Azure con el fin de acceder a otros servicios de Azure. 
 
 El parámetro `--assign-identity` sin ningún valor adicional habilita una identidad administrada asignada por el sistema en el grupo. El ámbito de la identidad es el grupo de recursos del grupo de contenedores. El comando de ejecución prolongada mantiene el contenedor en ejecución. En este ejemplo se usa el mismo grupo de recursos empleado para crear el almacén de claves, que se encuentra en el ámbito de la identidad.
 
@@ -255,7 +255,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Concesión de acceso al grupo de contenedores al almacén de claves
 
-Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad administrada asignada por el sistema obtenga secretos del almacén de claves:
+Ejecute el comando [az keyvault set-policy](/cli/azure/keyvault) siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad administrada asignada por el sistema obtenga secretos del almacén de claves:
 
 ```azurecli-interactive
  az keyvault set-policy \

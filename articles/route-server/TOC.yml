@@ -6,6 +6,8 @@
       href: overview.md
 - name: Guías de inicio rápido
   items:
+    - name: 'Configuración de una instancia de Azure Route Server: Azure Portal'
+      href: quickstart-configure-route-server-portal.md
     - name: 'Configuración de una instancia de Azure Route Server: PowerShell'
       href: quickstart-configure-route-server-powershell.md
     - name: 'Configuración de una instancia de Azure Route Server: CLI'

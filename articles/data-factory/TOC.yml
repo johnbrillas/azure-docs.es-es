@@ -704,6 +704,8 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
           href: tumbling-window-trigger-dependency.md
+        - name: Referencia de metadatos de desencadenador en canalización
+          href: how-to-use-trigger-parameterization.md
     - name: Data Catalog y gobernanza
       items:
         - name: Conexión de Data Factory a Azure Purview

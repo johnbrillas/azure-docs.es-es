@@ -28,6 +28,8 @@
           href: dns-forwarding.md
     - name: Storage
       items:
+        - name: Cifrado de PVC con una clave administrada por el cliente (versión preliminar)
+          href: howto-encrypt-data-disks.md
         - name: Creación de una clase de Azure Files Storage
           href: howto-create-a-storageclass.md
         - name: Uso del registro de contenedor integrado

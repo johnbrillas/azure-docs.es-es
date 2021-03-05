@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 20e7998b4d0ec5a36f8fb8f1ddb04d591c54542b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 4671880490a9ce9e29f49ede0e7687bdcf639a7e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624276"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199805"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Inicio rápido: Enviar telemetría desde un dispositivo a IoT Hub y supervisarlo con la CLI de Azure
 
@@ -55,7 +55,7 @@ En esta sección, va a preparar dos sesiones CLI de Azure. Si utiliza el Cloud S
 
 CLI de Azure requiere que haya iniciado sesión en su cuenta de Azure. Todas las comunicaciones entre la sesión de Shell de CLI de Azure y el centro de IoT se autentican y cifran. Como resultado, esta guía de inicio rápido no necesita autenticación adicional que se usaría con un dispositivo real, como una cadena de conexión.
 
-*  Ejecute el comando [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true) para agregar la extensión Microsoft Azure IoT para CLI de Azure al shell de la CLI. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+*  Ejecute el comando [az extension add](/cli/azure/extension#az-extension-add) para agregar la extensión Microsoft Azure IoT para CLI de Azure al shell de la CLI. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ En esta sección, usará la CLI de Azure para crear un grupo de recursos y un Io
 > [!TIP]
 > Si lo desea, puede crear un grupo de recursos de Azure, un IoT Hub y otros recursos mediante el [Azure Portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) u otros métodos de programación.  
 
-1. Ejecute el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
+1. Ejecute el comando [az group create](/cli/azure/group#az-group-create) para crear un grupo de recursos. El siguiente comando crea un grupo de recursos denominado *MyResourceGroup* en la ubicación *eastus*. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Ejecute el comando [az iot hub create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create&preserve-view=true) para crear una instancia de IoT Hub. La creación de una instancia de IoT Hub puede tardar unos minutos. 
+1. Ejecute el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) para crear una instancia de IoT Hub. La creación de una instancia de IoT Hub puede tardar unos minutos. 
 
     *YourIotHubName*. reemplace este marcador de posición por el nombre elegido para el centro de IoT. Un nombre de centro de IoT debe ser único globalmente en Azure. Este marcador de posición se usa en el resto de esta guía de inicio rápido para representar el nombre de IoT Hub.
 
@@ -94,7 +94,7 @@ En esta sección, usará la CLI de Azure para crear un grupo de recursos y un Io
 En esta sección, creará un dispositivo simulado en la primera sesión de la CLI. El dispositivo simulado envía la telemetría del dispositivo a su centro de IoT. En la segunda sesión de la CLI, se supervisan los eventos y la telemetría, y se envía un mensaje de la nube al dispositivo simulado.
 
 Para crear e iniciar un dispositivo simulado:
-1. Ejecute el comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) en la primera sesión de la CLI. Esto crea la identidad del dispositivo simulado. 
+1. Ejecute el comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) en la primera sesión de la CLI. Esto crea la identidad del dispositivo simulado. 
 
     *YourIotHubName*. reemplace este marcador de posición por el nombre elegido para el centro de IoT. 
 
@@ -104,7 +104,7 @@ Para crear e iniciar un dispositivo simulado:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Ejecute el comando [az iot device simulate](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate&preserve-view=true) en la primera sesión de la CLI.  Esto inicia el dispositivo simulado. El dispositivo envía la telemetría a IoT Hub y recibe mensajes de ella.  
+1. Ejecute el comando [az iot device simulate](/cli/azure/ext/azure-iot/iot/device#ext-azure-iot-az-iot-device-simulate) en la primera sesión de la CLI.  Esto inicia el dispositivo simulado. El dispositivo envía la telemetría a IoT Hub y recibe mensajes de ella.  
 
     *YourIotHubName*. reemplace este marcador de posición por el nombre elegido para el centro de IoT. 
 
@@ -113,7 +113,7 @@ Para crear e iniciar un dispositivo simulado:
     ```
 
 Para supervisar un dispositivo:
-1. En la segunda sesión de la CLI, ejecute el comando [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true). Esto inicia la supervisión del dispositivo simulado. La salida muestra la telemetría que el dispositivo simulado envía a la instancia de IoT Hub.
+1. En la segunda sesión de la CLI, ejecute el comando [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events). Esto inicia la supervisión del dispositivo simulado. La salida muestra la telemetría que el dispositivo simulado envía a la instancia de IoT Hub.
 
     *YourIotHubName*. reemplace este marcador de posición por el nombre elegido para el centro de IoT. 
 
@@ -136,7 +136,7 @@ En esta sección, usará la segunda sesión de la CLI para enviar un mensaje al 
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. En la segunda sesión de la CLI, ejecute el comando [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send&preserve-view=true). Esto envía un mensaje de nube a dispositivo desde su instancia de IoT Hub al dispositivo simulado. El mensaje incluye una cadena y dos pares clave-valor.  
+1. En la segunda sesión de la CLI, ejecute el comando [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message#ext-azure-iot-az-iot-device-c2d-message-send). Esto envía un mensaje de nube a dispositivo desde su instancia de IoT Hub al dispositivo simulado. El mensaje incluye una cadena y dos pares clave-valor.  
 
     *YourIotHubName*. reemplace este marcador de posición por el nombre elegido para el centro de IoT. 
 
@@ -184,12 +184,12 @@ Si continúa con el siguiente artículo recomendado, puede mantener los recursos
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
 
 Para eliminar un grupo de recursos por el nombre:
-1. Ejecute el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Esto quita el grupo de recursos, el IoT Hub y el registro de dispositivos que ha creado.
+1. Ejecute el comando [az group delete](/cli/azure/group#az-group-delete). Esto quita el grupo de recursos, el IoT Hub y el registro de dispositivos que ha creado.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Ejecute el comando [az group list](/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) para confirmar que se ha eliminado el grupo de recursos.  
+1. Ejecute el comando [az group list](/cli/azure/group#az-group-list) para confirmar que se ha eliminado el grupo de recursos.  
 
     ```azurecli
     az group list

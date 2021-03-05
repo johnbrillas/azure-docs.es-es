@@ -1,17 +1,17 @@
 ---
 title: Procedimientos para la importación de una actualización nueva | Microsoft Docs
 description: Guía de procedimientos para importar una nueva actualización en Hub Device Update para IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660741"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030739"
 ---
 # <a name="import-new-update"></a>Importación de una nueva actualización
 Aprenda a importar una nueva actualización en Device Update para IoT Hub.
@@ -53,7 +53,7 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub.
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    Para obtener una referencia rápida, estos son algunos valores de ejemplo de los parámetros anteriores. Para obtener toda la documentación, vea el esquema del manifiesto de importación completo a continuación.
+    Para obtener una referencia rápida, estos son algunos valores de ejemplo de los parámetros anteriores. También puede consultar el [esquema del manifiesto de importación](import-schema.md) completo para obtener más información.
 
     | Parámetro | Descripción |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Aprenda a importar una nueva actualización en Device Update para IoT Hub.
     | installedCriteria | <ul><li>Especifique el valor de SWVersion para el tipo de actualización `microsoft/swupdate:1`.</li><li>Especifique el valor recomendado para el tipo de actualización `microsoft/apt:1`.
     | updateFilePath(s) | Ruta de acceso a los archivos de actualización del equipo
 
-    Importación completa del esquema del manifiesto
-
-    | Nombre | Tipo | Descripción | Restricciones |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | Objecto `UpdateId` | Identidad de actualización. |
-    | UpdateType | string | Tipo de actualización: <ul><li>Especifique `microsoft/apt:1` al realizar una actualización basada en paquetes mediante un agente de referencia.</li><li>Especifique `microsoft/swupdate:1` al realizar una actualización basada en imágenes mediante un agente de referencia.</li><li>Especifique `microsoft/simulator:1` cuando use un simulador de agente de ejemplo.</li><li>Especifique un tipo personalizado si va a desarrollar un agente personalizado.</li></ul> | <ul><li>Formato: `{provider}/{type}:{typeVersion}`</li><li>Un máximo de 32 caracteres en total.</li></ul> |
-    | InstalledCriteria | string | Cadena que interpreta el agente para determinar si la actualización se aplicó correctamente:  <ul><li>Especifique el **valor** de SWVersion para el tipo de actualización `microsoft/swupdate:1`.</li><li>Especifique `{name}-{version}` para el tipo de actualización `microsoft/apt:1`, cuyo nombre y versión se obtienen del archivo de APT.</li><li>Especifique el hash del archivo de actualización para el tipo de actualización `microsoft/simulator:1`.</li><li>Especifique una cadena personalizada si va a desarrollar un agente personalizado.</li></ul> | 64 caracteres como máximo |
-    | Compatibilidad | Matriz de objetos `CompatibilityInfo` | Información de compatibilidad del dispositivo compatible con esta actualización. | Un máximo de 10 elementos |
-    | CreatedDateTime | date/time | Fecha y hora en que se creó la carpeta. | Formato de fecha y hora delimitado que sigue la norma ISO 8601, en UTC |
-    | ManifestVersion | string | Versión del esquema de manifiesto de importación. Especifique `2.0`, que será compatible tanto con la interfaz de `urn:azureiot:AzureDeviceUpdateCore:1`, como con la interfaz de `urn:azureiot:AzureDeviceUpdateCore:4`.</li></ul> | Debe ser `2.0` |
-    | Archivos | Matriz de objetos `File` | Archivos de carga de Update | Un máximo de cinco archivos |
-
-Nota: se requieren todos los campos.
 
 ## <a name="review-generated-import-manifest"></a>Revisión de manifiesto de importación generado
 
