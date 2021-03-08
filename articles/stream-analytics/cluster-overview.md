@@ -1,5 +1,5 @@
 ---
-title: Introducción a los clústeres de Azure Stream Analytics (versión preliminar)
+title: Introducción a los clústeres de Azure Stream Analytics
 description: Obtenga información sobre la oferta dedicada de un solo inquilino del clúster de Stream Analytics.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709298"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Introducción al clúster de Azure Stream Analytics (versión preliminar)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Introducción al clúster de Azure Stream Analytics
 
 Un clúster de Azure Stream Analytics ofrece una implementación de un solo inquilino que se puede usar para escenarios de streaming complejos y exigentes. A escala completa, los clústeres de Stream Analytics pueden procesar más de 200 MB/segundo en tiempo real. Los trabajos de Stream Analytics que se ejecutan en clústeres dedicados pueden aprovechar todas las características de la oferta estándar e incluyen compatibilidad con la conectividad de Private Link con las entradas y salidas.
 

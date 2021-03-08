@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: ec1e7c77c44cf1969e472a6e7288d1af5d6640e1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374803"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724955"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
@@ -35,6 +35,9 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 * [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
 * Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el artículo [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) (Administración de cuentas de Azure Batch con PowerShell) para instrucciones detalladas sobre el uso del cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Azure Batch.
+
+> [!IMPORTANT]
+> Al crear un grupo de Azure Batch nuevo, se debe usar "VirtualMachineConfiguration", NO "CloudServiceConfiguration". Para más información, consulte la [guía de migración de grupos de Azure Batch](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
 
@@ -298,7 +301,7 @@ Activity Error section:
 Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener la ruta al archivo stdout.txt en la expresión "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - Los archivos activity.json, linkedServices.json y datasets.json se almacenan en la carpeta de tiempo de ejecución de la tarea de Batch. En este ejemplo, los archivos activity.json, linkedServices.json y datasets.json se almacenan en la ruta de acceso `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`. Si es necesario, deberá limpiarlos por separado.
+> - Los archivos activity.json, linkedServices.json y datasets.json se almacenan en la carpeta de tiempo de ejecución de la tarea de Batch. En este ejemplo, los archivos activity.json, linkedServices.json y datasets.json se almacenan en la ruta de acceso `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/`. Si es necesario, deberá limpiarlos por separado.
 > - En cuanto a los servicios vinculados que usan un entorno de ejecución de integración autohospedado, la información confidencial (como claves o contraseñas) se cifra mediante el entorno de ejecución de integración autohospedado para garantizar que las credenciales permanecen en el entorno de red privada que haya definido el cliente. Si el código de la aplicación personalizada hace referencia de esta forma a algunos campos confidenciales, es posible que estos no estén presentes. Si es necesario, use SecureString en extendedProperties en lugar de usar la referencia al servicio vinculado.
 
 ## <a name="pass-outputs-to-another-activity"></a>Resultados del paso a otra actividad

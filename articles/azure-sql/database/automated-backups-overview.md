@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690640"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -229,17 +229,15 @@ Puede cambiar el período de retención predeterminado de copia de seguridad PIT
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Cambio del período de retención de copia de seguridad PITR con Azure Portal
 
-Para cambiar el período de retención de copia de seguridad de recuperación a un momento dado para bases de datos activas mediante Azure Portal, vaya al servidor o a la instancia administrada con las bases de datos cuyo período de retención quiera cambiar. 
+Para cambiar el período de retención de copia de seguridad de recuperación a un momento dado para bases de datos activas mediante Azure Portal, vaya al servidor o a la instancia administrada con las bases de datos cuyo período de retención quiera cambiar. Seleccione **Copias de seguridad** en el panel izquierdo y, luego, elija la pestaña **Directivas de retención**. Seleccione las bases de datos en las que quiere cambiar la retención de copia de seguridad de la recuperación a un momento dado. Luego, seleccione **Configurar retención** en la barra de acciones.
+
+
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
-
-Los cambios de la retención de copia de seguridad PITR para SQL Database se realizan en la página del servidor en el portal. Para cambiar la retención PITR para las bases de datos de un servidor, vaya a la hoja de información general del servidor. Seleccione **Administrar copias de seguridad** en el panel de la izquierda, seleccione las bases de datos en el ámbito del cambio y después **Configurar retención** en la parte superior de la pantalla:
 
 ![Cambio de retención PITR, nivel de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Instancia administrada de SQL](#tab/managed-instance)
-
-El cambio de la retención de copia de seguridad de PITR para la Instancia administrada de SQL se realiza en un nivel de base de datos individual. Para cambiar la retención de copia de seguridad PITR de una base de datos de instancias desde Azure Portal, vaya a la hoja de información general de la base de datos concreta. Luego, seleccione **Configurar retención de copia de seguridad** en la parte superior de la pantalla:
 
 ![Cambio de retención PITR, instancia administrada](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 

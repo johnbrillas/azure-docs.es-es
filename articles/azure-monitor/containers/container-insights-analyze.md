@@ -1,26 +1,26 @@
 ---
-title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
+title: Supervisión de Kubernetes con Container Insights | Microsoft Docs
+description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 9bb21f7a651d773806a96bb19044abf3bc7dda5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604448"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124319"
 ---
-# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
+# <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Supervisión del rendimiento del clúster de Kubernetes con Container Insights
 
-Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Kubernetes hospedados en Azure Kubernetes Service (AKS), Azure Stack u otro entorno desde dos perspectivas. Puede supervisar directamente desde el clúster, o puede ver todos los clústeres de una suscripción desde Azure Monitor. La visualización de Azure Container Instances también es posible cuando se supervisa un clúster de AKS concreto.
+Con Container Insights, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Kubernetes hospedados en Azure Kubernetes Service (AKS), Azure Stack u otro entorno desde dos perspectivas. Puede supervisar directamente desde el clúster, o puede ver todos los clústeres de una suscripción desde Azure Monitor. La visualización de Azure Container Instances también es posible cuando se supervisa un clúster de AKS concreto.
 
 Este artículo le ayuda a comprender dos perspectivas y cómo Azure Monitor le ayuda a evaluar, investigar y resolver rápidamente los problemas detectados.
 
-Para obtener información acerca de cómo habilitar Azure Monitor para contenedores, consulte el artículo sobre [incorporación de Azure Monitor para contenedores](container-insights-onboard.md).
+Para obtener información sobre cómo habilitar Container Insights, vea [Incorporación de Container Insights](container-insights-onboard.md).
 
 Azure Monitor proporciona una vista de varios clústeres que muestra el estado de mantenimiento de todos los clústeres de Kubernetes que ejecutan Linux y Windows Server 2019 supervisados implementados en los grupos de recursos de sus suscripciones. Muestra los clústeres detectados en todos los entornos que la solución no supervisa. Puede comprender de forma inmediata el estado del clúster y desde aquí puede explorar en profundidad la página de rendimiento del controlador y del nodo, o explorar para ver los gráficos de rendimiento del clúster. En el caso de los clústeres de AKS que se detectaron e identificaron como no supervisados, puede habilitar la supervisión para ellos en cualquier momento.
 
-Las principales diferencias al supervisar los contenedores de un clúster de Windows Server con Azure Monitor en comparación con un clúster de Linux se describen [aquí](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) en el artículo de información general.
+Las principales diferencias al supervisar un clúster de Windows Server con Container Insights en comparación con un clúster de Linux se describen [aquí](container-insights-overview.md#what-does-container-insights-provide) en el artículo de información general.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -37,7 +37,7 @@ Puede limitar el ámbito de los resultados presentados en la cuadrícula para mo
 * **Azure**: clústeres de AKS y de AKS-Engine hospedados en Azure Kubernetes Service
 * **Azure Stack (versión preliminar)** : clústeres de AKS-Engine hospedados en Azure Stack
 * **No Azure (versión preliminar)** : clústeres de Kubernetes hospedados de forma local
-* **Todos**: vea todos los clústeres de Kubernetes hospedados en Azure, Azure Stack y entornos locales que se incorporan a Azure Monitor para contenedores
+* **Todos**: vea todos los clústeres de Kubernetes hospedados en Azure, Azure Stack y entornos locales que se han incorporado a Container Insights
 
 Para ver los clústeres de un entorno específico, selecciónelo en **Entornos**, en la esquina superior izquierda de la página.
 
@@ -59,7 +59,7 @@ Los estados de mantenimiento incluidos son:
 * **No se encuentra**: se eliminó el área de trabajo, el grupo de recursos o la suscripción que contiene el área de trabajo para esta solución.
 * **No autorizado**: el usuario no tiene los permisos necesarios para leer los datos del área de trabajo.
 * **Error**: al intentar leer los datos del área de trabajo.
-* **Configuración errónea**: Azure Monitor para contenedores no se configuró correctamente en el área de trabajo especificada.
+* **Configuración errónea**: Container Insights no se ha configurado correctamente en el área de trabajo especificada.
 * **No hay datos**: no se han notificado los datos en el área de trabajo durante los últimos 30 minutos.
 
 El estado de mantenimiento calcula el estado general del clúster como *el peor* de los tres estados con una excepción. Si alguno de los tres estados es desconocido, el estado general del clúster se muestra como **Unknown** (Desconocido).
@@ -88,7 +88,7 @@ Desde la lista de clústeres puede explorar en profundidad la página **Clúster
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Vista del rendimiento directamente desde un clúster
 
-El acceso a Azure Monitor para contenedores está disponible directamente desde un clúster de AKS mediante la selección de la opción **Información** > **Clúster** del panel izquierdo, o al seleccionar un clúster en la vista de varios clústeres. La información sobre el clúster está organizada en cuatro perspectivas:
+El acceso a Container Insights está disponible directamente desde un clúster de AKS si se selecciona **Información** > **Clúster** en el panel de la izquierda, o bien al seleccionar un clúster en la vista de varios clústeres. La información sobre el clúster está organizada en cuatro perspectivas:
 
 - Clúster
 - Nodos
@@ -109,13 +109,13 @@ Los gráficos de rendimiento muestran cuatro métricas de rendimiento:
 - **Node count** (Número de nodos): Número y estado de los nodos de Kubernetes. Los estados de los nodos de clúster que se representan son Total, Ready (Listo) y Not Ready (No está listo). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico.
 - **Número de pods activos**: Número y estado de los pods de Kubernetes. Los estados de los pods se representan como Total, Pending (Pendiente), Running (En ejecución), Unknown (Desconocido), Succeeded (Correcto) o Failed (Con errores). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico.
 
-Use las teclas de dirección izquierda y derecha para desplazarse por los puntos de datos del gráfico. Use las teclas de dirección arriba y abajo para desplazarse por las líneas de percentil. Seleccione el icono de anclaje en la esquina superior derecha de uno de los gráficos para anclarlo en el último panel de Azure que haya visto. En el panel, puede cambiar el tamaño y la posición del gráfico. Al seleccionar el gráfico en el panel, se le redirige a Azure Monitor para contenedores y se cargan el ámbito y la vista correctos.
+Use las teclas de dirección izquierda y derecha para desplazarse por los puntos de datos del gráfico. Use las teclas de dirección arriba y abajo para desplazarse por las líneas de percentil. Seleccione el icono de anclaje en la esquina superior derecha de uno de los gráficos para anclarlo en el último panel de Azure que haya visto. En el panel, puede cambiar el tamaño y la posición del gráfico. Al seleccionar el gráfico en el panel, se le redirige a Container Insights y se cargan el ámbito y la vista correctos.
 
-Azure Monitor para contenedores también es compatible con el [Explorador de métricas](../essentials/metrics-getting-started.md) de Azure Monitor, donde puede crear sus propios gráficos de diagrama, poner en correlación e investigar tendencias y realizar el anclaje en paneles. Desde el explorador de métricas también se pueden usar los criterios que establezca para visualizar las métricas como la base de una [regla de alertas basada en métricas](../alerts/alerts-metric.md).
+Container Insights también es compatible con el [Explorador de métricas](../essentials/metrics-getting-started.md) de Azure Monitor, donde puede crear gráficos de trazado propios, poner en correlación e investigar tendencias, y realizar el anclaje a paneles. Desde el explorador de métricas también se pueden usar los criterios que establezca para visualizar las métricas como la base de una [regla de alertas basada en métricas](../alerts/alerts-metric.md).
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Visualización de métricas de contenedor en el Explorador de métricas
 
-En el Explorador de métricas se pueden ver el nodo agregado y las métricas de utilización de pods de Azure Monitor para contenedores. En la tabla siguiente se resumen los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
+En el Explorador de métricas se pueden ver métricas de utilización de nodos y pods agregadas de Container Insights. En la tabla siguiente se resumen los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
 
 |Espacio de nombres | Métrica | Descripción |
 |----------|--------|-------------|
@@ -297,12 +297,12 @@ El administrador de directivas de red de Azure incluye métricas informativas de
 
 ## <a name="workbooks"></a>Workbooks
 
-Los libros combinan texto, consultas de registros, métricas y parámetros en informes interactivos enriquecidos que permiten analizar el rendimiento del clúster. Consulte [Libros en Azure Monitor para contenedores](../insights/container-insights-reports.md) para ver una descripción de los libros disponibles para Azure Monitor para contenedores.
+Los libros combinan texto, consultas de registros, métricas y parámetros en informes interactivos enriquecidos que permiten analizar el rendimiento del clúster. Vea [Libros en Container Insights](../insights/container-insights-reports.md) a fin de obtener una descripción de los libros disponibles para Container Insights.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](./container-insights-log-alerts.md) para aprender a crear alertas si se produce un uso elevado de la CPU y la memoria, con el fin de admitir sus DevOps o sus procesos y procedimientos operativos.
+- Revise [Creación de alertas de rendimiento con Container Insights](./container-insights-log-alerts.md) para obtener información sobre cómo crear alertas en caso de uso elevado de CPU y memoria a fin de permitir las operaciones de desarrollo o los procesos y procedimientos operativos.
 
 - En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos que puede evaluar o personalizar para las alertas, visualización o análisis de los clústeres.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726230"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036544"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Introducción a Azure Diagnostics Extension
 Azure Diagnostics Extension es un [agente de Azure Monitor](../agents/agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, máquinas virtuales incluidas. En este artículo se proporciona información general sobre Azure Diagnostics Extension, incluida la funcionalidad específica que admite y las opciones de instalación y configuración. 
@@ -78,7 +78,7 @@ Configure uno o varios *receptores de datos* para enviar datos a otros destinos 
 | Blobs de Azure Storage | Escribe los datos en blobs de Azure Storage además de en tablas. |
 | Application Insights | Recopila datos de las aplicaciones que se ejecutan en la máquina virtual en Application Insights para integrarlos con la supervisión de otras aplicaciones. Consulte el artículo sobre el [Envío de datos de diagnóstico a Application Insights](diagnostics-extension-to-application-insights.md). |
 
-También puede recopilar datos de WAD del almacenamiento en un área de trabajo de Log Analytics para analizarlos con Registros en Azure Monitor, aunque normalmente se usa el agente de Log Analytics para esta funcionalidad. Puede enviar datos directamente a un área de trabajo de Log Analytics y admite soluciones e información que proporcionan funcionalidades adicionales.  Consulte el artículo sobre la [Recopilación de registros de diagnóstico de Azure desde Azure Storage](../essentials/diagnostics-extension-logs.md). 
+También puede recopilar datos de WAD del almacenamiento en un área de trabajo de Log Analytics para analizarlos con Registros en Azure Monitor, aunque normalmente se usa el agente de Log Analytics para esta funcionalidad. Puede enviar datos directamente a un área de trabajo de Log Analytics y admite soluciones e información que proporcionan funcionalidades adicionales.  Consulte el artículo sobre la [Recopilación de registros de diagnóstico de Azure desde Azure Storage](../agents/diagnostics-extension-logs.md). 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extensión Diagnostics de Linux (LAD)

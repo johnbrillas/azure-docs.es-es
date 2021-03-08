@@ -8,12 +8,12 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0af571f67862c91371b01bee6227d5fb6b291be
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0881363a3f13f0ddf34157a1fffe6c26d0c0b692
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744063"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122857"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Scripts de PowerShell para IoT Edge para Linux en Windows
 
@@ -149,4 +149,4 @@ Obtenga más información sobre cómo usar estos comandos en el artículo siguie
 
 * [Instalación de Azure IoT Edge para Linux en Windows](how-to-install-iot-edge-windows.md)
 
-* Consulte la [referencia de scripts de PowerShell para IoT Edge para Linux en Windows](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) para ver todos los comandos disponibles a través de PowerShell.
+* Consulte la [referencia de scripts de PowerShell para IoT Edge para Linux en Windows](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver todos los comandos disponibles a través de PowerShell.

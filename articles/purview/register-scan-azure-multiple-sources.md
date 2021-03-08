@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695901"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123571"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Registro y examen de orígenes de Azure Multiple Source
 
@@ -95,12 +95,12 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     1. Puede seleccionar una **credencial en el nivel primario** como MSI o una credencial de tipo de entidad de servicio determinada, que puede usar para todos los tipos de recursos de la suscripción o el grupo de recursos.
     1. También puede **seleccionar el tipo de recurso específicamente y aplicar otra credencial** para ese tipo de recurso.
     1. Cada credencial se considera el método de autenticación de todos los recursos de un tipo determinado.
-    1. Debe establecer la credencial elegida en los recursos para examinarlos correctamente, como se explica en la [sección](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) anterior.
+    1. Debe establecer la credencial elegida en los recursos para examinarlos correctamente, como se explica en la [sección](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) anterior.
 1. En cada tipo puede optar por examinar todos los recursos o un subconjunto de ellos por nombre.
     1. Si deja la opción como **All** (Todos), los recursos futuros de ese tipo también se examinarán en próximas ejecuciones de exámenes.
     1. Si selecciona cuentas de almacenamiento o bases de datos SQL específicas, los recursos futuros creados de ese tipo en esta suscripción o grupo de recursos no se incluirán en los exámenes, a menos que el examen se edite de manera explícita en el futuro.
  
-1.  Haga clic en **Continuar** para seguir. Vamos a probar el acceso para comprobar si se ha aplicado el MSI de Purview como lector en la suscripción o el grupo de recursos. Si aparece un mensaje de error, siga las instrucciones que se indican [aquí](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group).
+1.  Haga clic en **Continuar** para seguir. Vamos a probar el acceso para comprobar si se ha aplicado el MSI de Purview como lector en la suscripción o el grupo de recursos. Si aparece un mensaje de error, siga las instrucciones que se indican [aquí](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group).
 
 1.  Seleccione los **conjuntos de reglas de examen** de cada tipo de recurso elegido en el paso anterior. También puede crear conjuntos de reglas de examen insertados.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Selección de conjunto de reglas de examen de Azure Multiple":::

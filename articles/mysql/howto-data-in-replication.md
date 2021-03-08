@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709553"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
@@ -101,9 +101,23 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    ```
 
    Si la variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) se devuelve con el valor "ON", el registro binario está habilitado en el servidor.
-
-   Si `log_bin` se devuelve con el valor "OFF", active el registro binario mediante la edición del archivo my.cnf de modo que `log_bin=ON`, y reinicie el servidor para que el cambio se aplique.
-
+   
+   Si se devuelve `log_bin` con el valor "OFF", 
+   1. Busque el archivo de configuración de MySQL (my.cnf) en el servidor de origen. Por ejemplo: /etc/my.cnf.
+   2. Abra el archivo de configuración para editarlo y busque la sección **mysqld**.
+   3.  En la sección mysqld, agregue la línea siguiente.
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Reinicie el servidor de origen de MySQL para que los cambios surtan efecto.
+   5. Una vez que se haya reiniciado el servidor, compruebe que el registro binario está habilitado mediante la ejecución de la misma consulta que antes:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Configuración del servidor de origen
 
    La Replicación de datos de entrada requiere el parámetro `lower_case_table_names` para ser coherente entre los servidores de origen y de réplica. Este parámetro es 1 de forma predeterminada en Azure Database for MySQL.

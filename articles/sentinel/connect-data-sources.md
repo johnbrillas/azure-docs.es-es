@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: aeb92dce41c12ada41175964835d9c89a634a6e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718614"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -56,7 +56,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (anteriormente conocido como Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nombres de dominio](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md): incluye datos sin procesar de MDATP
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md): incluye incidentes de M365D y datos sin procesar de MDE
     - [Microsoft Defender para Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente Protección contra amenazas avanzada de Microsoft)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (anteriormente Azure ATP)
     - [Microsoft Defender para Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente conocido como Protección contra amenazas avanzada de Office 365)
@@ -76,6 +76,9 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Google Workspace (anteriormente, G Suite)](connect-google-workspace.md)
+    - [Registros DNS de NXLog (Windows)](connect-nxlog-dns.md)
+    - [LinuxAudit de NXLog](connect-nxlog-linuxaudit.md)
     - [SSO de Okta](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Registros de Perimeter 81](connect-perimeter-81-logs.md)
@@ -83,6 +86,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
     - [Servicio de Salesforce en la nube](connect-salesforce-service-cloud.md)
+    - [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -98,6 +102,8 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - **Firewalls, servidores proxy y puntos de conexión - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Akamai Security Events](connect-akamai-security-events.md)
+        - [Aruba ClearPass](connect-aruba-clearpass.md)
+        - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -118,6 +124,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
         - [Otros dispositivos basados en CEF](connect-common-event-format.md)
     - **Firewalls, servidores proxy y puntos de conexión - Syslog:**
         - [Alsid para Active Directory](connect-alsid-active-directory.md)
+        - [Cisco Meraki](connect-cisco-meraki.md)
         - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
@@ -126,6 +133,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
         - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec ProxySG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
+        - [VMware ESXi](connect-vmware-esxi.md)
         - [Otros dispositivos basados en Syslog](connect-syslog.md)
     - [Servidor HTTP de Apache](connect-apache-http-server.md)
     - Soluciones de DLP

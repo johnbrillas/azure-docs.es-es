@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor para las asignaciones de región de contenedores
-description: Se describen las asignaciones de región compatibles entre Azure Monitor para contenedores, el área de trabajo de Log Analytics y las métricas personalizadas.
+title: Asignaciones de región de Container Insights
+description: Se describen las asignaciones de región compatibles entre Container Insights, el área de trabajo de Log Analytics y las métricas personalizadas.
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9b77242de3e7845a97874b663266103bf00a8e66
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f9e910b1352109608becb82609e85e26d27d2cd1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604133"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728882"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Asignaciones de región compatibles con Azure Monitor para contenedores
+# <a name="region-mappings-supported-by-container-insights"></a>Asignaciones de región admitidas por Container Insights
 
- Cuando se habilita Azure Monitor para los contenedores, solo ciertas regiones son compatibles para vincular un área de trabajo de Log Analytics y un clúster de AKS y recopilar las métricas personalizadas enviadas a Azure Monitor.
+ Cuando se habilita Container Insights, solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y un clúster de AKS, y recopilar las métricas personalizadas enviadas a Azure Monitor.
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Asignaciones admitidas por el área de trabajo de Log Analytics
 
@@ -53,4 +53,4 @@ Las métricas recopiladas de los pods y los nodos de clústeres de Azure Kuberne
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar a supervisar el clúster de AKS, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión.  
+Para comenzar a supervisar el clúster de AKS, revise [Habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de entender los requisitos y los métodos disponibles para habilitar la supervisión.  

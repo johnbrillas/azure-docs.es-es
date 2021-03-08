@@ -1,17 +1,16 @@
 ---
 title: Solución de problemas en ITSMC
 description: Obtenga información sobre cómo resolver problemas comunes en Conector de Administración de servicios de TI.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7094bf07453c06831fecfa2056480bf498b26a72
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737212"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041627"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Solución de problemas en Conector de Administración de servicios de TI
 

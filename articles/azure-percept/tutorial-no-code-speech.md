@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: de85c4f8cdcd9781345ee1488549aab23e38ec5c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678257"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098033"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Creación de un asistente para voz con Azure Percept DK y Azure Percept Audio
 
@@ -24,30 +24,11 @@ Esta guía le mostrará el proceso de configuración de los dispositivos, la cre
 
 - Kit de desarrollo Azure Percept DK
 - Azure Percept Audio
-- Altavoces o auriculares (opcional)
+- Altavoces o auriculares que se pueden conectar a un conector de audio de 3,5 mm (opcional)
 - [Suscripción de Azure](https://azure.microsoft.com/free/)
 - [Experiencia de instalación de Azure Percept DK](./quickstart-percept-dk-set-up.md): ya ha conectado el kit de desarrollo a una red Wi-Fi, creado una instancia de IOT Hub y conectado el kit a esta instancia.
+- [Instalación de Azure Percept Audio](./quickstart-percept-audio-setup.md)
 
-## <a name="device-setup"></a>Configuración del dispositivo
-
-1. (Opcionalmente) Conecte su altavoz o los auriculares al módulo de sistema de audio mediante el conector de auriculares, que está etiquetado como "línea de salida". Esto le permitirá oír las respuestas de audio del asistente para voz. Aunque no conecte un altavoz o unos auriculares, podrá ver las respuestas como texto en la ventana de demostración.
-
-1. Conecte el módulo de sistema de audio a la placa base del kit de desarrollo con el cable USB-A a micro B incluido.
-
-1. Encienda el kit de desarrollo.
-
-    - El indicador LED L01 del módulo de sistema de audio cambiará a una luz verde fija para indicar que el dispositivo está encendido.
-    - El indicador LED L02 cambiará a una luz verde intermitente para indicar que el módulo de sistema de audio se está autenticando.
-
-1. Espere a que se complete el proceso de autenticación; esto puede tardar hasta 3 minutos.
-
-1. Continúe con la siguiente sección cuando suceda algo de esto:
-
-    - El indicador LED L01 se apaga y el L02 se vuelve blanco. Esto indica que la autenticación ha finalizado y que el kit de desarrollo aún no se ha configurado con una palabra clave.
-    - Los tres indicadores LED se vuelven azules. Esto indica que la autenticación ha finalizado y que el kit de desarrollo se ha configurado con una palabra clave.
-
-    > [!NOTE]
-    > Póngase en contacto con el soporte técnico si el kit de desarrollo no se autentica.
 
 ## <a name="create-a-voice-assistant-using-an-available-template"></a>Creación de un asistente para voz con una plantilla disponible
 
@@ -119,6 +100,7 @@ La demo para automoción dispone de un asiento calefactado, un eliminador de esc
 * "Establece la temperatura en X grados." (Donde X es la temperatura deseada, por ejemplo, 24.)
 * "Aumentar/Disminuir la temperatura en Y grados."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/auto-demo.png" alt-text="Captura de pantalla de la ventana de demostración para automoción.":::
 
 ### <a name="inventory-demo-commands"></a>Comandos de demostración para inventario
@@ -131,19 +113,30 @@ La demostración de inventario tiene una selección de cajas azules, amarillas y
 * "Contar cajas Y." (Y es el color de las cajas, por ejemplo, amarillo).
 * "Enviar todo lo que hay en existencias."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/inventory-demo.png" alt-text="Captura de pantalla de la ventana de demostración para inventario.":::
 
 ## <a name="configure-your-keyword"></a>Configuración de la palabra clave
 
-Para cambiar la palabra clave, haga clic en **Change** (Cambiar) junto a **Palabra clave personalizada** en la ventana de demostración. Seleccione una de las palabras clave disponibles y haga clic en **Save** (Guardar). Podrá elegir entre una selección de palabras clave creadas previamente y cualquier palabra clave personalizada que haya creado.
+Puede personalizar la palabra clave para la aplicación del asistente para voz.
 
-:::image type="content" source="./media/tutorial-no-code-speech/change-keyword.png" alt-text="Captura de pantalla de selección de palabras clave disponibles.":::
+1. Haga clic en **Cambiar** junto a **Palabra clave personalizada** en la página de demostración.
+
+1. Seleccione una de las palabras clave disponibles. Podrá elegir entre una selección de palabras clave de ejemplo y cualquier palabra clave personalizada que haya creado.
+
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="create-a-custom-keyword"></a>Creación de una palabra clave personalizada
 
-Para crear una palabra clave personalizada, haga clic en **+ Create Custom Keyword** (+ Crear palabra clave personalizada) cerca de la parte superior de la ventana de demostración. Escriba la palabra clave que desee, que puede ser una sola palabra o una frase corta, seleccione el **recurso de voz** (que aparece junto a **Custom Command** (Comando personalizado) en la ventana de demostración y que contiene el prefijo de la aplicación) y haga clic en **Save** (Guardar). El entrenamiento de la palabra clave personalizada puede completarse en unos segundos.
+Puede crear su propia palabra clave para la aplicación de voz. El entrenamiento de la palabra clave personalizada puede completarse en unos minutos.
 
-:::image type="content" source="./media/tutorial-no-code-speech/custom-keyword.png" alt-text="Captura de pantalla de la ventana de creación de palabras clave personalizadas.":::
+1. Haga clic en **+ Crear palabra clave personalizada** cerca de la parte superior de la ventana de demostración. 
+
+1. Escriba la palabra clave que desee, que puede ser una sola palabra o una frase corta.
+
+1. Seleccione el **recurso de voz** (está incluido en una lista junto a **Comando personalizado** en la ventana de demostración y contiene el prefijo de la aplicación).
+
+1. Haga clic en **Save**(Guardar). 
 
 ## <a name="create-a-custom-command"></a>Creación de un comando personalizado
 
@@ -185,13 +178,13 @@ Para obtener más información sobre el desarrollo de comandos personalizados, c
 
 ### <a name="voice-assistant-was-created-but-does-not-respond-to-commands"></a>Se ha creado el asistente para voz pero no responde a los comandos
 
-Compruebe las luces LED en el módulo de sistema de audio:
+Compruebe las luces LED en la placa del intermediador:
 
 * Tres luces azules fijas indican que el asistente para voz está listo y esperando la palabra clave.
 * Si el indicador LED del centro (L02) está en blanco, el kit de desarrollo ha completado la inicialización y debe configurarse con una palabra clave.
-* Cualquier combinación de luces verdes indica que el módulo de sistema de audio todavía no ha completado la inicialización. La operación puede tardar varios minutos en completarse.
+* Si el LED del centro (L02) parpadea en blanco, el módulo de sistema de audio todavía no ha completado la inicialización. La operación puede tardar varios minutos en completarse.
 
-Para más información acerca de los indicadores LED del módulo de sistema de audio, consulte el artículo sobre indicadores LED.
+Para más información acerca de los indicadores LED, consulte el [artículo sobre indicadores LED](./audio-button-led-behavior.md).
 
 ### <a name="voice-assistant-does-not-respond-to-a-custom-keyword-created-in-speech-studio"></a>El asistente para voz no responde a una palabra clave personalizada creada en Speech Studio.
 
@@ -207,22 +200,20 @@ Esto puede ocurrir si el módulo de voz no está actualizado. Siga estos pasos p
 
 1. Compruebe la versión del módulo de voz. Si hay disponible una actualización, aparecerá un botón **Update** (Actualizar) junto al número de versión.
 
-    :::image type="content" source="./media/tutorial-no-code-speech/devkit.png" alt-text="Captura de pantalla de la ventana de configuración de DevKit Speech.":::
-
 1. Haga clic en **Update** (Actualizar) para implementar la actualización del módulo de voz. Por lo general, el proceso de actualización tarda 2-3 minutos en completarse.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando haya terminado de trabajar con la aplicación del asistente para voz, siga estos pasos para eliminar los recursos de voz que implementó durante este tutorial:
 
-1. En [Azure Portal](https://ms.portal.azure.com/#home), seleccione **Grupos de recursos** en el panel de menú de la izquierda o escríbalo en la barra de búsqueda.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** en el panel de menú de la izquierda o escríbalo en la barra de búsqueda.
 
     :::image type="content" source="./media/tutorial-no-code-speech/azure-portal.png" alt-text="Captura de pantalla de la página principal de Azure Portal que muestra el panel de menú izquierdo y los grupos de recursos.":::
 
 1. Seleccione el grupo de recursos que necesite.
 
 1. Seleccione los seis recursos que contienen el prefijo de la aplicación y haga clic en el icono **Eliminar** en el panel de menú superior.
-
+\
     :::image type="content" source="./media/tutorial-no-code-speech/select-resources.png" alt-text="Captura de pantalla de los recursos de voz seleccionados para su eliminación.":::
 
 1. Para confirmar la eliminación, escriba **sí** en el cuadro de confirmación, compruebe que ha seleccionado los recursos correctos y haga clic en **Eliminar**.

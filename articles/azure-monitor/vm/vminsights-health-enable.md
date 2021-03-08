@@ -1,24 +1,24 @@
 ---
-title: Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)
-description: Aquí se explica cómo habilitar el estado de invitado de Azure Monitor para VM en la suscripción y cómo incorporar máquinas virtuales.
+title: Habilitación del estado de invitado de VM Insights (versión preliminar)
+description: Se describe cómo habilitar el estado de invitado de VM Insights en la suscripción y cómo incorporar máquinas virtuales.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733727"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)
-El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
+# <a name="enable-vm-insights-guest-health-preview"></a>Habilitación del estado de invitado de VM Insights (versión preliminar)
+El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
-El estado de invitado de Azure Monitor para VM tiene las siguientes limitaciones en la versión preliminar pública:
+El estado de invitado de VM Insights tiene las siguientes limitaciones en la versión preliminar pública:
 
 - Actualmente solo se admiten máquinas virtuales de Azure. Azure Arc para servidores no se admite de momento.
 
@@ -36,19 +36,25 @@ La máquina virtual debe encontrarse en una de las siguientes regiones:
 - Centro de Australia
 - Este de Australia
 - Sudeste de Australia
+- Centro de Canadá
 - Centro de la India
 - Centro de EE. UU.
 - Este de Asia
 - Este de EE. UU.
 - Este de EE. UU. 2
 - EUAP de Este de EE. UU. 2
+- Centro de Francia
 - Centro-oeste de Alemania
 - Japón Oriental
+- Centro de Corea del Sur
 - Centro-Norte de EE. UU
 - Norte de Europa
 - Centro-sur de EE. UU.
+- Norte de Sudáfrica
 - Sudeste de Asia
+- Norte de Suiza
 - Sur de Reino Unido 2
+- Oeste de Reino Unido
 - Centro-Oeste de EE. UU.
 - Oeste de Europa
 - Oeste de EE. UU.
@@ -57,24 +63,36 @@ La máquina virtual debe encontrarse en una de las siguientes regiones:
 
 El área de trabajo de Log Analytics debe encontrarse en una de las siguientes regiones:
 
+- Centro de Australia
+- Este de Australia
+- Sudeste de Australia
+- Centro de Canadá
+- Canadá India
 - Centro de EE. UU.
+- Este de Asia
 - Este de EE. UU.
 - Este de EE. UU. 2
 - EUAP de Este de EE. UU. 2
+- Centro de Francia
+- Japón Oriental
+- Centro-Norte de EE. UU
 - Norte de Europa
+- Centro-sur de EE. UU.
 - Sudeste de Asia
-- Sur de Reino Unido
+- Norte de Suiza
+- Sur de Reino Unido 2
 - Región Oeste de Europa
+- Oeste de EE. UU.
 - Oeste de EE. UU. 2
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- La máquina virtual debe incorporarse a Azure Monitor para VM.
+- La máquina virtual se debe incorporar a VM Insights.
 - El usuario que ejecuta los pasos de incorporación debe tener un acceso mínimo de nivel Colaborador a la suscripción en la que se encuentran la máquina virtual y la regla de recopilación de datos.
 - Los proveedores de recursos de Azure necesarios deben registrarse como se explica en la sección siguiente.
 
 ## <a name="register-required-azure-resource-providers"></a>Registro de proveedores de recursos de Azure necesarios
-Los siguientes proveedores de recursos de Azure deben registrarse en la suscripción para habilitar el estado de invitado de Azure Monitor para VM. 
+Los siguientes proveedores de recursos de Azure se deben registrar en la suscripción para habilitar el estado de invitado de VM Insights. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Habilitación de una máquina virtual mediante Azure Portal
 Cuando se habilita el estado de invitado en una máquina virtual en Azure Portal, toda la configuración necesaria se realiza automáticamente. Esto incluye la creación de la regla de recopilación de datos necesaria, la instalación de la extensión de estado de invitado en la máquina virtual y la creación de una asociación con la regla de recopilación de datos.
 
-En la vista **Introducción** de Azure Monitor para VM, haga clic en el vínculo situado junto al mensaje de actualización de una máquina virtual y luego en el botón **Actualizar**. También puede seleccionar varias máquinas virtuales para actualizarlas a la vez.
+En la vista **Introducción** de VM Insights, haga clic en el vínculo situado junto al mensaje de actualización de una máquina virtual y luego en el botón **Actualizar**. También puede seleccionar varias máquinas virtuales para actualizarlas a la vez.
 
 ![Habilitación de la característica de estado en una máquina virtual](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ Hay tres pasos necesarios para habilitar máquinas virtuales mediante Azure Reso
 > [!NOTE]
 > Si habilita una máquina virtual mediante Azure Portal, la regla de recopilación de datos que se describe aquí se crea automáticamente. En ese caso, no es necesario realizar este paso.
 
-La configuración de los monitores del estado de invitado de Azure Monitor para VM se almacena en [Reglas de recopilación de datos (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual con la extensión de estado de invitado necesita una asociación con esta regla.
+La configuración de los monitores del estado de invitado de VM Insights se almacena en [Reglas de recopilación de datos (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual con la extensión de estado de invitado necesita una asociación con esta regla.
 
 > [!NOTE]
-> Puede crear reglas de recopilación de datos adicionales para modificar la configuración predeterminada de los monitores, como se explica en [Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-configure.md).
+> Puede crear reglas de recopilación de datos adicionales para modificar la configuración predeterminada de los monitores, como se describe en [Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)](vminsights-health-configure.md).
 
 La plantilla necesita valores para los siguientes parámetros:
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Personalización de los monitores habilitados por Azure Monitor para VM](vminsights-health-configure.md)
+- [Personalización de monitores habilitados por VM Insights](vminsights-health-configure.md)

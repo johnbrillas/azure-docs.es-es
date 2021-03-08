@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429609"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179228"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -181,9 +181,11 @@ Cuerpo de la solicitud JSON:
           "subnet": {
             "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
           },
-          "loadBalancerBackendAddressPools": {
-                                    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
-          }
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
+            }
+          ]
         }
       }
     ]
@@ -255,8 +257,16 @@ En escenarios con grupos de back-end rellenados previamente, use dirección IP y
 
 Toda la administración del grupo de back-end se realiza directamente en el objeto de grupo de back-end, como se resalta en los ejemplos siguientes.
 
-  >[!IMPORTANT] 
-  >Esta funcionalidad actualmente está en su versión preliminar. Consulta la [sección de limitaciones](#limitations) para ver los límites actuales de esta característica.
+### <a name="limitations"></a>Limitaciones
+Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
+  * Solo se puede usar para equilibradores de carga estándar
+  * Límite de 100 direcciones IP en el grupo de back-end
+  * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
+  * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
+  * Esta característica no se admite actualmente en Azure Portal.
+  * Los contenedores ACI no admiten esta característica actualmente
+  * Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
+  * No se pueden especificar reglas NAT de entrada mediante la dirección IP
 
 ### <a name="powershell"></a>PowerShell
 Cree un nuevo grupo de back-end:
@@ -517,17 +527,6 @@ Cuerpo de la solicitud JSON:
   }
 }
 ```
-
-## <a name="limitations"></a>Limitaciones
-Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
-  * Solo se puede utilizar con el equilibrador de carga estándar.
-  * Límite de 100 direcciones IP en el grupo de back-end
-  * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
-  * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
-  * Esta característica no se admite actualmente en Azure Portal.
-  * Los contenedores ACI no admiten esta característica actualmente
-  * Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
-  * No se pueden especificar reglas NAT de entrada mediante la dirección IP
   
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha conocido la administración de grupos de back-end de Azure Load Balancer y ha aprendido a configurar un grupo de back-end mediante una combinación de dirección IP y red virtual.

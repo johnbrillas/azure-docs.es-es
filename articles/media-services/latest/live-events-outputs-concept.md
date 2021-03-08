@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fac823cc43ed4606db3e7f86bc5c1e36ee50fadb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730310"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -53,7 +53,7 @@ Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una veloc
 > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles de los [precios](https://azure.microsoft.com/pricing/details/media-services/).
 >
 
-Consulte un ejemplo de código .NET en [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+Consulte el ejemplo de código de .NET para crear un evento en directo de tránsito en [Evento en directo con DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/4a436376e77bad57d6cbfdc02d7df6c615334574/Live/LiveEventWithDVR/Program.cs#L214).
 
 ### <a name="live-encoding"></a>Live Encoding  
 

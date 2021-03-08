@@ -4,45 +4,34 @@ description: Obtenga información sobre cómo usar la actividad de obtención de
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: f860225862dcbfb79535acfbd6eeb89a217e7ae9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385496"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710233"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de obtención de metadatos se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory. Esta actividad se puede usar en los siguientes escenarios:
+La actividad de obtención de metadatos se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory. Puede usar la salida de la actividad de obtención de metadatos en expresiones condicionales para realizar la validación o consumir los metadatos en actividades posteriores.
 
-- Validar los metadatos de cualquier dato.
-- Desencadenar una canalización cuando los datos estén listos/disponibles.
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-La siguiente funcionalidad está disponible en el flujo de control:
-
-- Puede usar la salida de la actividad de obtención de metadatos en expresiones condicionales para llevar a cabo una validación.
-- Puede desencadenar una canalización si se satisface la condición mediante un bucle Do Until.
-
-## <a name="capabilities"></a>Capacidades
-
-La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es 4 MB.
-
->[!NOTE]
->Si ejecuta la actividad de obtención de metadatos en un entorno de ejecución de integración autohospedado, se admite la funcionalidad más reciente en la versión 3.6 o posterior.
+La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es de **4 MB**.
 
 ### <a name="supported-connectors"></a>Conectores compatibles
 
 **Almacenamiento de archivos**
 
-| Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | tamaño<br>(archivo) | created<br>(archivo/carpeta) | lastModified<br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<br/>(archivo) | columnCount<br>(archivo) | exists<br>(archivo/carpeta) |
+| Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | tamaño<br>(archivo) | created<br>(archivo/carpeta) | lastModified<sup>1</sup><br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<sup>2</sup><br/>(archivo) | columnCount<sup>2</sup><br>(archivo) | exists<sup>3</sup><br>(archivo/carpeta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Archivos de Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -50,12 +39,23 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Cuando use la actividad Obtener metadatos en una carpeta, asegúrese de tener el permiso LIST/EXECUTE en la carpeta en cuestión.
-- En el caso de Amazon S3 y Google Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual, y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual.
+<sup>1</sup> Metadatos `lastModified`:
+- En el caso de Amazon S3 y Google Cloud Storage, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual, y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual. 
 - En el caso de Azure Blob Storage, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
-- El filtro `lastModified` se aplica actualmente para filtrar elementos secundarios, pero no el propio archivo o carpeta especificados.
+
+<sup>2</sup> Los metadatos `structure` y `columnCount` no se admiten cuando se obtienen metadatos de archivos binarios, JSON o XML.
+
+<sup>3</sup> Metadatos `exists`: para Amazon S3 y Google Cloud Storage, `exists` se aplica al depósito y a la clave, pero no al prefijo o a la carpeta virtual.
+
+Tenga en cuenta lo siguiente:
+
+- Cuando use la actividad Obtener metadatos en una carpeta, asegúrese de tener el permiso LIST/EXECUTE en la carpeta en cuestión.
 - No se admite el filtro de carácter comodín en carpetas o archivos para la actividad de obtención de metadatos.
-- `structure` y `columnCount` no se admiten cuando se obtienen metadatos de archivos binarios, JSON o XML.
+- Filtro `modifiedDatetimeStart` y `modifiedDatetimeEnd` establecido en el conector:
+
+    - Estas dos propiedades se usan para filtrar los elementos secundarios al obtener los metadatos de una carpeta. No se aplica cuando se obtienen de un archivo.
+    - Cuando se usa este tipo de filtro, `childItems` en la salida incluye solo los archivos que se modifican dentro del rango especificado, pero no las carpetas.
+    - Para aplicar este filtro, la actividad GetMetadata enumerará todos los archivos de la carpeta especificada y comprobará la hora modificada. Evite apuntar a una carpeta con un gran número de archivos aunque el recuento de archivos completos esperado sea pequeño. 
 
 **Base de datos relacional**
 
@@ -85,9 +85,6 @@ Puede especificar los siguientes tipos de metadatos en la lista de campos de la 
 
 >[!TIP]
 >Si desea validar que existe un archivo, una carpeta o una tabla, especifique `exists` en la lista de campos de la actividad de obtención de metadatos. A continuación, puede comprobar el resultado `exists: true/false` en la salida de la actividad. Si `exists` no se especifica en la lista de campos, se producirá un error en la actividad de obtención de metadatos si no se encuentra el objeto.
-
->[!NOTE]
->Si obtiene metadatos de almacenes de archivos y configura `modifiedDatetimeStart` o `modifiedDatetimeEnd`, el elemento `childItems` de la salida incluirá solo los archivos de la ruta determinada que tengan una hora de última modificación que se encuentre dentro del intervalo especificado. No incluirá los elementos de las subcarpetas.
 
 ## <a name="syntax"></a>Sintaxis
 

@@ -1,19 +1,19 @@
 ---
 title: Supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Obtenga información sobre cómo habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) con la suscripción de Azure Monitor para contenedores.
+description: Obtenga información sobre cómo habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) con la suscripción de Container Insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604388"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717577"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS)
 
-En este artículo se describe cómo configurar Azure Monitor para contenedores para supervisar el clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](../../aks/index.yml), que está preparando para implementar en la suscripción.
+En este artículo se describe cómo configurar Container Insights para supervisar el clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](../../aks/index.yml), que va a preparar para implementar en la suscripción.
 
 Puede habilitar la supervisión de un clúster de AKS mediante uno de los métodos admitidos:
 
@@ -34,14 +34,14 @@ Si va a [implementar un nuevo clúster de AKS mediante Terraform](/azure/develop
 >[!NOTE]
 >Si decide usar Terraform, debe ejecutar el proveedor de Azure RM para Terraform versión 1.17.0 o superior.
 
-Para agregar Azure Monitor para contenedores al área de trabajo, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) y complete el perfil mediante la inclusión de la [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) y especifique **oms_agent**. 
+Para agregar Container Insights al área de trabajo, vea [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) y complete el perfil mediante la inclusión de [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) y especifique **oms_agent**. 
 
 Una vez que haya habilitado la supervisión y todas las tareas de configuración se hayan completado correctamente, puede supervisar el rendimiento de su clúster de cualquiera de estas dos maneras:
 
 * Directamente en el clúster de AKS mediante la selección de **Health** (Mantenimiento) en el panel izquierdo.
 * Si selecciona el icono de **Monitor Container insights** (Supervisar conclusiones de contenedores) en la página del clúster de AKS correspondiente al clúster seleccionado. En Azure Monitor, en el panel izquierdo, seleccione **Health** (Mantenimiento). 
 
-  ![Opciones para la selección de Azure Monitor para contenedores en AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opciones para seleccionar Container Insights en AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
 
@@ -117,5 +117,5 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 
 * Si experimenta problemas al intentar incorporar la solución, consulte la [guía de solución de problemas](container-insights-troubleshoot.md).
 
-* Con la supervisión habilitada para recopilar el estado y la utilización de recursos de su clúster AKS y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Azure Monitor para contenedores.
+* Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
 

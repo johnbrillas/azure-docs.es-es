@@ -1,20 +1,20 @@
 ---
-title: Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)
-description: Describe cómo modificar la supervisión predeterminada para el estado de invitado de Azure Monitor para VM (versión preliminar) mediante Azure Portal.
+title: Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)
+description: Describe cómo modificar la supervisión predeterminada para el estado de invitado de VM Insights (versión preliminar) mediante Azure Portal.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604608"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719600"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)
-El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada mediante Azure Portal. También se describen los conceptos básicos de los monitores necesarios para [configurar la supervisión mediante una regla de recopilación de datos](vminsights-health-configure-dcr.md).
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)
+El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada mediante Azure Portal. También se describen los conceptos básicos de los monitores necesarios para [configurar la supervisión mediante una regla de recopilación de datos](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Apertura de la configuración del monitor
 Abra la configuración del monitor en Azure Portal; para ello, seleccione el monitor y, a continuación, la pestaña **Configuración**.
