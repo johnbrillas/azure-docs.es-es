@@ -6,16 +6,16 @@
       href: overview.md
     - name: Programa de validación de Azure Arc
       href: validation-program.md
-- name: Tutoriales
-  items:
-    - name: Implementación de configuraciones mediante GitOps
-      href: tutorial-use-gitops-connected-cluster.md
-    - name: Implementación de CI/CD mediante GitOps
-      href: tutorial-gitops-ci-cd.md
 - name: Guías de inicio rápido
   items:
     - name: Conexión de un clúster a Azure Arc
       href: quickstart-connect-cluster.md
+- name: Tutoriales
+  items:
+    - name: Implementación de configuraciones mediante GitOps
+      href: tutorial-use-gitops-connected-cluster.md
+    - name: Implementación de CI/CD con GitOps
+      href: tutorial-gitops-ci-cd.md
 - name: Conceptos
   items:
     - name: Arquitectura de agente

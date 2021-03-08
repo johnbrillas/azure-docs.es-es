@@ -4,23 +4,25 @@ description: Administración de identidades de Azure Security Benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33f5dff65fa7ad8274051f784f2e61dc8366d389
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 4a36bd69ff5ddbc79e358d6f8a2c5b4d640c6d5c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368858"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051453"
 ---
 # <a name="security-control-v2-identity-management"></a>Control de seguridad V2: Administración de identidades
 
 La administración de identidades abarca los controles para establecer una identidad segura y controles de acceso mediante Azure Active Directory. Esto incluye el uso del inicio de sesión único, las autenticaciones seguras, las identidades administradas y los principios de servicio para las aplicaciones, el acceso condicional y la supervisión de las anomalías de la cuenta.
 
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Administración de identidades](../../governance/policy/samples/azure-security-benchmark.md#identity-management).
+
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Unificación en Azure Active Directory como sistema central de identidad y autenticación
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-1 | 16.1, 16.2, 16.4, 16.5 | IA-2, IA-8, AC-2, AC-3 |
 
@@ -37,7 +39,7 @@ Nota: Azure AD admite proveedores de identidades externos, que permiten a los u
 
 - [Procedimiento para crear y configurar una instancia de Azure AD](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Defina los inquilinos de Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
+- [Defina los inquilinos de Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)
 
 - [Uso de proveedores de identidades externos para una aplicación](../../active-directory/external-identities/identity-providers.md)
 
@@ -57,13 +59,13 @@ Nota: Azure AD admite proveedores de identidades externos, que permiten a los u
 
 ## <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Administración de identidades de aplicaciones de forma segura y automática
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-2 | N/D | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 En el caso de cuentas no humanas, como servicios o automatización, use identidades administradas de Azure, en lugar de crear una cuenta de usuario más eficaz para acceder a los recursos o ejecutar código. Las identidades administradas de Azure le permiten autenticarse en los servicios y recursos de Azure que admiten la autenticación de Azure AD. La autenticación se habilita mediante reglas de concesión de acceso predefinidas que permiten evitar las credenciales codificadas de forma rígida en los archivos de código fuente o de configuración. 
 
-En el caso de los servicios que no admiten identidades administradas, use Azure AD para crear entidades de servicio con permisos restringidos en el nivel de recurso.  Se recomienda configurar entidades de servicio con credenciales de certificado y revertir a secretos de cliente. En ambos casos, Azure Key Vault se puede usar junto con las identidades administradas de Azure, de modo que el entorno en tiempo de ejecución (por ejemplo, una función de Azure) pueda recuperar la credencial del almacén de claves.
+En el caso de los servicios que no admiten identidades administradas, use Azure AD para crear entidades de servicio con permisos restringidos en el nivel de recurso. Se recomienda configurar entidades de servicio con credenciales de certificado y revertir a secretos de cliente. En ambos casos, Azure Key Vault se puede usar junto con las identidades administradas de Azure, de modo que el entorno en tiempo de ejecución (por ejemplo, una función de Azure) pueda recuperar la credencial del almacén de claves.
 
 - [Identidades administradas de Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -85,13 +87,13 @@ Use Azure Key Vault para el registro de entidades de seguridad: authentication#a
 
 ## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Uso del inicio de sesión único de Azure AD para acceder a las aplicaciones
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-3 | 4.4. | IA-2, IA-4 |
 
 Azure AD proporciona administración de identidades y acceso a los recursos de Azure, las aplicaciones en la nube y las aplicaciones locales. La administración de identidades y acceso se aplica a las identidades empresariales, como los empleados, así como a las identidades externas, como asociados y proveedores.
 
-Use el inicio de sesión único de Azure AD para administrar y proteger el acceso a los datos y los recursos de su organización locales y en la nube. Conecte todos los usuarios, las aplicaciones y los dispositivos a Azure AD para un acceso seguro y sin problemas, y para conseguir más visibilidad y control. 
+Use el inicio de sesión único (SSO) de Azure AD para administrar y proteger el acceso a los datos y los recursos de su organización locales y en la nube. Conecte todos los usuarios, las aplicaciones y los dispositivos a Azure AD para un acceso seguro y sin problemas, y para conseguir más visibilidad y control. 
 
 - [Información sobre el inicio de sesión único (SSO) en aplicaciones con Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -107,20 +109,21 @@ Use el inicio de sesión único de Azure AD para administrar y proteger el acce
 
 ## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Uso de controles con autenticación multifactor sólida para todo el acceso basado en Azure Active Directory
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-4 | 4.2, 4.4 4.5, 11.5, 12.11, 16.3 | AC-2, AC-3, IA-2, IA-4 |
 
-Azure AD admite controles de autenticación sólida a través de la autenticación multifactor (MFA) y métodos seguros sin contraseña.  
-- Autenticación multifactor: habilite la MFA de Azure AD y siga las recomendaciones de administración de identidades y acceso de Azure Security Center para la configuración de MFA. La MFA se puede exigir a todos los usuarios, a usuarios concretos o a nivel de cada usuario en función de los factores de riesgo y las condiciones de inicio de sesión. 
+Azure AD admite controles de autenticación sólida a través de la autenticación multifactor (MFA) y métodos seguros sin contraseña.
 
-- Autenticación sin contraseña: hay tres opciones de autenticación sin contraseña disponibles, a saber, Windows Hello para empresas, aplicación Microsoft Authenticator y métodos de autenticación locales, como las tarjetas inteligentes. 
+- Autenticación multifactor: habilite la MFA de Azure AD y siga las recomendaciones de administración de identidades y acceso de Azure Security Center para la configuración de MFA. La MFA se puede exigir a todos los usuarios, a usuarios concretos o a nivel de cada usuario en función de los factores de riesgo y las condiciones de inicio de sesión.
+
+- Autenticación sin contraseña: hay disponibles tres opciones de autenticación sin contraseña: Windows Hello para empresas, aplicación Microsoft Authenticator y métodos de autenticación locales, como las tarjetas inteligentes.
 
 Para administradores y usuarios con privilegios, asegúrese de que se usa el nivel más alto del método de autenticación sólida, seguido de la implementación de la directiva de autenticación sólida adecuada para otros usuarios.
 
-Si la autenticación con contraseña heredada todavía se usa para la autenticación de Azure AD, tenga en cuenta que las cuentas solo en la nube (cuentas de usuario creadas directamente en Azure) tienen una directiva de contraseñas de línea de base predeterminada. Además, las cuentas híbridas (cuentas de usuario que proceden de Active Directory local) siguen las directivas de contraseñas locales. Cuando se usa la autenticación con contraseña, Azure AD proporciona una funcionalidad de protección de contraseña que impide que los usuarios establezcan contraseñas fáciles de adivinar. Microsoft proporciona una lista global de contraseñas prohibidas que se actualiza en función de la telemetría, y los clientes pueden ampliarla en función de sus necesidades (por ejemplo, personalización de marca, referencias culturales, etc.). Esta protección de contraseñas se puede usar para las cuentas híbridas y solo en la nube. 
+Si la autenticación con contraseña heredada todavía se usa para la autenticación de Azure AD, tenga en cuenta que las cuentas solo en la nube (cuentas de usuario creadas directamente en Azure) tienen una directiva de contraseñas de línea de base predeterminada. Además, las cuentas híbridas (cuentas de usuario que proceden de Active Directory local) siguen las directivas de contraseñas locales. Cuando se usa la autenticación con contraseña, Azure AD proporciona una funcionalidad de protección de contraseña que impide que los usuarios establezcan contraseñas fáciles de adivinar. Microsoft proporciona una lista global de contraseñas prohibidas que se actualiza en función de la telemetría; asimismo, los clientes pueden ampliarla en función de sus necesidades (por ejemplo, mediante la personalización de marca, referencias culturales, etc.). Esta protección de contraseñas se puede usar para las cuentas híbridas y solo en la nube.
 
-Nota: La autenticación basada solo en las credenciales de contraseña es susceptible a métodos de ataque populares. Para una mayor seguridad, use una autenticación sólida, como MFA y una directiva de contraseñas segura. En el caso de las aplicaciones de terceros y los servicios de Marketplace que pueden tener contraseñas predeterminadas, debe cambiarlas durante la configuración inicial del servicio. 
+Nota: La autenticación basada solo en las credenciales de contraseña es susceptible a métodos de ataque populares. Para una mayor seguridad, use una autenticación sólida, como MFA y una directiva de contraseñas segura. En el caso de las aplicaciones de terceros y los servicios de Marketplace que pueden tener contraseñas predeterminadas, debe cambiarlas durante la configuración inicial del servicio.
 
 - [Procedimiento para habilitar la MFA en Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -142,7 +145,7 @@ Nota: La autenticación basada solo en las credenciales de contraseña es suscep
 
 ## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Supervisión y alerta de anomalías de cuenta
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-5 | 4.8, 4.9, 16.12, 16.13 | AC-2, AC-3, AC-7, AU-6 |
 
@@ -175,7 +178,7 @@ Azure Advanced Threat Protection (AATP) es una solución de seguridad que puede
 
 - [Conectar datos de Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
 
-- [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
+- [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp)
 
 **Responsabilidad**: Customer
 
@@ -187,7 +190,7 @@ Azure Advanced Threat Protection (AATP) es una solución de seguridad que puede
 
 ## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restricción del acceso a recursos de Azure en función de las condiciones
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-6 | N/D | AC-2, AC-3 |
 
@@ -213,7 +216,7 @@ Use el acceso condicional de Azure AD para un control de acceso más granular b
 
 ## <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Elimine la exposición de credenciales no intencionada
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IM-7 | 18.1, 18.7 | IA-5 |
 
@@ -241,9 +244,9 @@ En GitHub, puede usar la característica de escaneo de secretos nativos para ide
 
 Asegúrese de que tiene controles de acceso modernos y supervisión de sesiones para las aplicaciones heredadas y los datos que almacenan y procesan. Mientras que las VPN suelen usarse para acceder a las aplicaciones heredadas, a menudo tienen un control de acceso básico y una supervisión de sesión limitada.
 
-Azure AD Application Proxy permite publicar aplicaciones locales heredadas en usuarios remotos con el inicio de sesión único (SSO) mientras se valida explícitamente la confiabilidad de los usuarios y dispositivos remotos con el acceso condicional de Azure AD. 
+Azure AD Application Proxy permite publicar aplicaciones locales heredadas en usuarios remotos con el inicio de sesión único (SSO) mientras se valida explícitamente la confiabilidad de los usuarios y dispositivos remotos con el acceso condicional de Azure AD.
 
-Como alternativa, Microsoft Cloud App Security es un servicio de agente de seguridad de acceso a la nube (CASB) que puede proporcionar controles para supervisar las sesiones de aplicación de un usuario y las acciones de bloqueo, para aplicaciones locales heredadas y aplicaciones de software como servicio (SaaS) en la nube. 
+Como alternativa, Microsoft Cloud App Security es un servicio de agente de seguridad de acceso a la nube (CASB) que puede proporcionar controles para supervisar las sesiones de aplicación de un usuario y las acciones de bloqueo, para aplicaciones locales heredadas y aplicaciones de software como servicio (SaaS) en la nube.
 
 - [Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 

@@ -26,8 +26,6 @@
     - name: 'Creación de una factoría de datos: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: 'Seguridad: Habilitación de cifrado con claves administradas por el cliente'
-      href: enable-customer-managed-key.md
     - name: Creación de un flujo de datos
       href: data-flow-create.md
 - name: Tutoriales
@@ -36,7 +34,7 @@
       items:
         - name: De Azure Blob Storage a Azure SQL Database
           items:
-            - name: Herramienta Copiar datos
+            - name: Herramienta copiar datos
               href: tutorial-copy-data-tool.md
             - name: Interfaz de usuario (UI)
               href: tutorial-copy-data-portal.md
@@ -44,7 +42,7 @@
               href: tutorial-copy-data-dot-net.md
         - name: "De una base de datos de SQL\_Server a Azure Blob Storage"
           items:
-            - name: Herramienta Copiar datos
+            - name: Herramienta copiar datos
               href: tutorial-hybrid-copy-data-tool.md
             - name: Interfaz de usuario (UI)
               href: tutorial-hybrid-copy-portal.md
@@ -173,10 +171,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tiempo de ejecución de integración
       href: concepts-integration-runtime.md
-    - name: Seguridad
-      items:
-        - name: Línea de base de seguridad
-          href: security-baseline.md
     - name: Flujos de datos
       items:
         - name: Transformación de datos con Mapping Data Flow
@@ -439,7 +433,7 @@
           href: copy-activity-monitoring.md
         - name: Eliminación de archivos con la actividad de eliminación
           href: delete-activity.md
-        - name: Herramienta Copiar datos
+        - name: Herramienta copiar datos
           href: copy-data-tool.md
         - name: Compatibilidad con formato y compresión
           href: supported-file-formats-and-compression-codecs.md
@@ -466,7 +460,7 @@
     - name: Transformación de datos
       href: transform-data.md
       items:
-        - name: Ejecución de actividad de Data Flow
+        - name: Ejecución de una actividad de Data Flow
           href: control-flow-execute-data-flow-activity.md
         - name: Ejecución de una actividad de Power Query
           href: control-flow-power-query-activity.md
@@ -476,7 +470,7 @@
           href: transform-data-using-dotnet-custom-activity.md
         - name: Actividad de Jar en Databricks
           href: transform-data-databricks-jar.md
-        - name: Actividad de cuaderno de Databricks
+        - name: Actividad Notebook de Databricks
           href: transform-data-databricks-notebook.md
         - name: Actividad de Python en Databricks
           href: transform-data-databricks-python.md
@@ -484,15 +478,15 @@
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
         - name: Actividad de U-SQL de Data Lake
           href: transform-data-using-data-lake-analytics.md
-        - name: Actividad de Hive de HDInsight
+        - name: Actividad de HDInsight Hive
           href: transform-data-using-hadoop-hive.md
         - name: Actividad de MapReduce de HDInsight
           href: transform-data-using-hadoop-map-reduce.md
-        - name: Actividad de Pig de HDInsight
+        - name: Actividad de HDInsight Pig
           href: transform-data-using-hadoop-pig.md
         - name: Actividad de HDInsight Spark
           href: transform-data-using-spark.md
-        - name: Actividad de streaming de HDInsight
+        - name: Actividad de HDInsight Streaming
           href: transform-data-using-hadoop-streaming.md
         - name: Actividad de ejecución de canalización de Machine Learning
           href: transform-data-machine-learning-service.md
@@ -506,13 +500,13 @@
           href: compute-linked-services.md
     - name: Flujo de control
       items:
-        - name: Anexar actividad de variable
+        - name: Actividad de anexión de variables
           href: control-flow-append-variable-activity.md
         - name: Actividad de ejecución de canalización
           href: control-flow-execute-pipeline-activity.md
-        - name: Filtro de actividades
+        - name: Actividad de filtro
           href: control-flow-filter-activity.md
-        - name: Para cada actividad
+        - name: Actividad ForEach
           href: control-flow-for-each-activity.md
         - name: Actividad de obtención de metadatos
           href: control-flow-get-metadata-activity.md
@@ -528,7 +522,7 @@
           href: control-flow-until-activity.md
         - name: Actividad de validación
           href: control-flow-validation-activity.md
-        - name: Actividad Wait
+        - name: Actividad de espera
           href: control-flow-wait-activity.md
         - name: Actividad web
           href: control-flow-web-activity.md
@@ -608,12 +602,14 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identidad administrada de Data Factory
           href: data-factory-service-identity.md
-        - name: Cifrado de claves administrado por el cliente
+        - name: Cifrado de Data Factory con claves administradas por el cliente
           href: enable-customer-managed-key.md
         - name: Red virtual administrada
           href: managed-virtual-network-private-endpoint.md
         - name: Azure Private Link para Data Factory
           href: data-factory-private-link.md
+        - name: Línea de base de seguridad de Azure
+          href: security-baseline.md
     - name: Supervisión y administración
       items:
         - name: Supervisión visual

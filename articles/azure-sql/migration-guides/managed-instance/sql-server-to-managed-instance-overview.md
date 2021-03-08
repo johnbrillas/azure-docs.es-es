@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094016"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690420"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Información general sobre la migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ En la tabla siguiente se enumeran las herramientas de migración recomendadas:
 |---------|---------|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Servicio de Azure propio que admite la migración en el modo sin conexión para las aplicaciones que pueden permitirse un tiempo de inactividad durante el proceso de migración. A diferencia de la migración continua en el modo en línea, la migración en el modo sin conexión ejecuta una restauración única de una copia de seguridad completa de la base de datos del origen al destino. | 
 |[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance admite la restauración de copias de seguridad de bases de datos SQL Server nativas (archivos .bak), lo que la convierte en la opción de migración más simple para los clientes que pueden proporcionar copias de seguridad completas de la base de datos a Azure Storage. También se admiten las copias de seguridad completas y diferenciales, que se documentan en la [sección de recursos de migración](#migration-assets) más adelante en este artículo.| 
+|[Servicio de reproducción de registros (LRS)](../../managed-instance/log-replay-service-migrate.md) | Se trata de un servicio en la nube habilitado para Managed Instance basado en la tecnología de trasvase de registros de SQL Server, lo que lo convierte en una opción de migración para los clientes que pueden proporcionar copias de seguridad de base de datos completas, diferenciales y de registros en Azure Storage. LRS se usa para restaurar archivos de copia de seguridad de Azure Blob Storage a SQL Managed Instance.| 
 | | |
 
 ### <a name="alternative-tools"></a>Herramientas alternativas
@@ -114,8 +115,9 @@ En la tabla siguiente se comparan las opciones de migración recomendadas:
 
 |Opción de migración  |Cuándo se usa  |Consideraciones  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migración de bases de datos únicas o de varias bases de datos a escala. </br> - Puede admitir tiempo de inactividad durante el proceso de migración. </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute |  - Las migraciones a escala se pueden automatizar a través de [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> - El tiempo para completar la migración depende del tamaño de la base de datos y se ve afectado por el tiempo de la copia de seguridad y la restauración. </br> - Es posible que se requiera tiempo de inactividad suficiente. |
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migración de bases de datos únicas o de varias bases de datos a escala. </br> - Puede admitir tiempo de inactividad durante el proceso de migración. </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute |  - Las migraciones a escala se pueden automatizar a través de [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - El tiempo para completar la migración depende del tamaño de la base de datos y se ve afectado por el tiempo de la copia de seguridad y la restauración. </br> - Es posible que se requiera tiempo de inactividad suficiente. |
 |[Copia de seguridad y restauración nativa](../../managed-instance/restore-sample-database-quickstart.md) | - Migración de bases de datos individuales de aplicación de línea de negocio.  </br> - Migración rápida y fácil sin necesidad de una herramienta o un servicio de migración independiente.  </br> </br> Orígenes compatibles: </br> - SQL Server (2005 - 2019) local o VM de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute | - La copia de seguridad de base de datos usa varios subprocesos para optimizar la transferencia de datos a Azure Blob Storage, pero el ancho de banda de ISV y el tamaño de la base de datos pueden afectar la velocidad de transferencia. </br> - El tiempo de inactividad debe permitir el tiempo necesario para realizar una operación de copia de seguridad y restauración completa (que es un tamaño de operación de datos).| 
+|[Servicio de reproducción de registros (LRS)](../../managed-instance/log-replay-service-migrate.md) | - Migración de bases de datos individuales de aplicación de línea de negocio.  </br> -Se necesita más control para las migraciones de bases de datos.  </br> </br> Orígenes compatibles: </br> - SQL Server (2008 - 2019) local o máquina virtual de Azure </br> - AWS EC2 </br> - AWS RDS </br> - VM con SQL Server de GCP Compute | -La migración conlleva realizar copias de seguridad completas de la base de datos en SQL Server y copiar los archivos de copia de seguridad en Azure Blob Storage. LRS se usa para restaurar archivos de copia de seguridad de Azure Blob Storage a SQL Managed Instance. </br> -Las bases de datos que se restauran durante el proceso de migración estarán en modo de restauración y no se pueden usar para leer o escribir hasta que el proceso haya finalizado.| 
 | | | |
 
 ### <a name="alternative-options"></a>Opciones alternativas
@@ -161,7 +163,7 @@ Además de la arquitectura de alta disponibilidad que se incluye en SQL Managed 
 
 #### <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
 
-Use la opción Azure Database Migration Service (DMS) sin conexión para migrar [trabajos del Agente SQL](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). En caso contrario, cree un script de los trabajos en Transact-SQL (T-SQL) mediante SQL Server Management Studio y, a continuación, vuelva a crearlos manualmente en la instancia de SQL Managed Instance de destino. 
+Use la opción Azure Database Migration Service (DMS) sin conexión para migrar [trabajos del Agente SQL](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). En caso contrario, cree un script de los trabajos en Transact-SQL (T-SQL) mediante SQL Server Management Studio y, a continuación, vuelva a crearlos manualmente en la instancia de SQL Managed Instance de destino. 
 
 > [!IMPORTANT]
 > Actualmente, Azure DMS solo admite trabajos con pasos del subsistema de T-SQL. Los trabajos con pasos de paquetes SSIS se deben migrar manualmente. 

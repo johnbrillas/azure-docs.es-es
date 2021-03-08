@@ -1,17 +1,17 @@
 ---
-title: Informes de Azure Monitor para contenedores
-description: Se describen los informes disponibles para analizar los datos recopilados por Azure Monitor para contenedores.
+title: Informes en Container Insights
+description: Se describen los informes disponibles para analizar los datos recopilados por Container Insights.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582306"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704283"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Informes de Azure Monitor para contenedores
-Los informes de Azure Monitor para contenedores son [libros de Azure](../visualize/workbooks-overview.md) recomendados listos para usar. En este artículo se describen los diferentes informes que están disponibles y cómo acceder a ellos.
+# <a name="reports-in-container-insights"></a>Informes en Container Insights
+Los informes de Container Insights son [libros de Azure](../visualize/workbooks-overview.md) recomendados listos para usar. En este artículo se describen los diferentes informes que están disponibles y cómo acceder a ellos.
 
 ## <a name="viewing-reports"></a>Visualización de informes
 En el menú **Azure Monitor** de Azure Portal, seleccione **Contenedores**. Seleccione **Información detallada** en la sección **Supervisión**, elija un clúster determinado y, luego, seleccione la página **Informes (versión preliminar)** . 

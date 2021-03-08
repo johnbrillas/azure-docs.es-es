@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678929"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695811"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Solución de problemas de Azure Route Server
 
@@ -21,11 +21,15 @@ ms.locfileid: "101678929"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Problemas de conectividad de BGP
+## <a name="connectivity-issues"></a>Problemas de conectividad
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>¿Por qué el emparejamiento de BGP entre mi NVA y Azure Route Server se activa y desactiva ("oscilación")?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>¿Por qué mi NVA pierde la conectividad a Internet después de anunciar la ruta predeterminada (0.0.0.0/0) a Azure Route Server?
+Cuando la aplicación virtual de red (NVA) anuncia la ruta predeterminada, Azure Route Server la programa para todas las máquinas virtuales de la red virtual, incluida la propia NVA. Esta ruta predeterminada establece la NVA como el próximo salto para todo el tráfico de Internet. Si su NVA necesita conectividad a Internet, debe configurar una [ruta definida por el usuario](../virtual-network/virtual-networks-udr-overview.md) para invalidar la ruta predeterminada en la NVA y adjuntar la ruta definida por el usuario a la subred donde se hospeda la NVA (vea el ejemplo siguiente). De lo contrario, la máquina host de la NVA seguirá enviando el tráfico de Internet, incluido el que envía la NVA, a la misma NVA.
 
-La causa de la oscilación podría deberse a la configuración del temporizador de BGP. De manera predeterminada, el temporizador para mantener la conexión en Azure Route Server se establece en 60 segundos y el temporizador de retención en 180 segundos.
+| Ruta | Próximo salto |
+|-------|----------|
+| 0.0.0.0/0 | Internet |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>¿Por qué puedo hacer ping desde mi NVA a la dirección IP del emparejamiento de BGP en Azure Route Server, pero después de configurar el emparejamiento de BGP entre ellos, ya no puedo hacer ping a la misma dirección IP? ¿Por qué deja de funcionar el emparejamiento de BGP?
 
@@ -37,11 +41,18 @@ En algunas NVA, debe agregar una ruta estática para la subred de Azure Route Se
 
 10.0.1.1 es la dirección IP de la puerta de enlace predeterminada de la subred donde se hospeda la NVA (o de forma más precisa, una de las NIC).
 
-## <a name="bgp-route-issues"></a>Problemas de rutas de BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>¿Por qué se pierde la conectividad a la red local con ExpressRoute o con una VPN de Azure cuando se implementa Azure Route Server en una red virtual que ya tiene una puerta de enlace de ExpressRoute o una puerta de enlace de VPN de Azure?
+Al implementar Azure Route Server en una red virtual, es necesario actualizar el plano de control entre las puertas de enlace y la red virtual. Durante esta actualización, hay un período de tiempo en el que las máquinas virtuales de la red virtual pierden la conectividad a la red local. Le recomendamos encarecidamente que programe un mantenimiento para implementar Azure Route Server en el entorno de producción.  
+
+## <a name="control-plane-issues"></a>Problemas del plano de control
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>¿Por qué el emparejamiento de BGP entre mi NVA y Azure Route Server se activa y desactiva ("oscilación")?
+
+La causa de la oscilación podría deberse a la configuración del temporizador de BGP. De manera predeterminada, el temporizador para mantener la conexión en Azure Route Server se establece en 60 segundos y el temporizador de retención en 180 segundos.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>¿Por qué la NVA no recibe rutas de Azure Route Server aunque el emparejamiento de BGP esté activo?
 
-Azure Route Server utiliza el ASN 65515. Asegúrese de configurar un ASN diferente para la NVA, de modo que se pueda establecer una sesión de "eBGP" entre la NVA y Azure Route Server para que la propagación de rutas se realice automáticamente.
+Azure Route Server utiliza el ASN 65515. Asegúrese de configurar un ASN diferente para la NVA, de modo que se pueda establecer una sesión de "eBGP" entre la NVA y Azure Route Server para que la propagación de rutas se realice automáticamente. Asegúrese de habilitar "saltos múltiples" en la configuración de BGP porque la NVA y Azure Route Server se encuentran en distintas subredes de la red virtual.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>El emparejamiento de BGP entre la NVA y Azure Route Server está activo. Puedo ver que las rutas se intercambian correctamente entre ambos. ¿Por qué no están las rutas de la NVA en la tabla de enrutamiento efectiva de la máquina virtual? 
 

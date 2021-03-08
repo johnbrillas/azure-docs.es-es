@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: a319dbce2502f35272cf9b70da2022f581d64275
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551251"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694077"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guía del usuario del linaje de Azure Purview Data Catalog
 
@@ -74,39 +74,47 @@ Azure Purview admite el linaje de nivel de recurso de los conjuntos de datos y l
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Captura de pantalla que muestra cómo seleccionar la opción para ver columnas en la página del linaje" border="true":::
 
-## <a name="column-level-lineage"></a>Linaje de nivel de columna
+## <a name="dataset-column-lineage"></a>Linaje de columna de conjunto de datos
 
-Azure Purview admite el linaje de nivel de columna de los conjuntos de datos. Para ver el linaje de nivel de columna, vaya a la pestaña **Linaje** del recurso actual en el catálogo y siga los pasos que se indican a continuación:
+Para ver el linaje de nivel de columna de un conjunto de datos, vaya a la pestaña **Linaje** del recurso actual del catálogo y siga los pasos que se indican a continuación:
 
 1. Una vez que esté en la pestaña del linaje, en el panel izquierdo, active la casilla situada junto a cada columna que quiera mostrar en el linaje de datos.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Captura de pantalla que muestra cómo seleccionar la opción para mostrar columnas en la página del linaje." lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. Mantenga el mouse sobre una columna seleccionada en el panel izquierdo o en el conjunto de datos del panel de lienzo del linaje para ver la asignación de columnas. Se resaltarán todas las instancias de columna.
+2. Mantenga el mouse sobre una columna seleccionada en el panel izquierdo o en el conjunto de datos del panel de lienzo del linaje para ver la asignación de columnas. Se resaltarán todas las instancias de columna.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Captura de pantalla que muestra cómo pasar el mouse sobre un nombre de columna para resaltar el flujo de columna en una ruta de acceso del linaje de datos." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. Si el número de columnas es mayor que el que se puede mostrar en el panel izquierdo, use la opción de filtro para seleccionar una columna específica por nombre. Como alternativa, puede usar el mouse para desplazarse por la lista.
+3. Si el número de columnas es mayor que el que se puede mostrar en el panel izquierdo, use la opción de filtro para seleccionar una columna específica por nombre. Como alternativa, puede usar el mouse para desplazarse por la lista.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="Captura de pantalla que muestra cómo filtrar columnas por nombre en la página del linaje." lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. Si el panel de lienzo del linaje contiene más nodos y bordes, use el filtro para seleccionar los recursos de datos o procesar los nodos por nombre. Como alternativa, puede usar el mouse para desplazarse por la ventana del linaje.
+4. Si el panel de lienzo del linaje contiene más nodos y bordes, use el filtro para seleccionar los recursos de datos o procesar los nodos por nombre. Como alternativa, puede usar el mouse para desplazarse por la ventana del linaje.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="Captura de pantalla que muestra los nodos de recursos de datos ordenados por nombre en la página de linaje." lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. Use el control de alternancia en el panel izquierdo para resaltar la lista de conjuntos de datos en el panel de lienzo del linaje. Si desactiva el control de alternancia, se muestra cualquier recurso que contenga al menos una de las columnas seleccionadas. Si, por el contrario, activa el control de alternancia, solo se mostrarán los conjuntos de datos que contengan todas las columnas.
+5. Use el control de alternancia en el panel izquierdo para resaltar la lista de conjuntos de datos en el panel de lienzo del linaje. Si desactiva el control de alternancia, se muestra cualquier recurso que contenga al menos una de las columnas seleccionadas. Si, por el contrario, activa el control de alternancia, solo se mostrarán los conjuntos de datos que contengan todas las columnas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Captura de pantalla que muestra cómo usar el control de alternancia para filtrar la lista de nodos en la página del linaje." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## <a name="process-column-lineage"></a>Linaje de columna de proceso
+El proceso de datos puede tomar uno o más conjuntos de datos de entrada para generar una o más salidas. En Purview, el linaje de nivel de columna está disponible en nodos de proceso. 
+1. Cambie entre los conjuntos de datos de entrada y salida de un menú desplegable del panel de columnas.
+2. Seleccione las columnas de una o más tablas para ver el linaje que fluye desde el conjunto de datos de entrada hasta el conjunto de datos de salida correspondiente.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="Captura de pantalla que muestra el linaje de las columnas de un nodo de proceso." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## <a name="browse-assets-in-lineage"></a>Navegación por los recursos del linaje
 1. Seleccione **Switch to asset** (Cambiar de recurso) en cualquier recurso, para ver sus metadatos en la vista de linaje. Si lo hace así, podrá examinar otro recurso del catálogo desde la vista de linaje.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Captura de pantalla sobre cómo seleccionar la opción Cambiar de recurso en un recurso de datos de linaje." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. El panel de lienzo del linaje podría ser complejo para conjuntos de datos populares. Para evitar confusiones, en la vista predeterminada solo se muestran los cinco niveles de linaje del recurso seleccionado. Para expandir el resto del linaje, haga clic en las burbujas del panel de lienzo del linaje. Los consumidores de datos también pueden ocultar los recursos del panel de lienzo que no sean de su interés. Para reducir aún más la complejidad de los datos, desactive el control de alternancia **More Lineage** (Más linaje) en la parte superior del panel de lienzo del linaje. Esta acción ocultará todas las burbujas en el panel de lienzo del linaje.
+2. El panel de lienzo del linaje podría ser complejo para conjuntos de datos populares. Para evitar confusiones, en la vista predeterminada solo se muestran los cinco niveles de linaje del recurso seleccionado. Para expandir el resto del linaje, haga clic en las burbujas del panel de lienzo del linaje. Los consumidores de datos también pueden ocultar los recursos del panel de lienzo que no sean de su interés. Para reducir aún más la complejidad de los datos, desactive el control de alternancia **More Lineage** (Más linaje) en la parte superior del panel de lienzo del linaje. Esta acción ocultará todas las burbujas en el panel de lienzo del linaje.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Captura de pantalla que muestra cómo alternar más linaje." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Use los botones inteligentes del panel de lienzo del linaje para obtener una vista óptima del linaje. El diseño automático, el zoom para ajustar, las opciones para acercar o alejar, la pantalla completa y el mapa de navegación están disponibles para ofrecerle una experiencia de linaje envolvente en el catálogo.
+3. Use los botones inteligentes del panel de lienzo del linaje para obtener una vista óptima del linaje. El diseño automático, el zoom para ajustar, las opciones para acercar o alejar, la pantalla completa y el mapa de navegación están disponibles para ofrecerle una experiencia de linaje envolvente en el catálogo.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Captura de pantalla que muestra cómo seleccionar los botones inteligentes del linaje." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

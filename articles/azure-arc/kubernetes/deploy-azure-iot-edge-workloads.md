@@ -1,21 +1,21 @@
 ---
-title: Implementación de cargas de trabajo de Azure IoT Edge (versión preliminar)
+title: Implementación de cargas de trabajo de Azure IoT Edge
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Implementación de cargas de trabajo de Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
-ms.openlocfilehash: c352455b69360df0b26f5aac38fc40ccb30fb9de
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e77446170e5a6adac995394d66640fd183f453b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650420"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121735"
 ---
-# <a name="deploy-azure-iot-edge-workloads-preview"></a>Implementación de cargas de trabajo de Azure IoT Edge (versión preliminar)
+# <a name="deploy-azure-iot-edge-workloads"></a>Implementación de cargas de trabajo de Azure IoT Edge
 
 ## <a name="overview"></a>Información general
 
@@ -77,4 +77,4 @@ az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --nam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de Azure Policy para controlar la configuración del clúster](./use-azure-policy.md)
+Aprenda a [usar Azure Policy para controlar la configuración del clúster](./use-azure-policy.md).

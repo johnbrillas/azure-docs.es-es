@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59f7d40d64e10266937aab8dacb39bd6c647ce07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750606"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102193880"
 ---
 <a name="HOLTop"></a>
 
@@ -90,7 +90,13 @@ Vaya a la nueva carpeta y cree un archivo denominado *ComputerVisionQuickstarts.
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java), que contiene los ejemplos de código de este inicio rápido.
 
-En la clase **ComputerVisionQuickstarts** de la aplicación, cree variables para el punto de conexión y la clave del recurso.
+Defina la clase **ComputerVisionQuickstarts**.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_1)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_2)]
+
+En la clase **ComputerVisionQuickstarts**, cree variables para el punto de conexión y la clave del recurso.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
@@ -154,7 +160,7 @@ A continuación, especifique qué características visuales desea extraer en el 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analizar
-Este método imprime resultados detallados en la consola para cada ámbito del análisis de imágenes. Se recomienda que incluya esta llamada de método en un bloque Try/Catch. El método **analyzeImageInStream** devuelve un objeto **ImageAnalysis** que contiene toda la información extraída.
+Este bloque imprime resultados detallados de cada ámbito del análisis de imágenes en la consola. El método **analyzeImageInStream** devuelve un objeto **ImageAnalysis** que contiene toda la información extraída.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
@@ -183,6 +189,21 @@ El código siguiente obtiene el conjunto de las etiquetas detectadas en la image
 El código siguiente devuelve las caras detectadas en la imagen con sus coordenadas de rectángulo y selecciona los atributos de cara. Para más información, consulte [Detección de caras](../../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="detect-objects"></a>Detección de objetos
+
+El código siguiente devuelve los objetos detectados en la imagen con sus coordenadas. Para más información, consulte [Detección de objetos](../../concept-object-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
+
+
+### <a name="detect-brands"></a>Detección de marcas
+
+El código siguiente devuelve los logotipos de marca detectados en la imagen con sus coordenadas. Para más información, consulte [Detección de marcas](../../concept-brand-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
+
+
 
 ### <a name="detect-adult-racy-or-gory-content"></a>Detección de contenido para adultos, explícito o sangriento
 
@@ -216,6 +237,13 @@ El código siguiente imprime información sobre el tipo de imagen (si es una ima
 
 > [!div class="nextstepaction"]
 > [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
+
+### <a name="close-out-the-method"></a>Cierre del método
+
+Complete el bloque try/catch y cierre el método.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
+
 
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 

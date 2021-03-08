@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d7b7d8845eda87132cbfa7981c20c39bb210aa5c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-dotnetcore-uiex
+ms.openlocfilehash: 77e0768a617ef79ab8510f88bfdcd41d5647f9bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701644"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Inicio rápido: Creación de una aplicación web ASP.NET Core en Azure
 
@@ -187,7 +191,7 @@ Pase al siguiente artículo para aprender a crear una aplicación de .NET Core y
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service en Linux](overview.md#app-service-on-linux) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En esta guía de inicio rápido se muestra cómo crear una aplicación de [.NET Core](/aspnet/core/) en App Service en Linux. Creará la aplicación web con la [CLI de Azure](/cli/azure/get-started-with-azure-cli) y usará Git para implementar el código de .NET Core en la aplicación.
+[App Service en Linux](overview.md#app-service-on-linux) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En esta guía de inicio rápido se muestra cómo crear una aplicación de [.NET Core](/aspnet/core/) y cómo implementarla en una instancia de App Service hospedada en Linux mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli).
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -258,7 +262,7 @@ az login
 Implemente el código en la carpeta local (*hellodotnetcore*) mediante el comando `az webapp up`:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#set-up-your-initial-environment).

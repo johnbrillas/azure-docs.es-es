@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691151"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 En este artículo se explica cómo realizar una conmutación por error manual de un nodo principal en los niveles de servicio De uso general (GP) y Crítico para la empresa (BC) de SQL Managed Instance, y cómo realizar una conmutación por error manual de un nodo de réplica de solo lectura secundario únicamente en el nivel de servicio BC.
 
@@ -33,7 +34,7 @@ Puede considerar la posibilidad de ejecutar una [conmutación por error manual](
 - En algunos casos de degradación del rendimiento de las consultas, la conmutación por error manual puede ayudar a mitigar el problema de rendimiento.
 
 > [!NOTE]
-> Asegurarse de que las aplicaciones sean resistentes a la conmutación por error antes de la implementación en producción ayudará a mitigar el riesgo de errores de la aplicación en producción y contribuirá a la disponibilidad de la aplicación para los clientes.
+> Asegurarse de que las aplicaciones sean resistentes a la conmutación por error antes de la implementación en producción ayudará a mitigar el riesgo de errores de la aplicación en producción y contribuirá a la disponibilidad de la aplicación para los clientes. Puede encontrar más información sobre cómo probar la preparación de las aplicaciones para la nube con la grabación de vídeo [Prueba de la preparación de las aplicaciones en la nube para la resistencia a la conmutación por error con SQL Managed Instance](https://youtu.be/FACWYLgYDL8).
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicio manual de la conmutación por error en SQL Managed Instance
 
@@ -42,7 +43,7 @@ Puede considerar la posibilidad de ejecutar una [conmutación por error manual](
 El usuario que inicia una conmutación por error debe tener uno de los roles de Azure siguientes:
 
 - Rol Propietario de la suscripción, o
-- Rol Colaborador de Instancia administrada, o
+- Rol [Colaborador de Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) o
 - Rol personalizado con el permiso siguiente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -150,8 +151,9 @@ La breve pérdida de conectividad del cliente durante la conmutación por error,
 > - En el caso de las instancias de BC, debe existir cuórum de réplicas para que se acepte la solicitud de conmutación por error.
 > - En el caso de las instancias de BC, no es posible especificar en qué réplica secundaria legible se iniciará la conmutación por error.
 > - No se permitirá la conmutación por error hasta que los sistemas de copia de seguridad automatizada completen la primera copia de seguridad completa para una nueva base de datos.
+> - No se permitirá la conmutación por error si existe una restauración de la base de datos en curso.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+- Puede encontrar más información sobre cómo probar la preparación de las aplicaciones para la nube con la grabación de vídeo [Prueba de la preparación de las aplicaciones en la nube para la resistencia a la conmutación por error con SQL Managed Instance](https://youtu.be/FACWYLgYDL8).
 - Obtenga más información sobre la alta disponibilidad de la instancia administrada en [Alta disponibilidad para Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Para obtener información general, consulte [¿Qué es Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md).

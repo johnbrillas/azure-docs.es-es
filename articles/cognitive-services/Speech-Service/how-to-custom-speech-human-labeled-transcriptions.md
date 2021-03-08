@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388862"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700038"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
 
 Si quiere mejorar la precisión del reconocimiento, en especial cuando se producen problemas por eliminaciones o sustituciones incorrectas de palabras, le interesa usar las transcripciones con etiqueta humana junto con los datos de audio. ¿Qué son las transcripciones con etiqueta humana? Fácil; son transcripciones textuales, palabra por palabra, de un archivo de audio.
 
-Se necesita una muestra grande de datos de transcripciones para mejorar el reconocimiento; se recomienda proporcionar entre 10 y 20 horas de datos de transcripción. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
+Se necesita una muestra grande de datos de transcripciones para mejorar el reconocimiento; se recomienda proporcionar entre 1 y 20 horas de datos de transcripción. El servicio Voz usará hasta 20 horas de audio para el entrenamiento. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
 
 > [!NOTE]
 > No todos los modelos base admiten la personalización con archivos de audio. Si un modelo base no lo admite, el entrenamiento solo usará el texto de las transcripciones de la misma manera en que se usa el texto relacionado. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.

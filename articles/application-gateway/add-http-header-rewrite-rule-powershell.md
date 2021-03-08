@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711695"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure PowerShell
 
@@ -31,23 +31,23 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
 1. Cree los objetos necesarios para la reescritura de encabezados HTTP:
 
-   - **RequestHeaderConfiguration** : Se usa para especificar los campos de encabezado de solicitud que quiere reescribir y el nuevo valor para los encabezados.
+   - **RequestHeaderConfiguration**: se usa para especificar los campos de encabezado de solicitud que quiere reescribir y el nuevo valor para los encabezados.
 
-   - **ResponseHeaderConfiguration** : Se usa para especificar los campos de encabezado de respuesta que quiere reescribir y el nuevo valor para los encabezados.
+   - **ResponseHeaderConfiguration**: se usa para especificar los campos de encabezado de respuesta que quiere reescribir y el nuevo valor para los encabezados.
 
-   - **ActionSet** : Contiene las configuraciones de los encabezados de solicitud y respuesta especificados anteriormente.
+   - **ActionSet**: contiene las configuraciones de los encabezados de solicitud y respuesta especificados anteriormente.
 
-   - **Condición** : Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
+   - **Condition**: se trata de una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-   - **RewriteRule** : Contiene varias combinaciones de acción de reescritura y condición de reescritura.
+   - **RewriteRule**: contiene varias combinaciones de acción de reescritura y condición de reescritura.
 
-   - **RuleSequence** : Configuración opcional que ayuda a establecer el orden en que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
+   - **RuleSequence**: configuración opcional que ayuda a establecer el orden en que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
 
      Si no se especifica explícitamente RuleSequence, se establece un valor predeterminado de 100.
 
-   - **RewriteRuleSet** : Contiene varias reglas de reescritura que se asociarán a una regla de enrutamiento de solicitudes.
+   - **RewriteRuleSet**: contiene varias reglas de reescritura que se asociarán a una regla de enrutamiento de solicitudes.
 
 2. Conecte RewriteRuleSet a una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Especificar la configuración de la regla de reescritura de encabezado HTTP
 
-En este ejemplo, modificará una dirección URL de redireccionamiento al reescribir el encabezado de ubicación en la respuesta HTTP siempre que el encabezado de ubicación contenga una referencia a azurewebsites.net. Para ello, agregaremos una condición para evaluar si el encabezado de ubicación en la respuesta contiene azurewebsites.net: Vamos a usar el patrón `(https?):\/\/.*azurewebsites\.net(.*)$`. Y vamos a usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como valor del encabezado. Este valor reemplazará *azurewebsites.net* con *contoso.com* en el encabezado de ubicación.
+En este ejemplo, modificará una dirección URL de redireccionamiento al reescribir el encabezado de ubicación en la respuesta HTTP siempre que el encabezado de ubicación contenga una referencia a azurewebsites.net. Para ello, agregaremos una condición para evaluar si el encabezado de ubicación en la respuesta contiene azurewebsites.net: Vamos a usar el patrón `(https?)://.*azurewebsites.net(.*)$`. Y vamos a usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como valor del encabezado. Este valor reemplazará *azurewebsites.net* con *contoso.com* en el encabezado de ubicación.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691950"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -186,6 +186,30 @@ Mientras espera a que terminen todos los modelos del experimento, seleccione **A
 A continuación, se desplazará a las pestañas **Details** (Detalles) y **Metrics** (Métricas) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
 
 ![Detalles de la ejecución de iteración](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+
+## <a name="model-explanations"></a>Explicaciones del modelo
+
+Mientras espera a que terminen los modelos, puede echar un vistazo a las explicaciones de estos y ver qué características de datos (sin o con diseño) han influido en las predicciones de un modelo determinado. 
+
+Estas explicaciones del modelo se pueden generar a petición y se resumen en el panel de explicaciones del modelo que forma parte de la pestaña **Explicaciones (versión preliminar)** .
+
+Para generar explicaciones del modelo: 
+ 
+1. Seleccione **Ejecución 1** en la parte superior para volver a la pantalla **Modelos**. 
+1. Seleccione la pestaña **Modelos**.
+1. En este tutorial, seleccione el primer modelo **MaxAbsScaler, LightGBM**.
+1. Seleccione el botón **Explicar modelo** de la parte superior. A la derecha aparece el panel **Explicar modelo**. 
+1. Seleccione **automl-compute**, que ha creado anteriormente. Este clúster de proceso inicia una ejecución secundaria para generar las explicaciones del modelo.
+1. Seleccione **Crear** en la parte inferior. Aparece un mensaje de éxito verde en la parte superior de la pantalla. 
+    >[!NOTE]
+    > La ejecución de la explicación tarda entre dos y cinco minutos en terminar.
+1. Seleccione el botón **Explicaciones (versión preliminar)** . Esta pestaña se rellena una vez completada la ejecución de la explicación.
+1. En el lado izquierdo, expanda el panel y seleccione la fila que indica **Sin diseño** en **Características**. 
+1. Seleccione la pestaña **Agregar importancia de la característica** de la derecha. Este gráfico muestra qué características de datos han influido en las predicciones del modelo seleccionado. 
+
+    En este ejemplo, la *duración* parece haber influido más en las predicciones de este modelo.
+    
+    ![Panel de explicación del modelo](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
 
 ## <a name="deploy-the-best-model"></a>Implementación del mejor modelo
 

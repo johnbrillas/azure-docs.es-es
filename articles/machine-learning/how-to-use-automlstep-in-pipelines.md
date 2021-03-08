@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 12/04/2020
+ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: da973cf377ceace4a92d1cdd1e956321a5592e6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692222"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Uso de ML automatizado en una canalización de Azure Machine Learning en Python
 
@@ -136,8 +136,6 @@ from azureml.core import Run
 
 import pandas as pd 
 import numpy as np 
-import pyarrow as pa
-import pyarrow.parquet as pq
 import argparse
 
 RANDOM_SEED=42
@@ -188,10 +186,9 @@ titanic_ds = Run.get_context().input_datasets['titanic_ds']
 df = titanic_ds.to_pandas_dataframe().drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1)
 df = prepare_embarked(prepare_genders(prepare_fare(prepare_age(df))))
 
-os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
-pq.write_table(pa.Table.from_pandas(df), args.output_path)
+df.to_csv(os.path.join(args.output_path,"prepped_data.csv"))
 
-print(f"Wrote test to {args.output_path} and train to {args.output_path}")
+print(f"Wrote prepped data to {args.output_path}/prepped_data.csv")
 ```
 
 El fragmento de código anterior es un ejemplo completo, pero mínimo, de la preparación de datos para los datos de Titanic. El fragmento de código comienza con un "comando mágico" de Jupyter para enviar el código a un archivo. Si no está utilizando un cuaderno de Jupyter, elimine esa línea y cree el archivo manualmente.
@@ -200,33 +197,30 @@ Las distintas funciones `prepare_` del fragmento de código anterior modifican l
 
 Una vez que el código define las funciones de preparación de datos, dicho código analiza el argumento de entrada, que es la ruta de acceso en la que queremos escribir nuestros datos.  (Estos valores se determinarán mediante objetos `OutputFileDatasetConfig` que se tratarán en el paso siguiente). El código recupera el objeto `Dataset` `'titanic_cs'` registrado, lo convierte en un objeto `DataFrame` de Pandas y llama a las distintas funciones de preparación de datos. 
 
-Puesto que `output_path` es completo, se usa la función `os.makedirs()` para preparar la estructura de directorios. En este momento, puede usar `DataFrame.to_csv()` para escribir los datos de salida, pero los archivos Parquet son más eficaces. Esta eficiencia probablemente sea irrelevante con este tipo de conjunto de datos pequeño, pero el uso de las funciones `from_pandas()` y `write_table()` del paquete de **PyArrow** suponen solo algunas pulsaciones de tecla más que `to_csv()`.
-
-Los archivos Parquet se admiten de forma nativa en el paso de ML automatizado que se describe a continuación, por lo que no se requiere ningún procesamiento especial para consumirlos. 
+Dado que `output_path` es un directorio, la llamada a `to_csv()` especifica el nombre de archivo `prepped_data.csv`.
 
 ### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Escritura del paso de canalización de preparación de datos (`PythonScriptStep`)
 
-El código de preparación de datos descrito anteriormente debe estar asociado a un objeto `PythonScripStep` que se va a usar con una canalización. La ruta de acceso en la que se escribe la salida de preparación de datos Parquet se genera mediante un objeto `OutputFileDatasetConfig`. Los recursos preparados anteriormente, como `ComputeTarget`, `RunConfig` y `'titanic_ds' Dataset`, se usan para completar la especificación.
+El código de preparación de datos descrito anteriormente debe estar asociado a un objeto `PythonScripStep` que se va a usar con una canalización. La ruta de acceso en la que se escribe la salida del CSV se genera mediante un objeto `OutputFileDatasetConfig`. Los recursos preparados anteriormente, como `ComputeTarget`, `RunConfig` y `'titanic_ds' Dataset`, se usan para completar la especificación.
 
-Usuarios de PipelineData
 ```python
 from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = OutputFileDatasetConfig(name="titanic_train", (destination=(datastore, 'outputdataset')))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=["--output_path", prepped_data_path],
+    inputs=[titanic_ds.as_named_input('titanic_ds')],
     allow_reuse=True
 )
 ```
-El objeto `prepped_data_path` es de tipo `OutputFileDatasetConfig`, que señala a un directorio.  Tenga en cuenta que se especifica en el parámetro `arguments`. Si revisa el paso anterior, verá que dentro del código de preparación de datos, el valor del argumento `'--output_path'` es la ruta de acceso al archivo en la que se escribió el archivo Parquet. 
+
+El objeto `prepped_data_path` es de tipo `OutputFileDatasetConfig`, que señala a un directorio.  Tenga en cuenta que se especifica en el parámetro `arguments`. Si revisa el paso anterior, verá que, en el código de preparación de datos, el valor del argumento `'--output_path'` es la ruta de acceso al directorio en el que se ha escrito el archivo CSV. 
 
 ## <a name="train-with-automlstep"></a>Entrenamiento con AutoMLStep
 
@@ -237,7 +231,6 @@ La configuración de un paso de canalización de ML automatizado se realiza con 
 En una canalización de ML, los datos de entrada deben ser un objeto `Dataset`. El máximo rendimiento se consigue proporcionando los datos de entrada en forma de objetos `OutputTabularDatasetConfig`. Puede crear un objeto de ese tipo con `read_delimited_files()` en un elemento `OutputFileDatasetConfig`, como el objeto `prepped_data_path` y el objeto `prepped_data_path`.
 
 ```python
-# type(prepped_data_path) == OutputFileDatasetConfig
 # type(prepped_data) == OutputTabularDatasetConfig
 prepped_data = prepped_data_path.read_delimited_files()
 ```
@@ -253,7 +246,7 @@ Comparación de las dos técnicas:
 | Técnica | Ventajas y desventajas | 
 |-|-|
 |`OutputTabularDatasetConfig`| Rendimiento más alto | 
-|| Ruta natural desde `PipelineData` | 
+|| Ruta natural desde `OutputFileDatasetConfig` | 
 || Los datos no se conservan después de la ejecución de la canalización |
 || [Cuaderno que muestra la técnica de `OutputTabularDatasetConfig`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | `Dataset` registrado | Menor rendimiento |
@@ -267,7 +260,6 @@ Comparación de las dos técnicas:
 Las salidas del objeto `AutoMLStep` son las puntuaciones de métricas finales del modelo de mayor rendimiento y el propio modelo. Para usar estas salidas en pasos posteriores de la canalización, prepare objetos `OutputFileDatasetConfig` para recibirlas.
 
 ```python
-
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
@@ -311,6 +303,7 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
+    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
     enable_default_model_output=False,
     enable_default_metrics_output=False,
@@ -325,7 +318,7 @@ El diccionario de `automl_settings` se pasa al constructor de `AutoMLConfig` com
 - `compute_target` es el `compute_target` que se definió previamente que, en este ejemplo, es un equipo basado en CPU económico. Si usa las prestaciones de aprendizaje profundo de AutoML, querrá cambiar el destino de proceso para que esté basado en GPU.
 - `featurization` se establece en `auto`. Puede encontrar más detalles en la sección [Caracterización de datos](./how-to-configure-auto-train.md#data-featurization) del documento de configuración de ML automatizado. 
 - `label_column_name` indica qué columna nos interesa predecir. 
-- `training_data` se establece en los objetos `PipelineOutputTabularDataset` realizados a partir de los resultados del paso de preparación de datos. 
+- `training_data` se establece en los objetos `OutputTabularDatasetConfig` realizados a partir de los resultados del paso de preparación de datos. 
 
 El propio `AutoMLStep` toma `AutoMLConfig` y tiene, como salidas, los objetos `PipelineData` creados para contener las métricas y los datos del modelo. 
 

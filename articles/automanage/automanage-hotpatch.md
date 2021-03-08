@@ -8,25 +8,25 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687573"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Hotpatch para Windows Server Azure Edition (versión preliminar)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>Revisión en caliente para nuevas máquinas virtuales (versión preliminar)
 
 La aplicación de revisiones en caliente es una nueva manera de instalar actualizaciones en nuevas máquinas virtuales (VM) de Windows Server Azure Edition que no es necesario reiniciar después de la instalación. En este artículo se describen las máquinas virtuales de Hotpatch para Windows Server Azure Edition, que presentan las siguientes ventajas:
 * Impacto reducido sobre la carga de trabajo con menos reinicios
 * Implementación más rápida de actualizaciones ya que los paquetes son más pequeños, se instalan más rápido y tienen una orquestación de revisiones más sencilla con Azure Update Manager
 * Mejor protección, ya que los paquetes de actualización de Hotpatch se limitan a las actualizaciones de seguridad de Windows que se instalan más rápido sin necesidad de reiniciar.
 
-## <a name="how-hotpatch-works"></a>Cómo funciona Hotpatch
+## <a name="how-hotpatch-works"></a>Cómo funciona la revisión en caliente
 
 Lo que hace Hotpatch es establecer primero una línea de base con la última actualización acumulativa de Windows Update. Periódicamente, se lanzan revisiones en caliente (por ejemplo, el segundo martes de cada mes) que se basan en esa línea de base. Las revisiones en caliente contendrán actualizaciones que no requieran un reinicio. La línea de base se actualiza periódicamente (cada tres meses) con una nueva actualización acumulativa más reciente.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Programación de ejemplo de Hotpatch.":::
 
 Existen dos tipos de líneas de base: **líneas de base planeadas** y **líneas de base no planeadas**.
 *  Las **líneas de base planeadas** se lanzan a un ritmo regular, intercaladas con versiones de revisiones en caliente.  Incluyen todas las actualizaciones de una _actualización acumulativa más reciente_ comparable de ese mes y requieren un reinicio.
@@ -154,7 +154,7 @@ Para ver el estado de la revisión de la máquina virtual, vaya a la sección **
 En esta pantalla, verá el estado de Hotpatch de la máquina virtual. También puede examinar si hay alguna revisión disponible para la máquina virtual que no se haya instalado. Tal y como se describe en la sección anterior "Instalación de revisiones", todas las actualizaciones críticas y de seguridad se instalarán automáticamente en la máquina virtual mediante [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) (Aplicación automática de revisiones a invitados de máquina virtual) y no se requieren más acciones. Las revisiones con otras clasificaciones de actualización no se instalan automáticamente. Por el contrario, son visibles en la lista de revisiones disponibles en la pestaña "Comprobación de actualizaciones". También puede ver el historial de implementaciones de actualizaciones en la máquina virtual mediante el "Historial de actualizaciones". Se muestra el historial de actualizaciones de los últimos 30 días, junto con los detalles de la instalación de revisiones.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Administración de revisiones en caliente.":::
 
 Con la aplicación automática de revisiones a invitados de máquinas virtuales, la máquina virtual se evalúa periódica y automáticamente para comprobar si tiene las actualizaciones disponibles. Estas evaluaciones periódicas garantizan que se detectan las revisiones que están disponibles. Puede ver los resultados de la evaluación en la pantalla "Actualizaciones" anterior, incluida la hora de la última evaluación. También puede optar por desencadenar una evaluación de revisiones a petición para la máquina virtual en cualquier momento mediante la opción "Assess now" (Evaluar ahora) y revisar los resultados una vez finalizada la operación.
 
@@ -197,7 +197,7 @@ Existen algunas consideraciones importantes a la hora de ejecutar una máquina v
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>¿Siguen siendo necesarios los reinicios en una máquina virtual inscrita en Hotpatch?
 
-* Los reinicios siguen siendo necesarios para instalar las actualizaciones que no se incluyen en el programa Hotpatch y lo son periódicamente después de haber instalado una línea de base (actualización acumulativa más reciente de Windows Update). Con este reinicio, la máquina virtual se mantiene sincronizada con todas las revisiones incluidas en la actualización acumulativa. Las líneas de base (que requieren un reinicio) parten a un ritmo de tres meses y aumentan con el tiempo hasta más de 6 meses.
+* Los reinicios siguen siendo necesarios para instalar las actualizaciones que no se incluyen en el programa Hotpatch y lo son periódicamente después de haber instalado una línea de base (actualización acumulativa más reciente de Windows Update). Con este reinicio, la máquina virtual se mantiene sincronizada con todas las revisiones incluidas en la actualización acumulativa. Las líneas de base (que requieren un reinicio) parten a un ritmo de tres meses y aumentan con el tiempo.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>¿Se ven afectadas las aplicaciones cuando se instala una actualización de Hotpatch?
 

@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: local, Docker, contenedor, análisis de sentimiento, procesamiento de lenguaje natural
-ms.openlocfilehash: e815ecafe5d00f92a5430fdb71bcf952bc8984c8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb924f955e46058420e645cdf1e76e6c06e91646
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736719"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050144"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > [!IMPORTANT]
 > La cuenta gratuita se limita a 5.000 transacciones al mes y solo las **gratis** y **estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">los planes de tarifa <span class="docon docon-navigate-external x-hidden-focus"></span></a> son válidas para los contenedores. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](../overview.md#data-limits).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar cualquiera de los contenedores de Text Analytics, debe tener un equipo host y los entornos de contenedores.
 

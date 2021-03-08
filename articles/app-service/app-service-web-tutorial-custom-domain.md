@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720330"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182594"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -77,7 +77,7 @@ Consulte la página de administración de la aplicación de App Service.
 
 1. El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúrese de que la aplicación no está en el nivel **F1**. No se admite DNS personalizado en el nivel **F1**.
 
-   ![Captura de pantalla que muestra los planes de tarifa recomendados.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+   ![Captura de pantalla en la que se muestran los planes de tarifa recomendados.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 1. Si el plan de App Service no está en el nivel **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Asignar un registro CNAME](#map-a-cname-record).
 
@@ -144,7 +144,7 @@ Después de agregar los registros CNAME y TXT, la página de registros DNS es co
 
 1. En el panel izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
-    ![Captura de pantalla que muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Captura de pantalla en la que se muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. En la página **Dominios personalizados** de la aplicación, agregue el nombre DNS personalizado completo (`www.contoso.com`) a la lista.
 
@@ -185,7 +185,7 @@ Para asignar un registro D, se necesita la dirección IP externa de la aplicaci�
 
 1. En el panel izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
-   ![Captura de pantalla que muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+   ![Captura de pantalla en la que se muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. En la página **Dominios personalizados**, copie la dirección IP de la aplicación.
 
@@ -277,7 +277,7 @@ Ahora puede agregar cualquier subdominio que coincida con el nombre con caracter
 
 1. En el panel izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
-    ![Captura de pantalla que muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Captura de pantalla en la que se muestra el menú Dominios personalizados.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. Seleccione **Agregar dominio personalizado**.
 
@@ -308,10 +308,7 @@ Vaya a los nombres DNS que configuró anteriormente (por ejemplo, `contoso.com`,
 
 ## <a name="resolve-404-not-found"></a>Resolución de error 404 "No se encuentra"
 
-Si recibe un error HTTP 404 (No se encuentra) al ir a la dirección URL del dominio personalizado, compruebe que el dominio se resuelve en la dirección IP de la aplicación mediante <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Si no es así, puede deberse a uno de los siguientes motivos:
-
-- En el dominio personalizado configurado falta un registro A o un registro CNAME.
-- El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la memoria caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
+Si recibe un error HTTP 404 (No encontrado) al ir a la dirección URL del dominio personalizado, compruebe que el dominio se resuelve en la dirección IP de la aplicación mediante <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. Si no es así, compruebe que los registros A y CNAME estén configurados correctamente con el mismo sitio. Si resuelve la dirección IP correctamente, pero sigue obteniendo un error 404, es posible que el explorador haya almacenado en caché la dirección IP antigua del dominio. Borre la memoria caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
 
 ## <a name="migrate-an-active-domain"></a>Migración de un dominio activo
 

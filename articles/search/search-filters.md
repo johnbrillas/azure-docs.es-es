@@ -7,53 +7,46 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/02/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a5c8f835d44896a452a945614332dcbc25ca8bb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355991"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694434"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
-Un *filtro* proporciona criterios para seleccionar los documentos que se usan en una consulta de Azure Cognitive Search. La búsqueda sin filtrar incluye todos los documentos del índice. Un filtro delimita el ámbito de una consulta de búsqueda a un subconjunto de documentos. Por ejemplo, un filtro puede restringir la búsqueda de texto completo a aquellos productos que tienen una marca o un color específicos y un precio de venta al público superior a un umbral determinado.
+Un *filtro* proporciona criterios para seleccionar los documentos que se usan en una consulta. Un filtro puede ser un valor único o una [expresión de filtro](search-query-odata-filter.md) de OData. A diferencia de la búsqueda de texto completo, un valor o una expresión de filtro solo devuelve una coincidencia estricta.
 
-Algunas experiencias de búsqueda imponen los requisitos de filtro como parte de la implementación, pero puede usar filtros siempre que quiera restringir la búsqueda mediante criterios *basados en valores*; por ejemplo, puede delimitar la búsqueda al tipo de producto "libros" de la categoría "no ficción" publicados por "Simon & Schuster".
-
-Si su objetivo es la búsqueda orientada a *estructuras* de datos específicos (limitar la búsqueda a un campo de opiniones de cliente, por ejemplo), existen métodos alternativos y se describen a continuación.
+Algunas experiencias de búsqueda, como la [navegación por facetas](search-filters-facets.md), dependen de los filtros como parte de la implementación, pero puede usar filtros siempre que quiera establecer el ámbito de una consulta en valores específicos. Por otro lado, si su objetivo es limitar una consulta a campos específicos, hay métodos alternativos, los cuales se describen a continuación.
 
 ## <a name="when-to-use-a-filter"></a>Cuándo se debe usar un filtro
 
 Los filtros son fundamentales para varias experiencias de búsqueda, como la búsqueda de servicios cercanos, la navegación por facetas y los filtros de seguridad que muestran únicamente los documentos que un usuario tiene permiso para ver. Si implementa alguna de estas experiencias, se necesita un filtro. El filtro asociado a la consulta de búsqueda proporciona coordenadas de geolocalización, la categoría de faceta que seleccionó el usuario o el id. de seguridad del solicitante.
 
-A continuación se incluyen algunos escenarios de ejemplo:
+Entre los escenarios habituales se incluyen los siguientes:
 
-1. Use un filtro para segmentar el índice según los valores de datos del índice. A partir de un esquema con valores de ciudad, tipo de alojamiento y servicios, puede crear un filtro para seleccionar explícitamente los documentos que cumplan los criterios (en Seattle, pisos, frente al mar). 
++ Segmentación de los resultados de la búsqueda en función del contenido del índice. A partir de un esquema con la ubicación, las categorías y los servicios de los hoteles, puede crear un filtro para que coincida explícitamente con los criterios (por ejemplo, en Seattle, sobre el agua, con vistas). 
 
-   Las búsquedas de texto completo con las mismas entradas a menudo generan resultados similares, pero un filtro es más preciso, ya que requiere a una coincidencia exacta del término del filtro en el contenido del índice. 
++ Implementación de una experiencia de búsqueda con un requisito de filtro:
 
-2. Use un filtro si la experiencia de búsqueda tiene un requisito de filtro:
+  + La [navegación por facetas](search-faceted-navigation.md) usa un filtro para devolver la categoría de faceta que seleccionó el usuario.
+  + La búsqueda georreferenciada usa un filtro para pasar las coordenadas de la ubicación actual en aplicaciones que buscan servicios cercanos. 
+  + Los [filtros de seguridad](search-security-trimming-for-azure-search.md) pasan los identificadores de seguridad como criterios de filtro, donde una coincidencia en el índice actúa como un proxy para los derechos de acceso al documento.
 
-   * La [navegación por facetas](search-faceted-navigation.md) usa un filtro para devolver la categoría de faceta que seleccionó el usuario.
-   * La búsqueda georreferenciada usa un filtro para pasar las coordenadas de la ubicación actual en aplicaciones que buscan servicios cercanos. 
-   * Los filtros de seguridad pasan los identificadores de seguridad como criterios de filtro, donde una coincidencia en el índice actúa como un proxy para los derechos de acceso al documento.
-
-3. Use un filtro para aplicar criterios de búsqueda a un campo numérico. 
-
-   Los campos numéricos se pueden recuperar en el documento y pueden aparecer en los resultados de búsqueda, pero no se pueden hacer búsquedas (de texto completo) en ellos individualmente. Si necesita criterios de selección basados en datos numéricos, use un filtro.
++ Realización de una "búsqueda de números". Los campos numéricos se pueden recuperar y pueden aparecer en los resultados de búsqueda, pero no se pueden hacer búsquedas (de texto completo) en ellos individualmente. Si necesita criterios de selección basados en datos numéricos, use un filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Métodos alternativos para reducir el ámbito
 
 Si quiere un efecto de restricción en los resultados de búsqueda, los filtros no son la única opción. Estas alternativas podrían ser una solución mejor, en función de su objetivo:
 
- + El parámetro de consulta `searchFields` delimita la consulta a unos campos específicos. Por ejemplo, si el índice proporciona campos independientes para descripciones en inglés y español, puede usar searchFields para definir como destino los campos que quiera usar para la búsqueda de texto completo. 
++ El parámetro de consulta `searchFields` restringe la consulta a unos campos específicos. Por ejemplo, si el índice proporciona campos independientes para descripciones en inglés y español, puede usar searchFields para definir como destino los campos que quiera usar para la búsqueda de texto completo. 
 
 + El parámetro `$select` se usa para especificar qué campos se deben incluir en un conjunto de resultados, lo que recorta de forma eficaz la respuesta antes de enviarla a la aplicación que realiza la llamada. Este parámetro no refina la consulta ni reduce la colección de documentos, pero, si el objetivo es una respuesta menor, considere la opción de usar este parámetro. 
 
 Para obtener más información acerca de estos parámetros, consulte [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters) (Buscar en documentos > Solicitud > Parámetros de consulta).
-
 
 ## <a name="how-filters-are-executed"></a>Cómo se ejecutan los filtros
 
@@ -62,7 +55,8 @@ En el momento de la consulta, un analizador de filtro acepta criterios como entr
 El filtrado se produce en paralelo con la búsqueda y define los documentos que se incluirán en un procesamiento descendente para la recuperación de documentos y la puntuación de importancia. Combinado con la cadena de búsqueda, el filtro reduce de forma eficaz el conjunto de recuperación de la operación de búsqueda posterior. Cuando se usa solo (por ejemplo, cuando la cadena de consulta está vacía en `search=*`), los criterios de filtro son la única entrada. 
 
 ## <a name="defining-filters"></a>Definición de filtros
-Los filtros son expresiones de OData, articuladas mediante un [subconjunto de sintaxis de OData V4 admitido en Azure Cognitive Search](/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
+Los filtros son expresiones de OData que se articulan en la [sintaxis de filtro](search-query-odata-filter.md) admitida por Cognitive Search.
 
 Puede especificar un filtro para cada operación **search**, pero el filtro en sí puede incluir varios campos, varios criterios y, si usa una función **ismatch**, varias expresiones de búsqueda de texto completo. En una expresión de filtro de varias partes, puede especificar predicados en cualquier orden (respetando las reglas de prioridad del operador). No hay ninguna mejora apreciable del rendimiento si intenta reorganizar los predicados en una secuencia determinada.
 
@@ -100,27 +94,32 @@ En los ejemplos siguientes se muestran varios patrones de uso para escenarios de
 
 + La expresión **$filter** independiente, sin una cadena de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ninguna puntuación y ninguna clasificación. Observe que la cadena de búsqueda es simplemente un asterisco, que significa "coincidencia con todos los documentos".
 
-   ```
-   search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
-   ```
+  ```http
+  {
+    "search": "*",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
+  }
+  ```
 
 + Combinación de una cadena de consulta y **$filter**, donde el filtro crea el subconjunto y la cadena de consulta proporciona las entradas de términos para la búsqueda de texto completo en el subconjunto filtrado. La adición de términos (cines a poca distancia) introduce puntuaciones de búsqueda en los resultados, donde los documentos que mejor coinciden con los términos se clasifican en primer lugar. Usar un filtro con una cadena de consulta es el patrón de uso más común.
 
-   ```
-  search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
-   ```
+  ```http
+  {
+    "search": "walking distance theaters",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
+  }
 
-+ Consultas compuestas, separadas por "or", cada una con sus propios criterios de filtro (por ejemplo, 'beagles' en 'perro' o 'siamés' en 'gato'). Las expresiones combinadas con `or` se evalúan individualmente, con la unión de los documentos que coinciden con cada expresión enviada en la respuesta. Este patrón de uso se logra a través de la función `search.ismatchscoring`. También puede usar la versión sin puntuación, `search.ismatch`.
++ Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
    ```
-   # Match on hostels rated higher than 4 OR 5-star motels.
+   # <a name="match-on-hostels-rated-higher-than-4-or-5-star-motels"></a>Coincidencia con hostales con una clasificación superior a moteles de 4 o 5 estrellas.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
+   # <a name="match-on-luxury-or-high-end-in-the-description-field-or-on-category-exactly-equal-to-luxury"></a>Coincidencia con los términos "luxury" (lujo) o "high-end" (gama alta) en el campo de descripción, o con una categoría idéntica a "Luxury".
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  También es posible combinar la búsqueda de texto completo a través de `search.ismatchscoring` con filtros mediante `and` en lugar de `or`, pero esto es funcionalmente equivalente a usar los parámetros `search` y `$filter` en una solicitud de búsqueda. Por ejemplo, las dos consultas siguientes producen el mismo resultado:
+  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -128,17 +127,17 @@ En los ejemplos siguientes se muestran varios patrones de uso para escenarios de
   search=pool&$filter=Rating ge 4
   ```
 
-Consulte estos artículos para obtener una guía completa de casos de uso específicos:
+Follow up with these articles for comprehensive guidance on specific use cases:
 
-+ [Filtros de faceta](search-filters-facets.md)
-+ [Filtros de idioma](search-filters-language.md)
-+ [Recorte de seguridad](search-security-trimming-for-azure-search.md) 
++ [Facet filters](search-filters-facets.md)
++ [Language filters](search-filters-language.md)
++ [Security trimming](search-security-trimming-for-azure-search.md) 
 
-## <a name="field-requirements-for-filtering"></a>Requisitos de campo para filtrar
+## Field requirements for filtering
 
-En la API REST, el filtrado está *activado* de forma predeterminada para campos simples. Los campos que se pueden filtrar aumentan el tamaño del índice. Asegúrese de definir `"filterable": false` para los campos que no tiene previsto usar en un filtro. Para obtener más información sobre la configuración de definiciones de campos, consulte [Create Index](/rest/api/searchservice/create-index) (Creación de índices).
+In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
 
-En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Para hacer que un campo se pueda filtrar, establezca la [propiedad IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) del objeto [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondiente en `true`. En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
+In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
 
 ```csharp
 [IsFilterable, IsSortable, IsFacetable]
@@ -151,7 +150,9 @@ No puede modificar los campos existentes para hacer que se puedan filtrar. Como 
 
 ## <a name="text-filter-fundamentals"></a>Conceptos básicos de filtro de texto
 
-Los filtros de texto coinciden con los campos de cadena en las cadenas literales que se proporcionan en el filtro. A diferencia de la búsqueda de texto completo, no hay ningún análisis léxico ni separación de palabras para los filtros de texto, por lo que las comparaciones se aplican solo a coincidencias exactas. Por ejemplo, si un campo *f* contiene "sunny day", `$filter=f eq 'Sunny'` no coincide, pero `$filter=f eq 'sunny day'` sí. 
+Los filtros de texto coinciden con los campos de cadena en las cadenas literales que se proporcionan en el filtro: `$filter=Category eq 'Resort and Spa'`.
+
+A diferencia de la búsqueda de texto completo, no hay ningún análisis léxico ni separación de palabras para los filtros de texto, por lo que las comparaciones se aplican solo a coincidencias exactas. Por ejemplo, si un campo *f* contiene "sunny day", `$filter=f eq 'Sunny'` no coincide, pero `$filter=f eq 'sunny day'` sí. 
 
 Las cadenas de texto distinguen mayúsculas de minúsculas. Las palabras en mayúsculas no se buscan en minúsculas: `$filter=f eq 'Sunny day'` no encontrará "sunny day".
 

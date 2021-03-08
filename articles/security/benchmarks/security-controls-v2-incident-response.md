@@ -4,23 +4,25 @@ description: Respuesta a incidentes de Azure Security Benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 002/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 043e365bfe27db516a42386a91bc0433e27e2068
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368841"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698593"
 ---
 # <a name="security-control-v2-incident-response"></a>Control de seguridad V2: Respuesta a los incidentes
 
 La respuesta a los incidentes cubre los controles del ciclo de vida de respuesta a los incidentes: actividades de preparación, detección y análisis, contención y posteriores a incidentes. Esto incluye el uso de servicios de Azure como Azure Security Center y Sentinel para automatizar el proceso de respuesta a los incidentes.
 
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Respuesta a los incidentes](../../governance/policy/samples/azure-security-benchmark#incident-response).
+
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparación: actualización del proceso de respuesta a incidentes para Azure
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-1 | 19 | IR-4, IR-8 |
 
@@ -42,7 +44,7 @@ Asegúrese de que la organización tenga procesos para responder a incidentes de
 
 ## <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Preparación: notificación de incidentes de configuración
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-2 | 19.5 | IR-4, IR-5, IR-6, IR-8 |
 
@@ -60,7 +62,7 @@ Configure la información de contacto en caso de incidentes de seguridad en Azur
 
 ## <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Detección y análisis: creación de incidentes en función de alertas de alta calidad
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-3 | 19.6 | IR-4, IR-5 |
 
@@ -88,11 +90,11 @@ Exporte las alertas y recomendaciones de Azure Security Center mediante la carac
 
 ## <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Detección y análisis: investigación de incidentes
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Asegúrese de que los analistas pueden consultar y usar diversos orígenes de datos a medida que investigan posibles incidentes, para conseguir una visión global de lo que ha sucedido. Se deben recopilar diversos registros para realizar un seguimiento de las actividades de un posible atacante en la cadena de eliminación para evitar puntos ciegos.  También debe asegurarse de que se capturan detalles y aprendizajes para otros analistas y para futuras referencias históricas.  
+Asegúrese de que los analistas pueden consultar y usar diversos orígenes de datos a medida que investigan posibles incidentes, para conseguir una visión global de lo que ha sucedido. Se deben recopilar diversos registros para realizar un seguimiento de las actividades de un posible atacante en la cadena de eliminación para evitar puntos ciegos. También debe asegurarse de que se capturan detalles y aprendizajes para otros analistas y para futuras referencias históricas.
 
 Los orígenes de datos para la investigación incluyen los orígenes de registro centralizados que ya se recopilan de los servicios en el ámbito y los sistemas en ejecución, pero también pueden incluir:
 
@@ -136,7 +138,7 @@ Proporcione contexto a los analistas sobre los incidentes en los que deberán ce
 
 Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en el hallazgo o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
-Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclatura para identificar y clasificar los recursos de Azure, especialmente los que procesan datos confidenciales.  Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
+Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclatura para identificar y clasificar los recursos de Azure, especialmente los que procesan datos confidenciales. Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
 
 - [Alertas de seguridad en el Centro de seguridad de Azure](../../security-center/security-center-alerts-overview.md)
 

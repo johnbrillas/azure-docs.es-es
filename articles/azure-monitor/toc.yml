@@ -209,7 +209,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: Azure CLI
                   href: logs/quick-create-workspace-cli.md
@@ -1078,7 +1078,7 @@
           href: insights/container-insights-reports.md
         - name: Visualización de datos en directo
           items:
-            - name: Introducción a los datos en directo (versión preliminar)
+            - name: Introducción a los datos en directo
               href: containers/container-insights-livedata-overview.md
             - name: Configurar
               href: containers/container-insights-livedata-setup.md

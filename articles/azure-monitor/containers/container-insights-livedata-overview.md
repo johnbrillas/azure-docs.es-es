@@ -1,26 +1,26 @@
 ---
-title: Ver datos en directo (versión preliminar) con Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
+title: Ver datos en directo (versión preliminar) con Container Insights | Microsoft Docs
+description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Container Insights.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602696"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711236"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
-Azure Monitor para contenedores incluye la característica de datos en directo (versión preliminar), que es una característica de diagnóstico avanzada que le permite el acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/errorestándar), eventos y métricas de pods. Expone acceso directo a `kubectl logs -c`, eventos `kubectl get` y `kubectl top pods`. En este panel se muestra los registros, los eventos y las métricas generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
+Container Insights incluye la característica de datos en directo (versión preliminar), que es una característica de diagnóstico avanzada que le permite el acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderror), eventos y métricas de pods. Expone acceso directo a `kubectl logs -c`, eventos `kubectl get` y `kubectl top pods`. En este panel se muestra los registros, los eventos y las métricas generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
 
 En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## <a name="view-deployment-live-logs-preview"></a>Visualización de registros en vivo de implementación (versión preliminar)
-Use el procedimiento siguiente para ver los registros en vivo de las implementaciones que forman parte de los clústeres de AKS que no se supervisan con Azure Monitor para contenedores. Si el clúster usa Azure Monitor para contenedores, utilice el procedimiento siguiente para ver los datos en directo de los nodos, los controladores, los contenedores y las implementaciones.
+Use el procedimiento siguiente para ver los registros en vivo de las implementaciones que forman parte de los clústeres de AKS que no se supervisan con Container Insights. Si el clúster usa Container Insights, use el procedimiento siguiente para ver los datos en directo de los nodos, los controladores, los contenedores y las implementaciones.
 
 1. En el Azure Portal, vaya al grupo de recursos de clúster de AKS y elija el recurso de AKS.
 

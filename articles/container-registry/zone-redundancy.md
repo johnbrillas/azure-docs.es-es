@@ -4,12 +4,12 @@ description: Aprenda a habilitar la redundancia de zona en Azure Container Regis
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738113"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203868"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitación de la redundancia de zona en Azure Container Registry para lograr resistencia y alta disponibilidad
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Creación de un registro habilitado para zona
 
-Ejecute el comando [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) para crear un registro con redundancia de zona en el nivel de servicio Premium. Elija una región que [admita zonas de disponibilidad](../availability-zones/az-region.md) para Azure Container Registry. En el ejemplo siguiente, la redundancia de zona está habilitada en la región *eastus*. Consulte la ayuda del comando `az acr create` para ver más opciones de registro.
+Ejecute el comando [az acr create](/cli/azure/acr#az_acr_create) para crear un registro con redundancia de zona en el nivel de servicio Premium. Elija una región que [admita zonas de disponibilidad](../availability-zones/az-region.md) para Azure Container Registry. En el ejemplo siguiente, la redundancia de zona está habilitada en la región *eastus*. Consulte la ayuda del comando `az acr create` para ver más opciones de registro.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ En la salida del comando, observe la propiedad `zoneRedundancy` del registro. Cu
 
 ### <a name="create-zone-redundant-replication"></a>Creación de una replicación con redundancia de zona
 
-Ejecute el comando [az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) para crear una réplica de registro con redundancia de zona en una región que [admita zonas de disponibilidad](../availability-zones/az-region.md) en Azure Container Registry, como *westus2*. 
+Ejecute el comando [az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) para crear una réplica de registro con redundancia de zona en una región que [admita zonas de disponibilidad](../availability-zones/az-region.md) en Azure Container Registry, como *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ Copie el siguiente contenido en un archivo nuevo y guárdelo con un nombre de ar
   }
 ```
 
-Ejecute el siguiente comando [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) para crear el registro con el archivo de plantilla anterior. Donde se indique, proporcione la siguiente información:
+Ejecute el siguiente comando [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) para crear el registro con el archivo de plantilla anterior. Donde se indique, proporcione la siguiente información:
 
 * un nombre de registro único; también puede implementar la plantilla sin parámetros y se creará un nombre único automáticamente
 * una ubicación para la réplica que admita zonas de disponibilidad, como *westus2*

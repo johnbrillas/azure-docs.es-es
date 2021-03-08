@@ -3,15 +3,15 @@ title: 'Solución de problemas de Apache Kafka para Confluent Cloud: soluciones 
 description: En este artículo se proporciona información sobre la solución de problemas y las preguntas más frecuentes (P+F) para Confluent Cloud en Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709406"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Solución de problemas de Apache Kafka para soluciones de Confluent Cloud
 
@@ -28,6 +28,16 @@ Para encontrar la oferta en Azure Marketplace, siga estos pasos:
 1. Seleccione el icono de la aplicación.
 
 Si no aparece la oferta, póngase en contacto con el [soporte técnico de Confluent](https://support.confluent.io). El identificador de inquilino de Azure Active Directory debe estar en la lista de inquilinos permitidos. Para obtener información sobre cómo buscar el identificador de inquilino, consulte [Búsqueda del identificador de inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## <a name="purchase-errors"></a>Errores de compra
+
+* Los errores de compra se producen porque una tarjeta de crédito válida no está conectada a la suscripción de Azure o un método de pago no está asociado a la suscripción.
+
+  Use una suscripción de Azure diferente. O bien, agregue o actualice la tarjeta de crédito o el método de pago de la suscripción. Para obtener más información, consulte cómo [actualizar el método de pago y la tarjeta de crédito](../../cost-management-billing/manage/change-credit-card.md).
+
+* Una suscripción de Contrato Enterprise (EA) no permite realizar compras en Marketplace.
+
+  Use otra suscripción. O bien, compruebe si su suscripción de EA está habilitada para la compra en Marketplace. Para obtener más información, consulte la sección [Habilitación de compras en Azure Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Si esas opciones no solucionan el problema, póngase en contacto con el [soporte técnico de Confluent](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>Error de conflicto
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 356afea7573b24649f682205d26823b4e24e7fbe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695199"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -79,11 +79,13 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 
 | Características de la generación 2                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
-| Arranque seguro                         | :heavy_check_mark:  | :x:   |
+| Arranque seguro                         | :heavy_check_mark:  | Con inicio seguro (versión preliminar)   |
 | VM Blindada                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Seguridad basada en virtualización (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | Con inicio seguro (versión preliminar)  |
+| Seguridad basada en virtualización (VBS) | :heavy_check_mark:  | Con inicio seguro (versión preliminar)   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
+
+Para más información, consulte [Inicio seguro (versión preliminar)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Características y funcionalidades
 
@@ -105,7 +107,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Copia de seguridad y restauración                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galería de imágenes compartidas              | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Cifrado del servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Creación de una VM de generación 2
@@ -206,7 +208,7 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
     Sí. Para más información vea [Creación de una máquina virtual con redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **¿Las máquinas virtuales de generación 2 admiten el arranque seguro o vTPM en Azure?**
-    Ni las máquinas virtuales de generación 1 ni las de generación 2 de Azure admiten el arranque seguro o vTPM. 
+    Tanto vTPM como el arranque seguro son características del inicio de confianza (versión preliminar) en máquinas virtuales de segunda generación. Para más información, consulte [Inicio de confianza](trusted-launch.md).
     
 * **¿Admite la generación 2 VHDX?**  
     No, las VM de generación 2 solo admiten VHD.
@@ -225,5 +227,7 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
     1. Compruebe que está buscando un [tamaño de máquina virtual compatible con máquinas virtuales de Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información sobre el [inicio de confianza (versión preliminar)](trusted-launch-portal.md) con máquinas virtuales de segunda generación.
 
 Obtenga información sobre [las VM de generación 2 en Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

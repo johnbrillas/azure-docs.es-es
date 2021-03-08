@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252481"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123027"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -27,7 +27,9 @@ La solución de Azure Active Directory (Azure AD) para este desafío es una cara
 
 Con las restricciones de inquilino, las organizaciones pueden especificar la lista de inquilinos a los que sus usuarios pueden tener acceso. Después, Azure AD solo concede el acceso a estos inquilinos con permiso.
 
-Este artículo se centra en las restricciones de inquilino para Microsoft 365, pero la característica debería funcionar con cualquier aplicación SaaS en la nube que use protocolos de autenticación modernos con Azure AD para el inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Microsoft 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Este artículo se centra en las restricciones de inquilino de Microsoft 365, pero la característica protege todas las aplicaciones que envían al usuario al inicio de sesión único de Azure AD. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Microsoft 365, asegúrese de que todos los inquilinos necesarios tengan permiso (por ejemplo, en los escenarios de colaboración B2B). Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
+
+Además, la característica de restricciones de inquilino ahora permite [bloquear el uso de todas las aplicaciones de consumidor de Microsoft](#blocking-consumer-applications-public-preview) (aplicaciones MSA), como OneDrive, Hotmail y Xbox.com.  Se usa un encabezado distinto para el punto de conexión `login.live.com` y se detalla al final del documento.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -39,7 +41,7 @@ La solución general consta de los siguientes componentes:
 
 3. **Software de cliente**: para admitir restricciones de inquilino, el software de cliente debe solicitar tokens directamente de Azure AD, de forma que la infraestructura del proxy pueda interceptar el tráfico. Actualmente, las aplicaciones de Microsoft 365 basadas en explorador admiten las restricciones de inquilino, así como los clientes de Office que usan la autenticación moderna (como OAuth 2.0).
 
-4. **Autenticación moderna**: los servicios en la nube deben usar la autenticación moderna para utilizar restricciones de inquilino y bloquear el acceso a todos los inquilinos no permitidos. Debe configurar los servicios en la nube de Microsoft 365 para usar protocolos de autenticación modernos de manera predeterminada. Para ver la información más reciente sobre la compatibilidad con Microsoft 365 para la autenticación moderna, consulte [Autenticación moderna actualizada de Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Autenticación moderna**: los servicios en la nube deben usar la autenticación moderna para utilizar restricciones de inquilino y bloquear el acceso a todos los inquilinos no permitidos. Debe configurar los servicios en la nube de Microsoft 365 para usar protocolos de autenticación modernos de manera predeterminada. Para ver la información más reciente sobre la compatibilidad con Microsoft 365 para la autenticación moderna, consulte [Autenticación moderna actualizada de Office 365](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 En el siguiente diagrama se ilustra el flujo de tráfico de alto nivel. Las restricciones de inquilino solo requieren la inspección TLS en el tráfico hacia Azure AD, no hacia los servicios en la nube de Microsoft 365. Esta distinción es importante porque el volumen de tráfico para autenticación hacia Azure AD es normalmente mucho menor que el volumen de tráfico hacia aplicaciones SaaS como Exchange Online y SharePoint Online.
 
@@ -63,22 +65,20 @@ Se necesita la configuración siguiente para habilitar restricciones de inquilin
 
 - Los clientes deben confiar en la cadena de certificados que presenta el proxy para las comunicaciones TLS. Por ejemplo, si se usan certificados de una [infraestructura de clave pública (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) interna, el certificado de la entidad de certificación raíz emisora interna debe ser de confianza.
 
-- Las licencias de Azure AD Premium 1 son necesarias para el uso de restricciones de inquilino. 
+- Las licencias de Azure AD Premium 1 son necesarias para el uso de restricciones de inquilino.
 
 #### <a name="configuration"></a>Configuración
 
-Para cada solicitud entrante de login.microsoftonline.com, login.microsoft.com y login.windows.net, inserte dos encabezados HTTP: *Restrict-Access-To-Tenants* y *Restrict-Access-Context*.
+Por cada solicitud saliente a login.microsoftonline.com, login.microsoft.com y login.windows.net, inserte dos encabezados HTTP: *Restrict-Access-To-Tenants* y *Restrict-Access-Context*.
 
 > [!NOTE]
-> Al configurar la inyección de encabezado y la interceptación de SSL, asegúrese de que se excluya el tráfico a https://device.login.microsoftonline.com. Esta dirección URL se usa para la autenticación de dispositivos, y la realización de operaciones de interrupción e inspección de TLS puede interferir con la autenticación de certificados de cliente, lo que puede causar problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.
-
-
+> No incluya subdominios en `*.login.microsoftonline.com` en la configuración de proxy. Si lo hace, incluirá device.login.microsoftonline.com, que interferirá con la autenticación de certificados de cliente que se usa en los escenarios de registro de dispositivos y acceso condicional basado en dispositivos. Configure el servidor proxy para que excluya device.login.microsoftonline.com de la inyección de encabezados y la interrupción e inspección de TLS.
 
 Los encabezados deben incluir los siguientes elementos:
 
 - Para *Restrict-Access-To-Tenants* (Restringir acceso a inquilinos), use un valor de \<permitted tenant list\>, que es una lista separada por comas de los inquilinos a los que quiere que los usuarios puedan tener acceso. Se puede utilizar cualquier dominio que esté registrado en un inquilino para identificar al inquilino en esta lista, así como el identificador de directorio mismo. Para ver un ejemplo de las tres formas de describir un inquilino, el par de nombre-valor para permitir Contoso, Fabrikam y Microsoft tiene el siguiente aspecto: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  **Debe** usar su propio identificador de directorio en este lugar.
+- Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  **Debe** usar su propio identificador de inquilino en este lugar para obtener registros de estas autenticaciones.
 
 > [!TIP]
 > Puede encontrar el identificador de directorio en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sesión como administrador, seleccione **Azure Active Directory** y luego seleccione **propiedades**. 
@@ -88,9 +88,6 @@ Los encabezados deben incluir los siguientes elementos:
 Para evitar que los usuarios inserten su propio encabezado HTTP con inquilinos no aprobados, el proxy debe reemplazar el encabezado *Restrict-Access-To-Tenants* (Restringir acceso para inquilinos) si ya está presente en la solicitud entrante.
 
 Se debe exigir a los clientes que usen el proxy para todas las solicitudes para login.microsoftonline.com, login.microsoft.com y login.windows.net. Por ejemplo, si los archivos PAC se emplean para indicar a los clientes que usen el proxy, los usuarios finales no deben poder editar ni deshabilitar los archivos PAC.
-
-> [!NOTE]
-> No incluya subdominios en *.login.microsoftonline.com en la configuración del proxy. Si lo hace, incluirá device.login.microsoftonline.com y puede interferir con la autenticación de certificados de cliente, que se usa en los escenarios de registro de dispositivos y acceso condicional basado en dispositivos. Configure el servidor proxy para que excluya device.login.microsoftonline.com de la inyección de encabezados y la interrupción e inspección de TLS.
 
 ## <a name="the-user-experience"></a>La experiencia del usuario final
 
@@ -112,22 +109,18 @@ Mientras la configuración de restricciones de inquilino se realice en la infrae
 
 El administrador del inquilino especificado como inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de restricciones de inquilino, incluida la identidad que se usa y el identificador de directorio de destino. Los inicios de sesión se incluyen si el inquilino que establece la restricción es el inquilino del usuario o el inquilino del recurso para el inicio de sesión.
 
-> [!NOTE]
-> El informe puede contener información limitada, como el identificador del directorio de destino, cuando un usuario que está en un inquilino distinto del inquilino Restricted-Access-Context inicia sesión. En este caso, la información de identificación del usuario, como el nombre y el nombre principal de usuario, se enmascara para proteger los datos de usuario en otros inquilinos ("00000000-0000-0000-0000-00000000@domain.com"). 
+El informe puede contener información limitada, como el identificador del directorio de destino, cuando un usuario que está en un inquilino distinto del inquilino Restricted-Access-Context inicia sesión. En este caso, la información de identificación del usuario, como el nombre y el nombre principal de usuario, se enmascara para proteger los datos de usuario de otros inquilinos ("{PII Removed} @domain.com " o 00000000-0000-0000-0000-000000000000 en lugar de los nombres de usuario y los identificadores de objeto, según corresponda). 
 
 Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente, un estado o un intervalo de tiempo específico. Si selecciona el botón **Columnas**, puede elegir mostrar los datos con cualquier combinación de los siguientes campos:
 
-- **User**
+- **Usuario**: este campo puede tener la información de identificación personal quitada, donde se establecerá en `00000000-0000-0000-0000-000000000000`. 
 - **Aplicación**
 - **Estado**
 - **Date**
-- **Fecha (UTC)** (donde UTC es la hora Universal coordinada)
-- **Método de autenticación de MFA** (método de autenticación multifactor)
-- **Detalles de la autenticación de MFA** (detalles de la autenticación multifactor)
-- **Resultado de MFA**
+- **Fecha (UTC)** : donde UTC es la hora universal coordinada.
 - **Dirección IP**
 - **Cliente**
-- **Nombre de usuario**
+- **Nombre de usuario**: este campo puede tener la información de identificación personal quitada, donde se establecerá en `{PII Removed}@domain.com`.
 - **Ubicación**
 - **Identificador de inquilino de destino**
 
@@ -162,23 +155,32 @@ Fiddler es un proxy de depuración web gratis que puede usarse para capturar y m
 
    1. En la herramienta Fiddler Web Debugger, seleccione el menú **Reglas** y luego **Personalizar reglas...** para abrir el archivo CustomRules.
 
-   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<tenant domain\> (dominio del inquilino) por un dominio registrado en el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.
+   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<List of tenant identifiers\> (dominio del inquilino) por un dominio registrado en el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.  **Debe** incluir el identificador GUID correcto para que los registros aparezcan en el inquilino. 
 
-      ```JScript.NET
+   ```JScript.NET
+    // Allows access to the listed tenants.
       if (
           oSession.HostnameIs("login.microsoftonline.com") ||
           oSession.HostnameIs("login.microsoft.com") ||
           oSession.HostnameIs("login.windows.net")
       )
       {
-          oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-          oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+          oSession.oRequest["Restrict-Access-To-Tenants"] = "<List of tenant identifiers>";
+          oSession.oRequest["Restrict-Access-Context"] = "<Your directory ID>";
       }
-      ```
 
-      Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo:
+    // Blocks access to consumer apps
+      if (
+          oSession.HostnameIs("login.live.com")
+      )
+      {
+          oSession.oRequest["sec-Restrict-Tenant-Access-Policy"] = "restrict-msa";
+      }
+   ```
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo:
+
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Guarde y cierre el archivo CustomRules.
 
@@ -193,7 +195,33 @@ Dependiendo de las funcionalidades de la infraestructura del proxy, es posible q
 
 Para obtener detalles específicos, consulte la documentación del servidor proxy.
 
+## <a name="blocking-consumer-applications-public-preview"></a>Bloqueo de aplicaciones de consumidor (versión preliminar pública)
+
+Las aplicaciones de Microsoft que admiten tanto cuentas de consumidor como cuentas de la organización, como [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](https://docs.microsoft.com/learn/), a veces se pueden hospedar en la misma dirección URL.  Esto significa que los usuarios que tienen que acceder a esa dirección URL en el trabajo también tienen acceso a ella para uso personal, lo que puede que no se permita en las pautas de actuación.
+
+Para solucionar este error, algunas organizaciones bloquean `login.live.com` para impedir que las cuentas personales se autentiquen.  Esta solución presenta una serie de inconvenientes:
+
+1. El bloqueo de `login.live.com` impide el uso de cuentas personales en escenarios de invitados B2B, lo que puede interponerse con los visitantes y la colaboración.
+1. [Autopilot requiere el uso de `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) para implementarse. Los escenarios de Intune y Autopilot pueden producir errores cuando se bloquea `login.live.com`.
+1. La telemetría de la organización y las actualizaciones de Windows en las que los identificadores de dispositivo dependen del servicio login.live.com [dejarán de funcionar](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+
+### <a name="configuration-for-consumer-apps"></a>Configuración para aplicaciones de consumidor
+
+Aunque el encabezado `Restrict-Access-To-Tenants` funciona como una lista de permitidos, el bloqueo de la cuenta Microsoft (MSA) funciona como una señal de denegación, que indica a la plataforma de cuentas Microsoft que no permita a los usuarios iniciar sesión en las aplicaciones de consumidor. Para enviar esta señal, el encabezado `sec-Restrict-Tenant-Access-Policy` se inserta en el tráfico que visita `login.live.com` mediante el mismo proxy o firewall corporativos que [antes](#proxy-configuration-and-requirements). El valor del encabezado debe ser `restrict-msa`. Cuando existe el encabezado y una aplicación de consumidor intenta iniciar la sesión de un usuario directamente, ese inicio de sesión se bloquea.
+
+En este momento, la autenticación en las aplicaciones de consumidor no aparece en los [registros de administración](#admin-experience), ya que login.live.com se hospeda de forma independiente de Azure AD.
+
+### <a name="what-the-header-does-and-does-not-block"></a>Qué bloquea y no bloquea el encabezado
+
+La directiva `restrict-msa` bloquea el uso de las aplicaciones de consumidor, pero lo permite a través de otros tipos de tráfico y autenticación:
+
+1. Tráfico sin usuario en dispositivos.  Esto incluye el tráfico de Autopilot, Windows Update y la telemetría de la organización.
+1. Autenticación B2B de cuentas de consumidor. Los usuarios con cuentas Microsoft que están [invitados a colaborar con un inquilino](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) se autentican en login.live.com para tener acceso a un inquilino de recursos.
+    1. Este acceso se controla mediante el encabezado `Restrict-Access-To-Tenants` para permitir o denegar el acceso a ese inquilino de recursos.
+1. Autenticación "de paso a través", que usan muchas aplicaciones de Azure, así como Office.com, donde las aplicaciones emplean Azure AD para iniciar la sesión de los usuarios consumidores en un contexto de consumidor.
+    1. Este acceso también se controla mediante el encabezado `Restrict-Access-To-Tenants` para permitir o denegar el acceso al inquilino "de paso a través" especial (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  Si este inquilino no aparece en la lista `Restrict-Access-To-Tenants` de dominios permitidos, Azure AD impedirá que las cuentas de consumidor inicien sesión en estas aplicaciones.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticación moderna actualizada de Office 365)
+- Lea [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticación moderna actualizada de Office 365)
 - Revise [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

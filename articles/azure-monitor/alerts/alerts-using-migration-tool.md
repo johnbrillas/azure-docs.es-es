@@ -4,29 +4,19 @@ description: Obtenga información sobre cómo usar la herramienta de migración 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
-ms.subservice: alerts
-ms.openlocfilehash: 28ccdde85f2873839fbe977c3c991177ac8bb3bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2020
+ms.openlocfilehash: fa487bec49ab9faa0f7c3dce752a30e4440fb873
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602714"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037683"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uso de la herramienta de migración voluntaria para migrar las reglas de alertas clásicas
 
-Como se [anunció anteriormente](../platform/monitoring-classic-retirement.md), se retiran las alertas clásicas de Azure Monitor para los usuarios de la nube pública, aunque se siguen usando de forma limitada para los recursos que aún no admiten las nuevas alertas. Había disponible una herramienta de migración en Azure Portal para los clientes que usaban reglas de alertas clásicas y que deseaban desencadenar la migración ellos mismos. En este artículo se explica cómo usar la herramienta de migración, que también se usará para las alertas restantes pendientes de más anuncios.
+Como se [anunció anteriormente](monitoring-classic-retirement.md), se retiran las alertas clásicas de Azure Monitor para los usuarios de la nube pública, aunque se seguirán usando de forma limitada hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 
-## <a name="benefits-of-new-alerts"></a>Ventajas de las nuevas alertas
-
-Las alertas clásicas están siendo remplazadas por un sistema de alertas nuevo y unificado en Azure Monitor. La nueva plataforma de alertas consta de las siguientes ventajas:
-
-- Puede crear alertas sobre una variedad de métricas multidimensionales para [muchos más servicios de Azure](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- Las nuevas alertas de métricas admiten [reglas de alertas de múltiples recursos](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) que reducen en gran medida la sobrecarga de administrar muchas reglas.
-- El mecanismo de notificación unificado, que admite:
-  - [Grupos de acciones](../platform/action-groups.md), un mecanismo de notificación modular que funciona con todos los nuevos tipos de alertas (métricas, registro y registro de actividad).
-  - Nuevos mecanismos de notificación como SMS, voz y el Conector ITSM.
-- La [experiencia de alertas unificada](../platform/alerts-overview.md) incorpora todas las alertas sobre la diferentes señales (métricas, registro y registro de actividad) en un solo lugar.
+En Azure Portal, hay una herramienta de migración para los clientes que usan reglas de alertas clásicas y que quieren desencadenar la migración ellos mismos. En este artículo se explica cómo usar la herramienta de migración.
 
 ## <a name="before-you-migrate"></a>Antes de la migración
 

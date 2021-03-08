@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/10/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 168e5340842dca3c26e4fa48d2f14b8ade529cd9
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 75d241840ecfc8520989342d9def8186de922c0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505672"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691865"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
-En este artículo, aprenderá a crear y ejecutar [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **canalizaciones de ML** para crear un flujo de trabajo que reúna varias fases de ML. A continuación, publique esa canalización para acceder a ella posteriormente o compartirla con otras personas. Realice un seguimiento de las canalizaciones de ML para ver cómo funciona el modelo en el mundo real y detectar el desfase de datos. Las canalizaciones de Machine Learning son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de Machine Learning con otros usuarios.
+En este artículo, aprenderá a crear y ejecutar [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **canalizaciones de ML** para crear un flujo de trabajo que reúna varias fases de ML. A continuación, publique esa canalización para acceder a ella posteriormente o compartirla con otras personas. Realice un seguimiento de las canalizaciones de ML para ver cómo funciona el modelo en el mundo real y detectar el desfase de datos. Las canalizaciones de ML son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de ML con otros usuarios.
 
 Este artículo no es un tutorial. Para obtener instrucciones sobre cómo crear su primera canalización, consulte [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md) o [Uso de ML automatizado en una canalización de Azure Machine Learning en Python](how-to-use-automlstep-in-pipelines.md). 
 
@@ -53,16 +53,13 @@ Cree los recursos necesarios para ejecutar una canalización de Machine Learning
 
 * Configure un almacén de datos que puede usar para obtener acceso a los datos necesarios en los pasos de la canalización.
 
-* Configure un objeto `Dataset` para que apunte a los datos que se guardan o a los que puede acceder en un almacén de datos. Configure un objeto de `PipelineData` para los datos temporales pasados entre los pasos de una canalización. 
-
-    > [!TIP]
-    > Una experiencia mejorada para pasar datos temporales entre los pasos de la canalización se encuentra disponible en la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py).  Esta clase es una característica en vista previa (GB) [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) y puede cambiar en cualquier momento.
+* Configure un objeto `Dataset` para que apunte a los datos que se guardan o a los que puede acceder en un almacén de datos. Configure un objeto `OutputFileDatasetConfig` para los datos temporales pasados entre los pasos de una canalización. 
 
 * Configure los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-targets) en los que se ejecutarán los pasos de su canalización.
 
 ### <a name="set-up-a-datastore"></a>Configurar un almacén de datos
 
-Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
+Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Puede registrar más almacenes de datos. 
 
 Cuando crea su área de trabajo, una instancia de [Azure Files](../storage/files/storage-files-introduction.md) y una de [Azure Blob Storage ](../storage/blobs/storage-blobs-introduction.md) se adjuntan al área de trabajo. Se registra un almacén de datos predeterminado para conectarse al almacenamiento de blobs de Azure. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](../storage/common/storage-introduction.md). 
 
@@ -80,10 +77,9 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 Los pasos suelen consumir datos y generar datos de salida. Igualmente, un paso puede crear datos como un modelo, un directorio con archivos dependientes o datos temporales. Estos datos están disponibles para otros pasos más adelante en la canalización. Para más información sobre cómo conectar la canalización a los datos, consulte los artículos [Cómo tener acceso a los datos](how-to-access-data.md) y [Cómo registrar conjuntos de datos](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-with-dataset-and-pipelinedata-objects"></a>Configuración de datos con los objetos `Dataset` y `PipelineData`
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Configuración de datos con los objetos `Dataset` y `OutputFileDatasetConfig`
 
 La mejor manera de proporcionar datos a una canalización es un objeto [Dataset](/python/api/azureml-core/azureml.core.dataset.Dataset). El objeto `Dataset` apunta a datos que están en un almacén de datos o que son accesibles desde este o en una dirección URL web. La clase `Dataset` es abstracta, así que creará una instancia de un objeto `FileDataset` (que hace referencia a uno o varios archivos) o de un objeto `TabularDataset` que se crea a partir de uno o varios archivos con columnas delimitadas de datos.
-
 
 Creará un objeto `Dataset` con métodos como [from_file](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) o [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
@@ -92,20 +88,22 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
-Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización. Este objeto se usará más adelante al crear los pasos de la canalización.
+
+Los datos intermedios (o la salida de un paso) se representan mediante un objeto [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). `output_data1` se genera como salida de un paso. Opcionalmente, estos datos se pueden registrar como un conjunto de datos mediante una llamada a `register_on_complete`. Si crea `OutputFileDatasetConfig` en un paso y lo usa como entrada para otro paso, esa dependencia de datos entre pasos crea un orden de ejecución implícito en la canalización.
+
+Los objetos `OutputFileDatasetConfig` devuelven un directorio y, de forma predeterminada, escriben la salida en el almacén de datos predeterminado del área de trabajo.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig(destination = (datastore, 'outputdataset/{run-id}'))
+output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_data')
 
 ```
 
-> [!TIP]
-> La conservación de datos intermedios entre los pasos de la canalización también se puede realizar con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para obtener un ejemplo de código con la clase `OutputFileDatasetConfig`, consulte cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> [!IMPORTANT]
+> Azure no elimina automáticamente los datos intermedios almacenados mediante `OutputFileDatasetConfig`.
+> Debe eliminar los datos intermedios mediante programación al final de una ejecución de canalización, usar un almacén de datos con una directiva de retención de datos corta o realizar la limpieza manual de forma periódica.
 
 > [!TIP]
 > Cargue solo los archivos pertinentes para el trabajo entre manos. Cualquier cambio en los archivos dentro del directorio de datos se considerará un motivo para volver a ejecutar el paso la próxima vez que se ejecute la canalización, incluso si se especifica la reutilización. 
@@ -120,7 +118,7 @@ En Azure Machine Learning, el término __proceso__ (o __destino de proceso__) se
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
 
-Puede crear un proceso de Azure Machine Learning para ejecutar sus pasos. El código de otros destinos de proceso es muy similar, con parámetros ligeramente diferentes, en función del tipo. 
+Puede crear un proceso de Azure Machine Learning para ejecutar sus pasos. El código de otros destinos de proceso es similar, con parámetros ligeramente diferentes, en función del tipo. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -176,7 +174,7 @@ else:
         pin_sdk_version=False)
 ```
 
-El código anterior muestra dos opciones para administrar las dependencias. Tal como se presenta, con `USE_CURATED_ENV = True`, la configuración se basa en un entorno seleccionado. Los entornos seleccionados están preparados con bibliotecas interdependientes comunes y pueden ser mucho más rápidos para ponerlos en línea. Los entornos seleccionados tienen imágenes de Docker creadas previamente en [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). Para más información, consulte [Entornos mantenidos de Azure Machine Learning](resource-curated-environments.md).
+El código anterior muestra dos opciones para administrar las dependencias. Tal como se presenta, con `USE_CURATED_ENV = True`, la configuración se basa en un entorno seleccionado. Los entornos seleccionados están preparados con bibliotecas interdependientes comunes y pueden ponerse en línea más rápido. Los entornos seleccionados tienen imágenes de Docker creadas previamente en [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). Para más información, consulte [Entornos mantenidos de Azure Machine Learning](resource-curated-environments.md).
 
 La ruta de acceso que se toma si cambia `USE_CURATED_ENV` a `False` muestra el patrón para establecer explícitamente las dependencias. En ese escenario, se creará una nueva imagen de Docker personalizada y se registrará en Azure Container Registry dentro del grupo de recursos (consulte [Introducción a los registros de contenedores privados de Docker en Azure](../container-registry/container-registry-intro.md)). La creación y el registro de esta imagen pueden tardar unos minutos.
 
@@ -196,8 +194,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -206,9 +202,7 @@ data_prep_step = PythonScriptStep(
 
 En el código anterior se muestra un paso típico de canalización inicial. El código de preparación de los datos está en un subdirectorio (en este ejemplo, `"prepare.py"` en el directorio `"./dataprep.src"`). Como parte del proceso de creación de la canalización, este directorio se comprime y se carga en el elemento `compute_target` y el paso ejecuta el script especificado como el valor de `script_name`.
 
-Los valores `arguments`, `inputs` y `outputs` especifican las entradas y salidas del paso. En el ejemplo anterior, los datos de línea base son el conjunto de datos `my_dataset`. Los datos correspondientes se descargarán en el recurso de proceso, ya que el código lo especifica como `as_download()`. El script `prepare.py` realiza las tareas de transformación de datos adecuadas para la tarea a mano y envía los datos a `output_data1`, de tipo `PipelineData`. Para más información, consulte [Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos](how-to-move-data-in-out-of-pipelines.md). 
-
-El paso se ejecutará en el equipo definido por `compute_target`, con la configuración `aml_run_config`. 
+Los valores `arguments` especifican las entradas y salidas del paso. En el ejemplo anterior, los datos de línea base son el conjunto de datos `my_dataset`. Los datos correspondientes se descargarán en el recurso de proceso, ya que el código lo especifica como `as_download()`. El script `prepare.py` realiza las tareas de transformación de datos adecuadas para la tarea a mano y envía los datos a `output_data1`, de tipo `OutputFileDatasetConfig`. Para más información, consulte [Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos](how-to-move-data-in-out-of-pipelines.md). El paso se ejecutará en el equipo definido por `compute_target`, con la configuración `aml_run_config`. 
 
 La reutilización de los resultados anteriores (`allow_reuse`) es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. La reutilización es el comportamiento predeterminado cuando el nombre del script, las entradas y los parámetros de un paso siguen siendo los mismos. Si se permite la reutilización, los resultados de la ejecución anterior se envían inmediatamente al paso siguiente. Si `allow_reuse` se establece en `False`, siempre se generará una nueva ejecución para este paso durante la ejecución de la canalización.
 
@@ -218,9 +212,8 @@ Es posible crear una canalización con un solo paso, pero casi siempre tendrá e
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(name = "training_results", 
-                                datastore=def_blob_store,
-                                output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+    destination = def_blob_store)
 
     
 train_step = PythonScriptStep(
@@ -233,11 +226,9 @@ train_step = PythonScriptStep(
 )
 ```
 
-El código anterior es muy similar al del paso de preparación de datos. El código de entrenamiento está en un directorio independiente del código de preparación de datos. La salida de `PipelineData` del paso de preparación de datos, `output_data1`, se usa como _entrada_ al paso de entrenamiento. Un nuevo objeto `PipelineData`, `training_results`, se crea para almacenar los resultados de un paso posterior de comparación o implementación. 
+El código anterior es similar al del paso de preparación de datos. El código de entrenamiento está en un directorio independiente del código de preparación de datos. La salida de `OutputFileDatasetConfig` del paso de preparación de datos, `output_data1`, se usa como _entrada_ al paso de entrenamiento. Un nuevo objeto `OutputFileDatasetConfig`, `training_results`, se crea para almacenar los resultados de un paso posterior de comparación o implementación. 
 
-
-> [!TIP]
-> Para mejorar la experiencia del usuario y la capacidad para escribir datos intermedios en el almacén de datos al final de la ejecución de la canalización, use la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para obtener ejemplos de código, vea cómo [compilar una canalización de Machine Learning en dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) y [cómo escribir datos en los almacenes de datos tras la finalización de la ejecución](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+Para obtener otros ejemplos de código, vea cómo [compilar una canalización de ML en dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) y cómo [reescribir datos en almacenes de datos tras la finalización de la ejecución](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
@@ -254,26 +245,12 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
-### <a name="how-python-environments-work-with-pipeline-parameters"></a>Cómo funcionan los entornos de Python con los parámetros de canalización
-
-Como se explicó anteriormente en [Configuración del entorno de ejecución de entrenamiento](#configure-the-training-runs-environment), el estado del entorno y las dependencias de la biblioteca de Python se especifican mediante un objeto `Environment`. Por lo general, puede especificar un objeto `Environment` existente haciendo referencia a su nombre y, opcionalmente, a una versión:
-
-```python
-aml_run_config = RunConfiguration()
-aml_run_config.environment.name = 'MyEnvironment'
-aml_run_config.environment.version = '1.0'
-```
-
-Sin embargo, si decide usar objetos `PipelineParameter` para establecer las variables dinámicamente en tiempo de ejecución para los pasos de la canalización, no puede usar esta técnica para hacer referencia a un objeto `Environment` existente. En su lugar, si quiere usar objetos `PipelineParameter`, debe establecer el campo `environment` de `RunConfiguration` en un objeto `Environment`. Es su responsabilidad asegurarse de que dicho `Environment` tenga establecidas correctamente sus dependencias en los paquetes externos de Python.
-
 ### <a name="use-a-dataset"></a>Uso de un conjunto de datos 
 
-Los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL se pueden usar como entrada en cualquier paso de una canalización. Puede escribir la salida en [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) o bien, si quiere escribir los datos en un almacén de datos específico, use [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). 
+Los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL se pueden usar como entrada en cualquier paso de una canalización. Puede escribir la salida en [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) o, si quiere escribir los datos en un almacén de datos específico, use [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). 
 
 > [!IMPORTANT]
-> La escritura de datos de salida en un almacén de datos con PipelineData solo se admite para los almacenes de datos de Azure Blob y del recurso compartido de archivos de Azure. 
->
-> Para reescribir los datos de salida en los almacenes de datos de Azure Blob, Azure File Share, ADLS Gen 1 y ADLS Gen 2 use la clase de versión preliminar pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py).
+> La reescritura de datos de salida en un almacén de datos con `OutputFileDatasetConfig` solo se admite en almacenes de datos de Azure Blob, Recurso compartido de archivos de Azure, ADLS Gen1 y Gen2. 
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -344,7 +321,7 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 * Descarga la instantánea del proyecto en el destino de proceso de la instancia de Blob Storage asociada al área de trabajo.
 * Crea una imagen de docker correspondiente a cada paso en la canalización.
 * Descarga la imagen de docker para cada paso en el destino de proceso del registro de contenedor.
-* Configura el acceso a los objetos `Dataset` y `PipelineData`. En modo de acceso `as_mount()`, se usa FUSE para proporcionar acceso virtual. Si no se admite el montaje o si el usuario especificó el acceso como `as_download()`, los datos se copian en su lugar en el destino de proceso.
+* Configura el acceso a los objetos `Dataset` y `OutputFileDatasetConfig`. En modo de acceso `as_mount()`, se usa FUSE para proporcionar acceso virtual. Si no se admite el montaje o si el usuario especificó el acceso como `as_upload()`, los datos se copian en su lugar en el destino de proceso.
 
 * Ejecuta el paso en el destino de proceso especificado en la definición del paso. 
 * Crea artefactos como registros, las propiedades stdout y stderr, métricas y resultados que especifica el paso. Estos artefactos se cargan y se guardan en el almacén de datos predeterminado del usuario.
@@ -354,6 +331,31 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 Para obtener más información, consulte la documentación de referencia de la [clase Experimento](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py).
 
 ## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Uso de parámetros de canalización para argumentos que cambian en tiempo de inferencia
+
+A veces, los argumentos de pasos individuales de una canalización se relacionan con el período de desarrollo y entrenamiento: aspectos como las tarifas de entrenamiento y el momento, o las rutas de acceso a los datos o archivos de configuración. Pero cuando se implementa un modelo, se recomienda pasar de forma dinámica los argumentos en los que se está basando (es decir, la consulta cuya respuesta ha motivado la compilación del modelo). Debe convertir estos tipos de argumentos en parámetros de canalización. Para hacer esto en Python, use la clase `azureml.pipeline.core.PipelineParameter`, como se muestra en el siguiente fragmento de código:
+
+```python
+from azureml.pipeline.core import PipelineParameter
+
+pipeline_param = PipelineParameter(name="pipeline_arg", default_value="default_val")
+train_step = PythonScriptStep(script_name="train.py",
+                            arguments=["--param1", pipeline_param],
+                            target=compute_target,
+                            source_directory=project_folder)
+```
+
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Cómo funcionan los entornos de Python con los parámetros de canalización
+
+Como se ha explicado anteriormente en [Configuración del entorno de ejecución de entrenamiento](#configure-the-training-runs-environment), el estado del entorno y las dependencias de la biblioteca de Python se especifican mediante un objeto `Environment`. Por lo general, puede especificar un objeto `Environment` existente haciendo referencia a su nombre y, opcionalmente, a una versión:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+Sin embargo, si decide usar objetos `PipelineParameter` para establecer las variables dinámicamente en tiempo de ejecución para los pasos de la canalización, no puede usar esta técnica para hacer referencia a un objeto `Environment` existente. En su lugar, si quiere usar objetos `PipelineParameter`, debe establecer el campo `environment` de `RunConfiguration` en un objeto `Environment`. Es su responsabilidad asegurarse de que dicho `Environment` tenga establecidas correctamente sus dependencias en los paquetes externos de Python.
+
 
 ## <a name="view-results-of-a-pipeline"></a>Visualización de los resultados de una canalización
 

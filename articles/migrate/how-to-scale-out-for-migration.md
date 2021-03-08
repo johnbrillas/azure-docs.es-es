@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743794"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048019"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a:
 - Implementar un dispositivo de escalabilidad horizontal para la migración de VMware
 - Migrar hasta 500 VM simultáneamente con el dispositivo de escalabilidad horizontal.
 
-##  <a name="prerequisites"></a>Requisitos previos
+##  <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, debe llevar a cabo los siguientes pasos:
 
@@ -153,7 +153,7 @@ En este momento, debe volver a validar que el dispositivo de escalabilidad horiz
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importación correcta":::
 
 > [!IMPORTANT]
-> Si modifica las credenciales de vCenter Server en el dispositivo principal, asegúrese de volver a importar los archivos de configuración en el dispositivo de escalabilidad horizontal para obtener la configuración más reciente y continuar con las replicaciones en curso.<br/> Si ya no necesita el dispositivo de escalabilidad horizontal, asegúrese de deshabilitarlo. [**Obtenga más información**](./common-questions-appliance) sobre cómo deshabilitar el dispositivo de escalado horizontal cuando no sea necesario.
+> Si modifica las credenciales de vCenter Server en el dispositivo principal, asegúrese de volver a importar los archivos de configuración en el dispositivo de escalabilidad horizontal para obtener la configuración más reciente y continuar con las replicaciones en curso.<br/> Si ya no necesita el dispositivo de escalabilidad horizontal, asegúrese de deshabilitarlo. [**Obtenga más información**](./common-questions-appliance.md) sobre cómo deshabilitar el dispositivo de escalado horizontal cuando no sea necesario.
 
 ## <a name="replicate"></a>Replicar
 

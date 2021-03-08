@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691882"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -190,7 +190,7 @@ Busque los detalles sobre las instancias de proceso en la página **Proceso** de
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
 
-* Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para <instance-name>.<region>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
+* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si usa un archivo de host o DNS personalizado, agregue una entrada para <instance-name>.<region>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Pasos siguientes
 

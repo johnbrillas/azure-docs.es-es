@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690216"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 
 
-## <a name="overview-of-model-interpretability"></a>Explicación de la interpretación del modelo
+## <a name="model-interpretability-overview"></a>Información general sobre la interpretación de modelos
 
-La interpretación es fundamental para los científicos de datos, los auditores y los responsables de la toma de decisiones empresariales para garantizar el cumplimiento de las directivas de la empresa, los estándares del sector y las regulaciones gubernamentales:
+La interpretación de modelos es fundamental para los científicos de datos, los auditores y los responsables de la toma de decisiones empresariales por igual para garantizar el cumplimiento de las directivas empresariales, los estándares del sector y las normativas gubernamentales:
 
 + Los científicos de datos necesitan la capacidad de explicar sus modelos a ejecutivos y partes interesadas para que puedan reconocer el valor y la precisión de sus hallazgos. También deben tener la capacidad de interpretarse para depurar los modelos y tomar decisiones informadas sobre cómo mejorarlos. 
 
@@ -31,15 +31,15 @@ La interpretación es fundamental para los científicos de datos, los auditores 
 
 + Los responsables de la toma de decisiones empresariales necesitan generar armonía al tener la capacidad de ofrecer transparencia a los usuarios finales. Esto les permite ganar y mantener la confianza.
 
-
 La habilitación de la capacidad de explicar un modelo de aprendizaje automático es importante durante dos fases principales del desarrollo del modelo:
+
 + En la fase de entrenamiento, tanto los evaluadores como los diseñadores de modelos pueden usar el resultado de la interoperabilidad de un modelo para comprobar las hipótesis y crear relaciones de confianza con las partes interesadas. También usan la conclusiones sobre el modelo para depurarlo, para validar que el comportamiento del modelo coincide con sus objetivos y para comprobar si hay características insignificantes o sesgadas.
 
 + Durante la fase de inferencia, como la transparencia en torno a los modelos implementados, los ejecutivos pueden comprender "cuando se implementan" cómo funciona el modelo y cómo sus decisiones tratan y afectan a las personas en la vida real. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretación con Azure Machine Learning
 
-Las clases de interpretabilidad están disponibles a través del siguiente paquete del SDK: (Obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+Las clases de interpretación de modelos están disponibles en el siguiente paquete de SDK: (obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret` contiene funcionalidades admitidas por Microsoft.
 
@@ -52,11 +52,7 @@ Mediante las clases y métodos del SDK, puede hacer lo siguiente:
 + Lograr la interpretabilidad del modelo en los conjuntos de datos del mundo real a escala, durante el entrenamiento y la inferencia.
 + Usar un panel de visualizaciones interactivas para detectar de patrones en los datos y explicaciones durante el entrenamiento.
 
-
 En el aprendizaje automático, las **características** son los campos de datos que se usan para predecir un punto de datos de destino. Por ejemplo, para predecir el riesgo de crédito, se pueden usar los campos de datos de la edad, el tamaño de la cuenta y la antigüedad de la cuenta. En este caso, la edad, el tamaño de la cuenta y la antigüedad de la cuenta son **características**. La importancia de las características le indica la forma en que cada campo de datos ha afectado las predicciones del modelo. Por ejemplo, es posible que la edad se use mucho en la predicción, mientras que la antigüedad y el tamaño de la cuenta no afectan a los valores de la predicción significativamente. Este proceso permite a los científicos de datos explicar las predicciones resultantes, con el fin de que partes interesadas puedan ver qué características son las más importantes del modelo.
-
-Obtenga información sobre las técnicas de interpretación admitidas, los modelos de Machine Learning admitidos y los entornos de ejecución admitidos en este artículo.
-
 
 ## <a name="supported-interpretability-techniques"></a>Técnicas de interpretación admitidas
 
@@ -70,9 +66,6 @@ Obtenga información sobre las técnicas de interpretación admitidas, los model
 |SHAP Kernel Explainer| SHAP Kernel Explainer usa una regresión lineal local ponderada de forma especial para calcular los valores SHAP de **cualquier modelo**.|Independiente del modelo|
 |Mimic Explainer (suplente global)| El explicador Mimic se basa en la idea de entrenar [modelos globales de sustitución](https://christophm.github.io/interpretable-ml-book/global.html) para imitar los modelos de caja negra. Un modelo suplente global es un modelo interpretable de forma intrínseca que está entrenado para aproximarse a las predicciones de **cualquier modelo de caja negra** de la forma más precisa posible. Los científicos de datos pueden interpretar el modelo suplente para extraer conclusiones acerca del modelo de caja negra. Cualquiera de los siguientes modelos se puede usar como modelo suplente: LightGBM (LGBMExplicableModel), Regresión lineal (LinearExplicableModel), Modelo explicable de descenso de gradiente estocástico (SGDExplicableModel) y Árbol de decisión (DecisionTreeExplicableModel).|Independiente del modelo|
 |Permutation Feature Importance Explainer (PFI)| La importancia de características de permutación es una técnica que se usa para explicar los modelos de clasificación y regresión que está inspirada en el [documento acerca de bosques aleatorios de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte la sección 10). En un alto nivel, la forma en que funciona es cuando se barajan aleatoriamente los datos de una característica para todo el conjunto de datos y se calcula en qué medida cambia la métrica de rendimiento que interesa. Cuanto mayor sea el cambio, más importante es la característica. PFI puede explicar el comportamiento general de **cualquier modelo subyacente**, pero no explica las predicciones individuales. |Independiente del modelo|
-
-
-
 
 Además de las técnicas de interpretación descritas anteriormente, se admite otro explicador basado en SHAP, denominado `TabularExplainer`. En función del modelo, `TabularExplainer` usa uno de los explicadores de SHAP admitidos:
 

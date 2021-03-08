@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Este artículo contiene una lista de las preguntas más frecuentes relacionadas con Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenedores, configuración, GitOps, preguntas más frecuentes
-ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d7facb842509bdf852957d46d91dfcb3912e99ba
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647870"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121718"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Preguntas más frecuentes: Kubernetes habilitado para Azure Arc
 
@@ -72,6 +72,6 @@ La característica aplica configuraciones de base de referencia (como directivas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Conexión de un clúster a Azure Arc](./quickstart-connect-cluster.md)
-* [Creación de configuraciones en el clúster de Kubernetes habilitado para Arc](./use-gitops-connected-cluster.md)
-* [Uso de Azure Policy para aplicar configuraciones a escala](./use-azure-policy.md)
+* Siga el inicio rápido para [conectar un clúster de Kubernetes a Azure Arc](./connect-cluster.md).
+* ¿Ya tiene un clúster de Kubernetes conectado a Azure Arc? [Cree configuraciones en el clúster de Kubernetes habilitado para Arc](./use-gitops-connected-cluster.md).
+* Aprenda a [usar Azure Policy para aplicar configuraciones a escala](./use-azure-policy.md).

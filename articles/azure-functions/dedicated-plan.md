@@ -3,12 +3,12 @@ title: Hospedaje dedicado de Azure Functions
 description: Conozca las ventajas de ejecutar Azure Functions en un plan de hospedaje de App Service dedicado.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704572"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Planes de hospedaje dedicados en Azure Functions
 
@@ -41,7 +41,7 @@ Con un plan de App Service, para escalar horizontalmente de forma manual, puede 
 
 ## <a name="app-service-environments"></a>Entornos de App Service
 
-La ejecución en una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) permite aislar completamente las funciones y aprovechar las ventajas de tener un mayor número de instancias que el plan de App Service. Para empezar, vea .
+La ejecución en una instancia de App Service Environment (ASE) permite aislar completamente las funciones y aprovechar las ventajas de tener un mayor número de instancias que el plan de App Service. Para comenzar, consulte [Introducción a App Service Environment](../app-service/environment/intro.md).
 
 Si solo quiere ejecutar la aplicación de funciones en una red virtual, puede hacerlo mediante el [plan Prémium](functions-premium-plan.md). Para más información, consulte [Establecimiento del acceso al sitio privado de Azure Functions](functions-create-private-site-access.md). 
 

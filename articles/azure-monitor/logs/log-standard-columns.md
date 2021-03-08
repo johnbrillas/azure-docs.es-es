@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603008"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704130"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Columnas estándar en registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../logs/data-platform-logs.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.
@@ -20,6 +20,10 @@ Las aplicaciones basadas en el área de trabajo de Application Insights almacena
 
 > [!NOTE]
 > Algunas de las columnas estándar no se mostrarán en la vista de esquema ni en IntelliSense en Log Analytics y no aparecerán en los resultados de la consulta, a menos que especifique explícitamente la columna de la salida.
+> 
+
+## <a name="tenantid"></a>TenantId
+La columna **TenantId** contiene el identificador del área de trabajo de Log Analytics.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated y timestamp
 Las columnas **TimeGenerated** (área de trabajo de Log Analytics) y **timestamp** (aplicación de Application Insights) contienen la fecha y hora en que el origen de datos creó el registro. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../logs/data-ingestion-time.md) para más detalles.
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_TimeReceived
 La columna **\_TimeReceived** contiene la fecha y hora en que el punto de ingesta de Azure Monitor recibió el registro en la nube de Azure. Esto puede resultar útil para identificar problemas de latencia entre el origen de datos y la nube. Un ejemplo sería un error de red que genere un retraso con los datos que se envían desde un agente. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../logs/data-ingestion-time.md) para más detalles.
+
+> [!NOTE]
+> La columna **\_TimeReceived** se calcula cada vez que se usa. Este proceso consume muchos recursos. Restrinja su uso para filtrar un gran número de registros. El uso de esta función de forma recurrente puede aumentar la duración de la ejecución de la consulta.
+
 
 En la consulta siguiente se proporciona la latencia promedio por hora para los registros de eventos de un agente. Esto incluye el tiempo del agente a la nube y el tiempo total para que el registro esté disponible en las consultas de registro.
 
@@ -238,6 +246,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo se almacenan los [datos del registro de Azure Monitor](../log-query/log-query-overview.md).
-- Reciba una lección sobre [escritura de consultas de registro](../log-query/get-started-queries.md).
+- Obtenga más información sobre cómo se almacenan los [datos del registro de Azure Monitor](./log-query-overview.md).
+- Reciba una lección sobre [escritura de consultas de registro](./get-started-queries.md).
 - Reciba una lección sobre [la unión de tablas en consultas de registro](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 9a0fb8ed8ac54fa866b6db7d8f808c011c0c6758
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695828"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para proteger el área de trabajo de Synapse, asigne los roles RBAC a estos ámb
 
 Además, con los grupos de SQL dedicados tiene las mismas características de seguridad que conoce y tanto le gusta.
 
-### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: ¿Cómo se controlan los grupos de SQL dedicados, grupos de SQL sin servidor y grupos de Spark?
+### <a name="q-how-do-i-control-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: ¿Cómo se controlan los grupos de SQL dedicados, los grupos de SQL sin servidor y los grupos de Spark sin servidor?
 
 R: Como punto de partida, Azure Synapse funciona con las alertas de costos y el análisis de costos integrados disponibles en el nivel de suscripción de Azure.
 

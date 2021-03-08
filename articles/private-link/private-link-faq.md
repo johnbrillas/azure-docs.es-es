@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582016"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709416"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre Azure Private Link
 
@@ -65,6 +65,12 @@ Puede escalar su servicio Private Link de distintas formas:
 - Agregando máquinas virtuales de back-end al grupo situado detrás de su instancia de Standard Load Balancer. 
 - Agregando una dirección IP al servicio Private Link. Permitimos hasta ocho direcciones IP por servicio Private Link.  
 - Agregando un nuevo servicio Private Link a Standard Load Balancer. Permitimos hasta ocho servicios Private Link por equilibrador de carga.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>¿Qué es la configuración IP de NAT (traducción de direcciones de red) que se usa en el servicio Private Link? ¿Cómo puedo escalar en términos de puertos y conexiones disponibles? 
+
+La configuración de IP de NAT garantiza que no hay ningún conflicto de IP entre el espacio de direcciones de origen (consumidor) y de destino (proveedor de servicios) al proporcionar NAT de origen en el tráfico de Private Link en el lado de destino (proveedor de servicios). La dirección IP de NAT se mostrará como IP de origen para todos los paquetes recibidos por su servicio e IP de destino para todos los paquetes enviados por su servicio.  La IP de NAT se puede elegir desde cualquier subred de la red virtual de un proveedor de servicios. 
+
+Cada IP de NAT proporciona 64 000 conexiones TCP (64 000 puertos) por máquina virtual detrás de Standard Load Balancer. Con el fin de escalar y aumentar las conexiones, puede agregar nuevas direcciones IP de NAT o más máquinas virtuales detrás de Standard Load Balancer. Si lo hace, escalará la disponibilidad de puertos y permitirá más conexiones. Las conexiones se distribuirán entre las direcciones IP de NAT y las máquinas virtuales detrás de Standard Load Balancer.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>¿Puedo conectar mi servicio a varios puntos de conexión privados?
 Sí. Un servicio Private Link puede recibir conexiones de varios puntos de conexión privados. Sin embargo, un punto de conexión privado solo puede conectarse a un servicio Private Link.  

@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649325"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199635"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -35,6 +34,7 @@ Ahora, los usuarios invitados pueden iniciar sesión en las aplicaciones multiin
 ![Inicio de sesión con un punto de conexión común](media/redemption-experience/common-endpoint-flow-small.png)
 
 Después, el usuario accede automáticamente al punto de conexión del inquilino, donde puede iniciar sesión con su dirección de correo electrónico o seleccionar un proveedor de identidades que haya configurado.
+
 ## <a name="redemption-through-a-direct-link"></a>Canje a través de un vínculo directo
 
 En lugar de la invitación por correo electrónico o la dirección URL común de la aplicación, también puede proporcionar al invitado un vínculo directo a la aplicación o al portal. Primero debe agregar el usuario invitado a su directorio mediante [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Puede usar cualquiera de las [maneras personalizables para implementar las aplicaciones para los usuarios](../manage-apps/end-user-experiences.md), incluidos los vínculos de inicio de sesión en directo. Cuando un invitado usa un vínculo directo en lugar de la invitación por correo electrónico, también se le guía por la experiencia de consentimiento inicial.
@@ -73,7 +73,7 @@ Cuando un usuario hace clic en el vínculo **Aceptar invitación** de un [correo
 
 3. Si un administrador ha habilitado la [federación de Google](./google-federation.md), Azure AD comprueba si el sufijo de dominio del usuario es gmail.com o googlemail.com y redirige al usuario a Google.
 
-4. El proceso de canje comprueba si el usuario tiene una [cuenta de Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personal existente.
+4. El proceso de canje comprueba si el usuario tiene una [cuenta Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personal existente para canjes Just-In-Time (JIT), pero no para el canje de vínculos de correo electrónico de invitación. Si el usuario ya tiene una MSA existente, la usará para iniciar sesión.
 
 5. Una vez identificado el **directorio principal** del usuario, el usuario se envía al proveedor de identidades correspondiente para iniciar sesión.  
 

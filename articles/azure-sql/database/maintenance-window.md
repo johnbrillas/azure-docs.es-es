@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678870"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692817"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Para más información sobre los eventos de mantenimiento, consulte [Planeación
 
 Azure ejecuta periódicamente actualizaciones de mantenimiento planeadas en los recursos de Azure SQL Database y SQL Managed Instance. Suelen incluirse actualizaciones del hardware o el software subyacente, como el sistema operativo y el motor de SQL. Durante una actualización de mantenimiento, los recursos están completamente disponibles y accesibles, pero algunas de las actualizaciones de mantenimiento requieren una conmutación por error, ya que Azure deja las instancias sin conexión durante un breve período de tiempo para ejecutar las actualizaciones de mantenimiento (ocho segundos de promedio).  Las actualizaciones de mantenimiento planeadas se producen una vez cada 35 días de promedio, lo que significa que el cliente puede esperar aproximadamente un evento de mantenimiento planeado al mes por instancia de Azure SQL Database o SQL Managed Instance, y solo durante las franjas de tiempo de la ventana de mantenimiento seleccionadas por el cliente.   
 
-La ventana de mantenimiento se ha concebido para cargas de trabajo empresariales que son sensibles a posibles interrupciones de la conectividad que pueden producirse como consecuencia de los eventos de mantenimiento planeados durante la ventana predeterminada.  
+La ventana de mantenimiento se ha concebido para cargas de trabajo empresariales que no son resistentes a incidencias de conectividad intermitente que pueden producirse como resultado de los eventos de mantenimiento planeados.
 
 La ventana de mantenimiento se puede configurar mediante Azure Portal, PowerShell, la CLI o la API de Azure. Se puede configurar durante la creación, o bien para instancias existentes de Azure SQL Database y SQL Managed Instance.
 
@@ -37,15 +37,15 @@ La ventana de mantenimiento se puede configurar mediante Azure Portal, PowerShel
 De forma predeterminada, las instancias de Azure SQL Database y SQL Managed Instance se actualizan solo entre las 17:00 y las 8:00 (hora local) diariamente, para evitar interrupciones durante el horario comercial con mayor actividad. La hora local viene determinada por la [región de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que hospeda el recurso. Para ajustar aún más el horario de las actualizaciones de mantenimiento de su base de datos, elija entre otras dos franjas de tiempo de la ventana de mantenimiento:
 
 * Ventana **predeterminada**: de 17:00 a 8:00 (hora local) de lunes a domingo. 
-* Ventana de día de la semana: de 22:00 a 6:00 (hora local) de lunes a jueves; **requiere la intervención del cliente**. 
-* Ventana de fin de semana: de 22:00 a 6:00 (hora local) de viernes a domingo; **requiere la intervención del cliente**.  
+* Ventana de día de la semana: de 22:00 a 6:00 (hora local) de lunes a jueves.
+* Ventana de fin de semana: de 22:00 a 6:00 (hora local) de viernes a domingo.
 
 Una vez seleccionada la ventana de mantenimiento, las actualizaciones de mantenimiento planeadas solo se producirán durante la ventana que haya elegido.   
 
 > [!Note]
 > Además de las actualizaciones de mantenimiento planeadas, en circunstancias excepciones los eventos de mantenimiento no planeados pueden dar lugar a la falta de disponibilidad. 
 
-### <a name="cost"></a>Coste
+### <a name="cost-and-eligibility"></a>Costo y elegibilidad
 
 La elección de una ventana de mantenimiento no tiene coste alguno para los siguientes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) de suscripción: pago por uso, proveedor de soluciones en la nube (CSP), Microsoft Enterprise o Contrato de cliente de Microsoft.
 

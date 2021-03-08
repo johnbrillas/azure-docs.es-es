@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448660"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699579"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -107,6 +107,16 @@ Para más información sobre la implementación de aplicaciones en el clúster d
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes y Azure Arc
 
 Azure Arc es una herramienta de administración híbrida que le permitirá implementar aplicaciones en los clústeres de Kubernetes. Azure Arc también le permite usar Azure Monitor para contenedores para ver y supervisar los clústeres. Para más información, consulte [¿Qué es Kubernetes habilitado para Azure-Arc?](../azure-arc/kubernetes/overview.md). Para más información sobre los precios de Azure Arc, vaya a [Precios de Azure ARC](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+A partir de marzo de 2021, Kubernetes habilitado para Azure Arc estará disponible con carácter general para los usuarios y se aplicarán cargos de uso estándar. Como cliente valioso de la versión preliminar, Kubernetes habilitado para Azure Arc estará a su disposición sin cargo alguno para dispositivos de Azure Stack Edge. Para disfrutar de la oferta de la versión preliminar, cree una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+1. En **Tipo de problema** como **Facturación**.
+2. En **Suscripción**, seleccione la suscripción.
+3. En **Servicio**, seleccione **Mis servicios** y, después, seleccione **Azure Stack Edge**.
+4. En **Recurso**, seleccione su recurso.
+5. En **Resumen**, escriba una descripción del problema.
+6. En **Tipo de problema**, seleccione **Unexpected Charges** (Cargos inesperados).
+7. En **Subtipo de problema**, seleccione **Help me understand charges on my free trial** (Necesito ayuda para entender los cargos de la evaluación gratuita).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

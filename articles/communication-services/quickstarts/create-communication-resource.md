@@ -10,21 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820020"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691780"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Inicio rápido: Creación y administración de recursos de Communication Services
  
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Aprovisione su primer recurso de Communication Services a fin de empezar a usar Azure Communication Services. Los recursos de Communication Services se pueden aprovisionar a través de Azure Portal o con la biblioteca cliente de administración de .NET. La biblioteca cliente de administración le permite crear, configurar, actualizar y eliminar sus recursos e interfaces con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), el servicio de implementación y administración de Azure. Todas las funcionalidades disponibles en las bibliotecas cliente están disponibles en Azure Portal. 
+Aprovisione su primer recurso de Communication Services a fin de empezar a usar Azure Communication Services. Los recursos de Communication Services se pueden aprovisionar mediante [Azure Portal](https://portal.azure.com) o con la biblioteca cliente de administración de .NET. La biblioteca cliente de administración y Azure Portal le permiten crear, configurar, actualizar y eliminar los recursos y la interfaz con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), el servicio de implementación y administración de Azure. Todas las funcionalidades disponibles en las bibliotecas cliente están disponibles en Azure Portal. 
 
 > [!WARNING]
-> Tenga en cuenta que la disponibilidad de Communication Services está restringida a la geografía de EE. UU. durante la versión preliminar pública. Así mismo, tenga presente que los recursos de comunicación no se pueden transferir a otra suscripción durante la versión preliminar pública.
+> Tenga en cuenta que, aunque Communication Services está disponibles en varias regiones geográficas, para obtener un número de teléfono, el recurso debe tener una ubicación de datos establecida en "EE. UU.". Así mismo, tenga presente que los recursos de comunicación no se pueden transferir a otra suscripción durante la versión preliminar pública.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699035"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de precios y facturación en Azure Logic Apps
 
@@ -94,7 +94,9 @@ Para información sobre los límites, consulte [Límites de ISE en Azure Logic A
 
 ## <a name="integration-accounts"></a>Cuentas de integración
 
-Una [cuenta de integración](../logic-apps/logic-apps-pricing.md#integration-accounts) es un recurso independiente que se crea y se vincula a aplicaciones lógicas para que pueda explorar, compilar y probar soluciones de integración B2B que usen [EDI](logic-apps-enterprise-integration-b2b.md) y funciones de [procesamiento de XML](logic-apps-enterprise-integration-xml.md). Azure Logic Apps ofrece estos niveles de cuenta de integración:
+Una [cuenta de integración](../logic-apps/logic-apps-pricing.md#integration-accounts) es un recurso independiente que se crea y se vincula a aplicaciones lógicas para que pueda explorar, compilar y probar soluciones de integración B2B que usen [EDI](logic-apps-enterprise-integration-b2b.md) y funciones de [procesamiento de XML](logic-apps-enterprise-integration-xml.md).
+
+Azure Logic Apps ofrece los siguientes niveles de cuenta de integración con diferentes [modelos de precios](https://azure.microsoft.com/pricing/details/logic-apps/) y [facturación](logic-apps-pricing.md#integration-accounts) en función de si las aplicaciones lógicas se basan en el consumo o en ISE:
 
 | Nivel | Descripción |
 |------|-------------|

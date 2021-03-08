@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: eedb3dfeafbd378cfff7afb04fcc2b9aa6e791d6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e9cbb7daf61397064bd79f30d851d96fdf63f5a0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678920"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203239"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -27,7 +27,7 @@ La tecnología subyacente aprovecha las inversiones de Bing y Microsoft Research
 
 Las características de la versión preliminar pública son:
 
-+ Algoritmo de clasificación semántica que recupera documentos pertinentes según el contexto o el significado semántico de los términos de la consulta de búsqueda.
++ Modelo de clasificación semántica que puntúa los resultados según el contexto o el significado semántico de los términos de la consulta de búsqueda
 + Subtítulos semánticos que resaltan los pasajes importantes
 + Respuestas semánticas a la consulta, también formuladas a partir de los resultados
 + Corrección ortográfica que corrige los errores tipográficos antes de que los términos de consulta lleguen al motor de búsqueda
@@ -44,7 +44,9 @@ Para crear subtítulos y respuestas, usa modelos de representación del lenguaje
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La clasificación semántica está disponible mediante el [registro de inicio de sesión](https://aka.ms/SemanticSearchPreviewSignup), en los servicios de búsqueda creados en un nivel Estándar (S1, S2, S3), ubicados en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Europa del norte y Oeste de Europa. La corrección ortográfica está disponible en las mismas regiones, pero no tiene restricciones de nivel. Si tiene un servicio existente que cumpla los criterios de nivel y región, solo es necesario que se registre.
+La clasificación semántica está disponible mediante el [registro de inicio de sesión](https://aka.ms/SemanticSearchPreviewSignup), en los servicios de búsqueda creados en un nivel Estándar (S1, S2, S3), ubicados en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Europa del norte y Oeste de Europa. Un servicio de búsqueda existente en S1 o superior en las regiones indicadas es apto para la versión preliminar (no es necesario crear un servicio).
+
+La corrección ortográfica está disponible en las mismas regiones, pero no tiene restricciones de nivel ni requisito de registro. 
 
 Entre el lanzamiento de la versión preliminar del 2 de marzo al 1 de abril, la corrección ortográfica y la clasificación semántica se ofrecen de forma gratuita. Después del 1 de abril, los costos computacionales de ejecutar esta funcionalidad pasarán a ser un evento facturable. El costo esperado es de aproximadamente 500 USD/mes por 250 000 consultas. Puede encontrar información detallada de los costos documentada en la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) y en [Estimación y administración de los costos](search-sku-manage-costs.md).
 

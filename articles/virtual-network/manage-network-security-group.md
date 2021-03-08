@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596668"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694264"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -361,6 +361,11 @@ Para realizar tareas en grupos de seguridad de red, reglas de seguridad y grupos
 | Microsoft.Network/networkSecurityGroups/write                 |   Crear o actualizar grupo de seguridad de red                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   Eliminar grupo de seguridad de red                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Asociar un grupo de seguridad de red a una subred o a una interfaz de red 
+
+
+>[!NOTE]
+> Para realizar operaciones de escritura (`write`) en un grupo de seguridad de red, la cuenta de la suscripción debe tener al menos permisos de lectura (`read`) para el grupo de recursos, así como el permiso `Microsoft.Network/networkSecurityGroups/write`.
+
 
 ### <a name="network-security-group-rule"></a>Regla de grupo de seguridad de red
 

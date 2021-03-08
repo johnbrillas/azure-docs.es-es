@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688015"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 
@@ -80,7 +80,7 @@ Azure Automanage está disponible sin costo adicional en la versión preliminar 
 
 **¿Se puede aplicar Automanage a través de Azure Policy?**
 
-Sí, tenemos una directiva integrada que aplicará automáticamente Automanage a todas las máquinas virtuales dentro del ámbito que se defina. También se especificará el perfil de configuración (DevTest o Producción) junto con su cuenta de Automanage. Obtenga más información [aquí](virtual-machines-policy-enable.md) sobre cómo habilitar Automanage a través de Azure Policy.
+Sí, tenemos una directiva integrada que aplicará automáticamente Automanage a todas las máquinas virtuales dentro del ámbito que se defina. También se especificará el entorno de configuración (Desarrollo/pruebas o Producción) junto con su cuenta de Automanage. Obtenga más información [aquí](virtual-machines-policy-enable.md) sobre cómo habilitar Automanage a través de Azure Policy.
 
 
 **¿Qué es una cuenta de Automanage?**
@@ -93,9 +93,9 @@ Una cuenta de Automanage es una identidad de servicio administrado (MSI) que pro
 Si la máquina virtual está vinculada a un área de trabajo de Log Analytics existente, se volverá a usar esa área de trabajo para aplicar estas soluciones: Change Tracking, Inventory y Update Management. Todas las máquinas virtuales conectadas a esa área de trabajo tendrán habilitadas esas soluciones.
 
 
-**¿Se puede cambiar el perfil de configuración de una máquina virtual?**
+**¿Puedo cambiar el entorno de mi máquina virtual?**
 
-En este momento, tendrá que deshabilitar Automanage para esa máquina virtual y, a continuación, volver a habilitarlo con las preferencias y el perfil de configuración que desee.
+En este momento, tendrá que deshabilitar Automanage en esa máquina virtual y habilitarlo de nuevo con el entorno y las preferencias que quiera.
 
 
 **Si una máquina virtual ya está configurada para un servicio, como Update Management, ¿se volverá a configurar con Automanage?**

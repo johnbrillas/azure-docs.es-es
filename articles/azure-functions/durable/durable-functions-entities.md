@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723680"
 ---
 # <a name="entity-functions"></a>Funciones de entidad
 
@@ -24,7 +24,10 @@ Las entidades proporcionan un medio para escalar horizontalmente las aplicacione
 
 Las entidades se comportan de forma algo parecida a pequeños servicios que se comunican mediante mensajes. Cada entidad tiene una identidad única y un estado interno (si existe). Al igual que los servicios u objetos, las entidades realizan operaciones cuando se les pide que lo hagan. Cuando se ejecuta una operación, es posible que actualice el estado interno de la entidad. También puede llamar a servicios externos y esperar una respuesta. Las entidades se comunican con otras entidades, orquestaciones y clientes mediante el uso de mensajes que se envían implícitamente a través de colas de confianza. 
 
-Para evitar conflictos, se garantiza la ejecución en serie de todas las operaciones de una sola entidad, es decir, una después de otra. 
+Para evitar conflictos, se garantiza la ejecución en serie de todas las operaciones de una sola entidad, es decir, una después de otra.
+
+> [!NOTE]
+> Cuando se invoca una entidad, se procesa su carga hasta su finalización y, después, se programa una nueva ejecución para que se active cuando lleguen entradas futuras. Como resultado, los registros de ejecución de la entidad pueden mostrar una ejecución adicional después de cada invocación de una entidad. Esto es normal.
 
 ### <a name="entity-id"></a>El identificador de entidad
 A las entidades se accede a través de un identificador único, el *identificador de entidad*. Un identificador de entidad es simplemente un par de cadenas que identifica de forma exclusiva una instancia de entidad. Consta de un:
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Ejemplo: Entidad de Python
+
+El código siguiente es la entidad `Counter` implementada como una función duradera escrita en Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Acceso a entidades
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 El término *señal* significa que la invocación de la API de entidad es unidireccional y asincrónica. No es posible que una función de cliente sepa si la entidad ha procesado la operación. La función de cliente tampoco puede observar valores de resultado ni excepciones. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Actualmente Python no admite la lectura del estado de una entidad desde un cliente. En su lugar, use el objeto `callEntity` de un orquestador.
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript no admite actualmente la señalización de una entidad desde un orquestador. En su lugar, use `callEntity`.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Solo las orquestaciones son capaces de llamar a las entidades y obtener una respuesta que puede ser un valor devuelto o una excepción. Las funciones de cliente que usan el [enlace de cliente](durable-functions-bindings.md#entity-client) solo pueden indicar entidades.
@@ -318,6 +395,11 @@ Por ejemplo, podemos modificar el `Counter`ejemplo de la entidad anterior para q
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python todavía no admite señales de entidad a entidad. En su lugar, use un orquestador para señalizar entidades.
 
 ---
 
@@ -421,7 +503,6 @@ Hay algunas diferencias importantes que merece la pena mencionar:
 * Los patrones de solicitud-respuesta en entidades se limitan a las orquestaciones. Desde dentro de las entidades, solo se permite la mensajería unidireccional (también conocida como señalización), como en el modelo de actor original, y a diferencia de los granos de Orleans. 
 * Las entidades duraderas no interbloquean. En Orleans, pueden producirse interbloqueos que no se resuelven hasta que los mensajes agotan el tiempo de espera.
 * Las entidades duraderas se pueden usar junto con las orquestaciones duraderas y admiten mecanismos de bloqueo distribuido. 
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

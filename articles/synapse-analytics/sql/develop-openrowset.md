@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d45b2ec8814ec2b7f02da99500aa1e72ec525d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695709"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -97,6 +97,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -124,7 +125,7 @@ A continuación, encontrará los valores de <storage account path> relevantes qu
 | Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
-"\<storage_path>"
+'\<storage_path>'
 
 Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
 
@@ -237,6 +238,10 @@ Especifica si el archivo .csv contiene una fila de encabezado. El valor predeter
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Especifica que se usa la codificación char para archivos UTF8 y WideChar para archivos UTF16.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Especifica la página de códigos de los datos incluidos en el archivo de datos. El valor predeterminado es 65001 (codificación UTF-8). Obtenga más información sobre esta opción [aquí](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## <a name="fast-delimited-text-parsing"></a>Análisis de texto delimitado rápido
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: a693761bcecab87e343014127ad37077c2569e21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550626"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694502"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Creación, importación y exportación de términos del glosario
 
@@ -88,6 +88,10 @@ Debe poder exportar términos del glosario siempre que los términos seleccionad
 1. Cuando se encuentra en el glosario, el botón **Exportar** está deshabilitado de forma predeterminada. Una vez que seleccione los términos que desee exportar, se habilita el botón **Exportar** si los términos seleccionados pertenecen a la misma plantilla.
 
 2. Seleccione **Exportar** para descargar los términos seleccionados.
+
+ > [!Important]
+   > Si los términos de una jerarquía pertenecen a distintas plantillas de términos, debe dividirlos en diferentes archivos .CSV para su importación. Además, de momento no se admite la actualización de un elemento primario de un término mediante el proceso de importación.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

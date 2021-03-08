@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50358eed580bbd83f25386feb0068a252060672b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735767"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037122"
 ---
 # <a name="security-control-v2-data-protection"></a>Control de seguridad V2: Protección de datos
 
 La protección de datos cubre el control de la protección de datos en reposo, en tránsito y a través de mecanismos de acceso autorizados. Esto incluye detectar, clasificar, proteger y supervisar los recursos de datos confidenciales mediante el control de acceso, el cifrado y el registro en Azure.
 
-Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Protección de datos](../../governance/policy/samples/azure-security-benchmark#data-protection).
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Protección de datos](../../governance/policy/samples/azure-security-benchmark.md#data-protection).
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Detección, clasificación y etiquetado de datos confidenciales
 

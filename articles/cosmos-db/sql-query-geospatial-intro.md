@@ -5,23 +5,23 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/25/2021
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b20c72ae3ed8a8fffa02fc3a2c86f9f73ba2663b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692137"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Datos de ubicación geoespaciales y GeoJSON en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Este artículo es una introducción a la funcionalidad geoespacial de Azure Cosmos DB. Actualmente, solo las cuentas de SQL API de Azure Cosmos DB admiten almacenamiento y acceso a datos geoespaciales. Después de leer la documentación sobre la indexación geoespacial, podrá responder a las siguientes preguntas:
+Este artículo es una introducción a la funcionalidad geoespacial de Azure Cosmos DB. Después de leer la documentación sobre la indexación geoespacial, podrá responder a las siguientes preguntas:
 
 * ¿Cómo almaceno los datos espaciales en Azure Cosmos DB?
-* ¿Cómo puedo consultar los datos geoespaciales en Azure Cosmos DB en SQL y LINQ?
+* ¿Cómo puedo consultar los datos espaciales de Azure Cosmos DB en SQL y LINQ?
 * ¿Qué tengo que hacer para habilitar y deshabilitar la indexación en Azure Cosmos DB?
 
 ## <a name="spatial-data-use-cases"></a>Casos de uso de datos espaciales
@@ -88,11 +88,11 @@ Los tipos de datos espaciales se pueden insertar en un documento de Azure Cosmo
 
 ### <a name="points-in-a-geometry-coordinate-system"></a>Puntos de un sistema de coordenadas de geometría
 
-En el caso del tipo de datos **geométricos** , la especificación de GeoJSON especifica primero el eje horizontal y, después, el eje vertical.
+En el caso del tipo de datos **geométricos**, la especificación de GeoJSON especifica primero el eje horizontal y, después, el eje vertical.
 
 ### <a name="points-in-a-geography-coordinate-system"></a>Puntos de un sistema de coordenadas de geografía
 
-Para el tipo de datos **geography** , la especificación GeoJSON indica la longitud primero y la latitud después. Al igual que en otras aplicaciones de mapeado, la longitud y la latitud son ángulos y se representan en grados. Los valores de longitud se miden a partir del meridiano cero y están comprendidos entre -180 y 180,0 grados, mientras que los valores de latitud se miden a partir del Ecuador y están comprendidos entre -90,0 y 90,0 grados.
+Para el tipo de datos **geography**, la especificación GeoJSON indica la longitud primero y la latitud después. Al igual que en otras aplicaciones de mapeado, la longitud y la latitud son ángulos y se representan en grados. Los valores de longitud se miden a partir del meridiano cero y están comprendidos entre -180 y 180,0 grados, mientras que los valores de latitud se miden a partir del Ecuador y están comprendidos entre -90,0 y 90,0 grados.
 
 Azure Cosmos DB interpreta las coordenadas tal como están representadas por el sistema de referencia WGS-84. Consulte la información que tiene a continuación para obtener más detalles acerca de los sistemas de coordenadas de referencia.
 
@@ -121,9 +121,9 @@ Un elemento **Polygon** (polígono) es un área delimitada por puntos conectados
     "type":"Polygon",
     "coordinates":[ [
         [ 31.8, -5 ],
-        [ 31.8, -4.7 ],
-        [ 32, -4.7 ],
         [ 32, -5 ],
+        [ 32, -4.7 ],
+        [ 31.8, -4.7 ],
         [ 31.8, -5 ]
     ] ]
 }

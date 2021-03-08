@@ -3,12 +3,12 @@ title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711933"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -48,7 +48,7 @@ En el portal, la característica se activa durante la creación de la entidad co
 
 Mediante programación, establezca el indicador con la propiedad [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) en la API de .NET Framework completa. Con la API de Azure Resource Manager, el valor se establece con la propiedad [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-El valor predeterminado del historial del tiempo de detección de duplicados es de 30 segundos para colas y temas, con un valor máximo de 7 días. Esta configuración se puede cambiar en la ventana de propiedades de colas y temas de Azure Portal.
+El historial de tiempo de detección de duplicados predeterminado es de 10 minutos para colas y temas, con un valor mínimo de 20 segundos y un valor máximo de 7 días. Esta configuración se puede cambiar en la ventana de propiedades de colas y temas de Azure Portal.
 
 ![Captura de pantalla de la característica de Service Bus con el valor Propiedades resaltado y la opción del historial de detección de duplicados resaltada en rojo.][2]
 

@@ -1,22 +1,22 @@
 ---
-title: Implementación y métricas de HPA con Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe qué métricas de implementación y HPA (Horizontal Pod Autoscaler) se recopilan con Azure Monitor para contenedores.
+title: Implementación y métricas de HPA con Container Insights | Microsoft Docs
+description: En este artículo se describe qué métricas de implementación y HPA (Horizontal Pod Autoscaler) se recopilan con Container Insights.
 ms.topic: conceptual
 ms.date: 08/09/2020
-ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c8bb100b756ea92d73e1c3a698f119b4f8157930
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604401"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717713"
 ---
-# <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Implementación y métricas de HPA con Azure Monitor para contenedores
+# <a name="deployment--hpa-metrics-with-container-insights"></a>Implementación y métricas de HPA con Container Insights
 
-A partir de la versión de agente *ciprod08072020*, el agente integrado de Azure Monitor para contenedores ahora recopila métricas para las implementaciones y las instancias de HPA.
+A partir de la versión de agente *ciprod08072020*, el agente integrado de Container Insights ahora recopila métricas para las implementaciones y las instancias de HPA.
 
 ## <a name="deployment-metrics"></a>Métricas de implementación
 
-Azure Monitor para contenedores inicia automáticamente la supervisión de las implementaciones mediante la recopilación de las métricas siguientes a intervalos de 60 s y su almacenamiento en la tabla **InsightMetrics**:
+Container Insights inicia automáticamente la supervisión de las implementaciones mediante la recopilación de las métricas siguientes a intervalos de 60 segundos y su almacenamiento en la tabla **InsightMetrics**:
 
 |Nombre de métrica |Dimensión de métrica (etiquetas) |Descripción |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Azure Monitor para contenedores inicia automáticamente la supervisión de las i
 
 ## <a name="hpa-metrics"></a>Métricas de HPA
 
-Azure Monitor para contenedores inicia automáticamente la supervisión de las instancias de HPA mediante la recopilación de las métricas siguientes a intervalos de 60 s y su almacenamiento en la tabla **InsightMetrics**:
+Container Insights inicia automáticamente la supervisión de las instancias de HPA mediante la recopilación de las métricas siguientes a intervalos de 60 s y su almacenamiento en la tabla **InsightMetrics**:
 
 |Nombre de métrica |Dimensión de métrica (etiquetas) |Descripción |
 |------------|------------------------|------------|
@@ -32,7 +32,7 @@ Azure Monitor para contenedores inicia automáticamente la supervisión de las i
 
 ## <a name="deployment--hpa-charts"></a>Gráficos de implementación y HPA 
 
-Azure Monitor para contenedores incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como libro para cada clúster. Puede encontrar el libro de implementaciones y HPA **Implementaciones y HPA** directamente de un clúster de AKS. Para ello, seleccione **Libros** en el panel izquierdo y después selecciónelo en la lista desplegable **Ver libros** de Conclusión.
+Container Insights incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como libro para cada clúster. Puede encontrar el libro de implementaciones y HPA **Implementaciones y HPA** directamente de un clúster de AKS. Para ello, seleccione **Libros** en el panel izquierdo y después selecciónelo en la lista desplegable **Ver libros** de Conclusión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
