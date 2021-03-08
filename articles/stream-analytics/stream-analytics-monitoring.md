@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572972"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726774"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
@@ -30,6 +30,7 @@ Se mostrará la siguiente ventana:
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada pendientes       | Número de eventos de entrada que están pendientes. Un valor distinto de cero para esta métrica implica que el trabajo no puede mantenerse al día con el número de eventos entrantes. Si este valor se aumenta lentamente o sistemáticamente y pasa a ser distinto de cero, debe escalar el trabajo horizontalmente. Para más información, visite [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md). |
 | Errores de conversión de datos | Número de eventos de salida que no se pudieron convertir al esquema de salida previsto. La directiva de errores puede cambiarse a "Drop" para quitar los eventos que se producen en este escenario. |
+| Porcentaje de uso de CPU (versión preliminar)       | Porcentaje de CPU que utiliza el trabajo. Si esta métrica es constantemente superior al 80 %, podría significar un cuello de botella del trabajo en la CPU, lo que puede provocar que los eventos de entrada se retrasen. Puede aumentar el número de SU asignadas a su trabajo para mitigar estos problemas. |
 | Primeros eventos de entrada       | Eventos cuya marca de tiempo de aplicación es anterior a su hora de llegada por más de cinco minutos. |
 | Solicitudes de función con errores | Número de llamadas a la función Azure Machine Learning con error (si corresponde). |
 | Eventos de función        | Número de eventos enviados a la función Azure Machine Learning (si corresponde). |
@@ -42,7 +43,7 @@ Se mostrará la siguiente ventana:
 | Eventos que no funcionan    | Número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la Directiva de ordenación de eventos. Puede verse afectado por la configuración del ajuste de Período de tolerancia de fuera de servicio. |
 | Eventos de salida          | Cantidad de datos enviados por el trabajo de Stream Analytics al destino de salida, en términos de recuento de eventos. |
 | Errores de tiempo de ejecución         | El número total de errores relacionados con el procesamiento de consultas (sin incluir los errores encontrados durante la ingesta de eventos o los resultados de salida) |
-| SU % uso       | Si el uso de recursos es constantemente superior al 80 % y tanto el retraso de la marca de agua como el número de eventos retrasados aumenta, considere la posibilidad de aumentar las unidades de streaming. Una alta utilización indica que el trabajo está usando casi el máximo de recursos asignados. |
+| SU % uso       | Porcentaje de memoria que utiliza el trabajo. Si el uso de SU es constantemente superior al 80 % y tanto el retraso de la marca de agua como el número de eventos retrasados aumenta, considere la posibilidad de aumentar las unidades de streaming. Una alta utilización indica que el trabajo está usando casi el máximo de recursos asignados. |
 | Retraso de la marca de agua       | Retraso máximo de la marca de agua en todas las particiones de todas las salidas del trabajo. |
 
 Puede usar estas métricas para [supervisar el rendimiento del trabajo de Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

@@ -1,17 +1,16 @@
 ---
 title: Uso de la solución Service Map en Azure | Microsoft Docs
 description: Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información para implementar la solución Mapa de servicio en su entorno y utilizarla en distintos escenarios.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717152"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047016"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -26,7 +25,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * [Dependency Agent](vminsights-enable-overview.md#agents) instalado en el equipo con Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](../faq.md#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

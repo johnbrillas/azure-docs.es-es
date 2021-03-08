@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062685"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702715"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -217,7 +217,44 @@ Cuando un dispositivo real se conecta a la aplicación de IoT Central, su estado
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-No guarde ni almacene en caché la cadena de conexión de dispositivo que DPS devuelve cuando conecta el dispositivo por primera vez. Para volver a conectar un dispositivo, recorra el flujo de registro de dispositivos estándar para obtener la cadena de conexión de dispositivo correcta. Si el dispositivo almacena en caché la cadena de conexión, el software del dispositivo corre el riesgo de tener una cadena de conexión obsoleta. Si IoT Central actualiza el centro de Azure IoT subyacente que usa, no se puede conectar un dispositivo con una cadena de conexión obsoleta.
+Estas recomendaciones muestran cómo implementar dispositivos para aprovechar las ventajas de la recuperación ante desastres integrada y el escalado automático en IoT Central.
+
+En la lista siguiente, se muestra el flujo general cuando un dispositivo se conecta a IoT Central:
+
+1. Use DPS para aprovisionar el dispositivo y obtener una cadena de conexión de dispositivo.
+
+1. Use la cadena de conexión para conectar el punto de conexión de IoT Hub interno de IoT Central. Envíe y reciba datos de la aplicación de IoT Central.
+
+1. Si el dispositivo obtiene errores de conexión, en función del tipo de error, reintente la conexión o vuelva a aprovisionar el dispositivo.
+
+### <a name="use-dps-to-provision-the-device"></a>Uso de DPS para aprovisionar el dispositivo
+
+Para aprovisionar un dispositivo con DPS, use el id. de ámbito, las credenciales y el id. de dispositivo de la aplicación de IoT Central. Para obtener más información sobre los tipos de credenciales, vea [Inscripción de grupos X.509](#x509-group-enrollment) e [Inscripción de grupos SAS](#sas-group-enrollment). Para obtener más información sobre los identificadores de dispositivo, vea [Registro de dispositivos](#device-registration).
+
+Si se ejecuta correctamente, DPS devuelve una cadena de conexión que el dispositivo puede usar para conectarse a la aplicación de IoT Central. Para solucionar los errores de aprovisionamiento, vea [Comprobación del estado de aprovisionamiento del dispositivo](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
+
+El dispositivo puede almacenar en caché la cadena de conexión para usarla en conexiones posteriores. Pero el dispositivo debe estar preparado para [controlar los errores de conexión](#handle-connection-failures).
+
+### <a name="connect-to-iot-central"></a>Conexión a IoT Central
+
+Use la cadena de conexión para conectar el punto de conexión de IoT Hub interno de IoT Central. La conexión permite enviar telemetría a la aplicación de IoT Central, sincronizar los valores de propiedad con ella y responder a los comandos enviados que envía.
+
+### <a name="handle-connection-failures"></a>Control de errores de conexión
+
+Con fines de escalado o recuperación ante desastres, IoT Central puede actualizar su centro de IoT subyacente. Para mantener la conectividad, el código del dispositivo debe controlar los errores de conexión específicos mediante el establecimiento de una conexión con el nuevo punto de conexión de IoT Hub.
+
+Si el dispositivo obtiene alguno de los errores siguientes al conectarse, debe rehacer el paso de aprovisionamiento con DPS para obtener una nueva cadena de conexión. Estos errores significan que la cadena de conexión que usa el dispositivo ya no es válida:
+
+- Punto de conexión de IoT Hub inaccesible.
+- Token de seguridad expirado.
+- Dispositivo deshabilitado en IoT Hub.
+
+Si el dispositivo obtiene alguno de los errores siguientes al conectarse, debe usar una estrategia de retroceso para volver a intentar la conexión. Estos errores significan que la cadena de conexión que usa el dispositivo sigue siendo válida, pero hay condiciones transitorias que impiden que el dispositivo se conecte:
+
+- Dispositivo bloqueado por el operador.
+- Error interno 500 del servicio.
+
+Para obtener más información sobre los códigos de error de los dispositivos, vea [Solución de problemas de conexiones de dispositivos](troubleshoot-connection.md).
 
 ## <a name="sdk-support"></a>Compatibilidad con SDK
 

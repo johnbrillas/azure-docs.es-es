@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.custom: references_regions
+ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730582"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -68,6 +69,20 @@ Por ejemplo, en el escenario de importación, si tuviera los datos de origen en 
 2. Una vez realizada la copia de datos locales en el Data Box, devuelva el dispositivo al centro de datos de Azure en Canadá. Los datos presentes en el dispositivo Data Box se cargarán en la cuenta de almacenamiento de destino en la región de Azure canadiense elegida durante la creación del pedido.
 
 3. A continuación, puede usar una herramienta como AzCopy para copiar los datos en una cuenta de almacenamiento en la región Oeste de EE. UU. Este paso incurre en [almacenamiento estándar](https://azure.microsoft.com/pricing/details/storage/) y [cargos de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) que no se incluyen en la facturación de Data Box.
+
+#### <a name="q-does-data-box-store-any-customer-data-outside-of-the-service-region"></a>Q. ¿Data Box almacena datos de clientes fuera de la región de servicio?
+
+A. No. Data Box no almacena datos de clientes fuera de la región de servicio. El cliente tiene la propiedad total de sus datos y puede guardarlos en una ubicación determinada en función de la cuenta de almacenamiento que seleccione durante la creación del pedido.  
+
+Además de los datos de clientes, existen datos de Data Box que incluyen artefactos de seguridad relacionados con el dispositivo, los registros de supervisión del dispositivo y el servicio, y los metadatos relacionados con el servicio. En todas las regiones (excepto el Sur de Brasil y el Sudeste Asiático), los datos de Data Box se almacenan y replican en la región emparejada a través de una cuenta de almacenamiento con redundancia geográfica como protección contra la pérdida de datos.  
+
+Debido a los [requisitos de residencia de datos](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) del Sur de Brasil y el Sudeste Asiático, los datos de Data Box se almacenan en una cuenta de almacenamiento con redundancia de zona (ZRS) a fin de contenerlos en una sola región. En el caso del Sudeste Asiático, todos los datos de Data Box se almacenan en Singapur. En el caso del Sur de Brasil, se almacenan en Brasil. 
+
+Si ocurre una interrupción del servicio en el Sur de Brasil y el Sudeste Asiático, los clientes pueden crear pedidos nuevos desde otra región. Los pedidos nuevos se atenderán desde la región en la que se crearon y los clientes serán responsables del envío desde y hasta el dispositivo Data Box.
+
+### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>Q. ¿Cómo puedo recuperar mis datos si se produce un error en toda una región?
+
+A. En casos extremos en los que se pierde una región debido a un desastre importante, Microsoft puede iniciar una conmutación por error regional. En este caso, no se requieren acciones por su parte. El pedido se realizará a través de la región de conmutación por error si está dentro del mismo país o límite de comercio. Sin embargo, algunas regiones de Azure no tienen una región emparejada en el mismo límite geográfico o de comercio. Si se produce un desastre en cualquiera de esas regiones, tendrá que volver a crear el pedido de Data Box desde otra región que esté disponible y copiar los datos en Azure en la región nueva. Para más información, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 ### <a name="q-who-should-i-contact-if-i-come-across-any-issues-with-data-box"></a>Q. ¿Con quién debo ponerme en contacto si surge algún problema con Data Box?
 A. Si surge algún problema con Data Box, [póngase en contacto con el soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -201,7 +216,7 @@ A.  Para acelerar el proceso de copia:
 - Use varias secuencias de copia de datos. Por ejemplo, si usa `Robocopy`, emplee la opción multiproceso. Para más información sobre el comando exacto utilizado, vea [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
 - Utilice varias sesiones.
 - En lugar de realizar la copia mediante un recurso compartido de red (en el que la velocidad de la red puede limitar la velocidad de la copia), almacene los datos de forma local en el equipo al que se va a conectar el dispositivo Data Box.
-- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta `Bluestop` FIO](https://ci.appveyor.com/project/axboe/fio) y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
+- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta `Bluestop` `FIO`](https://ci.appveyor.com/project/axboe/fio) y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

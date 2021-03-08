@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de Azure API Management mediante la CLI (versión preliminar)'
+title: 'Inicio rápido: Creación de una instancia de Azure API Management mediante la CLI'
 description: Cree una instancia de servicio de Azure API Management mediante la CLI de Azure.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688083"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Inicio rápido: Creación de una instancia de servicio de Azure API Management mediante la CLI de Azure (versión preliminar)
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Inicio rápido: Creación de una instancia de servicio de Azure API Management mediante la CLI de Azure
 
 Azure API Management (APIM) ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos a fin de desbloquear el potencial de sus datos y servicios. API Management proporciona las competencias esenciales para garantizar un programa de API de éxito mediante compromisos con desarrolladores, información detallada empresarial, análisis, seguridad y protección. APIM le permite crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar. Para más información, consulte la [introducción](api-management-key-concepts.md).
 
-Este inicio rápido describe los pasos que deben seguirse para crear una instancia de API Management mediante los comandos [az apim](/cli/azure/apim) de la CLI de Azure. Los comandos del grupo de comandos `az apim` se encuentran actualmente en versión preliminar y pueden experimentar modificaciones o incluso eliminarse en una versión futura.
+Este inicio rápido describe los pasos que deben seguirse para crear una instancia de API Management mediante los comandos [az apim](/cli/azure/apim) de la CLI de Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

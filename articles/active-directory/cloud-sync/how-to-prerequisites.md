@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689324"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Requisitos previos de la sincronizar en la nube de Azure AD Connect
 En este artículo se proporciona una guía sobre cómo elegir y usar la sincronización en la nube de Azure Active Directory (Azure AD Connect) como solución de identidad.
@@ -26,7 +26,7 @@ Para usar la sincronización en la nube de Azure AD Connect, se necesitan los s
 
 - Credenciales de administrador de dominio o administrador de empresa para crear la gMSA (cuenta de servicio administrada de grupo) de sincronización en la nube de Azure AD Connect para ejecutar el servicio del agente. 
 - Una cuenta de administrador de identidades híbridas para su inquilino de Azure AD que no sea un usuario invitado.
-- Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.  Este servidor debe ser un servidor de nivel 0 basado en el [modelo de nivel administrativo de Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un servidor local para el agente de aprovisionamiento con Windows 2016 o posterior.  Este servidor debe ser un servidor de nivel 0 basado en el [modelo de nivel administrativo de Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configuraciones de firewall locales.
 
 ## <a name="group-managed-service-accounts"></a>Cuentas de servicio administradas de grupo
@@ -65,7 +65,7 @@ Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attribute
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior.
+1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2016 o superior con 4 GB de RAM como mínimo y un entorno de ejecución .NET 4.7.1 o posterior.
 
 2. La directiva de ejecución de PowerShell en el servidor local debe establecerse en Undefined o RemoteSigned.
 

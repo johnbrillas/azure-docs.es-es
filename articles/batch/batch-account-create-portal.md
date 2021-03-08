@@ -2,14 +2,14 @@
 title: Creación de una cuenta en Azure Portal
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368513"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703671"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -101,7 +101,7 @@ En el modo de suscripción de usuario, se requiere una instancia de [Azure Key V
 
 Al crear la cuenta de Batch en el modo de suscripción de usuario, especifique **Suscripción de usuario** como modo de asignación de grupo, seleccione el almacén de claves que ha creado y active la casilla para conceder acceso a Azure Batch a él.
 
-Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén y seleccione **Agregar directiva de acceso**. Seleccione el vínculo situado junto a **Seleccionar la entidad de seguridad** y busque **Microsoft Azure Batch** (id. de aplicación **ddbf3205-c6bd-46ae-8127-60eb93363864**). Seleccione esa entidad de seguridad y luego configure los **Permisos de secretos** mediante el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**.
+Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén y seleccione **Agregar directiva de acceso**. Seleccione el vínculo situado junto a **Seleccionar la entidad de seguridad** y busque **Microsoft Azure Batch** (id. de aplicación **ddbf3205-c6bd-46ae-8127-60eb93363864**). Seleccione esa entidad de seguridad y luego configure los **Permisos de secretos** mediante el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**. En el caso de [almacenes de claves con la eliminación temporal habilitada](../key-vault/general/soft-delete-overview.md), también se le debe conceder el permiso de **recuperación** a Azure Batch.
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Captura de pantalla de las selecciones de Permisos de secretos de Azure Batch":::
 

@@ -4,14 +4,14 @@ description: Aprenda a solucionar problemas de seguridad y control de acceso en 
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375177"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706192"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solución de problemas de seguridad y control de acceso de Azure Data Factory
 
@@ -107,7 +107,7 @@ Para solucionar el problema, haga lo siguiente:
 
 No se puede registrar la clave de autenticación de IR en la VM autohospedada porque la conexión privada está habilitada. Aparece el siguiente mensaje de error:
 
-"No se pudo obtener el token de servicio del servicio de ADF con la clave *************** y un costo de tiempo de 0,1250079 segundos. Código de error: InvalidGatewayKey; activityId: XXXXXXX; mensaje de error detallado: Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection" (La dirección IP de cliente no es una dirección IP privada válida porque Data Factory no pudo acceder a la red pública, por lo que no se puede comunicar con la nube para establecer la conexión correcta).
+"No se pudo obtener el token de servicio del servicio de ADF con la clave *************** y un costo de tiempo de 0,1250079 segundos. Código de error: InvalidGatewayKey; activityId: XXXXXXX; mensaje de error detallado: Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection" (La dirección IP de cliente no es una dirección IP privada válida porque Data Factory no pudo acceder a la red pública, por lo que no se puede comunicar con la nube para establecer la conexión correcta).
 
 #### <a name="cause"></a>Causa
 
@@ -142,7 +142,6 @@ Para solucionar el problema, haga lo siguiente:
 
 1. Agregue de nuevo la clave de autenticación del IR al entorno de ejecución de integración.
 
-
 **Solución 2**
 
 Para resolver el problema, vaya a [Azure Private Link para Azure Data Factory](./data-factory-private-link.md).
@@ -150,6 +149,45 @@ Para resolver el problema, vaya a [Azure Private Link para Azure Data Factory](.
 Pruebe a habilitar el acceso a la red pública en la interfaz de usuario, como se muestra en la siguiente captura de pantalla:
 
 ![Captura de pantalla del control "Habilitado" para "Permitir el acceso de red público" en el panel Redes.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>La zona DNS privada de ADF invalida la resolución DNS de Azure Resource Manager y causa el error "No encontrado"
+
+#### <a name="cause"></a>Causa
+Tanto Azure Resource Manager como ADF usan la misma zona privada, lo que crea un posible conflicto en el DNS privado del cliente con un escenario en el que no se encontrarán los registros de Azure Resource Manager.
+
+#### <a name="solution"></a>Solución
+1. Busque las zonas DNS privadas **privatelink.Azure.com** en Azure Portal.
+![Captura de pantalla de la búsqueda de zonas DNS privadas.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Compruebe si hay un registro A **adf**.
+![Captura de pantalla de un registro A.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Vaya a **Vínculos de red virtual** y elimine todos los registros.
+![Captura de pantalla del vínculo de red virtual.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Vaya a la factoría de datos en Azure Portal y vuelva a crear el punto de conexión privado para el portal de Azure Data Factory.
+![Captura de pantalla de la recreación del punto de conexión privado.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Vuelva a las zonas DNS privadas y compruebe si hay una nueva zona DNS privada **privatelink.adf.azure.com**.
+![Captura de pantalla del nuevo registro DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Error de conexión en el punto de conexión público
+
+#### <a name="symptoms"></a>Síntomas
+
+Al copiar datos con la cuenta de acceso público de Azure Blob Storage, el siguiente error se produce de forma aleatoria en las ejecuciones de canalización.
+
+Por ejemplo: en el receptor de Azure Blob Storage se usaba Azure IR (red virtual pública y no administrada) y en el origen de Azure SQL Database IR de red virtual administrada. O bien en el origen o el receptor solo se usa IR de red virtual administrada con acceso público de almacenamiento.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Causa
+
+ADF todavía puede usar IR de red virtual administrada, pero podría encontrar este error porque el punto de conexión público para Azure Blob Storage en la red virtual administrada no es confiable según el resultado de la prueba, y no se admiten Azure Blob Storage ni Azure Data Lake Gen2 para conectarse mediante un punto de conexión público de la red virtual administrada de ADF, de acuerdo a [Red virtual administrada y puntos de conexión privados administrados](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### <a name="solution"></a>Solución
+
+- Habilite el punto de conexión privado en el origen y también el lado del receptor cuando se use IR de la red virtual administrada.
+- Si todavía quiere usar el punto de conexión público, puede cambiar a solo IR público en lugar de usar IR de red virtual administrada para el origen y el receptor. Incluso si cambia de nuevo a IR público, ADF todavía puede usar IR de red virtual administrada en caso de que siga presente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1e2ad920afb55066f07430568f976154f6d7cae1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a3877ea680e7b4c705f127c54e0fa10c45d3b51d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678874"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097982"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Solución de problemas de los módulos de audio y voz de Azure Percept
 
@@ -38,35 +38,32 @@ Después de redirigir la salida a un archivo .txt, copie el archivo en el equipo
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[ruta de acceso del archivo de host local] hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. [nombre de usuario remoto] es el nombre de usuario de SSH elegido durante la [experiencia de instalación](./quickstart-percept-dk-set-up.md). Si no ha configurado un inicio de sesión de SSH durante la configuración rápida, el nombre del usuario remoto es "root".
+[ruta de acceso del archivo de host local] hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. [nombre de usuario remoto] es el nombre de usuario de SSH elegido durante la [experiencia de incorporación](./quickstart-percept-dk-set-up.md). Si no ha configurado un inicio de sesión de SSH durante la experiencia de incorporación de Azure Percept DK, el nombre del usuario remoto es "root".
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Comprobación del estado del entorno de ejecución del módulo de voz
 
-Compruebe si el estado del entorno de ejecución de **azureearspeechclientmodule** aparece como **En ejecución**. Para buscar el estado del entorno de ejecución de los módulos del dispositivo, abra [Azure Portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) y vaya a **Todos los recursos** ->  **\<your IoT hub>**  -> **IoT Edge** ->  **\<your device ID>** . Haga clic en la pestaña **Módulos** para ver el estado del entorno de ejecución de todos los módulos instalados.
+Compruebe si el estado del entorno de ejecución de **azureearspeechclientmodule** aparece como **En ejecución**. Para buscar el estado del entorno de ejecución de los módulos del dispositivo, abra [Azure Portal](https://portal.azure.com/) y vaya a **Todos los recursos** ->  **\<your IoT hub>**  -> **IoT Edge** ->  **\<your device ID>** . Haga clic en la pestaña **Módulos** para ver el estado del entorno de ejecución de todos los módulos instalados.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Página del dispositivo Edge en Azure Portal.":::
 
 Si el estado del entorno de ejecución de **azureearspeechclientmodule** no aparece como **en ejecución**, haga clic en **Establecer módulos** -> **azureearspeechclientmodule**. En la página **Configuración del módulo**, establezca **Estado deseado** como **En ejecución** y haga clic en **Actualizar**.
 
-:::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/firmware-desired-status-stopped.png" alt-text="Pantalla Establecer módulos de Azure Portal.":::
-
 ## <a name="understanding-ear-som-led-indicators"></a>Descripción de los indicadores LED del módulo de sistema de escucha
 
 Puede usar indicadores LED para comprender en qué estado se encuentra el dispositivo. Normalmente, el módulo tarda aproximadamente 2 minutos en inicializarse por completo después de *encenderse*. A medida que recorra los pasos de inicialización, verá:
 
-1. 1 luz verde a la izquierda: el dispositivo está encendido. 
-2. 1 luz verde a la izquierda y el indicador LED del centro parpadean en color verde: la autenticación está en curso. 
+1. 1 LED blanco en el centro: el dispositivo está encendido. 
+2. 1 LD blanco en el centro parpadeando: la autenticación está en curso. 
 3. Los tres indicadores LED cambiarán a azul una vez que el dispositivo esté autenticado y listo para usarse.
 
-|Estado del indicador LED                  |Estado del módulo de sistema de escucha            |
-|----------------------------|---------------------------|
-|1 LED verde (LED izquierdo)         |encendido |
-|1 LED verde (LED izquierdo) <br> 1 LED intermitente verde (LED central) |autenticación en curso |
-|3 LED apagados                      |inicialización completada |
-|3 LED azules                     |listo para su uso |
-|3 LED intermitentes azules            |palabra clave reconocida |
-|3 LED que parpadean rápidamente en azul              |procesar |
-|3 LED rojos                      |silenciado |
+|LED|   Estado del indicador LED|  Estado del módulo de sistema de escucha|
+|---|------------|----------------| 
+|L02|   1 blanco, estático activado |Encendido |
+|L02|   1 blanco, intermitencia de 0,5 Hz|  Autenticación en curso |
+|L01 & L02 & L03|   3 azules, estático activado|     Esperando palabra clave|
+|L01 & L02 & L03|   Intermitencia de la matriz LED, 20 fps | Escuchando o hablando|
+|L01 & L02 & L03|   Parpadeo rápido de la matriz LED, 20 fps|    Pensando|
+|L01 & L02 & L03|   3 rojos, estático activado | Silencio|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

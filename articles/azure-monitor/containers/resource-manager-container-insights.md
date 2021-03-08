@@ -1,26 +1,26 @@
 ---
-title: Ejemplos de plantillas de Resource Manager para Azure Monitor para contenedores
-description: Plantillas de ejemplo de Azure Resource Manager para implementar y configurar Azure Monitor para contenedores.
+title: Ejemplos de plantilla de Resource Manager para Container Insights
+description: Plantillas de Azure Resource Manager de ejemplo para implementar y configurar Container Insights.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597992"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723340"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Ejemplos de plantillas de Resource Manager para Azure Monitor para contenedores
+# <a name="resource-manager-template-samples-for-container-insights"></a>Ejemplos de plantilla de Resource Manager para Container Insights
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar el agente de Log Analytics para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Habilitación para un clúster de AKS
-En el ejemplo siguiente, se habilita Azure Monitor para contenedores en un clúster de AKS.
+En el ejemplo siguiente, se habilita Container Insights en un clúster de AKS.
 
 
 ### <a name="template-file"></a>Archivo de plantilla
@@ -357,4 +357,4 @@ En el ejemplo siguiente, se habilita Azure Monitor para contenedores en un clús
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
-* [Más información sobre Azure Monitor para contenedores](../containers/container-insights-overview.md)
+* [Obtenga más información sobre Container Insights](../containers/container-insights-overview.md).
