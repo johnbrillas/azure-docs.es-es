@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688253"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -138,7 +138,7 @@ En el ejemplo siguiente, el límite de tasa por suscripción es de 20 llamadas p
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nombre de la API a la que se va a aplicar un límite de tasa.                                                | Sí      | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
-| renewal-period | Período de tiempo en segundos tras el cual se restablece la tasa.                                              | Sí      | N/D     |
+| renewal-period | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`.                                              | Sí      | N/D     |
 | retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
@@ -214,7 +214,7 @@ En el ejemplo siguiente, El límite de tasa de 10 llamadas por 60 segundos se es
 | calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
 | counter-key         | Clave que se usa para la directiva de límite de tasa.                                                             | Sí      | N/D     |
 | increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la tasa (`true`).        | No       | N/D     |
-| renewal-period      | Período de tiempo en segundos tras el cual se restablece la tasa.                                              | Sí      | N/D     |
+| renewal-period      | La longitud en segundos de la ventana deslizante durante la cual el número de solicitudes permitidas no debe superar el valor especificado en `calls`.                                           | Sí      | N/D     |
 | retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
 | remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
@@ -317,7 +317,7 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raíz.                                                                                                                                                                                                                                                                                | Sí      |
 | api       | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | No       |
-| operation | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | No       |
+| operation | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | No      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -326,7 +326,7 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 | name           | Nombre de la API u operación a la que se aplica la cuota.                                             | Sí                                                              | N/D     |
 | bandwidth      | Número total máximo de kilobytes permitidos durante el intervalo de tiempo especificado en `renewal-period`. | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.     | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
-| renewal-period | Período de tiempo en segundos tras el cual se restablece la cuota.                                                  | Sí                                                              | N/D     |
+| renewal-period | Período de tiempo en segundos tras el cual se restablece la cuota. Cuando se establece en, `0` el periodo se establece en infinito. | Sí                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -390,7 +390,7 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 | calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`.     | Debe especificarse `calls`, `bandwidth` o ambos. | N/D     |
 | counter-key         | Clave que se usa para la directiva de cuota.                                                                      | Sí                                                              | N/D     |
 | increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).             | No                                                               | N/D     |
-| renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota.                                                  | Sí                                                              | N/D     |
+| renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota. Cuando se establece en, `0` el periodo se establece en infinito.                                                   | Sí                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 

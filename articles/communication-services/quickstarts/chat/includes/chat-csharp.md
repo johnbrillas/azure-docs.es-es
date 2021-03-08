@@ -10,14 +10,14 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: ca6ef57db062ff22b20a8e968eaac39388b9551f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750730"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Instalar [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
@@ -46,7 +46,7 @@ dotnet build
 Instale la biblioteca cliente de chat de comunicación de Azure para .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
 ``` 
 
 ## <a name="object-model"></a>Modelo de objetos
@@ -56,37 +56,44 @@ Las siguientes clases controlan algunas de las características principales de l
 | Nombre                                  | Descripción                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ChatClient | Esta clase es necesaria para la funcionalidad de chat. Cree una instancia de esta con la información de suscripción y úsela para crear, obtener y eliminar subprocesos. |
-| ChatThreadClient | Esta clase es necesaria para la funcionalidad de subproceso de chat. Obtiene una instancia de a través de la clase ChatClient y la usa para enviar, recibir, actualizar o eliminar mensajes, agregar, quitar u obtener usuarios, enviar notificaciones de escritura y confirmaciones de lectura. |
+| ChatThreadClient | Esta clase es necesaria para la funcionalidad de subproceso de chat. Obtiene una instancia a través de la clase ChatClient y la usa para enviar, recibir, actualizar o eliminar mensajes, agregar, quitar u obtener participantes, enviar notificaciones de escritura y confirmaciones de lectura. |
 
 ## <a name="create-a-chat-client"></a>Creación de un cliente de chat
 
-Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Debe usar la clase `CommunicationIdentityClient` de la biblioteca cliente de `Administration` para crear un usuario y emitir un token para pasarlo al cliente de chat. Obtenga más información sobre los [tokens de acceso de usuario](../../access-tokens.md).
+Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Debe usar la clase `CommunicationIdentityClient` de la biblioteca cliente de `Administration` para crear un usuario y emitir un token para pasarlo al cliente de chat.
+
+Obtenga más información sobre los [tokens de acceso de usuario](../../access-tokens.md).
+
+Este inicio rápido no cubre la creación de un nivel de servicio para administrar tokens para la aplicación de chat, aunque se recomienda. [Más información sobre la arquitectura del chat](../../../concepts/chat/concepts.md).
 
 ```csharp
 using Azure.Communication.Identity;
 using Azure.Communication.Chat;
+using Azure;
+using Azure.Communication
 
 // Your unique Azure Communication service endpoint
 Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
+CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
 ```
 
 ## <a name="start-a-chat-thread"></a>Inicio de un subproceso de chat
 
-Use el método `createChatThread` para crear un subproceso de chat.
-- Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateThread`.
-- Utilice la propiedad `members` para pasar una lista de objetos `ChatThreadMember` que se van a agregar al subproceso de chat. El objeto `ChatThreadMember` se inicializó con un objeto `CommunicationUser`. Para obtener un objeto `CommunicationUser`, deberá pasar un id. de acceso creado siguiendo las instrucciones de [Creación de un usuario](../../access-tokens.md#create-an-identity).
+Use el método `createChatThread` en chatClient para crear una conversación de chat.
+- Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateTopic`.
+- Utilice la propiedad `participants` para pasar una lista de objetos `ChatParticipant` que se van a agregar al subproceso de chat. El objeto `ChatParticipant` se inicializó con un objeto `CommunicationIdentifier`. El objeto `CommunicationIdentifier` puede ser de tipo `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` o `PhoneNumberIdentifier`. Por ejemplo, para obtener un objeto `CommunicationIdentifier`, deberá pasar un identificador de acceso creado siguiendo las instrucciones de [Creación de un usuario](../../access-tokens.md#create-an-identity).
 
-La respuesta `chatThreadClient` se usa para realizar operaciones en el subproceso de chat creado: agregar miembros al subproceso de chat, enviar o eliminar un mensaje, etc. Contiene el atributo `Id`, que es el id. único del subproceso de chat. 
+El objeto de respuesta del método createChatThread contiene los detalles de chatThread. Para interactuar con las operaciones de conversaciones de chat, como agregar participantes, enviar un mensaje, eliminar un mensaje, etc., es necesario crear una instancia del cliente chatThreadClient con el método GetChatThreadClient en el cliente ChatClient. 
 
 ```csharp
-var chatThreadMember = new ChatThreadMember(new CommunicationUser("<Access_ID>"))
+var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
-ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync(topic: "Chat Thread topic C# sdk", members: new[] { chatThreadMember });
+CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -100,21 +107,24 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envío de un mensaje a un subproceso de chat
 
-Utilice el método `SendMessage` para enviar un mensaje a un subproceso identificado mediante threadId.
+Utilice `SendMessage` para enviar un mensaje a una conversación.
 
-- Utilice `content` para proporcionar el contenido del mensaje de chat, que es obligatorio.
-- Use `priority` para especificar el nivel de prioridad del mensaje, como "Normal" o "Alta". Si no se especifica, se usará "Normal".
-- Use `senderDisplayName` para especificar el nombre para mostrar del remitente. Si no se especifica, se usará un nombre vacío.
-
-`SendChatMessageResult` es la respuesta que se devuelve al enviar un mensaje. Contiene un id. que es el identificador único del mensaje.
+- Utilice `content` para proporcionar el contenido del mensaje; es obligatorio.
+- Utilice `type` para indicar el tipo de contenido del mensaje, como "text" o "html". Si no se especifica, se establecerá "text".
+- Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente. Si no se especifica, se establecerá una cadena vacía.
 
 ```csharp
-var content = "hello world";
-var priority = ChatMessagePriority.Normal;
-var senderDisplayName = "sender name";
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+```
+## <a name="get-a-message"></a>Obtención de mensajes
 
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content, priority, senderDisplayName);
-string messageId = sendChatMessageResult.Id;
+Utilice `GetMessage` para recuperar un mensaje del servicio.
+`messageId` es el identificador único del mensaje.
+
+`ChatMessage` es la respuesta que se devuelve al obtener un mensaje. Contiene un valor que es el identificador único del mensaje, entre otros campos. Consulte Azure.Communication.Chat.ChatMessage.
+
+```csharp
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recepción de mensajes de chat de un subproceso de chat
@@ -125,23 +135,25 @@ También puede recuperar mensajes de chat mediante el sondeo del método `GetMes
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
 await foreach (ChatMessage message in allMessages)
 {
-    Console.WriteLine($"{message.Id}:{message.Sender.Id}:{message.Content}");
+    Console.WriteLine($"{message.Id}:{message.Id}:{message.Content}");
 }
 ```
 
 `GetMessages` toma un parámetro `DateTimeOffset` opcional. Si se especifica ese desplazamiento, recibirá los mensajes recibidos, actualizados o eliminados posteriormente. Tenga en cuenta que los mensajes recibidos antes de la hora de desplazamiento, pero editados o eliminados posteriormente, también se devolverán.
 
-`GetMessages` devuelve la versión más reciente del mensaje, incluidas las modificaciones o eliminaciones que se han producido en este mediante `UpdateMessage` y `DeleteMessage`. En el caso de los mensajes eliminados, `chatMessage.DeletedOn` devuelve un valor de fecha y hora que indica cuándo se eliminó el mensaje. En el caso de los mensajes editados, `chatMessage.EditedOn` devuelve un valor de fecha y hora que indica cuándo se editó el mensaje. Es posible acceder a la hora original de creación del mensaje mediante `chatMessage.CreatedOn`, que se puede usar para ordenar los mensajes.
+`GetMessages` devuelve la versión más reciente del mensaje, incluidas las modificaciones o eliminaciones que se han producido en este mediante `UpdateMessage` y `DeleteMessage`. En el caso de los mensajes eliminados, `chatMessage.DeletedOn` devuelve un valor de fecha y hora que indica cuándo se eliminó el mensaje. En el caso de los mensajes editados, `chatMessage.EditedOn` devuelve un valor de fecha y hora que indica cuándo se editó el mensaje. Es posible acceder a la hora original de creación del mensaje mediante `chatMessage.CreatedOn` y se puede usar para ordenar los mensajes.
 
 `GetMessages` devuelve distintos tipos de mensajes que se pueden identificar mediante `chatMessage.Type`. Estos tipos son:
 
 - `Text`: mensaje de chat normal enviado por un miembro del subproceso.
 
-- `ThreadActivity/TopicUpdate`: mensaje del sistema que indica que el tema se ha actualizado.
+- `Html`: un mensaje de texto con formato. Tenga en cuenta que los usuarios de Communication Services actualmente no pueden enviar mensajes de texto enriquecido. Este tipo de mensaje es compatible con los mensajes enviados desde usuarios a de Teams a usuarios de Communication Services en escenarios de interoperabilidad de Teams.
 
-- `ThreadActivity/AddMember`: mensaje del sistema que indica que uno o más miembros se han agregado al subproceso de chat.
+- `TopicUpdated`: mensaje del sistema que indica que el tema se ha actualizado. (solo lectura).
 
-- `ThreadActivity/DeleteMember`: mensaje del sistema que indica que un miembro se han quitado del subproceso de chat.
+- `ParticipantAdded`: mensaje del sistema que indica que se han agregado uno o varios participantes a la conversación del chat. (solo lectura).
+
+- `ParticipantRemoved`: mensaje del sistema que indica que se ha eliminado un miembro de la conversación del chat.
 
 Para obtener más información, consulte [Tipos de mensajes](../../../concepts/chat/concepts.md#message-types).
 
@@ -164,31 +176,77 @@ string id = "id-of-message-to-delete";
 await chatThreadClient.DeleteMessageAsync(id);
 ```
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Adición de un usuario como miembro al subproceso de chat
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adición de un usuario como miembro a la conversación del chat
 
-Una vez que se crea un subproceso, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para poder enviar mensajes al subproceso, y agregar o quitar otros miembros. Antes de llamar a `AddMembers`, asegúrese de que ha adquirido un token de acceso y una identidad nuevos para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
+Una vez que se crea un subproceso, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para poder enviar mensajes a la conversación, y agregar o quitar otros participantes. Antes de llamar a `AddParticipants`, asegúrese de que ha adquirido un token de acceso y una identidad nuevos para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
 
-Utilice el método `AddMembers` para agregar miembros de subproceso al subproceso identificado por threadId.
-
- - Use `members` para enumerar los miembros que se van a agregar al subproceso de chat.
- - El elemento `User` obligatorio es la identidad obtenida para el nuevo usuario.
- - El elemento opcional `DisplayName` es el nombre para mostrar del miembro del subproceso.
- - El elemento opcional `ShareHistoryTime` es la hora a partir de la cual el historial de chat se compartió con el miembro. Para compartir el historial desde el principio del subproceso de chat, establezca esta opción en DateTime.MinValue. Para no compartir ningún historial anterior a la hora en que se agregó el miembro, establézcala en la hora actual. Para compartir el historial parcial, establezca la opción en un momento entre la creación del subproceso y la hora actual.
+Use `AddParticipants` para agregar uno o varios participantes a la conversación de chat. A continuación se indican los atributos admitidos para cada participante de la conversación:
+- `communicationUser` es obligatorio y es la identidad del participante de la conversación.
+- `displayName` es opcional y es el nombre para mostrar del participante de la conversación.
+- `shareHistoryTime` es opcional y es la hora a partir de la cual el historial de chat se compartió con el participante.
 
 ```csharp
-ChatThreadMember member = new ChatThreadMember(communicationUser);
-member.DisplayName = "display name member 1";
-member.ShareHistoryTime = DateTime.MinValue; // share all history
-await chatThreadClient.AddMembersAsync(members: new[] {member});
+var josh = new CommunicationUserIdentifier(id: "<Access_ID_For_Josh>");
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+var amy = new CommunicationUserIdentifier(id: "<Access_ID_For_Amy>");
+
+var participants = new[]
+{
+    new ChatParticipant(josh) { DisplayName = "Josh" },
+    new ChatParticipant(gloria) { DisplayName = "Gloria" },
+    new ChatParticipant(amy) { DisplayName = "Amy" }
+};
+
+await chatThreadClient.AddParticipantsAsync(participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>Eliminación de un usuario de un subproceso de chat
 
-De forma similar a la adición de un usuario a un subproceso, puede quitar usuarios de un subproceso de chat. Para ello, debe realizar un seguimiento de la identidad (CommunicationUser) de los miembros que ha agregado.
+De forma similar a la adición de un usuario a un subproceso, puede quitar usuarios de un subproceso de chat. Para ello, debe realizar un seguimiento de la identidad `CommunicationUser` del participante que ha agregado.
 
 ```csharp
-await chatThreadClient.RemoveMemberAsync(communicationUser);
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+await chatThreadClient.RemoveParticipantAsync(gloria);
 ```
 
+## <a name="get-thread-participants"></a>Obtención de los participantes de la conversación
+
+Use `GetParticipants` para recuperar los participantes de la conversación de chat.
+
+```csharp
+AsyncPageable<ChatParticipant> allParticipants = chatThreadClient.GetParticipantsAsync();
+await foreach (ChatParticipant participant in allParticipants)
+{
+    Console.WriteLine($"{((CommunicationUserIdentifier)participant.User).Id}:{participant.DisplayName}:{participant.ShareHistoryTime}");
+}
+```
+
+## <a name="send-typing-notification"></a>Envío de notificación de escritura
+
+Use `SendTypingNotification` para indicar que el usuario está escribiendo una respuesta en la conversación.
+
+```csharp
+await chatThreadClient.SendTypingNotificationAsync();
+```
+
+## <a name="send-read-receipt"></a>Envío de confirmación de lectura
+
+Use `SendReadReceipt` para notificar a otros participantes que el usuario ha leído el mensaje.
+
+```csharp
+await chatThreadClient.SendReadReceiptAsync(messageId);
+```
+
+## <a name="get-read-receipts"></a>Obtención de confirmaciones de lectura
+
+Use `GetReadReceipts` para comprobar el estado de los mensajes y ver cuáles han leído otros participantes de una conversación de chat.
+
+```csharp
+AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
+await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
+{
+    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
+}
+```
 ## <a name="run-the-code"></a>Ejecución del código
 
 Ejecute la aplicación desde el directorio de la aplicación con el comando `dotnet run`.

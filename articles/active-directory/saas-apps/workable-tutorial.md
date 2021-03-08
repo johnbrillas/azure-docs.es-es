@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e6cf8b0ea7064b99cf6f630a83b2800900f29c47
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f705ca1e001d3b7852c5bec5b494f23eb7943626
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutorial: Integración de Azure Active Directory con Workable
 
@@ -62,7 +62,7 @@ Para configurar la integración de Workable en Azure AD, deberá agregar Workabl
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Workable** , seleccione **Workable** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Workable**, seleccione **Workable** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Workable en la lista de resultados](common/search-new-app.png)
 
@@ -86,34 +86,34 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Workable, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Workable** , seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Workable**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
     ![Captura de pantalla que muestra la configuración básica de SAML, en la que puede incluir una URL de respuesta.](common/both-replyurl.png)
 
-    En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
 
-5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/both-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL: `https://www.workable.com/sso/signin`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.workable.com/sso/signin`
 
     > [!NOTE]
     > El valor de dirección URL de respuesta no es real. Actualice la dirección URL de respuesta con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Workable](mailto:support@workable.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -143,7 +143,7 @@ Una vez que habilite el inicio de sesión único, el administrador de cuentas de
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -155,9 +155,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba `brittasimon\@yourcompanydomain.extension`. Por ejemplo, BrittaSimon@contoso.com.
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension` (por ejemplo, `brittasimon@contoso.com`).
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, concederá acceso a Brita Simon a Workable para permitirle que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** ,  **Workable**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**,  **Workable**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -183,11 +183,11 @@ En esta sección, concederá acceso a Brita Simon a Workable para permitirle que
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-workable-test-user"></a>Creación de un usuario de prueba de Workable
 

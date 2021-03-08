@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386550"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706084"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 
@@ -83,7 +83,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | type          | El tipo de formatSettings debe establecerse en **JsonReadSettings**. | Sí      |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
 | preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos ZIP de origen para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si, durante la copia, debe conservarse el nombre del archivo de origen comprimido como una estructura de carpetas.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
+| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
 
 ### <a name="json-as-sink"></a>JSON como receptor
 
@@ -218,7 +218,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen JSON. Pue
 
 ### <a name="source-format-options"></a>Opciones de formato de origen
 
-El uso de un conjunto de datos JSON como origen en el flujo de datos le permite establecer cinco opciones de configuración adicionales. Esta configuración se puede encontrar en el acordeón **Configuración de JSON** en la pestaña **Opciones de origen**.  
+El uso de un conjunto de datos JSON como origen en el flujo de datos le permite establecer cinco opciones de configuración adicionales. Esta configuración se puede encontrar en el acordeón **Configuración de JSON** en la pestaña **Opciones de origen**. Para el valor **Document Form** (Formulario de documento), puede elegir entre los tipos **Documento único**, **Document per line** (Documento por línea) y **Array of documents** (Matriz de documentos).
 
 ![Configuración de JSON](media/data-flow/json-settings.png "Configuración de JSON")
 

@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704436"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Actualización del SDK de Java de Application Insights 2.x
 
@@ -220,3 +220,16 @@ Una vez más, si para algunas aplicaciones prefiere la vista agregada de la expe
 Anteriormente en el SDK 2.x, el nombre de la operación de la telemetría de solicitudes también se estableció en la telemetría de dependencias.
 Java 3.0 de Application Insights ya no rellena el nombre de la operación en la telemetría de dependencias.
 Si desea ver el nombre de la operación para la solicitud que es el elemento primario de la telemetría de dependencias, puede escribir una consulta de registros (Kusto) para crear una unión desde la tabla de dependencias a la tabla de solicitudes.
+
+## <a name="2x-sdk-logging-appenders"></a>Elementos appender de registro de SDK 2.x
+
+El agente 3.0 [recopila de forma automática el registro](./java-standalone-config#auto-collected-logging) sin necesidad de configurar ningún elemento appender de registro.
+Si usa elementos appender de registro de SDK 2.x, los puede quitar, ya que el agente 3.0 los suprimirá de todos modos.
+
+## <a name="2x-sdk-spring-boot-starter"></a>Spring Boot Starter de SDX 2.x
+
+No hay ninguna instancia de Spring Boot Starter 3.0.
+La instalación y configuración del agente 3.0 sigue los mismos [pasos sencillos](./java-in-process-agent.md#quickstart), tanto si usa Spring Boot como si no.
+
+Al realizar la actualización desde Spring Boot Starter del SDK 2.x, tenga en cuenta que el nombre del rol en la nube ya no será `spring.application.name` de forma predeterminada.
+Vea la [documentación de configuración 3.0](./java-standalone-config.md#cloud-role-name) para establecer el nombre del rol de nube en 3.0 mediante la configuración de JSON o una variable de entorno.

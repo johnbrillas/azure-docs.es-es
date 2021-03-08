@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700225"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -32,11 +32,15 @@ En este diagrama:
 
 En esta sección se muestra el tráfico de red entre el usuario y Azure Bastion, y para dirigirse a las máquinas virtuales de la red virtual:
 
+> [!IMPORTANT]
+> Si decide usar un grupo de seguridad de red con el recurso de Azure Bastion, **tendrá** que crear todas las reglas de tráfico de entrada y salida siguientes. Si se omite cualquiera de las reglas siguientes en el grupo de seguridad de red, el recurso de Azure Bastion no recibirá las actualizaciones necesarias en el futuro y, por tanto, estará abierto a posibles vulnerabilidades de seguridad.
+> 
+
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion se implementa específicamente en ***AzureBastionSubnet** _.
+Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
 
-_ **Tráfico de entrada:**
+* **Tráfico de entrada:**
 
    * **Tráfico de entrada procedente de Internet pública:** Azure Bastion creará una dirección IP pública que necesita el puerto 443 habilitado en la dirección IP pública para el tráfico de entrada. El puerto 3389/22 no tiene que abrirse en la subred AzureBastionSubnet.
    * **Plano de control del tráfico de entrada procedente de Azure Bastion:** Para la conectividad del plano de control, habilite el puerto 443 entrante desde la etiqueta de servicio de **GatewayManager**. De este modo, se permite que el plano de control, es decir, el administrador de puerta de enlace, pueda comunicarse con Azure Bastion.

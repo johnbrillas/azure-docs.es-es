@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710590"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Emparejamiento de VNet y Azure Bastion (versión preliminar)
 
@@ -40,9 +40,15 @@ Esta ilustración muestra la arquitectura de una implementación de Azure Bastio
 **Pasos:**
 
 1. Conexión a Azure Portal con cualquier explorador HTML5.
-1. Selección de la máquina virtual a la que conectarse.
-1. Azure Bastion se detecta sin problemas en la red virtual emparejada.
-1. Con un solo clic, la sesión RDP/SSH se abre en el explorador. Para conocer los límites de sesiones simultáneas de RDP y SSH, consulte [Sesiones de RDP y SSH](bastion-faq.md#limits).
+2. Asegúrese de que tiene acceso de **lectura** tanto a la máquina virtual de destino como a la red virtual emparejada. Además, compruebe en IAM que el usuario tiene acceso de lectura a los recursos siguientes:
+   * Rol Lector en la máquina virtual.
+   * Rol Lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
+   * Rol Lector en el recurso de Azure Bastion.
+   * Rol Lector en la red virtual (no es necesario si no hay ninguna red virtual emparejada).
+3. Para ver Bastion en el menú desplegable **Conectar**, debe seleccionar las suscripciones a las que tiene acceso en **Suscripción > Suscripción global**.
+4. Selección de la máquina virtual a la que conectarse.
+5. Azure Bastion se detecta sin problemas en la red virtual emparejada.
+6. Con un solo clic, la sesión RDP/SSH se abre en el explorador. Para conocer los límites de sesiones simultáneas de RDP y SSH, consulte [Sesiones de RDP y SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Conexión":::
 

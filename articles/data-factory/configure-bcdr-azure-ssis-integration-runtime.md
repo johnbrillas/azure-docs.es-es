@@ -1,275 +1,129 @@
 ---
-title: Configuración de Azure-SSIS Integration Runtime para la conmutación por error de SQL Database
-description: En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database para la base de datos SSISDB.
+title: Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR)
+description: En este artículo se describe cómo configurar Azure-SSIS Integration Runtime en Azure Data Factory con el grupo de conmutación por error de Azure SQL Database o Instancia administrada para la continuidad empresarial y la recuperación ante desastres (BCDR).
+services: data-factory
 ms.service: data-factory
+ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
 ms.author: sawinark
+manager: mflasko
+ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/06/2020
-ms.openlocfilehash: e12939d1003ce708889ca0b3dbc710096f9ee955
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 73c27204ee8730c95d1cbeecf8777767173e73d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710271"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configuración de Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de SQL Database
+# <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR) 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se describe cómo configurar Azure-SSIS Integration Runtime (IR) con la replicación geográfica de Azure SQL Database para la base de datos SSISDB. Cuando se produce una conmutación por error, puede asegurarse de que Azure-SSIS IR sigue funcionando con la base de datos secundaria.
+Azure SQL Database o Instancia administrada, y SQL Server Integration Services (SSIS) en Azure Data Factory (ADF) se pueden combinar como la solución de todas las plataformas como servicio (PaaS) recomendada para realizar la migración de SQL Server. Puede implementar los proyectos de SSIS en la base de datos de catálogo de SSIS (SSISDB) hospedada por Azure SQL Database o Instancia administrada, y ejecutar los paquetes SSIS en Azure SSIS Integration Runtime (IR) en ADF.
 
-Para más información acerca de la replicación geográfica y la conmutación por error para SQL Database, consulte [Información general: Grupos de conmutación por error automática](../azure-sql/database/auto-failover-group-overview.md).
+Para la continuidad empresarial y la recuperación ante desastres (BCDR), Azure SQL Database o Instancia administrada se pueden configurar con un [grupo de replicación geográfica o conmutación por error](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), donde SSISDB en una región principal de Azure con acceso de lectura y escritura (rol principal) se replicará de manera continuada en una región secundaria con acceso de solo lectura (rol secundario). Cuando se produce un desastre en la región principal, se desencadena una conmutación por error, donde las SSISDB principal y secundaria intercambiarán los roles.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Para BCDR, también puede configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con el grupo de conmutación por error de Azure SQL Database o Instancia administrada. Esto le permite tener un par de Azure-SSIS IR en ejecución que, en un momento dado, solo uno puede acceder a la SSISDB principal para capturar y ejecutar paquetes, así como escribir registros de ejecución de paquetes (rol principal), mientras que el otro solo puede hacer lo mismo para los paquetes implementados en otro lugar, por ejemplo en Azure Files (rol secundario). Cuando se produce la conmutación por error de SSISDB, los Azure-SSIS IR principal y secundario también intercambiarán los roles y, si los dos están en ejecución, el tiempo de inactividad será prácticamente nulo.
 
-## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Conmutación por error de Azure-SSIS IR con una instancia administrada de SQL
+En este artículo se describe cómo configurar Azure-SSIS IR con un grupo de conmutación por error de Azure SQL Database o Instancia administrada para BCDR.
 
-### <a name="prerequisites"></a>Requisitos previos
+## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-database-failover-group"></a>Configuración de un par de Azure-SSIS IR en espera dual con un grupo de conmutación por error de Azure SQL Database
 
-La instancia administrada de Azure SQL usa la *clave maestra de base de datos (DMK)* para ayudarle a proteger los datos, las credenciales y la información de conexión almacenada en la base de datos. Para habilitar el descifrado automático de DMK, se cifra una copia de la clave mediante la *clave maestra de servidor (SMK)* . 
+Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con un grupo de conmutación por error de Azure SQL Database, complete los pasos siguientes.
 
-SMK no se replica en un grupo de conmutación por error. Debe agregar una contraseña en las instancias principal y secundaria del descifrado de DMK después de realizar la conmutación por error.
+1. Con la interfaz de usuario de ADF o Azure Portal puede crear una instancia de Azure-SSIS IR con el servidor de Azure SQL Database principal para hospedar SSISDB en la región primaria. Si tiene una instancia de Azure-SSIS IR existente que ya está conectada a la SSIDB que hospeda el servidor de Azure SQL Database principal y sigue en ejecución, debe detenerla primero para volver a configurarla. Esta será la instancia de Azure-SSIS IR principal. Al [seleccionar usar SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR principal, se iniciará y adjuntará a una SSISDB principal que se creará en su nombre con acceso de lectura y escritura. Si lo acaba de volver a configurar, tendrá que reiniciarlo.
 
-1. Ejecute el comando siguiente de SSISDB en la instancia principal. Este paso agrega una nueva contraseña de cifrado.
+1. Con Azure Portal, puede comprobar si se ha creado la SSISDB principal en la página **Información general** del servidor de Azure SQL Database principal. Una vez que se haya creado, puede [crear un grupo de conmutación por error para los servidores de Azure SQL Database principal y secundario, y agregarle la SSISDB](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) en la página **Grupos de conmutación por error**. Después de crear el grupo de conmutación por error, puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** del servidor de Azure SQL Database secundario.
+
+1. Con la interfaz de usuario de ADF o Azure Portal puede crear otra instancia de Azure-SSIS IR con el servidor de Azure SQL Database secundario para hospedar SSISDB en la región secundaria. Esta será la instancia de Azure-SSIS IR secundaria. Para operaciones completas de BCDR, asegúrese de que todos los recursos de los que depende también se crean en la región secundaria, por ejemplo Azure Storage para almacenar scripts o archivos de configuración personalizados, ADF para la orquestación o programación de ejecuciones de paquetes, etc. Al [seleccionar usar SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba el mismo nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR secundaria, se iniciará y adjuntará a la SSISDB secundaria.
+
+1. Si quiere tener un tiempo de inactividad prácticamente nulo cuando se produzca la conmutación por error de SSISDB, mantenga las instancias de Azure-SSIS IR en ejecución. Solo la instancia de Azure-SSIS IR principal puede acceder a la SSISDB principal para capturar y ejecutar paquetes, así como escribir registros de ejecución de paquetes, mientras que la instancia de Azure-SSIS IR secundaria solo puede hacer lo mismo para los paquetes implementados en otra parte, por ejemplo, en Azure Files. Si quiere minimizar el costo de ejecución, puede detener la instancia de Azure-SSIS IR secundaria después de crearla. Cuando se produce la conmutación por error de SSISDB, las instancias de Azure-SSIS IR principal y secundaria intercambiarán los roles. Si la instancia de Azure-SSIS IR principal se detiene, tendrá que reiniciarla. En función de si se inserta en una red virtual y el método de inserción utilizado, tardará entre 5 o aproximadamente 20-30 minutos en ejecutarse.
+
+1. Si [usa ADF para la orquestación o programación de ejecuciones de paquetes](./how-to-invoke-ssis-package-ssis-activity.md), asegúrese de que todas las canalizaciones de ADF adecuadas con actividades de Ejecución de paquetes SSIS y los desencadenadores asociados se copian en el ADF secundario con los desencadenadores deshabilitados inicialmente. Cuando se produce la conmutación por error de SSISDB, tendrá que habilitarlos.
+
+1. Puede [probar el grupo de conmutación por error de Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
+
+## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Configuración de un par de Azure-SSIS IR en espera dual con un grupo de conmutación por error de Azure SQL Managed Instance
+
+Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con un grupo de conmutación por error de Azure SQL Managed Instance, complete los pasos siguientes.
+
+1. Con Azure Portal, puede [crear un grupo de conmutación por error para las instancias administradas de Azure SQL principal y secundaria](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) en la página **Grupos de conmutación por error** de la instancia administrada de Azure SQL principal.
+
+1. Con la interfaz de usuario de ADF o Azure Portal puede crear una instancia de Azure-SSIS IR con la instancia administrada de Azure SQL principal para hospedar SSISDB en la región primaria. Si tiene una instancia de Azure-SSIS IR existente que ya está conectada a la SSIDB que hospeda la instancia administrada de Azure SQL principal y sigue en ejecución, debe detenerla primero para volver a configurarla. Esta será la instancia de Azure-SSIS IR principal. Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR principal, se iniciará y adjuntará a una SSISDB principal que se creará en su nombre con acceso de lectura y escritura. Si lo acaba de volver a configurar, tendrá que reiniciarlo. También puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** de la instancia administrada de Azure SQL secundaria.
+
+1. Con la interfaz de usuario de ADF o Azure Portal puede crear otra instancia de Azure-SSIS IR con la instancia administrada de Azure SQL secundaria para hospedar SSISDB en la región secundaria. Esta será la instancia de Azure-SSIS IR secundaria. Para operaciones completas de BCDR, asegúrese de que todos los recursos de los que depende también se crean en la región secundaria, por ejemplo Azure Storage para almacenar scripts o archivos de configuración personalizados, ADF para la orquestación o programación de ejecuciones de paquetes, etc. Al [seleccionar usar SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba el mismo nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR secundaria, se iniciará y adjuntará a la SSISDB secundaria.
+
+1. Azure SQL Managed Instance puede proteger la información confidencial de las bases de datos, como SSISDB, si los cifra mediante la clave maestra de base de datos (DMK). DMK a su vez se cifra mediante la clave maestra de servicio (SMK) de forma predeterminada. En el momento de la escritura, el grupo de conmutación por error de Azure SQL Managed Instance no replica la SMK desde la instancia administrada principal de Azure SQL, por lo que la DMK y, a su vez, SSISDB, no se pueden descifrar en la instancia administrada de Azure SQL secundaria después de que se produzca la conmutación por error. Para solucionarlo, puede agregar un cifrado de contraseña para que la DMK se descifre en la instancia administrada de Azure SQL secundaria. Complete los pasos siguientes con SSMS.
+
+   1. Ejecute el comando siguiente para SSISDB en la instancia administrada de Azure SQL principal a fin de agregar una contraseña para cifrar la DMK.
+
+      ```sql
+      ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'YourPassword'
+      ```
+   
+   1. Ejecute el comando siguiente para SSISDB en las instancias administradas de Azure SQL principal y secundaria a fin de agregar una contraseña nueva para descifrar la DMK.
+
+      ```sql
+      EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
+      ```
+
+1. Si quiere tener un tiempo de inactividad prácticamente nulo cuando se produzca la conmutación por error de SSISDB, mantenga las instancias de Azure-SSIS IR en ejecución. Solo la instancia de Azure-SSIS IR principal puede acceder a la SSISDB principal para capturar y ejecutar paquetes, así como escribir registros de ejecución de paquetes, mientras que la instancia de Azure-SSIS IR secundaria solo puede hacer lo mismo para los paquetes implementados en otra parte, por ejemplo, en Azure Files. Si quiere minimizar el costo de ejecución, puede detener la instancia de Azure-SSIS IR secundaria después de crearla. Cuando se produce la conmutación por error de SSISDB, las instancias de Azure-SSIS IR principal y secundaria intercambiarán los roles. Si la instancia de Azure-SSIS IR principal se detiene, tendrá que reiniciarla. En función de si se inserta en una red virtual y el método de inserción utilizado, tardará entre 5 o aproximadamente 20-30 minutos en ejecutarse.
+
+1. Si [usa el agente de Azure SQL Managed Instance para la orquestación y programación de ejecuciones de paquetes](./how-to-invoke-ssis-package-managed-instance-agent.md), asegúrese de que todos los trabajos de SSIS adecuados con sus pasos de trabajo y las programaciones asociadas se copian en la instancia administrada de Azure SQL secundaria con las programaciones deshabilitadas inicialmente. Complete los pasos siguientes con SSMS.
+
+   1. Para cada trabajo de SSIS, haga clic con el botón derecho y seleccione los elementos de menú desplegable **Script Job as** (Incluir trabajo como), **CREATE To** (Crear en) y **Nueva ventana del Editor de consultas** para generar su script.
+
+      ![Generación del script de trabajo de SSIS](media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png)
+
+   1. Para cada script de trabajo de SSIS generado, busque el comando para ejecutar el procedimiento almacenado `sp_add_job` y modifique o quite la asignación de valores al argumento `@owner_login_name` según sea necesario.
+
+   1. Para cada script de trabajo de SSIS actualizado, ejecútelo en la instancia administrada de Azure SQL secundaria para copiar el trabajo con sus pasos de trabajo y programaciones asociadas.
+
+   1. Con el script siguiente, cree un trabajo de T-SQL para habilitar o deshabilitar las programaciones de trabajos de SSIS según el rol de SSISDB principal o secundario, respectivamente, en las instancias administradas de Azure SQL principal y secundaria, y ejecútelo de forma periódica. Cuando se produce la conmutación por error de SSISDB, las programaciones de trabajos de SSIS deshabilitadas se habilitarán y viceversa.
+
+      ```sql
+      IF (SELECT Top 1 role_desc FROM SSISDB.sys.dm_geo_replication_link_status WHERE partner_database = 'SSISDB') = 'PRIMARY'
+         BEGIN
+            IF (SELECT enabled FROM msdb.dbo.sysschedules WHERE schedule_id = <ScheduleID>) = 0
+               EXEC msdb.dbo.sp_update_schedule @schedule_id = <ScheduleID >, @enabled = 1
+         END
+      ELSE
+         BEGIN
+            IF (SELECT enabled FROM msdb.dbo.sysschedules WHERE schedule_id = <ScheduleID>) = 1
+               EXEC msdb.dbo.sp_update_schedule @schedule_id = <ScheduleID >, @enabled = 0
+         END
+      ```
+
+1. Si [usa ADF para la orquestación o programación de ejecuciones de paquetes](./how-to-invoke-ssis-package-ssis-activity.md), asegúrese de que todas las canalizaciones de ADF adecuadas con actividades de Ejecución de paquetes SSIS y los desencadenadores asociados se copian en el ADF secundario con los desencadenadores deshabilitados inicialmente. Cuando se produce la conmutación por error de SSISDB, tendrá que habilitarlos.
+
+1. Puede [probar el grupo de conmutación por error de Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
+
+## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Asociación de una instancia nueva de Azure-SSIS IR a una SSISDB existente hospedada por Azure SQL Database o Instancia administrada
+
+Si se produce un desastre que afecta a la instancia de Azure-SSIS IR existente pero no a Azure SQL Database ni a Instancia administrada en la misma región, puede reemplazarlo por una nueva en otra región. Para adjuntar la SSISDB existente hospedada por Azure SQL Database o Instancia administrada a una nueva instancia de Azure-SSIS IR, complete los pasos siguientes.
+
+1. Si la instancia de Azure-SSIS IR existente todavía está en ejecución, primero debe detenerla mediante la interfaz de usuario de Azure Portal o ADF, o bien Azure PowerShell. Si el desastre afecta también a ADF en la misma región, puede omitir este paso.
+
+1. Con SSMS, ejecute el comando siguiente para SSISDB en Azure SQL Database o Instancia administrada para actualizar los metadatos que permitirán las conexiones desde la nueva instancia de ADF o Azure-SSIS IR.
 
    ```sql
-   ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
+   EXEC [catalog].[failover_integration_runtime] @data_factory_name = 'YourNewADF', @integration_runtime_name = 'YourNewAzureSSISIR'
    ```
 
-2. Cree un grupo de conmutación por error en una instancia administrada de SQL.
-
-3. Ejecute **sp_control_dbmasterkey_password** en la instancia secundaria, con la nueva contraseña de cifrado.
-
-   ```sql
-   EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'<password>', @action = N'add';  
-   GO
-   ```
-
-### <a name="scenario-1-azure-ssis-ir-is-pointing-to-a-readwrite-listener-endpoint"></a>Escenario 1: Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura.
-
-Si quiere que Azure-SSIS IR apunte al punto de conexión del cliente de escucha de lectura y escritura, primero debe apuntar al punto de conexión del servidor principal. Después de colocar SSISDB en un grupo de conmutación por error, puede detener la instancia de Azure-SSIS IR, cambiarla para que apunte al punto de conexión del cliente de escucha de lectura y escritura mediante Azure PowerShell y reiniciarla.
-
-```powershell
-Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Managed Instance read/write listener endpoint"
-```
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Edite la instancia de Azure-SSIS IR con la nueva información de la región, la red virtual y el URI de la firma de acceso compartido (SAS) para realizar la instalación personalizada en la instancia secundaria. Como Azure-SSIS IR está señalando al agente de escucha de lectura y escritura y el punto de conexión es transparente para Azure-SSIS IR, no es necesario editar el punto de conexión.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Inicie la instancia de Azure-SSIS IR.
-
-### <a name="scenario-2-azure-ssis-ir-is-pointing-to-a-primary-server-endpoint"></a>Escenario 2: Azure-SSIS IR señala al punto de conexión del servidor principal.
-
-Este escenario es adecuado si Azure-SSIS IR apunta al punto de conexión del servidor principal.
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Edite Azure-SSIS IR con la información de la nueva región, el punto de conexión y la red virtual de la instancia secundaria.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database endpoint" `
-      -CatalogAdminCredential "Azure SQL Database admin credentials" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Inicie la instancia de Azure-SSIS IR.
-
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-managed-instance"></a>Escenario 3: Azure-SSIS IR apunta a un punto de conexión público de SQL Managed Instance
-
-El escenario es adecuado si Azure-SSIS IR apunta a un punto de conexión público de Azure SQL Managed Instance y no se une a una red virtual. La única diferencia con el escenario 2 es que no es necesario editar la información de la red virtual de Azure-SSIS IR después de la conmutación por error.
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Edite Azure-SSIS IR con la nueva información de región y punto de conexión de la instancia secundaria.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-      -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Inicie la instancia de Azure-SSIS IR.
-
-### <a name="scenario-4-attach-an-existing-ssisdb-instance-ssis-catalog-to-a-new-azure-ssis-ir"></a>Escenario 4: asociación de una SSISDB existente (catálogo de SSIS) a una nueva instancia de Azure-SSIS IR
-
-Este escenario es adecuado si quiere que SSISDB funcione con una nueva instancia de Azure-SSIS IR en una nueva región cuando se produce un desastre en las instancias de Azure Data Factory o Azure-SSIS IR en la región actual.
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-> [!NOTE]
-> Use PowerShell para el paso 4 (creación de IR). Si no lo hace, Azure Portal notificará un error que indicará que SSISDB ya existe.
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Ejecute un procedimiento almacenado para actualizar los metadatos de SSISDB para que acepten conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
-   
-   ```sql
-   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-   ```
-
-3. Cree una factoría de datos nueva denominada **\<new_data_factory_name\>** en la nueva región.
-
-   ```powershell
-   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-      -Location "new region"`
-      -Name "<new_data_factory_name>"
-   ```
-   
-   Para obtener más información sobre este comando de PowerShell, consulte [Creación de una factoría de datos de Azure con PowerShell](quickstart-create-data-factory-powershell.md).
-
-4. Cree una nueva instancia de Azure-SSIS IR denominada **\<new_integration_runtime_name\>** en la nueva región mediante Azure PowerShell.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-      -DataFactoryName "new data factory name" `
-      -Name "<new_integration_runtime_name>" `
-      -Description $AzureSSISDescription `
-      -Type Managed `
-      -Location $AzureSSISLocation `
-      -NodeSize $AzureSSISNodeSize `
-      -NodeCount $AzureSSISNodeNumber `
-      -Edition $AzureSSISEdition `
-      -LicenseType $AzureSSISLicenseType `
-      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-      -VnetId "new vnet" `
-      -Subnet "new subnet" `
-      -CatalogServerEndpoint $SSISDBServerEndpoint `
-      -CatalogPricingTier $SSISDBPricingTier
-   ```
-   
-   Para obtener más información sobre este comando de PowerShell, consulte [Creación de un entorno de ejecución para la integración de Azure-SSIS en Azure Data Factory](create-azure-ssis-integration-runtime.md).
-
-## <a name="azure-ssis-ir-failover-with-sql-database"></a>Conmutación por error de Azure-SSIS IR con Azure SQL Database
-
-### <a name="scenario-1-azure-ssis-ir-is-pointing-to-a-readwrite-listener-endpoint"></a>Escenario 1: Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura.
-
-Este escenario es adecuado cuando:
-
-- Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura del grupo de conmutación por error.
-- El servidor de SQL Database *no* está configurado con la regla de punto de conexión de servicio de red virtual.
-
-Si quiere que Azure-SSIS IR apunte al punto de conexión del cliente de escucha de lectura y escritura, primero debe apuntar al punto de conexión del servidor principal. Después de colocar SSISDB en un grupo de conmutación por error, puede detener la instancia de Azure-SSIS IR, cambiarla para que apunte al punto de conexión del cliente de escucha de lectura y escritura mediante Azure PowerShell y reiniciarla.
-
-```powershell
-Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Database read/write listener endpoint"
-```
-
-#### <a name="solution"></a>Solución
-
-Cuando se produce una conmutación por error, es transparente para Azure-SSIS IR. Azure-SSIS IR se conecta automáticamente a la nueva instancia principal del grupo de conmutación por error. 
-
-Si quiere actualizar la región u otra información en Azure-SSIS IR, puede detenerla, editarla y reiniciarla.
-
-
-### <a name="scenario-2-azure-ssis-ir-is-pointing-to-a-primary-server-endpoint"></a>Escenario 2: Azure-SSIS IR señala al punto de conexión del servidor principal.
-
-Este escenario es adecuado si Azure-SSIS IR apunta al punto de conexión del servidor principal.
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Edite Azure-SSIS IR con la información de la nueva región, el punto de conexión y la red virtual de la instancia secundaria.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database endpoint" `
-      -CatalogAdminCredential "Azure SQL Database admin credentials" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Inicie la instancia de Azure-SSIS IR.
-
-### <a name="scenario-3-attach-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Escenario 3: asociación de una SSISDB existente (catálogo de SSIS) a una nueva instancia de Azure-SSIS IR
-
-Este escenario es apropiado si quiere aprovisionar una nueva instancia de Azure-SSIS IR en la región secundaria. También es adecuado si quiere que SSISDB funcione con una nueva instancia de Azure-SSIS IR en una nueva región cuando se produce un desastre en las instancias de Azure Data Factory o Azure-SSIS IR en la región actual.
-
-#### <a name="solution"></a>Solución
-
-Cuando se produzca la conmutación por error, siga estos pasos:
-
-> [!NOTE]
-> Use PowerShell para el paso 4 (creación de IR). Si no lo hace, Azure Portal notificará un error que indicará que SSISDB ya existe.
-
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
-
-2. Ejecute un procedimiento almacenado para actualizar los metadatos de SSISDB para que acepten conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
-   
-   ```sql
-   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-   ```
-
-3. Cree una factoría de datos nueva denominada **\<new_data_factory_name\>** en la nueva región.
-
-   ```powershell
-   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-      -Location "new region"`
-      -Name "<new_data_factory_name>"
-   ```
-   
-   Para obtener más información sobre este comando de PowerShell, consulte [Creación de una factoría de datos de Azure con PowerShell](quickstart-create-data-factory-powershell.md).
-
-4. Cree una nueva instancia de Azure-SSIS IR denominada **\<new_integration_runtime_name\>** en la nueva región mediante Azure PowerShell.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-      -DataFactoryName "new data factory name" `
-      -Name "<new_integration_runtime_name>" `
-      -Description $AzureSSISDescription `
-      -Type Managed `
-      -Location $AzureSSISLocation `
-      -NodeSize $AzureSSISNodeSize `
-      -NodeCount $AzureSSISNodeNumber `
-      -Edition $AzureSSISEdition `
-      -LicenseType $AzureSSISLicenseType `
-      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-      -VnetId "new vnet" `
-      -Subnet "new subnet" `
-      -CatalogServerEndpoint $SSISDBServerEndpoint `
-      -CatalogPricingTier $SSISDBPricingTier
-   ```
-
-   Para obtener más información sobre este comando de PowerShell, consulte [Creación de un entorno de ejecución para la integración de Azure-SSIS en Azure Data Factory](create-azure-ssis-integration-runtime.md).
+1. Con la [interfaz de usuario de Azure Portal o ADF](./create-azure-ssis-integration-runtime.md#use-the-azure-portal-to-create-an-integration-runtime), o [Azure PowerShell](./create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime), cree la instancia de ADF o Azure-SSIS IR con el nombre *NuevaInstanciaDeADF*/*NuevaInstanciaDeAzureSSISIR*, respectivamente, en otra región. Si usa la interfaz de usuario de Azure Portal o ADF, puede omitir el error de conexión de prueba en la página **Configuración de implementación** del panel **Configuración de Integration Runtime**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Tenga en cuenta estas otras opciones de configuración para el entorno de ejecución de integración de SSIS en Azure:
+Puede tener en cuenta estas otras opciones de configuración para Azure-SSIS IR:
 
-- [Configuración de una instancia de Azure-SSIS Integration Runtime para conseguir un alto rendimiento](configure-azure-ssis-integration-runtime-performance.md)
+- [Configuración de almacenes de paquetes para Azure-SSIS IR](./create-azure-ssis-integration-runtime.md#creating-azure-ssis-ir-package-stores)
 
-- [Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Configuración de instalaciones personalizadas para Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md)
 
-- [Aprovisionamiento de Enterprise Edition en la instancia de Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Configuración de la inyección de redes virtuales para la instancia de Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md)
+
+- [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784484"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703191"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Devolución del dispositivo de Azure Stack Edge Pro
 
@@ -30,26 +30,16 @@ En este artículo aprenderá a:
 
 ## <a name="erase-data-from-the-device"></a>Borrar los datos del dispositivo
 
-Para borrar los datos de los discos de datos del dispositivo, debe restablecer el dispositivo. Puede restablecer el dispositivo mediante la interfaz de usuario web local o la interfaz de PowerShell.
+Para borrar los datos de los discos de datos del dispositivo, debe restablecer el dispositivo.
 
-Antes de restablecerlo, cree una copia de los datos locales del dispositivo si es necesario. Puede copiar los datos del dispositivo en un contenedor de Azure Storage.
+Antes de restablecerlo, cree una copia de los datos locales del dispositivo si es necesario. Puede copiar los datos del dispositivo en un contenedor de Azure Storage. 
 
-Puede iniciar la devolución del dispositivo incluso antes de restablecer el dispositivo. 
+Puede iniciar la devolución del dispositivo incluso antes de restablecer el dispositivo.
 
-Para restablecer el dispositivo mediante la interfaz de usuario web local, siga estos pasos.
+Puede restablecer el dispositivo en la interfaz de usuario web local o en PowerShell. Para obtener instrucciones de PowerShell, vea [Restablecimiento del dispositivo](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. En la interfaz de usuario web local, vaya a **Mantenimiento > Restablecer dispositivo**.
-2. Seleccione **Restablecer dispositivo**.
 
-    ![Restablecer el dispositivo](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. Cuando se le pida confirmación, revise la advertencia y seleccione **Sí** para continuar.
-
-    ![Confirmar el restablecimiento](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-Al restablecer el dispositivo se borran los datos de los discos de datos del dispositivo. Según la cantidad de datos del dispositivo, este proceso tarda entre 30 y 40 minutos.
-
-Como alternativa, conéctese a la interfaz de PowerShell del dispositivo y utilice el cmdlet `Reset-HcsAppliance` para borrar los datos de los discos de datos. Para obtener más información, consulte [Restablecer el dispositivo](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[!INCLUDE] [Restablecimiento de datos del dispositivo](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - Si va a intercambiar o actualizar a un dispositivo nuevo, se recomienda restablecer el dispositivo solo después de que haya recibido el dispositivo nuevo.
@@ -67,15 +57,15 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 
     1. Indique el número de serie del dispositivo. Para obtener el número de serie del dispositivo, vaya a la interfaz de usuario web local del dispositivo y, a continuación, vaya a **Información general**.  
     
-    ![Número de serie del dispositivo 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Número de serie del dispositivo 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Escriba el número de etiqueta del servicio, que es un identificador de cinco o más caracteres que es único para el dispositivo. La etiqueta de servicio se encuentra en la esquina inferior derecha del dispositivo (cuando se está frente al dispositivo). Extraiga la etiqueta de información (es un panel de etiqueta deslizante). Este panel contiene información del sistema, como la etiqueta de servicio, la NIC, la dirección MAC, etc. 
+    2. Escriba el número de la etiqueta de servicio. El número de la etiqueta del servicio es un identificador con cinco o más caracteres, que es único para el dispositivo. La etiqueta de servicio se encuentra en la esquina inferior derecha del dispositivo (cuando se mira de frente). Extraiga la etiqueta de información (es un panel de etiqueta deslizante). Este panel contiene información del sistema, como la etiqueta de servicio, la NIC, la dirección MAC, etc. 
     
-    ![Número de etiqueta de servicio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Número de etiqueta de servicio 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. En la lista desplegable, elija un motivo para la devolución.
 
-    ![Devolver dispositivo 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Devolver dispositivo 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. En **Detalles de envío**:
 
@@ -84,7 +74,7 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 
     ![Devolver dispositivo 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Revise los **Términos de privacidad** y seleccione la casilla junto a la nota para indicar que ha revisado y acepta los términos de privacidad.
+4. Revise los **Términos de privacidad** y active la casilla situada junto a la nota para indicar que los ha revisado y los acepta.
 
 5. Seleccione **Initiate return** (Iniciar devolución).
 
@@ -123,8 +113,8 @@ Una vez recibido en el centro de datos de Azure, el dispositivo se inspecciona p
 
 Puede eliminar el dispositivo en Azure Portal:
 
-- Después de realizar el pedido y antes de que Microsoft prepare el dispositivo.
-- Tras devolver el dispositivo a Microsoft, pasa por la inspección física en el centro de datos de Azure y el equipo de operaciones de Azure Stack Edge Pro llama para confirmar que se ha devuelto.
+- Después de realizar un pedido y antes de que Microsoft prepare el dispositivo.
+- Después de devolver un dispositivo a Microsoft y de que el equipo de operaciones de Azure Stack Edge Pro haya llamado para confirmar que se ha devuelto. El equipo de operaciones no llama hasta que el dispositivo devuelto supere la inspección física en el centro de datos de Azure.
 
 Si ha activado el dispositivo en otra suscripción o ubicación, Microsoft moverá el pedido a la nueva suscripción o ubicación en el plazo de un día laborable. Una vez movido el pedido, puede eliminar este recurso.
 

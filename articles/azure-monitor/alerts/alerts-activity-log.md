@@ -2,14 +2,13 @@
 title: Crear, ver y administrar las alertas del registro de actividad en Azure Monitor
 description: Crear alertas del registro de actividad mediante Azure Portal, una plantilla de Azure Resource Manager y Azure PowerShell.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604776"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045537"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -26,7 +25,9 @@ Cuando cree reglas de alertas, asegúrese de lo siguiente:
 
 - La suscripción del ámbito no es diferente de la suscripción donde se creó la alerta.
 - La alerta se configurará según los siguientes tipos de criterios: nivel, estado, autor de la llamada, grupo de recursos, id. del recurso o categoría de eventos del tipo de recurso.
-- No hay condición "anyOf" o condiciones anidadas en la configuración de alertas JSON. Básicamente, solo se permite una condición "allOf" sin más condiciones "allOf" o "anyOf".
+- Solo se permite una condición "allOf".
+- Se puede usar "AnyOf" para permitir varias condiciones en varios campos (por ejemplo, si los campos "status" o "substatus" son iguales a un valor concreto). Tenga en cuenta que el uso de "AnyOf" está limitado actualmente a la creación de la regla de alerta mediante una implementación de plantilla de ARM.
+- "ContainsAny" se puede usar para permitir varios valores del mismo campo (por ejemplo, si "operation" es igual a "delete" o "modify"). Tenga en cuenta que el uso de "ContainsAny" está limitado actualmente a la creación de la regla de alerta mediante una implementación de plantilla de ARM.
 - Cuando la categoría es "administrativo", debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
 - No se pueden crear alertas para eventos en la categoría Alerta del registro de actividad.
 
@@ -92,7 +93,7 @@ Use el siguiente procedimiento.
     - **Descripción**: La descripción de la nueva regla de alertas.
     - **Guardar la alerta en el grupo de recursos**: Seleccione el grupo de recursos donde quiere guardar esta nueva regla.
 
-5. En el **grupo de acciones**, en el menú desplegable, especifique el grupo de acciones que quiere asignar a esta nueva regla de alertas. O bien, [cree un nuevo grupo de acción](../platform/action-groups.md) y asígneselo a la nueva regla. Para crear un nuevo grupo, seleccione **+ Nuevo grupo**.
+5. En el **grupo de acciones**, en el menú desplegable, especifique el grupo de acciones que quiere asignar a esta nueva regla de alertas. O bien, [cree un nuevo grupo de acción](./action-groups.md) y asígneselo a la nueva regla. Para crear un nuevo grupo, seleccione **+ Nuevo grupo**.
 
 6. Para habilitar las reglas después de crearlas, seleccione **Sí** en la opción **Habilitar regla tras la creación**.
 7. Seleccione **Crear regla de alertas**.
@@ -287,6 +288,5 @@ Para quitar los recursos de regla de alertas del registro de actividad, use el c
 
 - Obtenga información acerca del [esquema de webhook para los registros de actividad](./activity-log-alerts-webhook.md).
 - Lea la [información general sobre los registros de actividad](./activity-log-alerts.md).
-- Más información sobre los [grupos de acciones](../platform/action-groups.md).  
+- Más información sobre los [grupos de acciones](./action-groups.md).  
 - Más información acerca de las [Notificaciones del estado del servicio](../../service-health/service-notifications.md).
-

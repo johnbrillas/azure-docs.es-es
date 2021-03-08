@@ -1,17 +1,16 @@
 ---
 title: Supervisión continua con Azure Monitor | Microsoft Docs
 description: Describe pasos específicos para usar Azure Monitor y habilitar la supervisión continua en todos sus flujos de trabajo.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2fe9d7e4da8950cee2dcb2fbcfb26355ace7285d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579503"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044024"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -36,7 +35,7 @@ Para obtener observabilidad en todo su entorno, debe habilitar la supervisión e
 Las aplicaciones solo son tan fiables como su infraestructura subyacente. Tener habilitada la supervisión en toda su infraestructura le ayudará a conseguir una observabilidad completa y facilitar la detección de una posible causa raíz cuando se produce un error. Azure Monitor le ayuda a realizar un seguimiento del mantenimiento y el rendimiento de toda su infraestructura híbrida, incluidos recursos como máquinas virtuales, contenedores, almacenamiento y red.
 
 - Automáticamente obtendrá [métricas de plataforma, registros de actividad y registros de diagnósticos](agents/data-sources.md) desde la mayoría de sus recursos de Azure sin ninguna configuración.
-- Habilite una supervisión más profunda de las máquinas virtuales con [Azure Monitor para máquinas virtuales](vm/vminsights-overview.md).
+- Habilite una supervisión más profunda para las VM con [VM Insights](vm/vminsights-overview.md).
 -  Habilite una supervisión más profunda de los clústeres de AKS con [Azure Monitor para contenedores](containers/container-insights-overview.md).
 - Agregue [soluciones de supervisión](./monitor-reference.md) para diferentes aplicaciones y servicios en su entorno.
 

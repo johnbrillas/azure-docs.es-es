@@ -1,33 +1,33 @@
 ---
-title: Habilitar Azure Monitor para VM mediante PowerShell
-description: Se describe cómo habilitar Azure Monitor para VM para máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure PowerShell.
+title: Habilitación de VM Insights mediante PowerShell
+description: Se describe cómo habilitar VM Insights para Azure Virtual Machines o Virtual Machine Scale Sets mediante Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717084"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Habilitar Azure Monitor para VM mediante PowerShell
-En este artículo se describe cómo habilitar Azure Monitor para VM en máquinas virtuales de Azure mediante PowerShell. Este procedimiento se puede usar para:
+# <a name="enable-vm-insights-using-powershell"></a>Habilitación de VM Insights mediante PowerShell
+En este artículo se describe cómo habilitar VM Insights en Azure Virtual Machines mediante PowerShell. Este procedimiento se puede usar para:
 
 - Máquina virtual de Azure
 - Conjunto de escalado de máquinas virtuales de Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Cree y configure un área de trabajo de Log Analytics](../insights/vminsights-configure-workspace.md).
-- Vea [Sistemas operativos admitidos](../insights/vminsights-enable-overview.md#supported-operating-systems) para asegurarse de que el sistema operativo de la máquina virtual o el conjunto de escalado de máquinas virtuales que va a habilitar son compatibles. 
+- [Cree y configure un área de trabajo de Log Analytics](./vminsights-configure-workspace.md).
+- Vea [Sistemas operativos admitidos](./vminsights-enable-overview.md#supported-operating-systems) para asegurarse de que el sistema operativo de la máquina virtual o el conjunto de escalado de máquinas virtuales que va a habilitar son compatibles. 
 
 
 ## <a name="powershell-script"></a>Script de PowerShell
 
-Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos de escalado de máquinas virtuales, use el script de PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), que está disponible en la Galería de Azure PowerShell. Este script procesa una iteración en:
+Para habilitar VM Insights para varias VM o Virtual Machine Scale Sets, use el script de PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), que está disponible en la Galería de Azure PowerShell. Este script procesa una iteración en:
 
 - Cada máquina virtual y conjunto de escalado de máquinas virtuales de su suscripción.
 - El grupo de recursos con ámbito especificado por *ResourceGroup*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-En el ejemplo siguiente se muestra cómo utilizar los comandos de PowerShell en la carpeta para habilitar Azure Monitor para VM y comprender el resultado esperado:
+En el ejemplo siguiente se muestra cómo utilizar los comandos de PowerShell en la carpeta para habilitar VM Insights y comprender el resultado esperado:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea [Uso de la característica de asignación de Azure Monitor para VM](vminsights-maps.md) para ver las dependencias de las aplicaciones detectadas. 
+* Para visualizar las dependencias de las aplicaciones detectadas, vea [Uso de la característica de asignación de VM Insights](vminsights-maps.md). 
 * Consulte [Ver el rendimiento de las máquinas virtuales de Azure](vminsights-performance.md) para identificar cuellos de botella, el uso general y el rendimiento de la máquina virtual.

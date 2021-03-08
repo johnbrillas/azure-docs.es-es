@@ -1,25 +1,25 @@
 ---
-title: Alertas del estado de invitado de Azure Monitor para VM (versión preliminar)
-description: Describe las alertas creadas por el estado del invitado de Azure Monitor para VM, incluido cómo habilitarlas y configurar las notificaciones.
+title: Alertas de estado de invitado de VM Insights (versión preliminar)
+description: Se describen las alertas creadas por el estado de invitado de VM Insights, incluido cómo habilitarlas y configurar las notificaciones.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707513"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>Alertas del estado de invitado de Azure Monitor para VM (versión preliminar)
-El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. Se puede crear una alerta cuando una máquina virtual o un monitor cambia a un estado incorrecto. Puede ver y administrar estas alertas con [las que han creado las reglas de alertas en Azure Monitor](../platform/alerts-overview.md) y optar por recibir notificaciones proactivas cuando se crea una nueva alerta.
+# <a name="vm-insights-guest-health-alerts-preview"></a>Alertas de estado de invitado de VM Insights (versión preliminar)
+El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. Se puede crear una alerta cuando una máquina virtual o un monitor cambia a un estado incorrecto. Puede ver y administrar estas alertas con [las que han creado las reglas de alertas en Azure Monitor](../alerts/alerts-overview.md) y optar por recibir notificaciones proactivas cuando se crea una nueva alerta.
 
 ## <a name="configure-alerts"></a>Configurar alertas
-No se puede crear una regla de alerta explícita para el estado de invitado de Azure Monitor para VM mientras esta característica está en versión preliminar. De manera predeterminada, se crearán alertas para cada máquina virtual, pero no para cada monitor.  Esto significa que si un monitor cambia a un estado que no afecta al estado actual de la máquina virtual, no se crea ninguna alerta porque el estado de la máquina virtual no ha cambiado. 
+No se puede crear una regla de alerta explícita para el estado de invitado de VM Insights mientras esta característica está en versión preliminar. De manera predeterminada, se crearán alertas para cada máquina virtual, pero no para cada monitor.  Esto significa que si un monitor cambia a un estado que no afecta al estado actual de la máquina virtual, no se crea ninguna alerta porque el estado de la máquina virtual no ha cambiado. 
 
-Puede deshabilitar las alertas de una máquina virtual determinada o de un monitor determinado en una máquina virtual desde la opción **Estado de alerta** en la configuración de la máquina virtual en Azure Portal. Consulte [Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-configure.md) para obtener detalles sobre la configuración de monitores en Azure Portal. Consulte [Configuración del estado de invitado de Azure Monitor para VM mediante las reglas de recopilación de datos (versión preliminar)](vminsights-health-configure-dcr.md) para obtener más información sobre la configuración de monitores en un conjunto de máquinas virtuales.
+Puede deshabilitar las alertas de una máquina virtual determinada o de un monitor determinado en una máquina virtual desde la opción **Estado de alerta** en la configuración de la máquina virtual en Azure Portal. Vea [Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)](vminsights-health-configure.md) para obtener detalles sobre la configuración de monitores en Azure Portal. Vea [Configuración del estado de invitado de VM Insights mediante las reglas de recopilación de datos (versión preliminar)](vminsights-health-configure-dcr.md) para obtener más información sobre la configuración de monitores en un conjunto de máquinas virtuales.
 
 ## <a name="alert-severity"></a>Gravedad de la alerta
 La gravedad de la alerta que creó el estado del invitado se asigna directamente a la gravedad de la máquina virtual o monitor que desencadena la alerta.
@@ -31,12 +31,12 @@ La gravedad de la alerta que creó el estado del invitado se asigna directamente
 | Healthy  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>Ciclo de vida de alertas
-Se creará una [alerta de Azure](../platform/alerts-overview.md) para una máquina virtual siempre que cambie a un estado de **advertencia** o **crítico**. Consulte la alerta desde **Alertas** en el menú **Azure Monitor** o en el menú de máquinas virtuales en Azure Portal.
+Se creará una [alerta de Azure](../alerts/alerts-overview.md) para una máquina virtual siempre que cambie a un estado de **advertencia** o **crítico**. Consulte la alerta desde **Alertas** en el menú **Azure Monitor** o en el menú de máquinas virtuales en Azure Portal.
 
 Si una alerta ya se encuentra en el estado **Desencadenada** cuando cambie el estado de la máquina virtual, no se creará una segunda alerta, sino que se cambiará la gravedad de la misma alerta para que coincida con el estado de la máquina virtual. Por ejemplo, si la máquina virtual cambia al estado **Crítico** cuando una alerta de **Advertencia** ya se encontraba en el estado **Desencadenada**, la gravedad de la alerta se cambiará a **Sev1**. Si la máquina virtual cambia al estado **Advertencia** cuando una alerta de **Sev1** ya se encontraba en el estado **Desencadenada**, la gravedad de la alerta se cambiará a **Sev2**. Si la máquina virtual vuelve a un estado **Correcto**, la alerta se resolverá con la gravedad cambiada a **Sev4**.
 
 ## <a name="viewing-alerts"></a>Visualización de alertas
-Vea las alertas creadas por el estado de invitado de Azure Monitor para VM con otras [alertas en Azure Portal](../platform/alerts-overview.md#alerts-experience). Puede seleccionar **Alertas** en el menú **Azure Monitor** para ver las alertas de todos los recursos supervisados, o bien seleccionar **Alertas** en el menú de la máquina virtual para ver las alertas solo de esa máquina virtual.
+Vea las alertas creadas por el estado de invitado de VM Insights con otras [alertas en Azure Portal](../platform/alerts-overview.md#alerts-experience). Puede seleccionar **Alertas** en el menú **Azure Monitor** para ver las alertas de todos los recursos supervisados, o bien seleccionar **Alertas** en el menú de la máquina virtual para ver las alertas solo de esa máquina virtual.
 
 ## <a name="alert-properties"></a>Propiedades de alerta
 
@@ -106,6 +106,6 @@ En **Definir en este ámbito**, seleccione **Grupo de acciones** y, a continuaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Habilitar el estado de invitado en Azure Monitor para VM e incorporar a los agentes.](vminsights-health-enable.md)
+- [Habilitación del estado de invitado en VM Insights e incorporación de agentes.](vminsights-health-enable.md)
 - [Configurar los monitores mediante Azure Portal.](vminsights-health-configure.md)
 - [Configurar monitores mediante reglas de recopilación de datos.](vminsights-health-configure-dcr.md)

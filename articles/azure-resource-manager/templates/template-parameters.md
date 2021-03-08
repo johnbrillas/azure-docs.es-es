@@ -1,154 +1,473 @@
 ---
 title: Parámetros en plantillas
-description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager (plantilla de ARM).
+description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager (plantilla de ARM) y un archivo de Bicep.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/03/2021
+ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934720"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123401"
 ---
 # <a name="parameters-in-arm-templates"></a>Parámetros en plantillas de ARM
 
-En este artículo se describe cómo definir y usar parámetros en una plantilla de Azure Resource Manager (plantilla de ARM). Si proporciona valores diferentes para los parámetros, podrá volver a usar una plantilla para distintos entornos.
+En este artículo se describe cómo definir y usar parámetros en la plantilla de Azure Resource Manager (plantilla de ARM) y el archivo de Bicep. Si proporciona valores diferentes para los parámetros, podrá volver a usar una plantilla para distintos entornos.
 
 Resource Manager resuelve los valores de parámetro antes de iniciar las operaciones de implementación. Siempre que el parámetro se use en la plantilla, Resource Manager lo reemplaza por el valor resuelto.
 
-Cada parámetro debe establecerse en uno de los [tipos de datos](template-syntax.md#data-types).
+Cada parámetro debe establecerse en uno de los [tipos de datos](data-types.md).
 
-## <a name="define-parameter"></a>Definición del parámetro
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-En el ejemplo siguiente se muestra una definición simple de parámetro. Define un parámetro denominado `storageSKU`. El parámetro es un valor de cadena y solo acepta valores que son válidos para su uso previsto. Cuando no se proporciona ningún valor durante la implementación, el parámetro utiliza un valor predeterminado.
+## <a name="minimal-declaration"></a>Declaración mínima
+
+Como mínimo, cada parámetro necesita un nombre y un tipo. En Bicep, un parámetro no puede tener el mismo nombre que una variable, recurso, salida u otro parámetro en el mismo ámbito.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
-  "storageSKU": {
-    "type": "string",
-    "allowedValues": [
-      "Standard_LRS",
-      "Standard_ZRS",
-      "Standard_GRS",
-      "Standard_RAGRS",
-      "Premium_LRS"
-    ],
-    "defaultValue": "Standard_LRS",
-    "metadata": {
-      "description": "The type of replication to use for the storage account."
-    }
+  "demoString": {
+    "type": "string"
+  },
+  "demoInt": {
+    "type": "int"
+  },
+  "demoBool": {
+    "type": "bool"
+  },
+  "demoObject": {
+    "type": "object"
+  },
+  "demoArray": {
+    "type": "array"
   }
 }
 ```
 
-## <a name="use-parameter"></a>Uso del parámetro
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-En la plantilla, debe hacer referencia al valor del parámetro con la función [parameters](template-functions-deployment.md#parameters). En el ejemplo siguiente, el valor del parámetro se usa para establecer la SKU para la cuenta de almacenamiento.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "sku": {
-      "name": "[parameters('storageSKU')]"
-    },
-    ...
-  }
-]
+```bicep
+param demoString string
+param demoInt int
+param demoBool bool
+param demoObject object
+param demoArray array
 ```
 
-## <a name="template-functions"></a>Funciones de plantillas
+---
 
-Cuando se especifica el valor predeterminado de un parámetro, puede usar la mayoría de las funciones de plantilla. Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente muestra el uso de funciones en el valor predeterminado. Cuando no se proporciona ningún nombre para el sitio, crea un valor de cadena único y lo anexa al **sitio**. Cuando no se proporciona ningún nombre para el plan de host, toma el valor del sitio y anexa **-plan**.
+## <a name="secure-parameters"></a>Parámetros seguros
+
+Puede marcar los parámetros de objeto o cadena como seguros. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoPassword": {
+    "type": "secureString"
+  },
+  "demoSecretObject": {
+    "type": "secureObject"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@secure()
+param demoPassword string
+
+@secure()
+param demoSecretObject object
+```
+
+---
+
+## <a name="allowed-values"></a>Valores permitidos
+
+Puede definir valores permitidos para un parámetro. Los valores permitidos se proporcionan en una matriz. Se produce un error en la implementación durante la validación si se pasa un valor para el parámetro que no es uno de los valores permitidos.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoEnum": {
+    "type": "string",
+    "allowedValues": [
+      "one",
+      "two"
+    ]
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@allowed([
+  'one'
+  'two'
+])
+param demoEnum string
+```
+
+---
+
+## <a name="default-value"></a>Valor predeterminado
+
+Puede especificar un valor predeterminado para un parámetro. El valor predeterminado se usa cuando no se proporciona un valor durante la implementación.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoParam": {
+    "type": "string",
+    "defaultValue": "Contoso"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param demoParam string = 'Contoso'
+```
+
+---
+
+Para especificar un valor predeterminado junto con otras propiedades para el parámetro, use la sintaxis siguiente.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoParam": {
+    "type": "string",
+    "defaultValue": "Contoso",
+    "allowedValues": [
+      "Contoso",
+      "Fabrikam"
+    ]
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@allowed([
+  'Contoso'
+  'Fabrikam'
+])
+param demoParam string = 'Contoso'
+```
+
+---
+
+Puede usar expresiones con el valor predeterminado. La función no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
+
+No se permiten expresiones con otras propiedades de parámetro.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param location string = resourceGroup().location
+```
+
+---
+
+Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente crea un nombre de plan de host a partir del nombre del sitio.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
   "siteName": {
     "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
-    "metadata": {
-      "description": "The site name. To use the default value, do not specify a new value."
-    }
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
   },
   "hostingPlanName": {
     "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
-    "metadata": {
-      "description": "The host name. To use the default value, do not specify a new value."
-    }
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
   }
 }
 ```
 
-La función no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+```
+
+---
+
+## <a name="length-constraints"></a>Restricciones de longitud
+
+Puede especificar la longitud mínima y máxima de los parámetros de matriz y de cadena. Puede establecer una o las dos restricciones. Para las cadenas, la longitud indica el número de caracteres. Para las matrices, la longitud indica el número de elementos de la matriz.
+
+En el ejemplo siguiente se declaran dos parámetros. Un parámetro es para un nombre de cuenta de almacenamiento que debe tener entre 3 y 24 caracteres. El otro parámetro es una matriz que debe tener entre 1 y 5 elementos.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "storageAccountName": {
+    "type": "string",
+    "minLength": 3,
+    "maxLength": 24
+  },
+  "appNames": {
+    "type": "array",
+    "minLength": 1,
+    "maxLength": 5
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@minLength(3)
+@maxLength(24)
+param storageAccountName string
+
+@minLength(1)
+@maxLength(5)
+param appNames array
+```
+
+---
+
+## <a name="integer-constraints"></a>Restricciones de enteros
+
+Puede establecer valores mínimos y máximos para los parámetros de entero. Puede establecer una o las dos restricciones.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "month": {
+    "type": "int",
+    "minValue": 1,
+    "maxValue": 12
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@minValue(1)
+@maxValue(12)
+param month int
+```
+
+---
+
+## <a name="description"></a>Descripción
+
+Puede agregar una descripción a un parámetro para ayudar a los usuarios de la plantilla a comprender el valor que deben proporcionar. Al implementar la plantilla a través del portal, el texto que proporciona en la descripción se usa automáticamente como sugerencia para ese parámetro. Agregue solo una descripción cuando el texto proporcione más información de la que se puede deducir del nombre del parámetro.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "virtualMachineSize": {
+    "type": "string",
+    "metadata": {
+      "description": "Must be at least Standard_A3 to support 2 NICs."
+    },
+    "defaultValue": "Standard_DS1_v2"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@description('Must be at least Standard_A3 to support 2 NICs.')
+param virtualMachineSize string = 'Standard_DS1_v2'
+```
+
+---
+
+## <a name="use-parameter"></a>Uso del parámetro
+
+En una plantilla JSON, debe hacer referencia al valor del parámetro mediante la función [parameters](template-functions-deployment.md#parameters). En Bicep, se usa el nombre del parámetro. En el ejemplo siguiente se usa un valor de parámetro para un nombre de Key Vault.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vaultName": {
+      "type": "string",
+      "defaultValue": "[format('keyVault{0}', uniqueString(resourceGroup().id))]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('vaultName')]",
+      ...
+    }
+  ]
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
+
+resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+  name: vaultName
+  ...
+}
+```
+
+---
 
 ## <a name="objects-as-parameters"></a>Objetos como parámetros
 
 Puede ser más fácil organizar los valores relacionados pasándolos como objetos. Con este enfoque también se reduce el número de parámetros de la plantilla.
 
-En el ejemplo siguiente se muestra un parámetro que es un objeto. El valor predeterminado muestra las propiedades esperadas para el objeto.
+En el ejemplo siguiente se muestra un parámetro que es un objeto. El valor predeterminado muestra las propiedades esperadas para el objeto. Esas propiedades se usan al definir el recurso que se va a implementar.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
-"parameters": {
-  "VNetSettings": {
-    "type": "object",
-    "defaultValue": {
-      "name": "VNet1",
-      "location": "eastus",
-      "addressPrefixes": [
-        {
-          "name": "firstPrefix",
-          "addressPrefix": "10.0.0.0/22"
-        }
-      ],
-      "subnets": [
-        {
-          "name": "firstSubnet",
-          "addressPrefix": "10.0.0.0/24"
-        },
-        {
-          "name": "secondSubnet",
-          "addressPrefix": "10.0.1.0/24"
-        }
-      ]
-    }
-  }
-},
-```
-
-Haga referencia a las propiedades del objeto con el operador punto.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2015-06-15",
-    "name": "[parameters('VNetSettings').name]",
-    "location": "[parameters('VNetSettings').location]",
-    "properties": {
-      "addressSpace":{
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vNetSettings": {
+      "type": "object",
+      "defaultValue": {
+        "name": "VNet1",
+        "location": "eastus",
         "addressPrefixes": [
-          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+          {
+            "name": "firstPrefix",
+            "addressPrefix": "10.0.0.0/22"
+          }
+        ],
+        "subnets": [
+          {
+            "name": "firstSubnet",
+            "addressPrefix": "10.0.0.0/24"
+          },
+          {
+            "name": "secondSubnet",
+            "addressPrefix": "10.0.1.0/24"
+          }
         ]
-      },
-      "subnets":[
-        {
-          "name":"[parameters('VNetSettings').subnets[0].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-          }
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('vNetSettings').name]",
+      "location": "[parameters('vNetSettings').location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vNetSettings').addressPrefixes[0].addressPrefix]"
+          ]
         },
-        {
-          "name":"[parameters('VNetSettings').subnets[1].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+        "subnets": [
+          {
+            "name": "[parameters('vNetSettings').subnets[0].name]",
+            "properties": {
+              "addressPrefix": "[parameters('vNetSettings').subnets[0].addressPrefix]"
+            }
+          },
+          {
+            "name": "[parameters('vNetSettings').subnets[1].name]",
+            "properties": {
+              "addressPrefix": "[parameters('vNetSettings').subnets[1].addressPrefix]"
+            }
           }
-        }
+        ]
+      }
+    }
+  ]
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
+resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
       ]
     }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
   }
-]
+}
 ```
+
+---
 
 ## <a name="example-templates"></a>Plantillas de ejemplo
 

@@ -3,20 +3,20 @@ title: Habilitación del complemento de supervisión de AKS con Azure Policy
 description: Describe cómo habilitar el complemento de supervisión de AKS mediante una directiva personalizada de Azure.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713905"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Habilitación del complemento de supervisión de AKS con Azure Policy
 En esta artículo se describe cómo habilitar el complemento de supervisión de AKS mediante una directiva personalizada de Azure. La directiva personalizada del complemento de supervisión se puede asignar en el ámbito de la suscripción o del grupo de recursos. Si el área de trabajo de Azure Log Analytics y el clúster de AKS se encuentran en distintas suscripciones, la identidad administrada que use la asignación de directiva debe tener los permisos de rol necesarios en ambas suscripciones, o como mínimo en el recurso del área de trabajo de Log Analytics. Del mismo modo, si la directiva está en el ámbito del grupo de recursos, la identidad administrada debe tener los permisos de rol necesarios en el área de trabajo de Log Analytics si dicha área no se encuentra en el ámbito del grupo de recursos seleccionado.
 
 El complemento de supervisión requiere los siguientes roles en la identidad administrada que usa Azure Policy:
 
- - [azure-kubernetes-service-contributor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-analytics-contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [azure-kubernetes-service-contributor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-analytics-contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Creación y asignación de una definición de directiva mediante Azure Portal
 
@@ -79,6 +79,5 @@ El complemento de supervisión requiere los siguientes roles en la identidad adm
 
 - Obtenga más información acerca de [Azure Policy](../../governance/policy/overview.md).
 - Obtenga más información acerca de cómo [funciona la seguridad de corrección](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
-- Obtenga más información acerca de [Azure Monitor para contenedores](../insights/container-insights-overview.md).
-- Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- Obtenga más información sobre [Container Insights](./container-insights-overview.md).
+- Instale la [CLI de Azure](/cli/azure/install-azure-cli).

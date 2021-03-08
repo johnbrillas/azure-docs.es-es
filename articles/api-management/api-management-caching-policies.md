@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688049"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -248,7 +248,7 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 La directiva `cache-store-value` realiza el almacenamiento en caché mediante una clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.
 
 > [!NOTE]
-> Esta directiva debe tener una directiva [Get from cache](#GetFromCacheByKey) (Obtener de la caché) correspondiente.
+> La operación de almacenar el valor en caché que realiza esta directiva es asincrónica. El valor almacenado se puede recuperar mediante la directiva [Get value from cache](#GetFromCacheByKey) (Obtener valor de la caché). Sin embargo, puede que el valor almacenado no esté disponible inmediatamente para la recuperación, ya que la operación asincrónica que almacena el valor en caché puede estar aún en curso. 
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 

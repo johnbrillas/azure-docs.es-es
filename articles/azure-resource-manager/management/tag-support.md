@@ -3,12 +3,12 @@ title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b1f9e61b409c395a13cc6a18d21d17530f38ac7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722898"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -1565,6 +1565,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | workspaces / models / versions | No | No |
 > | workspaces / onlineEndpoints | Sí | Sí |
 > | workspaces / onlineEndpoints / deployments | Sí | Sí |
+ 
+> [!NOTE]
+> Las etiquetas del área de trabajo no se propagan a los clústeres de proceso ni a las instancias de proceso. 
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2262,6 +2265,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | managedInstances/keys | No | No |
 > | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No | No |
 > | managedInstances/vulnerabilityAssessments | No | No |
+> | longtermRetentionManagedInstance / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | servers | Sí | Sí |
 > | servers/administrators | No | No |
 > | servers/communicationLinks | No | No |
@@ -2272,6 +2276,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/restorableDroppedDatabases | No | No |
 > | servers/serviceobjectives | No | No |
 > | servers/tdeCertificates | No | No |
+> | longtermRetentionServer / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | virtualClusters | No | No |
 
 <a id="sqlnote"></a>

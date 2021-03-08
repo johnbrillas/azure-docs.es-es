@@ -1,18 +1,18 @@
 ---
-title: Alertas de registro de Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo crear alertas de registro personalizadas para el uso de memoria y de CPU desde Azure Monitor para contenedores.
+title: Alertas de registro de Container Insights | Microsoft Docs
+description: En este artículo se describe cómo crear alertas de registro personalizadas para el uso de memoria y de CPU desde Container Insights.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602693"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711202"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Creación de alertas de registro a partir de Azure Monitor para contenedores
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Procedimiento para crear alertas de registro desde Container Insights
 
-Azure Monitor para contenedores supervisa el rendimiento de las cargas de trabajo de contenedor implementadas en clústeres de Kubernetes administrados o autoadministrados. Para alertar sobre lo que importa, en este artículo se describe cómo crear alertas basadas en registro para las siguientes situaciones con los clústeres de AKS:
+Container Insights supervisa el rendimiento de las cargas de trabajo de contenedor implementadas en clústeres de Kubernetes administrados o autoadministrados. Para alertar sobre lo que importa, en este artículo se describe cómo crear alertas basadas en registro para las siguientes situaciones con los clústeres de AKS:
 
 - Cuando el uso de CPU o memoria en los nodos del clúster supera un umbral
 - Cuando el uso de CPU o memoria en cualquier contenedor dentro de un controlador supera un umbral en comparación con un límite que se establece en el recurso correspondiente
@@ -20,9 +20,9 @@ Azure Monitor para contenedores supervisa el rendimiento de las cargas de trabaj
 - Recuentos de fase de pod *Erróneo*, *Pendiente*, *Desconocido*, *Ejecución* o *Correcto*
 - Cuando el espacio libre en disco de los nodos del clúster supera un umbral
 
-Para generar una alerta sobre el uso elevado de CPU o de memoria o sobre poco espacio libre en disco en los nodos del clúster, use las consultas que se proporcionan para crear una alerta de métrica o una alerta de medida de métrica. Mientras que las alertas de métricas tienen una latencia menor que las alertas de registro, estas proporcionan consultas avanzadas y una mayor sofisticación. Las consultas de alertas de registro comparan una fecha y hora con la actual mediante el operador *now* y retroceden una hora. (Azure Monitor para contenedores almacena todas las fechas en formato de Hora universal coordinada [UTC]).
+Para generar una alerta sobre el uso elevado de CPU o de memoria o sobre poco espacio libre en disco en los nodos del clúster, use las consultas que se proporcionan para crear una alerta de métrica o una alerta de medida de métrica. Mientras que las alertas de métricas tienen una latencia menor que las alertas de registro, estas proporcionan consultas avanzadas y una mayor sofisticación. Las consultas de alertas de registro comparan una fecha y hora con la actual mediante el operador *now* y retroceden una hora. (Container Insights almacena todas las fechas en el formato Hora universal coordinada [UTC]).
 
-Si no está familiarizado con las alertas en Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../platform/alerts-overview.md) antes de empezar. Para más información acerca de las alertas que usan consultas de registro, consulte [Alertas de registro en Azure Monitor](../alerts/alerts-unified-log.md). Para más información acerca de las alertas de métrica consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../alerts/alerts-metric-overview.md).
+Si no está familiarizado con las alertas en Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../alerts/alerts-overview.md) antes de empezar. Para más información acerca de las alertas que usan consultas de registro, consulte [Alertas de registro en Azure Monitor](../alerts/alerts-unified-log.md). Para más información acerca de las alertas de métrica consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de búsqueda de registro de uso de recursos
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Crear una regla de alerta
 
-Esta sección le guía a través de la creación de una regla de alerta de medición de métricas mediante datos de rendimiento de Azure Monitor para contenedores. Puede usar este proceso básico con diversas consultas de registro para alertar sobre diferentes contadores de rendimiento. Use una de las consultas de búsqueda de registros proporcionadas anteriormente para comenzar. Para crearla mediante una plantilla de Resource Manager, consulte [Ejemplos de creación de una alerta de registro mediante la plantilla de Azure Resource Manager](../alerts/alerts-log-create-templates.md).
+En esta sección se le guía por la creación de una regla de alerta de medición de métricas mediante datos de rendimiento de Container Insights. Puede usar este proceso básico con diversas consultas de registro para alertar sobre diferentes contadores de rendimiento. Use una de las consultas de búsqueda de registros proporcionadas anteriormente para comenzar. Para crearla mediante una plantilla de Resource Manager, consulte [Ejemplos de creación de una alerta de registro mediante la plantilla de Azure Resource Manager](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >En el siguiente procedimiento para crear una regla de alerta para el uso de recursos de contenedor, deberá cambiar a una nueva API de alertas de registro, tal como se describe en [Cambio de la preferencia de API para las alertas de registro](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Esta sección le guía a través de la creación de una regla de alerta de medic
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En Azure Portal, busque y seleccione **Áreas de trabajo de Log Analytics**.
-3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que admite Azure Monitor para contenedores. 
+3. En la lista de áreas de trabajo de Log Analytics, seleccione la que admite Container Insights. 
 4. En el panel de la izquierda, seleccione **Registros** para abrir la página de registros de Azure Monitor. Utilice esta página para escribir y ejecutar consultas de registro de Azure.
 5. En la página **Registros**, pegue una de las [consultas](#resource-utilization-log-search-queries) proporcionadas anteriormente en el campo **Consulta de búsqueda** y luego seleccione **Ejecutar** para validar los resultados. Si no realiza este paso, la opción **Nueva alerta** no está disponible para la selección.
 6. Seleccione **Nueva alerta** para crear una alerta de registro.

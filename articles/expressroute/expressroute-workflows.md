@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034078"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721742"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 
@@ -77,8 +77,12 @@ Configure los dominios de enrutamiento. Si el proveedor de conectividad administ
 
 Habilite el emparejamiento privado para conectarse a VM y servicios en la nube implementados en la red virtual de Azure.
 
-* Subred de emparejamiento para la ruta de acceso 1 (/30)
-* Subred de emparejamiento para la ruta de acceso 2 (/30)
+* Subredes IPv4:
+    * Subred de emparejamiento para la ruta de acceso 1 (/30)
+    * Subred de emparejamiento para la ruta de acceso 2 (/30)
+* Subredes IPv6 (opcional):
+    * Subred de emparejamiento para la ruta de acceso 1 (/126)
+    * Subred de emparejamiento para la ruta de acceso 2 (/126)
 * Id. de VLAN para emparejamiento
 * ASN para emparejamiento
 * ASN de ExpressRoute: 12076
@@ -88,8 +92,12 @@ Habilite el emparejamiento privado para conectarse a VM y servicios en la nube i
 
 Habilite esta opción para acceder a los servicios de Microsoft Online Services, como Microsoft 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft. Debe asegurarse de que usa un proxy/borde independiente para conectarse a Microsoft, distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
-* Subred de emparejamiento para la ruta de acceso 1 (/30): debe ser una dirección IP pública
-* Subred de emparejamiento para la ruta de acceso 2 (/30): debe ser una dirección IP pública
+* Subredes IPv4:
+    * Subred de emparejamiento para la ruta de acceso 1 (/30): debe ser una dirección IP pública
+    * Subred de emparejamiento para la ruta de acceso 2 (/30): debe ser una dirección IP pública
+* Subredes IPv6 (opcional):
+    * Subred de emparejamiento para la ruta de acceso 1 (/126): debe ser una dirección IP pública
+    * Subred de emparejamiento para la ruta de acceso 2 (/126): debe ser una dirección IP pública
 * Id. de VLAN para emparejamiento
 * ASN para emparejamiento
 * Prefijos anunciados: deben ser prefijos de direcciones IP públicas
@@ -160,7 +168,7 @@ Si es necesario, puede volver a habilitarlo, o bien ejecutar los cmdlets de Powe
 
 ## <a name="routing-session-configuration-state"></a>Estado de configuración de sesión de enrutamiento
 
-El estado de aprovisionamiento de BGP notifica si la sesión BGP se ha habilitado en el perímetro de Microsoft. El estado debe estar habilitado para usar el emparejamiento privado o de Microsoft.
+El estado de aprovisionamiento de BGP notifica si la sesión de BGP se ha habilitado en Microsoft Edge. El estado debe estar habilitado para usar el emparejamiento privado o de Microsoft.
 
 Es importante comprobar el estado de sesión de BGP, especialmente para la configuración entre pares de Microsoft. Además del estado de aprovisionamiento de BGP, hay otro estado denominado *estado de prefijos públicos anunciados*. El estado de los prefijos públicos anunciados debe estar en *configurado*, tanto para que la sesión BGP esté activa como para que el enrutamiento funcione de un extremo a otro. 
 

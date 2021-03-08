@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576217"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693907"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -122,7 +122,7 @@ Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y ag
     Connect-AzAccount
     ```
 4. Defina las variables en PowerShell: 
-    - Nombre del grupo de recursos: puede encontrarlo en Azure Portal, en la información general del área de trabajo de Synapse.
+    - Nombre del grupo de recursos: puede encontrarlo en Azure Portal, en la información general de la cuenta de almacenamiento.
     - Nombre de cuenta: nombre de la cuenta de almacenamiento que está protegida por reglas de firewall.
     - Id. de inquilino: puede encontrarlo en Azure Portal, en la información del inquilino de Azure Active Directory.
     - Nombre del área de trabajo: nombre del área de trabajo de Synapse.
@@ -192,16 +192,14 @@ Para usar las credenciales, un usuario debe tener el permiso `REFERENCES` sobre 
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Para garantizar una experiencia de paso a través de Azure AD sin interrupciones, todos los usuarios tendrán, de forma predeterminada, derecho a usar la credencial de `UserIdentity`.
-
 ## <a name="server-scoped-credential"></a>Credencial con ámbito en el servidor
 
-Las credenciales con ámbito en el servidor se usan cuando el inicio de sesión de SQL llama a la función `OPENROWSET` sin `DATA_SOURCE` para leer archivos en alguna cuenta de almacenamiento. El nombre de la credencial con ámbito en el servidor **debe** coincidir con la dirección URL de Azure Storage. Para agregar una credencial, ejecute [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Deberá proporcionar un argumento CREDENTIAL NAME. Debe coincidir con una parte de la ruta de acceso o con toda la ruta de acceso a los datos de almacenamiento (consulte a continuación).
+Las credenciales con ámbito en el servidor se usan cuando el inicio de sesión de SQL llama a la función `OPENROWSET` sin `DATA_SOURCE` para leer archivos en alguna cuenta de almacenamiento. El nombre de la credencial con ámbito en el servidor **debe** coincidir con la dirección URL base de Azure Storage (seguida opcionalmente por un nombre de contenedor). Para agregar una credencial, ejecute [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Deberá proporcionar un argumento CREDENTIAL NAME.
 
 > [!NOTE]
 > El argumento `FOR CRYPTOGRAPHIC PROVIDER` no se admite.
 
-El nombre de la CREDENCIAL de nivel de servidor debe coincidir con la ruta de acceso completa de la cuenta de almacenamiento (y opcionalmente, del contenedor) en el formato siguiente: `<prefix>://<storage_account_path>/<storage_path>`. Las rutas de acceso de la cuenta de almacenamiento se describen en la tabla siguiente:
+El nombre de la CREDENCIAL de nivel de servidor debe coincidir con la ruta de acceso completa de la cuenta de almacenamiento (y opcionalmente, del contenedor) en el formato siguiente: `<prefix>://<storage_account_path>[/<container_name>]`. Las rutas de acceso de la cuenta de almacenamiento se describen en la tabla siguiente:
 
 | Origen de datos externo       | Prefijo | Ruta de acceso a la cuenta de almacenamiento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ El script siguiente crea una credencial de nivel de servidor que puede usar la f
 Reemplace <*mystorageaccountname*> por el nombre de la cuenta de almacenamiento real y <*mystorageaccountcontainername*> por el nombre real del contenedor:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Opcionalmente, puede usar solo la dirección URL base de la cuenta de almacenamiento, sin el nombre de contenedor.
 
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ El script siguiente crea una credencial de nivel de servidor que puede usar la f
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Opcionalmente, puede usar solo la dirección URL base de la cuenta de almacenamiento, sin el nombre de contenedor.
 
 ### <a name="public-access"></a>[Acceso público](#tab/public-access)
 

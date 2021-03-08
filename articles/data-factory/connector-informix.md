@@ -4,16 +4,17 @@ description: Obtenga información sobre cómo copiar datos con IBM Informix como
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727913"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con un almacén de datos de IBM Informix como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -27,12 +28,13 @@ Este conector de Informix es compatible con las actividades siguientes:
 
 Puede copiar datos desde un origen de Informix a cualquier almacén de datos de receptor o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector de Informix, necesitará lo siguiente:
 
 - Configurar un entorno Integration Runtime autohospedado. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
-- Instale el controlador ODBC de Informix para el almacén de datos en la máquina de Integration Runtime. Por ejemplo, puede usar el controlador "IBM INFORMIX Informix DRIVER (64-bit)".
+- Instale el controlador ODBC de Informix para el almacén de datos en la máquina de Integration Runtime. Para la instalación y configuración de los controladores, consulte el artículo de [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) (Guía del controlador ODBC de Informix) en IBM Knowledge Center para obtener más información, o póngase en contacto con el equipo de soporte técnico de IBM para obtener instrucciones.
 
 ## <a name="getting-started"></a>Introducción
 

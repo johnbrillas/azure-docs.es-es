@@ -1,19 +1,19 @@
 ---
-title: Visualización de implementaciones de Azure Monitor para contenedores (versión preliminar) | Microsoft Docs
-description: En este artículo se describe la vista en tiempo real de las implementaciones de Kubernetes sin usar kubectl en Azure Monitor para contenedores.
+title: Visualización de implementaciones de Container Insights (versión preliminar) | Microsoft Docs
+description: En este artículo se describe la visualización en tiempo real de las implementaciones de Kubernetes sin usar kubectl en Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713922"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Cómo ver implementaciones (versión preliminar) en tiempo real
 
-Con Azure Monitor para contenedores, la característica ver implementaciones (versión preliminar) emula el acceso directo a los objetos de implementación de Kubernetes en tiempo real mediante la exposición de los comandos `kubeclt get deployments` y `kubectl describe deployment {your deployment}`.
+Con Container Insights, la característica de visualización de implementaciones (versión preliminar) emula el acceso directo a los objetos de implementación de Kubernetes en tiempo real mediante la exposición de los comandos `kubeclt get deployments` y `kubectl describe deployment {your deployment}`.
 
 >[!NOTE]
 >No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico.
@@ -56,7 +56,7 @@ Al seleccionar una implementación de la lista, se muestra automáticamente un p
 
 Mientras examina los detalles de las implementaciones, puede ver los registros de contenedor y eventos en tiempo real. Elija la **Mostrar la consola en directo** y el panel de consola de datos en directo (vista preliminar) aparecerá debajo de la cuadrícula de datos de las implementaciones, donde puede ver los datos de registro en directo en un flujo continuo. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
 
-También puede filtrar por los eventos de nivel de clúster o de espacio de nombres. Para más información sobre la visualización de datos en tiempo real en la consola, consulte [Ver datos en directo (vista preliminar) con Azure Monitor para contenedores](container-insights-livedata-overview.md).
+También puede filtrar por los eventos de nivel de clúster o de espacio de nombres. Para más información sobre la visualización de datos en tiempo real en la consola, consulte [Visualización de datos en directo (versión preliminar) con Container Insights](container-insights-livedata-overview.md).
 
 ![Visualización de las implementaciones de los datos en directo en la consola](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

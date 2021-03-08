@@ -1,17 +1,16 @@
 ---
 title: Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 description: Use su propia cuenta de almacenamiento para los escenarios de Log Analytics
-ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603356"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047461"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -23,7 +22,7 @@ Log Analytics se basa en Azure Storage en varios escenarios. Normalmente, este u
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingesta de registros de extensión de Azure Diagnostics (WAD/LAD)
 Los agentes de extensión de Azure Diagnostics (también denominados WAD y LAD para los agentes de Windows y Linux, respectivamente) recopilan varios registros del sistema operativo y los almacenan en una cuenta de almacenamiento administrada por el cliente. Después, puede ingerir estos registros en Log Analytics para revisarlos y analizarlos.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Recopilación de registros de extensión de Azure Diagnostics desde la cuenta de almacenamiento
-Conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](../essentials/diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
+Conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipos de datos admitidos:
 * syslog
@@ -51,6 +50,7 @@ Para que la cuenta de almacenamiento se conecte correctamente a su vínculo priv
 * Permitir que Azure Monitor tenga acceso a la cuenta de almacenamiento. Si decide permitir que solo las redes seleccionadas tengan acceso a la cuenta de almacenamiento, debe seleccionar la excepción: "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento".
 ![Imagen de servicios de MS de confianza de la cuenta de almacenamiento](./media/private-storage/storage-trust.png)
 * Si el área de trabajo también controla el tráfico de otras redes, debe configurar la cuenta de almacenamiento para permitir el tráfico entrante procedente de las redes pertinentes o Internet.
+* Coordine la versión de TLS entre los agentes y la cuenta de almacenamiento; se recomienda que envíe datos a Log Analytics mediante TLS 1.2 o superior. Revise la [guía específica de la plataforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12) y, si es necesario, [configure los agentes para que usen TLS 1.2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Si por alguna razón no es posible, configure la cuenta de almacenamiento para que acepte TLS 1.0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Uso de una cuenta de almacenamiento administrada por el cliente para el cifrado de datos de CMK
 Azure Storage cifra todos los datos en reposo de una cuenta de almacenamiento. De forma predeterminada, usa claves administradas por Microsoft (MMK) para cifrar los datos; sin embargo, Azure Storage también le permite usar CMK desde Azure Key Vault para cifrar los datos de almacenamiento. Puede importar sus propias claves a Azure Key Vault, o puede usar las API de Azure Key Vault para generarlas.

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688559"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -137,7 +137,7 @@ En las identidades federadas, en función del proveedor de identidades, **issuer
 
 ## <a name="password-profile-property"></a>Propiedad de perfil de contraseña
 
-En el caso de una identidad local, se necesita el atributo **passwordProfile**, que contiene la contraseña del usuario. El atributo `forceChangePasswordNextSignIn` debe establecer en `false`.
+En el caso de una identidad local, se necesita el atributo **passwordProfile**, que contiene la contraseña del usuario. El atributo `forceChangePasswordNextSignIn` indica si un usuario debe restablecer la contraseña en el siguiente inicio de sesión. Para administrar un restablecimiento de contraseña forzado, [configure el flujo de restablecimiento de contraseña forzado](force-password-reset.md).
 
 En el caso de una identidad federada (social), no se necesita el atributo **passwordProfile**.
 

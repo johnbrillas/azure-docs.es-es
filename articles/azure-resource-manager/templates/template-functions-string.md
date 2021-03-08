@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: cadena'
 description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 03/02/2021
+ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731126"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funciones de cadena para plantillas de ARM
 
@@ -306,6 +306,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Combina varios valores de cadena y devuelve la cadena concatenada, o combina varias matrices y devuelve la matriz concatenada.
 
+Para simplificar la concatenación de cadenas, Bicep admite una sintaxis de [interpolación de cadena](https://en.wikipedia.org/wiki/String_interpolation#).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -351,6 +353,14 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 param prefix string = 'prefix'
 
 output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+o bien
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -1530,7 +1540,7 @@ En el ejemplo siguiente se usa la función newGuid para crear un nombre único p
 ```bicep
 param guidValue string = newGuid()
 
-var storageName = concat('storage', uniqueString(guidValue))
+var storageName = 'storage${uniqueString(guidValue)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: storageName
@@ -2468,7 +2478,7 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
 
 ```bicep
 resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: concat('storage, uniqueString(resourceGroup().id)')
+  name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
 ```
@@ -2761,7 +2771,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de una plantilla de Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Resource Manager](template-syntax.md).
 * Para combinar varias plantillas, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md).
 * Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Iteración de recursos en las plantillas de Resource Manager](copy-resources.md).
 * Para ver cómo implementar la plantilla que ha creado, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

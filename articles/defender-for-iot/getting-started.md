@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522570"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712766"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Introducción a Defender for IoT
 
@@ -69,6 +69,8 @@ Para registrarse:
 1. Seleccione **Onboard subscription** (Incorporar suscripción).
 1. En la página **Precios**, seleccione una suscripción o cree una y agregue el número de dispositivos confirmados.
 1. Seleccione la pestaña **Download the on-premises management console** (Descargar la consola de administración local) y guarde el archivo de activación descargado. Este archivo contiene los dispositivos confirmados agregados que ha definido. El archivo se cargará en la consola de administración después del inicio de sesión inicial.
+
+Para obtener información sobre cómo retirar una suscripción, consulte [Retirada de una suscripción](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. Instalación y configuración de la consola de administración local
 
@@ -126,8 +128,9 @@ Para más información, vea [Conexión de los sensores a la consola de administr
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. Rellenar Azure Sentinel con la información de alertas (opcional)
 
 Configure Azure Sentinel para enviar ahí la información sobre las alertas. Vea [Conexión de los datos de Defender para IoT con Azure Sentinel](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Pasos siguientes
 
-[Bienvenido a Azure Defender para IoT](overview.md)
+## <a name="see-also"></a>Consulte también
 
-[Arquitectura de Azure Defender para IoT](architecture.md)
+- [Bienvenido a Azure Defender para IoT](overview.md)
+
+- [Arquitectura de Azure Defender para IoT](architecture.md)

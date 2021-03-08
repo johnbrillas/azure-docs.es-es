@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL para Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda las consideraciones específicas de uso de Azure AD B2C con la biblioteca de autenticación de Microsoft para Android (MSAL.Android)
 services: active-directory
-author: brianmel
+author: iambmelt
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,19 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 902159153bccbea851481e1f81d03e8e70495020
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688882"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
 
 La biblioteca de autenticación de Microsoft (MSAL) permite a los desarrolladores de aplicaciones autenticar a los usuarios con identidades sociales y locales mediante [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C es un servicio de administración de identidades. Utilícelo para personalizar y controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles cuando usan las aplicaciones.
+
+## <a name="choosing-a-compatible-authorization_user_agent"></a>Elección de un parámetro authorization_user_agent compatible
+El sistema de administración de identidades B2C admite la autenticación con varios proveedores de cuentas de redes sociales, como Google, Facebook, Twitter y Amazon. Si tiene previsto admitir estos tipos de cuenta en la aplicación, se recomienda que configure la aplicación cliente pública de MSAL para que use el valor `DEFAULT` o `BROWSER` al especificar el parámetro [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) del manifiesto debido a las restricciones que prohíben el uso de la autenticación basada en WebView con algunos proveedores de identidades externos.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configuración de autoridades conocidas y URI de redireccionamiento
 
@@ -45,6 +48,7 @@ El archivo de configuración para la aplicación declararía dos `authorities`. 
   "client_id": "<your_client_id_here>",
   "redirect_uri": "<your_redirect_uri_here>",
   "account_mode" : "MULTIPLE",
+  "authorization_user_agent" : "DEFAULT",
   "authorities": [
     {
       "type": "B2C",

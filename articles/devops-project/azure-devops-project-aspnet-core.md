@@ -12,15 +12,15 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 59f8d721c23cbb033f295f2ef3045fc96f08ba96
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733194"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para .NET con Azure DevOps Starter
 
@@ -43,7 +43,9 @@ DevOps Starter crea una canalización de CI/CD en Azure DevOps. Puede crear una 
 1. Seleccione la aplicación de ejemplo de **.NET**. Los ejemplos de.NET incluyen la opción de elegir entre el marco ASP.NET de código abierto o el marco .NET Core multiplataforma.
 
    ![Marco .NET](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > La opción predeterminada para configurar el inicio de DevOps consiste en usar **GitHub**, pero esta configuración se puede cambiar desde el asistente.
 2. Este ejemplo es una aplicación de MVC de ASP.NET Core. Seleccione el marco de trabajo de la aplicación **.NET Core** y, a continuación, seleccione **Siguiente**.    
     
 3. Seleccione **Aplicación web de Windows** como destino de implementación y, a continuación, seleccione **Siguiente**. De forma opcional, puede elegir otros servicios de Azure para su implementación. El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108541"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721904"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutorial: Creación y modificación del emparejamiento de un circuito ExpressRoute mediante Azure Portal.
 
@@ -75,14 +75,17 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
 2. Establezca la configuración del emparejamiento de Microsoft para el circuito. Asegúrese de que tiene la siguiente información antes de continuar:
 
-   * Un par de subredes /30 de su propiedad y registradas en un RIR o IRR. Deben ser prefijos IPv4 públicos válidos. Una subred se usará para el vínculo principal, mientras que la otra se usará para el vínculo secundario. Desde cada una de estas subredes, asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador.
-   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN. Debe usar el mismo identificador de VLAN para los vínculos primario y secundario.
+   * Un par de subredes de su propiedad y registradas en un RIR o IRR. Una subred se usará para el vínculo principal, mientras que la otra se usará para el vínculo secundario. Desde cada una de estas subredes, asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador. Tiene tres opciones para este par de subredes:
+       * IPv4: dos subredes /30. Deben ser prefijos IPv4 públicos válidos.
+       * IPv6: dos subredes /126. Deben ser prefijos IPv6 públicos válidos.
+       * Las dos: dos subredes /30 y dos subredes /126.
+   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN. Para los vínculos principal y secundario, debe usar el mismo identificador de VLAN.
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
    * Prefijos anunciados: Proporcione una lista de todos los prefijos que planea anunciar en la sesión BGP. Se aceptan solo prefijos de direcciones IP públicas. Si tiene pensado enviar un conjunto de prefijos, puede enviar una lista separada por comas. Estos prefijos tienen que estar registrados a su nombre en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
    * **Opcional -** ASN de cliente: Si anuncia prefijos que no están registrados en el número de AS de emparejamiento, puede especificar el número de AS en el que están registrados.
    * Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
    * **Opcional:** un hash MD5 si elige usar uno.
-3. Puede seleccionar el emparejamiento que desea configurar, como se muestra en el ejemplo siguiente. Seleccione la fila del emparejamiento de Microsoft.
+1. Puede seleccionar el emparejamiento que desea configurar, como se muestra en el ejemplo siguiente. Seleccione la fila del emparejamiento de Microsoft.
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Selección de la fila de emparejamiento de Microsoft":::
 
@@ -120,6 +123,11 @@ Puede seleccionar la fila del emparejamiento que desee modificar y, después, mo
 
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento privado de Azure para un circuito ExpressRoute.
 
+> [!IMPORTANT]
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ### <a name="to-create-azure-private-peering"></a>Creación de un emparejamiento privado de Azure
 
 1. Configure el circuito de ExpressRoute. Antes de continuar, asegúrese de que el proveedor de conectividad ha aprovisionado el circuito por completo. 
@@ -136,8 +144,11 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
 2. Establecimiento de la configuración entre pares privados de Azure para el circuito. Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
 
-   * Un par de subredes /30 de las que sea propietario. Una subred se usará para el vínculo principal, mientras que la otra se usará para el vínculo secundario. Desde cada una de estas subredes, asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador.
-   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN. Debe usar el mismo identificador de VLAN para los vínculos primario y secundario.
+   * Un par de subredes que no forman parte de ningún espacio de direcciones reservado para redes virtuales. Una subred se usará para el vínculo principal, mientras que la otra se usará para el vínculo secundario. Desde cada una de estas subredes, asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador. Tiene tres opciones para este par de subredes:
+       * IPv4: dos subredes /30.
+       * IPv6: dos subredes /126.
+       * Las dos: dos subredes /30 y dos subredes /126.
+   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN. Para los vínculos principal y secundario, debe usar el mismo identificador de VLAN.
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número de AS privado para este emparejamiento, excepto el comprendido entre 65515 y 65520, ambos inclusive.
    * Debe anunciar las rutas del enrutador perimetral local a Azure a través de BGP al configurar el emparejamiento privado.
    * **Opcional:** un hash MD5 si elige usar uno.

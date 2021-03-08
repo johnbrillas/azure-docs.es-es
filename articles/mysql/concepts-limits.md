@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386721"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721027"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -29,7 +29,7 @@ Los complementos de contraseñas como "validate_password" y "caching_sha2_passwo
 
 ## <a name="storage-engines"></a>Motores de almacenamiento
 
-MySQL es compatible con muchos motores de almacenamiento. En Azure Database for MySQL con servidor flexible, se admiten y no se admiten los siguientes motores de almacenamiento:
+MySQL es compatible con muchos motores de almacenamiento. En Azure Database for MySQL, los motores de almacenamiento siguientes son compatibles y no compatibles:
 
 ### <a name="supported"></a>Compatible
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

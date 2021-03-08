@@ -1,17 +1,16 @@
 ---
 title: Columnas estándar en registros de Azure Monitor | Microsoft Docs
 description: Describe las columnas que son comunes a varios tipos de datos en los registros de Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704130"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030773"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Columnas estándar en registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../logs/data-platform-logs.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.

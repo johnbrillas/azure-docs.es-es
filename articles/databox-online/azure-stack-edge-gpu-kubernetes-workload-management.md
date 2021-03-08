@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719277"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Administración de cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro
 
@@ -54,6 +54,17 @@ Existen tres formas principales de implementar las cargas de trabajo. Cada una d
 - **Implementación de Kubernetes habilitado para Azure Arc**: Kubernetes habilitado para Azure Arc es una herramienta de administración híbrida que le permitirá implementar aplicaciones en los clústeres de Kubernetes. Se conecta al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro mediante `azure-arc namespace`. Los agentes implementados en este espacio de nombres son responsables de la conectividad con Azure. La configuración de implementación se aplica mediante la administración de configuraciones basada en GitOps. 
     
     Kubernetes habilitado para Azure Arc también le permitirá usar Azure Monitor para contenedores para ver y supervisar su clúster. Para más información, vaya a [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md).
+    
+    A partir de marzo de 2021, Kubernetes habilitado para Azure Arc estará disponible con carácter general para los usuarios y se aplicarán cargos de uso estándar. Como cliente valioso de la versión preliminar, Kubernetes habilitado para Azure Arc estará a su disposición sin cargo alguno para dispositivos de Azure Stack Edge. Para disfrutar de la oferta de la versión preliminar, cree una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. En **Tipo de problema** como **Facturación**.
+    2. En **Suscripción**, seleccione la suscripción.
+    3. En **Servicio**, seleccione **Mis servicios** y, después, seleccione **Azure Stack Edge**.
+    4. En **Recurso**, seleccione su recurso.
+    5. En **Resumen**, escriba una descripción del problema.
+    6. En **Tipo de problema**, seleccione **Unexpected Charges** (Cargos inesperados).
+    7. En **Subtipo de problema**, seleccione **Help me understand charges on my free trial** (Necesito ayuda para entender los cargos de la evaluación gratuita).
+
 
 ## <a name="choose-the-deployment-type"></a>Elección del tipo de implementación
 

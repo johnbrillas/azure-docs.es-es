@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493709"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709094"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -372,6 +372,7 @@ En las secciones siguientes se proporcionan instrucciones adicionales para probl
 - [La aplicación no aparece: se muestra la aplicación predeterminada](#app-doesnt-appear)
 - [La aplicación no aparece: mensaje "servicio no disponible"](#service-unavailable)
 - [No se pudo encontrar setup.py o requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [ModuleNotFoundError en el inicio](#modulenotfounderror-when-app-starts)
 - [Las contraseñas no aparecen en la sesión SSH cuando se escriben](#other-issues)
 - [Parece que los comandos de la sesión SSH se han cortado](#other-issues)
 - [Los recursos estáticos no aparecen en una aplicación de Django](#other-issues)
@@ -404,6 +405,10 @@ En las secciones siguientes se proporcionan instrucciones adicionales para probl
 - **La secuencia de registro muestra "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).** : el proceso de compilación de Oryx no ha podido encontrar el archivo *requirements.txt*.
 
     - Conéctese al contenedor de la aplicación web mediante [SSH](#open-ssh-session-in-browser) y compruebe que el archivo *requirements.txt* tiene el nombre correcto y existe directamente en *site/wwwroot*. Si no existe, haga que el archivo exista en el repositorio y que esté incluido en la implementación. Si existe en una carpeta distinta, muévalo a la raíz.
+
+#### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError cuando se inicia la aplicación
+
+Si ve un error como `ModuleNotFoundError: No module named 'example'`, significa que Python no ha podido encontrar uno o varios de los módulos al iniciarse la aplicación. Esto suele ocurrir si implementa el entorno virtual con el código. Los entornos virtuales no son portables, por lo que no se deben implementar con el código de la aplicación. En su lugar, permita que Oryx cree un entorno virtual e instale los paquetes en la aplicación web mediante la creación de una configuración de aplicación, `SCM_DO_BUILD_DURING_DEPLOYMENT`, que se establezca en `1`. Esto obligará a Oryx a instalar los paquetes cada vez que realice la implementación en App Service. Para obtener más información, vea [este artículo sobre portabilidad del entorno virtual](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
 #### <a name="other-issues"></a>Otros problemas
 

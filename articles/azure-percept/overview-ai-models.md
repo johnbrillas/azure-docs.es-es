@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 28a8de231f179cf69342da81e6a2ae1989d2a5d6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041593"
+ms.locfileid: "102098373"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos de inteligencia artificial de Azure Percept
 
@@ -52,6 +52,8 @@ Las palabras clave y los comandos predefinidos del asistente para voz están dis
 
 ## <a name="advanced-development"></a>Desarrollo avanzado
 
-Para desarrolladores avanzados, el [cuaderno de Jupyter Notebook](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) disponible realiza el aprendizaje por transferencia mediante un modelo de TensorFlow previamente entrenado (MobileNetSSDV2Lite) en Python con un conjunto de datos personalizado para la detección de objetos. El cuaderno usa instancias de proceso remotas a través de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview) y se puede ejecutar en la nube mediante el portal de Azure Machine Learning o de forma local en [Visual Studio Code](https://code.visualstudio.com/).
+Consulte las instrucciones, los tutoriales y los ejemplos de [desarrollo avanzado de Azure Percept en GitHub](https://github.com/microsoft/azure-percept-advanced-development) sobre aspectos como:
 
-También se incluyen algunos [scripts](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) de Python útiles para administrar conjuntos de datos y el [instalador del paquete de herramientas de desarrollo](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md), que instala y configura todas las herramientas necesarias para desarrollar una solución avanzada de inteligencia artificial.
+* Incorporación de un modelo de AI personalizado al dispositivo
+* Actualización de un modelo que ya es compatible con aprendizaje por transferencia
+* Y mucho más

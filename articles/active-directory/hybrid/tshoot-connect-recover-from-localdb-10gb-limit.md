@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858406"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688780"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. Puede usar la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar la versión completa de SQL Server. SQL Server Express impone un límite en el tamaño de 10 GB. Si usa LocalDB y se alcanza este límite, el servicio Azure AD Connect Synchronization no podrá iniciarse ni sincronizarse correctamente. En este artículo se detallan los pasos de recuperación.
@@ -74,7 +74,7 @@ El nombre de la base de datos creada para Azure AD Connect es **ADSync**. Para r
 
 4. Inicie la utilidad **sqlcmd** ejecutando el comando `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` con las credenciales del administrador del sistema o DBO de la base de datos.
 
-5. Para reducir la base de datos, en el símbolo del sistema de sqlcmd (1>), escriba `DBCC Shrinkdatabase(ADSync,1);` y, en la siguiente línea, `GO`.
+5. Para reducir la base de datos, en el símbolo del sistema de sqlcmd (`1>`), escriba `DBCC Shrinkdatabase(ADSync,1);` seguido de `GO` en la línea siguiente.
 
 6. Si la operación se realiza correctamente, intente iniciar de nuevo el servicio de sincronización. Si consigue iniciarlo, vaya al paso [Eliminación de los datos del historial de ejecución](#delete-run-history-data). De lo contrario, póngase en contacto con el servicio de soporte técnico.
 

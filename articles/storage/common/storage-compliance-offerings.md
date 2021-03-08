@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ca0e95d311adedf613ed168927491dfa85b1cabd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7ec938a13d04cf3400e4d3df0eeda051c61d35ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724275"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de cumplimiento de Azure Storage
 
 Para ayudar a las organizaciones a cumplir los requisitos nacionales, regionales y específicos del sector que rigen la recopilación y el uso de los datos personales, Microsoft Azure y Azure Storage ofrecen la serie más completa de certificaciones y testimonios de todos los proveedores de servicios en la nube.
 
-Puede buscar en las ofertas de cumplimiento de Azure Storage para asegurarse de que su servicio está regulado al utilizar el servicio Azure Storage. Son aplicables a las siguientes ofertas de Azure Storage: blobs, archivos, colas, tablas, discos, almacenamiento de acceso esporádico y Premium Storage.
+Puede buscar en las ofertas de cumplimiento de Azure Storage para asegurarse de que su servicio está regulado al utilizar el servicio Azure Storage. Son aplicables a las siguientes ofertas de Azure Storage: blobs (ADLS Gen2), archivos, colas, tablas, discos, almacenamiento de acceso esporádico y Premium Storage.
 
 ## <a name="global"></a>Global
 

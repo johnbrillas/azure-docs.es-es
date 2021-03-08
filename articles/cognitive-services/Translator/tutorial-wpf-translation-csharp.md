@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728015"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -41,7 +41,7 @@ En esta lista se incluyen los servicios Cognitive Services utilizados en este tu
 | Servicio | Característica | Descripción |
 |---------|---------|-------------|
 | Traductor | [Obtener idiomas](./reference/v3-0-languages.md) | Recupera una lista completa de los idiomas admitidos para la traducción de texto. |
-| Traductor | [Traducir](./reference/v3-0-translate.md) | Traduce texto en más de 70 idiomas. |
+| Traductor | [Traducir](./reference/v3-0-translate.md) | Traduce texto a 90 idiomas y dialectos. |
 | Traductor | [Detectar](./reference/v3-0-detect.md) | Detecta el idioma del texto de entrada. Incluye la puntuación de confianza para la detección. |
 | Bing Spell Check | [Corrector ortográfico](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige los errores de ortografía para mejorar la precisión de la traducción. |
 
@@ -264,7 +264,7 @@ Por último, hemos agregado código a métodos de llamada para recuperar los idi
 
 ## <a name="get-supported-languages"></a>Obtener idiomas admitidos
 
-El Traductor admite actualmente más de 70 idiomas. Dado que, con el tiempo, se agregará nueva compatibilidad de idiomas, recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
+Traductor admite actualmente 90 idiomas y dialectos. Dado que, con el tiempo, se agregará nueva compatibilidad de idiomas, recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
 
 En esta sección, se va a crear una solicitud `GET` al recurso de idiomas, especificando que queremos una lista de idiomas disponibles para traducir.
 

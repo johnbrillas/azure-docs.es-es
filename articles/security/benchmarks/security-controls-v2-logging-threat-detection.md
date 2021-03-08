@@ -4,19 +4,21 @@ description: 'Azure Security Benchmark v2: registro y detección de amenazas'
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576818"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042987"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Control de seguridad V2: registro y detección de amenazas
 
-El registro y la detección de amenazas cubre los controles para detectar amenazas en Azure y habilitar, recopilar y almacenar registros de auditoría de los servicios de Azure. Esto incluye la habilitación de procesos de detección, investigación y corrección con controles para generar alertas de alta calidad con la detección de amenazas nativa en los servicios de Azure, así como la recopilación de registros con Azure Monitor, la centralización del análisis de seguridad con Azure Sentinel, la sincronización de la hora y la retención de registros. 
+El registro y la detección de amenazas cubre los controles para detectar amenazas en Azure y habilitar, recopilar y almacenar registros de auditoría de los servicios de Azure. Esto incluye la habilitación de procesos de detección, investigación y corrección con controles para generar alertas de alta calidad con la detección de amenazas nativa en los servicios de Azure, así como la recopilación de registros con Azure Monitor, la centralización del análisis de seguridad con Azure Sentinel, la sincronización de la hora y la retención de registros.
+
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: registro y detección de amenazas](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Habilitación de la detección de amenazas para recursos de Azure
 
@@ -28,7 +30,7 @@ Asegúrese de que está supervisando distintos tipos de recursos de Azure para d
 
 Use la funcionalidad integrada de detección de amenazas de Azure Security Center, que se basa en la supervisión de los datos de telemetría de los servicios de Azure y en el análisis de los registros de servicio. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y diversos registros de eventos del sistema y copia los datos en el área de trabajo para analizarlos. 
 
-Además, use Azure Sentinel para compilar reglas de análisis, que capturan las amenazas que cumplen criterios específicos en su entorno. Las reglas generan incidentes cuando los criterios coinciden, por lo que puede investigar cada incidente. Azure Sentinel también puede importar inteligencia contra amenazas de terceros para mejorar su capacidad de detección de amenazas. 
+Además, use Azure Sentinel para crear reglas de análisis, que capturan las amenazas que coinciden con criterios específicos en el entorno. Las reglas generan incidentes cuando los criterios coinciden, por lo que puede investigar cada incidente. Azure Sentinel también puede importar inteligencia contra amenazas de terceros para mejorar su capacidad de detección de amenazas. 
 
 - [Protección contra amenazas en Azure Security Center](../../security-center/azure-defender.md)
 
@@ -46,7 +48,7 @@ Además, use Azure Sentinel para compilar reglas de análisis, que capturan las 
 
 - [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -67,7 +69,7 @@ Azure AD proporciona los siguientes registros de usuario que se pueden ver en l
 
 -   Usuarios marcados en riesgo: un usuario en riesgo es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
-Azure Security Center también puede alertar sobre determinadas actividades sospechosas, como un número excesivo de intentos de autenticación incorrectos y cuentas en desuso en la suscripción. Además de la supervisión básica de la protección de seguridad, el módulo de protección contra amenazas de Azure Security Center también puede recopilar alertas de seguridad más detalladas de recursos individuales de proceso de Azure (como máquinas virtuales, contenedores, App Service), recursos de datos (como base de datos SQL y almacenamiento) y niveles de servicio de Azure. Esta funcionalidad permite ver anomalías de las cuentas dentro de los recursos individuales.
+Azure Security Center también puede alertar sobre determinadas actividades sospechosas, como un número excesivo de intentos de autenticación incorrectos y cuentas en desuso en la suscripción. Además de la supervisión básica de la protección de seguridad, el módulo de protección contra amenazas de Azure Security Center también puede recopilar alertas de seguridad más detalladas de recursos de proceso de Azure concretos (como máquinas virtuales, contenedores, App Service), recursos de datos (como base de datos SQL y almacenamiento) y niveles de servicio de Azure. Esta funcionalidad permite ver anomalías de las cuentas dentro de los recursos individuales.
 
 - [Informes de actividad de auditoría en Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
@@ -83,9 +85,9 @@ Azure Security Center también puede alertar sobre determinadas actividades sosp
 
 - [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Información sobre amenazas](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ Azure Security Center también puede alertar sobre determinadas actividades sosp
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
-Habilite y recopile registros de recursos de grupos de seguridad de red (NSG), registros de flujo de NSG, registros de Azure Firewall y registros de Web Application Firewall (WAF) para un análisis de seguridad que favorezca la investigación de incidentes, la búsqueda de amenazas y la generación de alertas de seguridad. Puede enviar los registros de flujo a un área de trabajo de Azure Monitor Log Analytics y, a continuación, usar Análisis de tráfico para conseguir información detallada. Asegúrese de recopilar registros de consultas de DNS para ayudar a correlacionar otros datos de red.
+Habilite y recopile registros de recursos de grupos de seguridad de red (NSG), registros de flujo de NSG, registros de Azure Firewall y registros de Web Application Firewall (WAF) para un análisis de seguridad que favorezca la investigación de incidentes, la búsqueda de amenazas y la generación de alertas de seguridad. Puede enviar los registros de flujo a un área de trabajo de Azure Monitor Log Analytics y, a continuación, usar Análisis de tráfico para conseguir información detallada.
+
+Asegúrese de recopilar registros de consultas de DNS para ayudar a correlacionar otros datos de red.
 
 - [Habilitación de los registros de flujo de grupos de seguridad de red](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Habilite y recopile registros de recursos de grupos de seguridad de red (NSG), r
 
 - [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Habilite y recopile registros de recursos de grupos de seguridad de red (NSG), r
 
 Habilite el registro de los recursos de Azure para satisfacer los requisitos de cumplimiento, detección de amenazas, búsqueda e investigación de incidentes. 
 
-Puede usar Azure Security Center y Azure Policy para habilitar la recopilación de registros de recursos y datos de registro sobre los recursos de Azure para el acceso a registros de auditoría, seguridad y recursos. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. 
+Puede usar Azure Security Center y Azure Policy para habilitar la recopilación de registros de recursos y datos de registro sobre los recursos de Azure para el acceso a registros de auditoría, seguridad y recursos. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles.
 
 - [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Puede usar Azure Security Center y Azure Policy para habilitar la recopilación 
 
 Infraestructura y seguridad de los puntos de conexión 
 
-- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Información sobre amenazas](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -155,13 +159,13 @@ Infraestructura y seguridad de los puntos de conexión
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
-Centralice el almacenamiento y el análisis de los registros para permitir su correlación. Asegúrese de que, para cada origen de registro, asigna un propietario de datos, una guía de acceso y una ubicación de almacenamiento; que determinar qué herramientas se usan para procesar y acceder a los datos, y los requisitos de retención de datos.
+Centralice el almacenamiento y el análisis de los registros para permitir su correlación. Asegúrese de que asigna en cada origen de registro un propietario de datos, una guía de acceso, una ubicación de almacenamiento, qué herramientas se van a usar para procesar y acceder a los datos y los requisitos de retención de datos.
 
-Asegúrese también de que integra los registros de actividad de Azure en el registro central. Recopile registros mediante Azure Monitor para agregar datos de seguridad generados por dispositivos de punto de conexión, recursos de red y otros sistemas de seguridad. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
+Asegúrese de integrar los registros de actividad de Azure en el registro central. Recopile registros mediante Azure Monitor para agregar datos de seguridad generados por dispositivos de punto de conexión, recursos de red y otros sistemas de seguridad. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
 Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de terceros.
 
-Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia. 
+Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso "frecuente" y Azure Storage para los datos "inactivos" que se usan con menos frecuencia.
 
 - [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ En Azure Monitor, puede establecer el período de retención del área de trabaj
 
 - [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Exportación de alertas y recomendaciones de Azure Security Center](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ En Azure Monitor, puede establecer el período de retención del área de trabaj
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ En Azure Monitor, puede establecer el período de retención del área de trabaj
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Microsoft mantiene los orígenes de hora de la mayoría de los servicios de PaaS y SaaS de Azure. En el caso de las máquinas virtuales, use el servidor NTP predeterminado de Microsoft para la sincronización de hora, a menos que tenga un requisito específico.  Si necesita instalar su propio servidor NTP (protocolo de hora de la red), asegúrese de proteger el puerto 123 del servicio UDP.
+Microsoft mantiene los orígenes de hora de la mayoría de los servicios de PaaS y SaaS de Azure. En el caso de las máquinas virtuales, use el servidor NTP predeterminado de Microsoft para la sincronización de hora, a menos que tenga un requisito específico. Si necesita instalar su propio servidor NTP (protocolo de hora de la red), asegúrese de proteger el puerto 123 del servicio UDP.
 
 Todos los registros generados por los recursos de Azure proporcionan marcas de tiempo con la zona horaria especificada de forma predeterminada.
 

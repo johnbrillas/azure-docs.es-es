@@ -3,12 +3,12 @@ title: Funciones de plantillas
 description: Se describen las funciones que se van a usar en una plantilla de Azure Resource Manager para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931714"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707326"
 ---
 # <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
@@ -33,6 +33,10 @@ La mayoría de las funciones operan de la misma forma cuando se implementan en u
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>Cualquier función
+
+La [función any](template-functions-any.md) está disponible en Bicep para ayudar a resolver problemas relacionados con las advertencias de tipos de datos.
 
 ## <a name="array-functions"></a>Funciones de matriz
 

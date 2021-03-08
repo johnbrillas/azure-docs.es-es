@@ -1,24 +1,24 @@
 ---
 title: Cómo detener la supervisión del clúster de Azure Kubernetes Service | Microsoft Docs
-description: En este artículo se describe cómo puede interrumpir la supervisión del clúster de Azure AKS con Azure Monitor para contenedores.
+description: En este artículo se describe cómo interrumpir la supervisión del clúster de Azure AKS con Container Insights.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723544"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Container Insights
 
 Después de habilitar la supervisión del clúster de AKS, puede dejar de supervisar el clúster si decide que ya no desea supervisarlo. En este artículo se muestra cómo realizar esta tarea mediante la CLI de Azure o con las plantillas de Azure Resource Manager proporcionadas.  
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Use el comando [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Azure Monitor.  
+Use el comando [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) para deshabilitar Container Insights. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -165,4 +165,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de una área de trabajo de Azure Log Analytics con Azure Portal](../platform/delete-workspace.md). No se olvide del **identificador de recurso del área de trabajo** que copió anteriormente en el paso 4; lo necesitará.
+Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de una área de trabajo de Azure Log Analytics con Azure Portal](../logs/delete-workspace.md). No se olvide del **identificador de recurso del área de trabajo** que copió anteriormente en el paso 4; lo necesitará.

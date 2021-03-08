@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d6d5ab13c8997dffee42a053ba498376ccbcb6d8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e87899010660eac11166275bdfd61151bb12c10f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686944"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 
@@ -129,6 +129,8 @@ Para probar el acceso condicional en el flujo de usuario, debe [crear una direct
 ## <a name="add-conditional-access-to-your-policy"></a>Adición del acceso condicional a una directiva
 
 Puede encontrar un ejemplo de una directiva de acceso condicional en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+También puede aprender más sobre cómo [definir un perfil técnico de acceso condicional en una directiva personalizada](conditional-access-technical-profile.md).
 
 ::: zone-end
 

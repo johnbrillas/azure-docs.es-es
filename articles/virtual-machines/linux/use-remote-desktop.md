@@ -1,26 +1,23 @@
 ---
-title: Uso del escritorio remoto a una máquina virtual Linux en Azure
+title: Uso de xrdp con Linux
 description: Obtenga información acerca de cómo instalar y configurar el escritorio remoto (xrdp) para conectarse a una máquina virtual Linux en Azure con herramientas gráficas
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196391"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695182"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Instalación y configuración de xrdp para usar Escritorio remoto con una máquina virtual Linux
+
 Las máquinas virtuales de Linux (VM) en Azure normalmente se administran desde la línea de comandos mediante una conexión de shell seguro (SSH). Cuando sean nuevas en Linux, o para escenarios de solución de problemas rápidos, el uso del escritorio remoto puede ser más fácil. En este artículo se detalla cómo instalar y configurar un entorno de escritorio ([xfce](https://www.xfce.org)) y el escritorio remoto ([xrdp](http://xrdp.org)) para la máquina virtual Linux con el modelo de implementación de Resource Manager.
 
 
@@ -32,6 +29,7 @@ Este artículo requiere una máquina virtual de Ubuntu 18.04 LTS existente en A
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar un entorno de escritorio en la máquina virtual Linux
+
 La mayoría de las máquinas virtuales Linux en Azure no tienen un entorno de escritorio instalado de forma predeterminada. Las máquinas virtuales Linux normalmente se administran mediante conexiones SSH en lugar de con un entorno de escritorio. Existen varios entornos de escritorio en Linux que puede elegir. Según la elección del entorno de escritorio, se puede utilizar de 1 a 2 GB de espacio en disco y tardar de 5 a 10 minutos en instalar y configurar todos los paquetes necesarios.
 
 En el ejemplo siguiente se instala el entorno de escritorio [xfce4](https://www.xfce.org/) ligero en una máquina virtual de Ubuntu 18.04 LTS. Los comandos para otras distribuciones varían ligeramente (use `yum` para realizar la instalación en Red Hat Enterprise Linux y configurar las reglas de `selinux` adecuadas o use `zypper` para realizar la instalación en SUSE, por ejemplo).
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Conectar la máquina virtual Linux con un cliente de escritorio remoto
-Abra el cliente de escritorio remoto local y conéctese a la dirección IP o nombre DNS de la máquina virtual Linux. Escriba el nombre de usuario y la contraseña para la cuenta de usuario en la máquina virtual como se indica a continuación:
 
-![Conectarse a xrdp mediante el cliente de escritorio remoto](./media/use-remote-desktop/remote-desktop-client.png)
+Abra el cliente de escritorio remoto local y conéctese a la dirección IP o nombre DNS de la máquina virtual Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Captura de pantalla del cliente de Escritorio remoto":::
+
+Escriba el nombre de usuario y la contraseña para la cuenta de usuario en la máquina virtual como se indica a continuación:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Captura de pantalla de la pantalla de inicio de sesión de xrdp":::
 
 Tras la autenticación, el entorno de escritorio de xfce se cargará y tendrá un aspecto similar al ejemplo siguiente:
 

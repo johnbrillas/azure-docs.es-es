@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692919"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122007"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problemas conocidos: Servicios de datos habilitados para Azure Arc (versión preliminar)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101692919"
 
 ## <a name="february-2021"></a>Febrero de 2021
 
-
 - El modo de clúster conectado está deshabilitado
-- Hiperescala de PostgreSQL habilitada para Azure Arc devuelve un mensaje de error inexacto cuando no se puede restaurar al punto relativo en el tiempo que se indica. Por ejemplo, si ha especificado una restauración a un momento dado anterior al contenido de las copias de seguridad, se produce un error en la restauración con un mensaje de error como: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`. Cuando esto suceda, reinicie el comando después de indicar un punto en el tiempo que se encuentre dentro del rango de fechas para las que tiene copias de seguridad. Para determinar este rango, enumere las copias de seguridad y examine las fechas en las que se han realizado.
-- Al realizar una restauración completa se necesita un identificador de copia de seguridad. De forma predeterminada, si no indica un identificador de copia de seguridad, se usará la última copia de seguridad. Esto no funciona en esta versión.
 
 ## <a name="introduced-prior-to-february-2021"></a>Incorporado antes de febrero de 2021
 

@@ -1,19 +1,19 @@
 ---
 title: Supervisión de un clúster de Azure Kubernetes Service (AKS) implementado | Microsoft Docs
-description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores ya implementados en la suscripción.
+description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Container Insights ya implementado en la suscripción.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 547c22e4d82aa728009a2fdb42f2c3b481b7a625
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604393"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717679"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) ya implementado
 
-En este artículo se describe cómo configurar Azure Monitor para contenedores para supervisar un clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](../../aks/index.yml), que ya se han implementado en la suscripción.
+En este artículo se describe cómo configurar Container Insights para supervisar un clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](../../aks/index.yml) que ya se ha implementado en la suscripción.
 
 Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado mediante uno de los métodos admitidos:
 
@@ -113,13 +113,13 @@ Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure
 
 4. En la lista de clústeres sin supervisar, busque el contenedor y haga clic en **Habilitar**.
 
-5. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
+5. En la página **Incorporación a Container Insights**, si tiene un área de trabajo de Log Analytics existente en la misma suscripción que el clúster, selecciónela en la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión de conclusiones de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Si desea crear una área de trabajo de Log Analytics para almacenar los datos de supervisión del clúster, siga las instrucciones de [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md). Asegúrese de crear el área de trabajo en la misma suscripción en la que está implementado el contenedor de AKS.
+    >Si desea crear una área de trabajo de Log Analytics para almacenar los datos de supervisión del clúster, siga las instrucciones de [Creación de un área de trabajo de Log Analytics en Azure Portal](../logs/quick-create-workspace.md). Asegúrese de crear el área de trabajo en la misma suscripción en la que está implementado el contenedor de AKS.
 
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster.
 
@@ -137,13 +137,13 @@ Para habilitar la supervisión directamente desde un clúster de AKS en Azure Po
 
 5. En la página de información general del servicio Kubernetes, seleccione **Supervisión - Insights**.
 
-6. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
+6. En la página **Incorporación a Container Insights**, si tiene un área de trabajo de Log Analytics existente en la misma suscripción que el clúster, selecciónela en la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión del mantenimiento de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Si desea crear una área de trabajo de Log Analytics para almacenar los datos de supervisión del clúster, siga las instrucciones de [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md). Asegúrese de crear el área de trabajo en la misma suscripción en la que está implementado el contenedor de AKS.
+    >Si desea crear una área de trabajo de Log Analytics para almacenar los datos de supervisión del clúster, siga las instrucciones de [Creación de un área de trabajo de Log Analytics en Azure Portal](../logs/quick-create-workspace.md). Asegúrese de crear el área de trabajo en la misma suscripción en la que está implementado el contenedor de AKS.
 
 Después de habilitar la supervisión pueden pasar unos 15 minutos hasta que pueda ver los datos operativos del clúster.
 
@@ -158,7 +158,7 @@ Este método incluye dos plantillas JSON. Una plantilla especifica la configurac
 >La plantilla debe implementarse en el mismo grupo de recursos que el clúster.
 >
 
-El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o la CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../learn/quick-create-workspace.md).
+El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o la CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../logs/quick-create-workspace.md).
 
 Si no conoce el concepto de implementación de recursos mediante una plantilla, consulte:
 
@@ -380,4 +380,4 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 
 * Si experimenta problemas al intentar incorporar la solución, consulte la [guía de solución de problemas](container-insights-troubleshoot.md).
 
-* Con la supervisión habilitada para recopilar el estado y la utilización de recursos de su clúster AKS y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Azure Monitor para contenedores.
+* Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS y las cargas de trabajo que se ejecutan en estos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.

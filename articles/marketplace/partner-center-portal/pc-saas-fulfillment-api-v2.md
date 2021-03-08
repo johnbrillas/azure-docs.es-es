@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937338"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712358"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -972,4 +972,4 @@ Consulte [Soporte técnico para el programa Marketplace comercial en el Centro d
 
 Consulte las [API del servicio de medición del marketplace comercial](marketplace-metering-service-apis.md) si quiere descubrir más opciones para las ofertas de SaaS en el marketplace comercial.
 
-Revise y use el [SDK de SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) basado en las API descritas en este documento.
+Revise y use los [clientes para obtener ejemplos y lenguajes de programación diferentes](https://github.com/microsoft/commercial-marketplace-samples).

@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675013"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694995"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
@@ -68,13 +68,56 @@ Esta nueva característica de nivel de plataforma usará IA para intentar restau
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ventajas de Prueba y restauración:
-- La característica está habilitada de forma predeterminada al implementar una máquina virtual de acceso puntual de Azure en un conjunto de escalado.
 - Intenta restaurar las máquinas virtuales de acceso puntual de Azure expulsadas por motivos de capacidad.
 - Se espera que las máquinas virtuales de acceso puntual de Azure restauradas se ejecuten durante más tiempo con menos probabilidad de que se produzca una expulsión desencadenada por la capacidad.
 - Mejora la duración de una máquina virtual de acceso puntual de Azure, por lo que las cargas de trabajo se ejecutan durante más tiempo.
 - Permite que los conjuntos de escalado de máquinas virtuales conserven el recuento de destinos de las máquinas virtuales de acceso puntual de Azure, de la misma forma que la característica que sirve para conservar el recuento de destinos que ya existen para las máquinas virtuales de pago por uso.
 
 La característica Prueba y restauración está deshabilitada en los conjuntos de escalado en los que se usa [Escalado automático](virtual-machine-scale-sets-autoscale-overview.md). El número de máquinas virtuales del conjunto de escalado está controlado por las reglas de escalado automático.
+
+### <a name="register-for-try--restore"></a>Registro para Prueba y restauración
+
+Antes de poder usar la característica Prueba y restauración, debe registrar la suscripción para la versión preliminar. El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
+
+
+**Uso de la CLI**
+
+Utilice [az feature register](/cli/azure/feature#az-feature-register) para habilitar la versión preliminar de su suscripción. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Uso de PowerShell** 
+
+Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Grupos de selección de ubicación
 

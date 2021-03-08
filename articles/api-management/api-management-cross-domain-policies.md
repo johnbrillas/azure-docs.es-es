@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131248"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688423"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -62,7 +62,10 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 - **Ámbitos de la directiva:** todos los ámbitos
 
 ## <a name="cors"></a><a name="CORS"></a> CORS
-La directiva `cors` agrega compatibilidad con el uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
+La directiva `cors` agrega compatibilidad con el uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador. 
+
+> [!NOTE]
+> Si la solicitud coincide con una operación con un método OPTIONS definido en la API, no se ejecutará la lógica de procesamiento de solicitudes preparatoria asociada a las directivas de CORS. Por lo tanto, estas operaciones se pueden usar para implementar la lógica de procesamiento preparatoria.
 
 CORS permite a un explorador y a un servidor interactuar y determinar si se permiten o no solicitudes específicas entre orígenes (por ejemplo, llamadas XMLHttpRequests realizadas desde JavaScript en una página web a otros dominios). Esto permite más flexibilidad que si solo se permiten solicitudes del mismo origen, pero es más seguro que permitir todas las solicitudes entre orígenes.
 
@@ -71,7 +74,7 @@ Debe aplicar la directiva CORS para habilitar la consola interactiva en el porta
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -138,6 +141,7 @@ En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquella
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|El encabezado `Access-Control-Allow-Credentials` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la capacidad del cliente de enviar credenciales en solicitudes entre dominios.|No|false|
+|terminate-unmatched-request|Este atributo controla el procesamiento de solicitudes entre orígenes que no coinciden con la configuración de directiva de CORS. Cuando la solicitud OPTION se procesa como una solicitud preparatoria y no coincide con la configuración de directiva de CORS: si el atributo está establecido en `true`, finaliza inmediatamente la solicitud con una respuesta 200 OK vacía; si el atributo está establecido en `false`, comprueba la entrada de otras directivas de CORS en el ámbito que sean elementos secundarios directos del elemento de entrada y las aplica.  Si no se encuentra ninguna directiva de CORS, termina la solicitud con una respuesta 200 OK vacía. Cuando la solicitud GET o HEAD incluye el encabezado Origin (y, por tanto, se procesa como una solicitud entre orígenes) y no coincide con la configuración de directiva de CORS: si el atributo está establecido en `true`, termina inmediatamente la solicitud con una respuesta 200 OK vacía; si el atributo está establecido en `false`, permite que la solicitud continúe normalmente y no agrega encabezados CORS a la respuesta.|No|true|
 |preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la capacidad del agente del usuario de almacenar en caché la respuesta preparatoria.|No|0|
 
 ### <a name="usage"></a>Uso
@@ -175,7 +179,7 @@ Si agrega el parámetro de devolución de llamada `?cb=XXX`, devolverá un resul
 
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|No aplicable|
+|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

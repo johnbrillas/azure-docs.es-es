@@ -1,26 +1,25 @@
 ---
-title: Ejemplos de plantillas de Azure Resource Manager para Azure Monitor para VM
-description: Plantillas de ejemplo de Azure Resource Manager para implementar y configurar Azure Monitor para VM.
-ms.subservice: logs
+title: Ejemplos de plantillas de Resource Manager para VM Insights
+description: Plantillas de Azure Resource Manager de ejemplo para implementar y configurar VM Insights.
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 91c8396795a85cd63fa502c4b091b7ca9a42865b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598000"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046846"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Ejemplos de plantillas de Azure Resource Manager para Azure Monitor para VM
-Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para habilitar Azure Monitor para VM en máquinas virtuales. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+# <a name="resource-manager-template-samples-for-vm-insights"></a>Ejemplos de plantillas de Resource Manager para VM Insights
+Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para habilitar VM Insights en máquinas virtuales. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="configure-workspace"></a>Configuración del área de trabajo
-El siguiente ejemplo habilita Azure Monitor para VM para un área de trabajo de Log Analytics.
+En el siguiente ejemplo, se habilita VM Insights para un área de trabajo de Log Analytics.
 
 
 ### <a name="template-file"></a>Archivo de plantilla
@@ -98,7 +97,7 @@ El siguiente ejemplo habilita Azure Monitor para VM para un área de trabajo de 
 
 
 ## <a name="onboard-an-azure-virtual-machine"></a>Incorporación de una máquina virtual de Azure
-En el ejemplo siguiente se agrega una máquina virtual de Azure a Azure Monitor para VM.
+En el ejemplo siguiente se agrega una máquina virtual de Azure a VM Insights.
 
 
 ### <a name="template-file"></a>Archivo de plantilla
@@ -219,7 +218,7 @@ En el ejemplo siguiente se agrega una máquina virtual de Azure a Azure Monitor 
 
 
 ## <a name="onboard-an-azure-virtual-machine-scale-set"></a>Incorporación de un conjunto de escalado de máquinas virtuales de Azure
-En el ejemplo siguiente se agrega un conjunto de escalado de máquinas virtuales de Azure a Azure Monitor para VM.
+En el ejemplo siguiente se agrega un conjunto de escalado de máquinas virtuales de Azure a VM Insights.
 
 
 ### <a name="template-file"></a>Archivo de plantilla
@@ -340,5 +339,5 @@ En el ejemplo siguiente se agrega un conjunto de escalado de máquinas virtuales
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Otras plantillas de ejemplo para Azure Monitor](../samples/resource-manager-samples.md).
-* [Más información sobre Azure Monitor para VM](../vm/vminsights-overview.md).
+* [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
+* [Más información sobre VM Insights](vminsights-overview.md).

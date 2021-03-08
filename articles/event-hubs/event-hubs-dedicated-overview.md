@@ -3,12 +3,12 @@ title: 'Introducción a los centros de eventos dedicados: Azure Event Hubs | Mic
 description: En este artículo, se proporciona información general sobre Azure Event Hubs dedicado, que permite realizar implementaciones de centros de eventos con un único inquilino.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715622"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -52,7 +52,7 @@ La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija co
 | Particiones | 32 por centro de eventos | 1024 por centro de eventos<br/>2000 por CU |
 | Grupos de consumidores | 20 por centro de eventos | Sin límite por CU, 1000 por centro de eventos |
 | Conexiones asincrónicas | 1000 incluidas, 5000 como máximo | 100 000 incluidos y como máximo |
-| Retención de mensajes | 7 días, 84 GB incluidas por TU | 90 días, 10 TB incluidas por TU |
+| [Retención de eventos](event-hubs-features.md#event-retention) | 7 días, 84 GB incluidas por TU | 90 días, 10 TB incluidas por TU |
 | Capturar | Pago por hora | Se incluye |
 
 Para obtener más información sobre cuotas y límites, consulte [Cuotas y límites de Azure Event Hubs](event-hubs-quotas.md).

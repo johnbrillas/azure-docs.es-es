@@ -4,19 +4,21 @@ description: 'Azure Security Benchmark V2: acceso con privilegios'
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092057"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035424"
 ---
 # <a name="security-control-v2-privileged-access"></a>Control de seguridad V2: Acceso con privilegios
 
 El acceso con privilegios abarca los controles para proteger el acceso con privilegios a los recursos y al inquilino de Azure. Incluye una serie de controles para proteger el modelo administrativo, las cuentas administrativas y las estaciones de trabajo de acceso con privilegios frente a riesgos deliberados e involuntarios.
+
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: acceso con privilegios](../../governance/policy/samples/azure-security-benchmark.md#privileged-access).
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Protección y limitación de usuarios con privilegios elevados
 
@@ -30,7 +32,7 @@ Limite el número de cuentas de usuario con privilegios elevados y proteja dicha
 
 - Administrador de roles con privilegios: los usuarios con este rol pueden administrar asignaciones de roles en Azure AD, y dentro de Azure AD Privileged Identity Management (PIM). Además, este rol permite administrar todos los aspectos de PIM y de las unidades administrativas.
 
-Nota: Si usa roles personalizados con determinados permisos con privilegios asignados, es posible que tenga otros roles críticos que deban administrarse. Además, puede que también quiera aplicar controles similares a la cuenta de administrador de recursos empresariales críticos.  
+Nota: Si usa roles personalizados con determinados permisos con privilegios asignados, es posible que tenga otros roles críticos que deban administrarse. Además, puede que también quiera aplicar controles similares a la cuenta de administrador de recursos empresariales críticos.
 
 Puede habilitar el acceso con privilegios Just-in-Time (JIT) a los recursos de Azure y Azure AD mediante Azure AD Privileged Identity Management (PIM). JIT concede permisos temporales para realizar tareas con privilegios solo cuando los usuarios lo necesitan. PIM también puede generar alertas de seguridad cuando hay actividades sospechosas o no seguras en la organización de Azure AD.
 
@@ -155,11 +157,9 @@ Use las características de administración de derechos de Azure AD para automa
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-Las estaciones de trabajo seguras y aisladas son de una importancia vital para la seguridad de los roles con acceso a información confidencial como administradores, desarrolladores y operadores de servicios críticos. Use estaciones de trabajo de usuario de alta seguridad o Azure Bastion para las tareas administrativas. Use Azure Active Directory, Protección contra amenazas avanzada de Microsoft Defender (ATP) o Microsoft Intune para implementar una estación de trabajo de usuario segura y administrada para las tareas administrativas. Las estaciones de trabajo protegidas se pueden administrar de forma centralizada para aplicar una configuración segura, como autenticación sólida, líneas de base de software y hardware y acceso lógico y de red restringido. 
+Las estaciones de trabajo seguras y aisladas son de vital importancia para la seguridad de los roles con acceso a información confidencial como administradores, desarrolladores y operadores de servicios críticos. Use estaciones de trabajo de usuario de alta seguridad o Azure Bastion para las tareas administrativas. Use Azure Active Directory, Protección contra amenazas avanzada de Microsoft Defender (ATP) o Microsoft Intune para implementar una estación de trabajo de usuario segura y administrada para las tareas administrativas. Las estaciones de trabajo protegidas se pueden administrar de forma centralizada para aplicar una configuración segura, como autenticación sólida, líneas de base de software y hardware y acceso lógico y de red restringido. 
 
-- [Descripción de las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
-
-- [Implementación de una estación de trabajo con privilegios de acceso](/security/compass/privileged-access-deployment)
+- [Descripción de las estaciones de trabajo con privilegios de acceso](/security/compass/privileged-access-deployment)
 
 **Responsabilidad**: Customer
 
@@ -178,7 +178,8 @@ Las estaciones de trabajo seguras y aisladas son de una importancia vital para l
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 El control de acceso basado en roles de Azure (RBAC de Azure) permite administrar el acceso a los recursos de Azure a través de las asignaciones de roles. Puede asignar estos roles a usuarios, grupos, entidades de servicio e identidades administradas. Hay roles integrados predefinidos para determinados recursos, y estos roles se pueden inventariar o consultar mediante herramientas, como la CLI de Azure, Azure PowerShell y Azure Portal. Los privilegios que se asignen a los recursos a través de Azure RBAC siempre se deben limitar a los requisitos de los roles. Los privilegios limitados complementan el enfoque Just-in-Time (JIT) de Azure AD Privileged Identity Management (PIM) y esos privilegios deben revisarse periódicamente.
-Use los roles integrados para asignar los permisos y crear solo el rol personalizado cuando sea necesario. 
+
+Use los roles integrados para asignar los permisos, y cree solo los roles personalizados cuando sea necesario.
 
 - [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
 
@@ -192,9 +193,9 @@ Use los roles integrados para asignar los permisos y crear solo el rol personali
 
 - [Seguridad de las aplicaciones y DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Administración de identidades y claves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

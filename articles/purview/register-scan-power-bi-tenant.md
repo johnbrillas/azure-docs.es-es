@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695758"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -98,11 +98,13 @@ En primer lugar, agregue una marca de característica especial a la dirección U
     > Por Power BI, solo se permite el registro y el examen de orígenes de datos para una instancia.
 
 
-4. Asigne un nombre al examen. Tenga en cuenta que el único método de autenticación admitido es **Identidad administrada**.
+4. Asigne un nombre al examen. A continuación, seleccione la opción para incluir o excluir las áreas de trabajo personales. Tenga en cuenta que el único método de autenticación admitido es **Identidad administrada**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagen en la que se muestra la configuración del examen de Power BI":::
 
-    El nombre del examen debe tener entre 3 y 63 caracteres, y solo puede contener letras, números, guiones bajos y guiones.  No están permitidos los espacios.
+    > [!Note]
+    > * Al cambiar la configuración de un análisis para incluir o excluir un área de trabajo personal, se desencadenará un análisis completo del origen de Power BI.
+    > * El nombre del examen debe tener entre 3 y 63 caracteres, y solo puede contener letras, números, guiones bajos y guiones. No están permitidos los espacios.
 
 5. Configure un desencadenador de examen. Las opciones disponibles son: **Una sola vez**, **Cada 7 días** y **Cada 30 días**.
 

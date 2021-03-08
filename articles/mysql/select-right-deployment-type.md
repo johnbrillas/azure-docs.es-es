@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926196"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736192"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -43,17 +43,19 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 
 | Atributo          | Azure Database for MySQL<br/>Servidor único |Azure Database for MySQL<br/>Servidor flexible  |MySQL en máquinas virtuales de Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Compatibilidad con versiones de MySQL | 5.6, 5.7 y 8.0| 5.7 | Cualquier versión|
+| Compatibilidad con versiones de MySQL | 5.6, 5.7 y 8.0| 5.7 y 8.0 | Cualquier versión|
 | Escalado de proceso | Compatible (no se admite el escalado desde y hasta el nivel Básico)| Compatible | Compatible|
 | Tamaño de almacenamiento | De 5 GiB a 16 TiB| De 5 GiB a 16 TiB | De 32 GiB a 32 767 GiB|
 | Escalado de almacenamiento en línea | Compatible| Compatible| No compatible|
 | Escalado de almacenamiento automático | Compatible| No se admite en la versión preliminar| No compatible|
+| Escalado de IOPS adicional | No compatible| Compatible| No compatible|
 | Conectividad de red | - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|- Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con integración de Virtual Network.| - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|
 | Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |No hay Acuerdo de Nivel de Servicio en la versión preliminar| 99.99 % con Availability Zones|
 | Aplicación de revisiones del sistema operativo| Automático  | Automático con control de ventana de mantenimiento personalizado | Administrado por los usuarios finales |
 | Aplicación de revisiones de MySQL     | Automático  | Automático con control de ventana de mantenimiento personalizado | Administrado por los usuarios finales |
 | Alta disponibilidad | Alta disponibilidad integrada dentro de una sola zona de disponibilidad| Alta disponibilidad integrada dentro y entre zonas de disponibilidad | Administración personalizada mediante agrupación en clústeres, replicación, etc.|
 | Redundancia de zona | No compatible | Compatible | Compatible|
+| Colocación de zona | No compatible | Compatible | Compatible|
 | Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| No disponible en versión preliminar | Administrado por los usuarios finales |
 | Réplicas de lectura | Compatible (hasta 5 réplicas)| Compatible (hasta 10 réplicas)| Administrado por los usuarios finales |
 | Backup | Automatizado con retención de 7-35 días | Automatizado con retención de 1-35 días | Administrado por los usuarios finales |

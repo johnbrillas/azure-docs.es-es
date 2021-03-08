@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6e4a776bd9aaf3900d05a6191b8ff4dcbb11fd52
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731670"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -156,7 +156,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |---|---|---|---|---|---|---|
 |active-timer-count|Sí|active-timer-count|Count|Average|Número de temporizadores que están actualmente activos|Deployment, AppName, Pod|
 |alloc-rate|Sí|alloc-rate|Bytes|Average|Número de bytes asignados en el montón administrado|Deployment, AppName, Pod|
-|AppCpuUsage|Sí|Uso de CPU de la aplicación (versión preliminar)|Percent|Average|Uso de CPU reciente de la aplicación|Deployment, AppName, Pod|
+|AppCpuUsage|Sí|Uso de CPU de la aplicación |Percent|Average|Uso de CPU reciente de la aplicación|Deployment, AppName, Pod|
 |assembly-count|Sí|assembly-count|Count|Average|Número de ensamblados cargados|Deployment, AppName, Pod|
 |cpu-usage|Sí|cpu-usage|Percent|Average|Porcentaje de tiempo que el proceso ha utilizado la CPU|Deployment, AppName, Pod|
 |current-requests|Sí|current-requests|Count|Average|Número total de solicitudes en procesamiento durante el proceso|Deployment, AppName, Pod|
@@ -2167,9 +2167,9 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|QueryVolume|Sí|Volumen de consulta|Count|Total|Número de consultas que se sirven para una zona DNS|Sin dimensiones|
+|QueryVolume|No|Volumen de consulta|Count|Total|Número de consultas que se sirven para una zona DNS|Sin dimensiones|
 |RecordSetCapacityUtilization|No|Uso de capacidad de conjunto de registros|Percent|Máxima|Porcentaje de capacidad de conjunto de registros que usa una zona DNS|Sin dimensiones|
-|RecordSetCount|Sí|Recuento de conjunto de registros|Count|Máxima|Número de conjuntos de registros de una zona DNS|Sin dimensiones|
+|RecordSetCount|No|Recuento de conjunto de registros|Count|Máxima|Número de conjuntos de registros de una zona DNS|Sin dimensiones|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
@@ -2799,7 +2799,7 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |SuccessE2ELatency|Sí|Latencia de E2E correcta|Milisegundos|Average|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Sí|Latencia del servidor correcta|Milisegundos|Average|El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transacciones|Sí|Transacciones|Count|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|No|Capacidad usada|Bytes|Average|La cantidad de almacenamiento que utiliza la cuenta de almacenamiento. En las cuentas de almacenamiento estándar, es la suma de la capacidad usada por un blob, una tabla, un archivo y una cola. Tanto en las cuentas de almacenamiento Premium como en las cuentas de Blob Storage, coincide con BlobCapacity o FileCapacity.|Sin dimensiones|
+|UsedCapacity|Sí|Capacidad usada|Bytes|Average|La cantidad de almacenamiento que utiliza la cuenta de almacenamiento. En las cuentas de almacenamiento estándar, es la suma de la capacidad usada por un blob, una tabla, un archivo y una cola. Tanto en las cuentas de almacenamiento Premium como en las cuentas de Blob Storage, coincide con BlobCapacity o FileCapacity.|Sin dimensiones|
 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -3137,11 +3137,11 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |AverageResponseTime|Sí|Tiempo medio de respuesta (en desuso)|Segundos|Average|Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes.|Instancia|
 |BytesReceived|Sí|Entrada de datos|Bytes|Total|Cantidad de ancho de banda entrante consumido por la aplicación, en MiB.|Instancia|
 |BytesSent|Sí|Salida de datos|Bytes|Total|Cantidad de ancho de banda saliente consumido por la aplicación, en MiB.|Instancia|
-|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU).|Instancia|
+|CpuTime|Sí|Tiempo de CPU|Segundos|Total|Cantidad de CPU consumida por la aplicación, en segundos. Para más información acerca de esta métrica, consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Tiempo de CPU y porcentaje de CPU). No se aplica a Azure Functions.|Instancia|
 |CurrentAssemblies|Sí|Ensamblados actuales|Count|Average|Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación.|Instancia|
 |FileSystemUsage|Sí|Uso del sistema de archivos|Bytes|Average|Porcentaje de la cuota de sistema de archivos consumida por la aplicación.|Sin dimensiones|
-|FunctionExecutionCount|Sí|Recuento de ejecución de funciones|Count|Total|Recuento de ejecución de funciones|Instancia|
-|FunctionExecutionUnits|Sí|Unidades de ejecución de función|Count|Total|Unidades de ejecución de función|Instancia|
+|FunctionExecutionCount|Sí|Recuento de ejecución de funciones|Count|Total|Recuento de ejecución de funciones. Solo está presente para Azure Functions.|Instancia|
+|FunctionExecutionUnits|Sí|Unidades de ejecución de función|Count|Total|Unidades de ejecución de función. Solo está presente para Azure Functions.|Instancia|
 |Gen0Collections|Sí|Recolección de elementos no utilizados de Gen 0|Count|Total|Número de veces que los objetos de generación 0 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|Instancia|
 |Gen1Collections|Sí|Recolección de elementos no utilizados de Gen 1|Count|Total|Número de veces que los objetos de generación 1 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|Instancia|
 |Gen2Collections|Sí|Recolección de elementos no utilizados de Gen 2|Count|Total|Número de veces que los objetos de generación 2 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación.|Instancia|

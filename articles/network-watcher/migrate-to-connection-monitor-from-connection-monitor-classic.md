@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730038"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migración a Connection Monitor desde Connection Monitor (clásico)
 
@@ -32,7 +32,7 @@ La migración ayuda a generar los siguientes resultados:
 
 * Los agentes y la configuración del firewall funcionan tal cual. No es preciso realizar cambios. 
 * Los monitores de conexión existentes se asignan a Connection Monitor -> Grupo de prueba -> Test format (Formato de prueba). Al hacer clic en **Editar**, puede ver y modificar las propiedades de la nueva característica Connection Monitor, descargar una plantilla para realizar cambios en ella y enviar la plantilla a través de Azure Resource Manager. 
-* Las máquinas virtuales de Azure con la extensión Network Watcher envían datos tanto al área de trabajo como a las métricas. Connection Monitor permite que los datos estén disponibles mediante las nuevas métricas (ChecksFailedPercent y RoundTripTimeMs) en lugar de las anteriores (ProbesFailedPercent y AverageRoundtripMs). 
+* Las máquinas virtuales de Azure con la extensión Network Watcher envían datos tanto al área de trabajo como a las métricas. Connection Monitor permite que los datos estén disponibles mediante las nuevas métricas (ChecksFailedPercent y RoundTripTimeMs) en lugar de las anteriores (ProbesFailedPercent y AverageRoundtripMs). Las métricas anteriores se migrarán a las nuevas métricas como ProbesFailedPercent -> ChecksFailedPercent y AverageRoundtripMs -> RoundTripTimeMs.
 * Supervisión de datos:
    * **Alertas**: se migran automáticamente a las nuevas métricas.
    * **Paneles e integraciones**: se requiere la edición manual del conjunto de métricas. 
@@ -49,7 +49,7 @@ Si usa un área de trabajo personalizada, asegúrese de que Network Watcher est�
     
 1. Seleccione la suscripción y los monitores de conexión que quiere migrar y, luego, elija **Migrate selected** (Migrar seleccionados). 
 
-Con solo unos clics, ha migrado los monitores de conexión existentes a Connection Monitor. 
+Con solo unos clics, ha migrado los monitores de conexión existentes a Connection Monitor. Después de la migración de CM (clásico) a CM, no podrá ver el monitor en CM (clásico).
 
 Ahora puede personalizar las propiedades de Connection Monitor, cambiar el área de trabajo predeterminada, descargar plantillas y comprobar el estado de la migración. 
 

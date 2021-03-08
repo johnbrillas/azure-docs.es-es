@@ -1,53 +1,57 @@
 ---
 title: Descripción de la recopilación proactiva de registros en un dispositivo de Azure Stack Edge Pro
-description: Se describe cómo se realiza la recopilación proactiva de registros en un dispositivo de Azure Stack Edge Pro.
+description: Se describe cómo se realiza la recopilación proactiva de registros en un dispositivo de Azure Stack Edge Pro y cómo deshabilitarla.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/23/2021
 ms.author: alkohli
-ms.openlocfilehash: f79de47ec0ffad11f650054b581dbbaae030edbf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 064af116112f0b530ac0cc9b5755dcec2cf0bd07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722081"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Recopilación proactiva de registros en un dispositivo de Azure Stack Edge
 
-Puede habilitar la recopilación proactiva de registros en el dispositivo de Azure Stack Edge en función de los indicadores de estado del sistema para ayudar a solucionar de forma eficaz cualquier problema del dispositivo. En este artículo se describe qué es la recopilación proactiva de registros, cómo habilitarla y cómo se administran los datos cuando se habilita.
-   
+La recopilación proactiva de registros reúne indicadores de estado del sistema en el dispositivo de Azure Stack Edge para ayudar a solucionar de forma eficaz cualquier problema del dispositivo. La recopilación proactiva de registros está habilitada de manera predeterminada. En este artículo se describe lo que se registra, cómo controla Microsoft los datos, y cómo deshabilitar o habilitar la recopilación proactiva de registros. 
+
 La información de este artículo se aplica a los dispositivos de Azure Stack Edge Pro con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
 
 ## <a name="about-proactive-log-collection"></a>Acerca de la recopilación proactiva de registros
 
-Los equipos de ingeniería y asistencia al cliente de Microsoft usan los registros del sistema del dispositivo de Azure Stack Edge para identificar y corregir de forma eficaz las incidencias que pueden aparecer durante la operación. La recopilación proactiva de registros es un método que alerta a Microsoft de que una incidencia o un evento (consulte la sección de indicadores de la recopilación proactiva de registros para los eventos de los que se realiza un seguimiento) se ha detectado en el dispositivo de Azure Stack Edge del cliente. Los registros de asistencia correspondientes a la incidencia se cargan automáticamente en una cuenta de Azure Storage administrada y controlada por Microsoft. Soporte técnico de Microsoft y los ingenieros de Microsoft revisan estos registros de asistencia para determinar el mejor curso de acción para resolver la incidencia con el cliente.    
+Los equipos de ingeniería y asistencia al cliente de Microsoft usan los registros del sistema del dispositivo de Azure Stack Edge para identificar y corregir de forma eficaz las incidencias que pueden aparecer durante la operación. La recopilación proactiva de registros es un método que alerta a Microsoft de que se ha detectado una incidencia o un evento en el dispositivo de Azure Stack Edge del cliente. Consulte los [indicadores de recopilación proactiva de registros](#proactive-log-collection-indicators) para conocer los eventos de los que se realiza un seguimiento. Los registros de soporte técnico correspondientes a la incidencia se cargan automáticamente en una cuenta de Azure Storage administrada y controlada por Microsoft. Soporte técnico de Microsoft y los ingenieros de Microsoft revisan estos registros de asistencia para determinar el mejor curso de acción para resolver la incidencia con el cliente.
 
 > [!NOTE]
-> Estos registros solo se usan con fines de depuración y proporcionan asistencia a los clientes en caso de que surjan incidencias. 
+> Estos registros solo se usan con fines de depuración y proporcionan soporte técnico a los clientes en caso de que surjan incidencias.
 
 
 ## <a name="enabling-proactive-log-collection"></a>Habilitación de la recopilación proactiva de registros
 
-Puede habilitar la recopilación proactiva de registros al intentar activar el dispositivo a través de la interfaz de usuario local. 
+La recopilación proactiva de registros está habilitada de manera predeterminada. Puede deshabilitar la recopilación proactiva de registros cuando intente activar el dispositivo a través de la interfaz de usuario local. 
 
 1. En la interfaz de usuario web local del dispositivo, vaya a la página **Introducción**.
+
 2. En el icono **Activación**, seleccione **Activar**. 
 
     ![Página "Detalles de la nube" de la interfaz de usuario web local 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
-    
+
 3. En el panel de **activación**:
-    1. Escriba la **clave de activación** que obtuvo en [Obtener la clave de activación para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    1. Puede habilitar la recopilación proactiva de registros para que Microsoft recopile los registros según el estado de mantenimiento del dispositivo. Los registros recopilados de este modo se cargan en una cuenta de Azure Storage.
-    
-    1. Seleccione **Aplicar**.
+   1. Escriba la **clave de activación** que obtuvo en [Obtener la clave de activación para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    ![Página "Detalles de la nube" de la interfaz de usuario web local 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
+      Después de la activación, la recopilación proactiva de registros está habilitada de forma predeterminada, lo que permite a Microsoft recopilar registros basados en el estado de mantenimiento del dispositivo. Estos registros se cargan en una cuenta de Azure Storage. 
 
+      Puede deshabilitar la recopilación proactiva de registros para impedir que Microsoft recopile registros.
 
+   1. Si desea deshabilitar la recopilación proactiva de registros en el dispositivo, seleccione **Deshabilitar**.
+
+   1. Seleccione **Activar**.
+
+   ![Página "Detalles de la nube" de la interfaz de usuario web local 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
 
 ## <a name="proactive-log-collection-indicators"></a>Indicadores de la recopilación proactiva de registros
 
@@ -66,11 +70,11 @@ Microsoft seguirá agregando nuevos eventos a la lista anterior. No se necesita 
 
 ## <a name="other-log-collection-methods"></a>Otros métodos de recopilación de registros
 
-Además de la recopilación proactiva de registros, que recopila registros específicos correspondientes a una incidencia específica detectada, hay otras recopilaciones de registros que pueden proporcionar información más profunda del estado y el comportamiento del sistema. Normalmente, estas otras recopilaciones de registros se pueden ejecutar durante una solicitud de soporte técnico o desencadenadas por Microsoft en función de los datos de telemetría que proporciona el dispositivo.  
+Además de la recopilación proactiva de registros, que recopila registros específicos correspondientes a una incidencia específica detectada, hay otras recopilaciones de registros que pueden proporcionar una explicación más detallada del estado y el comportamiento del sistema. Normalmente, estos otros registros se pueden recopilar durante una solicitud de soporte técnico, o bien puede desencadenarlos Microsoft en función de los datos de telemetría del dispositivo.
 
 ## <a name="handling-data"></a>Control de datos
 
-Si un cliente habilita la recopilación proactiva de registros, acepta la recopilación de registros de Microsoft del dispositivo de Azure Stack Edge, tal como se describe aquí. El cliente también acepta y da su consentimiento a la carga y retención de dichos registros en una cuenta de Azure Storage administrada y controlada por Microsoft.
+Cuando se habilita la recopilación proactiva de registros, el cliente acepta que Microsoft recopile registros del dispositivo de Azure Stack Edge, tal como se describe aquí. El cliente también acepta y da su consentimiento a la carga y retención de dichos registros en una cuenta de Azure Storage administrada y controlada por Microsoft.
 
 Microsoft solo usa los datos para solucionar problemas de estado del sistema e incidencias. Los datos no se usan para marketing, publicidad ni ningún otro propósito comercial sin el consentimiento del cliente. 
 

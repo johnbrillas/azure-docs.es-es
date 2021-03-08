@@ -1,18 +1,18 @@
 ---
 title: Cómo detener la supervisión del clúster híbrido de Kubernetes | Microsoft Docs
-description: En este artículo se describe cómo puede detener la supervisión del clúster híbrido de Kubernetes con Azure Monitor para contenedores.
+description: En este artículo se describe cómo puede detener la supervisión del clúster híbrido de Kubernetes con Container Insights.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e8708d6b860683cc96a806160ccc7c8e33949ab2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713701"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Cómo detener la supervisión del clúster híbrido
 
-Después de habilitar la supervisión del clúster de Kubernetes, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo hacerlo para los siguientes entornos:
+Después de habilitar la supervisión del clúster de Kubernetes, puede detenerla con Container Insights si decide que ya no quiere continuar supervisándolo. En este artículo se muestra cómo hacerlo para los siguientes entornos:
 
 - Motor de AKS en Azure y Azure Stack
 - OpenShift versión 4 y versiones posteriores
@@ -25,7 +25,7 @@ Los pasos siguientes se aplican a los siguientes entornos:
 - Motor de AKS en Azure y Azure Stack
 - OpenShift versión 4 y versiones posteriores
 
-1. Para identificar primero la versión del gráfico de Helm de Azure Monitor para contenedores instalada en el clúster, ejecute el siguiente comando de Helm.
+1. Para identificar primero la versión del gráfico de Helm de Container Insights instalada en el clúster, ejecute el siguiente comando de Helm.
 
     ```
     helm list
@@ -38,7 +38,7 @@ Los pasos siguientes se aplican a los siguientes entornos:
     azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
     ```
 
-    *azmon-containers-release-1* representa la versión del gráfico de Helm para Azure Monitor para contenedores.
+    *azmon-containers-release-1* representa la versión del gráfico de Helm para Container Insights.
 
 2. Para eliminar la versión del gráfico, ejecute el siguiente comando de Helm.
 
@@ -157,4 +157,4 @@ bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-conte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../platform/delete-workspace.md).
+Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../logs/delete-workspace.md).

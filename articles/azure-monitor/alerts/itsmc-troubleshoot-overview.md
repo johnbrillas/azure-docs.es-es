@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737212"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Solución de problemas en Conector de Administración de servicios de TI
 
@@ -55,7 +55,7 @@ En las secciones siguientes se identifican los síntomas comunes, las causas pos
 
 * Las credenciales son incorrectas.
 * Los privilegios son insuficientes.
-* La aplicación web se implementó incorrectamente.
+* Para conexiones de Service Manager: la aplicación web se ha implementado incorrectamente.
 
 **Solución:**
 
@@ -95,3 +95,12 @@ En las secciones siguientes se identifican los síntomas comunes, las causas pos
 **Causa**: Una instancia de ITSM recién creada aún tiene que finalizar la sincronización inicial.
 
 **Solución:** Revise los [errores comunes y sus soluciones](itsmc-dashboard-errors.md).
+
+### <a name="sync-connection"></a>Sincronización de la conexión 
+
+**Causa**: Puede haber varios motivos para este síntoma:
+
+* Las plantillas no se muestran como parte de la definición de la acción.
+* No se crean incidentes o eventos en ServiceNow.
+
+**Solución**: [sincronice el conector](itsmc-resync-servicenow.md).

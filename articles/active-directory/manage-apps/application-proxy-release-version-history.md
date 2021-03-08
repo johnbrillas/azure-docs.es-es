@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686723"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
 En este artículo se enumeran las versiones y características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente Application Proxy con nuevas características y funciones. Los conectores de Application Proxy se actualizan de forma automática cuando se publica una nueva versión. 
@@ -60,7 +60,7 @@ Descarga del conector de Azure Active Directory Application Proxy |  [Descargue 
 
 ### <a name="release-status"></a>Estado de la versión
 
-7 de abril de 2020: publicado para descarga.
+7 de julio de 2020: Publicada para descarga. Esta versión solo está disponible para su instalación a través de la página de descarga. En una fecha futura se publicará una versión de actualización automática de esta versión.
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 -   Los conectores solo usan TLS 1.2 para todas las conexiones. Para más información, consulte [Requisitos previos del conector](application-proxy-add-on-premises-application.md#prerequisites).

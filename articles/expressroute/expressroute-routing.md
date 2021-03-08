@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629041"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721844"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -30,13 +30,22 @@ Necesita reservar algunos bloques de direcciones IP para configurar el enrutamie
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Direcciones IP usadas para la configuración entre pares privados de Azure
 Para establecer la configuración entre pares se pueden usar direcciones IP privadas o direcciones IP públicas. El intervalo de direcciones que se utilice para configurar las rutas no debe solaparse con los que se usan para crear redes virtuales en Azure. 
 
-* Debe reservar una subred /29 o dos subredes /30 para las interfaces de enrutamiento.
-* Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
-* Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
-* Si se usa una subred /29, se divide en dos subredes /30. 
-  * La primera subred /30 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
-  * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
-  * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.  
+* IPv4:
+    * Debe reservar una subred /29 o dos subredes /30 para las interfaces de enrutamiento.
+    * Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
+    * Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
+    * Si se usa una subred /29, se divide en dos subredes /30. 
+      * La primera subred /30 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
+      * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
+      * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
+* IPv6:
+    * Debe reservar una subred /125 o dos subredes /126 para las interfaces de enrutamiento.
+    * Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
+    * Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
+    * Si se usa una subred /125, se divide en dos subredes /126. 
+      * La primera subred /126 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
+      * Para cada una de las subredes /126, debe usar la primera dirección IP de la subred /126 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /126.
+      * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 #### <a name="example-for-private-peering"></a>Ejemplo de configuración entre pares privados
 Si elige usar a.b.c.d/29 para establecer el emparejamiento, se divide en dos subredes /30. En el ejemplo siguiente, observe cómo se usa la subred a.b.c.d/29:
@@ -122,7 +131,7 @@ Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azur
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Límites de agregación y prefijo de ruta
-Se admiten hasta 4000 prefijos cuyo anuncio se ha recibido a través de la configuración de pares privados de Azure. Esta cifra puede aumentar hasta los 10.000 prefijos si está habilitado el complemento Premium de ExpressRoute. Se aceptan hasta 200 prefijos por sesión BGP para la configuración de pares públicos de Azure y de Microsoft. 
+Se admiten hasta 4000 prefijos IPv4 y 100 prefijos IPv6 cuyo anuncio se ha recibido a través del emparejamiento privado de Azure. Esta cifra puede aumentar hasta los 10 000 prefijos IPv4 si está habilitado el complemento Premium de ExpressRoute. Se aceptan hasta 200 prefijos por sesión BGP para la configuración de pares públicos de Azure y de Microsoft. 
 
 Si el número de prefijos supera el límite, se elimina la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor debe eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de las rutas de acceso de la configuración de pares públicos de Azure y de Microsoft. 
 

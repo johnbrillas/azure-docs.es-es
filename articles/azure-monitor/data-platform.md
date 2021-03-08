@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bccd1f001cca67a5be3d14c50e6a6db96cb6584c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602888"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731704"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de datos de Azure Monitor
 
@@ -28,7 +28,7 @@ Para permitir visibilidad entre los entornos informáticos complejos actuales qu
 ## <a name="observability-data-in-azure-monitor"></a>Datos de visibilidad en Azure Monitor
 Las métricas, los registros y los seguimientos distribuidos se consideran comúnmente los tres pilares de la visibilidad. Estos son los diferentes tipos de datos que debe recopilar y analizar una herramienta de supervisión con el fin de proporcionar suficiente visibilidad sobre un sistema supervisado. Para conseguir visibilidad, se pueden correlacionar los datos de varios pilares y agregar los datos de todo el conjunto de recursos objeto de supervisión. Como Azure Monitor almacena juntos datos de varios orígenes, los datos se pueden correlacionar y analizar mediante un conjunto común de herramientas. También se correlacionan datos de varias suscripciones e inquilinos de Azure, además de hospedarse datos de otros servicios.
 
-Los recursos de Azure generan una cantidad importante de datos de supervisión. Azure Monitor consolida estos datos junto con los datos de supervisión procedentes de otros orígenes en una plataforma de métricas o de registros. Cada una está optimizado para unos escenarios de supervisión determinados, y cada una admite diferentes características de Azure Monitor. Características como análisis de datos, visualizaciones o alertas requieren que comprenda las diferencias para que puedan implementar el escenario necesario de la manera más eficaz y rentable. Las conclusiones en Azure Monitor, como [Application Insights](app/app-insights-overview.md) o [Azure Monitor para VM](vm/vminsights-overview.md) disponen de herramientas de análisis que le permiten centrarse en el escenario de supervisión determinado sin necesidad de comprender las diferencias entre los dos tipos de datos. 
+Los recursos de Azure generan una cantidad importante de datos de supervisión. Azure Monitor consolida estos datos junto con los datos de supervisión procedentes de otros orígenes en una plataforma de métricas o de registros. Cada una está optimizado para unos escenarios de supervisión determinados, y cada una admite diferentes características de Azure Monitor. Características como análisis de datos, visualizaciones o alertas requieren que comprenda las diferencias para que puedan implementar el escenario necesario de la manera más eficaz y rentable. Los complementos de conclusiones de Azure Monitor, como [Application Insights](app/app-insights-overview.md) o [VM Insights](vm/vminsights-overview.md) disponen de herramientas de análisis que le permiten centrarse en el escenario de supervisión determinado sin necesidad de comprender las diferencias entre los dos tipos de datos. 
 
 
 ### <a name="metrics"></a>Métricas

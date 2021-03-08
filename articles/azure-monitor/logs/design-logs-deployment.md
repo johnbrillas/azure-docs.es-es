@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 482a0ba4051fb8b5d1705e0f951a9e075f40bbdb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602643"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717407"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -25,7 +25,7 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 
 * Una ubicación geográfica para el almacenamiento de datos.
 * Aislamiento de datos, ya que se conceden diferentes derechos de acceso a los usuarios en base a una de nuestras estrategias de diseño recomendadas.
-* Ámbito para la configuración de opciones, como el [plan de tarifa](../platform/manage-cost-storage.md#changing-pricing-tier), la [retención](../platform/manage-cost-storage.md#change-the-data-retention-period) y el [límite de datos](../platform/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+* Ámbito para la configuración de opciones, como el [plan de tarifa](./manage-cost-storage.md#changing-pricing-tier), la [retención](./manage-cost-storage.md#change-the-data-retention-period) y el [límite de datos](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Las áreas de trabajo se hospedan en clústeres físicos. De forma predeterminada, el sistema crea y administra estos clústeres. Se espera que los clientes que ingieran más de 4 TB al día creen sus propios clústeres dedicados para sus áreas de trabajo, lo que les permitirá tener un mejor control y una mayor tasa de ingesta.
 
@@ -68,8 +68,8 @@ Los datos a los que un usuario tiene acceso vienen determinados por una combinac
 |:---|:---|
 | [Modo de acceso](#access-mode) | Método que utiliza el usuario para acceder al área de trabajo.  Define el ámbito de los datos disponibles y el modo de control de acceso que se aplica. |
 | [Modo de control de acceso](#access-control-mode) | Configuración en el área de trabajo que define si los permisos se aplican en el nivel de área de trabajo o recurso. |
-| [Permisos](../platform/manage-access.md) | Permisos aplicados a individuales o grupos de usuarios para el área de trabajo o el recurso. Define los datos a los que el usuario tendrá acceso. |
-| [Permiso de Azure RBAC de nivel de tabla](../platform/manage-access.md#table-level-azure-rbac) | Permisos granulares opcionales que se aplican a todos los usuarios independientemente de su modo de acceso o su modo de control de acceso. Define a qué tipos de datos puede tener acceso un usuario. |
+| [Permisos](./manage-access.md) | Permisos aplicados a individuales o grupos de usuarios para el área de trabajo o el recurso. Define los datos a los que el usuario tendrá acceso. |
+| [Permiso de Azure RBAC de nivel de tabla](./manage-access.md#table-level-azure-rbac) | Permisos granulares opcionales que se aplican a todos los usuarios independientemente de su modo de acceso o su modo de control de acceso. Define a qué tipos de datos puede tener acceso un usuario. |
 
 ## <a name="access-mode"></a>Modo de acceso
 
@@ -91,7 +91,7 @@ Los usuarios tienen dos opciones para acceder a los datos:
     > - Service Fabric
     > - Application Insights
     >
-    > Para probar si los registros están asociados correctamente con su recurso, puede ejecutar una consulta e inspeccionar los que le interesen. Si el identificador de recurso correcto se encuentra en la propiedad [_ResourceId](../platform/log-standard-columns.md#_resourceid), los datos están disponibles para las consultas basadas en el recurso.
+    > Para probar si los registros están asociados correctamente con su recurso, puede ejecutar una consulta e inspeccionar los que le interesen. Si el identificador de recurso correcto se encuentra en la propiedad [_ResourceId](./log-standard-columns.md#_resourceid), los datos están disponibles para las consultas basadas en el recurso.
 
 Azure Monitor determina automáticamente el modo correcto en función del contexto desde el que se realiza la búsqueda de registros. El ámbito siempre se presenta en la sección superior izquierda de Log Analytics.
 
@@ -102,8 +102,8 @@ En la tabla siguiente se resumen los modos de acceso:
 | Incidencia | Contexto del área de trabajo | Contexto del recurso |
 |:---|:---|:---|
 | ¿Para quién está pensado cada modelo? | Administración central. Los administradores que tienen que configurar colecciones de datos y los usuarios que necesitan acceder a una amplia variedad de recursos. También lo requieren actualmente los usuarios que necesitan acceder a registros de recursos fuera de Azure. | Equipos de la aplicación. Los administradores de los recursos de Azure que se están supervisando. |
-| ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Vea los **permisos del área de trabajo** en [Administración del acceso mediante los permisos del área de trabajo](../platform/manage-access.md#manage-access-using-workspace-permissions). | Acceso de lectura al recurso. Vea los **permisos de los recursos** en [Administración del acceso mediante los permisos de Azure](../platform/manage-access.md#manage-access-using-azure-permissions). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
-| ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](../platform/manage-access.md#table-level-azure-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
+| ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Vea los **permisos del área de trabajo** en [Administración del acceso mediante los permisos del área de trabajo](./manage-access.md#manage-access-using-workspace-permissions). | Acceso de lectura al recurso. Vea los **permisos de los recursos** en [Administración del acceso mediante los permisos de Azure](./manage-access.md#manage-access-using-azure-permissions). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
+| ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](./manage-access.md#table-level-azure-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
 | ¿Cómo puede el usuario acceder a los registros de acceso? | <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> | <ul><li>Inicie **Registros** en el menú para el recurso de Azure</li></ul> <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modo de control de acceso
@@ -125,7 +125,7 @@ En la tabla siguiente se resumen los modos de acceso:
     > [!NOTE]
     > Si un usuario solo tiene permisos de recurso en el área de trabajo, solo podrá acceder al área de trabajo mediante el modo contexto del recurso, siempre que el modo de acceso al área de trabajo esté establecido en **Usar permisos de recurso o de área de trabajo**.
 
-Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Configuración del modo de control de acceso](../platform/manage-access.md#configure-access-control-mode).
+Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Configuración del modo de control de acceso](./manage-access.md#configure-access-control-mode).
 
 ## <a name="scale-and-ingestion-volume-rate-limit"></a>Escala y límite de la velocidad de ingesta
 
@@ -133,7 +133,7 @@ Azure Monitor es un servicio de datos a gran escala que atiende a miles de clien
 
 Para proteger y aislar a los clientes de Azure Monitor y su infraestructura de back-end, hay un límite predeterminado de velocidad de ingesta, diseñado para protegerse de situaciones de picos y desbordamientos. El valor predeterminado del límite de velocidad es de unos **6 GB/minuto**, y está diseñado para permitir una ingesta normal. Para más información sobre la medida del límite de volumen de ingesta, consulte [Límites del servicio Azure Monitor](../service-limits.md#data-ingestion-volume-rate).
 
-Los clientes que ingieran menos de 4 TB al día normalmente no alcanzarán estos límites. Los clientes que ingieran volúmenes mayores o que tengan picos como parte de sus operaciones normales deben considerar la posibilidad de cambiar a [clústeres dedicados](../log-query/logs-dedicated-clusters.md) en los que se pueda aumentar el límite de velocidad de ingesta.
+Los clientes que ingieran menos de 4 TB al día normalmente no alcanzarán estos límites. Los clientes que ingieran volúmenes mayores o que tengan picos como parte de sus operaciones normales deben considerar la posibilidad de cambiar a [clústeres dedicados](./logs-dedicated-clusters.md) en los que se pueda aumentar el límite de velocidad de ingesta.
 
 Cuando se activa el límite de velocidad de ingesta o se alcanza el 80 % del umbral, se agrega un evento a la tabla *Operación* del área de trabajo. Se recomienda supervisarlo y crear una alerta. Consulte más detalles sobre la [tasa de volumen de ingesta de datos](../service-limits.md#data-ingestion-volume-rate).
 
@@ -144,7 +144,7 @@ Cuando se activa el límite de velocidad de ingesta o se alcanza el 80 % del um
 
 En este escenario se trata un diseño de un área de trabajo único de la suscripción de una organización de TI que no está restringido por la soberanía de los datos ni por el cumplimiento normativo, o bien que debe asignarse a las regiones en las que se implementan los recursos. Brinda a los equipos de administración de seguridad y de TI de la organización la posibilidad de sacar provecho de la integración mejorada con la administración del acceso de Azure y un control de acceso más seguro.
 
-Todos los recursos, las soluciones de supervisión y la información, como Application Insights y Azure Monitor para VM, que dan soporte tanto a la infraestructura como a las aplicaciones que mantienen los diferentes equipos están configurados para reenviar los datos de registro que recopilan al área de trabajo compartida centralizada de la organización de TI. A los usuarios de cada equipo se les concede acceso a los registros de los recursos a los que se les ha dado acceso.
+Todos los recursos, las soluciones de supervisión y la información, como Application Insights y VM Insights, que dan soporte tanto a la infraestructura como a las aplicaciones que mantienen los diferentes equipos están configurados para reenviar los datos de registro que recopilan al área de trabajo compartida centralizada de la organización de TI. A los usuarios de cada equipo se les concede acceso a los registros de los recursos a los que se les ha dado acceso.
 
 Una vez que haya implementado la arquitectura del área de trabajo, puede aplicarla a los recursos de Azure con [Azure Policy](../../governance/policy/overview.md). Proporciona una forma de definir directivas y garantizar el cumplimiento de los recursos de Azure para que envíen todos los registros de recursos a un área de trabajo específica. Por ejemplo, en el caso de las máquinas virtuales de Azure o los conjuntos de escalado de máquinas virtuales, puede usar las directivas existentes que evalúan el cumplimiento del área de trabajo y los resultados de los informes, o bien personalizarlas para tomas las medidas necesarias si no lo cumplen.  
 
@@ -159,8 +159,8 @@ Al planear la migración a este modelo, tenga en cuenta lo siguiente:
 * Identifique el acceso concedido a los recursos de los equipos de aplicaciones y haga las pruebas necesarias en un entorno de desarrollo antes de realizar la implementación en producción.
 * Configure el área de para habilitar **Usar permisos de recurso o de área de trabajo** .
 * Retire a los equipos de aplicaciones el permiso para leer y consultar el área de trabajo.
-* Habilite y configure las soluciones de supervisión, información como Azure Monitor para contenedores o Azure Monitor para VM, las cuentas de Automation y las soluciones de administración como Update Management, iniciar o detener máquinas virtuales, etc., que se implementaron en el área de trabajo original.
+* Habilite y configure las soluciones de supervisión, de información como Container Insights o Azure Monitor para VM, las cuentas de Automation y las soluciones de administración como Update Management, Start/Stop VMs, etc., que se han implementado en el área de trabajo original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar los permisos y controles de seguridad que se recomiendan en esta guía, consulte el artículo relativo a la [administración del acceso a los registros](../platform/manage-access.md).
+Para implementar los permisos y controles de seguridad que se recomiendan en esta guía, consulte el artículo relativo a la [administración del acceso a los registros](./manage-access.md).

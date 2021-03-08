@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594542"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721317"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Actualización o eliminación de un equilibrador de carga usado por conjuntos de escalado de máquinas virtuales
 
@@ -83,14 +83,15 @@ az network lb inbound-nat-pool update
 
 ## <a name="delete-inbound-nat-rules"></a>Eliminación de reglas NAT de entrada
 
-No se pueden eliminar reglas NAT de entrada individuales, pero puede eliminar todo el conjunto de reglas NAT de entrada.
+No se pueden eliminar reglas NAT de entrada individuales, pero puede eliminar todo el conjunto de reglas NAT de entrada mediante la eliminación del grupo NAT de entrada.
 
-Para eliminar el conjunto completo de reglas NAT de entrada usadas por el conjunto de escalado, primero quite el grupo NAT del conjunto de escalado. Aquí se muestra un ejemplo completo que usa la CLI:
-    
+Para eliminar el grupo NAT, quítelo primero del conjunto de escalado. Aquí se muestra un ejemplo completo que usa la CLI:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup
@@ -110,6 +111,52 @@ Para agregar varias configuraciones de IP:
 1. En la página **Agregar dirección IP de front-end**, escriba los valores y seleccione **Aceptar**.
 1. Siga el [paso 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) y el [paso 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) de este tutorial si se necesitan nuevas reglas de equilibrio de carga.
 1. Si es necesario, cree un conjunto de reglas NAT de entrada con las configuraciones de IP de front-end recién creadas. En la sección anterior se puede encontrar un ejemplo.
+
+## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>Varias instancias de Virtual Machine Scale Sets detrás de un solo Load Balancer
+
+Cree un grupo NAT de entrada en Load Balancer, haga referencia al grupo NAT de entrada en el perfil de red de un conjunto de escalado de máquinas virtuales y, por último, actualice las instancias para que los cambios surtan efecto. Repita los pasos para todas las instancias de Virtual Machine Scale Sets.
+
+Asegúrese de crear grupos NAT de entrada independientes con intervalos de puertos de front-end no superpuestos.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
 
 ## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>Eliminación de la configuración de IP de front-end usada por el conjunto de escalado de máquinas virtuales
 

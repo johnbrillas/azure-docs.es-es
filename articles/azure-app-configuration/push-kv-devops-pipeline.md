@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979613"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718189"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -80,7 +80,7 @@ La tarea App Configuration Push usa los siguientes parámetros:
 
 - **Suscripción de Azure**: una lista desplegable que contiene las conexiones de servicio de Azure disponibles. Para actualizar la lista de conexiones de servicio de Azure disponibles, presione el botón **Refresh Azure subscription** (Actualizar suscripción a Azure) a la derecha del cuadro de texto.
 - **Nombre de App Configuration**: una lista desplegable que carga los almacenes de configuración disponibles para la suscripción seleccionada. Para actualizar la lista de almacenes de configuración disponibles, presione el botón **Refresh App Configuration Name** (Actualizar nombre de App Configuration) a la derecha del cuadro de texto.
-- **Ruta del archivo de configuración**: la ruta de acceso a su archivo de configuración. Puede examinar el artefacto de compilación para seleccionar un archivo de configuración. (Botón `...` a la derecha del cuadro de texto).
+- **Ruta del archivo de configuración**: la ruta de acceso a su archivo de configuración. Puede examinar el artefacto de compilación para seleccionar un archivo de configuración. (Botón `...` a la derecha del cuadro de texto). Los formatos de archivo admitidos son: YAML, JSON y de propiedades.
 - **Separador**: el separador que se usa para aplanar los archivos .yml y .json.
 - **Profundidad**: la profundidad con la que se aplanarán los archivos .yml y .json.
 - **Prefijo**: una cadena que se anexa al principio de cada clave enviada al almacén de App Configuration.

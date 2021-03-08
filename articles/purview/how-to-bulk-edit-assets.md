@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372048"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693771"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Edición en masa de recursos para etiquetar términos de glosario
 
@@ -63,11 +63,15 @@ En este artículo se describe cómo etiquetar varios términos de glosario en un
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Captura de pantalla de la eliminación de términos.":::
 
-7. Cuando haya terminado, seleccione **Close** (Cerrar) o **Remove all and close** (Quitar todo y cerrar) para cerrar la hoja de edición en masa. La primera opción no quitará los recursos seleccionados, mientras que la segunda quitará todos los recursos seleccionados.
+7. Repita los pasos anteriores para clasificaciones, propietarios y expertos.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Captura de pantalla de la eliminación de términos.":::
+
+8. Cuando haya terminado, seleccione **Close** (Cerrar) o **Remove all and close** (Quitar todo y cerrar) para cerrar la hoja de edición en masa. La primera opción no quitará los recursos seleccionados, mientras que la segunda quitará todos los recursos seleccionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Captura de pantalla de la opción Close (Cerrar).":::
 
    > [!Important]
-   > El número recomendado de recursos para la edición en masa es de 15. Si selecciona más, pueden producirse problemas de rendimiento.
+   > El número recomendado de recursos para la edición en masa es de 15. Si selecciona más de 25, pueden producirse problemas de rendimiento.
    > El cuadro **View Selected** (Ver selección) solo estará visible si hay al menos un recurso seleccionado.
 
 

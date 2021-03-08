@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550357"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713378"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -119,6 +119,18 @@ Si la frecuencia se ha establecido en un resumen cada hora y una alerta se gener
 Para desactivar o resolver una alerta activa, puede seleccionar el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla en la que se muestra información detallada sobre la alerta, con un botón **Desactivar** en la parte superior. Al seleccionar este botón, el estado de la alerta cambiará a **Inactivo**. También puede desactivar una alerta si hace clic con el botón derecho en el elemento de lista correspondiente a esa alerta y selecciona **Desactivar**.
 
 ![Inactivación de alertas de un depósito de RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Alertas de Azure Monitor para Azure Backup (versión preliminar)
+
+Azure Backup también proporciona alertas a través de Azure Monitor, a fin de permitir que los usuarios tengan una experiencia coherente de administración de alertas en distintos servicios de Azure, incluida la copia de seguridad. Con las alertas de Azure Monitor, puede enrutar las alertas a cualquier canal de notificación que Azure Backup admita, como el correo electrónico, ITSM, un webhook, una aplicación lógica, etc.
+
+Actualmente, esta característica está disponible para las instancias de servidor de Azure Database for PostgreSQL, blobs de Azure y Azure Managed Disks. Las alertas se generan para los siguientes escenarios y, para acceder a estas, puede navegar a un almacén de Backup y hacer clic en el elemento de menú **Alertas**:
+
+- Eliminación de datos de copia de seguridad
+- Error de Backup (para obtener alertas de error de Backup, debe registrar la marca AFEC denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** a través del Portal de vista previa).
+- Error de restauración (para obtener alertas de error de restauración, debe registrar la marca AFEC denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** a través del Portal de vista previa).
+
+Para más información sobre las alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

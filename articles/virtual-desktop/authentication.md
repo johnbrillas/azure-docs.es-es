@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709264"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticación admitidos
 
@@ -21,14 +21,14 @@ En este artículo, le mostraremos una breve descripción de los tipos de autenti
 
 ## <a name="session-host-authentication"></a>Autenticación de host de sesión
 
-Windows Virtual Desktop admite NT LAN Manager (NTLM) y Kerberos para la autenticación del host de sesión. Sin embargo, para utilizar Kerberos, el cliente debe obtener vales de seguridad de Kerberos de un servicio de Centro de distribución de claves (KDC) que se ejecute en un controlador de dominio. Para obtener vales, el cliente necesita una línea de visión directa al controlador de dominio. Para ello, puede usar la red corporativa. También puede usar una conexión VPN a la red corporativa.
+Windows Virtual Desktop admite NT LAN Manager (NTLM) y Kerberos para la autenticación del host de sesión. Sin embargo, para utilizar Kerberos, el cliente debe obtener vales de seguridad de Kerberos de un servicio de Centro de distribución de claves (KDC) que se ejecute en un controlador de dominio. Para obtener vales, el cliente necesita una línea de visión directa al controlador de dominio. Para ello, puede usar la red corporativa. También puede usar una conexión VPN a la red corporativa o configurar un [servidor proxy KDC](key-distribution-center-proxy.md).
 
 Estos son los métodos de inicio de sesión admitidos actualmente:
 
 - Cliente de escritorio de Windows
     - Nombre de usuario y contraseña
     - Tarjeta inteligente
-    - Windows Hello
+    - Windows Hello para empresas (solo confianza de certificados)
 - Cliente de Microsoft Store
     - Nombre de usuario y contraseña
 - Cliente web
@@ -41,7 +41,7 @@ Estos son los métodos de inicio de sesión admitidos actualmente:
     - Nombre de usuario y contraseña
 
 >[!NOTE]
->La tarjeta inteligente y Windows Hello solo pueden usar Kerberos para iniciar sesión. Para iniciar la sesión con Kerberos se necesita una línea de visión al controlador de dominio.
+>La tarjeta inteligente y Windows Hello para empresas solo pueden usar Kerberos para iniciar sesión. Para iniciar la sesión con Kerberos se necesita una línea de visión al controlador de dominio o un [servidor proxy KDC](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Identidad híbrida
 

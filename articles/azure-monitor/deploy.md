@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: c37693bc6c9ce1cc5fed6c06ecb7fe628c315176
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708261"
 ---
 # <a name="deploy-azure-monitor"></a>Implementación de Azure Monitor
 Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combinación de la configuración de los componentes de Azure Monitor y la configuración de los recursos de Azure para generar datos de supervisión para que Azure Monitor los recopile. En este artículo se describen los diferentes pasos necesarios para realizar una implementación completa de Azure Monitor con una configuración común para supervisar todos los recursos de la suscripción de Azure. Se proporcionan descripciones básicas de cada paso con vínculos a otra documentación para obtener información detallada sobre los requisitos de configuración.
@@ -22,7 +22,7 @@ Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combi
 ## <a name="configuration-goals"></a>Objetivos de configuración
 El objetivo de una implementación completa de Azure Monitor es recopilar todos los datos disponibles de todos sus recursos y aplicaciones en la nube y habilitar tantas características como sea posible en Azure Monitor según los datos.
 
-Los datos recopilados por Azure Monitor se envían a [Métricas de Azure Monitor](essentials/data-platform-metrics.md) o [Registros de Azure Monitor](logs/data-platform-logs.md). Cada uno almacena distintos tipos de datos y permite diferentes tipos de análisis y alertas. Consulte [Comparación de las métricas y los registros de Azure Monitor](/data-platform.md) para obtener una comparación de ambos e [Información general sobre las alertas en Microsoft Azure](alerts/alerts-overview.md) para obtener una descripción de los diferentes tipos de alerta. 
+Los datos recopilados por Azure Monitor se envían a [Métricas de Azure Monitor](essentials/data-platform-metrics.md) o [Registros de Azure Monitor](logs/data-platform-logs.md). Cada uno almacena distintos tipos de datos y permite diferentes tipos de análisis y alertas. Consulte [Comparación de las métricas y los registros de Azure Monitor](data-platform.md) para obtener una comparación de ambos e [Información general sobre las alertas en Microsoft Azure](alerts/alerts-overview.md) para obtener una descripción de los diferentes tipos de alerta. 
 
 Algunos datos se pueden enviar a las métricas y los registros para poder aprovecharlos con diferentes características. En estos casos, puede que tenga que configurar cada uno por separado. Por ejemplo, los recursos de Azure envían los datos de métricas a las métricas, que admite el explorador de métricas y las alertas de métricas. Debe crear una configuración de diagnóstico para que cada recurso envíe los mismos datos de métricas a los registros, lo que le permite analizar las tendencias de rendimiento con otros datos de registro mediante Log Analytics. En las secciones siguientes se identifica dónde se envían los datos y se incluye cada paso necesario para enviar datos a todas las ubicaciones posibles.
 
@@ -84,32 +84,32 @@ Consulte [¿Qué supervisa Azure Monitor?](monitor-reference.md) para obtener un
 
 Las máquinas virtuales generan datos similares a otros recursos de Azure, pero necesita un agente para recopilar datos del sistema operativo invitado. Consulte [Introducción a los agentes de Azure Monitor](agents/agents-overview.md) para ver una comparación de los agentes que usa Azure Monitor. 
 
-[Azure Monitor para VM](vm/vminsights-overview.md) usa el agente de Log Analytics y el agente de dependencia para recopilar datos del sistema operativo invitado de las máquinas virtuales, por lo que puede implementar estos agentes como parte de la implementación de esta información. Esto habilita al agente de Log Analytics para otros servicios que lo usan, como Azure Security Center.
+[VM Insights](vm/vminsights-overview.md) usa el agente de Log Analytics y Dependency Agent para recopilar datos del sistema operativo invitado de las máquinas virtuales, por lo que puede implementar estos agentes como parte de la implementación de esta información. Esto habilita al agente de Log Analytics para otros servicios que lo usan, como Azure Security Center.
 
 
 [ ![Implementación de VM](media/deploy/deploy-azure-vm.png) ](media/deploy/deploy-azure-vm.png#lightbox)
 
 
-### <a name="configure-workspace-for-azure-monitor-for-vms"></a>Configuración del área de trabajo de Azure Monitor para VM
-Azure Monitor para VM requiere un área de trabajo de Log Analytics, que normalmente será la misma que la creada para recopilar datos de otros recursos de Azure. Antes de habilitar las máquinas virtuales, debe agregar la solución necesaria para Azure Monitor para VM al área de trabajo.
+### <a name="configure-workspace-for-vm-insights"></a>Configuración del área de trabajo para VM Insights
+VM Insights requiere un área de trabajo de Log Analytics, que normalmente será la misma que la creada para recopilar datos de otros recursos de Azure. Antes de habilitar máquinas virtuales, debe agregar la solución necesaria para VM Insights al área de trabajo.
 
-Consulte [Configuración del área de trabajo de Log Analytics para Azure Monitor para VM](vm/vminsights-configure-workspace.md) para obtener más información sobre la configuración del área de trabajo de Log Analytics para Azure Monitor para VM.
+Consulte [Configuración del área de trabajo de Log Analytics para VM Insights](vm/vminsights-configure-workspace.md) para obtener más información sobre la configuración del área de trabajo de Log Analytics para VM Insights.
 
-### <a name="enable-azure-monitor-for-vms-on-each-virtual-machine"></a>Habilitación de Azure Monitor para VM de cada máquina virtual
-Una vez configurada un área de trabajo, puede habilitar cada máquina virtual mediante la instalación del agente de Log Analytics y Dependency Agent. Hay varios métodos para instalar estos agentes, incluido Azure Policy, que permite configurar automáticamente cada máquina virtual a medida que se crea. Los datos de rendimiento y los detalles del proceso recopilados por Azure Monitor para VM se almacenan en registros de Azure Monitor.
+### <a name="enable-vm-insights-on-each-virtual-machine"></a>Habilitación de VM Insights en cada máquina virtual
+Una vez configurada un área de trabajo, puede habilitar cada máquina virtual mediante la instalación del agente de Log Analytics y Dependency Agent. Hay varios métodos para instalar estos agentes, incluido Azure Policy, que permite configurar automáticamente cada máquina virtual a medida que se crea. Los datos de rendimiento y los detalles del proceso recopilados por VM Insights se almacenan en registros de Azure Monitor.
 
-Consulte [Información general sobre la habilitación de Azure Monitor para VM](vm/vminsights-enable-overview.md) para ver las opciones de implementación de los agentes en las máquinas virtuales y habilitarlas para la supervisión.
+Consulte [Información general sobre la habilitación de VM Insights](vm/vminsights-enable-overview.md) para ver las opciones de implementación de los agentes en las máquinas virtuales y habilitarlos para la supervisión.
 
 ### <a name="configure-workspace-to-collect-events"></a>Configuración del área de trabajo para recopilar eventos
-Azure Monitor para VM recopilará los datos de rendimiento y los detalles y las dependencias de los procesos del sistema operativo invitado de cada máquina virtual. El agente de Log Analytics también puede recopilar registros del invitado, incluido el registro de eventos de Windows y Syslog de Linux. Recupera la configuración de estos registros del área de trabajo de Log Analytics a la que está conectado. Solo tiene que configurar el área de trabajo una vez y, cada vez que se conecte un agente, se descargarán todos los cambios de configuración. 
+VM Insights recopilará los datos de rendimiento y los detalles y las dependencias de los procesos del sistema operativo invitado de cada máquina virtual. El agente de Log Analytics también puede recopilar registros del invitado, incluido el registro de eventos de Windows y Syslog de Linux. Recupera la configuración de estos registros del área de trabajo de Log Analytics a la que está conectado. Solo tiene que configurar el área de trabajo una vez y, cada vez que se conecte un agente, se descargarán todos los cambios de configuración. 
 
 Consulte [Orígenes de datos de agente en Azure Monitor](agents/agent-data-sources.md) para obtener más información sobre la configuración del área de trabajo de Log Analytics para recopilar datos adicionales de las máquinas virtuales del agente.
 
 > [!NOTE]
-> También puede configurar el área de trabajo para recopilar contadores de rendimiento, pero lo más probable es que sea redundante con los datos de rendimiento recopilados por Azure Monitor para VM. Los datos de rendimiento recopilados por el área de trabajo se almacenarán en la tabla *Perf*, mientras que los datos de rendimiento recopilados por Azure Monitor para VM se almacenan en la tabla *InsightsMetrics*. Configure la recopilación de rendimiento en el área de trabajo solo si necesita contadores que no están ya recopilados por Azure Monitor para VM.
+> También puede configurar el área de trabajo para recopilar contadores de rendimiento, pero lo más probable es que sea redundante con los datos de rendimiento recopilados por VM Insights. Los datos de rendimiento recopilados por el área de trabajo se almacenan en la tabla *Perf*, mientras que los datos de rendimiento recopilados por VM Insights se almacenan en la tabla *InsightsMetrics*. Configure la recopilación de rendimiento en el área de trabajo solo si necesita contadores que VM Insights todavía no ha recopilado.
 
 ### <a name="diagnostic-extension-and-telegraf-agent"></a>Extensión de diagnósticos y agente de Telegraf
-Azure Monitor para VM usa el agente de Log Analytics que envía datos de rendimiento a un área de trabajo de Log Analytics, pero no a métricas de Azure Monitor. El envío de estos datos a las métricas permite analizarlos con Explorador de métricas y usarlos con las alertas de métricas. Esto requiere la extensión de diagnósticos en Windows y el agente de Telegraf en Linux.
+VM Insights usa el agente de Log Analytics que envía datos de rendimiento a un área de trabajo de Log Analytics, pero no a métricas de Azure Monitor. El envío de estos datos a las métricas permite analizarlos con Explorador de métricas y usarlos con las alertas de métricas. Esto requiere la extensión de diagnósticos en Windows y el agente de Telegraf en Linux.
 
 Consulte [Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows](agents/diagnostics-extension-windows-install.md) y [Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf](essentials/collect-custom-metrics-linux-telegraf.md) para obtener más información sobre la instalación y configuración de estos agentes.
 

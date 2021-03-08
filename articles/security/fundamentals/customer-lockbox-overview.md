@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720620"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489899"
 
 La Caja de seguridad del cliente de Microsoft Azure proporciona una interfaz para los clientes y así permitirles revisar y aprobar o rechazar las solicitudes de acceso de datos de cliente. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
 
-Este artículo trata sobre cómo se inician, siguen y almacenan las solicitudes de la Caja de seguridad del cliente para revisiones y auditorías posteriores.
+Este artículo se describe cómo habilitar Caja de seguridad del cliente y cómo se inician, siguen y almacenan las solicitudes de Caja de seguridad del cliente para revisiones y auditorías posteriores.
 
-La Caja de seguridad del cliente ya está disponible con carácter general y actualmente está habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales.
+<a id='supported-services-and-scenarios-in-preview'>## Servicios y escenarios admitidos (Disponibilidad general)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Servicios y escenarios admitidos en versión preliminar
+Ahora los servicios siguientes están disponibles con carácter general para Caja de seguridad del cliente:
 
-Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
-
-- API Management
+- Azure API Management
 - Azure App Service
-- Cognitive Services
-- Container Registry
+- Azure Cognitive Services
+- Azure Container Registry
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ Los siguientes servicios están actualmente en versión preliminar para Caja de 
 - Azure Data Factory
 - Azure Database for PostgreSQL
 - Azure Functions
-- HDInsight
+- HDInsight de Azure
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
-- Azure SQL DB
+- Azure SQL Database
 - Transferencias de suscripciones de Azure
 - Azure Synapse Analytics
-- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
+- Máquinas virtuales de Azure (que abarcan el acceso de escritorio remoto, el acceso a los volcados de memoria y los discos administrados)
 
-Para habilitar estas ofertas en versión preliminar de Caja de seguridad del cliente para su organización, regístrese en la [versión preliminar pública de Azure de Caja seguridad del cliente](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Habilitación de Caja de seguridad del cliente
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Servicios y escenarios admitidos con disponibilidad general
-
-Los siguientes servicios y escenarios ya están disponibles con carácter general para la Caja de seguridad del cliente.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acceso del escritorio remoto a las máquinas virtuales
-
-La Caja de seguridad del cliente está actualmente habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales. Se admiten las siguientes áreas de trabajo:
-- Plataforma como servicio (PaaS): Azure Cloud Services (rol web y rol de trabajo)
-- Infraestructura como servicio (IaaS): Windows y Linux (solo Azure Resource Manager)
-- Conjunto de escalado de máquinas virtuales: Windows y Linux
+Ahora puede habilitar Caja de seguridad del cliente desde el [módulo de administración](https://aka.ms/customerlockbox/administration) en la hoja Caja de seguridad del cliente.  
 
 > [!NOTE]
-> Las instancias del modelo clásico de IaaS no son compatibles con la Caja de seguridad del cliente. Si tiene cargas de trabajo ejecutándose en instancias del modelo clásico de IaaS, le recomendamos que las migre de los modelos de implementación Classic a Resource Manager. Para obtener más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
-
-#### <a name="detailed-audit-logs"></a>Registros de auditoría detallados
-
-En cuanto a los escenarios que usan el acceso al escritorio remoto, puede usar los registros de eventos de Windows para revisar las acciones del ingeniero de Microsoft. Asimismo, puede usar Azure Security Center para recopilar sus registros de eventos y copiar los datos a su área de trabajo para analizarlos. Para obtener más información, consulte [Recolección de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+> Para habilitar Caja de seguridad del cliente, la cuenta de usuario debe tener [asignado el rol de administrador global](../../active-directory/roles/manage-roles-portal.md).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -80,7 +65,7 @@ Los siguientes pasos describen un flujo de trabajo típico para una solicitud de
 
 3. Un ingeniero del soporte técnico de Azure revisa la solicitud de servicio y determina los pasos siguientes para resolver el problema.
 
-4. Si el ingeniero de soporte técnico no puede solucionar el problema mediante la telemetría y las herramientas estándar, el siguiente paso es solicitar permisos con privilegios elevados mediante un servicio de acceso Just-In-Time (JIT). Esta solicitud puede proceder del ingeniero de soporte técnico original. O bien, puede ser de un ingeniero diferente porque el problema se escala al equipo de DevOps de Azure.
+4. Si el ingeniero de soporte técnico no puede solucionar el problema mediante la telemetría y las herramientas estándar, el siguiente paso es solicitar permisos con privilegios elevados mediante un servicio de acceso Just-In-Time (JIT). Esta solicitud puede ser del ingeniero de soporte técnico original o de otro, porque el problema se ha escalado al equipo de DevOps de Azure.
 
 5. Una vez que el Ingeniero de Azure envía la solicitud de acceso, el servicio Just-In-Time evalúa la solicitud teniendo en cuenta factores como:
     - El ámbito del recurso
@@ -99,7 +84,7 @@ Los siguientes pasos describen un flujo de trabajo típico para una solicitud de
 
     ![Caja de seguridad del cliente de Azure: notificaciones por correo electrónico](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. La notificación por correo electrónico proporciona un enlace a la hoja **Caja de seguridad del cliente** en Azure Portal. Al usar este enlace, el aprobador designado inicia sesión en Azure Portal para ver las solicitudes pendientes que su organización tiene para la Caja de seguridad del cliente:
+8. La notificación por correo electrónico proporciona un vínculo a la hoja **Caja de seguridad del cliente** del módulo Administración. Al usar este enlace, el aprobador designado inicia sesión en Azure Portal para ver las solicitudes pendientes que su organización tiene para la Caja de seguridad del cliente:
 
     ![Caja de seguridad del cliente Azure: página de aterrizaje](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -137,18 +122,17 @@ Por ejemplo:
 
 ## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integración de Caja de seguridad del cliente con la prueba comparativa de seguridad de Azure
 
-Hemos introducido un nuevo control de línea base ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) en las pruebas comparativas de seguridad de Azure que cubren la aplicabilidad de Caja de seguridad del cliente. Los clientes ahora pueden aprovechar las pruebas comparativas para revisar la aplicabilidad de Caja de seguridad del cliente para un servicio.
+Hemos introducido un nuevo control de línea base ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) en las pruebas comparativas de seguridad de Azure que cubren la aplicabilidad de Caja de seguridad del cliente. Ahora los clientes pueden aprovechar el punto de referencia para revisar la aplicabilidad de Caja de seguridad del cliente para un servicio.
 
 ## <a name="exclusions"></a>Exclusiones
 
-Las solicitudes de la Caja de seguridad del cliente no se activan en los siguientes escenarios del soporte técnico de ingeniería:
+Las solicitudes de Caja de seguridad del cliente no se activan en los siguientes escenarios de soporte técnico de ingeniería:
 
 - Un ingeniero de Microsoft debe realizar una actividad que esté fuera de los procedimientos operativos estándar. Por ejemplo, para recuperar o restaurar servicios en escenarios inesperados o impredecibles.
-
-- Un ingeniero de Microsoft accede a la plataforma de Azure como parte de la solución de problemas y, sin darse cuenta, obtiene acceso a los datos del cliente. Por ejemplo, el equipo de Azure Network realiza la resolución de problemas que resulta en una captura de paquetes en un dispositivo de red. Sin embargo, si el cliente cifró los datos mientras estaba en tránsito, el ingeniero no podrá leerlos.
+- Un ingeniero de Microsoft accede a la plataforma de Azure como parte de la solución de problemas y, sin darse cuenta, obtiene acceso a los datos del cliente. Por ejemplo, el equipo de Azure Network realiza la resolución de problemas que resulta en una captura de paquetes en un dispositivo de red. En este escenario, si el cliente cifra los datos mientras están en tránsito, el ingeniero no podrá leerlos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La Caja de seguridad del cliente está disponible automáticamente para todos los clientes que tengan un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) con un nivel mínimo de tipo **Desarrollador**.
+Caja de seguridad del cliente está disponible para todos los clientes que tengan un [plan de Soporte técnico de Azure](https://azure.microsoft.com/support/plans/) con un nivel mínimo de **Desarrollador**. Puede habilitar Caja de seguridad del cliente desde el [módulo de administración](https://aka.ms/customerlockbox/administration) en la hoja Caja de seguridad del cliente.
 
-Cuando tenga un plan de soporte técnico adecuado, no tendrá que hacer nada para habilitar la Caja de seguridad del cliente. Las solicitudes de la Caja de seguridad del cliente de seguridad del cliente las iniciará un ingeniero de Microsoft si esta acción es necesaria para poder seguir con una incidencia de soporte técnico que archive alguien de su organización.
+Un ingeniero de Microsoft inicia las solicitudes de Caja de seguridad del cliente si esta acción es necesaria para avanzar un caso de soporte técnico.

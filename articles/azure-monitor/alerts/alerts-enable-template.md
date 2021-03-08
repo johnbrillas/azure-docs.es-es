@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo utilizar una plantilla de Resource
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718053"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 
 > [!WARNING]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](../platform/alerts-overview.md). Las alertas clásicas se [retiran](../platform/monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen usándose de forma limitada para los recursos que aún no admiten las nuevas alertas.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métricas clásicas de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
@@ -399,6 +399,6 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre alertas](../platform/alerts-overview.md)
-* [Agregue la Configuración de diagnóstico](../samples/resource-manager-diagnostic-settings.md) a la plantilla de Resource Manager
+* [Más información sobre alertas](./alerts-overview.md)
+* [Agregue la Configuración de diagnóstico](../essentials/resource-manager-diagnostic-settings.md) a la plantilla de Resource Manager
 * Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

@@ -3,14 +3,14 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710624"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configuración de informes de Azure Backup (versión preliminar)
+# <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
 Un requisito común para los administradores de copias de seguridad es obtener conclusiones sobre las copias de seguridad, en función de datos que abarcan un largo período de tiempo. Entre los casos de uso de esta solución se incluyen:
 
@@ -18,7 +18,7 @@ Un requisito común para los administradores de copias de seguridad es obtener c
 - Auditoría de copias de seguridad y restauraciones.
 - Identificación de las tendencias clave con diferentes niveles de granularidad.
 
-En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/platform/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
+En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -41,9 +41,9 @@ Siga estos pasos para empezar a usar los informes.
 
 Configure una o varias áreas de trabajo de Log Analytics para almacenar los datos de los informes de Backup. La ubicación y la suscripción donde se puede crear esta área de trabajo de Log Analytics es independiente de la ubicación y la suscripción donde existen los almacenes.
 
-Para configurar un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Para configurar un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-De forma predeterminada, los datos de un área de trabajo de Log Analytics se conservan durante 30 días. Para ver los datos de un horizonte temporal más largo, cambie el período de retención del área de trabajo de Log Analytics. Para cambiar el período de retención, consulte [Administración del uso y los costos con los registros de Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
+De forma predeterminada, los datos de un área de trabajo de Log Analytics se conservan durante 30 días. Para ver los datos de un horizonte temporal más largo, cambie el período de retención del área de trabajo de Log Analytics. Para cambiar el período de retención, consulte [Administración del uso y los costos con los registros de Azure Monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configuración de los valores de diagnóstico para los almacenes
 
@@ -139,6 +139,20 @@ Al seleccionar el icono **Policy Optimizations** (Optimizaciones de directiva), 
 El filtro **Tipo de administración de copias de seguridad** en la parte superior de la pestaña deberá tener seleccionados los elementos **SQL en Azure VM** y **SAP HANA en Azure VM**, para que la cuadrícula pueda mostrar las cargas de trabajo de base de datos según lo esperado.
 
 ![Pestaña Optimización: Optimizaciones de programación de copia de seguridad](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Adhesión a la directiva
+
+Con esta pestaña, puede identificar si todas las instancias de copia de seguridad han tenido al menos una copia de seguridad correcta cada día. Puede ver la adhesión a la directiva por período de tiempo o por instancia de copia de seguridad.
+
+###### <a name="email-azure-backup-reports"></a>Envío por correo electrónico de informes de Azure Backup
+
+Con la característica **Informe de correo electrónico** disponible en los informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. Para funcionar, esta característica implementa una aplicación lógica en el entorno de Azure que consulta los datos de las áreas de trabajo de Log Analytics (LA) seleccionadas, en función de las entradas que proporcione.
+
+Una vez que se haya creado la aplicación lógica, tendrá que autorizar las conexiones a los registros de Azure Monitor y Office 365. Para ello, vaya a **Logic Apps** en Azure Portal y busque el nombre de la tarea que ha creado. Al seleccionar el elemento de menú **Conexiones de API** se abre la lista de conexiones de API que debe autorizar.
+
+###### <a name="customize-azure-backup-reports"></a>Personalización de informes de Azure Backup
+
+Los informes de Backup usan funciones en registros de Azure Monitor. Estas funciones operan sobre los datos de las tablas de Azure Backup sin formato de LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples.
 
 ## <a name="export-to-excel"></a>Exportación a Excel
 

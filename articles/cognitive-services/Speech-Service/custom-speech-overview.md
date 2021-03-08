@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388658"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716574"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -45,7 +45,9 @@ Este diagrama resalta las partes que componen el [portal de Habla personalizada 
 Es preciso tener una cuenta de Azure y una suscripción al servicio Voz para poder usar [Speech Studio](https://speech.microsoft.com/customspeech) para crear un modelo personalizado. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Si tiene previsto entrenar un modelo personalizado con **datos de audio**, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo.
+> Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).
+
+Si tiene previsto entrenar un modelo personalizado con **datos de audio**, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo y le permitirá usar más audio para el entrenamiento. En estas regiones, el servicio Voz usará hasta 20 horas de audio para el entrenamiento; en otras regiones solo usará hasta 8 horas.
 
 * Este de Australia
 * Centro de Canadá
@@ -61,9 +63,6 @@ Es preciso tener una cuenta de Azure y una suscripción al servicio Voz para pod
 * US Gov - Virginia
 * Oeste de Europa
 * Oeste de EE. UU. 2
-
-> [!NOTE]
-> Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).
 
 Tras crear una cuenta de Azure y una suscripción al servicio Voz, deberá iniciar sesión en [Speech Studio](https://speech.microsoft.com/customspeech) y conectarse a su suscripción.
 

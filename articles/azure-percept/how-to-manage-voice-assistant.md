@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660588"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099019"
 ---
 # <a name="managing-your-voice-assistant"></a>Administración del asistente para voz
 
@@ -28,7 +28,7 @@ Una palabra clave es una palabra o frase corta utilizada para activar un asisten
 
 1. Haga clic en **Change** (Cambiar) junto a **Custom Keyword** (Palabra clave personalizada) en la página de demostración.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Imagen.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Captura de pantalla de la ventana de demostración para hostelería.":::
 
     Si no tiene abierta la página de demostración, vaya a la página del dispositivo (véase a continuación) y haga clic en **Test your voice assistant** (Probar el asistente para voz) en **Actions** (Acciones) para acceder a la demostración.
 
@@ -40,17 +40,17 @@ Una palabra clave es una palabra o frase corta utilizada para activar un asisten
 
 1. En la página de información general de [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), haga clic en **Devices** (Dispositivos) en el panel del menú de la izquierda.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Imagen.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Captura de pantalla de la página de información general de Azure Percept Studio con la opción Dispositivos resaltada.":::
 
 1. Seleccione el dispositivo en el que se implementó la aplicación de asistente para voz.
 
 1. Abra la pestaña **Speech** (Voz).
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Imagen.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Captura de pantalla de la página de dispositivo perimetral con la pestaña Voz resaltada.":::
 
 1. Haga clic en **Change** (Cambiar) junto a **Keyword** (Palabra clave).
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Imagen.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Captura de pantalla de las acciones de la solución de voz disponibles.":::
 
 1. Seleccione una de las palabras clave disponibles y haga clic en **Save** (Guardar) para aplicar los cambios.
 

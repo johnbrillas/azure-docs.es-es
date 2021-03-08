@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 415d50258ce5fc8416dd908bf53f812e72a10f48
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092299"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124506"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Procedimiento de codificación con una transformación personalizada - .NET
 
@@ -41,10 +41,10 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 Clone un repositorio GitHub que contenga el ejemplo de .NET Core completo en la máquina mediante el siguiente comando:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-El ejemplo de valor preestablecido personalizado se encuentra en la carpeta [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/).
+El ejemplo preestablecido personalizado se encuentra en la carpeta de [codificación con un valor preestablecido personalizado mediante .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset).
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Creación de una transformación con un valor preestablecido personalizado
 
@@ -56,7 +56,7 @@ Al crear una [transformación](/rest/api/media/transforms), debe comprobar prime
 
 En el ejemplo siguiente se define un conjunto de salidas que queremos que se genere cuando se use esta transformación. En primer lugar se agrega una capa AacAudio para la codificación de audio y dos capas H264Video para la codificación de vídeo. En las capas de vídeo se asignan etiquetas para que se puedan usar en los nombres de archivo de salida. Luego queremos que la salida también incluya miniaturas. En el ejemplo siguiente se especifican imágenes en formato PNG generadas al 50 % de la resolución del vídeo de entrada, y en tres marcas de tiempo, {25 %, 50 %, 75 %}, de la longitud del vídeo de entrada. Por último, se especifica el formato de los archivos de salida: uno para vídeo y audio y otro para las miniaturas. Puesto que hay varias H264Layers, tenemos que usar macros que generen nombres únicos por capa. Se puede usar una macro `{Label}` o `{Bitrate}`; el ejemplo muestra la primera.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

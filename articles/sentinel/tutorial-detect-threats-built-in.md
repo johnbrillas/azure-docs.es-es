@@ -14,22 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726978"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detección de amenazas integrada
 
-
-> [!IMPORTANT]
-> La detección de amenazas integrada se encuentra actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Después de [conectar los orígenes de datos](quickstart-onboard.md)  a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Por este motivo, Azure Sentinel proporciona plantillas integradas predefinidas para ayudarle a crear reglas de detección de amenazas. Estas plantillas fueron diseñadas por un equipo de expertos y analistas en seguridad de Microsoft basándose en amenazas conocidas, vectores de ataque habituales y cadenas de escalado de actividades sospechosas. Las reglas creadas a partir de estas plantillas buscarán automáticamente en el entorno las actividades que parezcan sospechosas. Muchas de las plantillas se pueden personalizar para buscar o filtrar actividades, según sus necesidades. Las alertas generadas por estas reglas crearán incidentes que puede asignar e investigar en su entorno.
+Después de [conectar los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede recibir una notificación cuando suceda algo sospechoso. Por este motivo, Azure Sentinel proporciona plantillas integradas predefinidas para ayudarle a crear reglas de detección de amenazas. Estas plantillas fueron diseñadas por un equipo de expertos y analistas en seguridad de Microsoft basándose en amenazas conocidas, vectores de ataque habituales y cadenas de escalado de actividades sospechosas. Las reglas creadas a partir de estas plantillas buscarán automáticamente en el entorno las actividades que parezcan sospechosas. Muchas de las plantillas se pueden personalizar para buscar o filtrar actividades, según sus necesidades. Las alertas generadas por estas reglas crearán incidentes que puede asignar e investigar en su entorno.
 
 Este tutorial ayuda a detectar amenazas con Azure Sentinel:
 
@@ -53,9 +47,17 @@ Están disponibles los siguientes tipos de plantilla:
 
     Basada en la tecnología de fusión, la detección avanzada de ataques de varias fases de Azure Sentinel emplea algoritmos de aprendizaje automático escalables que pueden correlacionar muchas alertas y eventos de baja fidelidad de varios productos con incidentes útiles y de alta fidelidad. La fusión está habilitada de manera predeterminada. Dado que la lógica está oculta y, por lo tanto, no se puede personalizar, solo puede crear una regla con esta plantilla.
 
+    > [!IMPORTANT]
+    > Algunas de las detecciones de la plantilla de reglas de fusión se encuentran actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+    >
+    > Para ver qué detecciones se encuentran en versión preliminar, consulte [Detección avanzada de ataques de varias fases en Azure Sentinel](fusion.md).
+
 - **Análisis de comportamiento de aprendizaje automático**
 
     Estas plantillas se basan en algoritmos de aprendizaje automático de Microsoft, por lo que no se puede ver la lógica interna de cómo funcionan y cuándo se ejecutan. Dado que la lógica está oculta y, por lo tanto, no se puede personalizar, solo puede crear una regla con cada plantilla de este tipo.
+
+    > [!IMPORTANT]
+    > Las plantillas de reglas de análisis de comportamiento de aprendizaje automático se encuentran actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 - **Programado**
 
@@ -65,7 +67,7 @@ Están disponibles los siguientes tipos de plantilla:
 
 1. Para usar una plantilla integrada, haga clic en el nombre de la plantilla y, luego, haga clic en el botón **Crear regla** en el panel de detalles para crear una regla activa basada en esa plantilla. Cada plantilla tiene una lista de orígenes de datos necesarios. Al abrir la plantilla, se comprueba automáticamente la disponibilidad de los orígenes de datos. Si hay un problema de disponibilidad, es posible que el botón **Crear regla** esté deshabilitado, o puede que vea una advertencia a tal efecto.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Usar las detecciones integradas para encontrar amenazas con Azure Sentinel":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panel de vista previa de reglas de detección":::
  
 1. Al hacer clic en el botón **Crear regla**, se abre el Asistente para la creación de reglas basado en la plantilla seleccionada. Todos los detalles se rellenan automáticamente y, con las plantillas **Programado** o **Microsoft security** (Seguridad de Microsoft), puede personalizar la lógica y otras configuraciones de reglas para satisfacer mejor sus necesidades específicas. Este proceso puede repetirse para crear reglas adicionales en función de la plantilla integrada. Después de seguir los pasos del Asistente para la creación de reglas hasta el final, habrá terminado de crear una regla basada en la plantilla. Las nuevas reglas aparecerán en la pestaña **Active rules** (Reglas activas).
 

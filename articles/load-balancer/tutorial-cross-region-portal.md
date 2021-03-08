@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712522"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > Azure Load Balancer entre regiones se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -41,28 +41,29 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
 
-[Inicie sesión](https://portal.azure.com) en el portal de vista previa de Azure.
+[Inicie sesión](https://preview.portal.azure.com) en el portal de vista previa de Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Creación de un equilibrador de carga entre regiones
 
 En esta sección, va a crear un equilibrador de carga entre regiones y una dirección IP pública.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Load Balancer** o busque **Load Balancer** en el cuadro de búsqueda.
+1. Seleccione **Crear un recurso**. 
+2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+3. En la página **Equilibrador de carga**, seleccione **Crear**.
+4. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
-
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto.|
     | Nombre                   | Escriba **myLoadBalancer-CR**.                                   |
-    | Region         | Seleccione **Oeste de EE. UU.**                                        |
+    | Region         | Seleccione **(EE. UU.) Oeste de EE. UU.** .                                        |
     | Tipo          | Seleccione **Público**.                                        |
-    | SKU           | Seleccione **Estándar**. |
+    | SKU           | Deje el valor predeterminado **Estándar**. |
     | Nivel           | Seleccione **Global**. |
     | Dirección IP pública | Seleccione **Crear nuevo**.|
     | Nombre de la dirección IP pública | Escriba **myPublicIP-CR** en el cuadro de texto.|
-    | Preferencia de enrutamiento| Seleccione **Red de Microsoft**. |
+    | Preferencia de enrutamiento| Seleccione **Red de Microsoft**. </br> Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../virtual-network/routing-preference-overview.md) |
 
     > [!NOTE]
     > El equilibrador de carga entre regiones solo se puede implementar en las siguientes regiones de inicio: **Este de EE. UU. 2, Oeste de EE. UU., Oeste de Europa, Sudeste de Asia, Centro de EE. UU., Norte de Europa, Este de Asia**. Para más información, consulte **https://aka.ms/homeregionforglb**.
@@ -120,7 +121,7 @@ En esta sección va a crear un sondeo de estado para crear la regla de equilibri
 
 3. Use estos valores para configurar el sondeo de estado:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHealthProbe**. |
     | Protocolo | seleccione **TCP**. |
@@ -151,7 +152,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4**. |

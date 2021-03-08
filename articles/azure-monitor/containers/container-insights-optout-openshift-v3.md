@@ -1,14 +1,14 @@
 ---
 title: Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3 | Microsoft Docs
-description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores.
+description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure con Container Insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731823"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3
 
@@ -19,9 +19,9 @@ ms.locfileid: "100604849"
 > Los clústeres existentes de 3.11 seguirán funcionando hasta junio de 2022, pero dejarán de admitirse después de esa fecha.
 >
 > Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](../../openshift/tutorial-create-cluster.md).
-> Si tiene alguna pregunta específica, [póngase en contacto con nosotros](mailto:aro-feedback@microsoft.com).
+> Si tiene alguna pregunta específica, póngase en [contacto con nosotros](mailto:aro-feedback@microsoft.com).
 
-Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada.  
+Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Container Insights si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada.  
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../platform/delete-workspace.md).
+Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../logs/delete-workspace.md).

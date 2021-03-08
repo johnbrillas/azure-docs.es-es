@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392449"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719412"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -55,19 +55,19 @@ Hay cuatro maneras diferentes de conectar un repositorio de Git a la factoría d
 
 ### <a name="configuration-method-1-home-page"></a>Método de configuración 1: Página de inicio
 
-En la página principal de Azure Data Factory, seleccione **Set up Code Repository** (Configurar el repositorio de código).
+En la página principal de Azure Data Factory, seleccione **Set up code repository** (Configurar el repositorio de código).
 
 ![Configuración de un repositorio de código desde la página principal](media/author-visually/configure-repo.png)
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Método de configuración 2: Lienzo de creación
 
-En el lienzo de creación de la experiencia de usuario de Azure Data Factory, seleccione el menú desplegable **Data Factory** y, luego, **Set up Code Repository** (Configurar el repositorio de código).
+En el lienzo de creación de la experiencia de usuario de Azure Data Factory, seleccione el menú desplegable **Data Factory** y, luego, **Set up code repository** (Configurar el repositorio de código).
 
 ![Configuración de los parámetros del repositorio de código desde la creación](media/author-visually/configure-repo-2.png)
 
 ### <a name="configuration-method-3-management-hub"></a>Método de configuración 3: Centro de administración
 
-Vaya al centro de administración en la experiencia de usuario de ADF. Seleccione **Configuración de Git** en la sección **Control de código fuente**. Si no tiene ningún repositorio conectado, haga clic en **Set up Code Repository** (Configurar el repositorio de código).
+Vaya al centro de administración en la experiencia de usuario de ADF. Seleccione **Configuración de Git** en la sección **Control de código fuente**. Si no tiene ningún repositorio conectado, haga clic en **Configurar**.
 
 ![Configuración del repositorio de código en el centro de administración](media/author-visually/configure-repo-3.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727964"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -162,7 +162,7 @@ Hasta hace poco, la única forma de publicar la canalización de ADF para implem
 
 #### <a name="resolution"></a>Solución
 
-Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de Azure Resource Manager (ARM) de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Esto le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Esto proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) para obtener más información. 
+Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de Azure Resource Manager (ARM) de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Esto le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Esto proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](./continuous-integration-deployment-improvements.md) para obtener más información. 
 
 ###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>No se puede publicar debido a un límite de la plantilla de ARM de 4 MB.  
 
@@ -176,7 +176,45 @@ Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el t
 
 #### <a name="resolution"></a>Solución
 
-En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga las prácticas recomendadas en [Uso de plantillas vinculadas y anidadas](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga las prácticas recomendadas en [Uso de plantillas vinculadas y anidadas](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### <a name="cannot-connect-to-git-enterprise"></a>No se puede establecer la conexión a GIT Enterprise 
+
+##### <a name="issue"></a>Problema
+
+No se puede conectar a GIT Enterprise debido a problemas de permisos. Puede ver un error como **422 - Entidad no procesable.**
+
+#### <a name="cause"></a>Causa
+
+No ha configurado OAuth para ADF. La dirección URL está mal configurada.
+
+##### <a name="resolution"></a>Solución
+
+Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente porque el servicio ADF probará primero https://hostname/api/v3/search/repositories?q=user%3<customer credential>... y generará un error. A continuación, probará https://hostname/api/v3/orgs/<vaorg>/<repo> y la operación se realizará correctamente. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>Recuperación de una factoría de datos eliminada
+
+#### <a name="issue"></a>Problema
+El cliente eliminó la instancia de Data Factory o el grupo de recursos que contiene dicha instancia. Le gustaría saber cómo restaurar una factoría de datos eliminada.
+
+#### <a name="cause"></a>Causa
+
+Es posible recuperar la instancia de Data Factory solo si el cliente tiene configurado el control de código fuente (DevOps o Git). Esta operación proporcionará todos los recursos publicados más recientes y **no** restaurará la canalización, el conjunto de datos y el servicio vinculado sin publicar.
+
+Si no hay ningún control de código fuente, no es posible recuperar una instancia de Data Factory eliminada del back-end porque, una vez que el servicio recibe el comando deleted, se elimina la instancia y no se almacena ninguna copia de seguridad.
+
+#### <a name="resoloution"></a>Resolución
+Para recuperar la instancia de Data Factory eliminada que tiene el control de código fuente, consulte los pasos siguientes:
+
+ * Cree una nueva instancia de Azure Data Factory.
+
+ * Vuelva a configurar Git con los mismos valores, pero asegúrese de importar los recursos existentes de Data Factory en el repositorio seleccionado y elija Nueva rama.
+
+ * Cree una solicitud de incorporación de cambios para combinar los cambios con la rama de colaboración y publíquela.
+
+ * Si el cliente tenía un entorno de ejecución de integración autohospedado en el ADF eliminado, tendrá que crear una nueva instancia en el nuevo ADF, desinstalar y volver a instalar la instancia en su máquina local o VM con la nueva clave obtenida. Una vez completada la configuración del IR, el cliente deberá cambiar el servicio vinculado para que apunte al nuevo IR y probar la conexión, o se producirá el error **Referencia no válida**.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

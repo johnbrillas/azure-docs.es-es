@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879467"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702205"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -57,7 +57,7 @@ Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:S
 
 Después de configurar el dispositivo y completar la detección, puede iniciar la replicación de las máquinas virtuales VMware en Azure. 
 
-- Puede ejecutar hasta 300 replicaciones simultáneamente.
+- Puede ejecutar hasta 500 replicaciones simultáneamente.
 - En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la migración. Para migrar más máquinas, agrúpelas en lotes de 10.
 
 Habilite la replicación como se indica a continuación:
@@ -88,9 +88,10 @@ Habilite la replicación como se indica a continuación:
 9. En **Disk encryption type** (Tipo de cifrado de disco), seleccione:
     - Cifrado en reposo con clave administrada por la plataforma
     - Cifrado en reposo con clave administrada por el cliente
+    - Cifrado doble con claves administradas por el cliente y por la plataforma
 
    > [!NOTE]
-   > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
+   > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](https://go.microsoft.com/fwlink/?linkid=2151800) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
   
 10. En **Ventaja híbrida de Azure**:
 

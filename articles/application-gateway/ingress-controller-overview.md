@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2564fd38056241fd48f58f5f6039bf64f92b6741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714415"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>¿Qué es el controlador de entrada de Application Gateway?
 El controlador de entrada de Application Gateway (AGIC) es una aplicación de Kubernetes, lo que hace posible que los clientes de [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) aprovechen la tecnología nativa de Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/): el equilibrador de carga L7 para exponer software en la nube a Internet. AGIC supervisa el clúster de Kubernetes en el que se hospeda y actualiza continuamente una instancia de Application Gateway para que los servicios seleccionados se expongan a Internet.
@@ -37,7 +37,7 @@ AGIC se configura a través del [recurso de entrada](https://kubernetes.io/docs/
   - Firewall de aplicaciones web integrado
 
 ## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Diferencias entre la implementación de Helm y el complemento de AKS
-Hay dos maneras de implementar AGIC para el clúster de AKS. La primera manera es mediante Helm; la segunda es mediante AKS como un complemento. La principal ventaja de implementar AGIC como un complemento de AKS es que es mucho más sencillo que la implementación mediante Helm. En el caso de una nueva instalación, puede implementar una nueva instancia de Application Gateway y un nuevo clúster de AKS con AGIC habilitado como un complemento en una línea en la CLI de Azure. El complemento es también un servicio totalmente administrado, que ofrece ventajas adicionales, como actualizaciones automáticas y mayor compatibilidad. AKS no admite AGIC implementado mediante Helm; sin embargo, AGIC implementado como un complemento de AKS es compatible con AKS. 
+Hay dos maneras de implementar AGIC para el clúster de AKS. La primera manera es mediante Helm; la segunda es mediante AKS como un complemento. La principal ventaja de implementar AGIC como un complemento de AKS es que es mucho más sencillo que la implementación mediante Helm. En el caso de una nueva instalación, puede implementar una nueva instancia de Application Gateway y un nuevo clúster de AKS con AGIC habilitado como un complemento en una línea en la CLI de Azure. El complemento es también un servicio totalmente administrado, que ofrece ventajas adicionales, como actualizaciones automáticas y mayor compatibilidad. Las dos formas de implementar AGIC (Helm y el complemento de AKS) son totalmente compatibles con Microsoft. Además, el complemento permite una mejor integración con AKS como un complemento de primera clase.
 
 El complemento de AGIC se implementa como un pod en el clúster de AKS del cliente; sin embargo, hay algunas diferencias entre la versión de la implementación de Helm y la versión del complemento de AGIC. A continuación se muestra una lista de las diferencias entre las dos versiones: 
   - Los valores de implementación de Helm no se pueden modificar en el complemento de AKS:
@@ -50,27 +50,7 @@ El complemento de AGIC se implementa como un pod en el clúster de AKS del clien
   - Dado que el complemento de AGIC es un servicio administrado, los clientes se actualizarán automáticamente a la versión más reciente del complemento de AGIC, a diferencia de AGIC implementado mediante Helm, donde el cliente debe actualizar AGIC manualmente. 
 
 > [!NOTE]
-> El método de implementación del complemento de AKS de AGIC se encuentra actualmente en versión preliminar. No se recomienda ejecutar cargas de trabajo de producción con características que todavía están en versión preliminar, por lo que, si tiene curiosidad por probarlo, se recomienda configurar un nuevo clúster para las pruebas. 
-
-En las tablas siguientes se ordenan los escenarios que se admiten actualmente con la versión de implementación de Helm y la versión del complemento de AKS de AGIC. 
-
-### <a name="aks-add-on-agic-single-aks-cluster"></a>Complemento de AKS de AGIC (clúster de AKS único)
-|                  |1 Application Gateway |2+ Application Gateway |
-|------------------|---------|--------|
-|**1 AGIC**|Sí, se admite. |No, está en los trabajos pendientes. |
-|**2+ AGIC**|No, solo se admite 1 AGIC por clúster |No, solo se admite 1 AGIC por clúster |
-
-### <a name="helm-deployed-agic-single-aks-cluster"></a>AGIC implementado mediante Helm (clúster de AKS único)
-|                  |1 Application Gateway |2+ Application Gateway |
-|------------------|---------|--------|
-|**1 AGIC**|Sí, se admite. |No, está en los trabajos pendientes. |
-|**2+ AGIC**|Debe usar la funcionalidad ProhibitedTarget compartida y observar espacios de nombres independientes. |Sí, se admite. |
-
-### <a name="helm-deployed-agic-2-aks-clusters"></a>AGIC implementado mediante Helm (2+ clústeres de AKS)
-|                  |1 Application Gateway |2+ Application Gateway |
-|------------------|---------|--------|
-|**1 AGIC**|N/D |N/D |
-|**2+ AGIC**|Debe usar la funcionalidad ProhibitedTarget compartida |N/D |
+> Los clientes solo pueden implementar un complemento de AGIC por clúster de AKS y cada complemento de AGIC actualmente solo puede tener como destino una instancia de Application Gateway. En el caso de implementaciones que necesiten más de un AGIC por clúster o varios AGIC destinados a una instancia de Application Gateway, siga usando AGIC implementado mediante Helm. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [**Implementación Greenfield del complemento de AKS**](tutorial-ingress-controller-add-on-new.md): instrucciones sobre cómo instalar el complemento de AGIC, AKS y Application Gateway en una infraestructura de pizarra en blanco.

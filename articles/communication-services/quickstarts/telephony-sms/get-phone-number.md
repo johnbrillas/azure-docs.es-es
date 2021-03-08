@@ -9,15 +9,16 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a4a569a11561671febf31b037c499b6f32b44d48
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4fda626581265b4b1f6541a3b453b164ccd27963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690454"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Inicio rápido: Obtención de un número de teléfono mediante Azure Portal
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Comience a usar Azure Communication Services mediante Azure Portal para comprar un número de teléfono.
@@ -39,15 +40,15 @@ Vaya a la hoja **Phone Numbers** (Números de teléfono) en el menú de recursos
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Captura de pantalla que muestra la página de teléfonos de un recurso de Communication Services.":::
 
-Presione el botón **Obtener** para iniciar el asistente. El asistente de la hoja **Phone numbers** (Números de teléfono) le guiará por una serie de preguntas que le ayudarán a elegir el número de teléfono que mejor se adapte a su escenario.
+Presione el botón **Obtener** para iniciar el asistente. El asistente de la hoja **Phone numbers** (Números de teléfono) le guiará por una serie de preguntas que le ayudarán a elegir el número de teléfono que mejor se adapte a su escenario. 
 
-En primer lugar, deberá elegir el valor de **País o región** donde desea aprovisionar el número de teléfono. Después de seleccionar el país o la región, deberá seleccionar el valor de **Use case** (Caso de uso) que mejor se adapte a sus necesidades.
+En primer lugar, deberá elegir el valor de **País o región** donde desea aprovisionar el número de teléfono. Después de seleccionar el país o la región, deberá seleccionar el valor de **Use case** (Caso de uso) que mejor se adapte a sus necesidades. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Captura de pantalla que muestra la vista para obtener números de teléfono.":::
 
 ### <a name="select-your-phone-number-features"></a>Selección de las características de los números de teléfono
 
-La configuración del número de teléfono se divide en dos pasos:
+La configuración del número de teléfono se divide en dos pasos: 
 
 1. Selección del tipo del [tipo de número](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services).
 2. Selección de las [características del número](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services).
@@ -116,7 +117,9 @@ Seleccione las características de las opciones disponibles y haga clic en **Con
 
 Preguntas y problemas comunes:
 
-- En este momento, Estados Unidos es el único país en que se permite comprar números de teléfono. Esto se basa en la dirección de facturación de la suscripción a la que está asociado el recurso. En este momento, los recursos no se pueden cambiar de suscripción.
+- La compra del teléfono solo se admite en Estados Unidos. Para comprar los números de teléfono, asegúrese de lo siguiente:
+  - La dirección de facturación de la suscripción de Azure asociada se encuentra en Estados Unidos. En este momento no se puede mover un recurso a otra suscripción.
+  - El recurso de Communication Services se aprovisiona en la ubicación de datos de Estados Unidos. En este momento no se puede mover un recurso a otra ubicación de datos.
 
 - Si se libera un número de teléfono, este no se liberará ni se podrá volver a comprar hasta el final del período de facturación.
 

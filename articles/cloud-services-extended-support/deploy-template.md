@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548784"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706969"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
-En este tutorial se explica cómo crear la implementación de una instancia de Cloud Service (soporte extendido) mediante [plantillas de ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+En este tutorial se explica cómo crear la implementación de una instancia de Cloud Service (soporte extendido) mediante [plantillas de ARM](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Cloud Services (soporte extendido) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Antes de comenzar
-1. Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido) y cree los recursos asociados. 
 
-2. Cree un nuevo grupo de recursos con [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este paso es opcional si se usa un grupo de recursos existente. 
+1. Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido) y cree los recursos asociados.
+
+2. Cree un nuevo grupo de recursos con [Azure Portal](/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este paso es opcional si se usa un grupo de recursos existente.
  
-3. Cree una cuenta de almacenamiento mediante [Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente. 
+3. Cree una cuenta de almacenamiento mediante [Azure Portal](/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
 
-4. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial. 
+4. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
 
-5. Si lo desea, cree una instancia de Key Vault y cargue los certificados. 
-    -  Los certificados pueden adjuntarse a los servicios en la nube para permitir la comunicación segura hacia el servicio, y desde él. Para poder usar certificados, sus huellas digitales deben especificarse en el archivo de configuración del servicio (.cscfg) y cargarse en una instancia de Key Vault. Se puede crear una instancia de Key Vault mediante [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) o [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - La instancia de Key Vault asociada se debe crear en la misma región y suscripción que el servicio en la nube.   
-    - La instancia de Key Vault asociada debe tener los permisos adecuados para que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado de la instancia de Key Vault. Para más información, consulte [Certificados y Key Vault](certificates-and-key-vault.md).
-    - Se debe hacer referencia a una instancia de Key Vault en la sección OsProfile de la plantilla de ARM que se muestra en los pasos siguientes.
+5. (Opcional) Cree un almacén de claves y cargue los certificados.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Implementación de una instancia de Cloud Services (soporte extendido) 
+    -  Los certificados pueden adjuntarse a los servicios en la nube para permitir la comunicación segura hacia el servicio, y desde él. Para poder usar certificados, se deben especificar sus huellas digitales en el archivo de configuración del servicio (.cscfg) y cargarse en un almacén de claves. Un almacén de claves se puede crear mediante [Azure Portal](/azure/key-vault/general/quick-create-portal) o [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - El almacén de claves asociado se debe crear en la misma región y suscripción que el servicio en la nube.
+    - El almacén de claves asociado debe tener los permisos adecuados para que el recurso de Cloud Services (soporte extendido) pueda recuperar certificados de la instancia de Key Vault. Para más información, consulte [Certificados y Key Vault](certificates-and-key-vault.md).
+    - Se debe hacer referencia al almacén de claves en la sección OsProfile de la plantilla de ARM que se muestra en los pasos siguientes.
+
+## <a name="deploy-a-cloud-service-extended-support"></a>Implementación de una instancia de Cloud Services (soporte extendido)
+
 1. Cree una red virtual. El nombre de la red virtual debe coincidir con las referencias del archivo de configuración del servicio (.cscfg). Si usa una red virtual existente, omita esta sección de la plantilla de ARM.
 
     ```json
@@ -68,7 +72,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ] 
     ```
     
-     Si crea una nueva red virtual, agregue lo siguiente a la sección `dependsOn` para asegurarse de que la plataforma crea la red virtual antes de crear el servicio en la nube. 
+     Si crea una nueva red virtual, agregue lo siguiente a la sección `dependsOn` para asegurarse de que la plataforma crea la red virtual antes de crear el servicio en la nube.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ] 
     ```
      
-     Si crea una nueva dirección IP, agregue lo siguiente a la sección `dependsOn` para asegurarse de que la plataforma crea la dirección IP antes de crear el servicio en la nube. 
+     Si crea una nueva dirección IP, agregue lo siguiente a la sección `dependsOn` para asegurarse de que la plataforma crea la dirección IP antes de crear el servicio en la nube.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
           ] 
     ```
  
-3. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma crea automáticamente un equilibrador de carga.  
+3. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma crea automáticamente un equilibrador de carga.
 
     ```json
     "networkProfile": { 
@@ -134,7 +138,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ```
  
 
-4. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar vinculado a la misma región y suscripción que el servicio en la nube y tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+4. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar ubicado en la misma región y suscripción que el servicio en la nube, y debe tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -154,71 +158,70 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ```
   
     > [!NOTE]
-    > SourceVault es el identificador de recurso de ARM para la instancia de Key Vault. Para encontrar esta información, busque el identificador de recurso en la sección Propiedades de la instancia de Key Vault. 
+    > SourceVault es el identificador de recurso de ARM para el almacén de claves. Para encontrar esta información, busque el identificador de recurso en la sección de propiedades del almacén de claves.
     > - Para encontrar el objeto certificateUrl, vaya al certificado en el almacén de claves etiquetado como **Identificador secreto**.  
    >  - El objeto certificateUrl debe tener el formato https://{keyvault-endpoin}/secrets/{secretname}/{secret-id}.
 
-5. Cree un perfil de rol. Asegúrese de que el número de roles, nombres de roles, número de instancias de cada rol y tamaños sea el mismo en la sección de configuración del servicio (.cscfg), definición de servicio (.csdef) y de perfil de rol de la plantilla de ARM. 
+5. Cree un perfil de rol. Asegúrese de que el número de roles, nombres de roles, número de instancias de cada rol y tamaños sea el mismo en la sección de configuración del servicio (.cscfg), definición de servicio (.csdef) y de perfil de rol de la plantilla de ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, vamos a agregar el escritorio remoto y la extensión de diagnósticos de Windows Azure. 
+6. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, vamos a agregar el escritorio remoto y la extensión de diagnósticos de Windows Azure.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Revise la plantilla completa. 
+7. Revise la plantilla completa.
 
     ```json
     {
@@ -266,12 +269,12 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
       ]
     }
     ```
- 
+
 8. Implemente la plantilla y el archivo de parámetros (definiendo parámetros en el archivo de plantilla) para crear la implementación de Cloud Services (soporte extendido). Consulte estas [plantillas de ejemplo](https://github.com/Azure-Samples/cloud-services-extended-support) según sea necesario.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Pasos siguientes 
+
 - Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
 - Visite el [repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

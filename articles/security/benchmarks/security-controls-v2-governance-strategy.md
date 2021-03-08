@@ -4,15 +4,15 @@ description: Gobernanza y estrategia de Azure Security Benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 277033e41ec7e02b89eca8cf74fe6854acb51cc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369062"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727029"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Control de seguridad V2: Gobernanza y estrategia
 
@@ -20,19 +20,19 @@ La gobernanza y la estrategia proporcionan una guía para garantizar una estrate
 
 ## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definición de la estrategia de protección de datos y administración de recursos
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Asegúrese de documentar y comunicar una estrategia clara para la protección y supervisión continua de sistemas y datos. Dé prioridad a la detección, evaluación, protección y supervisión de los sistemas y datos críticos para la empresa. 
+Asegúrese de documentar y comunicar una estrategia clara para la protección y supervisión continua de sistemas y datos. Dé prioridad a la detección, evaluación, protección y supervisión de los sistemas y datos críticos para la empresa.
 
 Esta estrategia debe incluir instrucciones, directivas y estándares documentados para los siguientes elementos: 
 
 - Norma de clasificación de datos de acuerdo con los riesgos empresariales
 
-- Visibilidad en la organización de seguridad de los riesgos y el inventario de recursos 
+- Visibilidad en la organización de seguridad de los riesgos y el inventario de recursos
 
-- Aprobación de la organización de seguridad de los servicios de Azure para su uso 
+- Aprobación de la organización de seguridad de los servicios de Azure para su uso
 
 - Seguridad de los recursos durante su ciclo de vida
 
@@ -63,7 +63,7 @@ Para más información, consulte las siguientes referencias:
 
 ## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definición de una estrategia de segmentación empresarial
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | GS-2 | 4, 9, 16 | AC, CA, SC |
 
@@ -127,9 +127,9 @@ Asegúrese de documentar y comunicar una estrategia clara para los roles y las r
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
-Establezca un enfoque de seguridad de red de Azure como parte de la estrategia de control de acceso de seguridad general de su organización.  
+Establezca un enfoque de seguridad de red de Azure como parte de la estrategia de control de acceso de seguridad general de su organización.
 
-Esta estrategia debe incluir instrucciones, directivas y estándares documentados para los siguientes elementos: 
+Esta estrategia debe incluir instrucciones, directivas y estándares documentados para los siguientes elementos:
 
 - Centralización de la responsabilidad de seguridad y la administración de redes
 
@@ -165,9 +165,9 @@ Para más información, consulte las siguientes referencias:
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Establezca una identidad de Azure y enfoques de acceso con privilegios como parte de la estrategia de control de acceso de seguridad general de su organización.  
+Establezca una identidad de Azure y enfoques de acceso con privilegios como parte de la estrategia de control de acceso de seguridad general de su organización.
 
-Esta estrategia debe incluir instrucciones, directivas y estándares documentados para los siguientes elementos: 
+Esta estrategia debe incluir instrucciones, directivas y estándares documentados para los siguientes elementos:
 
 - Un sistema de identidad y autenticación centralizado y su interconectividad con otros sistemas de identidad internos y externos
 
@@ -175,7 +175,7 @@ Esta estrategia debe incluir instrucciones, directivas y estándares documentado
 
 - Protección de usuarios con privilegios elevados
 
-- Supervisión y control de anomalías en las actividades de los usuarios  
+- Supervisión y control de anomalías en las actividades de los usuarios
 
 - Proceso de revisión y conciliación del acceso y la identidad de los usuarios
 

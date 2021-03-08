@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008577"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123197"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows (versión preliminar)
 
@@ -85,7 +85,7 @@ Azure IoT Edge para Linux en Windows admite los siguientes métodos de aprovisio
 
 El aprovisionamiento manual es más fácil de empezar con algunos dispositivos. Device Provisioning Service es útil para aprovisionar muchos dispositivos.
 
-Si planea usar uno de los métodos de DPS para aprovisionar sus dispositivos, siga los pasos descritos en el artículo correspondiente vinculado anteriormente para crear una instancia de DPS, vincular la instancia de DPS a su instancia de IoT Hub y crear una inscripción de DPS. Puede crear una *inscripción individual* para un único dispositivo o una *inscripción de grupo* para un conjunto de dispositivos. Para obtener más información sobre los tipos de inscripción, visite los [conceptos de Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
+Si planea usar uno de los métodos de DPS para aprovisionar sus dispositivos, siga los pasos descritos en el artículo correspondiente vinculado anteriormente para crear una instancia de DPS, vincular la instancia de DPS a su instancia de IoT Hub y crear una inscripción de DPS. Puede crear una *inscripción individual* para un único dispositivo o una *inscripción de grupo* para un conjunto de dispositivos. Para obtener más información sobre los tipos de inscripción, visite los [conceptos de Azure IoT Hub Device Provisioning Service](../iot-dps/concepts-service.md#enrollment).
 
 ## <a name="create-a-new-deployment"></a>Crear una nueva implementación
 
@@ -97,7 +97,7 @@ En la página de inicio de Windows Admin Center, en la lista de conexiones, ver�
 
 Puede usar Windows Admin Center para instalar y administrar Azure IoT Edge para Linux en Windows tanto en el dispositivo local como en los dispositivos administrados remotos. En esta guía, la conexión de host local actuará como el dispositivo de destino para la implementación de Azure IoT Edge para Linux en Windows.
 
-Si quiere realizar la implementación en un dispositivo de destino remoto en lugar de en el dispositivo local y no ve el dispositivo de destino deseado en la lista, siga las [instrucciones para agregar el dispositivo](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
+Si quiere realizar la implementación en un dispositivo de destino remoto en lugar de en el dispositivo local y no ve el dispositivo de destino deseado en la lista, siga las [instrucciones para agregar el dispositivo](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
    ![Panel inicial de Windows Admin Center con el dispositivo de destino en la lista](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
@@ -136,7 +136,7 @@ Una vez completada la implementación, está listo para aprovisionar el disposit
 Instale IoT Edge para Linux en Windows en el dispositivo de destino si todavía no lo ha hecho.
 
 > [!NOTE]
-> En el siguiente proceso de PowerShell se describe cómo crear una implementación de host local de Azure IoT Edge para Linux en Windows. Para crear una implementación en un dispositivo de destino remoto mediante PowerShell, puede usar [PowerShell remoto](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) para establecer una conexión a un dispositivo remoto y ejecutar estos comandos de manera remota en ese dispositivo.
+> En el siguiente proceso de PowerShell se describe cómo crear una implementación de host local de Azure IoT Edge para Linux en Windows. Para crear una implementación en un dispositivo de destino remoto mediante PowerShell, puede usar [PowerShell remoto](/powershell/module/microsoft.powershell.core/about/about_remote) para establecer una conexión a un dispositivo remoto y ejecutar estos comandos de manera remota en ese dispositivo.
 
 1. En una sesión de PowerShell con privilegios elevados, ejecute cada uno de los siguientes comandos para descargar IoT Edge para Linux en Windows.
 
@@ -173,9 +173,8 @@ Instale IoT Edge para Linux en Windows en el dispositivo de destino si todavía 
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > Puede ejecutar este comando sin parámetros u opcionalmente personalizar la implementación con parámetros. Inspeccione el módulo PowerShell AzureEFLOW.psm1 para ver los parámetros y su significado (revise C:\Archivos de Files\WindowsPowerShell\Modules\AzureEFLOW).
+   > Puede ejecutar este comando sin parámetros u opcionalmente personalizar la implementación con parámetros. Puede consultar [la referencia de scripts de IoT Edge para Linux en Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver su significado.
 
 1. Escriba "Y" para aceptar los términos de licencia.
 
@@ -319,7 +318,10 @@ En esta sección se trata el aprovisionamiento automático del dispositivo media
 
 Compruebe que IoT Edge para Linux en Windows se haya instalado y configurado correctamente en el dispositivo de IoT Edge.
 
+# <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
+
 1. Seleccione el dispositivo de IoT Edge en la lista de dispositivos conectados de Windows Admin Center para conectarse a él.
+
 1. En la página Información general del dispositivo se muestran algunos datos sobre el dispositivo:
 
     1. En la sección **IoT Edge Module List** (lista de módulos de IoT Edge) se muestran los módulos en ejecución en el dispositivo. Cuando el servicio de IoT Edge se inicia por primera vez, solo verá la ejecución del módulo **edgeAgent**. El módulo edgeAgent se ejecuta de forma predeterminada y le ayuda a instalar e iniciar todos los módulos adicionales que implemente en el dispositivo.
@@ -333,11 +335,41 @@ Compruebe que IoT Edge para Linux en Windows se haya instalado y configurado cor
        journalctl -u iotedge
        ```
 
+    2. Use la herramienta `check` para comprobar el estado de configuración y conexión del dispositivo.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+1. Inicie sesión en la instancia de IoT Edge para Linux en la máquina virtual Windows con el siguiente comando en la sesión de PowerShell:
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+1. Una vez que haya iniciado sesión, puede comprobar la lista de módulos de IoT Edge en ejecución con el comando de Linux siguiente:
+
+   ```bash
+   iotedge list
+   ```
+
+1. Si tiene que solucionar problemas del servicio IoT Edge, use los siguientes comandos de Linux.
+
+    1. Si necesita solucionar problemas del servicio, recupere los registros del servicio.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
     2. Use la herramienta `check` para comprobar el estado de la configuración y la conexión del dispositivo.
 
        ```bash
        sudo iotedge check
        ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

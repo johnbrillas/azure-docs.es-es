@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 53f29c2b8f7a17ac2a23cc081660e8dcb4b9f387
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937294"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701865"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir el acceso de lectura público anónimo a contenedores y blobs
 
@@ -35,7 +35,7 @@ Para comprender de qué forma el impedimento del acceso público puede afectar a
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Supervisión de las solicitudes anónimas con el Explorador de métricas
 
-Para realizar el seguimiento de las solicitudes anónimas a una cuenta de almacenamiento, use el Explorador de métricas de Azure situado en Azure Portal. Para más información sobre el Explorador de métricas, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md).
+Para realizar el seguimiento de las solicitudes anónimas a una cuenta de almacenamiento, use el Explorador de métricas de Azure situado en Azure Portal. Para más información sobre el Explorador de métricas, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Siga estos pasos para crear una métrica que realice el seguimiento de las solicitudes anónimas:
 
@@ -61,7 +61,7 @@ Una vez configurada la métrica, las solicitudes anónimas comenzarán a aparece
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de pantalla que muestra las solicitudes anónimas agregadas al almacenamiento de blobs":::
 
-También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes anónimas a su cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes anónimas a su cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-containers-receiving-anonymous-requests"></a>Análisis de los registros para identificar los contenedores que reciben solicitudes anónimas
 
@@ -69,7 +69,7 @@ Los registros de Azure Storage capturan detalles sobre las solicitudes realizada
 
 Para registrar las solicitudes a su cuenta de Azure Storage con el fin de evaluar las solicitudes anónimas, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](./monitor-blob-storage.md).
 
-El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 > [!NOTE]
 > La versión preliminar del registro de Azure Storage en Azure Monitor solo se admite en la nube pública de Azure. Las nubes de Government no admiten el registro de Azure Storage con Azure Monitor.
@@ -78,8 +78,7 @@ El registro de Azure Storage en Azure Monitor admite el uso de consultas de regi
 
 Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure Log Analytics, primero debe crear una configuración de diagnóstico que indique qué tipos de solicitudes y para qué servicios de almacenamiento quiere registrar los datos. Para crear una configuración de diagnóstico en Azure Portal, siga estos pasos:
 
-1. Inscríbase en la [versión preliminar de registro de Azure Storage en Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. En la sección Supervisión, seleccione **Configuración de diagnóstico (versión preliminar)** .
 1. Seleccione **Blob** para registrar las solicitudes realizadas al almacenamiento de blobs.
@@ -90,7 +89,7 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 
     :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
-Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Puede encontrar una referencia de los campos disponibles en los registros de Azure Storage en Azure Monitor en [Registros de recursos (versión preliminar)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -106,7 +105,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-También puede configurar una regla de alerta basada en esta consulta para que le informe sobre las solicitudes anónimas. Para más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+También puede configurar una regla de alerta basada en esta consulta para que le informe sobre las solicitudes anónimas. Para más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-anonymous-public-access"></a>Medidas para el acceso público anónimo
 
@@ -290,13 +289,13 @@ En la siguiente imagen se muestra el error que se produce si se intenta crear un
 
 ## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Permisos para permitir o denegar el acceso público
 
-Para establecer la propiedad **AllowBlobPublicAccess** para la cuenta de almacenamiento, un usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (RBAC de Azure) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\** _. Los roles integrados con esta acción incluyen:
+Para establecer la propiedad **AllowBlobPublicAccess** para la cuenta de almacenamiento, un usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (Azure RBAC) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\*** . Los roles integrados con esta acción incluyen:
 
 - El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
 - El rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen _*Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
+Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen **Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
 
 Las asignaciones de roles deben tener el ámbito del nivel de la cuenta de almacenamiento o superior para permitir que un usuario permita o deniegue el acceso público para la cuenta de almacenamiento. Para más información sobre el ámbito de los roles, consulte [Comprensión del ámbito para RBAC de Azure](../../role-based-access-control/scope-overview.md).
 

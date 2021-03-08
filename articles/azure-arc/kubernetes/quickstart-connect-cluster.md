@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 02/24/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 8eb177f0c80d7ed2df70c75ca476a1dfe33c8425
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c50266ce0afd6dd3f5860e3259d2b22af817834c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664399"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689256"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc 
 
@@ -25,7 +25,7 @@ En este inicio rápido, se descubrirán las ventajas de Kubernetes habilitado pa
 
 * Compruebe que tiene:
     * Un clúster de Kubernetes en funcionamiento.
-    * Un archivo `kubeconfig`.
+    * Un archivo `kubeconfig` que apunte al clúster que quiere conectar a Azure Arc.
     * Permisos de "lectura" y "escritura" para el usuario o la entidad de servicio que conecta la creación del tipo de recurso Kubernetes habilitado para Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
 * Instale la [versión más reciente de Helm 3](https://helm.sh/docs/intro/install).
 * Instale las siguientes extensiones de versiones de la CLI de Kubernetes habilitado para Azure Arc >= 1.0.0:
@@ -68,16 +68,6 @@ En este inicio rápido, se descubrirán las ventajas de Kubernetes habilitado pa
 | `https://login.microsoftonline.com`                                                                            | Necesario para capturar y actualizar tokens de Azure Resource Manager.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Se requiere para extraer certificados de Managed Service Identity (MSI) asignados por el sistema.                                                                  |
-
-
-## <a name="install-the-azure-arc-enabled-kubernetes-cli-extensions"></a>Instalación de extensiones de la CLI de Kubernetes habilitado para Azure Arc
-
-Escriba los siguientes comandos:  
-
-    ```azurecli
-    az extension add --name connectedk8s
-    az extension add --name k8s-configuration
-    ```
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registre los dos proveedores en Kubernetes habilitado para Azure Arc
 
@@ -147,6 +137,9 @@ eastus      AzureArcTest
       "type": "Microsoft.Kubernetes/connectedClusters"
     }
     ```
+
+> [!TIP]
+> El comando anterior sin el parámetro location especificado crea el recurso de Kubernetes habilitado para Azure Arc en la misma ubicación que el grupo de recursos. Para crear el recurso de Kubernetes habilitado para Azure Arc en una ubicación diferente, especifique `--location <region>` o `-l <region>` al ejecutar el comando `az connectedk8s connect`.
 
 ## <a name="verify-cluster-connection"></a>Comprobación de la conexión del clúster
 

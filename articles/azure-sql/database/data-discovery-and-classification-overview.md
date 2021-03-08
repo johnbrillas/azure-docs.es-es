@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392772"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690811"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,11 +187,12 @@ Puede usar las API REST para administrar las clasificaciones y recomendaciones m
 
 ## <a name="faq---advanced-classification-capabilities"></a>Preguntas más frecuentes: funcionalidades de clasificación avanzadas
 
-**Pregunta**: ¿[Azure Purview](https://docs.microsoft.com/azure/purview/overview) reemplazará a Clasificación y detección de datos de SQL o Clasificación y detección de datos de SQL se retirará pronto?
-**Respuesta**: Seguimos admitiendo Clasificación y detección de datos de SQL y le animamos a que adopte [Azure Purview](https://docs.microsoft.com/azure/purview/overview), que tiene capacidades más ricas para impulsar las funciones de clasificación avanzadas y la gobernanza de datos. Si decidimos retirar cualquier servicio, característica, API o SKU, recibirá un aviso previo con una ruta de migración o de transición. Obtenga más información sobre las directivas del ciclo de vida de Microsoft aquí.
+**Pregunta**: ¿[Azure Purview](../../purview/overview.md) reemplazará a Clasificación y detección de datos de SQL o Clasificación y detección de datos de SQL se retirará pronto?
+**Respuesta**: Seguimos admitiendo Clasificación y detección de datos de SQL y le animamos a que adopte [Azure Purview](../../purview/overview.md), que tiene capacidades más ricas para impulsar las funciones de clasificación avanzadas y la gobernanza de datos. Si decidimos retirar cualquier servicio, característica, API o SKU, recibirá un aviso previo con una ruta de migración o de transición. Obtenga más información sobre las directivas del ciclo de vida de Microsoft aquí.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Pasos siguientes
 
 - Considere la posibilidad de configurar [Auditoría de Azure SQL](../../azure-sql/database/auditing-overview.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 - Para ver una presentación que incluye la detección y clasificación de datos, consulte [Detección, clasificación, etiquetado y protección de datos de SQL | Datos expuestos](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- Para clasificar las instancias de Azure SQL Database y Azure Synapse Analytics con las etiquetas de Azure Purview mediante comandos T-SQL, consulte [Clasificación de los datos de Azure SQL mediante etiquetas de Azure Purview](../../sql-database/scripts/sql-database-import-purview-labels.md).

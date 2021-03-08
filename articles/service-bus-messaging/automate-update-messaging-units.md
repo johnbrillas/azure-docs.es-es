@@ -3,12 +3,12 @@ title: 'Azure Service Bus: actualización automática de las unidades de mensaje
 description: En este artículo se muestra cómo puede actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581638"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720603"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus 
 Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Consulte [Información general sobre el escalado automático en Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para más información sobre la característica de escalado automático de Azure Monitor. 
@@ -57,7 +57,7 @@ Puede configurar el escalado automático de unidades de mensajería mediante el 
 No se puede establecer una programación para el escalado automático en un determinado día o intervalo de fechas para una condición predeterminada. Esta condición de escalado se ejecuta cuando no coincide ninguna de las otras condiciones de escalado con programaciones. 
 
 ### <a name="scale-based-on-a-metric"></a>Escalado basado en una métrica
-En el procedimiento siguiente se muestra cómo agregar una condición para aumentar automáticamente las unidades de mensajería (escalar horizontalmente) cuando el uso de CPU es superior al 75 % y reducir las unidades de mensajería (reducir horizontalmente) cuando el uso de CPU es inferior al 25 %. Los incrementos se realizan de 1 a 2, de 2 a 4 y de 4 a 8. De forma similar, los decrementos se realizan de 8 a 4, de 4 a 2 y de 2 a 1. 
+En el procedimiento siguiente se muestra cómo agregar una condición para aumentar automáticamente las unidades de mensajería (escalar horizontalmente) cuando el uso de CPU es superior al 75 % y reducir las unidades de mensajería (reducir horizontalmente) cuando el uso de CPU es inferior al 25 %. Los incrementos se realizan de 1 a 2, de 2 a 4, de 4 a 8 y de 8 a 16. De forma similar, los decrementos se realizan de 16 a 8, de 8 a 4, de 4 a 2 y de 2 a 1. 
 
 1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
 1. En la sección **Valor predeterminado** de la página, especifique un **nombre** para la condición predeterminada. Seleccione el icono de **lápiz** para editar el texto. 
@@ -74,7 +74,7 @@ En el procedimiento siguiente se muestra cómo agregar una condición para aumen
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Valor predeterminado: escalar horizontalmente si el uso de CPU es superior al 75 %":::       
 
         > [!NOTE]
-        > La característica de escalado automático aumenta las unidades de mensajería del espacio de nombres si el uso total de CPU supera el 75 % en este ejemplo. Los incrementos se realizan de 1 a 2, de 2 a 4 y de 4 a 8. 
+        > La característica de escalado automático aumenta las unidades de mensajería del espacio de nombres si el uso total de CPU supera el 75 % en este ejemplo. Los incrementos se realizan de 1 a 2, de 2 a 4, de 4 a 8 y de 8 a 16. 
 1. Seleccione **+ Agregar una regla** y siga estos pasos en la página **Escalar regla**:
     1. Seleccione una métrica de la lista desplegable **Nombre de métrica**. En este ejemplo, es **CPU**. 
     1. Seleccione un operador y los valores de umbral. En este ejemplo, son **Menor que** y **25** para **Umbral de la métrica para desencadenar la acción de escalado**. 
@@ -84,7 +84,7 @@ En el procedimiento siguiente se muestra cómo agregar una condición para aumen
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Valor predeterminado: reducir horizontalmente en caso de que el uso de CPU sea inferior al 25 %":::       
 
         > [!NOTE]
-        > La característica de escalado automático disminuye las unidades de mensajería del espacio de nombres si el uso total de CPU cae por debajo del 25 % en este ejemplo. Los decrementos se realizan de 8 a 4, de 4 a 2 y de 2 a 1. 
+        > La característica de escalado automático disminuye las unidades de mensajería del espacio de nombres si el uso total de CPU cae por debajo del 25 % en este ejemplo. Los decrementos se realizan de 16 a 8, de 8 a 4, de 4 a 2 y de 2 a 1. 
 1. Establezca el número **mínimo**, **máximo** y **predeterminado** de unidades de mensajería.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regla predeterminada basada en una métrica":::

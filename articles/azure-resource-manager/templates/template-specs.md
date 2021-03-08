@@ -2,15 +2,15 @@
 title: Creación e implementación de especificaciones de plantillas
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700395"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Control de versiones
+
+Cuando se crea una especificación de plantilla, se debe proporcionar un nombre de versión para ella. A medida que realiza la iteración en el código de plantilla, puede actualizar una versión existente (para revisiones) o publicar una nueva versión. La versión es una cadena de texto. Puede optar por seguir cualquier sistema de control de versiones, incluido el control de versiones semántico. Los usuarios de la especificación de plantilla pueden proporcionar el nombre de versión que quieren usar al implementarla.
+
+## <a name="use-tags"></a>Usar etiquetas
+
+Las [etiquetas](../management/tag-resources.md) le ayudan a organizar los recursos de forma lógica. Puede agregar etiquetas a las especificaciones de plantilla mediante Azure PowerShell y la CLI de Azure:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Al crear o modificar una especificación de plantilla con el parámetro "version" especificado, pero sin el parámetro "tag/tags":
+
+- Si la especificación de la plantilla existe y tiene etiquetas, pero la versión no existe, la nueva versión hereda las mismas etiquetas que la especificación de plantilla existente.
+
+Al crear o modificar una especificación de plantilla con los parámetros "tag/tags" y "version" especificados:
+
+- Si no existen la especificación de plantilla ni la versión, las etiquetas se agregan a la nueva especificación de plantilla y a la nueva versión.
+- Si existe la especificación de plantilla, pero la versión no, las etiquetas solo se agregan a la nueva versión.
+- Si existen la especificación de plantilla y la versión, las etiquetas solo se aplican a la versión.
+
+Al modificar una plantilla con el parámetro "tag/tags" especificado pero sin el parámetro "version" especificado, las etiquetas solo se agregan a la especificación de plantilla.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Creación de una especificación de plantilla con plantillas vinculadas
 
 Si la plantilla principal de la especificación de plantilla hace referencia a plantillas vinculadas, los comandos de PowerShell y de la CLI pueden buscar y empaquetar automáticamente las plantillas vinculadas desde la unidad local. No es necesario configurar manualmente las cuentas de almacenamiento ni los repositorios para hospedar las especificaciones de plantilla: todo es independiente en el recurso de especificación de plantilla.
@@ -331,10 +403,6 @@ El ejemplo siguiente es similar al anterior, pero se usa la propiedad `id` para 
 ```
 
 Para obtener más información acerca de la vinculación de especificaciones de plantilla, consulte [Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Control de versiones
-
-Cuando se crea una especificación de plantilla, se debe proporcionar un nombre de versión para ella. A medida que realiza la iteración en el código de plantilla, puede actualizar una versión existente (para revisiones) o publicar una nueva versión. La versión es una cadena de texto. Puede optar por seguir cualquier sistema de control de versiones, incluido el control de versiones semántico. Los usuarios de la especificación de plantilla pueden proporcionar el nombre de versión que quieren usar al implementarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

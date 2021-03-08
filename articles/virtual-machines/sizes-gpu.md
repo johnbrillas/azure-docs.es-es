@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 58987523d86b0e3acb63d3dc220f68753501830e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b88cc2d70d38d84436beaff41b5b40b9c06debca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666016"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695556"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 
@@ -43,7 +43,7 @@ Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la seri
 
 - Las máquinas virtuales de la serie N solo se pueden implementar en el modelo de implementación de Resource Manager.
 
-- Las máquinas virtuales de serie N difieren en el tipo de Azure Storage que admiten en sus discos. Las máquinas virtuales NC y NV solo admiten discos de máquina virtual respaldados por Disk Storage (HDD) estándar. Las máquinas virtuales NCv2, NCv3, ND, NDv2 y NVv2 solo admiten discos de máquina virtual respaldados por Disk Storage (SSD) Premium.
+- Las máquinas virtuales de serie N difieren en el tipo de Azure Storage que admiten en sus discos. Las máquinas virtuales NC y NV solo admiten discos de máquina virtual respaldados por Disk Storage (HDD) estándar. Todas las demás máquinas virtuales de GPU admiten discos de máquina virtual respaldados por Disk Storage Estándar y Disk Storage Prémium (SSD).
 
 - Si desea implementar más de un pequeño número de máquinas virtuales de la serie N, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. Si usa una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), solo puede usar un número limitado de núcleos de proceso de Azure.
 

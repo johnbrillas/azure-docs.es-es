@@ -4,29 +4,31 @@ description: Copia de seguridad y recuperación de Azure Security Benchmark V
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724428"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Control de seguridad V2: Copia de seguridad y recuperación
 
 La copia de seguridad y la recuperación conllevan controles para garantizar que las copias de seguridad de los datos y la configuración de los distintos niveles de servicio se realizan, se validan y se protegen.
 
+Para ver la instancia de Azure Policy integrada aplicable, consulte [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Copia de seguridad y recuperación](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery).
+
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantía de copias de seguridad automáticas periódicas
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
 Asegúrese de realizar copias de seguridad de sistemas y datos para mantener la continuidad empresarial después de un evento inesperado. Debería definirse por los objetivos del objetivo de punto de recuperación (RPO) y el objetivo de tiempo de recuperación (RTO).
 
-Habilite Azure Backup y configure el origen de las copias de seguridad (por ejemplo, máquinas virtuales de Azure, SQL Server, bases de datos de HANA o recursos compartidos de archivos), así como la frecuencia y el período de retención deseados.  
+Habilite Azure Backup y configure el origen de las copias de seguridad (por ejemplo, VM de Azure, SQL Server, bases de datos HANA o recursos compartidos de archivos), así como la frecuencia y el período de retención deseados.
 
 Para un nivel más alto de protección, puede habilitar la opción de almacenamiento con redundancia geográfica para replicar los datos de copia de seguridad en una región secundaria y recuperarlos mediante la restauración entre regiones.
 
@@ -54,9 +56,9 @@ Para un nivel más alto de protección, puede habilitar la opción de almacenami
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
-Asegúrese de que las copias de seguridad están protegidas frente a ataques. Esto debe incluir el cifrado de las copias de seguridad para proteger frente a la pérdida de confidencialidad.   
+Asegúrese de que las copias de seguridad están protegidas frente a los ataques. Esto debe incluir el cifrado de las copias de seguridad para proteger frente a la pérdida de confidencialidad.
 
-En el caso de las copias de seguridad locales mediante Azure Backup, se proporciona cifrado en reposo mediante la frase de contraseña que proporcione. En el caso de las copias de seguridad periódicas de servicios de Azure, los datos de copia de seguridad se cifran automáticamente mediante claves administradas por la plataforma de Azure. Puede optar por cifrar las copias de seguridad mediante claves administradas por el cliente. En este caso, asegúrese de que esta clave administrada por el cliente del almacén de claves también esté en el ámbito de la copia de seguridad. 
+En el caso de las copias de seguridad locales mediante Azure Backup, se proporciona cifrado en reposo mediante la frase de contraseña que proporcione. En el caso de las copias de seguridad periódicas de servicios de Azure, los datos de copia de seguridad se cifran automáticamente mediante claves administradas por la plataforma de Azure. Puede optar por cifrar las copias de seguridad mediante claves administradas por el cliente. En este caso, asegúrese de que esta clave administrada por el cliente del almacén de claves también esté en el ámbito de la copia de seguridad.
 
 Use el control de acceso basado en rol de Azure en Azure Backup, Azure Key Vault u otros recursos para proteger las copias de seguridad y las claves administradas por el cliente. Además, puede habilitar características de seguridad avanzadas para requerir MFA antes de modificar o eliminar copias de seguridad.
 
@@ -104,7 +106,7 @@ Realice periódicamente la restauración de los datos de la copia de seguridad. 
 |--|--|--|--|
 | BR-4 | 10,4 | CP-9 |
 
-Asegúrese de aplicar medidas para evitar la pérdida de claves y para recuperarse de ella. Habilite la eliminación temporal y la protección de purga de Azure Key Vault para proteger las claves frente a una eliminación accidental o malintencionada.  
+Asegúrese de aplicar medidas para evitar la pérdida de claves y para su recuperación. Habilite la eliminación temporal y la protección de purga de Azure Key Vault para proteger las claves frente a una eliminación accidental o malintencionada.
 
 - [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

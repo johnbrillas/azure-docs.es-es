@@ -3,16 +3,18 @@ title: Webhooks para responder a las acciones del registro
 description: Aprenda a usar webhooks para desencadenar eventos cuando tengan lugar acciones de inserción o extracción en uno de los repositorios del registro.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722252"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
 Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También puede hospedar repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), un formato de empaquetado para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica. Con un registro [con replicación geográfica](container-registry-geo-replication.md), puede configurar cada webhook para responder a eventos en una réplica regional específica.
+
+El punto de conexión de un webhook debe ser accesible públicamente desde el registro. Puede configurar solicitudes de webhook del registro para autenticarse en un punto de conexión protegido.
 
 Para obtener información detallada sobre las solicitudes de webhook, consulte [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md).
 

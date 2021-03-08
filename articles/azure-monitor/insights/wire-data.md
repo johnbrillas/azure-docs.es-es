@@ -1,17 +1,16 @@
 ---
 title: Solución Wire Data en Azure Monitor | Microsoft Docs
 description: Los datos de conexión son datos consolidados de rendimiento y de red procedentes de equipos con agentes de Log Analytics. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713633"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor
 
@@ -26,7 +25,7 @@ Además del agente de Log Analytics, la solución Wire Data usa las instancias d
 > 
 >Los clientes existentes que usen la solución Datos de conexión pueden seguir utilizándola. Publicaremos una guía de una escala de tiempo para la migración a Service Map.
 >
->Los clientes nuevos deben instalar la [solución Service Map](../vm/service-map.md) o [Azure Monitor para VM](../vm/vminsights-overview.md).  El conjunto de datos de Service Map es comparable a los Datos de conexión.  Azure Monitor para VM incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. 
+>Los clientes nuevos deben instalar la [solución Service Map](../vm/service-map.md) o [VM Insights](../vm/vminsights-overview.md).  El conjunto de datos de Service Map es comparable a los Datos de conexión.  VM Insights incluye el conjunto de datos de Service Map con características y datos de rendimiento adicionales para el análisis. 
 
 
 De forma predeterminada, los datos de los registros de Azure Monitor de CPU, memoria y disco, los datos de rendimiento de red de los contadores integrados en Windows y Linux, así como otros contadores de rendimiento que se pueden especificar. La recopilación de datos de red y de otros datos se realiza en tiempo real para cada agente, incluidas las subredes y los protocolos de nivel de aplicación utilizados por el equipo.  Wire Data analiza los datos de red en el nivel de aplicación, no hacia abajo en la capa de transporte TCP.   La solución no busca ACK y SYN individuales.   Una vez que se completa el protocolo de enlace, se considera una conexión dinámica y se marca como conectada. La conexión permanece activa siempre y cuando ambos lados acuerden que el socket está abierto y los datos puedan pasar bidireccionalmente.   Cuando uno de los dos lados cierra la conexión, se marca como desconectada.  Por lo tanto, solo se cuenta el ancho de banda de los paquetes completados correctamente; no tiene en cuenta los que vuelven a enviar ni los que no se completan.
@@ -76,7 +75,7 @@ Si es un usuario de System Center Operations Manager con un grupo de administrac
 
 Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para conectarse a Azure Monitor mediante la puerta de enlace de Log Analytics. Puede descargar la nueva versión de la puerta de enlace de Log Analytics en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Se requiere la oferta de la solución [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Si usa la versión anterior de la solución Wire Data, primero debe quitarla. Pero todos los datos capturados a través de la solución Wire Data original siguen estando disponibles en Wire Data 2.0 y la búsqueda de registros.

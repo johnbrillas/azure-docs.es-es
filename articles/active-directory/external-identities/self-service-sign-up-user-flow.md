@@ -11,26 +11,31 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647343"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688637"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
 
-Puede crear flujos de usuario para aplicaciones compiladas por la organización. La asociación del flujo de usuario con una aplicación le permite habilitar el registro en esa aplicación. Puede optar por asociar más de una aplicación al flujo de usuario. Una vez asociado el flujo de usuario a una o más aplicaciones, los usuarios que visiten esa aplicación podrán registrarse y obtener una cuenta de invitado mediante las opciones configuradas en el flujo de usuario.
+> [!NOTE]
+> Algunas de las características que se mencionan en este artículo son características en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Con las aplicaciones que cree, puede crear flujos de usuario que permitan al usuario registrarse en una aplicación y crear una cuenta de invitado. Un flujo de usuario de autoservicio de suscripción define la serie de pasos que seguirá el usuario durante el registro, los proveedores de identidades que le permitirá usar y los atributos de usuario que quiere recopilar. Puede asociar una o varias aplicaciones a un solo flujo de usuario.
 
 > [!NOTE]
 > Puede asociar flujos de usuarios a las aplicaciones compiladas por la organización. Los flujos de usuario no se pueden usar para las aplicaciones de Microsoft, como SharePoint o Teams.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-### <a name="add-social-identity-providers-optional"></a>Adición de proveedores de identidades sociales (opcional)
+### <a name="add-identity-providers-optional"></a>Adición de los proveedores de identidades (opcional)
 
-Azure AD es el proveedor de identidades predeterminado para el registro de autoservicio. Esto significa que los usuarios pueden registrarse de manera predeterminada con una cuenta de Azure AD. Los proveedores de identidades sociales también pueden incluirse en estos flujos de registro para admitir cuentas de Google y Facebook.
+Azure AD es el proveedor de identidades predeterminado para el registro de autoservicio. Esto significa que los usuarios pueden registrarse de manera predeterminada con una cuenta de Azure AD. En los flujos de usuario de autoservicio de registro, también puede incluir proveedores de identidades sociales, como Google y Facebook, Cuenta Microsoft (versión preliminar) y el código de acceso de un solo uso por correo electrónico (versión preliminar).
 
+- [Proveedor de identidades Cuenta Microsoft (versión preliminar)](microsoft-account.md)
+- [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
 - [Incorporación de Facebook a la lista de proveedores de identidades sociales](facebook-federation.md)
 - [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)
 

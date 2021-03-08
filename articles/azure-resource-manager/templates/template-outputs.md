@@ -1,37 +1,95 @@
 ---
 title: Salidas en plantillas
-description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM).
+description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM) y en un archivo Bicep.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703841"
 ---
 # <a name="outputs-in-arm-templates"></a>Salidas en plantillas de ARM
 
-En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM). Se usa `outputs` cuando es necesario devolver valores de los recursos implementados.
+En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM) y en un archivo Bicep. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
 
-El formato de cada valor de salida debe coincidir con uno de los [tipos de datos](template-syntax.md#data-types).
+El formato de cada valor de salida debe resolverse como uno de los [tipos de datos](template-syntax.md#data-types).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="define-output-values"></a>Definición de valores de salida
 
-En el ejemplo siguiente se muestra cómo devolver el identificador de recurso para una dirección IP pública:
+En el ejemplo siguiente se muestra cómo devolver una propiedad desde un recurso implementado.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+Para JSON, agregue la sección `outputs` a la plantilla. El valor de salida obtiene el nombre de dominio completo de una dirección IP pública.
 
 ```json
 "outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Para Bicep, use la palabra clave `output`.
+
+En el ejemplo siguiente, `publicIP` es el identificador de una dirección IP pública implementada en el archivo Bicep. El valor de salida obtiene el nombre de dominio completo de la dirección IP pública.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
+Si necesita generar una propiedad que tenga un guion en el nombre, use corchetes alrededor del nombre en lugar de la notación de puntos. Por ejemplo, use `['property-name']` en lugar de `.property-name`.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "user": {
+            "user-name": "Test Person"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "nameResult": {
+            "type": "string",
+            "value": "[variables('user')['user-name']]"
+        }
+    }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var user = {
+  'user-name': 'Test Person'
+}
+
+output stringOutput string = user['user-name']
+```
+
+---
+
 ## <a name="conditional-output"></a>Salida condicional
 
-En la sección `outputs`, puede devolver un valor condicionalmente. Normalmente, se usa `condition` en `outputs` cuando ha [implementado condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva:
+Puede devolver un valor de forma condicional. Por norma general, se usa una salida condicional cuando se [implementa condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva:
+
+# <a name="json"></a>[JSON](#tab/json)
+
+En JSON, agregue el elemento `condition` para definir si se devuelve la salida.
 
 ```json
 "outputs": {
@@ -43,11 +101,42 @@ En la sección `outputs`, puede devolver un valor condicionalmente. Normalmente,
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Para especificar una salida condicional en Bicep, use el operador `?`. En el ejemplo siguiente se devuelve una dirección URL de punto de conexión o una cadena vacía en función de una condición.
+
+```bicep
+param deployStorage bool = true
+param storageName string
+param location string = resourceGroup().location
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+  name: storageName
+  location: location
+  kind: 'StorageV2'
+  sku:{
+    name:'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+output endpoint string = deployStorage ? sa.properties.primaryEndpoints.blob : ''
+```
+
+---
+
 Para obtener un ejemplo sencillo de salida condicional, consulte la [plantilla de salida condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinámico de salidas
 
-En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante el elemento `copy`.
+En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante la salida iterativa.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+En JSON, agregue el elemento `copy` para iterar una salida.
 
 ```json
 "outputs": {
@@ -61,17 +150,21 @@ En algunos escenarios, no se conoce el número de instancias de un valor que se 
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+La salida iterativa no está disponible actualmente para Bicep.
+
+---
+
 Para más información, vea [Iteración de salida en plantillas de ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Plantillas vinculadas
 
-Para recuperar el valor de salida de una plantilla vinculada, use la función [reference](template-functions-resource.md#reference) en la plantilla principal. La sintaxis de la plantilla principal es la siguiente:
+En las plantillas JSON, puede implementar plantillas relacionadas mediante [plantillas vinculadas](linked-templates.md). Para recuperar el valor de salida de una plantilla vinculada, use la función [reference](template-functions-resource.md#reference) en la plantilla principal. La sintaxis de la plantilla principal es la siguiente:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
-
-Al obtener una propiedad de salida a partir de una plantilla vinculada, el nombre de propiedad no puede incluir un guión.
 
 En el ejemplo siguiente, se muestra cómo establecer la dirección IP en un equilibrador de carga mediante la recuperación de un valor desde una plantilla vinculada.
 
@@ -81,7 +174,49 @@ En el ejemplo siguiente, se muestra cómo establecer la dirección IP en un equi
 }
 ```
 
+Si el nombre de la propiedad tiene un guion, use corchetes alrededor del nombre en lugar de la notación de puntos.
+
+```json
+"publicIPAddress": {
+  "id": "[reference('linkedTemplate').outputs['resource-ID'].value]"
+}
+```
+
 No se puede usar la función `reference` en la sección de salidas de una [plantilla anidada](linked-templates.md#nested-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
+
+La [Plantilla de dirección IP pública](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) crea una dirección IP pública y genera el identificador del recurso. La [Plantilla de equilibrador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) se vincula a la plantilla anterior. Usa el identificador de recurso en la salida al crear el equilibrador de carga.
+
+## <a name="modules"></a>Módulos
+
+En archivos Bicep, puede implementar plantillas relacionadas mediante módulos. Para recuperar un valor de salida de un módulo, use la siguiente sintaxis:
+
+```bicep
+<module-name>.outputs.<property-name>
+```
+
+En el ejemplo siguiente, se muestra cómo establecer la dirección IP en un equilibrador de carga mediante la recuperación de un valor desde un módulo. El nombre del módulo es `publicIP`.
+
+```bicep
+publicIPAddress: {
+  id: publicIP.outputs.resourceID
+}
+```
+
+## <a name="example-template"></a>Plantilla de ejemplo
+
+La plantilla siguiente no implementa ningún recurso. Muestra algunas formas de devolver salidas de tipos diferentes.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/outputs.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Actualmente, Bicep no admite bucles.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+
+---
 
 ## <a name="get-output-values"></a>Obtención de valores de salida
 
@@ -107,16 +242,6 @@ az deployment group show \
 ```
 
 ---
-
-## <a name="example-templates"></a>Plantillas de ejemplo
-
-En los siguientes ejemplos se muestran escenarios para usar salidas.
-
-|Plantilla  |Descripción  |
-|---------|---------|
-|[Variables de copia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variables complejas y genera esos valores. No implementa ningún recurso. |
-|[Dirección IP pública](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea una dirección IP pública y genera el identificador de recurso. |
-|[Equilibrador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Crea vínculos a la plantilla anterior. Usa el identificador de recurso de la salida al crear el equilibrador de carga. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

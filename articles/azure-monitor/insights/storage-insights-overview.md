@@ -1,17 +1,16 @@
 ---
 title: Supervisión de los servicios de Azure Storage con Azure Monitor para Storage | Microsoft Docs
 description: En este artículo se describe la característica Azure Monitor para Storage que proporciona a los administradores de almacenamiento una comprensión rápida de los problemas de uso y rendimiento de sus cuentas de Azure Storage.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587349"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708074"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage
 
@@ -85,7 +84,7 @@ Al seleccionar un valor en cualquiera de las columnas del libro, se profundiza e
 
 ## <a name="view-from-a-storage-account"></a>Vista desde una cuenta de almacenamiento
 
-Para acceder a Azure Monitor para VM directamente desde una máquina virtual, siga estos pasos:
+Para acceder a VM Insights directamente desde una cuenta de almacenamiento:
 
 1. En Azure Portal, seleccione Cuentas de almacenamiento.
 

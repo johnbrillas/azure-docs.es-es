@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 924ee745804ef31e42dc21437dbb0459f6d37701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091353"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693754"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -22,11 +22,9 @@ En este artículo se analiza la habilitación de Hyper-V en una máquina virtual
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creación de una máquina virtual de Azure compatible con el anidamiento
 
-Cree una nueva máquina virtual de Azure con Windows Server 2016. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](../acu.md).
+Cree una nueva máquina virtual de Azure de Windows Server 2016 o Windows Server 2019 para el host. Asegúrese de elegir un tamaño para la máquina virtual que admita el anidamiento y que sea lo suficientemente grande como para satisfacer las demandas de las máquinas virtuales invitadas. Para ver una lista de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure](../acu.md).
 
-Recuerde elegir un tamaño de máquina virtual lo suficientemente grande para admitir las exigencias de una invitada. En este ejemplo, se usa una VM de Azure con tamaño D4_v3. 
-
-Puede ver la disponibilidad regional de las máquinas virtuales de las series Dv3 o Ev3 [aquí](https://azure.microsoft.com/regions/services/).
+Puede ver la disponibilidad regional de los tamaños de VM en la página de [productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
@@ -94,7 +92,7 @@ Cree un adaptador de red virtual nuevo para la máquina virtual invitada y confi
 4. Cree una dirección IP para la puerta de enlace NAT.
     
 Para configurar la puerta de enlace, necesita información sobre la red:    
-  * IPAddress: la dirección IP de la puerta de enlace NAT especifica la dirección IPv4 o IPv6 que se usará como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Aunque no es obligatorio que la posición final sea .1, habitualmente lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
+  * IPAddress: la dirección IP de NAT Gateway especifica la dirección IPv4 o IPv6 que se va a usar como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Aunque no es obligatorio que la posición final sea .1, habitualmente lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
   * PrefixLength: la longitud de prefijo de la subred define el tamaño de la subred local (máscara de subred). La longitud de prefijo de la subred será un valor entero entre 0 y 32. 0 asignaría todo Internet, 32 solo permitiría una dirección IP asignada. Los valores comunes van de 24 a 12 en función de cuántas direcciones IP se deben adjuntar a NAT. Un valor de PrefixLength común es 24, que es una máscara de subred de 255.255.255.0.
   * InterfaceIndex: **ifIndex** es el índice de interfaz del conmutador virtual que se creó en el paso anterior. 
 

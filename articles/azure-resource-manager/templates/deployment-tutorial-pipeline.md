@@ -1,15 +1,15 @@
 ---
 title: Integración continua con Azure Pipelines
 description: Aprenda a compilar, probar e implementar continuamente plantillas de Azure Resource Manager (ARM).
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722815"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de ARM con Azure Pipelines
 
@@ -83,8 +83,8 @@ La carpeta _CreateWebApp_ es la carpeta donde se almacena la plantilla. El coman
 
 En lugar de crear las plantillas, puede descargarlas y guardarlas en la carpeta _CreateWebApp_.
 
-* La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Tanto el nombre de carpeta como el nombre de archivo se usan tal como están en la canalización. Si cambias estos nombres, debes actualizar los nombres usados en la canalización.
 
@@ -106,7 +106,7 @@ El archivo _azuredeploy.json_ se ha agregado al repositorio local. A continuaci�
     Puedes recibir una advertencia sobre LF. Puedes omitir la advertencia. **main** es la rama principal.  Normalmente, creas una rama para cada actualización. Para simplificar el tutorial, usa directamente la rama principal.
 
 1. Ve al repositorio de GitHub desde un explorador. La dirección URL es `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verá la carpeta _CreateWebApp_ y los dos archivos dentro de la carpeta.
-1. Seleccione _linkedStorageAccount.json_ para abrir la plantilla.
+1. Seleccione _azuredeploy.json_ para abrir la plantilla.
 1. Seleccione el botón **Sin formato**. La dirección URL empieza por `https://raw.githubusercontent.com`.
 1. Realice una copia de la dirección URL. Debe proporcionar este valor cuando configure la canalización más adelante en el tutorial.
 
@@ -174,10 +174,10 @@ Para crear una canalización con un paso para implementar una plantilla:
     * **Acción**: Seleccione la acción **Create Or Update Resource Group** que se encarga de 2 acciones: 1. crear un grupo de recursos si se proporciona un nuevo nombre de grupo de recursos; 2. implementar la plantilla especificada.
     * **Grupo de recursos**: Escriba un nuevo nombre para el grupo de recursos. Por ejemplo, **AzureRmPipeline-rg**.
     * **Ubicación**: Seleccione una ubicación para el grupo de recursos como, por ejemplo, **Centro de EE. UU.** .
-    * **Ubicación de la plantilla**: Si selecciona **Linked artifact**, la tarea busca el archivo de plantilla directamente en el repositorio conectado.
-    * **Plantilla**: Escriba _CreateWebApp/azuredeploy.json_. Si cambió el nombre de la carpeta y el nombre de archivo, tendrá que cambiar este valor.
-    * **Parámetros de plantilla**: deje este campo en blanco. Deberá especificar los valores de parámetro en **Reemplazar parámetros de plantilla**.
-    * **Reemplazar parámetros de plantilla**: Escriba `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Reemplace el nombre del proyecto y la dirección URL de la plantilla vinculada. La dirección URL de la plantilla vinculada es lo que escribió al final de [Creación de un repositorio de GitHub](#create-a-github-repository). Comienza con `https://raw.githubusercontent.com` .
+    * **Ubicación de la plantilla**: seleccione la **dirección URL del archivo**, lo que significa que la tarea busca el archivo de plantilla mediante la dirección URL. Como _relativePath_ se usa en la plantilla principal y _relativePath_ solo se admite en implementaciones basadas en URI, debe usar la dirección URL aquí.
+    * **Vínculo de la plantilla**: escriba la dirección URL que obtuvo al final de la sección [Preparación de un repositorio de GitHub](#prepare-a-github-repository). Comienza con `https://raw.githubusercontent.com` .
+    * **Vínculo de parámetros de la plantilla**: deje este campo en blanco. Deberá especificar los valores de parámetro en **Reemplazar parámetros de plantilla**.
+    * **Reemplazar parámetros de plantilla**: Escriba `-projectName [EnterAProjectName]` .
     * **Modo de implementación**: Seleccione **Incremental**.
     * **Nombre de implementación**: Escriba **DeployPipelineTemplate**. Seleccione **Avanzadas** para poder ver **Nombre de la implementación**.
 

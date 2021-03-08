@@ -2,13 +2,13 @@
 title: Variables en plantillas
 description: Se describe cómo definir variables en una plantilla de Azure Resource Manager (plantilla de ARM) y un archivo de Bicep.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364467"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123384"
 ---
 # <a name="variables-in-arm-templates"></a>Variables en plantillas de ARM
 
@@ -20,7 +20,7 @@ Resource Manager resuelve las variables antes de iniciar las operaciones de imp
 
 ## <a name="define-variable"></a>Definición de la variable
 
-Al definir una variable, no se especifica un [tipo de datos](template-syntax.md#data-types) para la variable. En su lugar, se especifica un valor o una expresión de plantilla. El tipo de variable se infiere a partir del valor resuelto. En el siguiente ejemplo se establece una variable en una cadena.
+Al definir una variable, no se especifica un [tipo de datos](data-types.md) para la variable. En su lugar, se especifica un valor o una expresión de plantilla. El tipo de variable se infiere a partir del valor resuelto. En el siguiente ejemplo se establece una variable en una cadena.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 Puede usar las [funciones de plantilla](template-functions.md) para construir el valor de la variable.
 
-En las plantillas JSON, puede usar la función [reference](template-functions-resource.md#reference) o cualquiera de las funciones [list](template-functions-resource.md#list) en la declaración de variables. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
-
-Las funciones reference y list son válidas cuando se declara una variable en un archivo de Bicep.
-
 En el ejemplo siguiente se crea un valor de cadena para un nombre de cuenta de almacenamiento. Usa varias funciones de plantilla para obtener un valor de parámetro y lo concatena a una cadena única.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+En las plantillas JSON, puede usar la función [reference](template-functions-resource.md#reference) o cualquiera de las funciones [list](template-functions-resource.md#list) en la declaración de variables. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
+
+En los archivos de Bicep, las funciones reference y list son válidas cuando se declara una variable.
+
 ## <a name="use-variable"></a>Uso de la variable
 
 En el ejemplo siguiente se muestra cómo usar la variable para una propiedad de recurso.
@@ -101,6 +101,9 @@ En el ejemplo siguiente se muestra cómo usar la variable para una propiedad de 
 En una plantilla JSON, debe hacer referencia al valor de la variable mediante la función [variables](template-functions-deployment.md#variables).
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ En una plantilla JSON, debe hacer referencia al valor de la variable mediante la
 En un archivo de Bicep, se hace referencia al valor de la variable al proporcionar el nombre de la variable.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

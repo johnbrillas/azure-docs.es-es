@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 02292d4559697bc38d47811fe392dc86427515b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d684311ef959ac13f3be8bac7ffbbb06a741962a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660544"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097710"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Información general del instalador del paquete de herramientas de desarrollo
 
@@ -84,6 +84,8 @@ El instalador del paquete de herramientas de desarrollo es una solución única 
 
         > [!NOTE]
         > Docker es compatible con Docker Desktop en las versiones más recientes de macOS. Es decir, la versión actual de macOS y las dos versiones anteriores. A medida que haya nuevas versiones principales de macOS disponibles con carácter general, Docker dejará de admitir la versión más antigua y admitirá la versión más reciente de macOS (además de las dos versiones anteriores). Docker Desktop admite actualmente macOS Mojave, macOS Catalina y macOS Big Sur.
+        > 
+        - El instalador no es compatible con Apple M1.
 
 ## <a name="instructions"></a>Instructions
 
@@ -99,7 +101,7 @@ El instalador del paquete de herramientas de desarrollo es una solución única 
     
         1. Después de la descarga, mueva el archivo Dev-Tools-Pack-Installer. app a la carpeta Aplicaciones.
         
-        1. Haga clic en Dev-Tools-Pack-Installer.app para abrir el asistente para la instalación.
+        1. Haga clic en **Dev-Tools-Pack-Installer.app** para abrir el asistente para la instalación.
         
         1. Si aparece el cuadro de diálogo de seguridad "Desarrollador no identificado":
         
@@ -123,7 +125,7 @@ El instalador del paquete de herramientas de desarrollo es una solución única 
                 
             1. Escriba lo siguiente en el terminal para que el archivo Appimage sea ejecutable:
             
-                1. chmod +x Dev-Tools-Pack-Installer.AppImage
+                1. chmod +x **Dev-Tools-Pack-Installer.AppImage**
                 
             1. Escriba lo siguiente en el terminal para ejecutar el instalador:
             
@@ -141,11 +143,11 @@ El instalador del paquete de herramientas de desarrollo es una solución única 
 
 1. En la página **Install Dev Tools Pack Installer** (Instalar Instalador del paquete de herramientas de desarrollo), haga clic en **View license** (Ver licencia) para ver los contratos de licencia de cada paquete de software incluido en el instalador. Si acepta los términos de los contratos de licencia, active la casilla y haga clic en **Siguiente**.
 
-    ![Pantalla del contrato de licencia en el instalador.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_license_agreements.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-license-agreements.png" alt-text="Pantalla del contrato de licencia en el instalador.":::
 
 1. Haga clic en **Declaración de privacidad** para revisar la declaración de privacidad de Microsoft. Si acepta los términos de la declaración de privacidad y desea enviar datos de diagnóstico a Microsoft, seleccione **Sí** y haga clic en **Siguiente**. En caso contrario, seleccione **No** y haga clic en **Siguiente**.
 
-    ![Pantalla del acuerdo de declaración de privacidad en el instalador.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_privacy_statement.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-privacy-statement.png" alt-text="Pantalla del acuerdo de declaración de privacidad en el instalador.":::
 
 1. En la página **Configurar componentes**, seleccione las herramientas opcionales que desea instalar (las herramientas obligatorias se instalarán de forma predeterminada).
 
@@ -153,11 +155,11 @@ El instalador del paquete de herramientas de desarrollo es una solución única 
 
     1. Haga clic en **Instalar** para continuar con la instalación.
 
-    ![Pantalla del instalador que muestra los paquetes de software disponibles.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_configure_components.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-configure-components.png" alt-text="Pantalla del instalador que muestra los paquetes de software disponibles.":::
 
 1. Después de la correcta instalación de todos los componentes seleccionados, el asistente pasa a la página **Completing the Setup Wizard** (Finalización del asistente para la configuración). Haga clic en **Finalizar** para salir del asistente.
 
-    ![Pantalla de finalización del instalador.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_finish.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-finish.png" alt-text="Pantalla de finalización del instalador.":::
 
 ## <a name="docker-status-check"></a>Comprobación del estado de Docker
 
@@ -168,12 +170,12 @@ Si el instalador le informa de que Docker Desktop está en buen estado, consulte
       1. Expandir iconos ocultos de la bandeja del sistema:
       
          1. Expandir iconos ocultos de la bandeja del sistema si están ocultos:
-         
-            * ![Bandeja del sistema](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/SystemTray.png)
+
+            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="Bandeja del sistema.":::
          
          1. Comprobar que el icono de Docker Desktop muestra "Docker Desktop se está ejecutando":
-         
-            * ![Estado de Docker](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/DockerStatusRunning.png)
+
+            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Estado de Docker.":::
          
          1. Si no ve el icono anterior en la bandeja del sistema, inicie Docker Desktop desde el menú Inicio.
          
@@ -181,4 +183,4 @@ Si el instalador le informa de que Docker Desktop está en buen estado, consulte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [tutorial de desarrollo avanzado (local)](./advanced-development-local.md) para iniciarse en el desarrollo avanzado de Azure Percept DK.
+Consulte el [repositorio de desarrollo avanzado de Azure Percept](https://github.com/microsoft/azure-percept-advanced-development) para comenzar con el desarrollo avanzado de Azure Percept DK.

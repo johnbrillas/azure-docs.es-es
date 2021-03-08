@@ -1,31 +1,31 @@
 ---
-title: Configuración de la supervisión en el estado de invitado de Azure Monitor para VM mediante reglas de recopilación de datos (versión preliminar)
-description: Describe cómo modificar la supervisión predeterminada en el estado de invitado de Azure Monitor para VM a escala mediante las plantillas de Resource Manager.
+title: Configuración de la supervisión en el estado de invitado de VM Insights mediante reglas de recopilación de datos (versión preliminar)
+description: Describe cómo modificar la supervisión predeterminada en el estado de invitado de VM Insights a escala mediante las plantillas de Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604613"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731228"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configuración de la supervisión en el estado de invitado de Azure Monitor para VM mediante reglas de recopilación de datos (versión preliminar)
-El [estado de invitado de Azure Monitor para VM](vminsights-health-overview.md) permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada en varias máquinas virtuales mediante reglas de recopilación de datos.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configuración de la supervisión en el estado de invitado de VM Insights mediante reglas de recopilación de datos (versión preliminar)
+El [estado de invitado de VM Insights](vminsights-health-overview.md) permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada en varias máquinas virtuales mediante reglas de recopilación de datos.
 
 
 ## <a name="monitors"></a>Monitores
-El estado de mantenimiento de una máquina virtual viene determinado por la [acumulación de estados](vminsights-health-overview.md#health-rollup-policy) de cada uno de sus monitores. Hay dos tipos de monitores en el estado de invitado de Azure Monitor para VM, tal como se muestra en la tabla siguiente.
+El estado de mantenimiento de una máquina virtual viene determinado por la [acumulación de estados](vminsights-health-overview.md#health-rollup-policy) de cada uno de sus monitores. Hay dos tipos de monitores en el estado de invitado de VM Insights, tal como se muestra en la tabla siguiente.
 
 | Supervisión | Descripción |
 |:---|:---|
 | Monitor de unidad | Mide algún aspecto de un recurso o una aplicación. Esto podría estar comprobando un contador de rendimiento para determinar el rendimiento del recurso o su disponibilidad. |
 | Monitor agregado | Agrupa varios monitores para proporcionar un estado de mantenimiento agregado único. Un monitor agregado puede contener uno o varios monitores de unidad, así como otros monitores agregados. |
 
-No se puede cambiar directamente el conjunto de monitores que usa el estado de invitado de Azure Monitor para VM y su configuración. Puede crear [invalidaciones](#overrides) a través de las cuales se modifica el comportamiento de la configuración predeterminada. Las invalidaciones se definen en las reglas de recopilación de datos. Puede crear varias reglas de recopilación de datos que contengan varias invalidaciones para lograr la configuración de supervisión necesaria.
+El conjunto de monitores usado en el estado de invitado de VM Insights y su configuración no se pueden cambiar directamente. Puede crear [invalidaciones](#overrides) a través de las cuales se modifica el comportamiento de la configuración predeterminada. Las invalidaciones se definen en las reglas de recopilación de datos. Puede crear varias reglas de recopilación de datos que contengan varias invalidaciones para lograr la configuración de supervisión necesaria.
 
 ## <a name="monitor-properties"></a>Propiedades de monitor
 En la tabla siguiente se describen las propiedades que debe configurar en cada monitor.

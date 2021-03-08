@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aeb2c58504d1f058a3b887e02a7b7406c09db5b6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 875c046406b7989a39f09dde82640ed5567b6b3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913154"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714874"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migración de Azure Data Lake Storage de Gen1 a Gen2
 
@@ -102,7 +102,7 @@ En esta tabla se comparan las funcionalidades de Gen1 con las de Gen2.
 |Cifrado: datos en reposo|Lado del servidor: con claves [administradas por Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [administradas por el cliente](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lado del servidor: con claves [administradas por Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [administradas por el cliente](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Compatibilidad de redes virtuales|[Integración con red virtual](../../data-lake-store/data-lake-store-network-security.md)|[Puntos de conexión de servicio](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [puntos de conexión privados](../common/storage-private-endpoints.md)|
 |Experiencia del desarrollador|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [CLI de Azure](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Disponible con carácter general: [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Versión preliminar pública: [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [CLI de Azure](data-lake-storage-directory-file-acl-cli.md)|
-|Registros del recurso|Registros clásicos<br>[Integración de Azure Monitor](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registros clásicos](../common/storage-analytics-logging.md): disponibilidad general<br>Integración de Azure Monitor: escala de tiempo por determinar|
+|Registros del recurso|Registros clásicos<br>[Integración de Azure Monitor](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registros clásicos](../common/storage-analytics-logging.md): disponibilidad general<br>[Integración de Azure Monitor](monitor-blob-storage.md): versión preliminar|
 |Ecosistema|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 y superior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 y superior)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns"></a>

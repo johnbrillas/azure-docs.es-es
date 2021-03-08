@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582373"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686587"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
 
@@ -245,6 +245,8 @@ class MsalAuthHelper {
 El flujo "en nombre de" (OBO) se usa para obtener un token para llamar a la API web de nivel inferior. En este flujo, la API web recibe un token de portador con permisos delegados de usuario de la aplicación cliente y, a continuación, intercambia este token por otro token de acceso para llamar a la API web de nivel inferior.
 
 Una API web de Python deberá usar algún middleware para validar el token de portador recibido del cliente. A continuación, la API web podrá obtener el token de acceso para la API de nivel inferior mediante la biblioteca de MSAL para Python al llamar al método [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Para obtener un ejemplo del uso de esta API, consulte [Código de prueba para la biblioteca de autenticación de Microsoft para Python en GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Consulte también la explicación del [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) en ese mismo repositorio para obtener un enfoque que omita la necesidad de una aplicación de nivel intermedio.
+
+También puede ver un ejemplo de la implementación del flujo con derechos delegados en el ejemplo [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 

@@ -1,29 +1,29 @@
 ---
-title: Configuración del área de trabajo de Log Analytics para Azure Monitor para VM
-description: Describe cómo crear y configurar el área de trabajo Log Analytics que usa Azure Monitor para VM.
+title: Configuración del área de trabajo de Log Analytics para VM Insights
+description: Describe cómo crear y configurar el área de trabajo Log Analytics que usa VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: b84f9cae848d53cf04e1b77810b347786e122c5b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dc7e6c42837ccaa56c7a211deb646c934ec137a4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717135"
 ---
-# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configuración del área de trabajo de Log Analytics para Azure Monitor para VM
-Azure Monitor para VM recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para Azure Monitor para VM.
+# <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configuración del área de trabajo de Log Analytics para VM Insights
+VM Insights recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para VM Insights.
 
 ## <a name="overview"></a>Información general
 Una sola suscripción puede usar cualquier número de áreas de trabajo en función de sus requisitos. El único requisito del área de trabajo es que se encuentre en una ubicación admitida y esté configurada con la solución *VMInsights*.
 
-Una vez configurada el área de trabajo, puede usar cualquiera de las opciones disponibles para instalar los agentes necesarios en la máquina virtual y el conjunto de escalado de máquinas virtuales, y especificar un área de trabajo para que envíen sus datos. Azure Monitor para VM recopilará datos de cualquier área de trabajo configurada en su suscripción.
+Una vez configurada el área de trabajo, puede usar cualquiera de las opciones disponibles para instalar los agentes necesarios en la máquina virtual y el conjunto de escalado de máquinas virtuales, y especificar un área de trabajo para que envíen sus datos. VM Insights recopilará datos de cualquier área de trabajo configurada en su suscripción.
 
 > [!NOTE]
-> Al habilitar Azure Monitor para VM en una única máquina virtual o en un conjunto de escalado de máquinas virtuales con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
+> Al habilitar VM Insights en una única máquina virtual o en una instancia de Virtual Machine Scale Sets con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
 
 
 ## <a name="create-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
@@ -35,16 +35,16 @@ Acceda a las áreas de trabajo de Log Analytics en Azure Portal desde el menú *
 
 [![Áreas de trabajo de Log Analytics](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
-Puede crear una nueva área de trabajo de Log Analytics mediante cualquiera de los métodos siguientes. Consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md) para obtener instrucciones sobre cómo determinar el número de áreas de trabajo que debe usar en su entorno y cómo diseñar su estrategia de acceso.
+Puede crear una nueva área de trabajo de Log Analytics mediante cualquiera de los métodos siguientes. Consulte [Diseño de la implementación de registros de Azure Monitor](../logs/design-logs-deployment.md) para obtener instrucciones sobre cómo determinar el número de áreas de trabajo que debe usar en su entorno y cómo diseñar su estrategia de acceso.
 
 
-* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+* [Azure Portal](../logs/quick-create-workspace.md)
+* [CLI de Azure](../logs/quick-create-workspace-cli.md)
+* [PowerShell](../logs/powershell-workspace-configuration.md)
+* [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Regiones admitidas
-Azure Monitor para VM admite un área de trabajo de Log Analytics en cualquiera de las [regiones compatibles con Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) excepto las siguientes:
+VM Insights admite un área de trabajo de Log Analytics en cualquiera de las [regiones compatibles con Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) excepto las siguientes:
 
 - Centro-oeste de Alemania
 - Centro de Corea del Sur
@@ -53,10 +53,10 @@ Azure Monitor para VM admite un área de trabajo de Log Analytics en cualquiera 
 >Puede supervisar máquinas virtuales de Azure en cualquier región. Las máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.
 
 ## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
-Para habilitar y obtener acceso a las características de Azure Monitor para VM, debe tener el rol de [colaborador de Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo. Para ver los datos de rendimiento, mantenimiento y el mapa, debe tener el [rol de lector de supervisión](../platform/roles-permissions-security.md#built-in-monitoring-roles) en la máquina virtual de Azure. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../platform/manage-access.md).
+Para habilitar las características de VM Insights y acceder a estas, debe tener el rol de [Colaborador de Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo. Para ver los datos de rendimiento, mantenimiento y el mapa, debe tener el [rol de lector de supervisión](../roles-permissions-security.md#built-in-monitoring-roles) en la máquina virtual de Azure. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../logs/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Incorporación de la solución VMInsights al área de trabajo
-Antes de que se pueda utilizar un área de trabajo de Log Analytics con Azure Monitor para VM, debe tener instalada la solución *VMInsights*. Los métodos para configurar el área de trabajo se describen en las secciones siguientes.
+Para poder utilizar un área de trabajo de Log Analytics con VM Insights, debe tener instalada la solución *VMInsights*. Los métodos para configurar el área de trabajo se describen en las secciones siguientes.
 
 > [!NOTE]
 > Al agregar la solución *VMInsights* al área de trabajo, todas las máquinas virtuales existentes conectadas al área de trabajo comenzarán a enviar datos a InsightsMetrics. Los datos del resto de tipos de datos no se recopilarán hasta que agregue Dependency Agent a las máquinas virtuales existentes conectadas al área de trabajo.
@@ -73,13 +73,13 @@ Para configurar varias áreas de trabajo, seleccione la pestaña **Configuració
 [![Configuración del área de trabajo](../vm/media/vminsights-enable-policy/workspace-configuration.png)](../vm/media/vminsights-enable-policy/workspace-configuration.png#lightbox)
 
 
-Al habilitar Azure Monitor para VM en una única máquina virtual o en un conjunto de escalado de máquinas virtuales con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
+Al habilitar VM Insights en una única máquina virtual o en una instancia de Virtual Machine Scale Sets con Azure Portal, se le ofrece la opción de seleccionar un área de trabajo existente o crear una nueva. La solución *VMInsights* se instalará en este área de trabajo si aún no lo está. Después, puede usar este área de trabajo para otros agentes.
 
 [![Habilitación de una única VM en el portal](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png#lightbox)
 
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
-Las plantillas de Azure Resource Manager para Azure Monitor para VM se suministran en un archivo de almacenamiento (.zip) que puede [descargar desde nuestro repositorio de GitHub](https://aka.ms/VmInsightsARMTemplates). Incluye una plantilla llamada **ConfigureWorkspace** que configura un área de trabajo de Log Analytics para Azure Monitor para VM. Esta plantilla se implementa mediante cualquiera de los métodos estándar, incluidos los comandos de PowerShell y de la CLI de ejemplo siguientes: 
+Las plantillas de Azure Resource Manager para VM Insights se suministran en un archivo (.zip) que puede [descargar desde nuestro repositorio de GitHub](https://aka.ms/VmInsightsARMTemplates). Incluye una plantilla llamada **ConfigureWorkspace** que configura un área de trabajo de Log Analytics para VM Insights. Esta plantilla se implementa mediante cualquiera de los métodos estándar, incluidos los comandos de PowerShell y de la CLI de ejemplo siguientes: 
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -99,5 +99,5 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [Incorporación de agentes a Azure Monitor para VM](vminsights-enable-overview.md) para conectar agentes a Azure Monitor para VM.
+- Consulte [Incorporación de agentes a VM Insights](vminsights-enable-overview.md) para conectar agentes a VM Insights.
 - Consulte [Soluciones de supervisión como destino en Azure Monitor (versión preliminar)](../insights/solution-targeting.md) para limitar la cantidad de datos que se envían desde una solución al área de trabajo.

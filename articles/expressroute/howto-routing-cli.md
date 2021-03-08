@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735099"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715537"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Tutorial: Creación y modificación del emparejamiento de un circuito ExpressRoute mediante la CLI
 
@@ -243,8 +243,10 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
 1. Establecimiento de la configuración entre pares privados de Azure para el circuito. Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
 
-   * Una subred /30 para el vínculo principal. La subred no debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
-   * Una subred /30 para el vínculo secundario. La subred no debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
+   * Un par de subredes que no forman parte de ningún espacio de direcciones reservado para redes virtuales. Una subred se usará para el vínculo principal, mientras que la otra se usará para el vínculo secundario. Desde cada una de estas subredes, asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador. Tiene tres opciones para este par de subredes:
+       * IPv4: dos subredes /30.
+       * IPv6: dos subredes /126.
+       * Las dos: dos subredes /30 y dos subredes /126.
    * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Asegúrese de que no está usando 65515.
    * **Opcional:** un hash MD5 si elige usar uno.

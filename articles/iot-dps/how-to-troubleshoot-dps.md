@@ -6,14 +6,14 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
-ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ba81be54592e591f734b05235bb3ce183a07a11c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950693"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709893"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solución de problemas con Azure IoT Hub Device Provisioning Service
 
@@ -44,7 +44,7 @@ En el procedimiento siguiente se describe cómo ver y configurar alertas en las 
 
 7. Seleccione **Agregar condición** y, después, siga las indicaciones para seleccionar la métrica y el umbral deseados.
 
-Para más información, consulte [¿Qué son las alertas clásicas en Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+Para más información, vea la información sobre [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Uso de Log Analytics para ver y resolver errores
 
@@ -58,7 +58,7 @@ Para más información, consulte [¿Qué son las alertas clásicas en Microsoft 
 
 5. Permite que se recopilen los registros deseados.
 
-    | Nombre de registro | Descripción |
+    | Nombre del registro | Descripción |
     |-------|------------|
     | DeviceOperations | Registros relacionados con eventos de conexión de dispositivo |
     | ServiceOperations | Registros de eventos relacionados con el uso del SDK de servicio (por ejemplo, crear o actualizar grupos de inscripción)|
@@ -82,4 +82,4 @@ Use esta tabla para comprender y resolver errores comunes.
 | 404 | La instancia de Device Provisioning Service o un recurso (por ejemplo, una inscripción) no existe. |404 No encontrado |
 | 412 | La ETag de la solicitud no coincide con la ETag del recurso existente, según las especificaciones de RFC7232. | 412 Error en la condición previa |
 | 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Demasiadas solicitudes |
-| 500 | Error interno. | Error de servidor interno 500|
+| 500 | Se ha producido un error interno. | Error de servidor interno 500|

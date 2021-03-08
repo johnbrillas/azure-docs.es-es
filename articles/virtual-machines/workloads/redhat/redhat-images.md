@@ -2,18 +2,19 @@
 title: Información general sobre las imágenes de Red Hat Enterprise Linux en Azure
 description: Aprenda sobre las imágenes de Red Hat Enterprise Linux en Microsoft Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
+ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694689"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Introducción a las imágenes de Red Hat Enterprise Linux
 
@@ -65,6 +66,9 @@ Esta comparación de versiones de imagen se realiza comparando los valores como 
 
 ## <a name="rhel-6-image-types"></a>Tipos de imagen de RHEL 6
 
+>[!NOTE]
+> El 30 de diciembre de 2020, RHEL 6.10 inició el final del ciclo de vida (EOL). Para seguir disponiendo de soporte técnico, habilite ELS como parte de la fase de soporte extendido del ciclo de vida; consulte la documentación sobre [ELS de Red Hat](./redhat-extended-lifecycle-support.md).
+
 En el caso de imágenes de RHEL 6.x, los tipos de imagen se muestran en la siguiente tabla:
 
 |Publicador | Oferta | Valor de SKU | Versión | Detalles
@@ -105,8 +109,18 @@ A continuación se muestran los detalles de los tipos de imagen RHEL 8.
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191023) | Estas imágenes tienen particiones LVM de RHEL 8 conectadas a repositorios estándar de Red Hat.
 |RedHat | RHEL | 8-gen2 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191024) | Estas imágenes tienen particiones LVM de RHEL 8 de Hyper-V generación 2 conectadas a repositorios estándar de Red Hat. Para más información sobre las máquinas virtuales de Generación 2, consulte [Compatibilidad con máquinas virtuales de generación 2 en Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.1.2021012201) | Se trata de imágenes de RHEL para SAP Applications. Tienen derechos de acceso a los repositorios de SAP Applications, así como a los repositorios de RHEL base.
+|RedHat | RHEL | RHEL-SAP-HA | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.1.2021010602) | Estas imágenes son RHEL for SAP con imágenes de Alta disponibilidad y de Servicios de actualización. Tienen derechos de acceso a los repositorios de SAP Solutions y SAP Applications y a los repositorios de alta disponibilidad, así como a los repositorios de RHEL E4S. La facturación incluye RHEL premium, SAP premium y alta disponibilidad premium por encima de la tarifa de proceso base.
 
-## <a name="rhel-longer-support-add-ons"></a>Complementos de compatibilidad más larga de RHEL
+## <a name="rhel-extended-support-add-ons"></a>Complementos de soporte extendido de RHEL
+
+### <a name="extended-life-cycle-support"></a>Soporte de ciclo de vida extendido
+
+El complemento de soporte de ciclo de vida extendido (ELS) es una suscripción opcional que permite aplicar revisiones de seguridad críticas e importantes en las versiones que han alcanzado el final del ciclo de vida (EOL). Puede encontrar más información sobre RHEL EUS en la [documentación de Red Hat](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+Actualmente, el complemento ELS solo está disponible para RHEL 6.10. En el caso de las imágenes de pago por uso, se puede habilitar ELS siguiendo los pasos descritos en la [documentación de Red Hat ELS](./redhat-extended-lifecycle-support.md).
+
+Si está ejecutando una versión anterior, debe actualizar a RHEL 6.10 para poder habilitar ELS.
 
 ### <a name="extended-update-support"></a>Compatibilidad con la actualización extendida
 

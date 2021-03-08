@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739341"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -48,7 +48,7 @@ Data Factory proporciona la libertad de modelar cualquier estilo de flujo necesa
     - Contenedores de bucle:
         * La actividad foreach iterará en una colección especificada de actividades en un bucle. 
 - Flujos basados en el desencadenador:
-    - Las canalizaciones se pueden desencadenar a petición o por tiempo de reloj.
+    - Las canalizaciones se pueden desencadenar a petición, por hora de reloj, o bien en respuesta a temas controlados por Event Grid.
 - Flujos delta:
     - Los parámetros se pueden usar para definir el límite máximo de la copia delta al mover tablas de dimensiones o de referencia desde un almacén relacional de forma local o en la nube para cargar los datos en Data Lake.
 

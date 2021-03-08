@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: e823e1efc66592e9f48b7ff5e53a176a4e8cb514
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549498"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715571"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Características de la versión preliminar de Azure Firewall Prémium
 
@@ -80,7 +80,20 @@ Las categorías se organizan en función de la gravedad en **Responsabilidad**, 
 
 #### <a name="category-exceptions"></a>Excepciones de las categorías
 
-Puede crear excepciones a las reglas de la categoría web. Cree una colección de reglas de permiso o denegación independiente con una prioridad más alta dentro del grupo de recopilación de reglas. Por ejemplo, puede configurar una colección de reglas que permita `www.linkedin.com` con prioridad 100, con una colección de reglas que deniegue las **redes sociales** con prioridad 200. Esto crea la excepción para la categoría web **Redes sociales** predefinida. 
+Puede crear excepciones a las reglas de la categoría web. Cree una colección de reglas de permiso o denegación independiente con una prioridad más alta dentro del grupo de recopilación de reglas. Por ejemplo, puede configurar una colección de reglas que permita `www.linkedin.com` con prioridad 100, con una colección de reglas que deniegue las **redes sociales** con prioridad 200. Esto crea la excepción para la categoría web **Redes sociales** predefinida.
+
+#### <a name="categorization-change"></a>Cambio de categorización
+
+Puede solicitar un cambio de categorización si:
+
+ - Cree que un FQDN o una dirección URL deben estar en otra categoría 
+ 
+o bien 
+
+- Tiene una categoría sugerida para un FQDN o una dirección URL sin categoría
+
+Le agradecemos que envíe una solicitud en [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
+ 
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -98,6 +111,7 @@ Certificados firmados por clientes que no son de confianza|El firewall no confí
 |Dirección IP de origen incorrecta en las alertas con IDPS para HTTP (sin inspección de TLS).|Cuando el tráfico HTTP de texto sin formato está en uso e IDPS emite una nueva alerta y el destino es una dirección IP pública, la dirección IP de origen que se muestra es incorrecta (se muestra la dirección IP interna, en lugar de la dirección IP original).|Corrección programada para la fase de disponibilidad general.|
 |Propagación de certificados|Cuando se aplica un certificado de entidad de certificación en el firewall, puede tardar entre 5 y 10 minutos en surtir efecto.|Corrección programada para la fase de disponibilidad general.|
 |Omisión de IDPS|La omisión de IDPS no funciona para el tráfico terminado por TLS y no se admiten la dirección IP de origen ni los grupos de IP de origen.|Corrección programada para la fase de disponibilidad general.|
+|Compatibilidad con TLS 1.3|TLS 1.3 se admite de forma parcial. El túnel TLS del cliente al firewall se basa en TLS 1.2 y desde el firewall al servidor web externo en TLS 1.3.|Se están investigando actualizaciones.|
 
 
 

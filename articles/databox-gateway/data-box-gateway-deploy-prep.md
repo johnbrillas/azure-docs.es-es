@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706102"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ Antes de implementar un dispositivo virtual, asegúrese de que:
 - El sistema host puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual Data Box:
   
   - Un mínimo de 4 procesadores virtuales.
-  - Al menos 8 GB de RAM.
+  - Al menos 8 GB de RAM. Se recomiendan encarecidamente al menos 16 GB de RAM.
   - Una interfaz de red.
   - Un disco de sistema operativo de 250 GB.
   - Un disco virtual de 2 TB para datos del sistema.
@@ -112,14 +112,14 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
 
     Escriba o seleccione los siguientes **detalles del proyecto**.
     
-    |Setting  |Valor  |
+    |Setting  |Value  |
     |---------|---------|
     |Subscription    |Seleccione la suscripción que desea usar para el dispositivo Data Box Gateway. La suscripción está vinculada a la cuenta de facturación.|
     |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).|
 
    Escriba o seleccione los siguientes **detalles de la instancia**.
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Nombre   |Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres, que incluyen letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
     |Region  |Seleccione la región en la que desea implementar el recurso. Elija una ubicación próxima a la región geográfica donde desea implementar el dispositivo. <br> Para ver una lista de todas las regiones en las que están disponibles los recursos Data Base Gateway y Azure Stack Edge, consulte los [productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <br> En cuanto a Azure Government, todas las regiones que aparecen en la lista de [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) están disponibles.|

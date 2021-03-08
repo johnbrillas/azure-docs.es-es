@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556440"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726843"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -87,10 +87,11 @@ Al crear una cuenta de almacenamiento, seleccione la región principal de la cue
 
 Azure Storage ofrece dos opciones para copiar los datos a una región secundaria:
 
-- El **almacenamiento con redundancia geográfica (GRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria mediante LRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
-- El **almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante ZRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
+- El **almacenamiento con redundancia geográfica (GRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria mediante LRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria. Dentro de la región secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS.
+- El **almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante ZRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria. Dentro de la región secundaria, los datos se copian de forma sincrónica tres veces mediante LRS.
 
-La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la región secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS. LRS en la región secundaria protege los datos frente a errores de hardware.
+> [!NOTE]
+> La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la región secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS. LRS en la región secundaria protege los datos frente a errores de hardware.
 
 Con GRS o GZRS, los datos de la región secundaria no están disponible para el acceso de lectura o escritura a menos que suceda una conmutación por error en la región secundaria. Para obtener acceso de lectura a la región secundaria, configure la cuenta de almacenamiento para usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para más información, consulte [Acceso de lectura a los datos de la región secundaria](#read-access-to-data-in-the-secondary-region).
 

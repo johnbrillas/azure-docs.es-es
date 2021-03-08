@@ -1,19 +1,19 @@
 ---
-title: Vista de los métricas en tiempo real con Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo ver las métricas en tiempo real sin usar kubectl con Azure Monitor para contenedores.
+title: Visualización de métricas en tiempo real con Container Insights | Microsoft Docs
+description: En este artículo se describe cómo ver las métricas en tiempo real sin usar kubectl con Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731857"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Cómo ver métricas en tiempo real
 
-La característica de datos en directo de Azure Monitor para contenedores (versión preliminar) permite visualizar las métricas sobre el estado de nodo y pod en un clúster en tiempo real. Emula el acceso directo a los comandos `kubectl top nodes`, `kubectl get pods –all-namespaces` y `kubectl get nodes` para llamar, analizar y visualizar los datos de los gráficos de rendimiento que se incluyen con esta conclusión.
+La característica de datos en directo de Container Insights (versión preliminar) permite visualizar las métricas sobre el estado del nodo y el pod en un clúster en tiempo real. Emula el acceso directo a los comandos `kubectl top nodes`, `kubectl get pods –all-namespaces` y `kubectl get nodes` para llamar, analizar y visualizar los datos de los gráficos de rendimiento que se incluyen con esta conclusión.
 
 En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.
 
@@ -26,7 +26,7 @@ Para obtener ayuda para configurar o solucionar problemas de la característica 
 
 La característica de datos en directo (versión preliminar) accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esta característica realiza una operación de sondeo en los puntos de conexión de métricas (incluidos `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` y `/api/v1/pods`), que se realiza cada cinco segundos de forma predeterminada. Estos datos se almacenan en caché en el explorador y se muestran en los cuatro gráficos de rendimiento incluidos en Azure Monitor para contenedores en la pestaña **Clúster** seleccionando **Go Live (versión preliminar)** . Cada sondeo subsiguiente se representa en una ventana de visualización sucesiva de cinco minutos.
+Esta característica realiza una operación de sondeo en los puntos de conexión de métricas (incluidos `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` y `/api/v1/pods`), que se realiza cada cinco segundos de forma predeterminada. Estos datos se almacenan en caché en el explorador y se muestran en los cuatro gráficos de rendimiento incluidos en Container Insights en la pestaña **Clúster** al seleccionar **Go Live (versión preliminar)** . Cada sondeo subsiguiente se representa en una ventana de visualización sucesiva de cinco minutos.
 
 ![Opción Go Live en la vista de clúster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

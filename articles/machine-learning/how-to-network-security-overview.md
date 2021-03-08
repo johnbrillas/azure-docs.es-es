@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980582"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691831"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -71,7 +71,7 @@ Realice los pasos siguientes para proteger el área de trabajo y los recursos as
 1. Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo.
 1. Agregue Azure Key Vault a la red virtual con un [punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md) o un [punto de conexión privado](../key-vault/general/private-link-service.md). Establezca Key Vault para ["permitir que los servicios de confianza de Microsoft puedan omitir este firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Agregue una cuenta de almacenamiento de Azure a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configure Azure Container Registry para usar un punto de conexión privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) y [habilite la delegación de subred en Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Configure Azure Container Registry para usar un punto de conexión privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagrama de arquitectura que muestra cómo el área de trabajo y los recursos asociados se comunican entre sí a través de puntos de conexión de servicio o puntos de conexión privados en una red virtual](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

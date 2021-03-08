@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 29907a12f7edf7439f9bcfae0a1ad46b395d9ecf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1333bbcc7e2ea9219d28fcc1e63f21a833c2bc6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897214"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709570"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -64,4 +64,4 @@ Consulte [Filtrado, ordenación y paginación de entidades de Media Services](en
 
 * [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](protect-with-aes128.md)
 * [Uso del cifrado dinámico de DRM y el servicio de entrega de licencias](protect-with-drm.md)
-* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [Cifrado de clave sin cifrado AES básico y código de ejemplo de streaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/BasicAESClearKey)
