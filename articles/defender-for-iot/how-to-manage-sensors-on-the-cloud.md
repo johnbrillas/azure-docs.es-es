@@ -1,20 +1,20 @@
 ---
-title: Incorporación y administración de sensores en el portal de Defender para IoT
+title: Incorporación y administración de sensores y suscripciones en el portal de Defender para IoT
 description: Aprenda a incorporar, ver y administrar sensores en el portal de Defender para IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733268"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Incorporación y administración de sensores en el portal de Defender para IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Incorporación y administración de sensores y suscripciones en el portal de Defender para IoT
 
 En este artículo se describe cómo incorporar, ver y administrar sensores en el [portal de Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -78,9 +78,9 @@ Use las opciones de edición **Sites and Sensors** (Sitios y sensores) para edit
 
 Para editar:
 
-1. Haga clic con el botón derecho en los puntos suspensivos ( **...** ) correspondientes al sensor que quiere editar.
-1. Seleccione Editar.
-1. Actualice la zona del sensor o cree una zona.
+1. Seleccione los **puntos suspensivos** ( **...** ) para el sensor que quiera editar.
+1. Seleccione **Editar**.
+1. Actualice la zona del sensor o cree una nueva.
 
 ### <a name="delete-a-sensor"></a>Eliminación de un sensor
 
@@ -122,6 +122,24 @@ Para reactivar un sensor:
 8. Seleccione **Cargar** y elija el archivo que guardó en la página de incorporación del sensor.
 
 9. Seleccione **Activar**.
+
+## <a name="offboard-a-subscription"></a>Retirada de suscripciones
+
+Las suscripciones se administran mensualmente. Si retira una suscripción, se le facturará hasta el final del mes. 
+
+Desinstale todos los sensores asociados con la suscripción antes de retirarla. Para obtener más información sobre cómo eliminar un sensor, consulte [Eliminación de un sensor](#delete-a-sensor). 
+
+Para retirar una suscripción:
+
+1. Vaya a la página **Precios**.
+1. Seleccione la suscripción y, a continuación, el icono **eliminar** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
+1. En el menú emergente de confirmación, active la casilla para confirmar que ha eliminado todos los sensores asociados con la suscripción.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Active la casilla y seleccione Retirar para retirar el sensor.":::
+
+1. Seleccione el botón **Retirar**. 
+
+El entorno local no se ve afectado, pero debe desinstalar el sensor del entorno local o volver a asignarlo a otra suscripción para evitar que los datos relacionados fluyan a la consola de administración local. 
 
 ## <a name="see-also"></a>Consulte también
 

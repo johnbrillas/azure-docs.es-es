@@ -1,30 +1,24 @@
 ---
-title: Solución de problemas de ConstrainedAllocationFailed al implementar un servicio en la nube en Azure | Microsoft Docs
-description: En este artículo se muestra cómo resolver una excepción ConstrainedAllocationFailed al implementar un servicio en la nube en Azure.
+title: Solución de problemas de ConstrainedAllocationFailed al implementar una instancia de Cloud Services (clásico) en Azure | Microsoft Docs
+description: En este artículo se muestra cómo resolver una excepción ConstrainedAllocationFailed al implementar una instancia de Cloud Services (clásico) en Azure.
 services: cloud-services
 author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: de344bbcd89158676bacf2a8aa1743d282700b9d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/22/2021
+ms.openlocfilehash: 346e7eb77039ab80e6f9dffb8ea8360198040504
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738297"
 ---
-# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-to-azure"></a>Solución de problemas de ConstrainedAllocationFailed al implementar un servicio en la nube en Azure
+# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Solución de problemas de ConstrainedAllocationFailed al implementar una instancia de Cloud Services (clásico) en Azure
 
-En este artículo, solucionará los errores de asignación por los que Azure Cloud Services no puede realizar la implementación debido a las restricciones.
+En este artículo, solucionará los errores de asignación por los que Azure Cloud Services (clásico) no puede realizar la implementación debido a las restricciones de asignación.
 
-Microsoft Azure realiza asignaciones cuando se dan los siguientes escenarios:
-
-- Actualización de instancias de Cloud Services
-
-- Adición de nuevas instancias de rol web o de rol de trabajo
-
-- Implementación de instancias en un servicio en la nube
+Al implementar instancias en Cloud Services (clásico) o agregar nuevas instancias de rol de trabajo o web, Microsoft Azure asigna recursos de proceso.
 
 En ocasiones, es posible que reciba errores durante estas operaciones, incluso antes de alcanzar el límite de la suscripción de Azure.
 
@@ -33,9 +27,11 @@ En ocasiones, es posible que reciba errores durante estas operaciones, incluso a
 
 ## <a name="symptom"></a>Síntoma
 
-En Azure Portal, vaya a su servicio en la nube y, en la barra lateral, seleccione *Registros de operaciones (clásico)* para ver los registros.
+En Azure Portal, vaya a su instancia de Cloud Services (clásico) y, en la barra lateral, seleccione *Registro de operaciones (clásico)* para ver los registros.
 
-Al inspeccionar los registros del servicio en la nube, verá la siguiente excepción:
+![En la imagen se muestra la hoja del registro de operaciones (clásico).](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-allocation-logs.png)
+
+Al inspeccionar los registros de la instancia de Cloud Services (clásico), verá la siguiente excepción:
 
 |Tipo de excepción  |Mensaje de error  |
 |---------|---------|
@@ -43,99 +39,42 @@ Al inspeccionar los registros del servicio en la nube, verá la siguiente excepc
 
 ## <a name="cause"></a>Causa
 
-Existe un problema de capacidad con la región o el clúster donde se va a realizar la implementación. Se produce cuando la SKU de recursos seleccionada no está disponible para la ubicación especificada.
+Cuando se implementa la primera instancia en un servicio en la nube (ya sea en fase de almacenamiento provisional o producción), el servicio en la nube se ancla a un clúster.
 
-> [!NOTE]
-> Cuando se implementa el primer nodo de un servicio en la nube, se *ancla* a un grupo de recursos. Un grupo de recursos puede ser un clúster único o un grupo de clústeres.
->
-> Con el tiempo, los recursos de este grupo de recursos se pueden aprovechar por completo. Si un servicio en la nube realiza una solicitud de asignación de recursos adicionales cuando no hay suficientes recursos disponibles en el grupo de recursos anclado, la solicitud producirá un [error de asignación](cloud-services-allocation-failures.md).
+Con el tiempo, los recursos de este clúster se pueden aprovechar por completo. Si Cloud Services (clásico) realiza una solicitud de asignación de más recursos cuando no hay suficientes recursos disponibles en el clúster anclado, la solicitud genera un error de asignación. Para obtener más información, consulte los [problemas comunes de error de asignación](cloud-services-allocation-failures.md#common-issues).
 
 ## <a name="solution"></a>Solución
 
-En este escenario, debe seleccionar una región o SKU diferente donde implementar el servicio en la nube. Antes de implementar o actualizar el servicio en la nube, puede determinar qué SKU están disponibles en una región o zona de disponibilidad. Siga los procesos de la [CLI de Azure](#list-skus-in-region-using-azure-cli), de [PowerShell](#list-skus-in-region-using-powershell) o de la [API de REST](#list-skus-in-region-using-rest-api) a continuación.
+Los servicios en la nube existentes están *anclados* a un clúster. Todas las implementaciones posteriores para Cloud Services (clásico) tendrán lugar en el mismo clúster.
 
-### <a name="list-skus-in-region-using-azure-cli"></a>Enumeración de SKU en la región con la CLI de Azure
+Cuando se produce un error de asignación en este escenario, el curso de acción recomendado es volver a implementarlo en una nueva instancia de Cloud Services (clásico) (y actualizar *CNAME*).
 
-Puede usar el comando [az vm list-skus](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus).
+> [!TIP]
+> Es probable que esta solución sea la más correcta, ya que permite a la plataforma elegir entre todos los clústeres de esa región.
 
-- Use el parámetro `--location` para filtrar la salida a la ubicación que esté usando.
-- Use el parámetro `--size` para buscar un nombre de tamaño parcial.
-- Para más información, vea la guía sobre [Resolución del error con la SKU no disponible](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli).
+> [!NOTE]
+> Esta solución debe incurrir en tiempo de inactividad cero.
 
-    **Por ejemplo:**
+1. Implementar la carga de trabajo en una nueva instancia de Cloud Services (clásico)
+    - Consulte la guía [Creación e implementación de un servicio en la nube de Azure (clásico)](cloud-services-how-to-create-deploy-portal.md) para obtener más instrucciones.
 
-    ```azurecli
-    az vm list-skus --location southcentralus --size Standard_F --output table
-    ```
+    > [!WARNING]
+    > Si no quiere perder la dirección IP asociada con esta ranura de implementación, puede usar la [solución 3: conservar la dirección IP](cloud-services-allocation-failures.md#solutions).
 
-    **Resultados de ejemplo:** ![Salida de la CLI de Azure tras la ejecución del comando "az vm list-skus --location southcentralus --size Standard_F --output table", que muestra las SKU disponibles.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
+1. Actualice *CNAME* o el registro *A* para que apunte el tráfico a la nueva instancia de Cloud Services (clásico).
+    - Consulte la guía [Configuración de un nombre de dominio personalizado para Azure Cloud Services (clásico)](cloud-services-custom-domain-name-portal.md#understand-cname-and-a-records) para obtener más instrucciones.
 
-#### <a name="list-skus-in-region-using-powershell"></a>Enumeración de SKU en la región con PowerShell
+1. Una vez que ya no se dirija el tráfico al sitio antiguo, puede eliminar la instancia anterior de Cloud Services (clásico).
+    - Consulte la guía [Eliminación de implementaciones y un servicio en la nube (clásico)](cloud-services-how-to-manage-portal.md#delete-deployments-and-a-cloud-service) para obtener más instrucciones.
+    - Para ver el tráfico de red en la instancia de Cloud Services (clásico), consulte [Introducción a la supervisión de servicios en la nube (clásico)](cloud-services-how-to-monitor.md).
 
-Puede usar el comando [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku).
-
-- Filtre los resultados por ubicación.
-- Debe tener la versión más reciente de PowerShell para que funcione este comando.
-- Para más información, vea la guía sobre [Resolución del error con la SKU no disponible](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell).
-
-**Por ejemplo:**
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
-```
-
-**Otros comandos útiles:**
-
-Filtre las ubicaciones que contienen el tamaño (Standard_DS14_v2):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-```
-
-Filtre todas las ubicaciones que contengan el tamaño (V3):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
-
-#### <a name="list-skus-in-region-using-rest-api"></a>Enumeración de SKU en la región con la API de REST
-
-Puede usar la operación [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list). Se devuelven las SKU y las regiones disponibles en el formato siguiente:
-
-```json
-{
-  "value": [
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A0",
-      "tier": "Standard",
-      "size": "A0",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A1",
-      "tier": "Standard",
-      "size": "A1",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    <Rest_of_your_file_is_located_here...>
-  ]
-}
-    
-```
+Consulte [Solución de errores de asignación de Cloud Services (clásico) | Microsoft Docs](cloud-services-allocation-failures.md#common-issues) para obtener más pasos de corrección.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más soluciones de errores de asignación y comprender mejor cómo se generan:
+Para obtener más información sobre el contexto y las soluciones de errores de asignación:
 
 > [!div class="nextstepaction"]
-> [Errores de asignación (servicios en la nube)](cloud-services-allocation-failures.md)
+> [Errores de asignación: Cloud Services (clásico)](cloud-services-allocation-failures.md)
 
 Si su problema con Azure no se trata en este artículo, visite los foros de Azure en [MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede publicar su problema en ellos o [@AzureSupport en Twitter](https://twitter.com/AzureSupport). También puede enviar una solicitud de soporte técnico de Azure. Para enviar una solicitud de soporte técnico, en la página de [soporte técnico de Azure](https://azure.microsoft.com/support/options/), seleccione *Obtener soporte técnico*.

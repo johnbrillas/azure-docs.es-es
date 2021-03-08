@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919925"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738147"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
-Use Translator para traducir a y desde cualquiera de los más de 70 idiomas de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
+Use Translator para traducir a y desde cualquiera de los 90 idiomas y dialectos de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
 
 También puede usar Translator junto con Traductor personalizado para compilar sistemas de traducción neuronal que entiendan la terminología que se usa en su empresa y su sector y con Servicio Voz de Microsoft para agregar traducción de voz a la aplicación.
 
@@ -37,8 +37,12 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Idioma | Código de lenguaje |
 |:-|:-:|
 | Afrikáans | `af` |
+| Albanés | `sq` |
+| Amárico | `am` |
 | Árabe | `ar` |
+| Armenio | `hy` |
 | Asamés | `as` |
+| Azerbaiyano | `az` |
 | Bengalí | `bn` |
 | Bosnio (latino) | `bs` |
 | Búlgaro | `bg` |
@@ -74,11 +78,13 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Japonés | `ja` |
 | Canarés | `kn` |
 | Kazajo | `kk` |
+| Jemer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Coreano | `ko` |
 | Kurdo (central) | `ku` |
 | Kurdo (norte) | `kmr` |
+| Lao | `lo` |
 | Letón | `lv` |
 | Lituano | `lt` |
 | Malgache | `mg` |
@@ -87,6 +93,8 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Maltés | `mt` |
 | Maori | `mi` |
 | Maratí | `mr` |
+| Myanmar | `my` |
+| Nepalí | `ne` |
 | Noruego | `nb` |
 | Odia | `or` |
 | Pastún | `ps` |
@@ -110,6 +118,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Tamil | `ta` |
 | Telugu | `te` |
 | Tailandés | `th` |
+| Tigriña | `ti` |
 | Tongano | `to` |
 | Turco | `tr` |
 | Ucraniano | `uk` |
@@ -130,6 +139,7 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 | Idioma | Código de lenguaje |
 |:-|:-:|
 | Afrikáans | `af` |
+| Albanés | `sq` |
 | Árabe | `ar` |
 | Búlgaro | `bg` |
 | Catalán | `ca` |
@@ -152,6 +162,7 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 | Húngaro | `hu` |
 | Islandés | `is` |
 | Indonesio | `id` |
+| Inuktitut | `iu` |
 | Irlandés | `ga` |
 | Italiano | `it` |
 | Japonés | `ja` |

@@ -4,12 +4,12 @@ description: Se describe cómo utilizar el esquema CloudEvents para eventos de A
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901409"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737909"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Uso del esquema CloudEvents v1.0 con Event Grid
 Además de su [esquema de eventos predeterminado](event-schema.md), Azure Event Grid admite de forma nativa eventos de la [implementación de JSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) y el [enlace del protocolo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) es una [especificación abierta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para la descripción de datos de eventos.
@@ -60,11 +60,11 @@ Puede usar Event Grid con eventos de entrada y salida en el esquema de CloudEven
 
  Recurso de Event Grid | Esquema de entrada       | Esquema de entrega
 |---------------------|-------------------|---------------------
-| Temas del sistema       | Esquema de Event Grid | Esquema de Event Grid o de CloudEvent
-| Dominios/temas de usuarios | Esquema de Event Grid | Esquema de Event Grid
-| Dominios/temas de usuarios | Esquema CloudEvent | Esquema CloudEvent
-| Dominios/temas de usuarios | Esquema personalizado     | Esquema personalizado, esquema de Event Grid o esquema de CloudEvent
-| Temas de socios       | Esquema CloudEvent | Esquema CloudEvent
+| Temas del sistema       | Esquema de Event Grid | Esquema de Event Grid o de CloudEvents
+| Dominios/temas de usuarios | Esquema de Event Grid | Esquema de Event Grid o de CloudEvents
+| Dominios/temas de usuarios | Esquema de CloudEvents | Esquema de CloudEvents
+| Dominios/temas de usuarios | Esquema personalizado     | Esquema personalizado, de Event Grid o de CloudEvent
+| Temas de socios       | Esquema de CloudEvents | Esquema de CloudEvents
 
 Con todos los esquemas de eventos, Event Grid exige la validación cuando se realiza una publicación en un tema de Event Grid y cuando se crea una suscripción de eventos.
 

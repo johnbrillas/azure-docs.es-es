@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: e1ec175653316029932e0c03214f6f1e1d81e0f1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: ba23319c35aed1d09da652e6f84b60e5f8e9495e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185655"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740892"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca de FastPath de ExpressRoute
 
@@ -33,17 +33,22 @@ Para configurar FastPath, la puerta de enlace de red virtual debe ser una de las
 * Ultrarrendimiento
 * ErGw3AZ
 
+> [!IMPORTANT]
+> Si tiene previsto usar FastPath con el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar ErGw3AZ en **SKU**.
+> 
+>
+
 ## <a name="limitations"></a>Limitaciones
 
 Aunque FastPath admite la mayoría de las configuraciones, no es compatible con las siguientes características:
 
-* UDR en la subred de puerta de enlace: Si aplica una ruta definida por el usuario (UDR) a la subred de puerta de enlace de la red virtual, el tráfico de la red local se seguirá enviando a la puerta de enlace de red virtual.
+* UDR en la subred de puerta de enlace: si aplica un UDR a la subred de puerta de enlace de la red virtual, el tráfico de la red local se seguirá enviando a la puerta de enlace de red virtual.
 
 * Emparejamiento de redes virtuales: si tiene otras redes virtuales emparejadas con la que está conectada a ExpressRoute, el tráfico de la red local a las otras redes virtuales (es decir, las llamadas redes virtuales de "radio") se seguirá enviado a la puerta de enlace de red virtual. La solución es conectar todas las redes virtuales directamente al circuito de ExpressRoute.
 
-* Equilibrador de carga básico: si implementa un equilibrador de carga interno básico en la red virtual o el servicio PaaS de Azure que implementa en la red virtual usa un equilibrador de carga interno básico, el tráfico de la red local a las direcciones IP virtuales hospedadas en el equilibrador de carga básico se enviará a la puerta de enlace de red virtual. La solución es actualizar el equilibrador de carga básico a un [equilibrador de carga estándar](../load-balancer/load-balancer-overview.md).
+* Equilibrador de carga básico: si implementa un equilibrador de carga interno básico en la red virtual, o el servicio PaaS de Azure que implementa en la red virtual usa un equilibrador de carga interno básico, el tráfico de la red local a las direcciones IP virtuales hospedadas en el equilibrador de carga básico se enviará a la puerta de enlace de red virtual. La solución es actualizar el equilibrador de carga básico a un [equilibrador de carga estándar](../load-balancer/load-balancer-overview.md).
 
-* Private Link: si se conecta a un [punto de conexión privado](../private-link/private-link-overview.md) de la red virtual desde la red local, la conexión pasará por la puerta de enlace de red virtual.
+* Vínculo privado: si se conecta con un [punto de conexión privado](../private-link/private-link-overview.md) de la red virtual desde la red local, la conexión pasará por la puerta de enlace de red virtual.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854314"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739065"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con PowerShell
 > [!div class="op_single_selector"]
@@ -53,6 +53,11 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 | Tipo | *ExpressRoute* |
 | Nombre de IP pública de puerta de enlace  | *gwpip* |
 
+> [!IMPORTANT]
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si quiere conectar la red virtual a un circuito ExpressRoute con emparejamiento privado basado en IPv6, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="add-a-gateway"></a>Adición de una puerta de enlace
 
 1. Para conectarse con Azure, ejecute `Connect-AzAccount`.
@@ -76,6 +81,11 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    Si usa una red virtual de doble pila y tiene previsto usar el emparejamiento privado basado en IPv6 en ExpressRoute, es mejor crear una subred de puerta de enlace de doble pila.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Establezca la configuración.
 
@@ -102,6 +112,10 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> Si tiene previsto usar el emparejamiento privado basado en IPv6 en ExpressRoute, asegúrese de seleccionar una SKU AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **-GatewaySku**.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>Comprobación de la creación de la puerta de enlace
 Utilice los siguientes comandos para comprobar si se ha creado la puerta de enlace:

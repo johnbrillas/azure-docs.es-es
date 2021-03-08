@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 03/01/2021
 ms.author: victorh
-ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741368"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configuración de las reglas de Azure Firewall
 Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las colecciones de reglas se procesan según el tipo de regla en orden de prioridad, de números inferiores a números mayores desde 100 hasta 65 000. El nombre de una colección de reglas solo puede contener letras, números, guiones bajos, puntos o guiones. Debe comenzar con una letra o un número y terminar con una letra, un número o un guion bajo. La longitud máxima del nombre es de 80 caracteres.
@@ -38,7 +38,7 @@ Antes del 9 de noviembre de 2020, la opción **Cualquier** significaba **TCP**, 
 
 ### <a name="nat-rules"></a>Reglas NAT
 
-Para habilitar la conectividad a Internet entrante, configure Traducción de direcciones de red de destino (DNAT) como se describe en el [Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal](tutorial-firewall-dnat.md). Las reglas NAT se aplican en orden de prioridad antes que las reglas de red. Si se encuentra alguna coincidencia, se agrega una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido.
+Para habilitar la conectividad a Internet entrante, configure Traducción de direcciones de red de destino (DNAT) como se describe en el [Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal](tutorial-firewall-dnat.md). Las reglas NAT se aplican en orden de prioridad antes que las reglas de red. Si se encuentra alguna coincidencia, se agrega una regla de red correspondiente implícita para permitir el tráfico traducido. Por motivos de seguridad, se recomienda agregar un origen de Internet específico para permitir el acceso de DNAT a la red y evitar el uso de caracteres comodín.
 
 No se aplican reglas de aplicación a las conexiones entrantes. Por lo tanto, si quiere filtrar el tráfico de HTTP/S entrante, debe usar el firewall de aplicaciones web (WAF). Para más información, consulte [¿Qué es el firewall de aplicaciones web?](../web-application-firewall/overview.md)
 

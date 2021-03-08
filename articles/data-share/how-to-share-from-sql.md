@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740382"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -275,7 +275,7 @@ Siga los pasos que se indican a continuación para configurar dónde quiere reci
 ### <a name="trigger-a-snapshot"></a>Desencadenamiento de una instantánea
 Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
-1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea**. En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. En el caso de los orígenes de SQL, solo se admite la instantánea completa.
+1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea**. En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. En el caso de los orígenes de SQL, solo se admite la instantánea completa. Cuando se ejecuta una instantánea, las posteriores no se iniciarán hasta que esta se complete.
 
    ![Desencadenamiento de instantánea](./media/trigger-snapshot.png "Desencadenamiento de instantánea") 
 

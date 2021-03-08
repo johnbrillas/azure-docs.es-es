@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: b721a9b8d8bdff3f3aaf05f15857c00347e7abb4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45b059784cc0b442b615a2a1cb50386da6ee990f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202385"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740926"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Acerca de las puertas de enlace de red virtual de ExpressRoute
 
@@ -53,7 +53,7 @@ Antes de crear una puerta de enlace de ExpressRoute, debe crear una subred de pu
 
 Al crear la subred de puerta de enlace, especifique el número de direcciones IP que contiene la subred. Las direcciones IP de la subred de puerta de enlace se asignan a las máquinas virtuales y los servicios de puerta de enlace. Algunas configuraciones requieren más direcciones IP que otras. 
 
-Cuando planee el tamaño de la subred de puerta de enlace, consulte la documentación de la configuración que piensa crear. Por ejemplo, la configuración de coexistencia de ExpressRoute/VPN Gateway requiere una subred de puerta de enlace mayor que la mayoría de las restantes. Debe asegurarse también de que la subred de puerta de enlace contenga suficientes direcciones IP para acomodar posibles configuraciones adicionales. Aunque es posible crear una subred de puerta de enlace solo de /29, se recomienda que sea de /27, o incluso mayor, (/27, /26, etc.), siempre que se disponga de espacio para hacerlo, ya que puede albergar más configuraciones.
+Cuando planee el tamaño de la subred de puerta de enlace, consulte la documentación de la configuración que piensa crear. Por ejemplo, la configuración de coexistencia de ExpressRoute/VPN Gateway requiere una subred de puerta de enlace mayor que la mayoría de las restantes. Debe asegurarse también de que la subred de puerta de enlace contenga suficientes direcciones IP para acomodar posibles configuraciones adicionales. Aunque es posible crear una subred de puerta de enlace solo de /29, se recomienda que sea de /27, o incluso mayor, (/27, /26, etc.), siempre que se disponga de espacio para hacerlo, Si va a crear una subred de puerta de enlace de pila dual, se recomienda usar también un intervalo IPv6 de /64 o superior. ya que puede albergar más configuraciones.
 
 En el ejemplo de PowerShell de Resource Manager siguiente, se muestra una subred de puerta de enlace con el nombre GatewaySubnet. Puede ver que la notación CIDR especifica /27, que permite suficientes direcciones IP para la mayoría de las configuraciones que existen.
 
@@ -76,6 +76,11 @@ Las puertas de enlace con redundancia de zona utilizan nuevas SKU de puerta de e
 * ErGw3AZ
 
 Las nuevas SKU de puerta de enlace admiten también otras opciones de implementación que se ajusten mejor sus necesidades. Si crea una puerta de enlace de red virtual con las nuevas SKU de puerta de enlace, tiene además la opción de implementar la puerta de enlace en una zona determinada. Esto se conoce como puerta de enlace zonal. Al implementar una puerta de enlace zonal, todas las instancias de la puerta de enlace se implementan en la misma zona de disponibilidad.
+
+> [!IMPORTANT]
+> Si tiene previsto usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar una SKU de zona de disponibilidad para la puerta de enlace que implementará en una subred de puerta de enlace de pila dual.
+> 
+>
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 

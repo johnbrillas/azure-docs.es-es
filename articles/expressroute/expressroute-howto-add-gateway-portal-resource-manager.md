@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761839"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038924"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 
 Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
 
+> [!IMPORTANT]
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones de [IPv6 para Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Creación de la subred de la puerta de enlace
 
 1. En el [portal](https://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
@@ -58,7 +63,11 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Agregue la subred de puerta de enlace":::
 
-1. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.). A continuación, seleccione **Aceptar** para guardar los valores y crear la subred de puerta de enlace.
+1. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.).
+
+    Si usa una red virtual de pila dual y planea usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, haga clic en **Agregar un espacio de direcciones IPv6** e indique los valores del **Intervalo de direcciones IPv6**.
+
+    A continuación, seleccione **Aceptar** para guardar los valores y crear la subred de puerta de enlace.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adición de la subred":::
 
@@ -78,6 +87,11 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
     | Virtual network | Seleccione *TestVNet*. |
     | Dirección IP pública | Seleccione **Crear nuevo**.|
     | Nombre de la dirección IP pública | Proporcione un nombre para la dirección IP pública. |
+
+    > [!IMPORTANT]
+    > Si tiene previsto usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar una SKU de zona de disponibilidad (ErGw1AZ, ErGw2AZ, ErGw3AZ) en **SKU**.
+    > 
+    > 
 
 1. Seleccione **Revisar y crear** y, después, **Crear** para empezar a crear la puerta de enlace. Se valida la configuración y se implementa la puerta de enlace. La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos.
 

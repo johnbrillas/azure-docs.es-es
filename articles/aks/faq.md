@@ -3,12 +3,13 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820269"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739634"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -134,7 +135,7 @@ La compatibilidad de Windows Server con el grupo de nodos incluye algunas limit
 
 AKS proporciona garantías de Acuerdo de Nivel de Servicio como una característica opcional de complemento con [Acuerdo de Nivel de Servicio de tiempo de actividad][uptime-sla]. 
 
-El Acuerdo de Nivel de Servicio gratuito que se ofrece de forma predeterminada no garantiza un punto de conexión de servidor de API de alta disponibilidad (nuestro objetivo de nivel de servicio es 99,5%). Podría suceder aparecieran problemas de conectividad transitorios en el caso de actualizaciones, nodos subyacentes incorrectos, mantenimiento de la plataforma, etc. Si la carga de trabajo no tolera reinicios de APIServer, se recomienda usar el Acuerdo de nivel de servicio de tiempo de actividad.
+La SKU gratuita que se ofrece de forma predeterminada no tiene ningún *Acuerdo* de Nivel de Servicio asociado, pero tiene un *Objetivo* de Nivel de Servicio del 99,5 %. Podría suceder que aparecieran problemas de conectividad transitorios en el caso de actualizaciones, nodos subyacentes incorrectos, mantenimiento de la plataforma, aplicaciones que saturan el servidor de la API con solicitudes, etc. Si la carga de trabajo no tolera reinicios del servidor de API, se recomienda usar el Acuerdo de nivel de servicio de tiempo de actividad.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>¿Puedo aplicar descuentos de las reservas de Azure en mis nodos de agente de AKS?
 
@@ -202,7 +203,7 @@ Se admite el agente de Log Analytics porque es una extensión que administra Mic
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
 
-La característica para permitir el almacenamiento de datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos de clientes se almacenan en la geoárea.
+La característica que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil (Estado de São Paulo) de la geoárea Brasil. En todas las demás regiones, los datos de clientes se almacenan en la geoárea.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>¿Las imágenes de AKS deben ejecutarse como raíz?
 

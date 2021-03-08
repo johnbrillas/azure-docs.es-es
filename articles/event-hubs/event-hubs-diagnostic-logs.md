@@ -2,13 +2,13 @@
 title: 'Configuración de registros de diagnóstico: Azure Event Hub | Microsoft Docs'
 description: Obtenga información sobre cómo configurar registros de actividad y registros de diagnóstico para centros de eventos en Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573175"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742541"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -207,7 +207,7 @@ Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs con
 | `Count` | Número de repeticiones de una acción dada. |
 | `ResourceId` | Identificador de recursos de Azure Resource Manager. |
 
-Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no quiere restringir el acceso al espacio de nombres mediante estas características y quiere obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite intervalos IPv6. 
+Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no quiere restringir el acceso al espacio de nombres mediante estas características y quiere obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. [Habilite el filtrado de IP](event-hubs-ip-filtering.md) y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). El filtrado de IP de Event Hubs no admite intervalos IPv6. Tenga en cuenta que puede ver las direcciones de un punto de conexión privado en formato IPv6 en el registro. 
 
 ### <a name="example"></a>Ejemplo
 

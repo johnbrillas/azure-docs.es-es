@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750654"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178396"
 ---
 ## <a name="disk-level-bursting"></a>Expansión en el nivel de disco
 
@@ -63,15 +63,14 @@ Puede consultar la [página de precios de Managed Disks](https://azure.microsoft
 
 La expansión basada en crédito está disponible en los tamaños de disco P20 e inferiores en todas las regiones de la nube pública de Azure, la nube de Azure Government y la nube de China. La expansión del disco está habilitada de forma predeterminada en las implementaciones nuevas y existentes de los tamaños del disco que la admiten. La expansión en el nivel de máquina virtual solo usa la opción basada en crédito.
 
-### <a name="virtual-machine-level-bursting"></a>Expansión en el nivel de máquina virtual
-La compatibilidad con la expansión en el nivel de máquina virtual está habilitada en todas las regiones de la nube pública con estos tamaños admitidos: 
-- [Serie Lsv2](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>Expansión en el nivel de máquina virtual
 
-La expansión en el nivel de máquina virtual también está disponible en la región Centro-oeste de EE. UU. para los tamaños admitidos siguientes:
+La expansión en el nivel de máquina virtual solo usa el modelo basado en crédito; está habilitada de forma predeterminada en todas las máquinas virtuales que la admiten.
+
+Dicha característica está habilitada en todas las regiones de la nube pública de Azure en los tamaños admitidos siguientes: 
+- [Serie Lsv2](../articles/virtual-machines/lsv2-series.md)
 - [Series Dv3 y DSv3](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Series Ev3 y Esv3](../articles/virtual-machines/ev3-esv3-series.md)
-
-La expansión está habilitada de forma predeterminada en las máquinas virtuales que la admiten.
 
 ## <a name="bursting-flow"></a>Flujo de expansión
 

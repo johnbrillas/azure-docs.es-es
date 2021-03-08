@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9e0d9162c497ff035438b5a65c6f4500ce834860
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 06b59aa1fe6b51bf237c0cd64117166ca4ece10b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602548"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734934"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
 
 * [Instale al agente para Linux con un script contenedor](#install-the-agent-using-wrapper-script) hospedado en GitHub. Este es el método recomendado para instalar y actualizar el agente cuando el equipo tiene conectividad a Internet directamente o a través de un servidor proxy.
-* [Descargue e instale manualmente](#install-the-agent-manually) el agente. Esto es necesario cuando el equipo Linux no tiene acceso a Internet y se va a comunicar con Azure Monitor o Azure Automation utilizando la [puerta de enlace de Log Analytics](../platform/gateway.md). 
+* [Descargue e instale manualmente](#install-the-agent-manually) el agente. Esto es necesario cuando el equipo Linux no tiene acceso a Internet y se va a comunicar con Azure Monitor o Azure Automation utilizando la [puerta de enlace de Log Analytics](./gateway.md). 
 
 >[!IMPORTANT]
-> Los métodos de instalación descritos en este artículo se usan normalmente con máquinas virtuales locales o en otras nubes. Consulte [Opciones de instalación](../platform/log-analytics-agent.md#installation-options) para ver las opciones más eficaces que se pueden utilizar con Azure Virtual Machines.
+> Los métodos de instalación descritos en este artículo se usan normalmente con máquinas virtuales locales o en otras nubes. Consulte [Opciones de instalación](./log-analytics-agent.md#installation-options) para ver las opciones más eficaces que se pueden utilizar con Azure Virtual Machines.
 
 
 
@@ -32,7 +32,7 @@ Consulte [Información general de los agentes de Azure Monitor](agents-overview.
 >OpenSSL 1.1.0 solo se admite en las plataformas x86_x64 (64 bits) y OpenSSL anterior a 1.x no se admite en ninguna plataforma.
 
 >[!NOTE]
->No se admite la ejecución del agente de Log Analytics para Linux en contenedores. Si necesita supervisar contenedores, aproveche la [solución de supervisión de contenedores](../insights/containers.md) para hosts de Docker o [Azure Monitor para contenedores](../insights/container-insights-overview.md) para Kubernetes.
+>No se admite la ejecución del agente de Log Analytics para Linux en contenedores. Si necesita supervisar contenedores, aproveche la [solución de supervisión de contenedores](../containers/containers.md) para hosts de Docker o las [conclusiones de contenedor](../containers/container-insights-overview.md) para Kubernetes.
 
 A partir de las versiones publicadas después de agosto de 2018, hemos realizado los siguientes cambios en nuestro modelo de soporte técnico:  
 
@@ -100,7 +100,7 @@ En la tabla siguiente se indican los paquetes necesarios para las [distribucione
 >Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
 
 ## <a name="network-requirements"></a>Requisitos de red
-Consulte [Introducción al agente de Log Analytics](../platform/log-analytics-agent.md#network-requirements) para conocer los requisitos de red para el agente de Linux.
+Consulte [Introducción al agente de Log Analytics](./log-analytics-agent.md#network-requirements) para conocer los requisitos de red para el agente de Linux.
 
 ## <a name="agent-install-package"></a>Paquete de instalación del agente
 

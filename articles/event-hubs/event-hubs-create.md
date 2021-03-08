@@ -3,12 +3,12 @@ title: 'Guía de inicio rápido de Azure: Creación de un centro de eventos medi
 description: En este inicio rápido aprenderá a crear un centro de eventos de Azure mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742048"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -87,7 +87,7 @@ Para crear un centro de eventos en el espacio de nombres, haga lo siguiente:
 
     La configuración del **número de particiones** permite paralelizar el consumo entre muchos consumidores. Para más información consulte [Particiones](event-hubs-scalability.md#partitions).
 
-    La configuración de **retención de mensajes** especifica cuánto tiempo el servicio de Event Hubs conserva los datos. Para los límites máximos de esta configuración, consulte [Cuotas y límites](event-hubs-quotas.md).
+    La configuración de **retención de mensajes** especifica cuánto tiempo el servicio de Event Hubs conserva los datos. Para más información, consulte [Retención de eventos](event-hubs-features.md#event-retention).
 1. Puede comprobar el estado de la creación del centro de eventos en las alertas. Una vez creado el centro de eventos, puede verlo en la lista de centros de eventos.
 
     ![Centro de eventos creado](./media/event-hubs-quickstart-portal/event-hub-created.png)

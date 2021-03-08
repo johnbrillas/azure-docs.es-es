@@ -4,15 +4,15 @@ description: Información general sobre App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663376"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735104"
 ---
 # <a name="app-service-environment-overview"></a>Información general sobre App Service Environment 
 
@@ -53,7 +53,7 @@ App Service Environment tiene muchos casos de uso, incluidos:
 Hay una serie de características de red que permiten que las aplicaciones de App Service multiinquilino lleguen a recursos aislados de red o que se aíslen de la red por sí mismos. Estas características se habilitan en el nivel de aplicación.  Con un ASE, no hay ninguna configuración adicional en las aplicaciones para que estén en la red virtual. Las aplicaciones se implementan en un entorno con aislamiento de red que ya está en una red virtual. En la parte superior del ASE que hospeda las aplicaciones con aislamiento de red, también es un sistema de un solo inquilino. No hay otros clientes que usen el ASE. Si realmente necesita un caso de aislamiento completo, también puede implementar el ASE en hardware dedicado. Entre el hospedaje de aplicaciones con aislamiento de red, el inquilino único y la capacidad 
 
 ## <a name="dedicated-environment"></a>Entorno dedicado
-Una instancia de ASE está dedicada exclusivamente a una sola suscripción y puede hospedar 200 instancias de un plan de App Service. El rango puede abarcar 100 instancias en un único plan de App Service, 100 planes de App Service de una sola instancia o cualquier opción intermedia.
+Un ASE está dedicado exclusivamente a una sola suscripción y puede hospedar un total de 200 instancias de plan de App Service en distintos planes de App Service. La palabra "instancia" hace referencia al escalado horizontal del plan de App Service. Cada instancia es el equivalente a un rol de trabajo. Aunque un ASE puede tener 200 instancias en total, un solo plan de App Service v2 aislado puede contener hasta 100 instancias. El ASE puede incluir dos planes de App Service con 100 instancias en cada uno, 200 planes de App Service de instancia única o cualquier otra opción intermedia.
 
 Una instancia de ASE se compone de front-end y trabajos. Los servidores front-end son responsables de la terminación HTTP/HTTPS y del equilibrio de carga automático de la solicitudes de aplicación en una instancia de ASE. Los servidores front-end se agregan automáticamente ya que los planes de App Service en la instancia de ASE se escalan horizontalmente.
 
@@ -77,7 +77,7 @@ Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como 
 ## <a name="preview"></a>Versión preliminar
 App Service Environment v3 se encuentra en versión preliminar pública.  Se están agregando algunas características durante la progresión de la versión preliminar. Las limitaciones actuales de ASEv3 incluyen:
 
-- Incapacidad de escalar un plan de App Service más allá de cinco instancias
+- Incapacidad de escalar un plan de App Service más allá de 50 instancias
 - Incapacidad de obtener un contenedor de un registro privado
 - Incapacidad para que las características de App Service no admitidas actualmente pasen a través de la red virtual del cliente
 - Ningún modelo de implementación externo con un punto de conexión accesible por Internet

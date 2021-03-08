@@ -2,13 +2,13 @@
 title: Información general de las características de Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/19/2021
+ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791953"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739082"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -47,7 +47,12 @@ Event Hubs garantiza que todos los eventos que comparten un valor de clave de pa
 
 ### <a name="event-retention"></a>Retención de eventos
 
-Los eventos publicados se quitan de un centro de eventos en función de una directiva de retención configurable basada en el tiempo. El valor predeterminado y el período de retención más corto posible es de 1 día (24 horas). En el caso de Event Hubs estándar, el período de retención máximo es de 7 días. En el caso de Event Hubs dedicado, el período de retención máximo es de 90 días.
+Los eventos publicados se quitan de un centro de eventos en función de una directiva de retención configurable basada en el tiempo. Estos son algunos puntos importantes:
+
+- El valor **predeterminado** y el período de retención **más corto** posible es de **1 día (24 horas)** .
+- En el caso de Event Hubs **estándar**, el período de retención máximo es de **7 días**. 
+- En el caso de Event Hubs **dedicado**, el período de retención máximo es de **90 días**.
+- Si cambia el período de retención, se aplica a todos los mensajes, incluidos los que ya están en el centro de eventos. 
 
 > [!NOTE]
 > Event Hubs es un motor de secuencia de eventos en tiempo real y no está diseñado para usarse en lugar de una base de datos o como almacén permanente para secuencias de eventos que se conservan por tiempo indefinido. 
@@ -117,6 +122,9 @@ Un *desplazamiento* es la posición de un evento dentro de una partición. Puede
 *Puntos de control* es un proceso en el que los lectores marcan o confirman su posición dentro de la secuencia de eventos de una partición. La creación de puntos de comprobación es responsabilidad del consumidor y se realiza por partición dentro de un grupo de consumidores. Esta responsaibilidad significa que por cada grupo de consumidores, cada lector de la partición debe realizar un seguimiento de su posición actual en el flujo del evento y puede informar al servicio cuando considere que el flujo de datos se ha completado.
 
 Si se desconecta un lector de una partición, cuando se vuelve a conectar comienza a leer en el punto de comprobación que envió previamente el último lector de esa partición en ese grupo de consumidores. Cuando se conecta el lector, pasa este desplazamiento al centro de eventos para especificar la ubicación en la que se va a empezar a leer. De este modo, puede usar puntos de comprobación para marcar eventos como "completados" por las aplicaciones de bajada y para ofrecer resistencia en caso de que se produzca una conmutación por error entre lectores que se ejecutan en máquinas distintas. Es posible volver a los datos más antiguos especificando un desplazamiento inferior desde este proceso de puntos de comprobación. Mediante este mecanismo, los puntos de comprobación permiten una resistencia a la conmutación por error y una reproducción del flujo de eventos.
+
+> [!IMPORTANT]
+> El servicio Event Hubs proporciona desplazamientos. Es responsabilidad del consumidor crear puntos de comprobación a medida que se procesan los eventos.
 
 > [!NOTE]
 > Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 

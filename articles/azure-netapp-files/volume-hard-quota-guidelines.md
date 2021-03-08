@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b25d312e6710a07f523c4acdb0fd4b970ce4a2d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740093"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Implicaciones de cambiar a la cuota máxima de volumen para el servicio de Azure NetApp Files
 
 Desde el principio del servicio, Azure NetApp Files ha usado un aprovisionamiento de grupo de capacidad y un mecanismo de crecimiento automático. Los volúmenes de Azure NetApp Files se aprovisionan de forma fina sobre un grupo de capacidad subyacente aprovisionado por el cliente de un nivel y tamaño seleccionados. Los tamaños de volumen (cuotas) se usan para proporcionar rendimiento y capacidad, y las cuotas se pueden ajustar sobre la marcha en cualquier momento. Este comportamiento implica que, actualmente, la cuota de volumen es un factor de rendimiento que se usa para controlar el ancho de banda al volumen. Actualmente, los grupos de capacidades subyacentes aumentan automáticamente cuando se llena la capacidad.   
 
 > [!IMPORTANT] 
-> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 1 de abril de 2021, los tamaños del volumen (cuota) administrarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
+> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 1 de abril de 2021 (actualizado), los tamaños del volumen (cuota) administrarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Motivos para el cambio a cuota máxima de volumen
 
@@ -185,8 +185,8 @@ En algunos casos, el grupo de capacidad de hospedaje no tiene suficiente capacid
 
 Puede usar [las herramientas de la CLI de Azure NetApp Files](azure-netapp-files-sdk-cli.md#cli-tools), incluidas la CLI de Azure y Azure PowerShell, para cambiar manualmente el tamaño del volumen o del grupo de capacidad.  Puede usar los dos comandos siguientes para administrar los recursos de grupo y volumen de Azure NetApp Files:  
 
-* [`az netappfiles pool`](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest&preserve-view=true)
-* [`az netappfiles volume`](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true)
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
 
 Para administrar los recursos de Azure NetApp Files mediante la CLI de Azure, puede abrir Azure Portal y seleccionar el vínculo Azure **Cloud Shell** en la parte superior de la barra de menús: 
 
@@ -196,13 +196,13 @@ Esta acción abrirá Azure Cloud Shell:
 
 [ ![Captura de pantalla que muestra la ventana de Cloud Shell.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-En los ejemplos siguientes se usan los comandos para [mostrar](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) y [actualizar](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) el tamaño de un volumen:
+En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-show) y [actualizar](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-update) el tamaño de un volumen:
  
 [ ![Captura de pantalla que muestra el uso de PowerShell para mostrar el tamaño del volumen.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [ ![Captura de pantalla que muestra el uso de PowerShell para actualizar el tamaño del volumen.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-En los ejemplos siguientes se usan los comandos para [mostrar](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-show&preserve-view=true) y [actualizar](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-update&preserve-view=true) el tamaño de un grupo de capacidad:
+En los ejemplos siguientes se usan los comandos para [mostrar](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-show) y [actualizar](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-update) el tamaño de un grupo de capacidad:
 
 [ ![Captura de pantalla que muestra el uso de PowerShell para mostrar el tamaño del grupo de capacidad.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 
@@ -277,4 +277,4 @@ Para enviar errores y solicitudes de características, haga clic en **New Issue*
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cambiar el tamaño de un grupo de capacidad o de un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md) 
-* [Métricas de Azure NetApp Files](azure-netapp-files-metrics.md) 
+* [Métricas de Azure NetApp Files](azure-netapp-files-metrics.md)

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas del agente de
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881143"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737064"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guía de solución de problemas: Application Insights de Azure Monitor para Java
 
@@ -45,15 +45,23 @@ Los registros solo se capturan si cumple primero el umbral configurado de las pl
 
 La mejor manera de saber si una instrucción de registro determinada cumple el umbral configurado de las plataformas de registro es confirmar que se muestra en el registro de aplicaciones normal (por ejemplo, archivo o consola).
 
+Tenga en cuenta también que, si se pasa una excepción al registrador, el mensaje de registro (y la excepción) se mostrarán en Azure Portal en la tabla `exceptions`, en lugar de la tabla `traces`.
+
 Para obtener más información, consulte la [configuración de registro de recopilación automática](./java-standalone-config.md#auto-collected-logging).
 
 ## <a name="import-ssl-certificates"></a>Importación de certificados SSL
 
 Esta sección le ayuda a solucionar problemas y, posiblemente, a corregir las excepciones relacionadas con los certificados de SSL al usar el agente de Java.
 
-Existen dos rutas de acceso diferentes para solucionar este problema.
+Hay dos formas distintas de resolver este problema:
+* Si usa un almacén de claves de Java predeterminado
+* Si usa un almacén de claves de Java personalizado
 
-### <a name="if-using-a-default-java-keystore"></a>Si usa un almacén de claves de Java predeterminado:
+Si no está seguro de la ruta de acceso que debe seguir, compruebe si tiene un argumento de JVM `-Djavax.net.ssl.trustStore=...`.
+Si _no_ tiene ningún argumento de JVM, probablemente está usando el almacén de claves de Java predeterminado.
+Si _tiene_ este argumento de JVM, es probable que esté usando un almacén de claves personalizado y el argumento de JVM señalará al almacén de claves personalizado.
+
+### <a name="if-using-the-default-java-keystore"></a>Si usa un almacén de claves de Java predeterminado:
 
 Normalmente, el almacén de claves de Java predeterminado ya tendrá todos los certificados raíz de CA. Sin embargo, puede haber algunas excepciones, como que el certificado del punto de conexión de ingesta podría estar firmado por un certificado raíz diferente. Por ello, se recomiendan los tres pasos siguientes para resolver este problema.
 
@@ -68,7 +76,7 @@ Normalmente, el almacén de claves de Java predeterminado ya tendrá todos los c
     Una vez descargado el certificado, genere un hash SHA-1 en el certificado con el siguiente comando:
     > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
  
-    Copie el valor SHA-1 y compruebe si este valor está presente en el archivo "temp.txt" que guardó anteriormente.  Si no puede encontrar el valor SHA-1 en el archivo temporal, faltará el certificado raíz descargado en el almacén de claves de Java predeterminado.
+    Copie el valor SHA-1 y compruebe si este valor está presente en el archivo "temp.txt" que guardó anteriormente.  Si no puede encontrar el valor SHA-1 en el archivo temporal, esto significa que falta el certificado raíz descargado en el almacén de claves de Java predeterminado.
 
 
 3. Importe el certificado raíz al almacén de claves de Java predeterminado con el siguiente comando:

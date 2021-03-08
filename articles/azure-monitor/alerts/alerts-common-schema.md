@@ -2,14 +2,13 @@
 title: Esquema de alertas comunes para las alertas de Azure Monitor
 description: Descripción del esquema de alertas comunes, por qué debería usarlo y cómo habilitarlo
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602774"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038264"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -52,7 +51,7 @@ Puede participar o dejar de participar en el esquema de alertas comunes a travé
 > 1. Los siguientes tipos de alerta admiten el esquema común de forma predeterminada (no es necesario expresar la participación):
 >     * Alertas de detección inteligente
 > 1. Los siguientes tipos de alerta no admiten actualmente el esquema común:
->     * Las alertas generadas por [Azure Monitor para VM](../insights/vminsights-overview.md)
+>     * Alertas generadas por [VM Insights](../vm/vminsights-overview.md)
 >     * Las alertas generadas por [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Mediante Azure Portal

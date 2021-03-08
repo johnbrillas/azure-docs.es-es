@@ -6,13 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ac2ed571359958feddd4d7952ea3b5f549688c77
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598281"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046982"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para Azure Monitor
 
@@ -54,7 +53,7 @@ az deployment group create \
 - [Consultas de registros](logs/resource-manager-log-queries.md): cree consultas de registros guardadas, en un área de trabajo de Log Analytics.
 - [Área de trabajo de Log Analytics](logs/resource-manager-workspace.md): cree el área de trabajo Log Analytics y configure la recopilación de diferentes orígenes de datos a partir del agente de Log Analytics.
 - [Libros](visualize/resource-manager-workbooks.md): cree libros.
-- [Azure Monitor para contenedores](containers/resource-manager-container-insights.md): incorpore clústeres a Azure Monitor para contenedores.
+- [Conclusiones de contenedor](containers/resource-manager-container-insights.md): incorpore clústeres a las conclusiones de contenedor.
 - [Azure Monitor para VM](vm/resource-manager-vminsights.md): incorpore máquinas virtuales a Azure Monitor para VM.
 
 

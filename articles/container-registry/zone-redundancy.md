@@ -2,13 +2,14 @@
 title: Registro con redundancia de zona para lograr alta disponibilidad
 description: Aprenda a habilitar la redundancia de zona en Azure Container Registry. Cree un registro de contenedor o una replicación en una zona de disponibilidad de Azure. La redundancia de zona es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738113"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitación de la redundancia de zona en Azure Container Registry para lograr resistencia y alta disponibilidad
 
@@ -20,7 +21,7 @@ La redundancia de zona es una característica en **versión preliminar** del niv
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Actualmente se admite en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2 y Oeste de EE. UU. 2.
+* Actualmente se admite en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Japón Oriental.
 * Actualmente no se admite la conversión de regiones en zonas de disponibilidad. Para habilitar la compatibilidad con las zonas de disponibilidad en una región, el registro debe crearse en la región deseada, con la compatibilidad con zonas de disponibilidad habilitada, o bien debe agregarse una región replicada que tenga habilitada la compatibilidad con zonas de disponibilidad.
 * No se puede deshabilitar la redundancia de zona en una región.
 * [ACR Tasks](container-registry-tasks-overview.md) todavía no admite las zonas de disponibilidad.

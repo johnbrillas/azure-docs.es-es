@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964106"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739269"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de ar
 Cuando el uso compartido de sistemas de archivos, contenedores o carpetas se basa en instantáneas, los consumidores de datos pueden optar por hacer una copia completa de los datos de recursos compartidos. O bien, pueden usar la funcionalidad de instantáneas incrementales para copiar solo los archivos nuevos o actualizados. La funcionalidad de instantánea incremental se basa en la hora de la última modificación de los archivos. 
 
 Los archivos existentes que tengan el mismo nombre se sobrescribirán durante una instantánea. Un archivo que se elimina del origen no se elimina en el destino. Las subcarpetas vacías del origen no se copian en el destino. 
+
 ## <a name="share-data"></a>Compartir datos
 
 Use la información de las secciones siguientes para compartir datos con Azure Data Share. 
@@ -184,7 +185,7 @@ Para configurar la ubicación para recibir datos, siga los pasos de esta secció
 ### <a name="trigger-a-snapshot"></a>Desencadenamiento de una instantánea
 Los pasos de esta sección solo se aplican al uso compartido basado en instantáneas.
 
-1. Puede desencadenar una instantánea desde la pestaña **Detalles**. En la pestaña, seleccione **Desencadenar instantánea**. Puede optar por desencadenar una instantánea completa o una instantánea incremental de los datos. Si recibe datos del proveedor de datos por primera vez, seleccione **Copia completa**. 
+1. Puede desencadenar una instantánea desde la pestaña **Detalles**. En la pestaña, seleccione **Desencadenar instantánea**. Puede optar por desencadenar una instantánea completa o una instantánea incremental de los datos. Si recibe datos del proveedor de datos por primera vez, seleccione **Copia completa**. Cuando se ejecuta una instantánea, las posteriores no se iniciarán hasta que esta se complete.
 
    ![Captura de pantalla que muestra la selección de Desencadenar instantánea.](./media/trigger-snapshot.png "Desencadenamiento de instantáneas.") 
 
@@ -194,6 +195,14 @@ Los pasos de esta sección solo se aplican al uso compartido basado en instantá
 
 ### <a name="view-history"></a>Visualización del historial
 Puede ver el historial de las instantáneas solo del uso compartido basado en instantáneas. Para ello, abra la pestaña **Historial**. Aquí verá el historial de todas las instantáneas que se generaron en los últimos 30 días. 
+
+## <a name="storage-snapshot-performance"></a>Rendimiento de la instantánea de almacenamiento
+El rendimiento de la instantánea de almacenamiento se ve afectado por una serie de factores, además de por el número de archivos y el tamaño de los datos compartidos. Siempre se recomienda llevar a cabo sus propias pruebas de rendimiento. A continuación, se muestran algunos factores de ejemplo que afectan al rendimiento.
+
+* Acceso simultáneo a los almacenes de datos de origen y de destino.  
+* Ubicación de los almacenes de datos de origen y de destino. 
+* En el caso de una instantánea incremental, el número de archivos del conjunto de datos compartido puede afectar al tiempo que se tarda en buscar la lista de archivos con la última hora de modificación después de la última instantánea correcta. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha aprendido a compartir y recibir datos de una cuenta de almacenamiento mediante el servicio Azure Data Share. Para aprender a compartir desde otros orígenes de datos, consulte [Almacenes de datos admitidos](supported-data-stores.md).

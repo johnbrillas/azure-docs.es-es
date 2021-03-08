@@ -3,12 +3,12 @@ title: Visualización y filtrado de información de los recursos de Azure
 description: Filtre la información y use vistas diferentes para conocer mejor los recursos de Azure.
 ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: d1bd00a9e7f8c9c18484378f7c21d3bacdac2d3f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738640"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualización y filtrado de información de los recursos de Azure
 
@@ -49,6 +49,18 @@ Para eliminar una vista:
 1. Seleccione **Administrar vista** y, después, **Examinar todas las visualizaciones**.
 
 1. En el panel **Vistas guardadas para "Todos los recursos"** , seleccione la vista y, a continuación, seleccione el icono **Eliminar** ![icono de la vista Eliminar](media/manage-filter-resource-views/icon-delete.png).
+
+## <a name="export-information-from-a-view"></a>Exportar información de una vista
+
+Puede exportar la información del recurso desde una vista. Para exportar información en formato CSV:
+
+1. Seleccione **Exportar a CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Captura de pantalla de la exportación al formato CSV":::
+
+1. Guarde el archivo localmente y, a continuación, ábralo en Excel u otra aplicación que admita el formato CSV. 
+
+Al desplazarse por el portal, verá otras áreas en las que puede exportar información, como un grupo de recursos individual.
 
 ## <a name="summarize-resources-with-visuals"></a>Resumen de los recursos con objetos visuales
 

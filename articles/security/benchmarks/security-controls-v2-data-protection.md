@@ -4,19 +4,21 @@ description: Protección de datos de Azure Security Benchmark V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368875"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735767"
 ---
 # <a name="security-control-v2-data-protection"></a>Control de seguridad V2: Protección de datos
 
 La protección de datos cubre el control de la protección de datos en reposo, en tránsito y a través de mecanismos de acceso autorizados. Esto incluye detectar, clasificar, proteger y supervisar los recursos de datos confidenciales mediante el control de acceso, el cifrado y el registro en Azure.
+
+Para ver la instancia de Azure Policy integrada aplicable, vea [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Protección de datos](../../governance/policy/samples/azure-security-benchmark#data-protection).
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Detección, clasificación y etiquetado de datos confidenciales
 
@@ -24,9 +26,9 @@ La protección de datos cubre el control de la protección de datos en reposo, e
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
-Detecte, clasifique y etiquete los datos confidenciales para que se puedan diseñar los controles adecuados que garanticen que los sistemas tecnológicos de la organización almacenen, procesen y transmitan la información confidencial de forma segura. 
+Detecte, clasifique y etiquete los datos confidenciales para que se puedan diseñar los controles adecuados que garanticen que los sistemas tecnológicos de la organización almacenen, procesen y transmitan la información confidencial de forma segura.
 
-Use Azure Information Protection (y su herramienta de detección asociada) con la información confidencial de los documentos de Office en Azure, del entorno local, de Office 365 y de otras ubicaciones. 
+Use Azure Information Protection (y su herramienta de detección asociada) con la información confidencial de los documentos de Office en Azure, del entorno local, de Office 365 y de otras ubicaciones.
 
 Puede utilizar Azure SQL Information Protection para ayudar en la clasificación y el etiquetado de la información almacenada en las instancias de Azure SQL Database.
 
@@ -38,7 +40,7 @@ Puede utilizar Azure SQL Information Protection para ayudar en la clasificación
 
 **Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Seguridad de los datos](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ Azure Information Protection (AIP) proporciona funcionalidades de supervisión p
 
 Si es necesario para el cumplimiento de la prevención de la pérdida de datos (DLP por sus siglas en inglés), se puede usar una solución de DLP basada en host para aplicar controles de detección o prevención a fin de evitar la filtración de datos.
 
-- [Habilitación de ATP para Azure SQL](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender para SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Habilitación de ATP para Azure Storage](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Azure Defender para Storage](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsabilidad**: Compartido
 
@@ -104,11 +106,11 @@ Si es necesario para el cumplimiento de la prevención de la pérdida de datos (
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
-Para complementar los controles de acceso, los datos en tránsito deben protegerse frente a ataques de "fuera de banda" (por ejemplo, captura del tráfico) mediante cifrado para que los atacantes no puedan leer ni modificar los datos fácilmente. 
+Para complementar los controles de acceso, los datos en tránsito deben protegerse frente a ataques de "fuera de banda" (por ejemplo, captura del tráfico) mediante cifrado para que los atacantes no puedan leer ni modificar los datos fácilmente.
 
-Aunque esto es opcional en el caso del tráfico de redes privadas, es fundamental para el tráfico de redes externas y públicas. Asegúrese de que los clientes que se conectan a los recursos de Azure puedan negociar TLS v1.2 o superior. Para la administración remota, use SSH (para Linux) o RDP/TLS (para Windows) en lugar de un protocolo sin cifrar. Se deben deshabilitar los protocolos y las versiones de SSL, TLS y SSH obsoletos, así como los cifrados débiles.  
+Aunque esto es opcional en el caso del tráfico de redes privadas, es fundamental para el tráfico de redes externas y públicas. Asegúrese de que los clientes que se conectan a los recursos de Azure puedan negociar TLS v1.2 o superior. Para la administración remota, use SSH (para Linux) o RDP/TLS (para Windows) en lugar de un protocolo sin cifrar. Se deben deshabilitar los protocolos y las versiones de SSL, TLS y SSH obsoletos, así como los cifrados débiles.
 
-De forma predeterminada, Azure proporciona el cifrado de los datos en tránsito entre los centros de datos de Azure. 
+De forma predeterminada, Azure proporciona el cifrado de los datos en tránsito entre los centros de datos de Azure.
 
 - [Descripción del cifrado en tránsito con Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

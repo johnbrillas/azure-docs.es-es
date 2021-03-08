@@ -4,12 +4,12 @@ description: Información general sobre el control de acceso de Service Bus con 
 ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598819"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737824"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -130,9 +130,9 @@ Si está seguro o sospecha que una clave está en peligro y debe revocar las cla
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticación con Firma de acceso compartido en Service Bus
 
-Los escenarios descritos a continuación incluyen la configuración de reglas de autorización, la generación de tokens SAS y la autorización del cliente.
+El escenario que se describe a continuación incluye la configuración de reglas de autorización, la generación de tokens SAS y la autorización del cliente.
 
-Para un ejemplo funcional completo de una aplicación del Bus de servicio que ilustra la configuración y usa la autorización SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Hay un ejemplo relacionado que ilustra el uso de reglas de autorización SAS configuradas en espacios de nombres o temas para proteger las suscripciones de Service Bus disponible aquí: [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para obtener un ejemplo de una aplicación de Service Bus que ilustra la configuración y usa la autorización de SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Acceso a las reglas de autorización de acceso compartido en una entidad
 

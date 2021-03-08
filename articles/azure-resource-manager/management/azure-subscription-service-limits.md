@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5d003392eeeca56bbfb0033db22e6bde4ae5e136
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: fd9f8c9fff60ea9f7c24eb5d6f35542a197fe366
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734091"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -187,6 +187,10 @@ Los valores más recientes para las cuotas de Proceso de Machine Learning pueden
 ## <a name="azure-signalr-service-limits"></a>Límites de Azure SignalR Service
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## <a name="azure-vmware-solution-limits"></a>Límites de Azure VMware Solution
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## <a name="backup-limits"></a>Límites de Backup
 

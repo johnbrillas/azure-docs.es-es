@@ -1,16 +1,15 @@
 ---
 title: Tutorial sobre la API de REST de supervisión de Azure
 description: Cómo autenticar las solicitudes y usar la API de REST de Azure Monitor para recuperar las definiciones de métricas y valores de métricas disponibles.
-ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 41c2432c3c80be7d28e8f33372dea44ba108c5d3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7cd6ff7c0c3b5d4bee859ef288f16673ebe0835
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603120"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033085"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -462,9 +461,9 @@ Una vez que se conocen las definiciones de métricas disponibles, es posible rec
 >
 >
 
-**Método**: GET
+**Método**: `GET`
 
-**URI de solicitud**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de solicitud**: `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 Por ejemplo, para recuperar los puntos de datos de métricas RunsSucceeded para el intervalo de tiempo determinado y para un intervalo de agregación de 1 hora, la solicitud sería como sigue:
 
@@ -734,7 +733,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise la [información general de supervisión](../overview.md).
-* Vea las [métricas compatibles con Azure Monitor](../platform/metrics-supported.md).
+* Vea las [métricas compatibles con Azure Monitor](./metrics-supported.md).
 * Revise la [referencia de la API de REST de Microsoft Azure Monitor](/rest/api/monitor/).
 * Revise la [biblioteca de administración de Azure](/previous-versions/azure/reference/mt417623(v=azure.100)).
-

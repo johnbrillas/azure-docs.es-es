@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734526"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
 > [!NOTE]
-> En este artículo se da por supuesto que está familiarizado con las características básicas de la característica Explorador de métricas de Azure de Azure Monitor. Si es un nuevo usuario y desea aprender a crear su primer gráfico de métricas, consulte [Introducción al Explorador de métricas](../platform/metrics-getting-started.md).
+> En este artículo se da por supuesto que está familiarizado con las características básicas de la característica Explorador de métricas de Azure de Azure Monitor. Si es un nuevo usuario y desea aprender a crear su primer gráfico de métricas, consulte [Introducción al Explorador de métricas](./metrics-getting-started.md).
 
 En Azure Monitor, las [métricas](data-platform-metrics.md) son una serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Las métricas pueden ser estándar (también denominadas "plataforma") o personalizadas. 
 
@@ -49,11 +49,11 @@ Cuando esté satisfecho con la selección, seleccione **Aplicar**.
 ### <a name="view-metrics-across-multiple-resources"></a>Visualización de métricas en varios recursos
 Algunos tipos de recursos pueden consultar las métricas de varios recursos. Los recursos deben estar en la misma suscripción y ubicación. Busque estos tipos de recursos en la parte superior del menú **Tipos de recursos**. 
 
-Para obtener más información, consulte [Seleccionar varios recursos](../platform/metrics-dynamic-scope.md#select-multiple-resources).
+Para obtener más información, consulte [Seleccionar varios recursos](./metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Captura de pantalla que muestra tipos entre recursos.](./media/metrics-charts/multi-resource-scope.png)
 
-En el caso de los tipos que son compatibles con varios recursos, puede consultar las métricas en una suscripción o en varios grupos de recursos. Para obtener más información, consulte [Selección de un grupo de recursos o suscripción](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+En el caso de los tipos que son compatibles con varios recursos, puede consultar las métricas en una suscripción o en varios grupos de recursos. Para obtener más información, consulte [Selección de un grupo de recursos o suscripción](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## <a name="multiple-metric-lines-and-charts"></a>Varias líneas y gráficos de métricas
 
@@ -67,7 +67,7 @@ Por ejemplo, imagine que tiene cinco cuentas de almacenamiento y desea saber cu�
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Varias métricas en el mismo gráfico
 
-Para ver varias métricas en el mismo gráfico, [cree un nuevo gráfico](../platform/metrics-getting-started.md#create-your-first-metric-chart) en primer lugar. A continuación, seleccione **Agregar métrica**. Repita este paso para agregar otra métrica en el mismo gráfico.
+Para ver varias métricas en el mismo gráfico, [cree un nuevo gráfico](./metrics-getting-started.md#create-your-first-metric-chart) en primer lugar. A continuación, seleccione **Agregar métrica**. Repita este paso para agregar otra métrica en el mismo gráfico.
 
 > [!NOTE]
 > Normalmente, los gráficos no deben mezclar métricas que utilicen unidades de medida diferentes. Por ejemplo, evite mezclar una métrica que use milisegundos con otra que utilice kilobytes. Además, evite mezclar métricas cuyas escalas difieran significativamente. 
@@ -86,7 +86,7 @@ Al agregar una métrica a un gráfico, el Explorador de métricas aplica automá
 
 Antes de usar agregaciones diferentes en un gráfico, debe comprender cómo las administra el Explorador de métricas. Las métricas son una serie de medidas (o "valores de métricas") que se capturan durante un período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación*. 
 
-Puede seleccionar el tamaño del intervalo de agregación mediante el [panel selector de tiempo](../platform/metrics-getting-started.md#select-a-time-range) del Explorador de métricas. Si no selecciona explícitamente el intervalo de agregación, el intervalo de tiempo seleccionado actualmente se utiliza de forma predeterminada. Una vez determinado el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan en el gráfico, un punto de datos por intervalo de agregación.
+Puede seleccionar el tamaño del intervalo de agregación mediante el [panel selector de tiempo](./metrics-getting-started.md#select-a-time-range) del Explorador de métricas. Si no selecciona explícitamente el intervalo de agregación, el intervalo de tiempo seleccionado actualmente se utiliza de forma predeterminada. Una vez determinado el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan en el gráfico, un punto de datos por intervalo de agregación.
 
 Por ejemplo, supongamos que un gráfico muestra la métrica *Tiempo de respuesta del servidor*. Usa la agregación *media* en el intervalo de tiempo de las *últimas 24 horas*. En este ejemplo:
 
@@ -230,6 +230,42 @@ Se abre el panel de creación de reglas de alerta. En el panel, verá las dimens
 
 Para obtener más información, consulte [Creación, visualización y administración de alertas de métricas](../alerts/alerts-metric.md).
 
+## <a name="correlate-metrics-to-logs"></a>Correlación de métricas con registros
+Para ayudar a los clientes a diagnosticar la causa principal de las anomalías de su gráfico de métricas, hemos creado la característica Obtener detalles de los registros. Obtener detalles de los registros permite a los clientes correlacionar los picos de su gráfico de métricas con registros y consultas. 
+
+Antes de sumergirnos en la experiencia, queremos introducir los distintos tipos de registros y consultas proporcionados. 
+
+| Término             | Definición  | 
+|------------------|-------------|
+| Registros de actividad    | Proporciona una visión general de las operaciones de cada recurso de Azure de la suscripción desde fuera (en el plano de administración) y de las actualizaciones de los eventos de Service Health. Use el registro de actividad para determinar qué, quién y cuándo para las operaciones de escritura (PUT, POST, DELETE) realizadas en los recursos de la suscripción. Hay un único registro de actividad para cada suscripción de Azure.  |   
+| Registro de diagnóstico   | Proporcionan conclusiones de las operaciones realizadas dentro de un recurso de Azure (en el plano de datos), por ejemplo, obtener un secreto de un almacén de claves o realizar una solicitud en una base de datos. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso. **Nota:** Lo debe proporcionar el servicio y habilitar el cliente.  | 
+| Registro recomendado | Consultas basadas en escenario que el cliente puede aprovechar para investigar anomalías en el explorador de métricas.  |
+
+Actualmente, Obtener detalles de los registros está disponible para los proveedores de recursos seleccionados. Los proveedores de recursos que tienen la experiencia Obtener detalles de los registros completa son: 
+
+* Application Insights 
+* Escalado automático 
+* Servicios de aplicaciones  
+* Storage  
+
+A continuación se muestra un ejemplo de experiencias para el proveedor de recursos de Application Insights.
+
+![Pico de errores en la hoja de métricas de App Insights](./media/metrics-charts/drill-into-log-ai.png)
+
+Para diagnosticar el pico en las solicitudes con error, haga clic en "Obtener detalles de los registros".
+
+![Captura de pantalla de la lista desplegable Obtener detalles de los registros](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+Al hacer clic en la opción de error, se le conducirá a una hoja de error personalizada que le proporciona las operaciones con errores, los tipos de excepciones principales y las dependencias. 
+
+![Captura de pantalla de la hoja de error de App Insights](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>Problemas comunes con Obtener detalles de los registros
+
+* El registro y las consultas están deshabilitados: para ver los registros y las consultas recomendados, debe redirigir los registros de diagnóstico a Log Analytics. Lea [este documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para obtener información sobre cómo hacerlo. 
+* Solo se proporcionan registros de actividad: la característica Obtener detalles de los registros solo está disponible para los proveedores de recursos seleccionados. De forma predeterminada, se proporcionan registros de actividad. 
+
+ 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Si no ve ningún dato en el gráfico, revise la siguiente información de solución de problemas:
@@ -242,6 +278,5 @@ Si no ve ningún dato en el gráfico, revise la siguiente información de soluci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para crear paneles que se puedan accionar mediante métricas, consulte [Creación de paneles personalizados de KPI](../learn/tutorial-app-dashboards.md).
+Para crear paneles que se puedan accionar mediante métricas, consulte [Creación de paneles personalizados de KPI](../app/tutorial-app-dashboards.md).
 
- 
