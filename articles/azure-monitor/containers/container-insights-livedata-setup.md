@@ -1,19 +1,19 @@
 ---
-title: Configuración de datos en directo (versión preliminar) de Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Azure Monitor para contenedores.
+title: Configuración de datos en directo de Container Insights (versión preliminar) | Microsoft Docs
+description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Container Insights.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713786"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
-Para ver los datos en directo (versión preliminar) con Azure Monitor para contenedores de clústeres de Azure Kubernetes Service (AKS), debe configurar la autenticación para conceder permiso de acceso a los datos de Kubernetes. Esta configuración de seguridad permite el acceso en tiempo real a los datos mediante la API de Kubernetes directamente en Azure Portal.
+Para ver datos en directo (versión preliminar) con Container Insights desde Azure Kubernetes Service (AKS), debe configurar la autenticación para conceder permiso de acceso a los datos de Kubernetes. Esta configuración de seguridad permite el acceso en tiempo real a los datos mediante la API de Kubernetes directamente en Azure Portal.
 
 Esta característica admite los métodos siguientes para controlar el acceso a los registros, eventos y métricas:
 
@@ -46,7 +46,7 @@ En el Azure Portal se le pedirá que valide las credenciales de inicio de sesió
 
 Para eliminar la necesidad de aplicar cambios de configuración adicionales para permitir al enlace del rol de usuario de Kubernetes **clusterUser** acceder a la característica de datos en directo (versión preliminar) después de [habilitar la autorización RBAC de Kubernetes](#configure-kubernetes-rbac-authorization), AKS ha agregado un nuevo enlace de rol de clúster de Kubernetes denominado **clusterMonitoringUser**. Este enlace de rol de clúster tiene todos los permisos necesarios integrados para acceder a la API de Kubernetes y los puntos de conexión para usar la característica de datos en directo (versión preliminar).
 
-Para usar la característica de datos en directo (versión preliminar) con este nuevo usuario, debe ser miembro del rol [Usuario de clúster de Azure Kubernetes Service](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) o [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) en el recurso de clúster de AKS. Azure Monitor para contenedores, cuando está habilitado, está configurado para autenticarse con clusterMonitoringUser de forma predeterminada. Si el enlace de rol de clusterMonitoringUser no existe en un clúster, en su lugar se usa **clusterUser** para la autenticación. El colaborador le proporciona acceso a clusterMonitoringUser (si existe) y el usuario de clúster de Azure Kuberenetes Service le proporciona acceso a clusterUser. Cualquiera de estos dos roles proporcionan acceso suficiente para usar esta característica.
+Para usar la característica de datos en directo (versión preliminar) con este nuevo usuario, debe ser miembro del rol [Usuario de clúster de Azure Kubernetes Service](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) o [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) en el recurso de clúster de AKS. Cuando Container Insights está habilitado, se configura para realizar la autenticación con clusterMonitoringUser de forma predeterminada. Si el enlace de rol de clusterMonitoringUser no existe en un clúster, en su lugar se usa **clusterUser** para la autenticación. El colaborador le proporciona acceso a clusterMonitoringUser (si existe) y el usuario de clúster de Azure Kuberenetes Service le proporciona acceso a clusterUser. Cualquiera de estos dos roles proporcionan acceso suficiente para usar esta característica.
 
 AKS lanzó este nuevo enlace de rol en enero de 2020, por lo que los clústeres creados antes de enero de 2020 no lo tienen. Si tiene un clúster creado antes de enero de 2020, **clusterMonitoringUser** puede agregarse a un clúster existente mediante una operación PUT en el clúster o mediante cualquier otra operación en el clúster que genere una operación PUT en el clúster, como la actualización de la versión del clúster.
 
@@ -106,7 +106,7 @@ El registro del cliente de Azure AD debe volver a configurarse para permitir qu
 Para más información sobre la configuración de seguridad avanzada en Kubernetes, revise la [documentación de Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Si va a crear un nuevo clúster habilitado para RBAC de Kubernetes, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) y siga los pasos para configurar la autenticación de Azure AD. Durante los pasos para crear la aplicación cliente, una nota en esa sección resalta las dos URL de redireccionamiento que debe crear para Azure Monitor para los contenedores que coincidan con los que se especifican en el paso 3 que hay a continuación.
+>Si va a crear un nuevo clúster habilitado para RBAC de Kubernetes, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) y siga los pasos para configurar la autenticación de Azure AD. Durante los pasos para crear la aplicación cliente, en una nota de esa sección se resaltan las dos URL de redireccionamiento que debe crear para Container Insights que coincidan con las que se especifican en el paso 3 siguiente.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguración del registro de cliente
 

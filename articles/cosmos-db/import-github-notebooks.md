@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339808"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690658"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importación de cuadernos desde un repositorio de GitHub en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Puede conectarse a sus propios repositorios de GitHub u otros repositorios de Gi
 
 Después de integrarse con una cuenta de GitHub, solo puede ver la lista de repositorios y cuadernos en la cuenta de Azure Cosmos. Esta afirmación es verdadera incluso si varios usuarios inician sesión en la cuenta de Azure Cosmos DB y agregan sus propias cuentas. En otras palabras, varios usuarios pueden usar la misma cuenta de Azure Cosmos para conectar el área de trabajo del cuaderno a GitHub. No obstante, cada usuario solo verá la lista de repositorios y cuadernos que ha importado. No podrá ver los cuadernos que hayan importado otros usuarios.
 
-Para desconectar la cuenta de GitHub del área de trabajo de cuadernos, abra la pestaña **Explorador de datos** , seleccione `…` junto a **Repositorios de GitHub** y seleccione **Disconnect from GitHub** (Desconectarse de GitHub).
+Para desconectar la cuenta de GitHub del área de trabajo de cuadernos, abra la pestaña **Explorador de datos**, seleccione `…` junto a **Repositorios de GitHub** y seleccione **Disconnect from GitHub** (Desconectarse de GitHub).
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Edición de un cuaderno y envío de cambios ("push") a GitHub
 
@@ -57,7 +57,12 @@ En el flujo de GitHub normal, después de confirmar los cambios, normalmente est
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edición de cuadernos y confirmación de cambios en GitHub":::
 
+Después de editar el cuaderno, puede [publicarlo en la galería de cuadernos](publish-notebook-gallery.md). 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Conozca las ventajas de los [cuadernos de Jupyter para Azure Cosmos DB.](cosmosdb-jupyter-notebooks.md)
-
+* [Exploración de la galería de ejemplos de Notebook](https://cosmos.azure.com/gallery.html)
+* [Publicación de cuadernos en la galería de cuadernos de Azure Cosmos DB](publish-notebook-gallery.md)
+* [Uso de características y comandos de cuadernos de Python](use-python-notebook-features-and-commands.md)
+* [Uso de características y comandos de cuadernos de C#](use-csharp-notebook-features-and-commands.md)

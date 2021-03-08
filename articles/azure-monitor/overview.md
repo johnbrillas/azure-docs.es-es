@@ -1,17 +1,16 @@
 ---
 title: Introducción a Azure Monitor | Microsoft Docs
 description: Introducción a los servicios y funcionalidades de Microsoft que contribuyen a una estrategia de supervisión completa de los servicios y las aplicaciones de Azure.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717356"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047169"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -145,7 +144,7 @@ Existen varias API para leer y escribir métricas y registros en Azure Monitor, 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre:
 
-* Las [métricas y registros](data-platform.md) de los datos que recopila Azure Monitor.
+* Las [métricas y registros](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) de los datos que recopila Azure Monitor.
 * Los [orígenes de datos](agents/data-sources.md) de la forma en que los distintos componentes de la aplicación envían la telemetría.
 * Las [consultas de registros](logs/log-query-overview.md) para analizar los datos recopilados.
 * [Procedimientos recomendados](/azure/architecture/best-practices/monitoring) para supervisar los servicios y las aplicaciones en la nube.

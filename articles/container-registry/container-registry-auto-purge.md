@@ -2,19 +2,19 @@
 title: Purgar etiquetas y manifiestos
 description: Use un comando de purga para eliminar varias etiquetas y manifiestos de una instancia de Azure Container Registry en función de la edad y un filtro de etiquetas y, opcionalmente, programar operaciones de purga.
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 02/19/2021
+ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954045"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722235"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purga automática de imágenes a partir de una instancia de Azure Container Registry
 
 Cuando se usa una instancia de Azure Container Registry como parte de un flujo de trabajo de desarrollo, el registro puede rellenarse rápidamente con imágenes u otros artefactos que no son necesarios después de un breve período. Es posible que quiera eliminar todas las etiquetas que tengan más de una duración determinada o que coincidan con un filtro de nombre especificado. Para eliminar varios artefactos rápidamente, en este artículo se presenta el comando `acr purge`, que se puede ejecutar como una instancia de ACR Tasks [programada](container-registry-tasks-scheduled.md) o a petición. 
 
-El comando `acr purge` está distribuido actualmente en una imagen de contenedor pública (`mcr.microsoft.com/acr/acr-cli:0.3`), creada a partir de código fuente del repositorio [acr-cli](https://github.com/Azure/acr-cli) en GitHub.
+El comando `acr purge` está distribuido actualmente en una imagen de contenedor pública (`mcr.microsoft.com/acr/acr-cli:0.4`), creada a partir de código fuente del repositorio [acr-cli](https://github.com/Azure/acr-cli) en GitHub.
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ejecutar los ejemplos de instancia de ACR Tasks de este artículo. Si quiere usarla de forma local, necesitará la versión 2.0.76 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install]. 
 
@@ -45,6 +45,7 @@ Como mínimo, especifique lo siguiente cuando ejecute `acr purge`:
 * `--untagged`: especifica que se eliminan los manifiestos que no tienen etiquetas asociadas (*manifiestos sin etiqueta*).
 * `--dry-run`: especifica que no se elimina ningún dato, pero el resultado es el mismo que si el comando se ejecutase sin este marcador. Este parámetro es útil para probar un comando de purga con el fin de asegurarse de que no elimina accidentalmente los datos que se quieren conservar.
 * `--keep`: especifica que se conservará el número x más reciente de etiquetas que se van a eliminar.
+* `--concurrency`: especifica un número de tareas de purga que se van a procesar de forma simultánea. Si no se proporciona este parámetro, se usa un valor predeterminado.
 
 Para parámetros adicionales, ejecute `acr purge --help`. 
 

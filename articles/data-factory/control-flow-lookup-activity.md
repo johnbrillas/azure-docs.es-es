@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385479"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712919"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de búsqueda puede recuperar un conjunto de datos de cualquiera de los orígenes de datos compatible con Azure Data Factory. Utilícela en el siguiente escenario:
-- Determinar dinámicamente en qué objetos operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto. Algunos ejemplos de objeto son los archivos y las tablas.
+La actividad de búsqueda puede recuperar un conjunto de datos de cualquiera de los orígenes de datos compatible con Azure Data Factory. Puede usarla para determinar de forma dinámica los objetos en los que operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto. Algunos ejemplos de objeto son los archivos y las tablas.
 
-La actividad de búsqueda lee y devuelve el contenido de una tabla o un archivo de configuración. También devuelve el resultado de ejecutar una consulta o un procedimiento almacenado. El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton. La salida se puede usar en una actividad ForEach si es una matriz de atributos.
+La actividad de búsqueda lee y devuelve el contenido de una tabla o un archivo de configuración. También devuelve el resultado de ejecutar una consulta o un procedimiento almacenado. La salida puede ser un valor singleton o una matriz de atributos, que se puede utilizar en una copia posterior, una transformación o actividades de flujo de control como la actividad ForEach.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Se admiten los siguientes orígenes de datos para la actividad de búsqueda. 
+Tenga en cuenta lo siguiente:
 
-La actividad de búsqueda puede devolver hasta 5000 filas; si el conjunto de resultados contiene más registros, se devolverán las primeras 5000 filas. La salida de la actividad de búsqueda admite hasta aproximadamente 4 MB de tamaño; la actividad producirá un error si el tamaño supera el límite. Actualmente, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es de 24 horas.
+- La actividad de búsqueda puede devolver hasta **5000 filas**; si el conjunto de resultados contiene más registros, se devolverán las primeras 5000 filas.
+- La salida de la actividad de búsqueda admite hasta **4 MB** de tamaño; la actividad producirá un error si el tamaño supera el límite. 
+- La duración máxima de la actividad de búsqueda antes de agotarse el tiempo de espera es de **24 horas**.
+- Cuando use la consulta o el procedimiento almacenado para buscar datos, asegúrese de que devuelve un conjunto de resultados y solo uno. De lo contrario, se producirá un error en la actividad de búsqueda.
+
+Se admiten los siguientes orígenes de datos para la actividad de búsqueda. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -381,7 +385,7 @@ A continuación se indican algunas de las limitaciones de la actividad de búsqu
 
 | Limitación | Solución alternativa |
 |---|---|
-| La actividad de búsqueda tiene un máximo de 5.000 filas y un tamaño máximo de 2 MB. | Diseñe una canalización de dos niveles donde la canalización exterior recorra en iteración una canalización interna, que recupera datos que no superan el tamaño o el número máximo de filas. |
+| La actividad de búsqueda tiene un máximo de 5000 filas y un tamaño máximo de 4 MB. | Diseñe una canalización de dos niveles donde la canalización exterior recorra en iteración una canalización interna, que recupera datos que no superan el tamaño o el número máximo de filas. |
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes

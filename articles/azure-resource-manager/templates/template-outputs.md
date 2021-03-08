@@ -3,18 +3,18 @@ title: Salidas en plantillas
 description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM) y en un archivo Bicep.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2b6a6afa127bf43102103baadae576233843f00d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703841"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123418"
 ---
 # <a name="outputs-in-arm-templates"></a>Salidas en plantillas de ARM
 
 En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM) y en un archivo Bicep. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
 
-El formato de cada valor de salida debe resolverse como uno de los [tipos de datos](template-syntax.md#data-types).
+El formato de cada valor de salida debe resolverse como uno de los [tipos de datos](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

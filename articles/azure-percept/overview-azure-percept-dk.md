@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4c2ace609d67cc48d1b73bdb044e7048ebda21e7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098339"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179381"
 ---
 # <a name="azure-percept-dk-overview"></a>Introducción a Azure Percept DK
 
@@ -24,7 +24,7 @@ Azure Percept DK es un kit de desarrollo de inteligencia artificial e IoT perim
 
 - **La capacidad de ejecutar inteligencia artificial en el perímetro**. Con la aceleración de hardware integrada, puede ejecutar modelos de inteligencia artificial de visión sin conexión a la nube.
 - **Seguridad de la raíz de confianza del hardware integrada**. Consulte esta introducción sobre la [seguridad de Azure Percept](./overview-percept-security.md) para más información.
-- **Integración perfecta con [Azure Percept Studio](./overview-azure-percept-studio.md)** y otros servicios de Azure, como, por ejemplo, Azure IoT Hub, Azure Cognitive Services y [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Integración perfecta con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** y otros servicios de Azure, como, por ejemplo, Azure IoT Hub, Azure Cognitive Services y [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
 - **Integración perfecta con un dispositivo [Azure Percept Audio](./overview-azure-percept-audio.md) opcional.**
 - **Compatibilidad con las plataformas de inteligencia artificial más importantes**, como ONNX y TensorFlow.
 - **Integración con el sistema de raíl 80/20**. Facilita la creación de prototipos en entornos de producción. Más información acerca de la [integración 80/20](./overview-8020-integration.md).

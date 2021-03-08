@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705218"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -29,8 +29,8 @@ Revise [este artículo](server-migrate-overview.md) para averiguar qué método 
 
 ## <a name="migration-limitations"></a>Limitaciones de la migración
 
-- Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10.
-- En las migraciones sin agente de VMware se pueden ejecutar hasta 300 replicaciones a la vez.
+- Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación mediante Azure Portal. Si quiere migrar más máquinas, replique en grupos de 10. No hay ningún límite en el número de máquinas virtuales que se pueden replicar mediante cmdlets de PowerShell. La recomendación es replicar no más de 500 máquinas virtuales a la vez desde una sola instancia de vCenter mediante PowerShell para garantizar un rendimiento óptimo.
+- En las migraciones sin agente de VMware se pueden ejecutar hasta 500 replicaciones simultáneas desde cada instancia de vCenter Server.
 
 ## <a name="agentless-migration"></a>Migración sin agentes 
 
@@ -56,7 +56,7 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 --- | ---
 **Sistemas operativos compatibles** | Puede migrar los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md) que admite Azure.
 **VM Windows en Azure** | Es posible que tenga que [realizar algunos cambios](prepare-for-migration.md#verify-required-changes-before-migrating) en las VM antes de la migración. 
-**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Arranque de Linux** | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos.
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de generación 2 de Azure. 
 **Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
@@ -72,7 +72,7 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 **NIC en equipo** | No compatible.
 **IPv6** | No compatible.
 **Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
-**Replicación simultánea** | 300 máquinas virtuales por vCenter Server. Si tiene más, mígrelas en lotes de 300.
+**Replicación simultánea** | 500 máquinas virtuales por instancia de vCenter Server. Si tiene más, realice la migración en lotes de 500.
 **Instalación automática del agente de máquina virtual de Azure (agente de Windows)** | Compatible con Windows Server 2008 R2 en adelante
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos de dispositivo (sin agente)

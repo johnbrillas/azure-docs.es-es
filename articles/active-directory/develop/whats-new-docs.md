@@ -11,16 +11,37 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687335"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos de la plataforma de identidad de Microsoft: Novedades
 
 Estas son las novedades de la documentación de la Plataforma de identidad de Microsoft. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses.
+
+## <a name="february-2021"></a>Febrero de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Inicio rápido: Adquisición de un token de acceso y llamada a Microsoft Graph API desde una aplicación de escritorio de Electron](quickstart-v2-nodejs-desktop.md)
+- [Tutorial: Inicio de sesión por los usuarios y llamada a Microsoft Graph API en una aplicación de escritorio de Electron](tutorial-v2-nodejs-desktop.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Node.js mediante la identidad de la aplicación](quickstart-v2-nodejs-console.md)
+- [Tutorial: Llamada a Microsoft Graph API en una aplicación de consola de Node.js](tutorial-v2-nodejs-console.md)
+- [Tutorial: Inicio de sesión de los usuarios en una aplicación web de Node.js y Express](tutorial-v2-nodejs-webapp-msal.md)
+- [Compatibilidad con la autenticación sin contraseña con claves FIDO2 en aplicaciones desarrolladas por el usuario](support-fido2-authentication.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Novedades en la autenticación](reference-breaking-changes.md)
+- [Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales](msal-net-aad-b2c-considerations.md)
+- [Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)](sample-v2-code.md)
+- [Vídeos de la plataforma de identidad de Microsoft](identity-videos.md)
+- [Inicio rápido: Configuración de un inquilino](quickstart-create-new-tenant.md)
+- [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](quickstart-v2-java-daemon.md)
 
 ## <a name="january-2021"></a>Enero de 2021
 
@@ -66,17 +87,3 @@ Estas son las novedades de la documentación de la Plataforma de identidad de Mi
 - [Tokens de acceso de la Plataforma de identidad de Microsoft](access-tokens.md)
 - [API web que llama a las API web: adquisición de un token para la aplicación](scenario-web-api-call-api-acquire-token.md)
 
-
-## <a name="november-2020"></a>Noviembre de 2020
-
-### <a name="new-articles"></a>Artículos nuevos
-
-- [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](app-resilience-continuous-access-evaluation.md)
-
-### <a name="updated-articles"></a>Artículos actualizados
-
-- [Tokens de acceso de la Plataforma de identidad de Microsoft](access-tokens.md)
-- [Opciones de configuración de aplicaciones (MSAL)](msal-client-application-configuration.md)
-- [Procedimientos: Proporcionar notificaciones opcionales a la aplicación](active-directory-optional-claims.md)
-- [Publicación de la aplicación en la galería de aplicaciones de Azure AD](v2-howto-app-gallery-listing.md)
-- [Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token](howto-add-app-roles-in-azure-ad-apps.md)

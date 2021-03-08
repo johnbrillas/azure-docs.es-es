@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737343"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710573"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -249,7 +249,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configuración de Azure IoT Edge en el equipo host
 
-Para implementar el contenedor de análisis espacial en el equipo host, cree una instancia de un servicio [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) con el plan de tarifa Estándar (S1) o Gratis (F0). Si el equipo host es del tipo Azure Stack Edge, use la misma suscripción y el mismo grupo de recursos que usa el recurso de Azure Stack Edge.
+Para implementar el contenedor de análisis espacial en el equipo host, cree una instancia de un servicio [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) con el plan de tarifa Estándar (S1) o Gratis (F0). 
 
 Use la CLI de Azure para crear una instancia de Azure IoT Hub. Reemplace los parámetros cuando sea necesario. También puede crear la instancia de Azure IoT Hub en [Azure Portal](https://portal.azure.com/).
 
@@ -264,7 +264,7 @@ sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test
 sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Si el equipo host no es un dispositivo Azure Stack Edge, deberá instalar la versión 1.0.9 de [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md). Siga estos pasos para descargar la versión correcta:
+Necesitará instalar [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md), versión 1.0.9. Siga estos pasos para descargar la versión correcta:
 
 Ubuntu Server 18.04:
 ```bash
@@ -295,7 +295,7 @@ Instale la versión 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-A continuación, registre el equipo host como dispositivo IoT Edge en la instancia de IoT Hub mediante una [cadena de conexión](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+A continuación, registre el equipo host como dispositivo IoT Edge en la instancia de IoT Hub mediante una [cadena de conexión](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
 
 Debe conectar el dispositivo IoT Edge a la instancia de Azure IoT Hub. Debe copiar la cadena de conexión del dispositivo IoT Edge que creó anteriormente. También puede ejecutar el comando siguiente en la CLI de Azure.
 
@@ -396,7 +396,73 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
-Una vez configurada la máquina virtual, siga los pasos que se indican a continuación para implementar el contenedor de análisis espacial. 
+Una vez instalada y configurada la máquina virtual, siga los pasos que se indican a continuación para configurar Azure IoT Edge. 
+
+## <a name="configure-azure-iot-edge-on-the-vm"></a>Configuración de Azure IoT Edge en la máquina virtual
+
+Para implementar el contenedor de análisis espacial en la máquina virtual, cree una instancia de un servicio [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) con el plan de tarifa Estándar (S1) o Gratis (F0).
+
+Use la CLI de Azure para crear una instancia de Azure IoT Hub. Reemplace los parámetros cuando sea necesario. También puede crear la instancia de Azure IoT Hub en [Azure Portal](https://portal.azure.com/).
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo az login
+sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az group create --name "test-resource-group" --location "WestUS"
+
+sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
+
+sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+
+Necesitará instalar [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md), versión 1.0.9. Siga estos pasos para descargar la versión correcta:
+
+Ubuntu Server 18.04:
+```bash
+curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
+Copie la lista generada.
+```bash
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+```
+
+Instale la clave pública de GPG de Microsoft.
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+Actualice las listas de paquetes en el dispositivo.
+
+```bash
+sudo apt-get update
+```
+
+Instale la versión 1.0.9:
+
+```bash
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+```
+
+A continuación, registre la máquina virtual como dispositivo IoT Edge en la instancia de IoT Hub mediante una [cadena de conexión](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
+
+Debe conectar el dispositivo IoT Edge a la instancia de Azure IoT Hub. Debe copiar la cadena de conexión del dispositivo IoT Edge que creó anteriormente. También puede ejecutar el comando siguiente en la CLI de Azure.
+
+```bash
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+```
+
+En la máquina virtual, abra `/etc/iotedge/config.yaml` para editarlo. Reemplace `ADD DEVICE CONNECTION STRING HERE` por la cadena de conexión. Guarde y cierre el archivo. Ejecute este comando para reiniciar el servicio IoT Edge en la máquina virtual.
+
+```bash
+sudo systemctl restart iotedge
+```
+
+Implemente el contenedor de análisis espacial como módulo de IoT en la máquina virtual, ya sea desde [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o desde la [CLI de Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows). Si usa el portal, establezca el URI de imagen en la ubicación de la instancia de Azure Container Registry. 
+
+Use los pasos siguientes para implementar el contenedor mediante la CLI de Azure.
 
 ---
 

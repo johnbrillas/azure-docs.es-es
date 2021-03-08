@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747958"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049667"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Inicio rápido: Creación de una aplicación HoloLens con Azure Object Anchors en C++/WinRT y DirectX
 
@@ -23,11 +23,10 @@ Aprenderá a:
 > [!div class="checklist"]
 > * Crear y cargar una aplicación de HoloLens.
 > * Detectar un objeto y visualizar su modelo.
-> * Capturar diagnósticos en tiempo de ejecución.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
@@ -64,7 +63,7 @@ Para iniciar y depurar la aplicación, seleccione **Depurar > Iniciar la depurac
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Ingesta de un modelo de objetos y detección de su instancia
 
-Deberá crear un modelo de objetos para ejecutar la aplicación de ejemplo. Supongamos que ya tiene un modelo de malla 3D, ya sea CAD o digitalizado, de un objeto en su espacio. Consulte el [Inicio rápido: Ingesta de un modelo 3D](./get-started-model-ingestion.md) para instrucciones sobre cómo crear un modelo.
+Deberá crear un modelo de objetos para ejecutar la aplicación de ejemplo. Supongamos que ya tiene un modelo de malla 3D, ya sea CAD o digitalizado, de un objeto en su espacio. Consulte el [Inicio rápido: Ingesta de un modelo 3D](./get-started-model-conversion.md) para instrucciones sobre cómo crear un modelo.
 
 Descargue ese modelo, **chair.ou** en este caso, a su equipo. Luego, en el portal de dispositivos HoloLens, seleccione **Sistema > Explorador de archivos > LocalAppData > AoaSampleApp > LocalState** y seleccione **Examinar…** . Luego, seleccione su archivo de modelo, por ejemplo, **chair.ou**, y seleccione **Cargar**. Debería ver el archivo de modelo en la caché local.
 
@@ -86,7 +85,7 @@ La aplicación alinea estrechamente un modelo 3D con su homólogo físico. Para
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de un modelo 3D](./get-started-model-ingestion.md)
+> [Inicio rápido: Ingesta de un modelo 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Conceptos: Información general del SDK](../concepts/sdk-overview.md)

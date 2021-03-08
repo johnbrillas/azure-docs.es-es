@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656078"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715010"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Conexión de datos de Microsoft Defender for Identity (antes Azure Advanced Threat Protection)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656078"
 > El conector de datos Microsoft Defender for Identity se encuentra actualmente en versión preliminar pública.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Puede transmitir registros desde [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) hasta Azure Sentinel con un solo clic.
+En este artículo se describe cómo transmitir alertas de seguridad desde [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) a Azure Sentinel. 
+
+Para reenviar alertas de mantenimiento, además de las de seguridad, integre Microsoft Defender for Identity con un servidor de Syslog. Para obtener más información, vea la [documentación de Microsoft Defender for Identity](/defender-for-identity/setting-syslog). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

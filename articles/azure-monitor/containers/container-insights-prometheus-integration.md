@@ -1,18 +1,18 @@
 ---
-title: Configurar la integración de Prometheus con Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo puede configurar Azure Monitor para que el agente de contenedores extraiga métricas de Prometheus con el clúster de Kubernetes.
+title: Configuración de la integración de Prometheus de Container Insights | Microsoft Docs
+description: En este artículo se describe cómo puede configurar el agente de Container Insights para extraer métricas de Prometheus con el clúster de Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731738"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configuración de la extracción de métricas de Prometheus con Azure Monitor para contenedores
+# <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configuración de la extracción de métricas de Prometheus con Container Insights
 
-[Prometheus](https://prometheus.io/) es una solución de supervisión de métricas de código abierto muy popular que forma parte de [Cloud Native Compute Foundation](https://www.cncf.io/). Azure Monitor para contenedores proporciona una experiencia de incorporación sin problemas para recopilar las métricas de Prometheus. Normalmente, para usar Prometheus es necesario configurar y administrar un servidor de Prometheus con un almacén. Al integrarse con Azure Monitor, no es necesario un servidor de Prometheus. Solo tiene que exponer el punto de conexión de métricas de Prometheus mediante exportadores o pods (aplicación) y el agente de contenedor de Azure Monitor para contenedores puede extraer las métricas por usted. 
+[Prometheus](https://prometheus.io/) es una solución de supervisión de métricas de código abierto muy popular que forma parte de [Cloud Native Compute Foundation](https://www.cncf.io/). Container Insights proporciona una experiencia de incorporación sin problemas para recopilar métricas de Prometheus. Normalmente, para usar Prometheus es necesario configurar y administrar un servidor de Prometheus con un almacén. Al integrarse con Azure Monitor, no es necesario un servidor de Prometheus. Solo tiene que exponer el punto de conexión de métricas de Prometheus mediante exportadores o pods (aplicación), y el agente contenedorizado de Container Insights podrá extraer las métricas por usted. 
 
 ![Arquitectura de supervisión de contenedores para Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -42,20 +42,20 @@ La recopilación de datos activa de métricas de Prometheus se realiza desde una
 | Servicio Kubernetes | En todo el clúster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | Punto de conexión/dirección URL | Por nodo o en todo el clúster | `http://myurl:9101/metrics` |
 
-Cuando se especifica una dirección URL, Azure Monitor para contenedores solo extrae el punto de conexión. Cuando se especifica el servicio Kubernetes, el nombre del servicio se resuelve con el servidor DNS del clúster para obtener la dirección IP y, a continuación, se recopilan los datos del servicio resuelto.
+Cuando se especifica una dirección URL, Container Insights solo extrae el punto de conexión. Cuando se especifica el servicio Kubernetes, el nombre del servicio se resuelve con el servidor DNS del clúster para obtener la dirección IP y, a continuación, se recopilan los datos del servicio resuelto.
 
 |Ámbito | Clave | Tipo de datos | Value | Descripción |
 |------|-----|-----------|-------|-------------|
 | En todo el clúster | | | | Especifique uno de los tres métodos siguientes para extraer los puntos de conexión para las métricas. |
-| | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE _IP es específico de Azure Monitor para el parámetro Containers y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
+| | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
 | | `kubernetes_services` | String | Matriz separada por comas | Una matriz de servicios de Kubernetes para extraer las métricas de las métricas de kube-state-metrics. Por ejemplo: `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true o false | Cuando se establece en `true` en la configuración de todo el clúster, Azure Monitor para el agente de contenedores extraerá los pods de Kubernetes en todo el clúster para las siguientes anotaciones de Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Boolean | true o false | Si se establece en `true` en la configuración de todo el clúster, el agente de Container Insights extraerá los pods de Kubernetes en todo el clúster para las siguientes anotaciones de Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Habilita la extracción del pod. `monitor_kubernetes_pods` se debe establecer en `true`. |
 | | `prometheus.io/scheme` | String | http o https | De manera predeterminada realiza la extracción mediante HTTP. Si es necesario, establézcalo en `https`. | 
 | | `prometheus.io/path` | String | Matriz separada por comas | La ruta de acceso del recurso HTTP en el que se van a capturar las métricas. Si la ruta de acceso de las métricas no es `/metrics`, defínala con esta anotación. |
 | | `prometheus.io/port` | String | 9102 | Especifique un puerto del que extraer. Si no se establece un puerto, se usará el valor predeterminado 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Matriz separada por comas | Una lista de permitidos de espacios de nombres para extraer las métricas de los pods de Kubernetes.<br> Por ejemplo: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| En todo el nodo | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE _IP es específico de Azure Monitor para el parámetro Containers y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
+| En todo el nodo | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
 | En todo el nodo o en todo el clúster | `interval` | String | 60 s | El valor predeterminado del intervalo de recopilación es de un minuto (60 segundos). Puede modificar la recopilación de *[prometheus_data_collection_settings. node]* y/o *[prometheus_data_collection_settings. cluster]* a unidades de tiempo como as s, m, h. |
 | En todo el nodo o en todo el clúster | `fieldpass`<br> `fielddrop`| String | Matriz separada por comas | Puede especificar determinadas métricas para que se recopilen o no desde el punto de conexión estableciendo la lista de permitir (`fieldpass`) y no permitir (`fielddrop`). Tiene que establecer primero la lista de permitir. |
 
@@ -124,7 +124,7 @@ Realice los pasos siguientes para configurar el archivo de configuración Config
         ```
 
         >[!NOTE]
-        >$NODE _IP es específico de Azure Monitor para el parámetro Containers y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas. 
+        >$NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas. 
 
     - Para configurar la extracción de métricas de Prometheus especificando una anotación de pod, realice los siguientes pasos:
 
@@ -241,7 +241,7 @@ Realice los pasos siguientes para configurar el archivo de configuración Config
         ```
 
         >[!NOTE]
-        >$NODE _IP es específico de Azure Monitor para el parámetro Containers y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas. 
+        >$NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas. 
 
     - Para configurar la extracción de métricas de Prometheus especificando una anotación de pod, realice los siguientes pasos:
 
@@ -330,7 +330,7 @@ Para ver las métricas de Prometheus que ha extraído Azure Monitor y los errore
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Ver métricas de Prometheus en Grafana
 
-Azure Monitor para contenedores admite la visualización de métricas almacenadas en el área de trabajo de Log Analytics en los paneles de Grafana. Hemos proporcionado una plantilla que puede descargar del [repositorio del panel](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) de Grafana para empezar a trabajar y como referencia para obtener información sobre cómo consultar datos adicionales de los clústeres supervisados para visualizarlos en paneles de Grafana personalizados. 
+Container Insights admite la visualización de métricas almacenadas en el área de trabajo de Log Analytics en los paneles de Grafana. Hemos proporcionado una plantilla que puede descargar del [repositorio del panel](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) de Grafana para empezar a trabajar y como referencia para obtener información sobre cómo consultar datos adicionales de los clústeres supervisados para visualizarlos en paneles de Grafana personalizados. 
 
 ## <a name="review-prometheus-data-usage"></a>Revisión del uso de datos de Prometheus
 
@@ -364,8 +364,8 @@ La salida mostrará resultados similares a los siguientes:
 
 ![Resultados de la consulta del registro del volumen de ingesta de datos](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Puede encontrar más información sobre cómo supervisar el uso de datos y analizar el costo en [Administrar el uso y los costos con los registros de Azure Monitor](../platform/manage-cost-storage.md).
+Puede encontrar más información sobre cómo supervisar el uso de datos y analizar el costo en [Administrar el uso y los costos con los registros de Azure Monitor](../logs/manage-cost-storage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre la configuración de la recopilación de agentes para las variables stdout, stderr y de entorno a partir de cargas de trabajo de contenedor [aquí](container-insights-agent-config.md). 
+Obtenga más información sobre la configuración de la recopilación de agentes para las variables stdout, stderr y de entorno a partir de cargas de trabajo de contenedor [aquí](container-insights-agent-config.md).

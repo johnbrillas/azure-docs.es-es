@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c9df24a255d640c463bd62e8bdfe8a576df3b09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fff9f9e809c61761ae22bc64cb0810b6e8b98f07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692922"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122704"
 ---
 # <a name="securing-service-principals"></a>Protección de entidades de servicio
 
@@ -107,7 +107,7 @@ No se puede administrar el inicio de sesión de entidades de servicio con acceso
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Traslado de una cuenta de usuario a una entidad de servicio  
 Si utiliza una cuenta de usuario de Azure como entidad de servicio, evalúe si puede pasar a una [identidad administrada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) o a una entidad de servicio. Si no puede usar una identidad administrada, aprovisione una entidad de servicio que tenga solo los permisos y el ámbito suficientes para ejecutar las tareas necesarias. Puede crear una entidad de servicio mediante el [registro de una aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) o con [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
-Al usar Microsoft Graph, consulte la documentación de la API específica, [como en este ejemplo](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), y asegúrese de que el tipo de permiso para la aplicación se muestra como compatible.
+Al usar Microsoft Graph, consulte la documentación de la API específica, [como en este ejemplo](/powershell/azure/create-azure-service-principal-azureps), y asegúrese de que el tipo de permiso para la aplicación se muestra como compatible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -115,7 +115,7 @@ Al usar Microsoft Graph, consulte la documentación de la API específica, [como
 
 [Creación de una entidad de servicio](../develop/howto-create-service-principal-portal.md)
 
- [Supervisión de inicios de sesión de entidad de servicio](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Supervisión de inicios de sesión de entidad de servicio](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **Para obtener más información acerca de la protección de cuentas de servicio:**
 
@@ -125,4 +125,4 @@ Al usar Microsoft Graph, consulte la documentación de la API específica, [como
 
 [Gobernanza de las cuentas de servicio de Azure](service-accounts-governing-azure.md)
 
-[Introducción a las cuentas de servicio locales](service-accounts-on-poremises.md)
+[Introducción a las cuentas de servicio locales](service-accounts-on-premises.md)

@@ -4,15 +4,15 @@ description: Solución de problemas comunes relacionados con la prueba y certifi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600983"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721164"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solución de problemas de certificación de máquina virtual
 
@@ -594,8 +594,37 @@ A continuación, vuelva a publicar la oferta.
 
 Para completar el proceso de publicación, consulte [Revisión y publicación de ofertas](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Imágenes de máquina virtual con acceso limitado o que necesitan plantillas personalizadas
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Oferta de SSH bloqueado (o) deshabilitado
+
+  Las imágenes que se publican con SSH deshabilitado (para Linux) o RDP deshabilitado (para Windows) se tratan como máquinas virtuales bloqueadas. Hay escenarios empresariales especiales debido a que los publicadores solo permiten el acceso restringido a pocos usuarios, o bien a ninguno. Durante las comprobaciones de validación, es posible que las máquinas virtuales bloqueadas no permitan la ejecución de determinados comandos de certificación.
+
+
+#### <a name="custom-templates"></a>Plantillas personalizadas
+
+   En general, todas las imágenes que se publican en ofertas de máquinas virtuales únicas seguirán la plantilla de ARM estándar para la implementación. Pero hay escenarios en los que el publicador puede exigir personalización mientras se implementan las máquinas virtuales (por ejemplo, que se configuren varias NIC).
+    
+   En función de los escenarios siguientes (no exhaustivos), los publicadores usarán plantillas personalizadas para implementar la máquina virtual:
+
+   * La máquina virtual necesita subredes de red adicionales.
+   * Metadatos adicionales que se van a insertar en la plantilla de ARM.
+   * Comandos que son requisitos previos para la ejecución de la plantilla de ARM.
+
+### <a name="vm-extensions"></a>Extensiones de máquina virtual   
+
+   Las extensiones de máquina virtual (VM) de Azure son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Por ejemplo, si una máquina virtual necesita que se instale software, protección antivirus o ejecutar un script en ella, se puede usar una extensión de máquina virtual. 
+
+   Las validaciones de extensión de máquina virtual Linux necesitan lo siguiente para formar parte de la imagen:
+* Versión del Agente Linux de Azure superior a la 2.2.41
+* Versión de Python superior a la 2.8 
+
+
+Para obtener más información, visite [Extensión de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de las propiedades de una oferta de máquina virtual](azure-vm-create-properties.md)
 - [Activación de Marketplace Rewards](partner-center-portal/marketplace-rewards.md)
 - Si tiene preguntas o comentarios sobre mejoras, póngase en contacto con el [soporte técnico del Centro de partners](https://aka.ms/marketplacepublishersupport).
+ 

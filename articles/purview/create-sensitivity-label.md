@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693533"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -102,7 +102,10 @@ Mediante la extensión de las etiquetas de confidencialidad de MIP con Azure Pur
 
 **Para extender las etiquetas de confidencialidad a Purview:**
 
-En Microsoft 365, vaya a la página **Information Protection**. En **Extender la etiqueta a los recursos de Azure Purview**, seleccione el botón **Activar** y, a continuación, seleccione **Sí** en el cuadro de diálogo de confirmación que se muestra.
+Los pasos siguientes permiten que las etiquetas de confidencialidad estén disponibles para utilizarlas en Azure Purview, donde puede aplicar las etiquetas de confidencialidad a recursos como columnas de SQL, archivos de Azure Blob Storage, etc.
+
+1. En Microsoft 365, vaya a la página **Information Protection**. 
+1. En **Extender la etiqueta a los recursos de Azure Purview**, seleccione el botón **Activar** y, a continuación, seleccione **Sí** en el cuadro de diálogo de confirmación que se muestra.
 
 Por ejemplo:
 

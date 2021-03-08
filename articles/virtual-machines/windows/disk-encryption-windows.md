@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781120"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693839"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -151,7 +151,7 @@ Para habilitar el cifrado en discos NVMe:
 
 El cifrado se conservará en los discos NVMe en los escenarios siguientes:
 - Reinicio de máquina virtual
-- Restablecimiento de imagen inicial de VMSS
+- Restablecimiento de la imagen del conjunto de escalado de máquinas virtuales
 - Cambio de sistema operativo
 
 Se anulará la inicialización de los discos NVMe en los siguientes escenarios:
@@ -260,9 +260,8 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Contenedores de Windows Server, que crean volúmenes dinámicos para cada contenedor.
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como DFS, GFS, DRDB, and CephFS (sin limitarse solo a estos).
-- Traslado de unas máquinas virtuales cifradas a otra suscripción o región.
+- Traslado de una máquina virtual cifrada a otra suscripción o región.
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
-- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 - Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
 - Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md).

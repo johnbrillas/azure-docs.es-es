@@ -1,22 +1,22 @@
 ---
-title: Alertas de métricas de Azure Monitor para contenedores
-description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Azure Monitor para contenedores en la versión preliminar pública.
+title: Alertas de métricas de Container Insights
+description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Container Insights en la versión preliminar pública.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 59c8d7b58809c981130d2ce92406fb5b1ce146ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603885"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728899"
 ---
-# <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métricas recomendadas (versión preliminar) de Azure Monitor para contenedores
+# <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertas de métricas recomendadas (versión preliminar) de Container Insights
 
-Para alertar sobre problemas de los recursos del sistema cuando estos experimentan un pico de demanda y utilizan prácticamente toda su capacidad, puede utilizar Azure Monitor para contenedores para crear una alerta de registro basada en los datos de rendimiento almacenados en los registros de Azure Monitor. Azure Monitor para contenedores ahora incluye reglas de alerta de métricas preconfiguradas para el clúster de AKS y de Kubernetes habilitado para Azure Arc, que se encuentra en versión preliminar pública.
+Para alertar sobre problemas de los recursos del sistema cuando estos experimentan un pico de demanda y utilizan prácticamente toda su capacidad, puede usar Container Insights para crear una alerta de registro en función de los datos de rendimiento almacenados en los registros de Azure Monitor. Ahora Container Insights incluye reglas de alerta de métricas preconfiguradas para el clúster de AKS y de Kubernetes habilitado para Azure Arc, que se encuentra en versión preliminar pública.
 
 En este artículo se revisa la experiencia y se proporcionan instrucciones sobre la configuración y administración de estas reglas de alertas.
 
-Si no está familiarizado con las alertas en Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../platform/alerts-overview.md) antes de empezar. Para más información acerca de las alertas de métrica, consulte [Alertas de métricas en Azure Monitor](../alerts/alerts-metric-overview.md).
+Si no está familiarizado con las alertas en Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../alerts/alerts-overview.md) antes de empezar. Para más información acerca de las alertas de métrica, consulte [Alertas de métricas en Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,13 +31,13 @@ Antes de empezar, confirme lo siguiente:
     * Ejecute el comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. En el estado devuelto, observe el valor de **Imagen** para omsagent en la sección *Contenedores* de la salida. 
     * En la pestaña **Nodos**, seleccione el nodo de clúster y, en el panel **Propiedades** de la derecha, observe el valor de **Etiqueta de imagen del agente**.
 
-    El valor que se muestra para AKS debe ser la versión **ciprod05262020** o posterior. El valor que se muestra para el clúster de Kubernetes habilitado para Azure Arc debe ser la versión **ciprod09252020** o posterior. Si el clúster tiene una versión anterior, consulte [Actualización del agente de Azure Monitor para contenedores](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para conocer los pasos necesarios para obtener la versión más reciente.
+    El valor que se muestra para AKS debe ser la versión **ciprod05262020** o posterior. El valor que se muestra para el clúster de Kubernetes habilitado para Azure Arc debe ser la versión **ciprod09252020** o posterior. Si el clúster tiene una versión anterior, vea [Actualización del agente de Azure Monitor para contenedores](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para conocer los pasos necesarios para obtener la versión más reciente.
 
     Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica**, se muestra **Conclusiones**. Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión**, siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
 
 ## <a name="alert-rules-overview"></a>Introducción a las reglas de alertas
 
-Para enviar alertas sobre lo que importa, Azure Monitor para contenedores incluye las siguientes alertas de métricas para los clústeres de AKS y de Kubernetes habilitado para Azure Arc:
+Para enviar alertas sobre lo que importa, Container Insights incluye las siguientes alertas de métricas para los clústeres de AKS y de Kubernetes habilitado para Azure Arc:
 
 |Nombre| Descripción |Umbral predeterminado |
 |----|-------------|------------------|
@@ -108,15 +108,15 @@ Siga estos pasos para habilitar las alertas de métricas en Azure Monitor desde 
 
 ### <a name="from-the-azure-portal"></a>Desde Azure Portal
 
-En esta sección se explica cómo habilitar la alerta de métricas de Azure Monitor para contenedores (versión preliminar) desde Azure Portal.
+En esta sección se explica cómo habilitar la alerta de métricas de Container Insights (versión preliminar) desde Azure Portal.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. El acceso a la característica Alerta de métricas de Azure Monitor para contenedores (versión preliminar) está disponible directamente desde un clúster de AKS al seleccionar la opción **Conclusiones** del panel izquierdo de Azure Portal.
+2. El acceso a la característica Alerta de métricas de Container Insights (versión preliminar) está disponible directamente desde un clúster de AKS al seleccionar la opción **Información** en el panel izquierdo de Azure Portal.
 
 3. En la barra de comandos, seleccione **Alertas recomendadas**.
 
-    ![Opción Alertas recomendadas en Azure Monitor para contenedores](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Opción de alertas recomendadas en Container Insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. El panel de propiedades de **Alertas recomendadas** se muestra automáticamente en el lado derecho de la página. De forma predeterminada, todas las reglas de alertas de la lista están deshabilitadas. Después de seleccionar **Habilitar**, se crea la regla de alertas y el nombre de la regla se actualiza para incluir un vínculo al recurso de alerta.
 
@@ -198,7 +198,7 @@ Los pasos básicos son los siguientes:
 
 ## <a name="edit-alert-rules"></a>Edición de reglas de alertas
 
-Puede ver y administrar reglas de alertas de Azure Monitor para contenedores, editar su umbral o configurar un [grupo de acciones](../alerts/action-groups.md) para el clúster de AKS. Aunque puede realizar estas acciones desde Azure Portal y la CLI de Azure, también se puede hacer directamente desde el clúster de AKS en Azure Monitor para contenedores.
+Puede ver y administrar reglas de alertas de Container Insights, editar su umbral o configurar un [grupo de acciones](../alerts/action-groups.md) para el clúster de AKS. Aunque puede realizar estas acciones desde Azure Portal y la CLI de Azure, también lo puede hacer directamente desde el clúster de AKS en Container Insights.
 
 1. En la barra de comandos, seleccione **Alertas recomendadas**.
 

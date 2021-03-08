@@ -4,14 +4,14 @@ description: Solucione problemas de pruebas web en Azure Application Insights. O
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583735"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728933"
 ---
 # <a name="troubleshooting"></a>Solución de problemas
 
@@ -58,7 +58,7 @@ El informe de solución de problemas le permite diagnosticar fácilmente los pro
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>No recibí ningún correo electrónico cuando la alerta se desencadenó, se resolvió, o ambos.
 
-Compruebe la configuración de alertas clásicas para confirmar que su correo electrónico aparezca directamente en la lista, o que la lista de distribución en la que se encuentra esté configurada para recibir notificaciones. De ser así, compruebe la configuración de la lista de distribución para confirmar que puede recibir mensajes de correo electrónico externos. Compruebe también si el administrador de correo tiene configurada alguna directiva que pueda estar causando este problema.
+Compruebe la configuración del grupo de acciones de las alertas para confirmar que el correo electrónico aparece directamente en la lista, o bien que la lista de distribución en la que se encuentra esté configurada para recibir notificaciones. De ser así, compruebe la configuración de la lista de distribución para confirmar que puede recibir mensajes de correo electrónico externos. Compruebe también si el administrador de correo tiene configurada alguna directiva que pueda estar causando este problema.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>No recibí la notificación de webhook.
 
@@ -110,21 +110,6 @@ Hay un límite de 100 solicitudes por prueba. Además, la prueba se detiene si s
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>¿Cómo se puede ejecutar una prueba con certificados de cliente?
 
 Actualmente no se admite.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
-
-Esta sección solo se aplica a las alertas clásicas y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para más información sobre la diferencia entre [alertas clásicas](../alerts/alerts-classic.overview.md) y la nueva experiencia de alertas, consulte el [artículo de información general de alertas](../alerts/alerts-overview.md). Para controlar las notificaciones de alertas en la nueva experiencia de alertas, use [grupos de acciones](../alerts/action-groups.md).
-
-* Se recomienda el uso de destinatarios específicos para las notificaciones de alerta clásicas.
-
-* Si está habilitada la opción de casilla de verificación **masiva o grupo**, las alertas sobre errores enviadas desde X de Y ubicaciones se envían a los usuarios con roles de administrador o coadministrador.  Básicamente _todos_ los administradores de la _suscripción_ recibirán notificaciones.
-
-* Si está habilitada la opción de casilla **masiva o grupo**, las alertas sobre las métricas de disponibilidad se envían a los usuarios con roles de propietario, colaborador o lector de la suscripción. De hecho, _todos_ los usuarios con acceso a la suscripción del recurso de Application Insights están dentro del ámbito y recibirán notificaciones. 
-
-> [!NOTE]
-> Si actualmente usa la opción de casilla de verificación **masiva o grupo** y la deshabilita, no podrá revertir el cambio.
-
-Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real si tiene que enviar notificaciones a los usuarios según sus roles. Con los [grupos de acciones](../alerts/action-groups.md), puede configurar el envío de notificaciones por correo electrónico a usuarios con cualquiera de los roles de propietario, colaborador o lector (no combinados conjuntamente como única opción).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

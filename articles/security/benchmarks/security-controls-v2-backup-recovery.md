@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39466ad621eff1a7d3490c936c90fbff6f63e0fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724428"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051555"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Control de seguridad V2: Copia de seguridad y recuperación
 
 La copia de seguridad y la recuperación conllevan controles para garantizar que las copias de seguridad de los datos y la configuración de los distintos niveles de servicio se realizan, se validan y se protegen.
 
-Para ver la instancia de Azure Policy integrada aplicable, consulte [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Copia de seguridad y recuperación](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery).
+Para ver la instancia de Azure Policy integrada aplicable, consulte [Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark: Copia de seguridad y recuperación](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery).
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantía de copias de seguridad automáticas periódicas
 
@@ -66,7 +66,7 @@ Use el control de acceso basado en rol de Azure en Azure Backup, Azure Key Vault
 
 - [Cifrado de datos de copia de seguridad mediante claves administradas por el cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Copias de seguridad de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Copias de seguridad de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [Características de seguridad que ayudan a proteger las copias de seguridad híbridas frente a ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -90,7 +90,7 @@ Realice periódicamente la restauración de los datos de la copia de seguridad. 
 
 - [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Restauración de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Restauración de las claves de Key Vault en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Responsabilidad**: Customer
 

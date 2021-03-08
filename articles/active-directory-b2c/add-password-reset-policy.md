@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7f597010f86e0f962f250dcd87d6c78f401a73d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688991"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171661"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -206,7 +206,7 @@ En el recorrido del usuario, puede representar el subrecorrido de contraseña ol
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Establecimiento del recorrido de usuario que se va a ejecutar
 
-Ahora que ha modificado o creado un recorrido de usuario, en la sección **Usuario de confianza**, especifique el recorrido que ejecutará Azure AD B2C para esta directiva personalizada. En el elemento [RelyingParty](../articles/active-directory-b2c/relyingparty.md), busque el elemento **DefaultUserJourney**. Actualice **DefaultUserJourney ReferenceId** para que coincida con el identificador del recorrido del usuario en el que ha agregado el elemento **ClaimsProviderSelections**.
+Ahora que ha modificado o creado un recorrido de usuario, en la sección **Usuario de confianza**, especifique el recorrido que ejecutará Azure AD B2C para esta directiva personalizada. En el elemento [RelyingParty](relyingparty.md), busque el elemento **DefaultUserJourney**. Actualice **DefaultUserJourney ReferenceId** para que coincida con el identificador del recorrido del usuario en el que ha agregado el elemento **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
@@ -301,5 +301,3 @@ Las directivas personalizadas son un conjunto de archivos XML que se cargan en e
 ## <a name="next-steps"></a>Pasos siguientes
 
 Configure un [restablecimiento de contraseña forzoso](force-password-reset.md).
-
-

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791567"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727692"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
@@ -55,7 +55,7 @@ Antes de implementar un dispositivo, asegúrese de que:
 * El sistema host es capaz de utilizar los recursos siguientes para aprovisionar el dispositivo virtual:
 
   * Un mínimo de 4 núcleos.
-  * Al menos 8 GB de RAM.
+  * Al menos 8 GB de RAM. Se recomiendan encarecidamente al menos 16 GB de RAM.
   * Una interfaz de red.
   * Un disco de sistema operativo de 250 GB.
   * Un disco virtual de 2 GB para datos.

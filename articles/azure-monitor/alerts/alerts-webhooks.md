@@ -4,19 +4,18 @@ description: Obtenga información sobre cómo redirigir las alertas de métrica 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 04/03/2017
-ms.subservice: alerts
-ms.openlocfilehash: 93b8a9935e1a26df5aa76ca45c890036589a48ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 7ab719560320882a3a6569bff5df7d2e2cf0b747
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603580"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037564"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 
 > [!WARNING]
-> En este artículo se describe cómo usar las alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](../platform/alerts-overview.md). Las alertas clásicas se [retiran](../platform/monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen usándose de forma limitada para los recursos que aún no admiten las nuevas alertas.
+> En este artículo se describe cómo usar las alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se han [retirado](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen estando disponibles con uso limitado hasta el **31 de mayo de 2021**. Las alertas clásicas para la nube de Azure Government y Azure China 21Vianet se retirarán el **29 de febrero de 2024**.
 >
 
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían mensajes SMS, para registrar errores, para notificar a un equipo mediante servicios de chat y mensajería o llevar a cabo otras acciones. 
@@ -30,7 +29,7 @@ Puede agregar o actualizar el URI de webhook, en [Azure Portal](https://portal.a
 
 ![Adición de un panel de regla de alerta](./media/alerts-webhooks/Alertwebhook.png)
 
-También puede configurar una alerta para enviarla a un URI de webhook mediante los [cmdlets de Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), la [CLI multiplataforma](../samples/cli-samples.md#work-with-alerts) o la [API de REST de Azure Monitor](/rest/api/monitor/alertrules).
+También puede configurar una alerta para enviarla a un URI de webhook mediante los [cmdlets de Azure PowerShell](../powershell-samples.md#create-metric-alerts), la [CLI multiplataforma](../cli-samples.md#work-with-alerts) o la [API de REST de Azure Monitor](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Autenticación del webhook
 El webhook puede autenticarse mediante una autorización basada en token. El URI del webhook se guarda con un identificador de token. Por ejemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

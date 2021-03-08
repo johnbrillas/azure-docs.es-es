@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379693"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751098"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
@@ -53,9 +53,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 
 Instale las dependencias, lo que también creará un área de trabajo de Xcode: `pod install`
 
+**Después de ejecutar la instalación de Pod, vuelva a abrir el proyecto en Xcode seleccionando el área `.xcworkspace` recién creada.**
+
 ### <a name="setup-the-placeholders"></a>Configuración de los marcadores de posición
 
-Abra el archivo de área de trabajo `ChatQuickstart.xcworkspace` en Xcode y, después, abra `ViewController.swift`.
+Abra el área de trabajo `ChatQuickstart.xcworkspace` en Xcode y, después, abra `ViewController.swift`.
 
 En este inicio rápido, agregaremos el código a `viewController` y veremos la salida en la consola de Xcode. En este inicio rápido no se aborda la creación de una interfaz de usuario en iOS. 
 
@@ -120,6 +122,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 Reemplace `<ACS_RESOURCE_ENDPOINT>` por el punto de conexión del recurso de ACS.
 Reemplace `<ACCESS_TOKEN>` por un token de acceso de ACS válido.
+
+Este inicio rápido no cubre la creación de un nivel de servicio para administrar tokens para la aplicación de chat, aunque se recomienda. Para más información, consulte [Arquitectura del chat](../../../concepts/chat/concepts.md).
+
+Obtenga más información sobre los [tokens de acceso de usuario](../../access-tokens.md).
 
 ## <a name="object-model"></a>Modelo de objetos 
 Las siguientes clases e interfaces controlan algunas de las características principales de la biblioteca cliente de chat de Azure Communication Services para JavaScript.

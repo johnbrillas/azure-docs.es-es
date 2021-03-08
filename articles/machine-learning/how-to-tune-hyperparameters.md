@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430362"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032694"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ajuste de hiperparámetros de un modelo con Azure Machine Learning
 
@@ -25,7 +25,7 @@ Automatice el ajuste eficaz de hiperparámetros con [paquetes HyperDrive](/pytho
 1. Definir el espacio de búsqueda de parámetros
 1. Especificar una métrica principal para optimizar  
 1. Especificar la directiva de terminación anticipada para series de bajo rendimiento
-1. Asignación de recursos
+1. Creación y asignación de recursos
 1. Iniciar un experimento con la configuración definida
 1. Visualizar las series de entrenamiento
 1. Seleccionar la mejor configuración para un modelo
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 El [muestreo de cuadrícula](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) admite hiperparámetros discretos. Use el muestreo de cuadrícula si su presupuesto le permite buscar en el espacio de búsqueda de manera exhaustiva. Admite la terminación anticipada de las series de bajo rendimiento.
 
-Realiza una búsqueda de cuadrícula simple de todos los valores posibles. El muestreo de cuadrícula solo se puede usar con hiperparámetros de `choice`. Por ejemplo, el siguiente espacio tiene seis muestras:
+El muestreo de cuadrícula realiza una búsqueda de cuadrícula sencilla sobre todos los valores posibles. El muestreo de cuadrícula solo se puede usar con hiperparámetros de `choice`. Por ejemplo, el siguiente espacio tiene seis muestras:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Muestreo bayesiano
 
-El [muestreo bayesiano](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) se basa en el algoritmo de optimización bayesiano. Este escoge muestras en función de cómo funcionaron las muestras anteriores, para que las nuevas mejoren la métrica principal.
+El [muestreo bayesiano](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) se basa en el algoritmo de optimización bayesiano. Escoge las muestras en función de cómo lo hicieron las anteriores, para que las nuevas muestras mejoren la métrica principal.
 
 Se recomienda el muestreo bayesiano si tiene suficiente presupuesto para explorar el espacio de hiperparámetros. Para obtener los mejores resultados, se recomienda que el número máximo de series sea mayor o igual que 20 veces el número de hiperparámetros que se está optimizando. 
 
@@ -203,7 +203,7 @@ Azure Machine Learning admite las siguientes directivas de terminación anticipa
 
 ### <a name="bandit-policy"></a>Directiva de bandidos
 
-La [directiva de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) es una directiva de terminación basada en el factor de demora o la cantidad de demora y el intervalo de evaluación. Esta directiva termina aquellas series en las que la métrica principal no se encuentre dentro del factor o cantidad de demora especificadas con respecto a la serie con mejor rendimiento.
+La [directiva de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) es una directiva de terminación basada en el factor de demora o la cantidad de demora y el intervalo de evaluación. La directiva de bandidos finaliza cuando la métrica principal no se encuentra dentro del factor de demora o la cantidad de demora que se han especificado de la ejecución más correcta.
 
 > [!NOTE]
 > El muestreo bayesiano no admite la terminación anticipada. Al usar el muestreo bayesiano, establezca `early_termination_policy = None`.
@@ -226,7 +226,7 @@ En este ejemplo, se aplica la directiva de terminación anticipada en cada inter
 
 ### <a name="median-stopping-policy"></a>Directiva de mediana de detención
 
-La [mediana de detención](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) es una directiva de terminación anticipada basada en la ejecución de valores medios de las métricas principales notificadas por las ejecuciones. Esta directiva calcula los valores medios de ejecución en todas las series de entrenamiento y termina las series cuyos valores de métrica sean peores que la mediana de los valores medios.
+La [mediana de detención](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) es una directiva de terminación anticipada basada en la ejecución de valores medios de las métricas principales notificadas por las ejecuciones. Esta directiva calcula los valores medios de ejecución en todas las series de entrenamiento y detiene las series cuyo valor de métrica principal sea peor que la mediana de los valores medios.
 
 Esta directiva toma los parámetros de configuración siguientes:
 * `evaluation_interval`: la frecuencia con que se aplica la directiva (parámetro opcional).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-En este ejemplo, se aplica la directiva de terminación anticipada en cada intervalo, comenzando en el intervalo de evaluación 5. Una serie se termina en el intervalo 5 si su mejor métrica principal es peor que la mediana de los valores medios de ejecución durante los intervalos en una relación de 1 a 5 en todas las series de entrenamiento.
+En este ejemplo, se aplica la directiva de terminación anticipada en cada intervalo, comenzando en el intervalo de evaluación 5. Una serie se detiene en el intervalo 5 si su mejor métrica principal es peor que la mediana de los valores medios de ejecución durante los intervalos en una relación de 1 a 5 en todas las series de entrenamiento.
 
 ### <a name="truncation-selection-policy"></a>Directiva de selección de truncamiento
 
@@ -271,7 +271,7 @@ policy=None
 * Si está buscando una directiva conservadora que proporcione ahorros sin finalizar trabajos prometedores, puede usar una directiva de mediana de detención con `evaluation_interval` en el valor 1 y `delay_evaluation` en el valor 5. Se trata de una configuración conservadora que puede proporcionar unos ahorros de entre un 25 % y un 35 % sin pérdidas de la métrica principal (según nuestros datos de evaluación).
 * Si busca un ahorro más agresivo, use la directiva de bandidos con una directiva de selección de truncamiento o demora permisible más estricta con un porcentaje de truncamiento mayor.
 
-## <a name="allocate-resources"></a>Asignación de recursos
+## <a name="create-and-assign-resources"></a>Creación y asignación de recursos
 
 Controle el presupuesto de recursos especificando el número máximo de series de entrenamiento.
 
@@ -302,18 +302,28 @@ Para [configurar el experimento de ajuste de hiperparámetros](/python/api/azure
 * Una directiva de terminación anticipada
 * La métrica principal
 * Configuración de asignación de recursos
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 ScriptRunConfig es el script de entrenamiento que se ejecutará con los hiperparámetros muestreados. Este define los recursos por trabajo (uno o varios nodos) y el destino de proceso que se va a usar.
 
 > [!NOTE]
->El destino de proceso especificado en `src` debe tener suficientes recursos para satisfacer el nivel de simultaneidad. Para obtener más información sobre ScriptRunConfig, consulte [Configuración de series de entrenamiento](how-to-set-up-training-targets.md).
+>El destino de proceso usado en `script_run_config` debe tener suficientes recursos para satisfacer el nivel de simultaneidad. Para obtener más información sobre ScriptRunConfig, consulte [Configuración de series de entrenamiento](how-to-set-up-training-targets.md).
 
 Configure el experimento de ajuste de hiperparámetros:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+`HyperDriveConfig` establece los parámetros pasados a `ScriptRunConfig script_run_config`. `script_run_config`, a su vez, pasa los parámetros al script de entrenamiento. El fragmento de código anterior se toma de del cuaderno de ejemplo [Entrenamiento, ajuste de hiperparámetros e implementación con PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). En este ejemplo, se optimizarán los parámetros `learning_rate` y `momentum`. La detención temprana de las ejecuciones se determinará mediante `BanditPolicy`, que detiene una ejecución cuya métrica principal esté fuera de `slack_factor` (vea la [referencia de la clase BanditPolicy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)). 
+
+El siguiente código del ejemplo muestra cómo se reciben, analizan y pasan los valores que se están optimizando a la función `fine_tune_model` del script de entrenamiento:
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Cada ejecución de hiperparámetros reinicia el entrenamiento desde cero, lo que incluye volver a generar el modelo y _todos los cargadores de datos_. Puede minimizar este costo mediante el uso de una canalización de Azure Machine Learning o un proceso manual para preparar los datos lo máximo posible antes de las ejecuciones de entrenamiento. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Envío del experimento de ajuste de hiperparámetros
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Ajuste de hiperparámetros para arranque en caliente (opcional)
 
 La búsqueda de los mejores valores de hiperparámetros para un modelo puede ser un proceso iterativo. Puede reutilizar el conocimiento de las cinco series anteriores para acelerar el ajuste de hiperparámetros.
-
 
 El inicio en caliente se administra de forma diferente en función del método de muestreo:
 - **Muestreo bayesiano**: las pruebas de la serie anterior se usan como conocimiento previo para elegir nuevas muestras y mejorar la métrica principal.
@@ -368,7 +407,7 @@ Puede configurar el experimento de optimización de hiperparámetros para que se
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

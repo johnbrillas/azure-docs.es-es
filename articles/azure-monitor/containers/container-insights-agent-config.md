@@ -1,18 +1,18 @@
 ---
-title: Configuración de la recopilación de datos del agente de Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe cómo puede configurar el agente de Azure Monitor para contenedores para controlar la recopilación de registros de stdout y stderr y de las variables de entorno.
+title: Configuración de la recopilación de datos del agente de Container Insights | Microsoft Docs
+description: En este artículo se describe cómo puede configurar el agente de Container Insights para controlar la recopilación de registros de stdout y stderr, así como de variables de entorno.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708397"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configuración de la recopilación de datos del agente para Azure Monitor para contenedores
+# <a name="configure-agent-data-collection-for-container-insights"></a>Configuración de la recopilación de datos del agente de Container Insights
 
-Azure Monitor para contenedores recopila stdout, stderr y las variables de entorno a partir de cargas de trabajo de contenedor implementadas en clústeres de Kubernetes administrado desde el agente con contenedores. Puede definir la configuración de recopilación de datos del agente mediante la creación de ConfigMaps de Kubernetes personalizados para controlar esta experiencia. 
+Container Insights recopila stdout, stderr y variables de entorno a partir de cargas de trabajo de contenedor implementadas en clústeres de Kubernetes administrados desde el agente contenedorizado. Puede definir la configuración de recopilación de datos del agente mediante la creación de ConfigMaps de Kubernetes personalizados para controlar esta experiencia. 
 
 En este artículo se muestra cómo crear ConfigMap y configurar la recopilación de datos en función de sus requisitos.
 
@@ -142,8 +142,8 @@ La salida será similar a la siguiente con las versiones de esquema de anotació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Azure Monitor para contenedores no incluye un conjunto de alertas predefinido. Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](./container-insights-log-alerts.md) para aprender a crear alertas recomendadas en caso de uso elevado de CPU y memoria a fin de permitir sus operaciones de desarrollo o sus procesos y procedimientos operativos.
+- Container Insights no incluye un conjunto de alertas predefinido. Revise [Creación de alertas de rendimiento con Container Insights](./container-insights-log-alerts.md) para obtener información sobre cómo crear alertas recomendadas en caso de uso elevado de CPU y memoria a fin de permitir los procesos y procedimientos operativos o de DevOps.
 
-- Con la supervisión habilitada para recopilar el estado y la utilización de recursos de su clúster AKS o híbrido y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Azure Monitor para contenedores.
+- Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS o híbrido y las cargas de trabajo que se ejecutan en estos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
 
 - En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos para evaluar o personalizar las alertas, la visualización o el análisis de los clústeres.

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ef61502d0b2fccc92ca606992e965b45764baa0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743831"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109181"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creación de un WebJob desencadenado de manera manual
 
@@ -28,8 +28,8 @@ ms.locfileid: "101743831"
 
     ![Captura de pantalla que muestra la configuración que debe establecerse para crear un WebJob desencadenado manualmente.](../media/web-sites-create-web-jobs/addwjtriggered.png)
     
-    | Configuración      | Valor de ejemplo   | Descripción  |
-    | ------------ | ----------------- | ------------ |
+    | Configuración      | Valor de ejemplo   | 
+    | ------------ | ----------------- | 
    | <abbr title="Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales, salvo por `-` y `_`.">Nombre</abbr> | myTriggeredWebJob | 
     | <abbr title="Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script.">Carga de archivos</abbr> | ConsoleApp.zip |
     | <abbr title="Entre los tipos, se incluyen "continuo" y "desencadenado".">Tipo</abbr> | Desencadenado | 

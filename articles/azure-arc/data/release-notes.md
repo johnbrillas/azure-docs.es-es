@@ -7,25 +7,44 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686689"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de la versión: servicios de datos habilitados para Azure Arc (versión preliminar)
 
+En este artículo se resaltan las funcionalidades, las características y las mejoras que se han publicado u optimizado recientemente para los servicios de datos habilitados para Azure Arc. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="february-2021"></a>Febrero de 2021
+
+### <a name="new-capabilities-and-features"></a>Nuevas características y funcionalidades
+
+Número de versión de la CLI de datos de Azure (`azdata`): 20.3.1. Descarga en [https://aka.ms/azdata](https://aka.ms/azdata). Puede instalar `azdata` desde [Instalación de Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Otras actualizaciones incluyen:
+
+- SQL Managed Instance para Azure Arc
+   - Alta disponibilidad con grupos de disponibilidad AlwaysOn
+
+- Hiperescala de PostgreSQL habilitada para Azure Arc (Azure Data Studio): 
+   - En la página de información general se muestra el estado del grupo de servidores detallado por nodo.
+   - Ahora hay disponible una nueva página de propiedades para mostrar más detalles sobre el grupo de servidores.
+   - Configuración de parámetros del motor de Postgres desde la página **Node Parameters** (Parámetros del nodo).
+
+Para conocer los problemas asociados con esta versión, consulte [Problemas conocidos: servicios de datos habilitados para Azure Arc (versión preliminar)](known-issues.md).
 
 ## <a name="january-2021"></a>Enero de 2021
 
 ### <a name="new-capabilities-and-features"></a>Nuevas características y funcionalidades
 
 Número de versión de la CLI de datos de Azure (`azdata`): 20.3.0. Descarga en [https://aka.ms/azdata](https://aka.ms/azdata). Puede instalar `azdata` desde [Instalación de Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
-
 
 Otras actualizaciones incluyen:
 - Portal localizado disponible en 17 idiomas nuevos.

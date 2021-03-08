@@ -1,15 +1,14 @@
 ---
 title: Información general de alertas y supervisión de notificaciones en Azure
-description: Información general de las alertas de Azure Alertas, alertas clásicas e interfaz de alertas.
-ms.subservice: alerts
+description: Información general sobre las alertas en Azure Monitor
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602756"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038057"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -94,7 +93,7 @@ Como alternativa, puede [enumerar mediante programación las instancias de alert
 > [!NOTE]
    >  Solo puede acceder a las alertas generadas en los últimos 30 días.
 
-No muestra ni realiza un seguimiento de las alertas clásicas. Puede cambiar las suscripciones o los parámetros de filtro para actualizar la página. 
+Puede cambiar las suscripciones o los parámetros de filtro para actualizar la página.
 
 ![Captura de pantalla de la página de alertas](media/alerts-overview/alerts-page.png)
 

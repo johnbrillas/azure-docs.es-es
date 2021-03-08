@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711423"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solución de problemas de errores de carga del SDK para aplicaciones web de JavaScript
 
@@ -68,7 +68,7 @@ Para minimizar los errores intermitentes de conectividad de red, hemos implement
  
 ## <a name="application-insights-cdn-outage"></a>Interrupción en la red CDN de Application Insights
 
-Puede confirmar si hay una interrupción en la red CDN de Application Insights; para ello, intente acceder al punto de conexión de la red CDN directamente desde el explorador (por ejemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) ) desde una ubicación diferente a la de los usuarios finales, probablemente desde su propia máquina de desarrollo (suponiendo que la organización no haya bloqueado este dominio).
+Puede confirmar si hay una interrupción en la red CDN de Application Insights si intenta acceder a su punto de conexión directamente desde el explorador (por ejemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js o https://js.monitor.azure.com/scripts/b/ai.2.min.js) ) desde una ubicación diferente a la de los usuarios finales, probablemente desde una máquina de desarrollo propia (siempre que la organización no haya bloqueado este dominio).
 
 Si confirma que hay una interrupción, puede [crear una nueva incidencia de soporte técnico](https://azure.microsoft.com/support/create-ticket/) o intentar cambiar la dirección URL que se usa para descargar el SDK.
 
@@ -106,7 +106,7 @@ Si se notifican excepciones en el script del SDK (por ejemplo, ai.2.min.js), est
 
 Para comprobar si hay una configuración defectuosa, cambie la configuración que se pasa al fragmento de código (si no lo ha hecho ya), de modo que solo incluya la clave de instrumentación como un valor de cadena.
 
-> src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg:{<br />
 > instrumentationKey: "CLAVE_DE_INSTRUMENTACIÓN"<br />
 > }});<br />
@@ -134,7 +134,7 @@ Si todavía no se puede inicializar, intente habilitar la opción de configuraci
 > [!WARNING]
 > Se trata de una configuración solo para desarrolladores y nunca se debe habilitar en un entorno de producción completo, ya que se perderán los datos de telemetría.
 
-> src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg:{<br />
 > instrumentationKey: "CLAVE_DE_INSTRUMENTACIÓN",<br />
 > enableDebug: true<br />

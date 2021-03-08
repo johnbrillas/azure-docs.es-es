@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
-ms.openlocfilehash: 8679e3d2fc2459e5775c525a0d5dadd4ba42ebb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+author: fvneerden
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743003"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124421"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo mediante el uso de la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -58,8 +58,8 @@ Este nodo toma fotogramas de vídeo descodificados como entrada y los retransmit
 En este tutorial, aprenderá lo siguiente:
 
 1. Implementar el grafo multimedia.
-1. Interpretar los resultados.
-1. Limpiar recursos.
+1. Interpretará los resultados.
+1. Limpieza de recursos.
 
 ## <a name="about-intel-openvino-dl-streamer--edge-ai-extension-module"></a>Acerca del módulo Extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer
 
@@ -327,7 +327,8 @@ Para usar otro modelo, será preciso cambiar la plantilla de implementación. Pa
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copie la plantilla y guárdela con un nombre nuevo para cada canalización posible. De esta manera, puede cambiar de modelo creando una implementación basada en una de estas plantillas.
+> [!TIP]
+> Copie la plantilla y guárdela con un nombre nuevo para cada canalización posible. De esta manera, puede cambiar de modelo creando una implementación basada en una de estas plantillas.
 
 Una vez que haya cambiado las variables, puede volver a implementar la plantilla en el dispositivo. Ya puede repetir los pasos anteriores para volver a ejecutar el programa de ejemplo con la nueva canalización. Los resultados de la inferencia serán similares (en el esquema), pero muestran más o menos información según el modelo de canalización que se elija.
 

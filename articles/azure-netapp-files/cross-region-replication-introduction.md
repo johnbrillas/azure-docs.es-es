@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/25/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4d4cf7a0dc73070f4f48ed87f60a2458bc925b13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707360"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -31,7 +31,7 @@ La funcionalidad de replicación de Azure NetApp Files proporciona protección d
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicación entre regiones compatibles
 
-La replicación de volúmenes de Azure NetApp Files se admite entre varios no pares y [pares regionales de Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs). La replicación de volúmenes de Azure NetApp Files está disponible actualmente entre las siguientes regiones:  
+La replicación de volúmenes de Azure NetApp Files se admite entre varios no pares y [pares regionales de Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). La replicación de volúmenes de Azure NetApp Files está disponible actualmente entre las siguientes regiones:  
 
 ### <a name="azure-regional-pairs"></a>Pares regionales de Azure
 
@@ -52,6 +52,7 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 *   Centro y Sur de EE. UU. y Este de EE. UU.
 *   Centro y Sur de EE. UU. y Este de EE. UU. 2
 *   Este de EE. UU. y Este de EE. UU. 2
+*   Este de EE. UU. 2 y Oeste de EE. UU. 2
 *   Este de Australia y Sudeste de Asia 
 *   Centro-oeste de Alemania y Sur de Reino Unido
 
@@ -125,5 +126,3 @@ El cargo normal de la capacidad de almacenamiento de Azure NetApp Files del mes 
 * [Métricas de replicación de volúmenes](azure-netapp-files-metrics.md#replication)
 * [Eliminación de volúmenes o replicaciones de volúmenes](cross-region-replication-delete.md)
 * [Solución de problemas de la replicación entre regiones](troubleshoot-cross-region-replication.md)
-
-

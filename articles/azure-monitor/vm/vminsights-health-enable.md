@@ -1,18 +1,17 @@
 ---
 title: Habilitación del estado de invitado de VM Insights (versión preliminar)
 description: Se describe cómo habilitar el estado de invitado de VM Insights en la suscripción y cómo incorporar máquinas virtuales.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733727"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052167"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Habilitación del estado de invitado de VM Insights (versión preliminar)
 El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
@@ -80,7 +79,7 @@ El área de trabajo de Log Analytics debe encontrarse en una de las siguientes r
 - Centro-sur de EE. UU.
 - Sudeste de Asia
 - Norte de Suiza
-- Sur de Reino Unido 2
+- Sur de Reino Unido
 - Región Oeste de Europa
 - Oeste de EE. UU.
 - Oeste de EE. UU. 2

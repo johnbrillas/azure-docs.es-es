@@ -1,6 +1,6 @@
 ---
-title: Conexión de datos sin procesar de Microsoft 365 Defender con Azure Sentinel | Microsoft Docs
-description: Aprenda a ingerir datos de eventos sin procesar de Microsoft 365 Defender en Azure Sentinel.
+title: Conexión de datos de Microsoft 365 Defender con Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo ingerir incidentes, alertas y datos de eventos sin procesar desde Microsoft 365 Defender en Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6500805a4dc7e26f5e1bc601df9ea78279ae17e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655586"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709349"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conexión de datos de Microsoft 365 Defender con Azure Sentinel
 
@@ -33,54 +33,83 @@ ms.locfileid: "94655586"
 
 ## <a name="background"></a>Fondo
 
-El nuevo conector [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) le permite transmitir registros de **búsqueda avanzada**, un tipo de datos de eventos sin procesar, desde Microsoft 365 Defender hasta Azure Sentinel. 
+El conector [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) de Azure Sentinel con la integración de incidentes le permite transmitir todos los incidentes y alertas de M365D a Azure Sentinel y mantiene los incidentes sincronizados entre ambos portales. Los incidentes de M365D incluyen todas sus alertas, entidades y otra información relevante, y se completan y agrupan las alertas de los servicios de componentes de M365D **Microsoft Defender para punto de conexión**, **Microsoft Defender for Identity**, **Microsoft Defender para Office 365** y **Microsoft Cloud App Security**.
 
-Con la integración de [Microsoft Defender para punto de conexión (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) en el paraguas de seguridad de Microsoft 365 Defender, ahora puede recopilar los eventos de [búsqueda avanzada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de Microsoft Defender para punto de conexión mediante el conector Microsoft 365 Defender y transmitirlos directamente a nuevas tablas creadas específicamente en el área de trabajo de Azure Sentinel. Estas tablas se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender, lo que le ofrece acceso pleno al conjunto completo de registros de búsqueda avanzada y le permite hacer lo siguiente:
+El conector también permite transmitir eventos de **búsqueda avanzada** desde Microsoft Defender para punto de conexión a Azure Sentinel, lo que le permite copiar consultas de búsqueda avanzada de MDE en Azure Sentinel, enriquecer las alertas de Sentinel con datos de eventos sin formato de MDE para proporcionar información adicional y almacenar los registros con una mayor retención en Log Analytics.
 
-- Copiar fácilmente las consultas de búsqueda avanzada de ATP de Microsoft Defender existentes en Azure Sentinel.
-
-- Usar los registros de eventos sin procesar para proporcionar información detallada adicional sobre las alertas, la búsqueda y la investigación, y correlacionar los eventos con datos de orígenes de datos adicionales en Azure Sentinel.
-
-- Almacenar los registros con mayor periodo de retención, por encima de la retención predeterminada de 30 días de Microsoft Defender para punto de conexión o de Microsoft 365 Defender. Para ello, configure la retención del área de trabajo o configure la retención por tabla en Log Analytics.
+Para obtener más información sobre la integración de incidentes y la recopilación de eventos de búsqueda avanzada, vea [Integración de Microsoft 365 Defender con Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
 
 > [!IMPORTANT]
 >
-> El conector Microsoft 365 Defender está actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El conector Microsoft 365 Defender está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener una licencia válida de Microsoft Defender para punto de conexión, como se describe en [Configuración de la implementación de Microsoft Defender para punto de conexión](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Debe tener una licencia válida de Microsoft 365 Defender, como se describe en [Requisitos previos de Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites). 
 
-- El usuario debe tener asignado el rol de administrador global en el inquilino (en Azure Active Directory).
+- Debe ser **administrador global** o un **administrador de seguridad** en Azure Active Directory.
 
 ## <a name="connect-to-microsoft-365-defender"></a>Conexión a Microsoft 365 Defender
 
-Si Microsoft Defender para punto de conexión está implementado e ingiriendo datos, los registros de eventos se pueden transmitir a Azure Sentinel fácilmente.
-
 1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos), elija **Microsoft 365 Defender (Preview)** (Microsoft 365 Defender [versión preliminar]) en la galería y seleccione **Open connector page** (Abrir página del conector).
 
-1. Los siguientes tipos de eventos se pueden recopilar de sus tablas de búsqueda avanzada correspondientes. Marque las casillas de los tipos de evento que quiere recopilar:
+1. En la sección **Connect incidents & alerts** (Conectar incidentes y alertas) de **Configuration** (Configuración), haga clic en el botón **Connect incidents & alerts** (Conectar incidentes y alertas).
 
-    | Tipo de eventos | Nombre de la tabla |
-    |-|-|
-    | Información de la máquina (incluida la información del sistema operativo) | DeviceInfo |
-    | Propiedades de red de las máquinas | DeviceNetworkInfo |
-    | Creación de procesos y eventos relacionados | DeviceProcessEvents |
-    | Conexión de red y eventos relacionados | DeviceNetworkEvents |
-    | Creación y modificación de archivos, y otros eventos del sistema de archivos | DeviceFileEvents |
-    | Creación y modificación de entradas del Registro | DeviceRegistryEvents |
-    | Inicios de sesión y otros eventos de autenticación | DeviceLogonEvents |
-    | Eventos de carga de DLL | DeviceImageLoadEvents |
-    | Tipos de eventos adicionales | DeviceEvents |
-    |
+1. Para evitar la duplicación de incidentes, se recomienda marcar la casilla **Turn off all Microsoft incident creation rules for these products** (Desactivar todas las reglas de creación de incidentes de Microsoft para estos productos).
 
-1. Haga clic en **Aplicar cambios**. 
+    > [!NOTE]
+    > Cuando se habilita el conector de Microsoft 365 Defender, todos los conectores de los componentes de M365D (los que se mencionan al principio de este artículo) se conectan automáticamente en segundo plano. Para desconectar uno de los conectores de los componentes, primero debe desconectar el conector de Microsoft 365 Defender.
 
-1. Para consultar las tablas de búsqueda avanzada en Log Analytics, escriba el nombre de la tabla de la lista anterior en la ventana de consulta.
+1. Para consultar los datos de incidentes de M365 Defender, use la instrucción siguiente en la ventana de consulta:
+    ```kusto
+    SecurityIncident
+    | where ProviderName == "Microsoft 365 Defender"
+    ```
+
+1. Si quiere recopilar eventos de búsqueda avanzada de Microsoft Defender para punto de conexión, se pueden recopilar los siguientes tipos de eventos de sus tablas de búsqueda avanzada correspondientes.
+
+    1. Marque las casillas de las tablas con los tipos de evento que quiera recopilar:
+
+       | Nombre de la tabla | Tipo de eventos |
+       |-|-|
+       | DeviceInfo | Información de la máquina (incluida la información del sistema operativo) |
+       | DeviceNetworkInfo | Propiedades de red de las máquinas |
+       | DeviceProcessEvents | Creación de procesos y eventos relacionados |
+       | DeviceNetworkEvents | Conexión de red y eventos relacionados |
+       | DeviceFileEvents | Creación y modificación de archivos, y otros eventos del sistema de archivos |
+       | DeviceRegistryEvents | Creación y modificación de entradas del Registro |
+       | DeviceLogonEvents | Inicios de sesión y otros eventos de autenticación |
+       | DeviceImageLoadEvents | Eventos de carga de DLL |
+       | DeviceEvents | Tipos de eventos adicionales |
+       | DeviceFileCertificateInfo | Información de certificado de archivos firmados |
+       |
+
+    1. Haga clic en **Aplicar cambios**.
+
+    1. Para consultar las tablas de búsqueda avanzada en Log Analytics, escriba el nombre de la tabla de la lista anterior en la ventana de consulta.
 
 ## <a name="verify-data-ingestion"></a>Comprobación de la ingesta de datos
 
-El grafo de datos de la página del conector indica que se están ingiriendo datos. Observará que se muestra una sola línea con el volumen de eventos agregados en todas las tablas habilitadas. Cuando haya habilitado el conector, puede usar la siguiente consulta KQL para generar un grafo de volumen de eventos similar para una sola tabla (cambie la tabla *DeviceEvents* por la tabla necesaria de su elección):
+El grafo de datos de la página del conector indica que se están ingiriendo datos. Observará que se muestra una línea para incidentes, alertas y eventos, y la línea de eventos es una agregación del volumen de eventos en todas las tablas habilitadas. Una vez que haya habilitado el conector, puede usar las siguientes consultas de KQL para generar grafos más específicos.
+
+Use la siguiente consulta de KQL para obtener un gráfico de los incidentes de M365 Defender entrantes:
+
+```kusto
+let Now = now(); 
+(range TimeGenerated from ago(14d) to Now-1d step 1d 
+| extend Count = 0 
+| union isfuzzy=true ( 
+    SecurityIncident
+    | where ProviderName == "Microsoft 365 Defender"
+    | summarize Count = count() by bin_at(TimeGenerated, 1d, Now) 
+) 
+| summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now) 
+| sort by TimeGenerated 
+| project Value = iff(isnull(Count), 0, Count), Time = TimeGenerated, Legend = "Events") 
+| render timechart 
+```
+
+Use la siguiente consulta de KQL para generar un grafo de volumen de eventos para una sola tabla (cambie la tabla *DeviceEvents* por la tabla necesaria que prefiera):
 
 ```kusto
 let Now = now();
@@ -96,9 +125,11 @@ let Now = now();
 | render timechart
 ```
 
-En la pestaña **Pasos siguientes**, encontrará algunas consultas de ejemplo que se han incluido. Puede ejecutarlas en el acto o modificarlas y guardarlas.
+En la pestaña **Pasos siguientes** encontrará algunos libros útiles, consultas de ejemplo y plantillas de reglas de análisis que se han incluido. Puede ejecutarlas en el acto o modificarlas y guardarlas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, aprendió a obtener datos de eventos sin procesar de Microsoft Defender para punto de conexión en Azure Sentinel mediante el conector Microsoft 365 Defender. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
+En este documento, ha obtenido información sobre cómo integrar incidentes de Microsoft 365 Defender y datos de eventos de búsqueda avanzada de Microsoft Defender para punto de conexión en Azure Sentinel mediante el conector Microsoft 365 Defender. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

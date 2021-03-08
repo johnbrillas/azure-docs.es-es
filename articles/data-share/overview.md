@@ -5,13 +5,14 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 10/30/2020
-ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 3a7c73e4a5ba00155ab905f28edbcb0eb42c0539
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724870"
 ---
 # <a name="what-is-azure-data-share"></a>¿Qué es Azure Data Share?
 
@@ -47,7 +48,7 @@ Los proveedores de datos pueden ofrecer a sus consumidores de datos actualizacio
 
 Cuando un consumidor de datos acepta un recurso compartido de datos, puede recibir los datos en el almacén de datos que prefiera. Por ejemplo, si el proveedor de datos comparte datos mediante Azure Blob Storage, el consumidor de datos puede recibirlos en Azure Data Lake Store. Del mismo modo, si el proveedor de datos comparte datos desde una instancia de Azure Synapse Analytics, el consumidor de datos puede elegir si desea recibirlos en una instancia de Azure Data Lake Store, una de Azure SQL Database o una de Azure Synapse Analytics. En el caso de uso compartido desde orígenes basados en SQL, el consumidor de datos también puede elegir si recibirá los datos en formato Parquet o csv. 
 
-Con el uso compartido in situ, los proveedores de datos pueden compartir datos donde estos residen sin copiar los datos. Después de establecer la relación de uso compartido a través del flujo de invitación, se crea un vínculo simbólico entre el almacén de datos de origen del proveedor de datos y el almacén de datos de destino del consumidor de datos. El consumidor de datos puede leer los datos y realizar consultas en ellos en tiempo real mediante su propio almacén de datos. Los cambios que se realicen en el almacén de datos de origen están disponibles de inmediato para el consumidor de datos. El uso compartido in situ se encuentra actualmente en versión preliminar para Azure Data Explorer.
+Con el uso compartido in situ, los proveedores de datos pueden compartir datos donde estos residen sin copiar los datos. Después de establecer la relación de uso compartido a través del flujo de invitación, se crea un vínculo simbólico entre el almacén de datos de origen del proveedor de datos y el almacén de datos de destino del consumidor de datos. El consumidor de datos puede leer los datos y realizar consultas en ellos en tiempo real mediante su propio almacén de datos. Los cambios que se realicen en el almacén de datos de origen están disponibles de inmediato para el consumidor de datos. El uso compartido in situ se encuentra actualmente disponible para Azure Data Explorer.
 
 ## <a name="key-capabilities"></a>Principales capacidades
 
@@ -81,7 +82,7 @@ Todas las funcionalidades claves mencionadas anteriormente se admiten a través 
 
 Para obtener una lista de regiones en las que Azure Data Share está disponible, consulte la página de [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) y busque Azure Data Share. 
 
-Azure Data Share no almacena una copia de los datos en sí. Los datos se almacenan en el almacén de datos subyacente que se comparte. Por ejemplo, si un productor de datos almacena sus datos en una cuenta de Azure Data Lake Store que se encuentra la región Oeste de EE. UU., ahí es donde se almacenan los datos. Si comparte los datos con una cuenta de Azure Storage ubicada en la región Oeste de Europa mediante una instantánea, lo habitual es que los datos se transfieran directamente a la cuenta de Azure Storage que se encuentra en Oeste de Europa.
+En el caso de los metadatos almacenados por Azure Data Share, en Sudeste Asiático (Singapur), se almacenan dentro de la región y para todas las demás regiones admitidas, se almacenan en la zona geográfica. Azure Data Share no almacena una copia de los datos en sí. Los datos se almacenan en el almacén de datos subyacente que se comparte. Por ejemplo, si un proveedor de datos almacena sus datos en una cuenta de Azure Data Lake Storage que se encuentra la región Oeste de EE. UU., ahí es donde se almacenan los datos. Si comparte los datos con una cuenta de Azure Storage ubicada en la región Oeste de Europa mediante una instantánea, lo habitual es que los datos se transfieran directamente a la cuenta de Azure Storage que se encuentra en Oeste de Europa. 
 
 No es preciso que el servicio Azure Data Share esté disponible en su región para aprovechar el servicio. Por ejemplo, si tiene datos almacenados en una cuenta de Azure Storage ubicada en una región en la que Azure Data Share aún no esté disponible, puede aprovechar el servicio para compartir los datos. 
 

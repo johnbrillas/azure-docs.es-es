@@ -1,18 +1,18 @@
 ---
-title: Introducción a Azure Monitor para contenedores | Microsoft Docs
-description: En este artículo se describe Azure Monitor para contenedores, que supervisa la solución de AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
+title: Introducción a Container Insights | Microsoft Docs
+description: En este artículo se describe Container Insights, que supervisa la solución AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: a9b9e155884b20c19b9b82994a3b9b1bdf53f27a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604841"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723391"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
+# <a name="container-insights-overview"></a>Introducción a Container Insights
 
-Azure Monitor para contenedores es una característica diseñada para supervisar el rendimiento de las cargas de trabajo de contenedor implementadas en:
+Container Insights es una característica diseñada para supervisar el rendimiento de las cargas de trabajo de contenedor implementadas en:
 
 - Clústeres de Kubernetes administrados que se hospedan en [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Clústeres de Kubernetes autoadministrados que se hospedan en Azure con [AKS Engine](https://github.com/Azure/aks-engine)
@@ -21,17 +21,17 @@ Azure Monitor para contenedores es una característica diseñada para supervisar
 - [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md)
 - [Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/overview.md) (versión preliminar)
 
-Azure Monitor para contenedores es compatible con los clústeres que ejecutan el sistema operativo Linux y Windows Server 2019. Los entornos de ejecución de contenedor que admite son Docker, Moby y cualquiera compatible con CRI, como CRI-O y ContainerD.
+Container Insights es compatible con los clústeres que ejecutan los sistemas operativos Linux y Windows Server 2019. Los entornos de ejecución de contenedor que admite son Docker, Moby y cualquiera compatible con CRI, como CRI-O y ContainerD.
 
 La supervisión de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
 
-Azure Monitor para contenedores le brinda la posibilidad de visibilizar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante la API de métricas. También se recopilan registros del contenedor.  Una vez habilitada la supervisión de clústeres de Kubernetes, se recopilan métricas y registros automáticamente mediante una versión en contenedor del agente de Log Analytics para Linux. Las métricas se escriben en el almacén de métricas y los datos de registro se incluyen en el almacén de registros asociado a su área de trabajo de [Log Analytics](../log-query/log-query-overview.md).
+Container Insights proporciona información sobre el rendimiento mediante la recopilación de métricas del procesador y de la memoria procedentes de los controladores, nodos y contenedores disponibles en Kubernetes mediante Metrics API. También se recopilan registros del contenedor.  Una vez habilitada la supervisión de clústeres de Kubernetes, se recopilan métricas y registros automáticamente mediante una versión en contenedor del agente de Log Analytics para Linux. Las métricas se escriben en el almacén de métricas y los datos de registro se incluyen en el almacén de registros asociado a su área de trabajo de [Log Analytics](../logs/log-query-overview.md).
 
-![Azure Monitor para arquitectura de contenedores](./media/container-insights-overview/azmon-containers-architecture-01.png)
+![Arquitectura de Container Insights](./media/container-insights-overview/azmon-containers-architecture-01.png)
 
-## <a name="what-does-azure-monitor-for-containers-provide"></a>¿Cómo se proporciona Azure Monitor para contenedores?
+## <a name="what-does-container-insights-provide"></a>¿Qué ofrece Container Insights?
 
-Azure Monitor para contenedores ofrece una experiencia de supervisión completa con diferentes características de Azure Monitor. Estas características le permiten comprender el rendimiento y el estado del clúster de Kubernetes que ejecuta el sistema operativo Linux y Windows Server 2019, así como las cargas de trabajo del contenedor. Con Azure Monitor para contenedores, puede hacer lo siguiente:
+Container Insights ofrece una experiencia de supervisión completa con diferentes características de Azure Monitor. Estas características le permiten comprender el rendimiento y el estado del clúster de Kubernetes que ejecuta el sistema operativo Linux y Windows Server 2019, así como las cargas de trabajo del contenedor. Con Container Insights, puede hacer lo siguiente:
 
 * Identificar los contenedores de AKS que se ejecutan en el nodo y su utilización media tanto del procesador como de la memoria. Este conocimiento puede ayudarle a identificar cuellos de botella en los recursos.
 * Identificar el uso de procesador y memoria de grupos de contenedores y sus contenedores hospedados en Azure Container Instances.
@@ -56,19 +56,18 @@ Estas son las principales diferencias al supervisar un clúster de Windows Serve
 - Solo se supervisan los entornos de pods, no los entornos de Docker.
 - Con la versión preliminar, se admite un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores de Linux.
 
-Consulte el siguiente vídeo, que proporciona un análisis detallado de nivel intermedio para ayudarle a obtener información sobre cómo supervisar el clúster de AKS con Azure Monitor para contenedores.
+Consulte el siguiente vídeo, que proporciona un análisis detallado de nivel intermedio para ayudarle a obtener información sobre cómo supervisar el clúster de AKS con Container Insights.
 
-> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+> [!VIDEO https://youtu.be/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>¿Cómo se obtiene acceso a esta característica?
 
-Puede acceder a Azure Monitor para contenedores de dos maneras: desde Azure Monitor o directamente desde el clúster de AKS seleccionado. Desde Azure Monitor tiene una perspectiva global de todos los contenedores implementados, cuáles se supervisan y cuáles no. Esto le permite buscar y filtrar a través de las suscripciones y los grupos de recursos y, después, explorar en profundidad Azure Monitor para contenedores desde el contenedor seleccionado.  En caso contrario, puede acceder a la característica directamente desde un contenedor de AKS seleccionado desde la página de AKS.
+Puede acceder a Container Insights de dos maneras: desde Azure Monitor o directamente desde el clúster de AKS seleccionado. Desde Azure Monitor, tiene una perspectiva global de todos los contenedores implementados, cuáles se supervisan y cuáles no. Esto le permite buscar y filtrar a través de las suscripciones y los grupos de recursos y, después, explorar en profundidad Container Insights desde el contenedor seleccionado.  En caso contrario, puede acceder a la característica directamente desde un contenedor de AKS seleccionado desde la página de AKS.
 
-![Introducción a los métodos de acceso a Azure Monitor para contenedores](./media/container-insights-overview/azmon-containers-experience.png)
+![Información general de los métodos para acceder a Container Insights](./media/container-insights-overview/azmon-containers-experience.png)
 
-Si le interesan la supervisión y la administración de hosts de contenedor de Docker y Windows que se ejecutan fuera de AKS y quiere más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](../insights/containers.md).
+Si le interesan la supervisión y la administración de hosts de contenedor de Docker y Windows que se ejecutan fuera de AKS y quiere más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](./containers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar a supervisar el clúster de Kubernetes, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión.
-
+Para comenzar a supervisar el clúster de Kubernetes, revise [Cómo habilitar Container Insights](container-insights-onboard.md), a fin de entender los requisitos y los métodos disponibles para habilitar la supervisión.

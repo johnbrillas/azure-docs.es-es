@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ba630d5e2f8e3e581f394af2ee687a971d3a7a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692942"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032370"
 ---
 # <a name="securing-managed-identities"></a>Protección de identidades administradas
 
@@ -100,7 +100,7 @@ Puede obtener una lista de todas las identidades administradas en el inquilino c
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Puede filtrar estas solicitudes. Para más información, vea la documentación de Graph para [Obtener servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
+Puede filtrar estas solicitudes. Para más información, vea la documentación de Graph para [Obtener servicePrincipal](/graph/api/serviceprincipal-get?view=).
 
 ## <a name="assess-the-security-of-managed-identities"></a>Evaluación de la seguridad de las identidades administrads 
 
@@ -140,7 +140,7 @@ Si usa una entidad de servicio o una cuenta de usuario de Azure AD, evalúe si,
 
 [Gobernanza de las cuentas de servicio de Azure](service-accounts-governing-azure.md)
 
-[Introducción a las cuentas de servicio locales](service-accounts-on-poremises.md)
+[Introducción a las cuentas de servicio locales](service-accounts-on-premises.md)
 
  
 

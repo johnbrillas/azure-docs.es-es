@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694077"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202916"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guía del usuario del linaje de Azure Purview Data Catalog
 
@@ -31,7 +31,7 @@ La integración de datos y las herramientas de ETL pueden enviar linajes a Azure
 
 | Sistema de procesamiento de datos | Ámbito admitido |
 | ---------------------- | ------------|
-| Azure Data Factory | [Actividad de copia](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Actividad de los flujos de datos](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Ejecución de una actividad del paquete de SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Actividad de copia](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Actividad de los flujos de datos](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Ejecución de una actividad del paquete de SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Compartir instantánea](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>Sistemas de almacenamiento de datos
@@ -49,6 +49,8 @@ Sistemas de datos como Azure ML y Power BI informan del linaje en Azure Purvie
 | Power BI | [Conjuntos de datos, flujos de datos, informes y paneles](register-scan-power-bi-tenant.md)
 
 ## <a name="get-started-with-lineage"></a>Introducción al linaje
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 El linaje en Purview incluye conjuntos de datos y procesos. Los conjuntos de datos se conocen como nodos, mientras que los procesos también se pueden llamar bordes:
 

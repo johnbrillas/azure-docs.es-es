@@ -8,16 +8,16 @@ ms.subservice: features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 12/25/2020
-ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/21/2021
+ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809520"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691916"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -48,7 +48,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Instrucción BULK INSERT](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sí, pero solo con Azure Blob Storage como origen. | Sí, pero solo con Azure Blob Storage como origen. Consulte las [diferencias](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificados y claves asimétricas](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sí, sin acceso al sistema de archivos para las operaciones `BACKUP` y `CREATE`. | Sí, sin acceso al sistema de archivos para las operaciones `BACKUP` y `CREATE`. Consulte las [diferencias de certificados](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
 | [Captura de datos modificados: CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Sí |
-| [Intercalación: servidor/instancia](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, se utiliza siempre la intercalación predeterminada del servidor `SQL_Latin1_General_CP1_CI_AS`. | Sí, se puede establecer cuando [se crea la instancia](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) y no se puede actualizar después. |
+| [Intercalación: servidor/instancia](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, se utiliza siempre la intercalación predeterminada del servidor `SQL_Latin1_General_CP1_CI_AS`. | Sí, se puede establecer cuando [se crea la instancia](../managed-instance/create-template-quickstart.md) y no se puede actualizar después. |
 | [Índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [niveles Premium, Estándar - S3 y superior, De uso general, Crítico para la empresa e Hiperescala](/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
 | [Common Language Runtime: CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sí, pero sin acceso al sistema de archivos en la instrucción `CREATE ASSEMBLY`. Consulte las [diferencias de CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr). |
 | [Credenciales](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sí, pero solo [credenciales con ámbito de base de datos](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sí, pero solo se admiten **Azure Key Vault** y `SHARED ACCESS SIGNATURE`. Consulte más [información](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential). |
@@ -77,7 +77,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Elementos de lenguaje](/sql/t-sql/language-elements/language-elements-transact-sql) | La mayoría; consulte el artículo sobre elementos. |  Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Servidores vinculados](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](elastic-query-horizontal-partitioning.md). | Sí. Solo a [SQL Server y SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) sin transacciones distribuidas. |
 | [Servidores vinculados](/sql/relational-databases/linked-servers/linked-servers-database-engine) que leen de archivos (CSV, Excel)| No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) como alternativa al formato CSV. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) como alternativa al formato CSV. Realice un seguimiento de estas solicitudes en el [elemento de comentarios de Instancia administrada de SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources).|
-| [Trasvase de registros](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Cada base de datos incluye [alta disponibilidad](high-availability-sla.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Se integra de forma nativa como parte del proceso de migración de Azure Database Migration Service. No está disponible como solución de alta disponibilidad, porque todas las bases de datos incluyen otros métodos de [alta disponibilidad](high-availability-sla.md) y no se recomienda usar el trasvase de registros como alternativa de alta disponibilidad. La recuperación ante desastres se explica en [Información general sobre continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md). No está disponible como mecanismo de replicación entre bases de datos. Como alternativa, use réplicas secundarias en el [nivel Crítico para la empresa](service-tier-business-critical.md), [grupos de conmutación por error automática](auto-failover-group-overview.md) o [replicación transaccional](../managed-instance/replication-transactional-overview.md). |
+| [Trasvase de registros](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Cada base de datos incluye [alta disponibilidad](high-availability-sla.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Se integra de forma nativa como parte del proceso de migración de [Azure Database Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md). Se integra de forma nativa en proyectos de migración de datos personalizados como [Log Replay Service (LRS)](../managed-instance/log-replay-service-migrate.md) externo.<br /> No está disponible como solución de alta disponibilidad, porque todas las bases de datos incluyen otros métodos de [alta disponibilidad](high-availability-sla.md) y no se recomienda usar el trasvase de registros como alternativa de alta disponibilidad. La recuperación ante desastres se explica en [Información general sobre continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md). No está disponible como mecanismo de replicación entre bases de datos. Como alternativa, use réplicas secundarias en el [nivel Crítico para la empresa](service-tier-business-critical.md), [grupos de conmutación por error automática](auto-failover-group-overview.md) o [replicación transaccional](../managed-instance/replication-transactional-overview.md). |
 | [Inicios de sesión y usuarios](/sql/relational-databases/security/authentication-access/principals-database-engine) | Sí, pero las instrucciones de inicio de sesión `CREATE` y `ALTER` no ofrecen todas las opciones (no ofrecen inicio de sesión de Windows y Azure Active Directory en el nivel de servidor). No se admite `EXECUTE AS LOGIN`; utilice `EXECUTE AS USER` en su lugar.  | Sí, con algunas [diferencias](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users). No se admiten los inicios de sesión de Windows y se deben reemplazar por los inicios de sesión de Azure Active Directory. |
 | [Registro mínimo durante la importación en bloque](/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No, solo se admite el modelo de recuperación completa. | No, solo se admite el modelo de recuperación completa. |
 | [Modificación de datos del sistema](/sql/relational-databases/databases/system-databases) | No | Sí |
@@ -169,7 +169,7 @@ Azure SQL Database e Instancia administrada de Azure SQL admiten diversas herram
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Sí | Sí, [versión 18.0 o posterior](/sql/ssms/download-sql-server-management-studio-ssms). |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Sí | Sí |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No; consulte el artículo sobre [eventos extendidos](xevent-db-diff-from-svr.md). | Sí |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Sí](https://www.microsoft.com/download/details.aspx?id=38829) | Sí, [en versión preliminar](https://www.microsoft.com/download/details.aspx?id=38829) |
+| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Sí](https://www.microsoft.com/download/details.aspx?id=38829) | [Sí](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## <a name="migration-methods"></a>Métodos de migración
 

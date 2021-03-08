@@ -1,17 +1,16 @@
 ---
 title: Habilitación de VM Insights mediante PowerShell
 description: Se describe cómo habilitar VM Insights para Azure Virtual Machines o Virtual Machine Scale Sets mediante Azure PowerShell.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b51a49abda76a4d1433336cf73dc9a0dd6e40787
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717084"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031892"
 ---
 # <a name="enable-vm-insights-using-powershell"></a>Habilitación de VM Insights mediante PowerShell
 En este artículo se describe cómo habilitar VM Insights en Azure Virtual Machines mediante PowerShell. Este procedimiento se puede usar para:

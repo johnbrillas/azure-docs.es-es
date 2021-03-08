@@ -2,18 +2,18 @@
 title: Programa de validación de Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Describe el programa de validación de Arc para distribuciones de Kubernetes
 keywords: Kubernetes, Arc, Azure, K8s, validación
-ms.openlocfilehash: 0d7756f407a3a176c8913d99bdb45a5026300569
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 819df906add6275997e01fab310fe8dd57a87b51
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689222"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121378"
 ---
 # <a name="azure-arc-validation-program"></a>Programa de validación de Azure Arc
 
@@ -61,6 +61,6 @@ Las pruebas de conformidad que se realizan como parte de la validación de Kuber
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Conexión de un clúster a Azure Arc](./connect-cluster.md)
-* [Creación de configuraciones en el clúster de Kubernetes habilitado para Arc](./use-gitops-connected-cluster.md)
-* [Uso de Azure Policy para aplicar configuraciones a escala](./use-azure-policy.md)
+Aprenda a conectar un clúster a Azure Arc.
+> [!div class="nextstepaction"]
+> [Conexión de un clúster a Azure Arc](./quickstart-connect-cluster.md)

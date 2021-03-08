@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 1752e6687cd4dda72ee330c489a4642ae32f8219
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820779"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710675"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -43,7 +43,7 @@ Copia de seguridad de discos administrados después de habilitar el bloqueo del 
 Modificar directiva de copia de seguridad de una máquina virtual | Compatible.<br/><br/> Se realizará la copia de seguridad de la máquina virtual con la programación y la configuración de retención de la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reducen, los puntos de recuperación existentes se eliminarán en el siguiente trabajo de limpieza y, después, se eliminarán por completo.
 Cancelación de un trabajo de copia de seguridad| Compatible durante el proceso de instantáneas.<br/><br/> No se admite cuando se transfiere la instantánea al almacén.
 Copia de seguridad de la máquina virtual en otra región o suscripción |No compatible.<br><br>Para realizar una copia de seguridad correcta, las máquinas virtuales deben estar en la misma suscripción que el almacén de copia de seguridad.
-Copias de seguridad por día (mediante la extensión de máquina virtual de Azure) | Una copia de seguridad programada por día.<br/><br/>El servicio de Azure Backup admite hasta nueve copias de seguridad a petición al día, pero Microsoft recomienda no más de cuatro copias de seguridad diarias a petición para garantizar el máximo rendimiento.
+Copias de seguridad por día (mediante la extensión de máquina virtual de Azure) | Una copia de seguridad programada por día.<br/><br/>El servicio Azure Backup admite hasta tres copias de seguridad a petición al día y una copia de seguridad programada adicional.
 Copias de seguridad por día (mediante el agente de MARS) | Tres copias de seguridad programadas por día.
 Copias de seguridad por día (mediante DPM/MABS) | Dos copias de seguridad programadas por día.
 Copia de seguridad mensual o anual| No se admite cuando la copia de seguridad se realiza con la extensión de máquina virtual de Azure. Solo se admiten copias de seguridad diarias y semanales.<br/><br/> Puede configurar la directiva para conservar las copias de seguridad diarias y semanales durante el período de retención mensual o anual.
@@ -115,6 +115,7 @@ Restaurar archivos desde cuentas de almacenamiento con acceso restringido a la r
 Restaurar archivos en máquinas virtuales con espacios de almacenamiento de Windows | La restauración no se admite en la misma máquina virtual.<br/><br/> En su lugar, restaure los archivos en una máquina virtual compatible.
 Restaurar archivos en máquinas virtuales Linux con matrices RAID/LVM | La restauración no se admite en la misma máquina virtual.<br/><br/> Restaure en una máquina virtual compatible.
 Restaurar archivos con una configuración de red especial | La restauración no se admite en la misma máquina virtual. <br/><br/> Restaure en una máquina virtual compatible.
+Restaurar archivos a partir del disco compartido, la unidad temporal, el disco desduplicado, el disco Ultra y el disco con el acelerador de escritura habilitado | La restauración no se admite. <br/><br/>Vea [Compatibilidad con almacenamiento de máquina virtual](#vm-storage-support).
 
 ## <a name="support-for-vm-management"></a>Compatibilidad con la administración de máquina virtual
 
@@ -144,12 +145,12 @@ Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace
 Copia de seguridad de máquinas virtuales implementadas desde una imagen personalizada (terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
 Copia de seguridad de máquinas virtuales migradas a Azure| Compatible.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
 Copia de seguridad con coherencia con múltiples máquinas virtuales | Azure Backup no proporciona coherencia de datos y aplicaciones entre varias máquinas virtuales.
-Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
+Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
 Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible debido a una interrupción, se producirá un error en la restauración.
 Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de seguridad y la restauración de [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Cuando estas máquinas virtuales se restauran a partir del punto de recuperación, se restauran como [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite para máquinas virtuales no administradas. <br><br> Se admite para máquinas virtuales administradas.
 [Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
-[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Compatible
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Compatible
 Configuración de Espacios de almacenamiento de Windows de máquinas virtuales de Azure independientes | Compatible
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
@@ -168,7 +169,7 @@ Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtuales mediante el Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
 [Discos compartidos](../virtual-machines/disks-shared-enable.md) | No compatible.
 Discos SSD Ultra | No compatible. Para obtener más información, consulte estas [limitaciones](selective-disk-backup-restore.md#limitations).
-[Discos temporales](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Azure Backup no realiza copias de seguridad de los discos temporales.
+[Discos temporales](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup no realiza copias de seguridad de los discos temporales.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

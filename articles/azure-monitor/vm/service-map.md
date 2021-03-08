@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603685"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717152"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -26,7 +26,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * [Dependency Agent](vminsights-enable-overview.md#agents) instalado en el equipo con Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../vm/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -241,7 +241,7 @@ Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento 
 
 ## <a name="service-desk-integration"></a>Integración de Service Desk
 
-La integración de Service Map con Conector de Administración de servicios de TI es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics. La integración en Service Map se denomina "Departamento de servicios". Para más información, vea [Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)](../platform/itsmc-overview.md).
+La integración de Service Map con Conector de Administración de servicios de TI es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics. La integración en Service Map se denomina "Departamento de servicios". Para más información, vea [Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)](../alerts/itsmc-overview.md).
 
 El panel de **departamento de servicios del equipo** muestra todos los eventos de IT Service Management del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay elementos actuales y el panel de departamento de servicios del equipo los enumera.
 
@@ -304,7 +304,7 @@ En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran dat
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
-Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
+Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../logs/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en Service Map. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
 
@@ -550,7 +550,7 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las [búsquedas de registros](../log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
+Más información sobre las [búsquedas de registros](../logs/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

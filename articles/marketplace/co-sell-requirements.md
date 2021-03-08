@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d978410cae2b2de1a2f6711de82ae71a1da168c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743663"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120137"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
@@ -24,7 +24,7 @@ En esta tabla se muestran todos los posibles estados de la venta conjunta:
 | ------------ | ------------- |
 | No listo para la venta conjunta | No se cumplen los [requisitos mínimos para el estado Listo para la venta conjunta](#requirements-for-co-sell-ready-status). |
 | Listo para la venta conjunta | Se cumplen todos los [requisitos para el estado Listo para la venta conjunta](#requirements-for-co-sell-ready-status). |
-| Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](#requirements-for-IP-Co-sell-incentivized-status). |
+| Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](#requirements-for-ip-co-sell-incentivized-status). |
 | Estímulo Premium de la conexión ISV de BIZ apps  | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps e indica que se cumplen todos los [requisitos de este estado](#requirements-for-biz-apps-isv-connect-premium-incentive-status). |
 |||
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688474"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticación con código de acceso de un solo uso por correo electrónico
 
@@ -26,7 +26,8 @@ En este artículo se describe cómo habilitar la autenticación con código de a
 ![Diagrama de información general del código de acceso de un solo uso por correo electrónico](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **A partir de octubre de 2021**, la característica de código de acceso de un solo uso por correo electrónico se activará para todos los inquilinos existentes, y se habilitará de forma predeterminada para los nuevos. Si no desea permitir que esta característica se active automáticamente, puede deshabilitarla. Consulte [Deshabilitación del código de acceso de un solo uso por correo electrónico](#disable-email-one-time-passcode) más adelante.
+> - **A partir de octubre de 2021**, la característica de código de acceso de un solo uso por correo electrónico se activará para todos los inquilinos existentes, y se habilitará de forma predeterminada para los nuevos. Si no desea permitir que esta característica se active automáticamente, puede deshabilitarla. Consulte [Deshabilitación del código de acceso de un solo uso por correo electrónico](#disable-email-one-time-passcode) más adelante.
+> - La configuración del código de acceso de un solo uso por correo electrónico en Azure Portal se ha movido de **Configuración de colaboración externa** a **All identity providers** (Todos los proveedores de identidades).
 
 > [!NOTE]
 > Los usuarios con código de acceso de un solo uso deben iniciar sesión con un vínculo que incluya el contexto del inquilino (por ejemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>`, o en el caso de un dominio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Los vínculos directos a aplicaciones y los recursos también funcionan siempre que incluyan el contexto del inquilino. Actualmente, los usuarios invitados no pueden iniciar sesión con puntos de conexión sin contexto de inquilino. Por ejemplo, si se usan `https://myapps.microsoft.com`, `https://portal.azure.com`, se producirá un error.
@@ -83,14 +84,15 @@ A partir de octubre de 2021, la característica de código de acceso de un solo 
 
 2. En el panel de navegación, seleccione **Azure Active Directory**.
 
-3. Seleccione **External Identities** > **Configuración de colaboración externa**.
+3. Seleccione **External Identities** > **Todos los proveedores de identidades**.
 
-4. En **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados), seleccione **Disable email one-time passcode for guests** (Deshabilitar el código de acceso de un solo uso por correo electrónico para invitados).
+4. En **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico), seleccione **Disable email one-time passcode for guests** (Deshabilitar el código de acceso de un solo uso por correo electrónico para invitados).
 
    > [!NOTE]
-   > Si ve el siguiente botón en lugar de las opciones de código de acceso de un solo uso por correo electrónico, significa que ya se le ha habilitado, deshabilitado o ha participado en la versión preliminar de la característica. Seleccione **No** para deshabilitar esta característica.
+   > La configuración del código de acceso de un solo uso por correo electrónico en Azure Portal se ha movido de **Configuración de colaboración externa** a **All identity providers** (Todos los proveedores de identidades).
+   > Si ve un botón de alternancia en lugar de las opciones de código de acceso de un solo uso por correo electrónico, significa que ya ha habilitado o deshabilitado la característica o que ha participado en la versión preliminar de esta. Seleccione **No** para deshabilitar esta característica.
    >
-   >![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Botón de alternancia de código de acceso de un solo uso por correo electrónico deshabilitado](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Seleccione **Guardar**.
 
@@ -98,12 +100,34 @@ A partir de octubre de 2021, la característica de código de acceso de un solo 
 
 Si previamente ha participado en la versión preliminar pública del código de acceso de un solo uso por correo electrónico, la fecha de habilitación automática de la características en octubre de 2021 no es aplicable a su caso, por lo que sus procesos empresariales relacionados no se verán afectados. Además, en Azure Portal, en las propiedades de **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados), no verá la opción **Automatically enable email one-time passcode for guests in October 2021** (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico para invitados a partir de octubre de 2021). En su lugar, verá el botón **Yes**/**No** (Si/No):
 
-![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Participación en el código de acceso de un solo uso por correo electrónico](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 Sin embargo, si prefiere no participar en la característica y permitir que se habilite automáticamente en octubre de 2021, puede revertir a la configuración predeterminada mediante el [tipo de recurso de configuración del método de autenticación por correo electrónico](/graph/api/resources/emailauthenticationmethodconfiguration) de Microsoft Graph API. Después de revertir a la configuración predeterminada, las siguientes opciones estarán disponibles en **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados):
 
-- **Automatically enable email one-time passcode for guests in October 2021** (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico a partir de octubre de 2021). Valor predeterminado. Si la característica de código de acceso de un solo uso por correo electrónico no está habilitada para el inquilino, se activará automáticamente en octubre de 2021. Si desea que la característica se habilite desde ese momento, no tiene que hacer nada más. Si ya ha habilitado o deshabilitado la característica, esta opción no estará disponible.
+![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/one-time-passcode/email-otp-options.png)
+
+- **Automatically enable email one-time passcode for guests starting October 2021** (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico para invitados a partir de octubre de 2021). (Valor predeterminado) Si la característica de código de acceso de un solo uso por correo electrónico no está habilitada para el inquilino, se activará automáticamente a partir de octubre de 2021. Si desea que la característica se habilite desde ese momento, no tiene que hacer nada más. Si ya ha habilitado o deshabilitado la característica, esta opción no estará disponible.
 
 - **Enable email one-time passcode for guests effective now** (Habilitar el código de acceso de un solo uso por correo electrónico para invitados desde este momento). Activa la característica de código de acceso de un solo uso por correo electrónico para el inquilino.
 
 - **Disable email one-time passcode for guests** (Deshabilitar el código de acceso de un solo uso por correo electrónico para invitados). Desactiva la característica de código de acceso de un solo uso por correo electrónico para el inquilino y evita que la característica se active en octubre de 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Nota para los clientes de Azure Gobierno de EE. UU.
+
+La característica de código de acceso de un solo uso por correo electrónico está deshabilitada de forma predeterminada en la nube de Azure Gobierno de EE UU.  
+
+ ![Código de acceso de un solo uso por correo electrónico deshabilitada](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Para habilitar la característica de código de acceso de un solo uso por correo electrónico en la nube de Azure Gobierno de EE. UU.:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global de Azure AD.
+2. En el panel de navegación, seleccione **Azure Active Directory**.
+3. Seleccione **Relaciones organizativas** > **Configuración**.
+
+   > [!NOTE]
+   > - Si no ve la opción **Relaciones organizativas**, busque "External Identities" en la barra de búsqueda de la parte superior.
+
+4. Seleccione **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados) y, luego, **Sí**.
+5. Seleccione **Guardar**.
+
+Para más información sobre las limitaciones actuales, consulte [Nubes de Azure Gobierno de EE. UU](current-limitations.md#azure-us-government-clouds).

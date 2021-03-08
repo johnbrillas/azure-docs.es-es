@@ -1,26 +1,25 @@
 ---
-title: Estado de invitado de Azure Monitor para VM (versión preliminar)
-description: Información general de la característica de estado en Azure Monitor para VM, incluido cómo puede ver el estado de las máquinas virtuales y recibir alertas cuando una máquina virtual pasa a un estado incorrecto.
-ms.subservice: ''
+title: Estado de invitado de VM Insights (versión preliminar)
+description: Información general de la característica de estado en VM Insights, incluido cómo puede ver el estado de las máquinas virtuales y recibir alertas cuando una máquina virtual pasa a un estado incorrecto.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100602810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052133"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Estado de invitado de Azure Monitor para VM (versión preliminar)
-El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual según un conjunto de medidas de rendimiento que se muestrean a intervalos regulares desde el sistema operativo invitado. Puede comprobar rápidamente el estado de todas las máquinas virtuales de una suscripción o un grupo de recursos, explorar en profundidad el estado detallado de una máquina virtual concreta o incluso recibir una notificación de manera proactiva cuando una máquina virtual pasa a un estado incorrecto. 
+# <a name="vm-insights-guest-health-preview"></a>Estado de invitado de VM Insights (versión preliminar)
+El estado de invitado de VM Insights permite ver el estado de las máquinas virtuales según un conjunto de medidas de rendimiento que se muestrean a intervalos regulares desde el sistema operativo invitado. Puede comprobar rápidamente el estado de todas las máquinas virtuales de una suscripción o un grupo de recursos, explorar en profundidad el estado detallado de una máquina virtual concreta o incluso recibir una notificación de manera proactiva cuando una máquina virtual pasa a un estado incorrecto. 
 
 ## <a name="enable-virtual-machine-health"></a>Habilitación del estado de una máquina virtual
-Consulte [Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-enable.md) para obtener más información sobre cómo habilitar la característica del estado de invitado y la incorporación de máquinas virtuales.
+Vea [Habilitación del estado de invitado de VM Insights (versión preliminar)](vminsights-health-enable.md) para obtener más información sobre cómo habilitar la característica de estado de invitado y la incorporación de máquinas virtuales.
 
 ## <a name="pricing"></a>Precios
-La característica de estado de invitado no tiene ningún costo directo, pero la ingesta y el almacenamiento de datos del estado de mantenimiento en el área de trabajo Log Analytics sí tiene un costo. Todos los datos se almacenan en la tabla *HealthStateChangeEvent*. Consulte [Administración del uso y los costos con los registros de Azure Monitor](../platform/manage-cost-storage.md) para más información sobre costos y modelos de precios.
+La característica de estado de invitado no tiene ningún costo directo, pero la ingesta y el almacenamiento de datos del estado de mantenimiento en el área de trabajo Log Analytics sí tiene un costo. Todos los datos se almacenan en la tabla *HealthStateChangeEvent*. Consulte [Administración del uso y los costos con los registros de Azure Monitor](../logs/manage-cost-storage.md) para más información sobre costos y modelos de precios.
 
 ## <a name="view-virtual-machine-health"></a>Visualización del estado de la máquina virtual
 La columna **Estado de la VM invitada** de la página **Introducción** ofrece una vista rápida del estado de cada máquina virtual en una suscripción o un grupo de recursos determinado. Se muestra el estado actual de cada máquina virtual, mientras que los iconos de cada grupo muestran el número de máquinas virtuales que se encuentran actualmente en cada estado de ese grupo.
@@ -95,7 +94,7 @@ Seleccione un monitor para ver sus detalles, incluidas las pestañas siguientes.
 [![Historial de detalles de monitor](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Configuración
-Vea y modifique la configuración del monitor de la máquina virtual seleccionada. Consulte [Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-enable.md) para más información.
+Vea y modifique la configuración del monitor de la máquina virtual seleccionada. Vea [Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)](vminsights-health-enable.md) para obtener más información.
 
 [![Configuración de la información del monitor](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +103,6 @@ Vea y modifique la configuración del monitor de la máquina virtual seleccionad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Habilitar el estado de invitado en Azure Monitor para VM e incorporar a los agentes.](vminsights-health-enable.md)
+- [Habilitación del estado de invitado en VM Insights e incorporación de agentes.](vminsights-health-enable.md)
 - [Configurar los monitores mediante Azure Portal.](vminsights-health-configure.md)
 - [Configurar monitores mediante reglas de recopilación de datos.](vminsights-health-configure-dcr.md)
