@@ -3,18 +3,18 @@ title: Facturas de inscripciones de Azure Enterprise
 description: En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598072"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430821"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -98,29 +98,41 @@ Azure Enterprise Portal filtra las inscripciones inactivas para excluirlas. Tend
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Cambio de un número de pedido de compra en una próxima factura de uso por encima del límite
 
-Azure Enterprise Portal genera automáticamente un número de pedido de compra predeterminado, a menos que el administrador de empresa defina uno antes de la fecha de la factura. Un administrador de empresa puede actualizar el número de pedido de compra hasta siete días después de recibir un correo electrónico de notificación de factura automática.
+Azure Enterprise Portal genera automáticamente un número de pedido de compra predeterminado, a menos que el administrador de empresa defina uno antes de la fecha de la factura. Un administrador de empresa puede actualizar el número de pedido de compra hasta siete días después de recibir un correo electrónico de notificación de factura automática. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Para actualizar el número de pedido de compra de los servicios de Azure:
+Para evitar la generación automática de números de pedido todos los meses, puede bloquear el número de pedido de compra. Consulte [Bloqueo del número de pedido de compra](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Actualización del número de pedido de compra de los servicios de Azure
 
 1. En Azure Enterprise Portal, seleccione **Informes** > **Resumen de uso**.
 1. Seleccione **Edit PO Numbers** (Editar números de pedidos de compra) en la esquina superior derecha.
 1. Seleccione el botón de radio **Azure Services** (Servicios de Azure).
 1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
-
    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
 1. Escriba un número de pedido de compra nuevo en el campo **PO Number** (Número de pedido de compra).
 1. Seleccione **Guardar** para enviar el cambio.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para actualizar el número de pedido de compra de Azure Marketplace:
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Actualización del número de pedido de compra de Azure Marketplace
 
 1. En Azure Enterprise Portal, seleccione **Informes** > **Resumen de uso**.
 1. Seleccione **Edit PO Numbers** (Editar números de pedidos de compra) en la esquina superior derecha.
 1. Seleccione el botón de radio **Marketplace**.
-1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.
-
-   Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
+1. Seleccione un **período de facturación** en el menú desplegable de intervalos de fechas.  
+    Puede editar un número de pedido de compra durante un período de siete días después de recibir una notificación de factura, pero antes de haber pagado la factura.
 1. Escriba un número de pedido de compra nuevo en el campo **PO Number** (Número de pedido de compra).
 1. Seleccione **Guardar** para enviar el cambio.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Bloqueo del número de pedido de compra para evitar la actualización automática en los próximos ciclos de facturación
+
+Después de bloquear el número de pedido de compra, este permanece bloqueado para todas las facturas nuevas y no es necesario actualizarlo.
+
+1.  En Azure Enterprise Portal, seleccione **Informe** > **Resumen de uso**.
+2.  Seleccione **Edit PO Numbers** (Editar números de pedidos de compra) en la esquina superior derecha.
+3.  Escriba un número de pedido de compra nuevo en el campo **Número de pedido de compra**.
+4.  Seleccione el cuadro **Lock PO number** (Número de pedido de compra).
+5.  Seleccione **Guardar** para enviar el cambio.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Captura de pantalla que muestra el cuadro View/Edit PO Numbers (Ver o editar números de pedido de compra)." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frecuencia de facturación de Azure Enterprise
 

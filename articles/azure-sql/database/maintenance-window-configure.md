@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/02/2021
-ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/04/2021
+ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048628"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183206"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configuración de la ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ La ventana de mantenimiento *Predeterminada del sistema* es cada día de 17:00 a
 
 La capacidad de cambiar a otra ventana de mantenimiento no está disponible para todos los niveles de servicio ni en todas las regiones. Para obtener más información sobre la disponibilidad, consulte [Disponibilidad de las ventanas de mantenimiento](maintenance-window.md#availability).
 
+> [!Important]
+> La configuración de la ventana de mantenimiento es una operación asincrónica de larga duración, similar a la modificación del nivel de servicio del recurso de Azure SQL. El recurso está disponible durante la operación, excepto una breve conmutación por error que se produce al final de la operación y que normalmente dura hasta 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la conmutación por error, debe realizar la operación fuera de las horas punta.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configuración de la ventana de mantenimiento durante la creación de la base de datos 
 
@@ -176,7 +178,7 @@ Al establecer la ventana de mantenimiento, cada región tiene sus propias opcion
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Detección de ventanas de mantenimiento de grupos elásticos y SQL Database
 
-En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list). Para las bases de datos y los grupos elásticos, establezca `maintenanceScope` en `SQLDB`.
+En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Para las bases de datos y los grupos elásticos, establezca `maintenanceScope` en `SQLDB`.
 
    ```azurecli
    location="eastus2"
@@ -186,7 +188,7 @@ En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles p
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Detección de las ventanas de mantenimiento de SQL Managed Instance
 
-En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list). Para las instancias administradas, establezca `maintenanceScope` en `SQLManagedInstance`.
+En el ejemplo siguiente se devuelven las ventanas de mantenimiento disponibles para la región *eastus2* mediante el comando [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Para las instancias administradas, establezca `maintenanceScope` en `SQLManagedInstance`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

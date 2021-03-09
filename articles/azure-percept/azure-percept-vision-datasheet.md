@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 54dae3341910bf863de7e2a2cef832ae670ca09a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097574"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177171"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Ficha técnica de Azure Percept Vision
 
@@ -26,7 +26,7 @@ Las especificaciones que se enumeran a continuación son para el dispositivo Azu
 |Software y servicios compatibles |[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Azure Device Update |
 |Aceleración de IA                 |Unidad de procesamiento de visión (VPU) Intel Movidius Myriad X (MA2085) con ISP de cámara Intel integrado, 0,7 TOPS |
 |Sensores e indicadores visuales   |Sensor de cámara IMX219 de Sony con lente 6P<br>Resolución: 8 MP a 30 FPS, distancia: de 50 cm a infinito<br>Campo de visión: 120 grados diagonal, Color: amplio rango dinámico, obturador gradual de foco fijo|
-|Compatibilidad con cámara                  |RGB (actualmente) e IR (en el futuro) <br> Pueden funcionar dos cámaras simultáneamente |
+|Compatibilidad con cámara                  |RGB <br> Pueden funcionar dos cámaras simultáneamente |
 |Controlador criptográfico de seguridad      |Microcontrolador ST STM32L462CE      |
 |Componente de control de versiones/identificador       |EEPROM de 64 KB |
 |Memoria                          |LPDDR4 de 2 GB     |

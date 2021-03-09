@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9566560aaebaaa7ba3fc6d963a30637e33118077
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8f2bd316c733f4680a266d609e1cc95a4879016d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651066"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198530"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Para definir las configuraciones de bloqueo de cuenta, complete las siguientes c
 
 ## <a name="block-and-unblock-users"></a>Bloqueo y desbloqueo de usuarios
 
-Si el dispositivo de un usuario se ha perdido o ha sido robado, puede bloquear los intentos de Azure AD Multi-Factor Authentication de la cuenta asociada. Todos los intentos de Azure AD Multi-Factor Authentication de usuarios bloqueados se deniegan automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen.
+Si el dispositivo de un usuario se ha perdido o ha sido robado, puede bloquear los intentos de Azure AD Multi-Factor Authentication de la cuenta asociada. Todos los intentos de Azure AD Multi-Factor Authentication de usuarios bloqueados se deniegan automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. Hemos publicado un vídeo sobre [cómo bloquear y desbloquear usuarios en el inquilino](https://www.youtube.com/watch?v=WdeE1On4S1o) para mostrarle cómo hacerlo.
 
 ### <a name="block-a-user"></a>Bloquear a un usuario
 
