@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430804"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715214"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Introducción: Versión preliminar de Azure Logic Apps
 
@@ -38,7 +38,7 @@ En esta introducción se tratan las áreas siguientes:
 
 * [Límites de la versión preliminar de Azure Logic Apps](#limits).
 
-Para obtener más información, vea estos otros artículos:
+Para más información, consulte estos otros temas:
 
 * [Azure Logic Apps en ejecución en cualquier ubicación: el runtime en profundidad](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Para obtener más información, vea estos otros artículos:
 
 El runtime de la versión preliminar de Azure Logic Apps usa la extensibilidad de [Azure Functions](../azure-functions/functions-overview.md) y se hospeda como una extensión en el runtime de Azure Functions. Esta arquitectura significa que el nuevo tipo de aplicación lógica se puede ejecutar en cualquier ubicación en donde se ejecute Azure Functions. Puede hospedar el runtime de la versión preliminar de Azure Logic Apps prácticamente en cualquier topología de red que quiera y elegir cualquier tamaño de proceso disponible para controlar la carga de trabajo que necesita el flujo de trabajo. Para obtener más información sobre la extensibilidad de Azure Functions, vea [SDK de WebJobs: Creación de enlaces de entrada y salida personalizados](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Con este nuevo enfoque, tanto el runtime de la versión preliminar de Azure Logic Apps como los flujos de trabajo forman parte de la aplicación que se puede empaquetar. Esta capacidad permite implementar y ejecutar los flujos de trabajo con solo copiar artefactos en el entorno de hospedaje e iniciar la aplicación. Este enfoque además proporciona una experiencia más normalizada para compilar canalizaciones de DevOps en torno a los proyectos de flujo de trabajo para ejecutar las pruebas y validaciones necesarias antes de implementar cambios en entornos de producción. Para obtener más información, vea [Azure Logic Apps en ejecución en cualquier ubicación: el runtime en profundidad](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Con este nuevo enfoque, tanto el runtime de la versión preliminar de Azure Logic Apps como los flujos de trabajo forman parte de la aplicación que se puede empaquetar. Esta capacidad permite implementar y ejecutar los flujos de trabajo con solo copiar artefactos en el entorno de hospedaje e iniciar la aplicación. Este enfoque además proporciona una experiencia más normalizada para compilar canalizaciones de implementación en torno a los proyectos de flujo de trabajo para ejecutar las pruebas y validaciones necesarias antes de implementar cambios en entornos de producción. Para obtener más información, vea [Azure Logic Apps en ejecución en cualquier ubicación: el runtime en profundidad](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 En la tabla siguiente se resumen brevemente las diferencias en la manera en que los flujos de trabajo comparten recursos, en función del entorno en el que se ejecutan. Para conocer las diferencias en cuanto a los límites, vea [Límites de la versión preliminar de Azure Logic Apps](#limits).
 
@@ -139,10 +139,17 @@ La versión preliminar de Azure Logic Apps incluye muchas capacidades actuales y
 
 * Habilite las capacidades de registro de diagnóstico y seguimiento de la aplicación lógica mediante [Application Insights](../azure-monitor/app/app-insights-overview.md) cuando lo admitan la configuración de la aplicación lógica y la suscripción de Azure.
 
+* Con el [plan prémium de Azure Functions](../azure-functions/functions-premium-plan.md) puede acceder a funcionalidades de red, como la conexión e integración de forma privada con redes virtuales de Azure, de manera similar a Azure Functions al crear e implementar las aplicaciones lógicas. Para obtener más información, consulte estos temas:
+
+  * [Opciones de redes de Azure Functions](../azure-functions/functions-networking-options.md)
+
+  * [Azure Logic Apps en ejecución en cualquier ubicación: posibilidades de conexión de red con Azure Logic Apps (versión preliminar)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Regenere las claves de acceso para las conexiones administradas usadas por flujos de trabajo individuales en un recurso de **aplicación lógica (versión preliminar)** recurso. Para esta tarea, [siga los mismos pasos para el recurso **Logic Apps**, pero en el nivel de flujo de trabajo individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), no en el nivel de recursos de la aplicación lógica.
 
-> [!NOTE]
-> Para obtener información sobre los problemas conocidos actuales, vea la [página de problemas conocidos de la versión preliminar pública de Logic Apps en GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Agregue ramas paralelas en el nuevo diseñador con los mismos pasos que el diseñador que no es de la versión preliminar.
+ 
+Para más información, consulte [Funcionalidades modificadas, limitadas, no disponibles e incompatibles](#limited-unavailable-unsupported) y la [página de problemas conocidos de la versión preliminar pública de Logic Apps en GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o
 
 * **Compatibilidad con SO**: Actualmente, el diseñador de Visual Studio Code no funciona en el sistema operativo Linux, pero puede implementar aplicaciones lógicas que usan el entorno en tiempo de ejecución de la versión preliminar de Logic Apps en máquinas virtuales basadas en Linux. Por ahora, puede compilar las aplicaciones lógicas en Visual Studio Code en Windows o macOS y, luego, implementarlas en una máquina virtual basada en Linux.
 
-* **Desencadenadores y acciones**: algunos desencadenadores integrados no están disponibles, como Ventana deslizante y Lote. Para iniciar el flujo de trabajo, use el [desencadenador integrado Solicitud, HTTP, HTTP Webhook, Event Hubs o Service Bus](../connectors/apis-list.md). Los desencadenadores y las acciones integrados se ejecutan de forma nativa en el runtime de la versión preliminar de Azure Logic Apps, mientras que los conectores administrados se implementan en Azure. En el diseñador, las acciones y los desencadenadores integrados aparecen en la pestaña **Integrados**, mientras que las acciones y los desencadenadores de los conectores administrados aparecen en la pestaña **Azure**.
+* **Desencadenadores y acciones**: los desencadenadores y las acciones integrados se ejecutan de forma nativa en el runtime de la versión preliminar de Azure Logic Apps, mientras que los conectores administrados se implementan en Azure. algunos desencadenadores integrados no están disponibles, como Ventana deslizante y Lote.
+
+  Para iniciar el flujo de trabajo, use el [desencadenador integrado Solicitud, HTTP, HTTP Webhook, Event Hubs o Service Bus](../connectors/apis-list.md). En el diseñador, las acciones y los desencadenadores integrados aparecen en la pestaña **Integrados**, mientras que las acciones y los desencadenadores de los conectores administrados aparecen en la pestaña **Azure**.
 
   > [!NOTE]
   > Para ejecutar localmente en Visual Studio Code, los desencadenadores y las acciones basados en webhook requieren configuración adicional. Para obtener más información, vea [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
@@ -199,11 +208,11 @@ En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o
 
       * Las acciones de Operaciones de código en línea ya no requieren ninguna cuenta de integración.
 
-      * Si usa macOS o Linux, **Operaciones de código en línea** no está disponible si se emplea la extensión Azure Logic Apps (versión preliminar) en Visual Studio Code.
+      * Para macOS o Linux, **Operaciones de código en línea** ya está disponible si se emplea la extensión Azure Logic Apps (versión preliminar) en Visual Studio Code.
 
-      * Si realiza cambios en una acción de Operaciones de código en línea, debe reiniciar la aplicación lógica.
+      * Si realiza cambios en una acción de **Operaciones de código en línea**, ya no será necesario reiniciar la aplicación lógica.
 
-      * Las acciones de Operaciones de código en línea tienen [límites actualizados](logic-apps-overview-preview.md#inline-code-limits).
+      * Las acciones de **Operaciones de código** en línea tienen [límites actualizados](logic-apps-overview-preview.md#inline-code-limits).
 
     * Algunos [desencadenadores y acciones de B2B integrados de las cuentas de integración](../connectors/apis-list.md#integration-account-connectors) no están disponibles, por ejemplo, las acciones de codificación y descodificación **Archivo plano**.
 
@@ -211,17 +220,15 @@ En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o
 
 * **Disponibilidad del plan de hospedaje**: tanto si crea un nuevo tipo de recurso de **Logic App (versión preliminar)** en Azure Portal como si implementa desde Visual Studio Code, solo puede usar el plan de hospedaje de App Service o Premium de Azure. Los planes de hospedaje de consumo no son compatibles ni están disponibles para implementar este tipo de recurso. Puede implementar desde Visual Studio Code en un contenedor de Docker, pero no en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Ramas paralelas**: actualmente no se pueden agregar ramas paralelas por medio de la nueva experiencia del diseñador. Pero puede seguir agregando estas ramas por medio de la experiencia del diseñador original y hacer que aparezcan en el nuevo diseñador.
-
-  1. En la parte inferior del diseñador, deshabilite la nueva experiencia mediante la selección del control **Nuevo lienzo**.
-
-  1. Agregue las ramas paralelas al flujo de trabajo.
-
-  1. Habilite la nueva experiencia mediante la selección del control **Nuevo lienzo** de nuevo.
+* **Depuración de puntos de interrupción en Visual Studio Code**: aunque puede agregar y usar puntos de interrupción dentro del archivo **workflow.json** de un flujo de trabajo, los puntos de interrupción solo se admiten en las acciones en este momento, no en los desencadenadores. Para obtener más información, vea [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Control de zoom**: el control de zoom no está disponible actualmente en el diseñador.
 
-* **Depuración de puntos de interrupción en Visual Studio Code**: aunque puede agregar y usar puntos de interrupción dentro del archivo **workflow.json** de un flujo de trabajo, los puntos de interrupción solo se admiten en las acciones en este momento, no en los desencadenadores. Para obtener más información, vea [Creación de flujos de trabajo con y sin estado en Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* **Historial de desencadenadores e historial de ejecución**: para el tipo de recurso **Logic App (versión preliminar)** , el historial de desencadenadores y el historial de ejecución en Azure Portal aparecen en el nivel del flujo de trabajo, no en el nivel de la aplicación lógica. Para encontrar estos datos históricos, siga estos pasos:
+
+   * Para ver el historial de ejecución, abra el flujo de trabajo en la aplicación lógica. En el menú del flujo de trabajo, en **Programador**, seleccione **Pantalla**.
+
+   * Para ver el historial de desencadenadores, abra el flujo de trabajo en la aplicación lógica. En el menú del flujo de trabajo, en **Programador**, seleccione **Historiales del desencadenador**.
 
 <a name="limits"></a>
 
