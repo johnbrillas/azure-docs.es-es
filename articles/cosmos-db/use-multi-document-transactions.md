@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692477"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>Uso de transacciones de varios documentos en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ Las transacciones de varios documentos siguen la semántica **ACAD**:
 
 ## <a name="requirements"></a>Requisitos
 
-Las transacciones de varios documentos se admiten en una colección no particionada de la versión 4.0. Las transacciones de varios documentos no se admiten en colecciones ni en colecciones con particiones.
+Las transacciones de varios documentos se admiten en una colección no particionada de la versión 4.0 de la API. Las transacciones de varios documentos no se admiten en colecciones ni en colecciones con particiones en la versión 4.0. El tiempo de espera de las transacciones es un valor fijo de 5 segundos.
 
 Todos los controladores que admiten la versión 4.0 o posteriores del protocolo de conexión admitirán las transacciones de varios documentos de la API de Azure Cosmos DB para MongoDB.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>Ejecución de transacciones de varios documentos en el shell de MongoDB
+> [!Note]
+> Este ejemplo no funciona en la versión beta de MongoSH (shell) insertada en MongoDB Compass.
 
 1. Abra un símbolo del sistema, vaya al directorio donde está instalada la versión 4.0 y posteriores del shell de Mongo:
 

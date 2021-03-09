@@ -1,22 +1,22 @@
 ---
 title: Visualización de la secuencia de vídeo RTSP de Azure Percept DK
-description: Aprenda a ver la secuencia de vídeo RTSP desde el módulo de sistema de visión de Azure Percept DK
+description: Aprenda a ver la secuencia de vídeo RTSP desde Azure Percept DK.
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 20fb8495e17d4294351a50c3bc97436de9f03450
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5f77e99dc5c34867fef2b0ac47c709824fa4477d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660564"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096010"
 ---
 # <a name="view-your-azure-percept-dks-rtsp-video-stream"></a>Visualización de la secuencia de vídeo RTSP de Azure Percept DK
 
-Siga esta guía para ver la secuencia de vídeo RTSP desde el módulo de sistema de visión de Azure Percept DK en Azure Percept Studio. La inferencia de los modelos de inteligencia artificial de visión implementados en el dispositivo se podrá ver en el flujo de web.
+Siga esta guía para ver la secuencia de vídeo RTSP desde el dispositivo Azure Percept DK en Azure Percept Studio. La inferencia de los modelos de inteligencia artificial de visión implementados en el dispositivo se podrá ver en la secuencia web.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -36,15 +36,15 @@ Siga esta guía para ver la secuencia de vídeo RTSP desde el módulo de sistema
 
 1. Seleccione el kit de desarrollo de la lista.
 
-    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Pantalla de información general de Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Captura de pantalla de los dispositivos disponibles en Azure Percept Studio.":::
 
 1. Haga clic en **Ver el flujo del dispositivo**.
 
-    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Pantalla de información general de Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Captura de pantalla de la página del dispositivo que muestra las acciones disponibles del proyecto de visión.":::
 
-    Se abrirá una pestaña independiente que muestra el flujo de web en directo desde el módulo de sistema de visión de Azure Percept DK.
+    Se abrirá una pestaña independiente que muestra la secuencia web en directo desde el dispositivo Azure Percept DK.
 
-    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Pantalla de información general de Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Captura de pantalla de la secuencia web del dispositivo.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8d150228be2cf6deff3bc2fd0a0599cca70d24ac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8dda18271de9b7d65246f0882ee7a68191031c05
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660576"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096622"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>Conexión de Azure Percept DK a través de SSH
 
@@ -25,6 +25,7 @@ Siga los pasos que se indican a continuación para configurar una conexión SSH 
     - Si el equipo host ejecuta Windows, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) es un cliente SSH efectivo y se utilizará a lo largo de esta guía.
     - Si el equipo host ejecuta Linux u OS X, los servicios SSH están incluidos en esos sistemas operativos y se pueden ejecutar sin una aplicación cliente independiente. Consulte la documentación del producto del sistema operativo para más información sobre cómo ejecutar servicios SSH.
 - Azure Percept DK
+- Configurar una cuenta de inicio de sesión de SSH durante la [experiencia de incorporación de Azure Percept DK](./quickstart-percept-dk-set-up.md)
 
 ## <a name="initiate-the-ssh-connection"></a>Iniciar la conexión SSH
 
@@ -48,15 +49,8 @@ Siga los pasos que se indican a continuación para configurar una conexión SSH 
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="Imagen.":::
 
-1. Inicie sesión en el terminal de PuTTY. Si ha configurado un nombre de usuario y una contraseña de SSH durante la configuración rápida, escriba esas credenciales de inicio de sesión cuando se le solicite. En caso contrario, escriba lo siguiente:  
-
-    1. login as: root
-    1. Contraseña: p@ssw0rd
-
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="Ventana de terminal de PuTTY.":::  
+1. Inicie sesión en el terminal PuTTY con el nombre de usuario y la contraseña de SSH creados durante la experiencia de incorporación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de conectarse correctamente a Azure Percept DK mediante SSH, puede realizar una serie de tareas, entre las que se incluyen la solución de problemas, las actualizaciones de USB y la ejecución de DiagTool o SoftAP Tool.
-
-
