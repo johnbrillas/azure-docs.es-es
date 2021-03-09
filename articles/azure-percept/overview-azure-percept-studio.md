@@ -7,16 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: d850b47078f504b8ccb23d8c0a43811e99dc71d8
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7650e80273567a693c3566fede068678b3cc5b17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098356"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179415"
 ---
 # <a name="azure-percept-studio-overview"></a>Introducción a Azure Percept Studio
 
-Azure Percept Studio es el único punto de inicio para crear soluciones y modelos de inteligencia artificial perimetral. Le permite detectar y completar flujos de trabajo guiados que facilitan la integración de hardware compatible con la tecnología de inteligencia artificial perimetral y los potentes servicios en la nube de IoT y Azure AI.
+[Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) es el único punto de inicio para crear soluciones y modelos de inteligencia artificial perimetral. Le permite detectar y completar flujos de trabajo guiados que facilitan la integración de hardware compatible con la tecnología de inteligencia artificial perimetral y los potentes servicios en la nube de IoT y Azure AI.
 
 En Studio, puede ver los dispositivos compatibles con la tecnología de inteligencia artificial perimetral como puntos de conexión para recopilar datos de entrenamiento iniciales y continuos, así como destinos de implementación para las iteraciones del modelo. El acceso a los dispositivos y los datos de entrenamiento permite el desarrollo rápido de prototipos y el desarrollo de modelos iterativos de inteligencia artificial perimetral para escenarios de [visión](./tutorial-nocode-vision.md) y [voz](./tutorial-no-code-speech.md).
 
@@ -32,8 +32,7 @@ Independientemente de si es un principiante o un desarrollador avanzado de soluc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-<!-- [here](https://go.microsoft.com/fwlink/?linkid=2135819). -->
-
+- Consulte Azure Percept Studio [aquí](https://go.microsoft.com/fwlink/?linkid=2135819).
 - Consiga Azure Percept DK y el accesorio Azure Percept audio en la [tienda en línea de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 - Complete la [guía de inicio rápido](./quickstart-percept-dk-set-up.md) de configuración de Azure Percept DK.
 - Pruebe los tutoriales para crear soluciones de [visión](./tutorial-nocode-vision.md) y [voz](./tutorial-no-code-speech.md) sin código.

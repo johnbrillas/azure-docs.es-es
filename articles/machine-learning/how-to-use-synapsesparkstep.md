@@ -1,25 +1,25 @@
 ---
 title: Uso de Apache Spark en una canalización de aprendizaje automático (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Vincule el área de trabajo de Synapse a la canalización de aprendizaje automático de Azure para manipular los datos con Spark.
+description: Vincule el área de trabajo de Azure Synapse Analytics a la canalización de Azure Machine Learning para manipular los datos con Apache Spark.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a912bc5abcdadf3f8eca46f805c433d3a1058c68
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660755"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203698"
 ---
-# <a name="how-to-use-apache-spark-in-your-machine-learning-pipeline-with-azure-synapse-preview"></a>Uso de Apache Spark en la canalización de aprendizaje automático con Azure Synapse (versión preliminar)
+# <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
-En este artículo, aprenderá a usar grupos de Apache Spark respaldados por Synapse como destino de proceso en un paso de preparación de datos en una canalización de Azure Machine Learning. Aprenderá cómo una sola canalización puede usar recursos de proceso adecuados para el paso concreto, como la preparación de datos o el entrenamiento. Verá cómo se preparan los datos para el paso con Spark y cómo se pasan al paso siguiente. 
+En este artículo, aprenderá a usar grupos de Apache Spark con tecnología de Azure Synapse Analytics como destino de proceso en un paso de preparación de datos en una canalización de Azure Machine Learning. Aprenderá cómo una sola canalización puede usar recursos de proceso adecuados para el paso concreto, como la preparación de datos o el entrenamiento. Verá cómo se preparan los datos para el paso con Spark y cómo se pasan al paso siguiente. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -27,27 +27,27 @@ En este artículo, aprenderá a usar grupos de Apache Spark respaldados por Syna
 
 * [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) con el SDK ya instalado.
 
-* Cree un área de trabajo de Synapse y un grupo de Apache Spark (consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
+* Cree un área de trabajo de Azure Synapse Analytics y un grupo de Apache Spark (consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
 
-## <a name="link-your-machine-learning-workspace-and-synapse-workspace"></a>Vinculación del área de trabajo de aprendizaje automático y el área de trabajo de Synapse 
+## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Vinculación del área de trabajo de Azure Machine Learning y el área de trabajo de Azure Synapse Analytics 
 
-Los grupos de Apache Spark se crean y administran en las áreas de trabajo de Synapse. Para integrar un grupo de Spark con un área de trabajo de Azure Machine Learning, debe crear un vínculo al área de trabajo de Synapse. 
+Los grupos de Apache Spark se crean y administran en las áreas de trabajo de Azure Synapse Analytics. Para integrar un grupo de Apache Spark en un área de trabajo de Azure Machine Learning, debe crear un vínculo al área de trabajo de Azure Synapse Analytics. 
 
-Puede asociar un grupo de Synapse Spark a través de la interfaz de usuario de Azure Machine Learning Studio mediante la página **Servicios vinculados**. También puede hacerlo a través de la página **Proceso** con la opción **Attach compute** (Asociar proceso).
+Puede conectar un grupo de Apache Spark a través de la interfaz de usuario de Estudio de Azure Machine Learning mediante la página **Servicios vinculados**. También puede hacerlo a través de la página **Proceso** con la opción **Attach compute** (Asociar proceso).
 
-Asimismo, puede asociar un grupo de Synapse Spark a través del SDK (como se muestra a continuación) o a través de una plantilla de Resource Manager (consulte esta [plantilla de Resource Manager de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+Asimismo, puede conectar un grupo de Apache Spark a través del SDK (como se muestra a continuación) o a través de una plantilla de ARM (consulte esta [plantilla de ARM de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
 
-Puede usar la línea de comandos para seguir la plantilla de Resource Manager, agregar el servicio vinculado y asociar el grupo de Synapse con el código siguiente:
+Puede usar la línea de comandos para seguir la plantilla de ARM, agregar el servicio vinculado y conectar el grupo de Apache Spark con el código siguiente:
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> Para vincular correctamente el área de trabajo de Synapse, debe tener el rol de propietario en el recurso del área de trabajo de Synapse. Compruebe el acceso en Azure Portal.
+> Para vincular correctamente el área de trabajo de Azure Synapse Analytics, hay que tener el rol de propietario en el recurso de dicha área de trabajo. Compruebe el acceso en Azure Portal.
 > El servicio vinculado recibirá una identidad asignada por el sistema (SAI) al crearlo. A esta SAI del servicio vinculado se le debe asignar el rol "Administrador de Apache Spark de Synapse" desde Synapse Studio para que pueda enviar el trabajo de Spark (consulte [Administración de asignaciones de roles de RBAC de Synapse en Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). También debe proporcionar al usuario del área de trabajo de Azure Machine Learning el rol "colaborador" desde el portal de administración de recursos de Azure.
 
-## <a name="create-or-retrieve-the-link-between-your-synapse-workspace-and-your-azure-machine-learning-workspace"></a>Creación o recuperación del vínculo entre el área de trabajo de Synapse y el área de trabajo de Azure Machine Learning
+## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Creación o recuperación del vínculo entre el área de trabajo de Azure Synapse Analytics y el área de trabajo de Azure Machine Learning
 
 Puede recuperar los servicios vinculados del área de trabajo con código como el siguiente:
 
@@ -65,9 +65,9 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 En primer lugar, `Workspace.from_config()` accede al área de trabajo de Azure Machine Learning mediante la configuración de `config.json` (consulte [Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)). Luego, el código imprime todos los servicios vinculados disponibles en el área de trabajo. Finalmente, `LinkedService.get()` recupera un servicio vinculado denominado `'synapselink1'`. 
 
-## <a name="attach-your-synapse-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Asociación del grupo de Synapse Spark como destino de proceso de Azure Machine Learning
+## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Conexión del grupo de Apache Spark como destino de proceso de Azure Machine Learning
 
-Para usar el grupo de Synapse Spark para realizar un paso de la canalización de aprendizaje automático, debe asociarlo como `ComputeTarget` en el paso de canalización, como se muestra en el código siguiente.
+Para usar el grupo de Apache Spark para realizar un paso de la canalización de aprendizaje automático, debe conectarlo como objeto `ComputeTarget` en el paso de canalización, tal y como se muestra en el código siguiente.
 
 ```python
 from azureml.core.compute import SynapseCompute, ComputeTarget
@@ -85,13 +85,11 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-El primer paso consiste en configurar `SynapseCompute`: El argumento `linked_service` es el objeto `LinkedService` que creó o recuperó en el paso anterior. El argumento `type` debe ser `SynapseSpark`. El argumento `pool_name` de `SynapseCompute.attach_configuration()` debe coincidir con el de un grupo existente en el área de trabajo de Synapse. Para más información sobre cómo crear un grupo de Apache Spark en el área de trabajo de Synapse, consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor con Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). El tipo de `attach_config` es `ComputeTargetAttachConfiguration`.
+El primer paso consiste en configurar `SynapseCompute`: El argumento `linked_service` es el objeto `LinkedService` que creó o recuperó en el paso anterior. El argumento `type` debe ser `SynapseSpark`. El argumento `pool_name` de `SynapseCompute.attach_configuration()` debe coincidir con el de un grupo existente en el área de trabajo de Azure Synapse Analytics. Para obtener más información sobre cómo crear un grupo de Apache Spark en el área de trabajo de Azure Synapse Analytics, consulte [Inicio rápido: Creación de un grupo de Apache Spark sin servidor con Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). El tipo de `attach_config` es `ComputeTargetAttachConfiguration`.
 
 Una vez creada la configuración, se crea un elemento `ComputeTarget` de aprendizaje automático; para ello, se pasan `Workspace`, `ComputeTargetAttachConfiguration` y el nombre con el que quiere hacer referencia al proceso en el área de trabajo de aprendizaje automático. La llamada a `ComputeTarget.attach()` es asincrónica, por lo que el ejemplo se bloquea hasta que se completa la llamada.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Creación de un elemento `SynapseSparkStep` que usa el grupo de Apache Spark vinculado
-
-El [trabajo de Spark del grupo de Synapse Spark](https://github.com/azure/machinelearningnotebooks) del cuaderno de ejemplo define una canalización de aprendizaje automático simple. En primer lugar, el cuaderno define un paso de preparación de los datos con el parámetro `synapse_compute` definido en el paso anterior. Después, define un paso de entrenamiento con un destino de proceso más adecuado para el entrenamiento. El cuaderno de ejemplo usa la base de datos de supervivencia de Titanic para mostrar la entrada y salida de datos; realmente no se limpian los datos ni se crea un modelo predictivo. Dado que no hay ningún entrenamiento real en este ejemplo, el paso de entrenamiento usa un recurso de proceso económico basado en CPU.
 
 Los datos fluyen a una canalización de aprendizaje automático por medio de objetos `DatasetConsumptionConfig`, que pueden contener conjuntos de archivos o datos tabulares. A menudo, los datos proceden de archivos de almacenamiento de blobs de un almacén de datos del área de trabajo. En el código siguiente se muestra código que se usa normalmente para crear una entrada para una canalización de aprendizaje automático:
 
@@ -123,7 +121,7 @@ step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_
 
 En este caso, los datos se almacenarían en `datastore` en un archivo denominado `test` y estarían disponibles en el área de trabajo de aprendizaje automático como `Dataset` con el nombre `registered_dataset`.
 
-Además de los datos, un paso de canalización puede tener dependencias de Python por paso. Los objetos `SynapseSparkStep` individuales también pueden especificar su configuración precisa de Synapse. Este hecho se muestra en el código siguiente, que especifica que la versión del paquete `azureml-core` debe ser `1.20.0` como mínimo. (Como se mencionó anteriormente, este requisito de `azureml-core` es necesario para usar `FileDataset` como entrada).
+Además de los datos, un paso de canalización puede tener dependencias de Python por paso. Los objetos `SynapseSparkStep` individuales también pueden especificar su configuración precisa de Azure Synapse Apache Spark. Este hecho se muestra en el código siguiente, que especifica que la versión del paquete `azureml-core` debe ser `1.20.0` como mínimo. (Como se mencionó anteriormente, este requisito de `azureml-core` es necesario para usar `FileDataset` como entrada).
 
 ```python
 from azureml.core.environment import Environment
@@ -191,7 +189,7 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-Este script de "preparación de datos" no realiza ninguna transformación de datos real, pero muestra cómo recuperarlos, convertirlos en una trama de datos de Spark y cómo manipularlos de forma básica en Spark. Para encontrar la salida en Azure Machine Learning Studio, abra la ejecución secundaria, elija la pestaña **Outputs + logs** (Resultados y registros) y abra el archivo `logs/azureml/driver/stdout`, tal como se muestra en la ilustración siguiente.
+Este script de "preparación de datos" no realiza ninguna transformación de datos real, pero muestra cómo recuperarlos, convertirlos en una trama de datos de Spark y manipularlos de forma básica en Apache Spark. Para encontrar la salida en Azure Machine Learning Studio, abra la ejecución secundaria, elija la pestaña **Outputs + logs** (Resultados y registros) y abra el archivo `logs/azureml/driver/stdout`, tal como se muestra en la ilustración siguiente.
 
 :::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Captura de pantalla de Studio que muestra la pestaña stdout de una ejecución secundaria":::
 
@@ -228,14 +226,14 @@ El código anterior crea el recurso de proceso si es necesario. A continuación,
 
 Una vez que haya definido todos los pasos, puede crear y ejecutar la canalización. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-El código anterior crea una canalización que consta del paso de preparación de datos con Synapse (`step_1`) y el paso de entrenamiento (`step_2`). Azure calcula el grafo de ejecución, para lo cual examina las dependencias de datos entre los pasos. En este caso, solo hay una dependencia sencilla y es que `step2_input` requiere necesariamente `step1_output`.
+El código anterior crea una canalización que consta del paso de preparación de datos en grupos de Apache Spark con tecnología de Azure Synapse Analytics (`step_1`) y el paso de entrenamiento (`step_2`). Azure calcula el grafo de ejecución, para lo cual examina las dependencias de datos entre los pasos. En este caso, solo hay una dependencia sencilla y es que `step2_input` requiere necesariamente `step1_output`.
 
 La llamada a `pipeline.submit` crea, si es necesario, un experimento llamado `synapse-pipeline` e inicia de forma asincrónica una ejecución dentro de él. Los pasos individuales dentro de la canalización se ejecutan como ejecuciones secundarias de esta ejecución principal y se pueden supervisar y revisar en la página Experimentos de Studio.
 

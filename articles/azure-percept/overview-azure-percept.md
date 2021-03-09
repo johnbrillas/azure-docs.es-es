@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: 85b7f3a62324bc93cd78649cd39e0f4dc7d0baed
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3b09253d779679e5a0c4ccd11b4cbd98ee386adc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098203"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179296"
 ---
 # <a name="introduction-to-azure-percept"></a>Introducción a Azure Percept
 
@@ -38,7 +38,7 @@ Los componentes principales de Azure Percept son:
 
 3. Servicios y flujos de trabajo para acelerar el desarrollo de soluciones y modelos de inteligencia artificial perimetral.
 
-    - Flujos de trabajo de desarrollo y modelos pregenerados accesibles desde Azure Percept Studio.
+    - Flujos de trabajo de desarrollo y modelos pregenerados accesibles desde [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Servicios de desarrollo de modelos.
     - Servicios de administración de dispositivos para el escalado.
     - Seguridad global.

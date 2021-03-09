@@ -1,5 +1,5 @@
 ---
-title: Inicio de sesión sin contraseña de Azure Active Directory
+title: Inicio de sesión sin contraseña de Azure Active Directory
 description: Conozca las opciones para el inicio de sesión sin contraseña en Azure Active Directory con las claves de seguridad FIDO2 o la aplicación Microsoft Authenticator.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647564"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096027"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -89,6 +89,8 @@ Las claves de seguridad FIDO2 son un método de autenticación sin contraseña b
 Los usuarios pueden registrarse y luego seleccionar una llave de seguridad de FIDO2 en la interfaz de inicio de sesión como medio principal de autenticación. Estas llaves de seguridad de FIDO2 suelen ser dispositivos USB, pero también pueden usar Bluetooth o NFC. Con un dispositivo de hardware que controla la autenticación, se aumenta la seguridad de una cuenta, ya que no hay ninguna contraseña que pueda quedar expuesta ni adivinarse.
 
 Las claves de seguridad FIDO2 se pueden usar para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD o Azure AD híbrido y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
+
+Disponemos de un documento de referencia sobre los [exploradores que admiten la autenticación FIDO2 con Azure AD](fido2-compatibility.md), así como procedimientos recomendados para los desarrolladores que desean [ofrecer compatibilidad con la autenticación FIDO2 en las aplicaciones que desarrollan](../develop/support-fido2-authentication.md).
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

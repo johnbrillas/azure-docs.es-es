@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 588ebde85b6012ddbfb88ca8305fc735b7a0ba41
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 660f03ce248a27a00fdd443964fbdba2fe3adeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097999"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179279"
 ---
 # <a name="azure-percept-audio-setup"></a>Instalación de Azure Percept Audio
 
@@ -42,4 +42,4 @@ Azure Percept Audio está listo para usarse con Azure Percept DK. No es necesar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree una [solución de voz sin código](./tutorial-no-code-speech.md).
+Creación de una [solución de voz sin código](./tutorial-no-code-speech.md) en [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
