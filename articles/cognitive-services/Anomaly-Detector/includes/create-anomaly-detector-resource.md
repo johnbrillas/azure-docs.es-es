@@ -8,20 +8,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 037b9746571678e24e80bd76e7e2ed173ab8eb90
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: feb79d047a6c3b25176a13dcc3c3afd53a51459e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97677614"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445376"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Creación de un recurso de Anomaly Detector
 
-1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-1. Haga clic en <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">Creación de un recurso de Anomaly Detector<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a>.
+1. Haga clic en <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">Creación de un recurso de Anomaly Detector</a>.
 1. Establezca todas las opciones de configuración necesarias:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |--|--|
     |Nombre|Nombre que quiera (2-64 caracteres).|
     |Subscription|Seleccione una suscripción adecuada.|
