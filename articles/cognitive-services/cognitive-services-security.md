@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368787"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425301"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -29,13 +29,13 @@ Todos los puntos de conexión de Cognitive Services expuestos a través de HTTP 
 * El lenguaje (y la plataforma) que se usa para hacer la llamada HTTP tiene que especificar TLS 1.2 como parte de la solicitud
   * En función del lenguaje y la plataforma, la especificación de TLS se realiza de forma implícita o explícita
 
-En el caso de los usuarios de .NET, tenga en cuenta los <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedimientos recomendados de Seguridad de la capa de transporte <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+En el caso de los usuarios de .NET, tenga en cuenta los <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">procedimientos recomendados de Seguridad de la capa de transporte </a>.
 
 ## <a name="authentication"></a>Authentication
 
-Cuando se habla de autenticación, hay varias ideas equivocadas que son habituales. La autenticación y la autorización suelen confundirse. La identidad es también un componente importante de la seguridad. Una identidad es una colección de información sobre una <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidad de seguridad<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los proveedores de identidades (IdP) proporcionan identidades a los servicios de autenticación. La autenticación es el acto de comprobar la identidad de un usuario. La autorización es la especificación de los privilegios y derechos de acceso a los recursos de una identidad determinada. Varias de las ofertas de Cognitive Services incluyen el control de acceso basado en roles de Azure (Azure RBAC). Azure RBAC se puede usar para simplificar una parte del ceremonial implicado en la administración manual de entidades de seguridad. Para obtener más detalles, consulte [Control de acceso basado en roles de Azure para recursos de Azure](../role-based-access-control/overview.md).
+Cuando se habla de autenticación, hay varias ideas equivocadas que son habituales. La autenticación y la autorización suelen confundirse. La identidad es también un componente importante de la seguridad. Una identidad es una colección de información sobre una <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidad de seguridad</a>. Los proveedores de identidades (IdP) proporcionan identidades a los servicios de autenticación. La autenticación es el acto de comprobar la identidad de un usuario. La autorización es la especificación de los privilegios y derechos de acceso a los recursos de una identidad determinada. Varias de las ofertas de Cognitive Services incluyen el control de acceso basado en roles de Azure (Azure RBAC). Azure RBAC se puede usar para simplificar una parte del ceremonial implicado en la administración manual de entidades de seguridad. Para obtener más detalles, consulte [Control de acceso basado en roles de Azure para recursos de Azure](../role-based-access-control/overview.md).
 
-Para más información sobre la autenticación con claves de suscripción, tokens de acceso y Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Autenticación de solicitudes en Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información sobre la autenticación con claves de suscripción, tokens de acceso y Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Autenticación de solicitudes en Azure Cognitive Services</a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Configuración de las variables de entorno y de la aplicación
 
@@ -60,7 +60,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-En una nueva instancia del **símbolo del sistema** , lea la variable de entorno.
+En una nueva instancia del **símbolo del sistema**, lea la variable de entorno.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-En una nueva instancia de **Windows PowerShell** , lea la variable de entorno.
+En una nueva instancia de **Windows PowerShell**, lea la variable de entorno.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-En una nueva instancia de **Bash** , lea la variable de entorno.
+En una nueva instancia de **Bash**, lea la variable de entorno.
 
 ```Bash
 # Prints the env var value
@@ -113,7 +113,7 @@ Para obtener una variable de entorno, se debe leer en memoria. En función del l
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para más información, consulte <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` </a>.
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Para más información, consulte <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` </a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para más información, consulte <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` </a>.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Para más información, consulte <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` </a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -211,7 +211,7 @@ En cuanto a los siguientes servicios, los ingenieros de Microsoft no obtendrán 
 * Personalizer
 
 > [!IMPORTANT]
-> En el caso de **Form Recognizer** , los ingenieros de Microsoft no tendrán acceso a los datos de los clientes en los recursos creados después del 10 de julio de 2020.
+> En el caso de **Form Recognizer**, los ingenieros de Microsoft no tendrán acceso a los datos de los clientes en los recursos creados después del 10 de julio de 2020.
 
 Para solicitar la capacidad de usar la SKU de E0, rellene y envíe este  [formulario de solicitud](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de E0 SKU con LUIS, deberá crear un nuevo recurso desde Azure Portal y seleccionar E0 como el plan de tarifa. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 

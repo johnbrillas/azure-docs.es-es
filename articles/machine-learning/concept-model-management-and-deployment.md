@@ -10,12 +10,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8813b2cad5800bd4ede6e64119117df57c230fdc
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071228"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508017"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -160,7 +160,7 @@ Azure Machine Learning ofrece la capacidad de realizar un seguimiento del regi
 > [!TIP]
 > Aunque parte de la información sobre los modelos y conjuntos de datos se capturan automáticamente, puede agregar información adicional mediante __etiquetas__. Al buscar modelos y conjuntos de datos registrados en el área de trabajo, puede usar etiquetas como filtro.
 >
-> Asociar un conjunto de datos a un modelo registrado es un paso opcional. Para obtener información sobre cómo hacer referencia a un conjunto de datos al registrar un modelo, vea la referencia de clase [Modelo](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py).
+> Asociar un conjunto de datos a un modelo registrado es un paso opcional. Para obtener información sobre cómo hacer referencia a un conjunto de datos al registrar un modelo, vea la referencia de clase [Modelo](/python/api/azureml-core/azureml.core.model%28class%29).
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificación, automatización y alerta sobre eventos en el ciclo de vida de ML

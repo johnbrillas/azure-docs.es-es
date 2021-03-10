@@ -10,12 +10,12 @@ ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: e95c25121d0e8a7e7fb469c0473c35797e4519b9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 60676310f3176c86e2dcb752428eb27730c63fc3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750498"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445340"
 ---
 <a name="HOLTop"></a>
 
@@ -26,7 +26,7 @@ ms.locfileid: "101750498"
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
-[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[Documentación de referencia de v3](/javascript/api/overview/azure/ai-text-analytics-readme) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 ---
@@ -35,7 +35,7 @@ ms.locfileid: "101750498"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * La versión actual de [Node.js](https://nodejs.org/).
-* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 * Para usar la característica Analyze, necesitará un recurso de Text Analytics con un plan de tarifa Estándar (S).

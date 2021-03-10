@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a3d16445c5a4276f07f4ed502b9830a10c4ff72
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656846"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518915"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 
@@ -38,12 +38,12 @@ Puede ver las métricas de desfase de datos con el SDK de Python o en Azure Mach
 > La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear y trabajar con conjuntos de datos, necesita:
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
-* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que incluye el paquete azureml-datasets.
+* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install), que incluye el paquete azureml-datasets.
 * Datos estructurados (tabulares) con una marca de tiempo especificada en la ruta de acceso del archivo, el nombre de archivo o la columna de los datos.
 
 ## <a name="what-is-data-drift"></a>¿Qué es el desfase de datos?
@@ -107,7 +107,7 @@ El conjunto de datos de destino debe tener configurado el rasgo `timeseries` esp
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
 
-El método [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
+El método [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -135,7 +135,7 @@ dset = dset.register(ws, 'target')
 ```
 
 > [!TIP]
-> Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -355,7 +355,7 @@ Limitaciones y problemas conocidos de los monitores de desfase de datos:
     1. En la pestaña **Monitores de conjuntos de datos**, seleccione el vínculo de experimento para comprobar el estado de la ejecución.  El vínculo se encuentra en el extremo derecho de la tabla.
     1. Si la ejecución se completó correctamente, compruebe los registros del controlador para ver el número de métricas que se han generado o si hay algún mensaje de advertencia.  Busque registros de controladores en la pestaña **Output + logs** (Salida y registros) después de hacer clic en un experimento.
 
-* Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
+* Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
 
   ```python
    auth = ServicePrincipalAuthentication(

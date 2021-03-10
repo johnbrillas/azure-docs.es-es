@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762783"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507524"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Uso de Azure Blob Storage para la conversión de modelos
 
@@ -28,7 +28,7 @@ El servicio de [conversión de modelos](model-conversion.md) requiere acceso a A
 La creación de la cuenta de almacenamiento y los contenedores de blobs se pueden realizar con una de las siguientes herramientas:
 
 - [Azure Portal](https://portal.azure.com)
-- [Línea de comandos de az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Línea de comandos de az](/cli/azure/install-azure-cli)
 - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 - SDK (C#, Python...)
 
@@ -52,7 +52,7 @@ Un URI de SAS se puede generar con una de las siguientes opciones:
 
 - Módulo az de PowerShell
   - Consulte los [scripts de PowerShell de ejemplo](../../samples/powershell-example-scripts.md)
-- [Línea de comandos de az](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Línea de comandos de az](/cli/azure/install-azure-cli)
 - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
   - Haga clic con el botón derecho en el contenedor "Obtener firma de acceso compartido" (lectura, acceso de lista al contenedor de entrada, acceso de escritura al contenedor de salida)
 - SDK (C#, Python...)
@@ -65,7 +65,7 @@ Para empezar a convertir un modelo, debe cargarlo mediante una de las siguientes
 
 - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/): una cómoda interfaz de usuario para cargar, descargar y administrar archivos en Azure Blob Storage
 - [Línea de comandos de Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Módulo de Azure PowerShell](/powershell/azure/install-az-ps)
   - Consulte los [scripts de PowerShell de ejemplo](../../samples/powershell-example-scripts.md)
 - [Uso de un SDK de Storage (Python, C#...)](../../../storage/index.yml)
 - [Uso de API REST de Azure Storage](/rest/api/storageservices/blob-service-rest-api)

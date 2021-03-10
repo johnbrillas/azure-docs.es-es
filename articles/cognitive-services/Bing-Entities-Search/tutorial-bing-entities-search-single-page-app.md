@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f2c15221268635ca1892a9292d5b0c208c13dd34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366540"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426814"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Entity Search API le permite buscar en Internet información acerca de *entidades* y *lugares.* Puede solicitar cualquier tipo de resultado, o ambos, en una consulta determinada. Las definiciones de lugares y entidades se proporcionan a continuación.
@@ -68,8 +68,8 @@ Para seguir con el tutorial, necesita claves de suscripción para Bing Search AP
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * Una vez que tenga la suscripción de Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Cree un recurso de Bing Search"  target="_blank">Crear un recurso de Bing Search <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Cree un recurso de Computer Vision"  target="_blank">Crear un recurso de Bing Maps <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Cree un recurso de Bing Search"  target="_blank">Crear un recurso de Bing Search </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Cree un recurso de Computer Vision"  target="_blank">Crear un recurso de Bing Maps </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="app-components"></a>Componentes de la aplicación
 

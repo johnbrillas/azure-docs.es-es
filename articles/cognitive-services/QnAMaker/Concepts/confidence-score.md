@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346382"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214055"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Puntuación de confianza de una respuesta
 Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión.
@@ -53,7 +53,7 @@ Al elegir el umbral, tenga en cuenta el equilibrio entre los valores de Precisi�
 - Si la **Cobertura** (o coincidencia) es más importante y quiere responder a tantas preguntas como sea posible, incluso aunque solo haya una relación parcial con la pregunta del usuario, reduzca el umbral. Esto significa que podría haber más casos en los que el resultado no responde a la consulta en sí del usuario, pero proporciona otra respuesta en cierto modo relacionada. *Por ejemplo:* si crea el umbral **30**, podría dar respuestas a consultas del tipo "¿Dónde puedo editar mi KB?"
 
 > [!NOTE]
-> Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+> Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 ## <a name="set-threshold"></a>Establecimiento del umbral
 
@@ -88,4 +88,4 @@ Si el clasificador no encuentra ninguna buena coincidencia, se devuelve una punt
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Procedimientos recomendados](./best-practices.md)
+> [procedimientos recomendados](./best-practices.md)

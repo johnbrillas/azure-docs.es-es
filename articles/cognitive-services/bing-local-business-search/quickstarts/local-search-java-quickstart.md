@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 8bd2c174456c35da872a0e995333503a72ce7c7a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 09f387eebd48b6e2d72e49a24fc9345817674b35
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493311"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430129"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local Business Search, que es un servicio de Azure Cognitive Services. Aunque esta aplicación sencilla está escrita en Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
@@ -33,7 +33,7 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para 
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * El [kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search</a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="create-the-request"></a>Creación de la solicitud 
 
@@ -91,8 +91,8 @@ import com.google.gson.JsonParser;
 public class LocalSearchCls {
 
     // ***********************************************
-    // **_ Update or verify the following values. _*_
-    // _*********************************************
+    // *** Update or verify the following values. ***
+    // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
         static String subscriptionKey = "YOUR-ACCESS-KEY";

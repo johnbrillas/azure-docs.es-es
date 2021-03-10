@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: e5872b6ab97a47c09081cf9c26fb7f140b110c3f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f33b72a25fc748f8320be8903903f817914733aa
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733455"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455696"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -63,7 +63,7 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Norte de Sudáfrica | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -230,6 +230,8 @@ audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
 audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
 ```
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740001"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508646"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
@@ -339,7 +339,7 @@ Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante VS Code y debugpy, puede conectarse al código que se ejecuta en el contenedor de Docker.
 
 > [!IMPORTANT]
-> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Para obtener más información sobre el uso de Docker, consulte la [Documentación de Docker](https://docs.docker.com/). Tenga en cuenta que, al trabajar con instancias de proceso, Docker ya está instalado.
 

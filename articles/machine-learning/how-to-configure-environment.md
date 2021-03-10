@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 6fe43c39b17e574e1913cd9e7b4292a71f1e418d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031766"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501624"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configuración de un entorno de desarrollo de Python para Azure Machine Learning
 
@@ -55,7 +55,7 @@ El archivo de configuración del área de trabajo es un archivo JSON que le indi
 
 Este archivo JSON debe estar en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal.
 
-Para utilizar este archivo desde el código, utilice el método [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true). Este código carga la información del archivo y se conecta a su área de trabajo.
+Para utilizar este archivo desde el código, utilice el método [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace#from-config-path-none--auth-none---logger-none---file-name-none-). Este código carga la información del archivo y se conecta a su área de trabajo.
 
 Cree un archivo de configuración del área de trabajo con uno de los métodos siguientes:
 
@@ -67,7 +67,7 @@ Cree un archivo de configuración del área de trabajo con uno de los métodos s
 
 * SDK de Python de Azure Machine Learning
 
-    Cree un script para conectarse a su área de trabajo de Azure Machine Learning y use el método [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) para generar el archivo y guárdelo como *.azureml/config.json*. Asegúrese de reemplazar `subscription_id`, `resource_group` y `workspace_name` por sus propios valores.
+    Cree un script para conectarse a su área de trabajo de Azure Machine Learning y use el método [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) para generar el archivo y guárdelo como *.azureml/config.json*. Asegúrese de reemplazar `subscription_id`, `resource_group` y `workspace_name` por sus propios valores.
 
     ```python
     from azureml.core import Workspace
@@ -99,7 +99,7 @@ Para configurar un entorno de desarrollo local o una máquina virtual remota:
     > Si usa Linux o Mac OS y un shell distinto de bash (por ejemplo, zsh), es posible que reciba errores al ejecutar algunos comandos. Para solucionar este problema, use el comando `bash` para iniciar un nuevo shell de bash y ejecutar sus comandos.
 
 1. Active el entorno virtual de Python recién creado.
-1. Instale el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+1. Instale el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/install).
 1. Con el fin de configurar el entorno local para usar el área de trabajo de Azure Machine Learning, [cree un archivo de configuración del área de trabajo](#workspace) o use uno que ya tenga.
 
 Ahora que ha configurado el entorno local, ya podrá empezar a trabajar con Azure Machine Learning. Consulte la [guía de introducción de Azure Machine Learning para Python](tutorial-1st-experiment-sdk-setup-local.md) para comenzar.
@@ -217,4 +217,4 @@ Consulte [Data Science Virtual Machine](https://azure.microsoft.com/services/vir
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenar un modelo](tutorial-train-models-with-aml.md) en Azure Machine Learning con el conjunto de datos de MNIST.
-- Consultar la [referencia del SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 
+- Consultar la [referencia del SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro). 

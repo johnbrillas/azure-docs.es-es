@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692460"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520326"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
 
 
 
-Hay varias maneras de administrar los recursos de Azure Machine Learning. Puede usar el [portal](https://portal.azure.com/), la [interfaz de la línea de comandos](/cli/azure/?preserve-view=true&view=azure-cli-latest) o el [SDK de Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). O bien, puede elegir la API REST. La API REST utiliza verbos HTTP de una manera estándar para crear, recuperar, actualizar y eliminar recursos. La API REST funciona con cualquier lenguaje o herramienta que pueda hacer solicitudes HTTP. La estructura sencilla de REST suele convertirla en una buena opción en entornos de scripting y en la automatización de MLOps. 
+Hay varias maneras de administrar los recursos de Azure Machine Learning. Puede usar el [portal](https://portal.azure.com/), la [interfaz de la línea de comandos](/cli/azure) o el [SDK de Python](/python/api/overview/azure/ml/intro). O bien, puede elegir la API REST. La API REST utiliza verbos HTTP de una manera estándar para crear, recuperar, actualizar y eliminar recursos. La API REST funciona con cualquier lenguaje o herramienta que pueda hacer solicitudes HTTP. La estructura sencilla de REST suele convertirla en una buena opción en entornos de scripting y en la automatización de MLOps. 
 
 En este artículo aprenderá a:
 

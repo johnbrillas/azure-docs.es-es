@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53f09dd042543ebc433e9d9cbbd65db332e8fb6d
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009762"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518218"
 ---
 # <a name="example-powershell-scripts"></a>Scripts de PowerShell de ejemplo
 
@@ -36,7 +36,7 @@ Para ejecutar los scripts de ejemplo, necesita una configuración funcional de [
     1. Abra una ventana de PowerShell con derechos de administrador.
     1. Ejecute `Install-Module -Name Az -AllowClobber`.
 
-1. Si recibe errores en la ejecución de scripts, asegúrese de que la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está establecida correctamente:
+1. Si recibe errores en la ejecución de scripts, asegúrese de que la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies) está establecida correctamente:
     1. Abra una ventana de PowerShell con derechos de administrador.
     1. Ejecute `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`.
 

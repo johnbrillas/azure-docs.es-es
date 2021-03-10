@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420876"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508493"
 ---
 # <a name="convert-to-dataset"></a>Convertir conjunto de datos
 
@@ -35,7 +35,7 @@ Le recomendamos usar el módulo [Edit Metadata](edit-metadata.md) (Editar metada
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
 
-    Siempre y cuando los datos sean [tabulares](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), puede convertirlos en un conjunto de datos. Esto incluye los datos cargados con [Importar datos](import-data.md), los datos creados con la [Introducción manual de datos](enter-data-manually.md), o los conjuntos de datos transformados con [Aplicar transformación](apply-transformation.md).
+    Siempre y cuando los datos sean [tabulares](/python/api/azureml-core/azureml.data.tabulardataset), puede convertirlos en un conjunto de datos. Esto incluye los datos cargados con [Importar datos](import-data.md), los datos creados con la [Introducción manual de datos](enter-data-manually.md), o los conjuntos de datos transformados con [Aplicar transformación](apply-transformation.md).
 
 3.  En la lista desplegable **Acción**, indique si desea realizar alguna limpieza en los datos antes de guardar el conjunto de datos:  
   

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987985"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214752"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeamiento de la aplicación de QnA Maker
 
@@ -177,7 +177,7 @@ Hay una [clasificación de las respuestas en dos fases](query-knowledge-base.md#
 
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-Aplique las [actualizaciones del runtime más recientes](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para administrar automáticamente las actualizaciones de servicio.
+Aplique las [actualizaciones del runtime más recientes](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) para administrar automáticamente las actualizaciones de servicio.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 
@@ -187,7 +187,7 @@ En QnA Maker administrado (versión preliminar), el runtime lo administra el pro
 
 ### <a name="scaling-throughput-and-resiliency"></a>Escalado, rendimiento y resistencia
 
-El escalado, el rendimiento y la resistencia se determinan mediante los [recursos de Azure](../how-to/set-up-qnamaker-service-azure.md), los planes de tarifa y cualquier arquitectura circundante, como [Traffic Manager](../how-to/set-up-qnamaker-service-azure.md#business-continuity-with-traffic-manager).
+El escalado, el rendimiento y la resistencia se determinan mediante los [recursos de Azure](../how-to/set-up-qnamaker-service-azure.md), los planes de tarifa y cualquier arquitectura circundante, como [Traffic Manager](../how-to/configure-QnA-Maker-resources.md#business-continuity-with-traffic-manager).
 
 ### <a name="analytics-with-application-insights"></a>Análisis con Application Insights
 

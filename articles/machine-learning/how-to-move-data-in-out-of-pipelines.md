@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 8f1cea6e9bc833c6d441c39c401f60d872cd9099
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174944"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518711"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -36,7 +36,7 @@ Necesitará:
 
 - Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-- [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
+- [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Un área de trabajo de Azure Machine Learning.
   
@@ -55,7 +55,7 @@ Necesitará:
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Uso de objetos `Dataset` para los datos ya existentes 
 
-La mejor manera de ingerir datos en una canalización es utilizar un objeto [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py). Los objetos `Dataset` representan datos persistentes disponibles en todo el área de trabajo.
+La mejor manera de ingerir datos en una canalización es utilizar un objeto [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29). Los objetos `Dataset` representan datos persistentes disponibles en todo el área de trabajo.
 
 Hay muchas maneras de crear y registrar objetos `Dataset`. Los conjuntos de datos tabulares son para los datos delimitados disponibles en uno o varios archivos. Los conjuntos de datos de archivos son para datos binarios (como imágenes) o para datos que se van a analizar. Las formas más sencillas de crear objetos `Dataset` mediante programación consisten en usar los blobs existentes en el almacenamiento del área de trabajo o en direcciones URL públicas:
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Uso de `OutputFileDatasetConfig` para los datos intermedios
 
-Mientras que los objetos `Dataset` representan solo datos persistentes, los objetos [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) se usan para la salida de datos temporales de los pasos de la canalización **y** los datos de salida persistentes. `OutputFileDatasetConfig` admite la escritura de datos en el almacenamiento de blobs, fileshare, adlsgen1 o adlsgen2. Además, admite el modo de montaje y el modo de carga. En el modo de montaje, los archivos escritos en el directorio montado se almacenan de manera permanente cuando se cierra el archivo. En el modo de carga, los archivos escritos en el directorio de salida se cargan al final del trabajo. Si se produce un error en el trabajo o se cancela, el directorio de salida no se cargará.
+Mientras que los objetos `Dataset` representan solo datos persistentes, los objetos [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) se usan para la salida de datos temporales de los pasos de la canalización **y** los datos de salida persistentes. `OutputFileDatasetConfig` admite la escritura de datos en el almacenamiento de blobs, fileshare, adlsgen1 o adlsgen2. Además, admite el modo de montaje y el modo de carga. En el modo de montaje, los archivos escritos en el directorio montado se almacenan de manera permanente cuando se cierra el archivo. En el modo de carga, los archivos escritos en el directorio de salida se cargan al final del trabajo. Si se produce un error en el trabajo o se cancela, el directorio de salida no se cargará.
 
  El comportamiento predeterminado del objeto `OutputFileDatasetConfig` consiste en escribir en el almacén de datos predeterminado del área de trabajo. Pase los objetos `OutputFileDatasetConfig` a `PythonScriptStep` con el parámetro `arguments`.
 

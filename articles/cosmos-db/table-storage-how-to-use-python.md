@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 341615bf8fe231eafa606411948ad014399b8261
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 12ee827f297729682b0a5e1b1808afe312c657a4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079553"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499074"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante Python
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -35,7 +35,7 @@ En este ejemplo se muestra cómo usar el [SDK de Table de Azure Cosmos DB para P
 * Insertar y consultar entidades
 * Modificar entidades
 
-Se recomienda que consulte la [referencia de la API del SDK de Azure Cosmos DB para Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python) mientras trabaja con los escenarios de este ejemplo.
+Se recomienda que consulte la [referencia de la API del SDK de Azure Cosmos DB para Python](/python/api/overview/azure/cosmosdb) mientras trabaja con los escenarios de este ejemplo.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -205,7 +205,7 @@ for task in tasks:
 
 ## <a name="query-a-subset-of-entity-properties"></a>Consulta de un subconjunto de propiedades de las entidades
 
-También puede restringir qué propiedades se devuelven para cada entidad en una consulta. Esta técnica, denominada *proyección* , reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades o conjuntos de resultados de gran tamaño. Use el parámetro **select** y pase los nombres de las propiedades que desea que se devuelvan al cliente.
+También puede restringir qué propiedades se devuelven para cada entidad en una consulta. Esta técnica, denominada *proyección*, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades o conjuntos de resultados de gran tamaño. Use el parámetro **select** y pase los nombres de las propiedades que desea que se devuelvan al cliente.
 
 La consulta del código siguiente devuelve solo las descripciones de las entidades de la tabla.
 
@@ -238,22 +238,22 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Preguntas más frecuentes sobre desarrollo con Table API](./faq.md)
-* [Referencia de la API del SDK de Azure Cosmos DB para Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)
+* [Referencia de la API del SDK de Azure Cosmos DB para Python](/python/api/overview/azure/cosmosdb)
 * [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): una aplicación gratuita y multiplataforma para trabajar visualmente con datos de Azure Storage en Windows, Mac OS y Linux.
 * [Uso de Python en Visual Studio (Windows)](/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 
 
-[py_commit_batch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_create_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_delete_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_get_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_insert_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_insert_or_replace_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_Entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity?preserve-view=true&view=azure-python
-[py_merge_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
-[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python&preserve-view=true
+[py_commit_batch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_create_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_delete_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_get_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_insert_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_insert_or_replace_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_Entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity
+[py_merge_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice

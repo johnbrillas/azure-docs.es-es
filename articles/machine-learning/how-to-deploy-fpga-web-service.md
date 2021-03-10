@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 9e43291325510f92f2e5fd6c07cdb9257fdede9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033075"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519323"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementación de modelos de ML en matrices de puertas programables (FPGA) con Azure Machine Learning 
 
-En este artículo, obtendrá información sobre las matrices FPGA y sobre cómo implementar los modelos de ML en una matriz FPGA de Azure mediante el [paquete de Python de modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) desde [Azure Machine Learning](overview-what-is-azure-ml.md).
+En este artículo, obtendrá información sobre las matrices FPGA y sobre cómo implementar los modelos de ML en una matriz FPGA de Azure mediante el [paquete de Python de modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel) desde [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## <a name="what-are-fpgas"></a>¿Qué son las FPGA?
 Las FPGA contienen una matriz de bloques de lógica programables y una jerarquía de interconexiones reconfigurables. Las interconexiones permiten que estos bloques se configuren de distintas maneras después de su fabricación. Las FPGA ofrecen una combinación de capacidad de programación y rendimiento en comparación con otros chips. 
@@ -56,7 +56,7 @@ La **familia PBS de máquinas virtuales de Azure** contiene matrices FPGA Intel 
 
 ## <a name="deploy-models-on-fpgas"></a>Implementación de modelos en FPGA
 
-Puede implementar un modelo como servicio web en FPGA con [modelos acelerados mediante hardware de Azure Machine Learning](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). El uso de las FPGA brinda una inferencia de latencia ultrabaja, incluso con un tamaño de lote único. 
+Puede implementar un modelo como servicio web en FPGA con [modelos acelerados mediante hardware de Azure Machine Learning](/python/api/azureml-accel-models/azureml.accel). El uso de las FPGA brinda una inferencia de latencia ultrabaja, incluso con un tamaño de lote único. 
 
 En este ejemplo, se crea un gráfico de TensorFlow para preprocesar la imagen de entrada, se caracteriza mediante ResNet 50 en una FPGA y, a continuación, se ejecutan las características mediante un clasificador entrenado en el conjunto de datos de ImageNet. A continuación, el modelo se implementa en un clúster de AKS.
 
@@ -68,7 +68,7 @@ En este ejemplo, se crea un gráfico de TensorFlow para preprocesar la imagen de
  
 - El paquete de modelos acelerados mediante hardware: `pip install --upgrade azureml-accel-models[cpu]`    
     
-- La [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- La [CLI de Azure](/cli/azure/install-azure-cli)
 
 - Cuota de FPGA. Envíe una [solicitud de cuota](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u) o ejecute este comando de la CLI para comprobar la cuota: 
 
@@ -80,7 +80,7 @@ En este ejemplo, se crea un gráfico de TensorFlow para preprocesar la imagen de
 
 ### <a name="define-the-tensorflow-model"></a>Definir el modelo de TensorFlow
 
-Empiece usando el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) para crear una definición de servicio. Una definición de servicio es un archivo que describe una canalización de grafos (entrada, caracterizador y clasificador) basado en TensorFlow. El comando de implementación comprime la definición y los grafos en un archivo ZIP, y carga el archivo ZIP en Azure Blog Storage. La DNN ya está implementada para ejecutarse en la FPGA.
+Empiece usando el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) para crear una definición de servicio. Una definición de servicio es un archivo que describe una canalización de grafos (entrada, caracterizador y clasificador) basado en TensorFlow. El comando de implementación comprime la definición y los grafos en un archivo ZIP, y carga el archivo ZIP en Azure Blog Storage. La DNN ya está implementada para ejecutarse en la FPGA.
 
 1. Un área de trabajo de Azure Machine Learning.
 

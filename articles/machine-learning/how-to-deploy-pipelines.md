@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879400"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520183"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicación y seguimiento de canalizaciones de aprendizaje automático
 
@@ -38,7 +38,7 @@ Las canalizaciones de aprendizaje automático son flujos de trabajo reutilizable
 
 Una vez que tenga una canalización en funcionamiento, puede publicarla para que se ejecute con diferentes entradas. Para que el punto de conexión REST de una canalización ya publicada acepte parámetros, tiene que configurar la canalización para que use objetos `PipelineParameter` para los argumentos que varían.
 
-1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) con un valor predeterminado.
+1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter) con un valor predeterminado.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Todas las canalizaciones publicadas tienen un punto de conexión REST. Con el pu
 > [!IMPORTANT]
 > Si utiliza el control basado en roles de Azure (Azure RBAC) para administrar el acceso a la canalización, [establezca los permisos del escenario de canalización (entrenamiento o puntuación)](how-to-assign-roles.md#common-scenarios).
 
-Para invocar el proceso de ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory. La obtención de este tipo de token se describe en la referencia de [clase AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) y en el cuaderno [Autenticación en Azure Machine Learning](https://aka.ms/pl-restep-auth).
+Para invocar el proceso de ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory. La obtención de este tipo de token se describe en la referencia de [clase AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) y en el cuaderno [Autenticación en Azure Machine Learning](https://aka.ms/pl-restep-auth).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Puede habilitarla de nuevo con `p.enable()`. Para más información, consulte la referencia de la [clase PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py).
+Puede habilitarla de nuevo con `p.enable()`. Para más información, consulte la referencia de la [clase PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Use [estos cuadernos de Jupyter en GitHub](https://aka.ms/aml-pipeline-readme) para explorar aún más canalizaciones de Machine Learning.
-- Consulte la ayuda de referencia del SDK para el paquete [azureml-pipelines-core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) y el paquete [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
+- Consulte la ayuda de referencia del SDK para el paquete [azureml-pipelines-core](/python/api/azureml-pipeline-core/) y el paquete [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/).
 - Consulte los [procedimientos](how-to-debug-pipelines.md) para obtener sugerencias sobre la depuración y la solución de problemas de canalizaciones.

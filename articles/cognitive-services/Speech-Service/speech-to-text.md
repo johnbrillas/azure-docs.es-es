@@ -12,17 +12,17 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversión de voz a texto, software de conversión de voz en texto
-ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499652"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434328"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
 En esta introducción, descubrirá las ventajas y las funcionalidades del servicio de conversión de voz en texto.
-La conversión de voz en texto, que también se conoce como "reconocimiento de voz", permite transcribir secuencias de audio como texto en tiempo real. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción<span class="docon docon-navigate-external x-hidden-focus"></span></a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
+La conversión de voz en texto, que también se conoce como "reconocimiento de voz", permite transcribir secuencias de audio como texto en tiempo real. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción</a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz</a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
 

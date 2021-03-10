@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2020
 ms.author: mbullwin
-ms.openlocfilehash: a75962105a7640f4a3c73df80f5ba516565c7076
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a7579bb53f82dfdfe82c4eba64d2c6984152c875
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705050"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445650"
 ---
 En esta guía de inicio rápido, aprenderá a detectar anomalías en un lote de datos de series temporales mediante el servicio Anomaly Detector y cURL.
 
@@ -18,7 +18,7 @@ Para obtener una visión general de los conceptos de Anomaly Detector, consulte 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
-- Cuando tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Creación de un recurso de Anomaly Detector"  target="_blank">cree un recurso de Anomaly Detector <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Espere a que se implemente y seleccione el botón **Ir al recurso**.
+- Cuando tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Creación de un recurso de Anomaly Detector"  target="_blank">cree un recurso de Anomaly Detector </a> en Azure Portal para obtener la clave y el punto de conexión. Espere a que se implemente y seleccione el botón **Ir al recurso**.
     - Necesitará la clave y la dirección del punto de conexión del recurso que ha creado para usar la API REST. 
     Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 

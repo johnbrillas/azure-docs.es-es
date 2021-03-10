@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc7c0a476f57048c7caefb6001918d314c991ee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655724"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209703"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
@@ -30,7 +30,7 @@ Cuándo usar Event Grid para las acciones controladas por eventos:
 * Streaming de eventos desde Azure Machine Learning a varios puntos de conexión
 * Desencadenamiento de una canalización de Machine Learning cuando se detecta un desfase
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar Event Grid, necesita acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ## <a name="the-event-model--types"></a>Modelo de evento y tipos
@@ -59,7 +59,7 @@ Estos eventos se publican a través de Azure Event Grid. Con Azure Portal, Po
 
 Al configurar eventos, puede aplicar filtros para que se desencadenen únicamente con datos de eventos específicos. En el ejemplo siguiente, para eventos de cambio de estado de ejecución, puede filtrar por tipos de ejecución. El evento solo se desencadena cuando se cumplen los criterios. Consulte el [Esquema de Event Grid de Azure Machine Learning](../event-grid/event-schema-machine-learning.md) para obtener información sobre los datos de eventos que puede filtrar. 
 
-Las suscripciones para eventos de Azure Machine Learning están protegidas por el control de acceso basado en rol (RBAC de Azure). Solo un [colaborador o propietario](how-to-assign-roles.md#default-roles) de un área de trabajo puede crear, actualizar y eliminar suscripciones a eventos.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) de la suscripción de eventos o en un momento posterior. 
+Las suscripciones para eventos de Azure Machine Learning están protegidas por el control de acceso basado en rol (RBAC de Azure). Solo un [colaborador o propietario](how-to-assign-roles.md#default-roles) de un área de trabajo puede crear, actualizar y eliminar suscripciones a eventos.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription) de la suscripción de eventos o en un momento posterior. 
 
 
 1. Vaya a Azure Portal y seleccione una suscripción nueva o existente. 
@@ -130,7 +130,7 @@ Una vez que haya confirmado la selección, haga clic en __Crear__. Después de l
 
 ### <a name="set-up-with-the-cli"></a>Configuración con la CLI
 
-Puede instalar la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) más reciente, o bien usar Azure Cloud Shell que se proporciona como parte de la suscripción de Azure.
+Puede instalar la [CLI de Azure](/cli/azure/install-azure-cli) más reciente, o bien usar Azure Cloud Shell que se proporciona como parte de la suscripción de Azure.
 
 Para instalar la extensión Event Grid, use el siguiente comando de la CLI:
 

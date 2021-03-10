@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fa289d4e393f1707eb229c62aa43c0fd8fdc158a
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 83c15664f1467ceb2b8505a595b99422129dfccc
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091083"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438494"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -40,7 +40,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 
 ## <a name="cmmc-level-3"></a>CMMC nivel 3
 
-Para ver cómo se corresponden las integraciones de Azure Policy disponibles para todos los servicios de Azure con este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada de cumplimiento normativo CMMC nivel 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+Para ver cómo se corresponden las integraciones de Azure Policy disponibles para todos los mapas de servicio de Azure con este estándar de cumplimiento, consulte [Detalles de la iniciativa integrada de cumplimiento normativo CMMC nivel 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
 Para más información sobre este estándar de cumplimiento, consulte [Certificación del modelo de madurez de ciberseguridad (CMMC)](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf).
 
 |Domain |Id. de control |Título de control |Directiva<br /><sub>(Azure Portal)</sub> |Versión de la directiva<br /><sub>(GitHub)</sub>  |

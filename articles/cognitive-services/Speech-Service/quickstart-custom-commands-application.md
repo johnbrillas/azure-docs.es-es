@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e046f8cbf6fa0418244f20e9a0c6f75f6da34136
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786883"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434634"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
 
@@ -38,7 +38,7 @@ En este momento, los Comandos personalizados admiten suscripciones de Voz creada
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Consulte la sección **Disponibilidad regional** anterior para ver una lista de las regiones compatibles.
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.</a> Consulte la sección **Disponibilidad regional** anterior para ver una lista de las regiones compatibles.
 > * Descargue el archivo JSON de ejemplo [Smart Room Lite](https://aka.ms/speech/cc-quickstart).
 > * Descargue la versión más reciente del [cliente de asistente de voz de Windows](https://aka.ms/speech/va-samples-wvac).
 

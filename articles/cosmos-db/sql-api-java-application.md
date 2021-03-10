@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d39c1d8c3ac60dda62556b1a8da0dfe29e3c1ee3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 930594d2c1af198aba3dae936cd0ce8fcf91c336
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383626"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214106"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,7 +48,7 @@ Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Kit de desarrollo de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
+* [Kit de desarrollo de Java (JDK) 7+](/java/azure/jdk/).
 * [IDE de Eclipse para desarrolladores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service/quickstart-java.md)
 

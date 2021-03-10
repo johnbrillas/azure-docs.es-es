@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 570bfed5ae5fc6fafea36b9ed1f2673a0daae22b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184091"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521516"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 
@@ -138,7 +138,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Las canalizaciones de aprendizaje automático no se pueden ejecutar en un entorno local, por lo que debe ejecutarlas en recursos en la nube o *destinos de proceso remotos*. Un destino de proceso remoto es un entorno de proceso virtual reutilizable en el que se ejecutan los experimentos y los flujos de trabajo de aprendizaje automático. 
 
-Ejecute el código siguiente para crear un destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](./concept-compute-target.md) para más información sobre los destinos de proceso.
+Ejecute el código siguiente para crear un destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](./concept-compute-target.md) para más información sobre los destinos de proceso.
 
 
 ```python
@@ -301,7 +301,7 @@ Un paso de canalización es un objeto que encapsula todo lo que necesita para ej
 * Los datos de entrada y salida, y cualquier parámetro personalizado
 * Referencia a un script o a una lógica del SDK que se ejecutará durante el paso
 
-Varias clases heredan de la clase primaria [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). Puede elegir clases para usar marcos o pilas concretos para compilar un paso. En este ejemplo, se usa la clase `ParallelRunStep` para definir la lógica del paso con un script de Python personalizado. Si un argumento del script es una entrada al paso o una salida del paso, se debe definir el argumento *tanto* en la matriz `arguments`, *como* en el parámetro `input` o `output`, respectivamente. 
+Varias clases heredan de la clase primaria [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep). Puede elegir clases para usar marcos o pilas concretos para compilar un paso. En este ejemplo, se usa la clase `ParallelRunStep` para definir la lógica del paso con un script de Python personalizado. Si un argumento del script es una entrada al paso o una salida del paso, se debe definir el argumento *tanto* en la matriz `arguments`, *como* en el parámetro `input` o `output`, respectivamente. 
 
 En escenarios con más de un paso, las referencias a un objeto de la matriz `outputs` estarán disponibles como *entrada* en un paso posterior de la canalización.
 
@@ -325,7 +325,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Para ver una lista de todas las clases que se pueden usar para los diferentes tipos de pasos, consulte el [paquete de pasos](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
+Para ver una lista de todas las clases que se pueden usar para los diferentes tipos de pasos, consulte el [paquete de pasos](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
@@ -382,9 +382,9 @@ published_pipeline
 
 Para ejecutar la canalización desde el punto de conexión REST, necesita un encabezado de autenticación de tipo portador de OAuth2. En el ejemplo siguiente se usa la autenticación interactiva, con fines ilustrativos; en la mayoría de los escenarios de producción que requieren autenticación automatizada o desatendida, use la autenticación de la entidad de servicio tal y como se [describe en este artículo](how-to-setup-authentication.md).
 
-La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) para administrar el flujo de autenticación. 
+La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) para administrar el flujo de autenticación. 
 
-Tanto [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) de la misma manera para capturar el encabezado:
+Tanto [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication) como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication#get-authentication-header--) de la misma manera para capturar el encabezado:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

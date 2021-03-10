@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 907899d8c5be2cbba7ff3eee4a59713718357a5c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349510"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430095"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 En este tutorial se muestra cómo compilar una aplicación de consola .NET Core sencilla que permite a los usuarios consultar Bing Web Search API y mostrar los resultados en orden de clasificación.
@@ -38,7 +38,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 Para seguir el tutorial, necesitará:
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
-* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search</a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 * El [entorno de desarrollo integrado de Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Creación de un proyecto de aplicación de consola

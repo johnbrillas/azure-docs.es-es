@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: df4031a590eb4547d4327cebe96ccbe63d21785a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358157"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437815"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configuración de Box para el aprovisionamiento automático de usuarios
 
@@ -36,6 +36,9 @@ Para configurar la integración de Azure AD con Box, se necesitan los siguientes
 
 > [!NOTE]
 > Las aplicaciones primero deben habilitarse en la aplicación Box.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 Para probar los pasos de este tutorial, siga estas recomendaciones:
 
@@ -95,7 +98,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
     ![Captura de pantalla de la pestaña Aprovisionamiento de Box en Azure Portal. El modo de aprovisionamiento se establece en Automático y la opción Autorizar está resaltada en Credenciales de administrador.](./media/box-userprovisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador** , haga clic en **Authorize** (Autorizar) para abrir un cuadro de diálogo de inicio de sesión de Box en una nueva ventana del explorador.
+5. En la sección **Credenciales de administrador**, haga clic en **Authorize** (Autorizar) para abrir un cuadro de diálogo de inicio de sesión de Box en una nueva ventana del explorador.
 
 6. En la página **Log in to grant access to Box** (Iniciar sesión para otorgar acceso a Box), proporcione las credenciales necesarias y haga clic en **Authorize** (Autorizar). 
    

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d3b6b40a7b258da682d36260f6292d10635095
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631982"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498726"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -117,7 +117,7 @@ Dependiendo del lenguaje del SDK de Voz, establecerá la propiedad `"SpeechServi
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -126,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para más información, consulte <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -135,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para más información, consulte <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
 
 ```java
 speechConfig.setProperty(
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para más información, consulte <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -153,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para más información, consulte <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -162,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -170,7 +170,7 @@ Para más información, consulte <a href="https://docs.microsoft.com/objectivec/
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para más información, consulte <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -499,7 +499,7 @@ Los alfabetos fonéticos se componen de segmentos acústicos, que se componen de
 
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
-| `alphabet` | Especifica el alfabeto fonético que se utilizará al sintetizar la pronunciación de la cadena en el atributo `ph`. La cadena que especifica el alfabeto debe especificarse en minúsculas. Estos son los posibles alfabetos que puede especificar.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto fonético internacional<span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Alfabeto fonético del servicio de voz](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Conjunto de segmentos acústicos universal</a></li></ul><br>El alfabeto solo se aplica a `phoneme` en el elemento. | Opcional |
+| `alphabet` | Especifica el alfabeto fonético que se utilizará al sintetizar la pronunciación de la cadena en el atributo `ph`. La cadena que especifica el alfabeto debe especificarse en minúsculas. Estos son los posibles alfabetos que puede especificar.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto fonético internacional</a></li><li>`sapi` &ndash; [Alfabeto fonético del servicio de voz](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Conjunto de segmentos acústicos universal</a></li></ul><br>El alfabeto solo se aplica a `phoneme` en el elemento. | Opcional |
 | `ph` | Una cadena que contiene los segmentos acústicos que especifican la pronunciación de la palabra en el elemento `phoneme`. Si la cadena especificada contiene segmentos acústicos no reconocidos, el servicio de texto a voz rechaza todo el documento SSML y no produce ninguna de las salidas de voz especificadas en el documento. | Obligatorio si usa fonemas. |
 
 **Ejemplos**
@@ -574,7 +574,7 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
 </lexicon>
 ```
 
-El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
+El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de </a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
 
 Es importante destacar que no se puede establecer directamente la pronunciación de una frase mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
 

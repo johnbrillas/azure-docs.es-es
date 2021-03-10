@@ -286,7 +286,7 @@
                 - name: 'NuGet: tiempo de ejecución'
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
                 - name: Referencia
-                  href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
+                  href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding
                 - name: Ejemplos
                   href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
             - name: Go
@@ -304,7 +304,7 @@
                 - name: 'Maven: entorno de ejecución'
                   href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
                 - name: Referencia
-                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable
+                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding
                 - name: Ejemplos
                   href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
             - name: Node.js
@@ -320,7 +320,7 @@
                 - name: SDK de PIP
                   href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
                 - name: Referencia
-                  href: /python/api/azure-cognitiveservices-language-luis/index?view=azure-python
+                  href: /python/api/azure-cognitiveservices-language-luis/index
                 - name: Ejemplos
                   href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
     - name: Privacidad del usuario
@@ -328,7 +328,7 @@
     - name: Regions
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
-    - name: límites
+    - name: Límites
       href: luis-limits.md
     - name: Configuración de la aplicación y de la versión
       href: luis-reference-application-settings.md

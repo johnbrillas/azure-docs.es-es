@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7e63b0af2c5b9bd39f755c39adc296b3a8c4a049
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b18ec2531b26574357f56c11558f2afd84467495
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180972"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437696"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios
 
@@ -39,6 +39,9 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * [Un inquilino de Envoy](https://envoy.com/pricing/).
 * Una cuenta de usuario de Envoy con permisos de administrador.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).

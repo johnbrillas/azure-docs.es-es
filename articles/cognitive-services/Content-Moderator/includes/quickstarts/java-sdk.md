@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 147985ce5aff54f3784363720a576b7e46d6e647
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 17acd11b6ebb651be170135ab9789f788d4d8077
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948482"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444905"
 ---
 Introducción a la biblioteca cliente de Azure Content Moderator para Java. Siga estos pasos para instalar el paquete Maven y probar el código de ejemplo para realizar tareas básicas. 
 
@@ -34,7 +34,7 @@ Use la biblioteca cliente de Content Moderator para Java para:
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * La última versión de [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * La [herramienta de compilación de Gradle](https://gradle.org/install/) u otro administrador de dependencias.
-* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="cree un recurso de Content Moderator"  target="_blank">Creación de un recurso de Content Moderator<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="cree un recurso de Content Moderator"  target="_blank">Creación de un recurso de Content Moderator</a> en Azure Portal para obtener la clave y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Content Moderator. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 

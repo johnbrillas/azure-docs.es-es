@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e80f33e6c36e1525eff954376d17c8a8b76204cb
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 807174fdbede2e4631b3ca1df7220904038da4c8
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796030"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518303"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de scikit-learn a gran escala con Azure Machine Learning
 
@@ -35,7 +35,7 @@ Ejecute este código en cualquiera de estos entornos:
 
  - Su propio servidor de Jupyter Notebook
 
-    - [Instale el SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0).
+    - [Instale el SDK de Azure Machine Learning](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Cree un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
 
 ## <a name="set-up-the-experiment"></a>Configuración del experimento
@@ -44,7 +44,7 @@ En esta sección, para configurar el experimento de entrenamiento, se cargan los
 
 ### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Cree un objeto de área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
 
@@ -162,7 +162,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registre el modelo al área de trabajo con el código siguiente. Al especificar los parámetros `model_framework`, `model_framework_version` y `resource_configuration`, la implementación del modelo sin código está disponible. La implementación de un modelo sin código permite implementar directamente el modelo como un servicio web desde el modelo registrado, y el objeto [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?preserve-view=true&view=azure-ml-py) define el recurso de proceso del servicio web.
+Registre el modelo al área de trabajo con el código siguiente. Al especificar los parámetros `model_framework`, `model_framework_version` y `resource_configuration`, la implementación del modelo sin código está disponible. La implementación de un modelo sin código permite implementar directamente el modelo como un servicio web desde el modelo registrado, y el objeto [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration) define el recurso de proceso del servicio web.
 
 ```Python
 from azureml.core import Model
@@ -181,7 +181,7 @@ El modelo que acaba de registrar se puede implementar exactamente de la misma ma
 
 ### <a name="preview-no-code-model-deployment"></a>(Versión preliminar) Implementación de modelo sin código
 
-En lugar de la ruta de implementación tradicional, también puede usar la característica de implementación sin código (versión preliminar) para Scikit-learn. Se admite la implementación de modelo sin código para todos los tipos de modelos integrados de Scikit-learn. Mediante el registro del modelo como se ha indicado anteriormente con los parámetros `model_framework`, `model_framework_version` y `resource_configuration`, solo tiene que usar la función estática [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) para implementar el modelo.
+En lugar de la ruta de implementación tradicional, también puede usar la característica de implementación sin código (versión preliminar) para Scikit-learn. Se admite la implementación de modelo sin código para todos los tipos de modelos integrados de Scikit-learn. Mediante el registro del modelo como se ha indicado anteriormente con los parámetros `model_framework`, `model_framework_version` y `resource_configuration`, solo tiene que usar la función estática [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) para implementar el modelo.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: d76bcf7e7b251f8c371658d8fca34f4162fe0b87
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2f88c8766ccf41b2491c7fa88e29853f73eed471
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997969"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245010"
 ---
 Cree una [aplicación web](../articles/app-service/overview.md#app-service-on-linux) en el plan de App Service de `myAppServicePlan`. 
 
-En Cloud Shell, puede usar el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest). En el siguiente ejemplo, reemplace `<app-name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `RUBY|2.6.2`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest). 
+En Cloud Shell, puede usar el comando [`az webapp create`](/cli/azure/webapp). En el siguiente ejemplo, reemplace `<app-name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `RUBY|2.6.2`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
 ```azurecli-interactive
 # Bash

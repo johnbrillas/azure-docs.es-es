@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6fc94a7e9c8ed222b7612db691c687b8daa85d9a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 540df7cbe2d35cd705e9d2b88f66a82604951957
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258429"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548553"
 ---
 # <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Visualización de usuarios y grupos asignados a una aplicación de Application Proxy
 
@@ -28,7 +28,7 @@ En este script de ejemplo de PowerShell en el que se enumeran todos los usuarios
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-El ejemplo requiere el [módulo Azure AD V2 de PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (Azure AD) o la [versión preliminar del módulo Azure AD V2 de PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (versión preliminar de Azure AD).
+El ejemplo requiere el [módulo Azure AD V2 de PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (Azure AD) o la [versión preliminar del módulo Azure AD V2 de PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (versión preliminar de Azure AD).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

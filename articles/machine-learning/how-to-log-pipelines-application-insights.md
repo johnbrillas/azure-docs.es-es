@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7ed27eba66b3d18bed8017934fce85928b961392
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592529"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520054"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recopilación de archivos de registro de canalización de aprendizaje automático en Application Insights para alertas y depuración
 
@@ -38,7 +38,7 @@ El hecho de tener los registros en un lugar permite proporcionar un historial de
 
 Esta sección es una introducción específica al uso de OpenCensus desde una canalización de Azure Machine Learning. Para ver un tutorial detallado, consulte [Exportadores de Azure Monitor de OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure).
 
-Agregue un paso con PythonScriptStep a la canalización de Azure Machine Learning. Configure [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) con la dependencia en opencensus-ext-azure. Configure la variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Agregue un paso con PythonScriptStep a la canalización de Azure Machine Learning. Configure [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration) con la dependencia en opencensus-ext-azure. Configure la variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies

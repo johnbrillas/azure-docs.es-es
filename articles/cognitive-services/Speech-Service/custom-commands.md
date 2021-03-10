@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024949"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426476"
 ---
 # <a name="what-is-custom-commands"></a>¿Qué es Comandos personalizados?
 
@@ -36,7 +36,7 @@ Los candidatos adecuados para Comandos personalizados tienen un vocabulario fijo
 
 ## <a name="getting-started-with-custom-commands"></a>Introducción a Comandos personalizados
 
-El objetivo de Comandos personalizados es reducir la carga cognitiva derivada de aprender las distintas tecnologías y centrarse en la creación de la aplicación de comandos de voz. El primer paso para usar Comandos personalizados es <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">crear un recurso de voz de Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Puede crear la aplicación de Comandos personalizados en Speech Studio y publicarla, tras lo cual una aplicación en el dispositivo podrá comunicarse con ella mediante el SDK de Voz.
+El objetivo de Comandos personalizados es reducir la carga cognitiva derivada de aprender las distintas tecnologías y centrarse en la creación de la aplicación de comandos de voz. El primer paso para usar Comandos personalizados es <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">crear un recurso de voz de Azure</a>. Puede crear la aplicación de Comandos personalizados en Speech Studio y publicarla, tras lo cual una aplicación en el dispositivo podrá comunicarse con ella mediante el SDK de Voz.
 
 #### <a name="authoring-flow-for-custom-commands"></a>Flujo de creación de Comandos personalizados
    ![Flujo de creación de Comandos personalizados](media/voice-assistants/custom-commands-flow.png "Flujo de creación de Comandos personalizados")

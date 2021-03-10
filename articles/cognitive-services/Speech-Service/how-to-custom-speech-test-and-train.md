@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710505"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424502"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -55,7 +55,7 @@ Al entrenar un nuevo modelo, comience con [texto relacionado](#related-text-data
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
 > [!TIP]
-> Para empezar a trabajar rápidamente, considere la posibilidad de usar datos de ejemplo. Consulte este repositorio de GitHub para obtener <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">datos de Habla personalizada de ejemplo <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> Para empezar a trabajar rápidamente, considere la posibilidad de usar datos de ejemplo. Consulte este repositorio de GitHub para obtener <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">datos de Habla personalizada de ejemplo </a>
 
 > [!NOTE]
 > No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio. Aunque un modelo base admita el entrenamiento con datos de audio, el servicio podría usar solo parte del audio. Aún así, usará todas las transcripciones.
@@ -69,7 +69,7 @@ Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como ar
 
 ## <a name="upload-data"></a>Carga de datos
 
-Para cargar los datos, vaya a <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio<span class="docon docon-navigate-external x-hidden-focus"></span></a>. En el portal, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
+Para cargar los datos, vaya a <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio</a>. En el portal, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
 
 ![Captura de pantalla que resalta la opción de carga de audio desde el portal de Voz.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Utilice esta tabla para asegurarse de que los archivos de audio están formatead
 > [!TIP]
 > Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Si requiere más datos para el entrenamiento, divídalos en varios archivos ZIP y cárguelos por separado. Más adelante, puede optar por entrenar en *varios* conjuntos de datos. Aunque solo puede realizar pruebas desde un *único* conjunto de datos.
 
-Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span></a> para comprobar las propiedades de audio o convertir el audio existente en los formatos adecuados. A continuación se muestran algunos ejemplos de cómo se puede realizar cada una de estas actividades mediante la línea de comandos de SoX:
+Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX </a> para comprobar las propiedades de audio o convertir el audio existente en los formatos adecuados. A continuación se muestran algunos ejemplos de cómo se puede realizar cada una de estas actividades mediante la línea de comandos de SoX:
 
 | Actividad | Descripción | Comando de SoX |
 |----------|-------------|-------------|
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Aunque hay algunas normalizaciones importantes que debe hacer el usuario antes de cargar los datos en Speech Studio. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
 
-Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
+Cuando haya reunido los archivos de audio y las transcripciones correspondientes, debe empaquetarlos como un solo archivo .zip antes de cargarlos en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. A continuación se muestra un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
 
 > [!div class="mx-imgBorder"]
 > ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ Los nombres de producto o las características que son únicas deben incluir dat
 | Frases (expresiones) | Mejore la precisión al reconocer nombres de productos o vocabulario específico del sector dentro del contexto de una frase. |
 | Pronunciaciones | Mejore la pronunciación de términos poco comunes, acrónimos u otras palabras de pronunciación indefinida. |
 
-Las frases se pueden proporcionar como un solo archivo de texto o como varios archivos de texto. Para mejorar la precisión, use datos de texto que estén más cerca de las expresiones orales esperadas. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Las frases se pueden proporcionar como un solo archivo de texto o como varios archivos de texto. Para mejorar la precisión, use datos de texto que estén más cerca de las expresiones orales esperadas. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>.
 
 El entrenamiento con texto relacionado normalmente se completa en unos minutos.
 

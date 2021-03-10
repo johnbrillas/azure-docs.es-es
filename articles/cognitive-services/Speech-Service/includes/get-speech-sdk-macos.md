@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: e7714dcc3e14e3659ca1943507d55d20dfb28fa6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4a4705647b90d29f47e37b88531f3432c6a2f448
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99213799"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434555"
 ---
 Al desarrollar para macOS, hay tres SDK de voz disponibles.
 
@@ -18,7 +18,7 @@ Al desarrollar para macOS, hay tres SDK de voz disponibles.
 - El SDK de voz de Python está disponible como un módulo de PyPI.
 
 > [!TIP]
-> Para más información sobre el uso del SDK de voz de Objective-C con Swift, vea <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> Para más información sobre el uso del SDK de voz de Objective-C con Swift, vea <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift </a>.
 
 ### <a name="system-requirements"></a>Requisitos del sistema
 
@@ -28,7 +28,7 @@ Al desarrollar para macOS, hay tres SDK de voz disponibles.
 
 :::row:::
     :::column span="3":::
-        El paquete CocoaPod de macOS está disponible para su descarga y uso con el entorno de desarrollo integrado (IDE) de <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 o posterior <span class="docon docon-navigate-external x-hidden-focus"></span></a>. En primer lugar, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">descargue el archivo binario de CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extraiga el pod en el mismo directorio para su uso previsto, cree un *Podfile* y enumere `pod` como `target`.
+        El paquete CocoaPod de macOS está disponible para su descarga y uso con el entorno de desarrollo integrado (IDE) de <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 o posterior </a>. En primer lugar, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">descargue el archivo binario de CocoaPod </a>. Extraiga el pod en el mismo directorio para su uso previsto, cree un *Podfile* y enumere `pod` como `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -51,7 +51,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac expone el SDK de macOS completo para que los desarrolladores de .NET puedan compilar aplicaciones Mac nativas mediante C#. Para más información, vea <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        Xamarin.Mac expone el SDK de macOS completo para que los desarrolladores de .NET puedan compilar aplicaciones Mac nativas mediante C#. Para más información, vea <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionales
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Código fuente de Objective-C en la guía de inicio rápido del SDK de voz de macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">Código fuente de Swift en la guía de inicio rápido del SDK de voz de macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">Código fuente de Objective-C en la guía de inicio rápido del SDK de voz de macOS </a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">Código fuente de Swift en la guía de inicio rápido del SDK de voz de macOS </a>

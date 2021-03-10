@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1964ddb3ca9ecd2b445850c06c10b313a9bcbae9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897649"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438820"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferencia de datos a través de recursos compartidos de Azure Stack Edge Pro con GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este tutorial se describe cómo agregar recursos compartidos a un dispositivo de Azure Stack Edge Pro y conectarse a ellos. Después de agregar los recursos compartidos, Azure Stack Edge Pro puede transferir datos a Azure.
 
@@ -66,7 +66,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si va a usarla con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Cree un nuevo contenedor de blobs o use uno ya existente de la lista desplegable. Si crea un contenedor de blobs, proporcione un nombre para este. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado.
    

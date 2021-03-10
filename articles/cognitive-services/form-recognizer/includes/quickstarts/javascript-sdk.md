@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ebbf04db36b20420ae6de9d61837bcc4e664036e
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 52acb6d0e99d54491dc1ce30545629ba246acc77
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101102910"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445512"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -32,7 +32,7 @@ ms.locfileid: "101102910"
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * La versión actual de [Node.js](https://nodejs.org/)
 * Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*).
-* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
   * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
   * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
@@ -265,7 +265,7 @@ Usará el método `beginRecognizeCustomFormsFromUrl`. El valor devuelto es una c
 > También puede analizar archivos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeCustomForms**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
 
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 status: notStarted
@@ -312,7 +312,7 @@ Para analizar los recibos de un identificador URI, use el método `beginRecogniz
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true ), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
 
 ### <a name="output"></a>Resultados
 

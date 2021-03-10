@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 11/04/2020
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 09be6a73b092f6298099e4a11bcd606759515c07
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374259"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521397"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -42,7 +42,7 @@ Las previsiones o predicciones del aprendizaje automático pueden hacer que las 
 Azure Machine Learning proporciona todas las herramientas que los desarrolladores y científicos de datos necesitan para sus flujos de trabajo de aprendizaje automático, entre las que se incluyen:
 + El [diseñador de Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastrar y colocar para compilar los experimentos e implementar canalizaciones.
 
-+ Cuadernos de Jupyter Notebook: use nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks) o cree los suyos propios para aprovechar los ejemplos del <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK para Python</a> para el aprendizaje automático. 
++ Cuadernos de Jupyter Notebook: use nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks) o cree los suyos propios para aprovechar los ejemplos del <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK para Python</a> para el aprendizaje automático. 
 
 + Scripts o cuadernos de R en los que usa el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escribir su propio código, o use los módulos de R en el diseñador.
 
@@ -60,7 +60,7 @@ Incluso puede usar [MLflow para realizar un seguimiento de las métricas e imple
 
 ## <a name="build-ml-models-in-python-or-r"></a>Creación de modelos de aprendizaje automático en Python o R
 
-Empiece a entrenar en su máquina local mediante el <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python </a> o el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> para Azure Machine Learning. Luego, puede escalar horizontalmente a la nube. 
+Empiece a entrenar en su máquina local mediante el <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK de Python </a> o el <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> para Azure Machine Learning. Luego, puede escalar horizontalmente a la nube. 
 
 Con muchos [destinos de proceso](how-to-create-attach-compute-studio.md) disponibles, por ejemplo, los procesos de Azure Machine Learning y [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), y con los [servicios avanzados de ajuste de hiperparámetros](how-to-tune-hyperparameters.md), puede compilar mejores modelos de forma más rápida gracias al potencial de la nube.
 
@@ -91,7 +91,7 @@ También puede [automatizar el entrenamiento y optimización del modelo](tutoria
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Administración de la implementación y del ciclo de vida
 Cuando tenga el modelo adecuado, podrá usarlo fácilmente en un servicio web, en un dispositivo de IoT o en Power BI. Para más información, consulte el artículo sobre [cómo y dónde llevar a cabo la implementación](how-to-deploy-and-where.md).
 
-Luego, puede administrar los modelos implementados mediante el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py), [Azure Machine Learning Studio](https://ml.azure.com) o la [CLI de Machine Learning](reference-azure-machine-learning-cli.md).
+Luego, puede administrar los modelos implementados mediante el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/), [Azure Machine Learning Studio](https://ml.azure.com) o la [CLI de Machine Learning](reference-azure-machine-learning-cli.md).
 
 Se pueden usar estos modelos para que devuelvan predicciones en [tiempo real](how-to-consume-web-service.md) o de forma [asincrónica](./tutorial-pipeline-batch-scoring-classification.md) para grandes cantidades de datos.
 

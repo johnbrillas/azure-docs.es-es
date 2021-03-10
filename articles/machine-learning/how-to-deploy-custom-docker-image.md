@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 749ef16139bbab2742c43a81e985fb0a49e9393b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695357"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519340"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 
@@ -42,8 +42,8 @@ Este documento se divide en dos secciones:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
-* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
-* La[CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install). 
+* La[CLI de Azure](/cli/azure/install-azure-cli).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](../container-registry/index.yml) u otro registro de Docker accesible en Internet.
 * En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para más información, consulte [Dónde y cómo implementar](how-to-deploy-and-where.md).
@@ -234,7 +234,7 @@ Para más información, consulte el repositorio de GitHub de [Contenedores de Az
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usar una imagen con el SDK de Azure Machine Learning
 
-Para usar una imagen almacenada en **Azure Container Registry para el área de trabajo** o un **registro de contenedor que sea accesible públicamente**, establezca los siguientes atributos de [entorno](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py):
+Para usar una imagen almacenada en **Azure Container Registry para el área de trabajo** o un **registro de contenedor que sea accesible públicamente**, establezca los siguientes atributos de [entorno](/python/api/azureml-core/azureml.core.environment.environment):
 
 + `docker.enabled=True`
 + `docker.base_image`: Establézcalo en el registro y la ruta de acceso a la imagen.
@@ -268,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Debe agregar azureml-defaults con la versión 1.0.45 o posterior como una dependencia pip. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. También debe establecer la propiedad inferencing_stack_version en el entorno en "latest", lo que instalará los paquetes apt específicos que el servicio web necesita. 
 
-Después de definir el entorno, úselo con un objeto [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) para definir el entorno de inferencia en el que se ejecutará el modelo y el servicio web.
+Después de definir el entorno, úselo con un objeto [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) para definir el entorno de inferencia en el que se ejecutará el modelo y el servicio web.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -297,7 +297,7 @@ Para más información sobre cómo personalizar el entorno de Python, consulte e
 > [!IMPORTANT]
 > Actualmente, la CLI de Machine Learning puede usar imágenes de Azure Container Registry para su área de trabajo o los repositorios accesibles públicamente. No puede usar las imágenes de registros privados independientes.
 
-Antes de implementar un modelo mediante la CLI de Machine Learning, cree un [entorno](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) que use la imagen personalizada. Después, cree un archivo de configuración de la inferencia que haga referencia al entorno. También puede definir el entorno directamente en el archivo de configuración de la inferencia. El documento JSON siguiente muestra cómo hacer referencia a una imagen en un registro de contenedor público. En este ejemplo, el entorno se define insertado:
+Antes de implementar un modelo mediante la CLI de Machine Learning, cree un [entorno](/python/api/azureml-core/azureml.core.environment.environment) que use la imagen personalizada. Después, cree un archivo de configuración de la inferencia que haga referencia al entorno. También puede definir el entorno directamente en el archivo de configuración de la inferencia. El documento JSON siguiente muestra cómo hacer referencia a una imagen en un registro de contenedor público. En este ejemplo, el entorno se define insertado:
 
 ```json
 {

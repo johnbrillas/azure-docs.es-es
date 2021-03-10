@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ab251e9a156005d47a1516d23cb018fb1907ab6e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7a9caf1c1785055cbc81ef56958fe8ce2aca229c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744779"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428310"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Creación de una aplicación de Windows Presentation Framework (WPF) para mostrar datos de las caras de una imagen
 
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
-* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 * [Cree variables de entorno](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.

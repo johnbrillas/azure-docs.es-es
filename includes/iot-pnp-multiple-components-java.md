@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 32a2ef82888e61c18c298c61c9b7ad268e7db797
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834193"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244575"
 ---
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con varios componentes, cómo conectarla al centro de IoT y cómo usar la CLI de Azure para ver los datos de telemetría que envía. La aplicación de ejemplo se escribe en Java y se incluye en el SDK de dispositivo IoT de Azure para Java. Un generador de soluciones puede usar la CLI de Azure para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
@@ -29,7 +29,7 @@ En este tutorial, hizo lo siguiente:
 
 Para completar este tutorial en Windows, instale el siguiente software en el entorno Windows local:
 
-* Java SE Development Kit 8. En el artículo [Soporte técnico de Java a largo plazo para Azure y Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), en la sección **Soporte técnico a largo plazo**, seleccione **Java 8**.
+* Java SE Development Kit 8. En el artículo [Soporte técnico de Java a largo plazo para Azure y Azure Stack](/java/azure/jdk/), en la sección **Soporte técnico a largo plazo**, seleccione **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Descargar el código

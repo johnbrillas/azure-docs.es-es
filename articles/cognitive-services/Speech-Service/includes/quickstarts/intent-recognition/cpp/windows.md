@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 08679bac77121ee2d276f3d2854e0b119c769582
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: b4c6591911137441bec7411dc697ed63212fbbc2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109453"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444509"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Instale el SDK de Voz para su entorno de desarrollo y cree un proyecto de ejemplo vacío<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Instale el SDK de Voz para su entorno de desarrollo y cree un proyecto de ejemplo vacío</a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creación de una aplicación de LUIS para el reconocimiento de la intención
 

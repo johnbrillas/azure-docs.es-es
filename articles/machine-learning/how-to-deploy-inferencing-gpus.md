@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 8480a0b8722fbfff0f1d8a8fafc1a64f38d21d6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6797c32ded5c12bbac3fafa1eabd1e6f74d28e07
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307205"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519255"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
@@ -26,7 +26,7 @@ En este artículo aprenderá a usar Azure Machine Learning para implementar un m
 La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo implementado para realizar predicciones. El uso de GPU en lugar de CPU ofrece ventajas de rendimiento en el cálculo que se puede paralelizar considerablemente.
 
 > [!IMPORTANT]
-> En el caso de las implementaciones de servicios web, la inferencia de GPU solo se admite en Azure Kubernetes Service. Para realizar la inferencia mediante __una canalización de aprendizaje automático__ , las GPU solo se admiten en Proceso de Azure Machine Learning. Para obtener más información sobre el uso de canalizaciones de aprendizaje automático, consulte [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md). 
+> En el caso de las implementaciones de servicios web, la inferencia de GPU solo se admite en Azure Kubernetes Service. Para realizar la inferencia mediante __una canalización de aprendizaje automático__, las GPU solo se admiten en Proceso de Azure Machine Learning. Para obtener más información sobre el uso de canalizaciones de aprendizaje automático, consulte [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Aunque los fragmentos de código de este artículo usan un modelo TensorFlow, puede aplicar la información a cualquier marco de aprendizaje automático que admita GPU.
@@ -38,7 +38,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* Un entorno de desarrollo de Python con el SDK de Azure Machine Learning instalado. Para más información, consulte [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
+* Un entorno de desarrollo de Python con el SDK de Azure Machine Learning instalado. Para más información, consulte [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install).  
 
 * Un modelo registrado que use una GPU.
 
@@ -176,7 +176,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Para obtener más información, consulte la documentación de referencia de [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+Para obtener más información, consulte la documentación de referencia de [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definición de la configuración de inferencia
 
@@ -192,7 +192,7 @@ inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 Para obtener más información sobre los entornos, consulte el tema sobre la [creación y administración de entornos de entrenamiento e implementación](how-to-use-environments.md).
-Para obtener más información, consulte la documentación de referencia de [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
+Para obtener más información, consulte la documentación de referencia de [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig).
 
 ## <a name="deploy-the-model"></a>Implementación del modelo
 
@@ -217,7 +217,7 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-Para obtener más información, consulte la documentación de referencia del [modelo](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+Para obtener más información, consulte la documentación de referencia del [modelo](/python/api/azureml-core/azureml.core.model.model).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Emisión de una consulta de ejemplo para el servicio
 

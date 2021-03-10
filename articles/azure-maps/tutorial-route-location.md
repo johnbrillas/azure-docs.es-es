@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1f1647766eeae917f7a2266ebb8f00fdfab3452e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624989"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210587"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Cómo mostrar direcciones de ruta mediante el servicio Route de Azure Maps y el Control de mapa
 
@@ -170,7 +170,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 
     Este código crea dos [objetos de punto de GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final, que se agregan al origen de datos. 
 
-    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle. La chincheta azul en forma de lágrima marca el punto inicial. La chincheta azul redonda marca el punto final.
 

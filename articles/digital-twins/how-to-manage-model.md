@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be8f4ba8552521d25992d7c3a405dc2628fbbb85
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560810"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433257"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
-Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
+Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
 
 Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
 

@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: 68dfa0564575a503bd721a6b4a0489ea5c3b3baa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2ea2e24049a2ff57e284894bc13c44d617f3c661
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356416"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444252"
 ---
 [Documentación de referencia](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/README.md) | [Paquete (PiPy)](https://pypi.org/project/azure-ai-metricsadvisor/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples/README.md)
 
@@ -22,7 +22,7 @@ ms.locfileid: "96356416"
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
-* Una vez que tenga la suscripción de Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="cree un recurso de Metrics Advisor"  target="_blank">create a Metrics Advisor resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para implementar la instancia de Metrics Advisor.  
+* Una vez que tenga la suscripción de Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="cree un recurso de Metrics Advisor"  target="_blank">create a Metrics Advisor resource </a> en Azure Portal para implementar la instancia de Metrics Advisor.  
 * Su propia base de datos SQL con datos de series temporales.
   
 > [!TIP]
@@ -79,7 +79,7 @@ Las siguientes clases controlan algunas de las características principales del 
 Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Metrics Advisor para Python:
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Agregar una fuente de distribución de datos](#add-a-data-feed)
+* [Adición de una fuente de distribución de datos](#add-a-data-feed)
 * [Comprobar el estado de la ingesta](#check-the-ingestion-status)
 * [Instalar la configuración de detección y la configuración de alertas](#configure-anomaly-detection)
 * [Crear una configuración de alertas](#create-an-alert-configuration)

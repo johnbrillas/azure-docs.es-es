@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f8cfc314c75221a88b58095cc71ea685280ac49
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015388"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501029"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -21,7 +21,7 @@ ms.locfileid: "96015388"
 
 Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-Cree un grupo de recursos mediante el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) de la CLI de Azure, el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) de Azure PowerShell o bien desde [Azure Portal](https://portal.azure.com).
+Cree un grupo de recursos mediante el comando [az group create](/cli/azure/group#az-group-create) de la CLI de Azure, el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) de Azure PowerShell o bien desde [Azure Portal](https://portal.azure.com).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Si ya tiene un almacén de claves, puede pasar a la sección [Establecimiento de directivas de acceso avanzadas del almacén de claves](#set-key-vault-advanced-access-policies).*
 
-Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) de la CLI de Azure, el comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) de Azure Powershell, [Azure Portal](https://portal.azure.com) o una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Cree un almacén de claves mediante el comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) de la CLI de Azure, el comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) de Azure Powershell, [Azure Portal](https://portal.azure.com) o una [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
 > El almacén de claves y las máquinas virtuales deben estar en la misma suscripción. Además, para asegurarse de que los secretos de cifrado no traspasan los límites regionales, Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se encuentren en la misma región. Cree y use un almacén de claves que se encuentre en la misma suscripción y región que las máquinas virtuales que se van a cifrar. 
@@ -129,7 +129,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar 
 
 Si desea usar una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado, agregue una KEK a su almacén de claves. Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault.
 
-Puede generar una nueva clave de cifrado de claves mediante el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) de la CLI de Azure, el cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) de Azure PowerShell o [Azure Portal](https://portal.azure.com/). Debe generar un tipo de clave RSA; Azure Disk Encryption no admite aún el uso de claves de curva elíptica.
+Puede generar una nueva clave de cifrado de claves mediante el comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) de la CLI de Azure, el cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) de Azure PowerShell o [Azure Portal](https://portal.azure.com/). Debe generar un tipo de clave RSA; Azure Disk Encryption no admite aún el uso de claves de curva elíptica.
 
 En su lugar, puede importar una clave de cifrado de claves en el HSM de administración de claves local. Para más información, consulte la [documentación de Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
@@ -145,15 +145,15 @@ Azure Disk Encryption no admite la especificación de números de puerto como pa
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Use el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) de la CLI de Azure para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
+Use el comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) de la CLI de Azure para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
-En su lugar, puede importar una clave privada mediante el comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) de la CLI de Azure:
+En su lugar, puede importar una clave privada mediante el comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) de la CLI de Azure:
 
-En cualquier caso, especificará el nombre de la clave de cifrado de claves al parámetro --key-encryption-key del comando [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) de la CLI de Azure. 
+En cualquier caso, especificará el nombre de la clave de cifrado de claves al parámetro --key-encryption-key del comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) de la CLI de Azure. 
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>" --key-encryption-key "myKEK"
@@ -161,15 +161,15 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 ###  <a name="azure-powershell"></a>Azure PowerShell 
 
-Use el cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey?view=azps-2.5.0) de Azure PowerShell para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
+Use el cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) de Azure PowerShell para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
 
  ```powershell-interactive
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
 ```
 
-En su lugar, puede importar una clave privada mediante el comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) de Azure PowerShell.
+En su lugar, puede importar una clave privada mediante el comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) de Azure PowerShell.
 
-En cualquier caso, especificará tanto el identificador del almacén de claves de la clave de cifrado de claves como la dirección URL de la clave de cifrado de claves en los parámetros [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId y -KeyEncryptionKeyUrl de Azure PowerShell. Tenga en cuenta que en este ejemplo se asume que se usa el mismo almacén de claves para la clave de cifrado de discos y la clave de cifrado de claves.
+En cualquier caso, especificará tanto el identificador del almacén de claves de la clave de cifrado de claves como la dirección URL de la clave de cifrado de claves en los parámetros [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) -KeyEncryptionKeyVaultId y -KeyEncryptionKeyUrl de Azure PowerShell. Tenga en cuenta que en este ejemplo se asume que se usa el mismo almacén de claves para la clave de cifrado de discos y la clave de cifrado de claves.
 
  ```powershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup"

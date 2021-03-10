@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f9b970f498db7530b35c57a75edeae55dec3f22d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098850"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506946"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -34,7 +34,7 @@ En este artículo, aprenderá a:
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* La [extensión de la CLI de Azure para Machine Learning Service](reference-azure-machine-learning-cli.md), el [SDK de Python para Azure Machine Learning](/python/api/overview/azure/ml/intro) o la [extensión de Visual Studio Code para Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="what-is-a-compute-cluster"></a>¿Qué es un clúster de proceso?
 
@@ -80,7 +80,7 @@ para crear un recurso de Proceso de Azure Machine Learning persistente en Python
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar también varias propiedades avanzadas. Estas propiedades permiten crear un clúster persistente de tamaño fijo o dentro de una instancia existente de Azure Virtual Network de su suscripción.  Consulte la [clase AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) para más información.
+Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar también varias propiedades avanzadas. Estas propiedades permiten crear un clúster persistente de tamaño fijo o dentro de una instancia existente de Azure Virtual Network de su suscripción.  Consulte la [clase AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) para más información.
 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -90,7 +90,7 @@ Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+Para más información, consulte [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
