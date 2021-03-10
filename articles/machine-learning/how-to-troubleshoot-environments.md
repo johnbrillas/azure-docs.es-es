@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657305"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519136"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Solución de problemas en las compilaciones de imágenes
 
@@ -24,8 +24,8 @@ Aprenda a solucionar problemas con las compilaciones de imágenes del entorno de
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
-* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* La[CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install).
+* La[CLI de Azure](/cli/azure/install-azure-cli).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Para depurar localmente, debe tener una instalación de Docker en funcionamiento en el sistema local.
 
@@ -158,7 +158,7 @@ Problemas posibles:
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Obtiene un error 401 de un registro de contenedor del área de trabajo
 
-Vuelva a sincronizar las claves de almacenamiento mediante [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Vuelva a sincronizar las claves de almacenamiento mediante [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>El entorno sigue devolviendo el error "Esperando a que finalicen otras operaciones de Conda..."
 

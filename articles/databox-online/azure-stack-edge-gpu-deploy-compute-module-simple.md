@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6c067fb5f39e82bb1601ce7b4d9dc5e2ce4ac624
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550998"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440146"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Tutorial: Ejecución de una carga de trabajo de proceso con el módulo de IoT Edge en un dispositivo GPU de Azure Stack Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 En este tutorial se describe cómo ejecutar una carga de trabajo de proceso mediante un módulo de IoT Edge en el dispositivo de GPU de Azure Stack Edge Pro. Una vez configurado el rol de proceso, el dispositivo transformará los datos antes de enviarlos a Azure.
 
@@ -75,7 +75,7 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
     `rsync <source file path> < destination file path>`
 
-    Para más información sobre el comando `rsync`, consulte la [documentación sobre Rsync](https://www.computerhope.com/unix/rsync.htm).
+    Para más información sobre el comando `rsync`, consulte la [documentación sobre `Rsync`](https://www.computerhope.com/unix/rsync.htm).
  
 3. Vaya a **Puerta de enlace de almacenamiento en la nube > Recursos Compartidos** para ver la lista actualizada de recursos compartidos.
 
@@ -95,7 +95,7 @@ Para agregar un módulo, haga lo siguiente:
 2. En la hoja **Agregar módulo**, introduzca los siguientes valores:
 
     
-    |Campo  |Value  |
+    |Campo  |Valor  |
     |---------|---------|
     |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |

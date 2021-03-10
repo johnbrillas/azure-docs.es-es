@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 07053c096ce001b322e5f05556bd041519ca9d2e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 080136b8fc25b08a6b96464f0a61115a4bb2f3f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102483"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426627"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -48,18 +48,18 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-1. Vaya a la página de Virtual WAN. En el portal, haga clic en **+Crear un recurso** . Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione ENTRAR.
+1. Vaya a la página de Virtual WAN. En el portal, haga clic en **+Crear un recurso**. Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione ENTRAR.
 2. Seleccione **Virtual WAN** en los resultados. En la página Virtual WAN, haga clic en **Crear** para abrir la página Crear una red WAN.
-3. Dentro de la página **Crear una red WAN** , en la pestaña **Aspectos básicos** , rellene los campos siguientes:
+3. Dentro de la página **Crear una red WAN**, en la pestaña **Aspectos básicos**, rellene los campos siguientes:
 
    ![Creación de una red WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-   * **Suscripción** : seleccione la suscripción que quiere usar.
-   * **Grupo de recursos** : cree uno nuevo o utilice uno ya existente.
-   * **Ubicación del grupo de recursos** : elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
-   * **Nombre** : escriba el nombre que desea dar a la WAN.
-   * **Tipo** : seleccione **Estándar** . No se puede crear una puerta de enlace de ExpressRoute con la SKU básica.
-4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación** .
+   * **Suscripción**: seleccione la suscripción que quiere usar.
+   * **Grupo de recursos**: cree uno nuevo o utilice uno ya existente.
+   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
+   * **Nombre**: escriba el nombre que desea dar a la WAN.
+   * **Tipo**: seleccione **Estándar**. No se puede crear una puerta de enlace de ExpressRoute con la SKU básica.
+4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
 5. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.
 
 ## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Creación de un centro de conectividad virtual y una puerta de enlace
@@ -79,7 +79,7 @@ Cree un nuevo centro de conectividad virtual. Una vez que haya creado el centro 
 También puede crear una puerta de enlace en un centro de conectividad ya existente, editándolo.
 
 1. Vaya hasta el centro de conectividad virtual que desea editar y selecciónelo.
-2. En la página **Editar centro de conectividad virtual** , seleccione la casilla **Incluir la puerta de enlace de ExpressRoute** .
+2. En la página **Editar centro de conectividad virtual**, seleccione la casilla **Incluir la puerta de enlace de ExpressRoute**.
 3. Seleccione **Confirmar** para confirmar los cambios. El proceso completo de creación del centro de conectividad y de los recursos del mismo lleva aproximadamente 30 minutos.
 
    ![centro de conectividad existente](./media/virtual-wan-expressroute-portal/edithub.png "editar un centro de conectividad")
@@ -94,14 +94,14 @@ Una vez que haya creado una puerta de enlace de ExpressRoute, puede ver los deta
 
 En esta sección, creará la conexión de emparejamiento entre el centro de conectividad y una red virtual. Repita estos pasos para cada red virtual que desee conectar.
 
-1. En la página de la red virtual WAN, haga clic en **Conexión de red virtual** .
-2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión** .
-3. En la página **Agregar conexión** , rellene los campos siguientes:
+1. En la página de la red virtual WAN, haga clic en **Conexión de red virtual**.
+2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión**.
+3. En la página **Agregar conexión**, rellene los campos siguientes:
 
-    * **Nombre de la conexión** : asigne un nombre a la conexión.
-    * **Centros** : seleccione el concentrador que desea asociar a esta conexión.
-    * **Suscripción** : compruebe la suscripción.
-    * **Red virtual** : seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente (ni VPN, ni ExpressRoute).
+    * **Nombre de la conexión**: asigne un nombre a la conexión.
+    * **Centros**: seleccione el concentrador que desea asociar a esta conexión.
+    * **Suscripción**: compruebe la suscripción.
+    * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente (ni VPN, ni ExpressRoute).
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
@@ -109,10 +109,10 @@ Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRo
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar el circuito a la puerta de enlace del centro de conectividad
 
-En el portal, vaya a la página **Centro virtual-> Conectividad-> ExpressRoute** . Si tiene acceso a un circuito ExpressRoute en su suscripción, verá el circuito que desea usar en la lista de circuitos. Si no ve ningún circuito, pero se le ha proporcionado una clave de autorización y un URI de circuito del mismo nivel, puede canjear y conectar un circuito. Consulte [Para conectar canjeando una clave de autorización](#authkey).
+En el portal, vaya a la página **Centro virtual-> Conectividad-> ExpressRoute**. Si tiene acceso a un circuito ExpressRoute en su suscripción, verá el circuito que desea usar en la lista de circuitos. Si no ve ningún circuito, pero se le ha proporcionado una clave de autorización y un URI de circuito del mismo nivel, puede canjear y conectar un circuito. Consulte [Para conectar canjeando una clave de autorización](#authkey).
 
 1. Seleccione el circuito.
-2. Seleccione **Conectar los circuitos** .
+2. Seleccione **Conectar los circuitos**.
 
    ![conectar los circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "conectar los circuitos")
 
@@ -145,7 +145,7 @@ Si desea cambiar el tamaño de la puerta de enlace de ExpressRoute, busque la pu
 
 Si desea que el centro de conectividad virtual de Azure anuncie la ruta predeterminada 0.0.0.0/0 a los puntos de conexión de ExpressRoute, tendrá que habilitar "Propagar la ruta predeterminada".
 
-1. Seleccione su **Circuito >...-> Editar conexión** .
+1. Seleccione su **Circuito >...-> Editar conexión**.
 
    ![Editar la conexión](./media/virtual-wan-expressroute-portal/defaultroute1.png "Edición de la conexión")
 
@@ -155,11 +155,9 @@ Si desea que el centro de conectividad virtual de Azure anuncie la ruta predeter
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+Cuando ya no necesite los recursos que ha creado, elimínelos. Algunos recursos de Virtual WAN deben eliminarse en un orden determinado debido a las dependencias. La eliminación puede tardar unos 30 minutos.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

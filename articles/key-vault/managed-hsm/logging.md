@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992298"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211811"
 ---
 # <a name="managed-hsm-logging"></a>Registro de Managed HSM 
 
@@ -22,7 +22,7 @@ Después de crear uno o varios HSM administrados, es probable que desee supervis
 
 Puede acceder a la información de registro 10 minutos (como máximo) después de la operación del HSM administrado. En la mayoría de los casos, será más rápido que esto.  Es decisión suya administrar los registros en la cuenta de almacenamiento:
 
-* Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
+* Use los métodos de control de acceso estándar de Azure para proteger los registros mediante la restricción de los usuarios que pueden entrar a ellos.
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
 Use este tutorial para empezar a trabajar con el registro de HSM administrado. Deberá crear una cuenta de almacenamiento, habilitar el registro e interpretar la información de los registros recopilados.  
@@ -48,7 +48,7 @@ El primer paso para configurar el registro de claves es hacer que la CLI de Azur
 az login
 ```
 
-Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli)
 
 Es posible que deba especificar la suscripción que usó para crear el HSM administrado. Para ver las suscripciones de su cuenta, escriba el siguiente comando:
 
