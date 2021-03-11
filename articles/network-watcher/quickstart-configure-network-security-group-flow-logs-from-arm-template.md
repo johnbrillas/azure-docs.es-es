@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019727"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521873"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Inicio rápido: Configuración de registros de flujo de grupos de seguridad de red mediante una plantilla de Resource Manager
 
@@ -82,7 +82,7 @@ Para obtener información general completa de las propiedades del objeto de regi
 
 Si es la primera vez que utiliza plantillas de Resource Manager, consulte los artículos siguientes para más información sobre dichas plantillas:
 
-- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 El ejemplo siguiente es una plantilla completa. También es la versión más simple de la plantilla. El ejemplo contiene los parámetros mínimos que se pasan para configurar los registros de flujo del grupo de seguridad de red. Para más ejemplos, consulte el artículo de información general [Configuración de registros de flujo de NSG a partir de una plantilla de Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Tiene dos opciones para ver si la implementación se realizó correctamente:
 
 - La consola de PowerShell muestra `ProvisioningState` como `Succeeded`.
-- Vaya a la [página del portal de registros de flujo del grupo de seguridad de red](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar los cambios. 
+- Vaya a la [página del portal de registros de flujo del grupo de seguridad de red](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar los cambios.
 
 Si se produjeron problemas con la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

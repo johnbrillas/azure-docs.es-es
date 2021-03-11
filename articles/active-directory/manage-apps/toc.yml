@@ -38,8 +38,14 @@
       items:
         - name: Introducción de los ejemplos de Administración de la aplicación
           href: app-management-powershell-samples.md
-        - name: 'Exportación de todos los registros, secretos y certificados de las aplicaciones'
+        - name: Exportación de secretos y certificados (registros de aplicaciones)
           href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+        - name: Exportación de secretos y certificados (aplicaciones empresariales)
+          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+        - name: Exportación de secretos y certificados que expiran
+          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+        - name: Exportación de secretos y certificados que expiran después de la fecha requerida
+          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: Ejemplos de PowerShell para Proxy de aplicación
       href: application-proxy-powershell-samples.md
 - name: Conceptos

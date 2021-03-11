@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388080"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521023"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a usar las identidades administradas para:
 
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - La [extensión de la CLI de Azure para el servicio Machine Learning](reference-azure-machine-learning-cli.md).
-- El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 - Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](../role-based-access-control/built-in-roles.md#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__).
 - Debe estar familiarizado con la creación y el uso de [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -107,7 +107,7 @@ Para acceder a la instancia de ACR del área de trabajo, cree un clúster de pro
 
 # <a name="python"></a>[Python](#tab/python)
 
-Al crear un clúster de proceso con la clase [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), use el parámetro `identity_type` para establecer el tipo de identidad administrada.
+Al crear un clúster de proceso con la clase [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration), use el parámetro `identity_type` para establecer el tipo de identidad administrada.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -191,7 +191,7 @@ En este escenario, el servicio Azure Machine Learning crea el entorno de entrena
 
         El identificador de recurso UAI es el identificador de recurso de Azure de la identidad asignada por el usuario, con el formato `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>`.
 
-1. Especifique el id. de cliente y la instancia de ACR externa de la __identidad administrada asignada por el usuario__ en las conexiones del área de trabajo mediante el [método Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
+1. Especifique el id. de cliente y la instancia de ACR externa de la __identidad administrada asignada por el usuario__ en las conexiones del área de trabajo mediante el [método Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
 
     ```python
     workspace.set_connection(
@@ -211,7 +211,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-Opcionalmente, puede especificar la dirección URL del recurso de identidad administrada y el id. de cliente en la propia definición de entorno mediante [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Si usa la identidad del registro explícitamente, invalida las conexiones del área de trabajo especificadas anteriormente:
+Opcionalmente, puede especificar la dirección URL del recurso de identidad administrada y el id. de cliente en la propia definición de entorno mediante [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). Si usa la identidad del registro explícitamente, invalida las conexiones del área de trabajo especificadas anteriormente:
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

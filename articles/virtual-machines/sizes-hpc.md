@@ -3,18 +3,18 @@ title: 'Tamaños de las máquinas virtuales de Azure: HPC | Microsoft Docs'
 description: Enumera los tamaños diferentes disponibles para las máquinas virtuales de informática de alto rendimiento en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 0ccd7a2ff1d4948858e62e224f1376379b4335ec
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bfc49cf7c9f5489248aeba7465a88e97ad16abd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669147"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554403"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 

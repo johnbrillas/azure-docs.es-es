@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 077730d63d388566bd842a4ba185bd5fd6637043
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d76c4206ca39518c3a09d27ee470c05db108ae6d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589005"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551888"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configuración de una canalización de CI/CD para una aplicación Java con Azure DevOps Starter
 
@@ -31,7 +31,7 @@ En este inicio rápido se usa la experiencia simplificada de Azure DevOps Starte
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción a Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -131,4 +131,4 @@ Azure App Service y otros recursos relacionados se pueden eliminar cuando no se 
 Cuando configuró el proceso de CI/CD, se crearon automáticamente canalizaciones de compilación y de versión. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalización del proceso de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalización del proceso de CD](/azure/devops/pipelines/release/define-multistage-release-process)

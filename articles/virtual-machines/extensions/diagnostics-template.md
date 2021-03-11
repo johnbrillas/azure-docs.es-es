@@ -1,27 +1,19 @@
 ---
 title: Adición de supervisión y diagnósticos a una máquina virtual de Azure
 description: Use una plantilla de Azure Resource Manager para crear una máquina virtual Windows con la extensión Azure Diagnostics.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 05/31/2017
-ms.author: mimckitt
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 413ea38b1694a9322742f3a76438e7b752152e24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d365c7e927c11f52b97fbb0cc01a7aa37ad5afd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580221"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560062"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  

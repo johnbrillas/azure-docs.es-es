@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517077"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553925"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -90,7 +90,7 @@ Una vez instalada la extensión, las tareas de compilación de desarrollo seguro
 > - Seleccione siempre **Continuar en caso de error** para las tareas de compilación de desarrollo seguro. Incluso si se produce un error en una de las herramientas, las demás podrán ejecutarse. No hay interdependencias entre las herramientas.
 > - Las tareas de compilación de Análisis de código de seguridad de Microsoft solo producen un error si una herramienta no se ejecuta correctamente. Sin embargo, se ejecutan correctamente aunque una herramienta identifique problemas en el código. Mediante la tarea de compilación Posanálisis, puede configurar la compilación para que se interrumpa cuando una herramienta identifique problemas en el código.
 > - Algunas tareas de compilación de Azure DevOps no se admiten cuando se ejecutan a través de una canalización de versión. Más concretamente, Azure DevOps no admite tareas que publican artefactos desde una canalización de versión.
-> - Para ver una lista de variables predefinidas en Azure DevOps Team Build, que puede especificar como parámetros, consulte las [variables de compilación de Azure DevOps](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Para ver una lista de variables predefinidas en Azure DevOps Team Build, que puede especificar como parámetros, consulte las [variables de compilación de Azure DevOps](/azure/devops/pipelines/build/variables?tabs=batch).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

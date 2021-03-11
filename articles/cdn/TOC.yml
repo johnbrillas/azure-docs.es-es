@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: Establecimiento de reglas de almacenamiento en caché
       href: cdn-caching-rules-tutorial.md
-    - name: Aplicación de HTTPS mediante el motor de reglas estándar
-      href: cdn-standard-rules-engine.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Punto de conexión con varios orígenes
           href: endpoint-multiorigin.md
+        - name: Aplicación de HTTPS mediante el motor de reglas estándar
+          href: cdn-standard-rules-engine.md
         - name: Control del comportamiento del almacenamiento en caché
           items:
             - name: Control del comportamiento del almacenamiento en caché mediante reglas de almacenamiento en caché

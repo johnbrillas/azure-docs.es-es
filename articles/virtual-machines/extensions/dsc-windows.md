@@ -1,25 +1,19 @@
 ---
 title: Controlador de extensiones de Desired State Configuration de Azure
 description: Cargue y aplique una configuración de DSC de PowerShell en una máquina virtual de Azure con la extensión DSC
-services: virtual-machines-windows
-documentationcenter: ''
-author: bobbytreed
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: ''
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed
 ms.author: robreed
-ms.openlocfilehash: 5254d83c18ddc9f2a5518ed4f711d4cd73ab6de7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.collection: windows
+ms.date: 03/26/2018
+ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510947"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559994"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -27,7 +21,7 @@ ms.locfileid: "97510947"
 
 Microsoft, como editor de la extensión DSC de PowerShell, es quien presta los servicios de soporte técnico para esta solución. La extensión carga y aplica una configuración de DSC de PowerShell en una máquina virtual de Azure. La extensión DSC llama a DSC de PowerShell para aplicar la configuración de DSC recibida en la máquina virtual. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de DSC para Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 

@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1c05ff1bf1956943230bf523584025787495d57f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108100"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517861"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versiones de flujos de usuario de Azure Active Directory B2C
 
 Los flujos de usuario de Azure Active Directory B2C (Azure AD B2C) le permiten configurar [directivas](user-flow-overview.md) que describan de forma exhaustiva la experiencia de los clientes con las identidades. Estas experiencias incluyen las operaciones de registro, inicio de sesión, restablecimiento de contraseña y edición de perfiles. En las tablas siguientes se describen los flujos de usuario que están disponibles en Azure AD B2C.
 
 > [!IMPORTANT]
-> Hemos cambiado el modo en que llamamos a las versiones de flujos de usuario. Anteriormente, estaban las versiones V1 (para entornos de producción) y las versiones V1.1 y V2 (preliminares). Ahora, hemos agrupado los flujos de usuario en dos versiones:
+> Hemos cambiado el modo en que llamamos a las versiones de flujos de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora, hemos consolidado los flujos de usuario en dos versiones:
 >
->- Los flujos de usuario **recomendados** son las nuevas versiones preliminares. Se han probado exhaustivamente y combinan todas las características de las versiones **V2** y **V1.1** heredadas. En el futuro, seguirán realizándose tareas de mantenimiento y habrá actualizaciones para los nuevos flujos de usuario recomendados. Una vez que migre a estos nuevos flujos de usuario recomendados, tendrá acceso a las nuevas características a medida que se vayan publicando.
->- Los flujos de usuario **estándar**, anteriormente conocidos como **V1**, son flujos de usuario disponibles con carácter general y para entornos de producción. Si los flujos de usuario son críticos y dependen de versiones altamente estables, puede seguir usando flujos de usuario estándar, pero debe saber que no se realizarán tareas de mantenimiento en ellos ni se proporcionarán actualizaciones.
+>- Los flujos de usuario **Recomendados** son las nuevas versiones preliminares de los flujos de usuario. Se prueban exhaustivamente y combinan todas las características de las versiones **V2** y **V1.1** heredadas. A partir de ahora, los nuevos flujos de usuario recomendados se mantendrán y actualizarán. Una vez que se traslade a estos nuevos flujos de usuario recomendados, tendrá acceso a las nuevas características a medida que se vayan lanzando.
+>- Los flujos de usuario **Estándar**, anteriormente conocidos como **V1**, son flujos de usuario disponibles con carácter general y para entornos de producción. Si sus flujos de usuario son críticos y dependen de versiones altamente estables, puede seguir usando flujos de usuario estándar, sabiendo que estas versiones no se mantendrán ni actualizarán.
 >
 >Todos los flujos de usuario de las versiones preliminares heredadas (V1.1 y V2) se encuentran en un proceso de desuso que finalizará **1 de agosto de 2021**. Siempre que sea posible, recomendamos encarecidamente que [cambie a las nuevas versiones **recomendadas**](#how-to-switch-to-a-new-recommended-user-flow) lo antes posible para que pueda aprovechar siempre las últimas características y actualizaciones. *Estos cambios solo se aplican a la nube pública de Azure. Otros entornos seguirán usando el [control de versiones de flujos de usuario heredado](user-flow-versions-legacy.md).*
 
@@ -35,11 +35,11 @@ Los flujos de usuario recomendados son versiones preliminares que combinan nueva
 
 | Flujo de usuario | Descripción |
 | --------- | ----------- |
-| Restablecimiento de contraseña (versión preliminar) | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Restablecimiento de contraseña (versión preliminar) | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
 | Edición de perfiles (versión preliminar) | Permite al usuario configurar los atributos de usuario. Con este flujo de usuario, puede configurar: <ul><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li></ul> |
-| Inicio de sesión (versión preliminar) | Permite a los usuarios iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>Personalización de la página de inicio de sesión</li></ul> |
-| Registro (versión preliminar) | Permite a los usuarios crear una cuenta. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
-| Registro e inicio de sesión (versión preliminar) | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Inicio de sesión (versión preliminar) | Permite a los usuarios iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>Personalización de la página de inicio de sesión</li></ul> |
+| Registro (versión preliminar) | Permite a los usuarios crear una cuenta. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Registro e inicio de sesión (versión preliminar) | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Flujos de usuario estándar
 

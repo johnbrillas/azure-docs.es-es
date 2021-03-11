@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804896"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520717"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Uso de kubectl para ejecutar una aplicación con estado de Kubernetes con PersistentVolume en el dispositivo Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se muestra cómo implementar una aplicación con estado de una sola instancia en Kubernetes con PersistentVolume (PV) y una implementación. La implementación usa comandos `kubectl` en un clúster de Kubernetes existente e implementa la aplicación MySQL. 
 
@@ -37,7 +39,7 @@ Antes de implementar la aplicación con estado, complete los siguientes requisit
 ### <a name="for-client-accessing-the-device"></a>Para el cliente que va a acceder al dispositivo
 
 - Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge Pro.
-    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
+    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
     
     - También puede utilizar cualquier otro cliente con un [sistema operativo compatible](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). En este artículo, el procedimiento que se describe emplea un cliente Windows. 
     

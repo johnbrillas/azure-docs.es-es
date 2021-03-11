@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 87505557653e70aab7f1392aeea8dbdf505327e0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a8f7e14500fb377b46f651b53e2704d8477aea7a
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962763"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520666"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 
@@ -42,7 +42,7 @@ Para completar estos pasos, necesitará lo siguiente:
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (versión 3.3 o posterior).
 * Haber creado una instancia de Microsoft Azure Virtual Network con el modelo de implementación de Azure Resource Manager, que proporciona a Azure Database Migration Service conectividad de sitio a sitio a los servidores de origen locales a través de [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * Haber completado la evaluación de su base de datos local y la migración de esquemas con Data Migration Assistant, tal y como se describe en el artículo [Realizar una evaluación de migración de SQL Server con Data Migration Assistant](/sql/dma/dma-assesssqlonprem).
-* Descargar e instalar el módulo Az.DataMigration de la Galería de PowerShell con el [cmdlet Install-Module de PowerShell](/powershell/module/powershellget/Install-Module?view=powershell-5.1); asegurarse de abrir la ventana Comandos de PowerShell ejecutándola como administrador.
+* Descargar e instalar el módulo Az.DataMigration de la Galería de PowerShell con el [cmdlet Install-Module de PowerShell](/powershell/module/powershellget/Install-Module); asegurarse de abrir la ventana Comandos de PowerShell ejecutándola como administrador.
 * Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga el permiso [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql).
 * Asegurarse de que las credenciales usadas para conectarse a la instancia de Azure SQL DB de destino tenga el permiso CONTROL DATABASE en las bases de datos de Azure SQL de destino.
 * Suscripción a Azure. Si no tiene una, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.

@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805536"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517878"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solución de problemas de sincronización en la nube
 
@@ -120,7 +120,7 @@ Es posible que reciba un mensaje de error al instalar el agente de aprovisionami
 
 Este problema suele deberse a que el agente no puede ejecutar los scripts de registro de PowerShell debido a las directivas de ejecución locales de PowerShell.
 
-Para solucionar este problema, cambie las directivas de ejecución de PowerShell en el servidor. Debe establecer las directivas de máquina y usuario en *Undefined* o *RemoteSigned*. Si se establece como *Unrestricted*, verá este error. Para más información, consulte las [directivas de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Para solucionar este problema, cambie las directivas de ejecución de PowerShell en el servidor. Debe establecer las directivas de máquina y usuario en *Undefined* o *RemoteSigned*. Si se establece como *Unrestricted*, verá este error. Para más información, consulte las [directivas de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Archivos de registro
 

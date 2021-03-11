@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7807c0df580a6763a69619cdaa3d9d29f72e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a925c3a17988ef6f4b95a1e3cf4dd5fb8baa4829
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521409"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510746"
 ---
 Los recursos siguientes también están disponibles:
 
-- [Documentación de referencia del SDK de Python](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python)
+- [Documentación de referencia del SDK de Python](/python/api/azure-iot-hub/azure.iot.hub)
 - [Ejemplos de cliente de servicio](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
 - [Ejemplos de Digital Twins](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py)
 
@@ -63,7 +63,7 @@ twin_patch.properties = TwinProperties(
 updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en el componente **thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en el componente **thermostat1**:
 
 ```python
 iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
@@ -111,7 +111,7 @@ result = iothub_registry_manager.invoke_device_method(device_id, device_method)
 print(result.payload)
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1**:
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -163,7 +163,7 @@ patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
 digital_twin_client.update_digital_twin(device_id, patch)
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **thermostat1**:
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -198,7 +198,7 @@ else:
     print("No invoke_command_result found")
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1**:
 
 ```python
 from azure.iot.hub import DigitalTwinClient

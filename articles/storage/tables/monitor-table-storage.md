@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4b27adbbfa68fc3a9b0c017d07580f416674e432
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d2973d95cf797123e02fd48dc2dfab1b172e05f5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591486"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499482"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervisión de Azure Table Storage
 
@@ -107,6 +107,8 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 
 2. En la lista desplegable de la **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
 
@@ -151,12 +153,14 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) junto con el parámetro `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de tabla. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Este es un ejemplo:
 
@@ -220,9 +224,11 @@ Reemplace el marcador de posición `<storage-service-resource--id>` en este frag
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Este es un ejemplo:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
 
@@ -257,7 +263,6 @@ Este es un ejemplo:
 Para ver una plantilla de Azure Resource Manager que crea una configuración de diagnóstico, consulte [Configuración de diagnóstico para Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
-
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 

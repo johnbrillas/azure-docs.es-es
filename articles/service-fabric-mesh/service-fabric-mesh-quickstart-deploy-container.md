@@ -5,17 +5,17 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: f34034394d2492dba64214c612a239b92f4b9c46
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: c89cc1972a554cac85ce2a258873f6c810e45167
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625725"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217727"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Inicio rápido: Implementación de una aplicación "Hola mundo" en Service Fabric Mesh
 
 > [!IMPORTANT]
-> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones mediante Service Fabric Mesh API. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones a través de la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
 > 
 > Para más información, consulte [Retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
@@ -121,4 +121,4 @@ Para obtener más información sobre cómo crear e implementar aplicaciones de S
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli

@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e41d4f6f8b8aeb2be376ae1385189fe02e9b897
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179058"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504664"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
 
 Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager (plantillas de ARM). En este inicio rápido usará la extensión para crear una plantilla de ARM desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
 
-Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
+Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az) instalados y autenticados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

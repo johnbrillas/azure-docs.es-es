@@ -10,12 +10,12 @@ ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e5ab583330b46b8f53223500076aa04780e6deac
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3a44466f04e598080662599e785eb71698265f87
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108728"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592339"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -35,11 +35,11 @@ Cuando se aplica una versión mínima de TLS para la cuenta de almacenamiento, s
 
 Para registrar las solicitudes a su cuenta de Azure Storage y determinar qué versión de TLS usa el cliente, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](../blobs/monitor-blob-storage.md).
 
-El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure Log Analytics, primero debe crear una configuración de diagnóstico que indique qué tipos de solicitudes y para qué servicios de almacenamiento quiere registrar los datos. Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (incluido Azure Data Lake Storage Gen2), archivos, colas y tablas. Para crear una configuración de diagnóstico en Azure Portal, siga estos pasos:
 
-1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. En la sección Supervisión, seleccione **Configuración de diagnóstico (versión preliminar)** .
 1. Seleccione el servicio de Azure Storage cuyas solicitudes quiere registrar. Por ejemplo, elija **Blob** para registrar las solicitudes a Blob Storage.
@@ -50,7 +50,7 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
-Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Puede encontrar una referencia sobre los campos disponibles en los registros de Azure Storage en Azure Monitor en el artículo [Registros de recursos (versión preliminar)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -344,13 +344,13 @@ En la siguiente imagen se muestra el error que se produce si se intenta crear un
 
 ## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Permisos necesarios para requerir una versión mínima de TLS
 
-Para establecer la propiedad **MinimumTlsVersion** para la cuenta de almacenamiento, el usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (RBAC de Azure) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\** _. Los roles integrados con esta acción incluyen:
+Para establecer la propiedad **MinimumTlsVersion** para la cuenta de almacenamiento, el usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (Azure RBAC) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\*** . Los roles integrados con esta acción incluyen:
 
 - El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
 - El rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen _*Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
+Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen **Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
 
 Las asignaciones de roles deben tener el ámbito del nivel de la cuenta de almacenamiento o superior para permitir que un usuario requiera una versión mínima de TLS para la cuenta de almacenamiento. Para obtener más información sobre el ámbito de los roles, vea [Comprensión del ámbito para RBAC de Azure](../../role-based-access-control/scope-overview.md).
 

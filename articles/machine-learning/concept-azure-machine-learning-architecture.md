@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091676"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503698"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -102,7 +102,7 @@ Una ejecución se produce cuando se envía un script para entrenar un modelo. Un
 
 [Área de trabajo](#workspace) > [Experimentos](#experiments) > [Ejecutar](#runs) > **Configuración de ejecución**
 
-Una configuración de ejecución define cómo se debe ejecutar un script en un destino de proceso especificado. La configuración se usa para especificar el script, el destino de proceso y el entorno de aprendizaje automático de Azure en el que se ejecutará, cualquier configuración específica del trabajo distribuido y algunas propiedades adicionales. Para más información sobre el conjunto completo de opciones configurables para las ejecuciones, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+Una configuración de ejecución define cómo se debe ejecutar un script en un destino de proceso especificado. La configuración se usa para especificar el script, el destino de proceso y el entorno de aprendizaje automático de Azure en el que se ejecutará, cualquier configuración específica del trabajo distribuido y algunas propiedades adicionales. Para más información sobre el conjunto completo de opciones configurables para las ejecuciones, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 Una configuración de ejecución puede conservarse en un archivo dentro del directorio que contiene el script de entrenamiento.   O bien, se puede crear como un objeto en memoria y usarse para enviar una ejecución.
 
@@ -282,7 +282,7 @@ Studio también es el lugar desde el que se puede acceder a las herramientas int
 > Las herramientas marcadas (versión preliminar) a continuación se encuentran actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 + Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versión preliminar).
 + Use el [diseñador de Azure Machine Learning](concept-designer.md) para seguir los pasos del flujo de trabajo sin escribir código. 
 + Use la [CLI de Azure Machine Learning](./reference-azure-machine-learning-cli.md) para la automatización.

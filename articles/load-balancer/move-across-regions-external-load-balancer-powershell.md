@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e43d8f1050f6b2b458c0926c674c05f7f18edc63
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 94cb46536bcf029a9e71a7238772ccc7b186b1dc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018518"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500281"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Traslado de un equilibrador de carga externo de Azure a otra región mediante Azure PowerShell
 
@@ -43,18 +43,18 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
 ### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>Exportación de la plantilla de la dirección IP pública e implementación desde Azure PowerShell
 
-1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) y siga las instrucciones de la pantalla:
+1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) y siga las instrucciones de la pantalla:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Obtenga el Id. de recurso de la dirección IP pública que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+2. Obtenga el Id. de recurso de la dirección IP pública que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte la IP pública de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte la IP pública de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -107,7 +107,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
              ]             
     ```
   
-7. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) al ejecutar el siguiente comando:
+7. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation) al ejecutar el siguiente comando:
 
     ```azurepowershell-interactive
 
@@ -163,12 +163,12 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
 9. Guarde el archivo **\<resource-group-name>.json**.
 
-10. Cree un grupo de recursos en la región de destino para la dirección IP pública de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Cree un grupo de recursos en la región de destino para la dirección IP pública de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -176,7 +176,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     
     ```
 
-12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) y [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) y [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
     
     ```azurepowershell-interactive
 
@@ -192,19 +192,19 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportación de la plantilla del equilibrador de carga externo e implementación desde Azure PowerShell
 
-1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) y siga las instrucciones de la pantalla:
+1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) y siga las instrucciones de la pantalla:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenga el identificador del recurso del equilibrador de carga externo que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+2. Obtenga el identificador del recurso del equilibrador de carga externo que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
 
     ```azurepowershell-interactive
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte la configuración del equilibrador de carga externo de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte la configuración del equilibrador de carga externo de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
@@ -232,7 +232,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
     ```
 
-6.  Para modificar el valor de la dirección IP pública de destino que se ha trasladado antes, primero debe obtener el identificador de recurso y, a continuación, copiarlo y pegarlo en el archivo **\<resource-group-name>.json**.  Para obtener el identificador, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  Para modificar el valor de la dirección IP pública de destino que se ha trasladado antes, primero debe obtener el identificador de recurso y, a continuación, copiarlo y pegarlo en el archivo **\<resource-group-name>.json**.  Para obtener el identificador, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -297,7 +297,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
                 },
     ```
 
-11. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) al ejecutar el siguiente comando:
+11. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation) al ejecutar el siguiente comando:
 
     ```azurepowershell-interactive
 
@@ -354,7 +354,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
        Para más información sobre las reglas de equilibrio de carga, consulte [¿Qué es Azure Load Balancer?](./load-balancer-overview.md)
 
-    * **Sondeos**: puede agregar o quitar sondeos para el equilibrador de carga en la configuración agregando o quitando entradas en la sección **probes** del archivo **\<resource-group-name>.json** :
+    * **Sondeos**: puede agregar o quitar sondeos para el equilibrador de carga en la configuración agregando o quitando entradas en la sección **probes** del archivo **\<resource-group-name>.json**:
 
         ```json
         "probes": [
@@ -374,7 +374,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
        Para más información sobre los sondeos de estado de Azure Load Balancer, consulte [Sondeos de estado de Load Balancer](./load-balancer-custom-probe-overview.md).
 
-    * **Reglas NAT de entrada**: puede agregar o quitar reglas NAT de entrada para el equilibrador de carga agregando o quitando entradas en la sección **inboundNatRules** del archivo **\<resource-group-name>.json** :
+    * **Reglas NAT de entrada**: puede agregar o quitar reglas NAT de entrada para el equilibrador de carga agregando o quitando entradas en la sección **inboundNatRules** del archivo **\<resource-group-name>.json**:
 
         ```json
         "inboundNatRules": [
@@ -452,12 +452,12 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
 13. Guarde el archivo **\<resource-group-name>.json**.
     
-10. Cree un grupo de recursos en la región de destino para el equilibrador de carga externo de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). El grupo de recursos existente anterior también se puede reutilizar como parte de este proceso:
+10. Cree un grupo de recursos en la región de destino para el equilibrador de carga externo de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). El grupo de recursos existente anterior también se puede reutilizar como parte de este proceso:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -465,7 +465,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     
     ```
 
-12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) y [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) y [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
     
     ```azurepowershell-interactive
 
@@ -481,7 +481,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
 ## <a name="discard"></a>Discard (Descartar) 
 
-Después de la implementación, si quiere empezar de nuevo o descartar la IP pública y el equilibrador de carga en el destino, elimine el grupo de recursos que se creó en el destino y se eliminará la IP pública y el equilibrador de carga trasladados.  Para quitar el grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Después de la implementación, si quiere empezar de nuevo o descartar la IP pública y el equilibrador de carga en el destino, elimine el grupo de recursos que se creó en el destino y se eliminará la IP pública y el equilibrador de carga trasladados.  Para quitar el grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 
@@ -491,7 +491,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Limpieza
 
-Para confirmar los cambios y completar el traslado del NSG, elimine el NSG o el grupo de recursos de origen mediante [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) o [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) y [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Para confirmar los cambios y completar el traslado del NSG, elimine el NSG o el grupo de recursos de origen mediante [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) o [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) y [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer)
 
 ```azurepowershell-interactive
 

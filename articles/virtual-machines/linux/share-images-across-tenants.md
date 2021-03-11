@@ -3,19 +3,19 @@ title: Uso compartido de imágenes de la galería entre inquilinos
 description: Obtenga información sobre cómo compartir imágenes de VM entre inquilinos de Azure mediante Galerías de imágenes compartidas y la CLI de Azure.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2ef788659c871a9bcef6f519664689eacda94daa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552888"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Uso compartido de imágenes de VM de la galería entre inquilinos de Azure mediante la CLI de Azure
 

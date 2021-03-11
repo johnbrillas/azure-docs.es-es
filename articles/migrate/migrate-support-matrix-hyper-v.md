@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590641"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521363"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -39,7 +39,7 @@ Para configurar la evaluación de máquinas virtuales de Hyper-V, cree un proyec
 | :-------------------       | :------------------- |
 | **Host de Hyper-V**       | El host de Hyper-V puede ser independiente o implementarse en un clúster.<br/><br/> Asimismo, el host de Hyper-V puede ejecutar Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. También se admite la instalación de Server Core de estos sistemas operativos. <br/>No puede evaluar VM que se encuentran en hosts de Hyper-V que ejecutan Windows Server 2012.
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. <br/> Si no quiere asignar permisos de administrador, cree una cuenta de usuario local o de dominio y agregue la cuenta del usuario a estos grupos: Usuarios de administración remota, Administradores de Hyper-V y Usuarios del monitor de sistema. |
-| **Comunicación remota de PowerShell**   | La [comunicación remota de PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) debe estar habilitada en cada host de Hyper-V. |
+| **Comunicación remota de PowerShell**   | La [comunicación remota de PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) debe estar habilitada en cada host de Hyper-V. |
 | **Réplica de Hyper-V**       | Si usa la réplica de Hyper-V (o tiene varias máquinas virtuales con los mismos identificadores) y detecta las máquinas virtuales originales y las replicadas mediante Azure Migrate, es posible que la evaluación generada por Azure Migrate no sea precisa. |
 
 

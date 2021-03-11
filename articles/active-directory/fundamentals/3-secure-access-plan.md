@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725218"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554027"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Creación de un plan de seguridad para el acceso externo 
 
@@ -132,7 +132,7 @@ A pesar de que las directivas estarán adaptadas en gran medida a sus necesidade
 
    * Si va a usar [organizaciones conectadas](../governance/entitlement-management-organization.md) para agrupar a todos los usuarios de un solo asociado, programe revisiones periódicas con el propietario de la empresa y el representante asociado.
 
-* **Grupos de Microsoft 365**. Establezca una [directiva de expiración del grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) para los grupos de Microsoft 365 a los que se invita a los usuarios externos. 
+* **Grupos de Microsoft 365**. Establezca una [directiva de expiración del grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) para los grupos de Microsoft 365 a los que se invita a los usuarios externos. 
 
 * **Otras opciones**. Si los usuarios externos tienen acceso fuera de los paquetes de acceso de administración de derechos o de los grupos de Microsoft 365, configure el proceso de negocio para revisar cuándo se deben inactivar o eliminar las cuentas. Por ejemplo:
 
@@ -228,4 +228,4 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 
 8. [Acceso seguro mediante etiquetas de confidencialidad](8-secure-access-sensitivity-labels.md)
 
-9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)
+9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)

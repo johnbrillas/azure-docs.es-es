@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cdfd6cb8947fb3b56fcbfe92874c8b9b27a8db1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1fbe93c93b5ede2c6b031dab53a1450da473f802
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108134"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517810"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Versiones heredadas de flujos de usuario de Azure Active Directory B2C
 
@@ -47,8 +47,8 @@ En la tabla siguiente, a menos que un flujo de usuario se identifique como **rec
 
 | Flujo de usuario | Recomendado | Descripción |
 | --------- | ----------- | ----------- |
-| Restablecimiento de contraseña v2 | No | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Restablecimiento de contraseña v2 | No | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
 | Edición de perfil v2 | Sí | Permite al usuario configurar los atributos de usuario. Con este flujo de usuario, puede configurar: <ul><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li></ul> |
-| Inicio de sesión v2 | No | Permite a los usuarios iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>Personalización de la página de inicio de sesión</li></ul> |
-| Registrarse v2 | No | Permite a los usuarios crear una cuenta. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
-| Registrarse e iniciar sesión v2 | No | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Restricción de acceso por edad](basic-age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Inicio de sesión v2 | No | Permite a los usuarios iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>Personalización de la página de inicio de sesión</li></ul> |
+| Registrarse v2 | No | Permite a los usuarios crear una cuenta. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Vigencia de tokens](tokens-overview.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
+| Registrarse e iniciar sesión v2 | No | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Autenticación multifactor](multi-factor-authentication.md)</li><li>[Restricción de acceso por edad](age-gating.md)</li><li>[Requisitos de complejidad de la contraseña](password-complexity.md)</li></ul> |
