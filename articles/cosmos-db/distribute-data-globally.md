@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 01/06/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 7fedd45585698aef9248318a1b055cb656f25d02
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 6bdb167990afeb5c1b6c68185f24a8f930287bed
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335135"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487906"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribución de los datos globalmente con Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,9 +21,9 @@ Las aplicaciones actuales deben estar siempre en línea y tener una alta capacid
 
 Azure Cosmos DB es un sistema de base de datos distribuido globalmente que permite leer y escribir datos de las réplicas locales de la base de datos. Azure Cosmos DB replica los datos con transparencia en todas las regiones asociadas a la cuenta de Cosmos. Azure Cosmos DB es un servicio de base de datos distribuida globalmente que está diseñado para proporcionar baja latencia, escalabilidad elástica del rendimiento, semántica bien definida para la coherencia de datos y alta disponibilidad. En resumen, si la aplicación necesita un tiempo de respuesta rápido en cualquier parte del mundo, si necesita estar siempre en línea y precisa escalabilidad elástica e ilimitada de rendimiento y almacenamiento, considere la posibilidad de crear aplicaciones con Azure Cosmos DB.
 
-Puede configurar sus bases de datos para que se distribuyan de manera global y estén disponibles en cualquiera de las regiones de Azure. Para reducir la latencia, coloque los datos en la ubicación más cercana a la de los usuarios. Elegir las regiones requeridas depende del alcance global de la aplicación y de dónde se encuentran los usuarios. Cosmos DB replica los datos con transparencia en todas las regiones asociadas a su cuenta de Cosmos. Proporciona una sola imagen de sistema de los contenedores y la base de datos de Azure Cosmos globalmente distribuida, para que la aplicación pueda leer y escribir de manera local. 
+Puede configurar sus bases de datos para que se distribuyan de manera global y estén disponibles en cualquiera de las regiones de Azure. Para reducir la latencia, coloque los datos en la ubicación más cercana a la de los usuarios. Elegir las regiones requeridas depende del alcance global de la aplicación y de dónde se encuentran los usuarios. Cosmos DB replica los datos con transparencia en todas las regiones asociadas a su cuenta de Cosmos. Proporciona una sola imagen de sistema de los contenedores y la base de datos de Azure Cosmos globalmente distribuida, para que la aplicación pueda leer y escribir de manera local.
 
-Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta en cualquier momento. La aplicación no necesita pausarse o volver a implementarse para agregar o quitar una región. Sigue ofreciendo una alta disponibilidad en todo momento debido a las funcionalidades de hospedaje múltiple que el servicio ofrece de forma nativa.
+Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta en cualquier momento. La aplicación no necesita pausarse o volver a implementarse para agregar o quitar una región.
 
 :::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="Topología de implementación de alta disponibilidad" border="false":::
 
@@ -35,7 +35,7 @@ Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta
 - 99,999 % de disponibilidad de lectura y escritura en todo el mundo.
 - Garantía de lecturas y escrituras atendidas en menos de 10 milisegundos en el percentil 99.
 
-Con las API de hospedaje múltiple de Azure Cosmos DB, la aplicación sabe cuál es la región más cercana y envía las solicitudes a esa región. La región más cercana se identifica sin ningún cambio de configuración. Como agrega y quita regiones desde la cuenta de Azure Cosmos DB, no es necesario volver a implementar la aplicación ni pausarla, y esta sigue teniendo alta disponibilidad.
+Como agrega y quita regiones desde la cuenta de Azure Cosmos DB, no es necesario volver a implementar la aplicación ni pausarla, y esta sigue teniendo alta disponibilidad.
 
 **Creación de aplicaciones con alta capacidad de respuesta.** La aplicación puede realizar casi en tiempo real lecturas y escrituras en todas las regiones que eligió para la base de datos. De manera interna, Azure Cosmos DB controla la replicación de datos entre regiones de una manera que garantiza el nivel de coherencia elegido.
 

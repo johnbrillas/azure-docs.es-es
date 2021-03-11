@@ -3,17 +3,17 @@ title: 'Inicio rápido: Creación de una máquina virtual de computación confid
 description: Para empezar a trabajar con sus implementaciones, aprenda a crear rápidamente una máquina virtual de computación confidencial en Azure Portal.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f0984acd66bd5d6c148be8451938d3152fb9ca7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695748"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566675"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Azure Portal
 

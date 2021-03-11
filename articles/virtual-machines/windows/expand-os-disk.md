@@ -1,26 +1,27 @@
 ---
 title: Expansión de la unidad de sistema operativo de una máquina virtual de Windows en Azure
 description: Expanda el tamaño de la unidad de sistema operativo de una máquina virtual con Azure PowerShell en el modelo de implementación de Resource Manager.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393836"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549607"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -44,7 +45,7 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Captura de pantalla que muestra la opción Discos seleccionada en la sección Configuración del menú.":::
 
  
-3. En **Nombre del disco** , seleccione el disco cuyo tamaño quiere cambiar.
+3. En **Nombre del disco**, seleccione el disco cuyo tamaño quiere cambiar.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de pantalla que muestra el panel Discos con un nombre de disco seleccionado.":::
 
@@ -237,11 +238,11 @@ Una vez expandido el disco para la máquina virtual, deberá entrar en el sistem
 
 2. Abra un símbolo del sistema y escriba **diskpart**.
 
-3. En el símbolo del sistema **DISKPART** , escriba `list volume`. Tome nota del volumen que desea extender.
+3. En el símbolo del sistema **DISKPART**, escriba `list volume`. Tome nota del volumen que desea extender.
 
-4. En el símbolo del sistema **DISKPART** , escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
+4. En el símbolo del sistema **DISKPART**, escriba `select volume <volumenumber>`. Este comando selecciona el volumen *númeroDeVolumen* que desea extender en el espacio vacío contiguo del mismo disco.
 
-5. En el símbolo del sistema **DISKPART** , escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
+5. En el símbolo del sistema **DISKPART**, escriba `extend [size=<size>]`. Este comando extiende el volumen seleccionado por *tamaño* en megabytes (MB).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

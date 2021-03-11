@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348311"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549879"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial
 
@@ -54,7 +54,7 @@ El primer paso para usar la identidad es asegurarse de que la página de aterriz
 
 Para empezar, siga las instrucciones para [registrar una nueva aplicación](../active-directory/develop/quickstart-register-app.md). Para permitir que los usuarios de otras empresas visiten la aplicación, debe elegir una de las opciones de multiinquilino cuando se le pregunte quién puede usar la aplicación.
 
-Si tiene previsto consultar la API de Microsoft Graph, [configure la nueva aplicación para acceder a las API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Al seleccionar los permisos de API para esta aplicación, el valor predeterminado **User.Read** es suficiente para recopilar información básica sobre el comprador para que el proceso de incorporación sea automático y sin problemas. No solicite ningún permiso de la API con la etiqueta **necesita el consentimiento del administrador** , ya que esto impedirá que todos los usuarios que no sean administradores visiten la página de aterrizaje.
+Si tiene previsto consultar la API de Microsoft Graph, [configure la nueva aplicación para acceder a las API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Al seleccionar los permisos de API para esta aplicación, el valor predeterminado **User.Read** es suficiente para recopilar información básica sobre el comprador para que el proceso de incorporación sea automático y sin problemas. No solicite ningún permiso de la API con la etiqueta **necesita el consentimiento del administrador**, ya que esto impedirá que todos los usuarios que no sean administradores visiten la página de aterrizaje.
 
 Si requiere permisos elevados como parte del proceso de incorporación o aprovisionamiento, considere la posibilidad de usar la funcionalidad de [consentimiento incremental](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) de Azure AD para que todos los compradores enviados desde el Marketplace puedan interactuar inicialmente con la página de aterrizaje.
 
@@ -62,7 +62,7 @@ Si requiere permisos elevados como parte del proceso de incorporación o aprovis
 
 Hemos proporcionado varias aplicaciones de ejemplo que implementan un sitio web sencillo con el inicio de sesión de Azure AD habilitado. Una vez registrada la aplicación en Azure AD, la hoja **Inicio rápido** ofrece una lista de tipos de aplicaciones y pilas de desarrollo habituales, tal como se muestra en la Figura 1. Elija el que coincida con su entorno y siga las instrucciones para descargarlo y configurarlo.
 
-**_Ilustración 1: Hoja de inicio rápido en Azure Portal_* _
+***Figura 1: Hoja de inicio rápido en Azure Portal***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Muestra la hoja de inicio rápido en Azure Portal.":::
 
@@ -109,7 +109,7 @@ Como parte del flujo de [OpenID Connect](../active-directory/develop/v2-protocol
 
 ## <a name="use-the-microsoft-graph-api"></a>Uso de Microsoft Graph API
 
-El token de identificador contiene información básica para identificar al comprador, pero el proceso de activación puede requerir detalles adicionales, como la empresa del comprador, para completar el proceso de incorporación. Use la [API de Microsoft Graph](/graph/use-the-api) para solicitar esta información para evitar que el usuario vuelva a escribir estos detalles. Los permisos _ *User.Read* * estándar incluyen la siguiente información, de manera predeterminada.
+El token de identificador contiene información básica para identificar al comprador, pero el proceso de activación puede requerir detalles adicionales, como la empresa del comprador, para completar el proceso de incorporación. Use la [API de Microsoft Graph](/graph/use-the-api) para solicitar esta información para evitar que el usuario vuelva a escribir estos detalles. Los permisos **User.Read** estándar incluyen la siguiente información, de forma predeterminada.
 
 | Value | Descripción |
 | ------------ | ------------- |
@@ -122,7 +122,7 @@ El token de identificador contiene información básica para identificar al comp
 | surname | Apellidos del usuario. |
 |||
 
-Se pueden seleccionar propiedades adicionales, como el nombre de la empresa del usuario o la ubicación (país) del usuario, para su inclusión en la solicitud. Consulte las [propiedades del tipo de recurso de usuario](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) para obtener más detalles.
+Se pueden seleccionar propiedades adicionales, como el nombre de la empresa del usuario o la ubicación (país) del usuario, para su inclusión en la solicitud. Consulte las [propiedades del tipo de recurso de usuario](/graph/api/resources/user#properties) para obtener más detalles.
 
 La mayoría de las aplicaciones que se registran con Azure AD conceden permisos delegados para leer la información del usuario del inquilino de Azure AD de su empresa. Cualquier solicitud a Microsoft Graph de esta información debe ir acompañada de un token de acceso para la autenticación. Los pasos específicos para generar el token de acceso dependerán de la pila de tecnología que esté usando, pero el código de ejemplo contendrá un ejemplo. Para más información, consulte [Obtener acceso en nombre de un usuario](/graph/auth-v2-user).
 

@@ -3,17 +3,17 @@ title: Soluciones de computación confidencial de Azure en máquinas virtuales
 description: Obtenga información sobre las soluciones de computación confidencial de Azure en máquinas virtuales.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204191"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566590"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluciones en máquinas virtuales de Azure
 
@@ -76,7 +76,7 @@ Siga un tutorial de inicio rápido para implementar una máquina virtual de la s
 
 Si usa máquinas virtuales en Azure, es responsable de implementar una solución de recuperación ante desastres y alta disponibilidad para evitar tiempo de inactividad. 
 
-La computación confidencial de Azure no admite la redundancia de zona a través de Availability Zones en este momento. Para obtener la máxima disponibilidad y redundancia para la computación confidencial, use [conjuntos de disponibilidad](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Debido a las restricciones de hardware, los conjuntos de disponibilidad para las instancias de computación confidencial solo pueden tener un máximo de 10 dominios de actualización. 
+La computación confidencial de Azure no admite la redundancia de zona a través de Availability Zones en este momento. Para obtener la máxima disponibilidad y redundancia para la computación confidencial, use [conjuntos de disponibilidad](../virtual-machines/availability-set-overview.md). Debido a las restricciones de hardware, los conjuntos de disponibilidad para las instancias de computación confidencial solo pueden tener un máximo de 10 dominios de actualización. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Implementación con plantilla de Azure Resource Manager (ARM)
 

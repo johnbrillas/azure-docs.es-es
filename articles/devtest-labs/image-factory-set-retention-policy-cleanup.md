@@ -3,21 +3,21 @@ title: Configuración de directivas de laboratorio en Azure DevTest Labs | Mic
 description: Obtenga información sobre cómo configurar una directiva de retención, limpiar la fábrica y retirar imágenes antiguas de DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476060"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550032"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configuración de la directiva de retención en Azure DevTest Labs
 Este artículo abarca el establecimiento de una directiva de retención, la limpieza de la fábrica y la retirada de las imágenes anteriores de todos los otros laboratorios de DevTes Labs de la organización. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que ha seguidos los artículos que tratan los temas siguientes:
 
-- [Crear un generador de imágenes](image-factory-create.md)
-- [Ejecución de un generador de imágenes desde Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Creación de una fábrica de imágenes](image-factory-create.md)
+- [Ejecución de una fábrica de imágenes desde AzureDevOps](image-factory-set-up-devops-lab.md)
 - [Guardar imágenes personalizadas y distribuirlas a varios laboratorios](image-factory-save-distribute-custom-images.md)
 
 Los siguientes elementos ya deben estar implementados:
@@ -64,7 +64,7 @@ También es sencillo agregar una nueva imagen al generador. Cuando quiera inclui
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-1. [Programe la compilación o versión](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para ejecutar periódicamente el generador de imágenes. Actualiza las imágenes creadas por el generador de forma periódica.
+1. [Programe la compilación o versión](/azure/devops/pipelines/build/triggers?tabs=designer) para ejecutar periódicamente el generador de imágenes. Actualiza las imágenes creadas por el generador de forma periódica.
 2. Cree más imágenes maestras para el generador. También puede considerar la [creación de artefactos](devtest-lab-artifact-author.md) para aplicar scripts a otras piezas de las tareas de configuración de la máquina virtual e incluir los artefactos en las imágenes del generador.
 4. Cree [otra compilación/versión](/azure/devops/pipelines/overview?view=azure-devops-2019) para ejecutar el script **DistributeImages** por separado. Puede ejecutar este script al realizar cambios en Labs.json y obtener las imágenes copiadas en los laboratorios de destino sin tener que volver a crear todas las imágenes de nuevo.
 

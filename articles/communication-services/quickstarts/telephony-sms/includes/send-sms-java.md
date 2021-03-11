@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c4f3c47e3ac6e1e701b673574bb664237c1a9af
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915334"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244910"
 ---
 Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de SMS de Java de Communication Services para enviar mensajes SMS.
 
@@ -28,7 +28,7 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), versión 8 o posterior.
+- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
@@ -136,7 +136,7 @@ SmsClient client = new SmsClientBuilder()
     .buildClient();
 ```
 
-Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) proporcionado por `azure-core`.
+Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](/java/api/overview/azure/core-http-netty-readme) proporcionado por `azure-core`.
 
 También puede proporcionar toda la cadena de conexión mediante la función connectionString() en lugar de proporcionar el punto de conexión y la clave de acceso. 
 ```java

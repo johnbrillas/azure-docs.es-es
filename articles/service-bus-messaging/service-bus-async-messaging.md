@@ -3,12 +3,12 @@ title: Mensajería asincrónica de Service Bus | Microsoft Docs
 description: Obtenga información acerca de la forma en que Azure Service Bus admite la asincronía a través de un mecanismo de almacenamiento y reenvío con colas, temas y suscripciones.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ea09b809a19cfe7c7f024b059589748ff9e297d4
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631630"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500638"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Patrones de mensajería asincrónica y alta disponibilidad
 
@@ -34,7 +34,7 @@ Hay varias maneras de tratar los problemas de los mensajes y de las entidades, y
 * Error de Service Bus en un centro de datos de Azure. Se trata de un error grave y es imposible acceder el sistema durante varios minutos, o incluso horas.
 
 > [!NOTE]
-> El término **almacenamiento** puede significar Azure Storage y SQL Azure.
+> El término **almacenamiento** puede significar Almacenamiento de Azure y SQL Azure.
 > 
 > 
 
@@ -73,5 +73,5 @@ Ahora que ya conoce los conceptos básicos de la mensajería asincrónica de Ser
 [System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md

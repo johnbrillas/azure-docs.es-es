@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d0ccaf15df62b566b5a52ee7a4031ba7e270a4ae
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092541"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218118"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de A
 
 * También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin ninguna suscripción a Azure, de forma gratuita y sin compromiso. O bien, puede usar el [emulador de Azure Cosmos DB](./local-emulator.md) con el punto de conexión `https://localhost:8081`. La clave principal se proporciona en [Authenticating requests](local-emulator.md#authenticate-requests) (Autenticación de solicitudes).  
 
-* [Kit de desarrollo de Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
+* [Kit de desarrollo de Java (JDK) 1.7+](/java/azure/jdk/)  
   - En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.  
 
   - Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.

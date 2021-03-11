@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 22abdb64a2349045923e148db57f683b4be87636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6f25c4172b384abd487d2084f31981d16e73ee93
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209890"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento del servicio Azure Spring Cloud
 
@@ -24,7 +24,7 @@ En esta guía de inicio rápido, usará la CLI de Azure para aprovisionar una in
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1). El servicio Azure Spring Cloud admite .NET Core 3.1 y versiones posteriores.
-* [CLI de Azure  versión 2.0.67 o superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [CLI de Azure  versión 2.0.67 o superior](/cli/azure/install-azure-cli).
 * [Git](https://git-scm.com/).
 
 ## <a name="install-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
@@ -90,9 +90,9 @@ az extension add --name spring-cloud
 Puede crear instancias de Azure Spring Cloud mediante Azure Portal o la CLI de Azure.  Ambos métodos se explican en los siguientes procedimientos.
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Instalación de JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Instalación de JDK 8](/java/azure/jdk/)
 * [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale la versión 2.0.67 de la CLI de Azure, o cualquier versión superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest), e instale la extensión de Azure Spring Cloud con el comando `az extension add --name spring-cloud`
+* (Opcional) [Instale la versión 2.0.67 de la CLI de Azure, o cualquier versión superior](/cli/azure/install-azure-cli), e instale la extensión de Azure Spring Cloud con el comando `az extension add --name spring-cloud`
 * (Opcional) [Instale Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inicie sesión](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Aprovisionamiento de una instancia de Azure Spring Cloud
@@ -103,7 +103,7 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
 
 1. Abra [Azure Portal](https://ms.portal.azure.com/) en una pestaña ventana. 
 
-2. En el cuadro de búsqueda superior, busque **Azure Spring Cloud** .
+2. En el cuadro de búsqueda superior, busque **Azure Spring Cloud**.
 
 3. Seleccione **Azure Spring Cloud** en los resultados.
 
@@ -114,14 +114,14 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
     ![Icono de adición de ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Rellene el formulario en la página **Crear** de Azure Spring Cloud.  Tenga en cuenta las directrices siguientes:
-    - **Suscripción** : seleccione la suscripción a la que desea que se facture este recurso.
-    - **Grupo de recursos** : se recomienda crear grupos de recursos para los nuevos recursos. Tenga en cuenta que esto se usará en los pasos posteriores como **\<resource group name\>** .
-    - **Detalles o nombre del servicio** : Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
-    - **Ubicación** : seleccione la ubicación de la instancia de servicio.
+    - **Suscripción**: seleccione la suscripción a la que desea que se facture este recurso.
+    - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos. Tenga en cuenta que esto se usará en los pasos posteriores como **\<resource group name\>** .
+    - **Detalles o nombre del servicio**: Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
+    - **Ubicación**: seleccione la ubicación de la instancia de servicio.
 
     ![Inicio del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. Haga clic en **Revisar y crear** .
+6. Haga clic en **Revisar y crear**.
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

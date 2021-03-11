@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: bfc7a851442d6dd70d55c9f00e6d2f18d37e56bf
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 72d046cde70d1224eb1fd47f527c9e49c6b002f6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203409"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500468"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migración de zonas privadas de Azure DNS heredadas al nuevo modelo de recursos
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que ha instalado la versión más reciente de Azure PowerShell. Para obtener más información sobre Azure PowerShell (Az) y cómo instalarlo, visite https://docs.microsoft.com/powershell/azure/new-azureps-module-az.
 
@@ -109,7 +109,7 @@ Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después c
 Si está usando automatización que incluye plantillas, scripts de PowerShell o código personalizado desarrollado con el SDK, debe actualizar la automatización para que use el nuevo modelo de recursos para las zonas DNS privadas. A continuación se incluyen los vínculos a la documentación de los nuevos CLI, PowerShell y SDK de DNS privados.
 * [API REST de zonas privadas de Azure DNS](/rest/api/dns/privatedns/privatezones)
 * [CLI de zonas privadas de Azure DNS](/cli/azure/ext/privatedns/network/private-dns)
-* [PowerShell de zonas privadas de Azure DNS](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [PowerShell de zonas privadas de Azure DNS](/powershell/module/az.privatedns/)
 * [SDK de zonas privadas de Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Ayuda adicional

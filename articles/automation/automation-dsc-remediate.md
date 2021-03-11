@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98164c20af2a5d6ae7ccac43331a2876c23ccfb7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186374"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500179"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Corrección de servidores de Azure Automation State Configuration no conformes
 
@@ -43,5 +43,5 @@ En el caso de los nodos híbridos, puede corregir este desfase con los scripts d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/#automation).
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, vea [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).

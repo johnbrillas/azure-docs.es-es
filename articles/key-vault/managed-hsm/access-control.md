@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445241"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653907"
 ---
 # <a name="managed-hsm-access-control"></a>Control de acceso de HSM administrado
 
@@ -63,7 +63,7 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de control de acceso |
 | --- | --- | --- | --- |
 | Plano de administración | **Global:**<br> management.azure.com:443<br> | Creación, lectura, actualización, eliminación y traslado de HSM administrados<br>Establecimiento de etiquetas de HSM administrado | Azure RBAC |
-| Plano de datos | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Claves**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
+| Plano de datos | **Global:**<br> <ph id="ph1">&amp;lt;</ph>hsm-name<ph id="ph2">&amp;gt;</ph>.managedhsm.azure.net:443<br> | **Claves**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Administración de roles del plano de datos (RBAC local de HSM administrado)** _: enumerar definiciones de roles, asignar roles, eliminar asignaciones de roles, definir roles personalizados<br/><br/>_ *Copia de seguridad y restauración **: creación y restauración de copias de seguridad, comprobación de las operaciones de creación y restauración de copias de seguridad de estado <br/><br/>** Dominio de seguridad**: descargar y cargar el dominio de seguridad | RBAC local de HSM administrado |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plano de administración y RBAC de Azure
 

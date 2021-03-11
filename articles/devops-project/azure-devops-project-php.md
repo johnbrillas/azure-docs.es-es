@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5727a08159f750a69920f66f4b743c187aa00885
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 06ac110da35a5a77157bd4e31caaa5aa5fd015cc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588971"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566573"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para PHP con Azure DevOps Starter
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visu
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear una instancia.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -125,4 +125,4 @@ Azure App Service y otros recursos relacionados se pueden eliminar cuando no se 
 Cuando configuró el proceso de CI/CD, se crearon automáticamente canalizaciones de compilación y de versión. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Para más información sobre la canalización de CI/CD, consulte este tutorial:
 
 > [!div class="nextstepaction"]
-> [Personalización del proceso de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalización del proceso de CD](/azure/devops/pipelines/release/define-multistage-release-process)

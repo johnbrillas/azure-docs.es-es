@@ -11,6 +11,10 @@
   items:
     - name: 'Creación de una instancia de Front Door Standard/Premium: Azure Portal'
       href: create-front-door-portal.md
+- name: Ejemplos
+  items:
+    - name: Plantillas de Resource Manager
+      href: resource-manager-template-samples.md
 - name: Conceptos
   items:
     - name: Preguntas más frecuentes sobre Front Door

@@ -2,16 +2,16 @@
 title: Implementación de IBM DB2 pureScale en Azure
 description: Obtenga información sobre cómo implementar un ejemplo de arquitectura utilizado recientemente para migrar una empresa de su entorno de IBM DB2 con z/OS a IBM DB2 pureScale en Azure.
 author: njray
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 91ab11dce1c88f698640ce446b529c9cbe92cac5
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 481816ca0c1fecfee9396f6cc40582695b0952f2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221493"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550202"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implementación de IBM DB2 pureScale en Azure
 
@@ -71,13 +71,13 @@ El repositorio de GitHub incluye DB2server.rsp, un archivo de respuesta (.rsp) q
 > [!NOTE]
 > Se incluye un archivo de respuesta de ejemplo, DB2server.rsp, en el repositorio de GitHub [DB2onAzure](https://aka.ms/db2onazure). Si usa este archivo, debe editarlo para que funcione en su entorno.
 
-| Nombre de pantalla               | Campo                                        | Value                                                                                                 |
+| Nombre de pantalla               | Campo                                        | Valor                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Bienvenido                   |                                              | Nueva instalación                                                                                           |
+| Pantalla de inicio                   |                                              | Nueva instalación                                                                                           |
 | Elija un producto          |                                              | DB2 versión 11.1.3.3. Ediciones de servidor con DB2 pureScale                                              |
 | Configuración             | Directorio                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Seleccione el tipo de instalación                 | Habitual                                                                                               |
-|                           | Acepto los términos de IBM                     | Activado                                                                                               |
+|                           | Acepto los términos de IBM                     | Activada                                                                                               |
 | Propietario de la instancia            | Usuario existente para la instancia, nombre de usuario        | DB2sdin1                                                                                              |
 | Usuario delimitado               | Usuario existente, nombre de usuario                     | DB2sdfe1                                                                                              |
 | Sistema de archivos en clúster       | Ruta de acceso del dispositivo de partición de disco compartida            | /dev/dm-2                                                                                             |

@@ -14,8 +14,10 @@
       href: quickstarts/create-communication-resource.md
     - name: Creación y administración de tokens de acceso
       href: quickstarts/access-tokens.md
-    - name: Uso de identidades administradas (.NET)
+    - name: Uso de identidades administradas
       href: quickstarts/managed-identity.md
+    - name: Configuración de identidades administradas desde la CLI
+      href: quickstarts/managed-identity-from-cli.md
     - name: Chat
       items:
         - name: Incorporación del chat a una aplicación
@@ -24,7 +26,7 @@
           href: quickstarts/chat/meeting-interop.md
     - name: Telefonía y SMS
       items:
-        - name: Obtención de un número de teléfono
+        - name: Administración de números de teléfono
           href: quickstarts/telephony-sms/get-phone-number.md
         - name: Adición de llamadas telefónicas a una aplicación
           href: quickstarts/voice-video-calling/pstn-call.md
@@ -88,40 +90,42 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceptos de voz y vídeo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Flujos de llamadas
+          href: concepts/call-flows.md
+        - name: Topologías de flujos de llamadas
+          href: concepts/detailed-call-flows.md
     - name: Marco de interfaz de usuario
       items:
         - name: Introducción al marco de la interfaz de usuario
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Funcionalidades del marco de la interfaz de usuario
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Interoperabilidad de Teams
-      href: concepts/teams-interop.md
+    - name: Datos y operaciones
+      items:
+        - name: Eventos de servicio (EventGrid)
+          href: concepts/event-handling.md
+        - name: Registro y diagnósticos
+          href: concepts/logging-and-diagnostics.md
+        - name: Métricas
+          href: concepts/metrics.md
+        - name: Solución de problemas
+          href: concepts/troubleshooting-info.md
+    - name: SDK y API REST
+      href: concepts/sdk-options.md
     - name: Arquitectura de cliente y servidor
       href: concepts/client-and-server-architecture.md
-    - name: Flujos de llamadas
-      href: concepts/call-flows.md
-    - name: Topologías de flujos de llamadas
-      href: concepts/detailed-call-flows.md
-    - name: Bibliotecas cliente y API REST
-      href: concepts/sdk-options.md
-    - name: Modelo de precios
-      href: concepts/pricing.md
-    - name: Privacidad
-      href: concepts/privacy.md
     - name: Modelo de identidad
       href: concepts/identity-model.md
     - name: Authentication
       href: concepts/authentication.md
-    - name: Control de eventos
-      href: concepts/event-handling.md
-    - name: Notificaciones
+    - name: Privacidad
+      href: concepts/privacy.md
+    - name: Precios
+      href: concepts/pricing.md
+    - name: Notificaciones de inserción
       href: concepts/notifications.md
-    - name: Registro y diagnósticos
-      href: concepts/logging-and-diagnostics.md
-    - name: Métricas
-      href: concepts/metrics.md
-    - name: Solución de problemas
-      href: concepts/troubleshooting-info.md
+    - name: Interoperabilidad de Teams
+      href: concepts/teams-interop.md
     - name: Problemas conocidos
       href: concepts/known-issues.md
 - name: Ejemplos
@@ -154,6 +158,8 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
         - name: Chat (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+        - name: Chat (Python)
+          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat'
     - name: Bibliotecas de SMS
       items:
         - name: SMS (JavaScript)
@@ -162,14 +168,18 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
         - name: SMS (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
-    - name: Bibliotecas de administración
+        - name: SMS (Python)
+          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms'
+    - name: Bibliotecas de identidad
       items:
-        - name: Administración (JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
-        - name: Administración (.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
-        - name: Administración (Android/Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
+        - name: Identidad (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity'
+        - name: Identidad (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity'
+        - name: Identidad (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity'
+        - name: Identidad (Python)
+          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity'
     - name: Bibliotecas comunes
       items:
         - name: Común (JavaScript)
@@ -178,6 +188,8 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
         - name: Común (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
+        - name: Común (Python)
+          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common'
 - name: Recursos
   items:
     - name: Notas de la versión

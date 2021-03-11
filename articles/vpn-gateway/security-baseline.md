@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb3aeb732166537dd4aa98acad0c4dfa5788a8ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0f1dcb82c3a8d3819e8d316ef8efe2e3256e3db4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732401"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219002"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Línea de base de seguridad de Azure para VPN Gateway
 
@@ -412,7 +412,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 - [Creación de consultas con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [CLI de Azure para VPN Gateway](/cli/azure/network/vnet-gateway?view=azure-cli-latest)
+- [CLI de Azure para VPN Gateway](/cli/azure/network/vnet-gateway)
 
 - [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 

@@ -5,15 +5,15 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097233"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488093"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Cuando se emite una consulta a Azure Cosmos DB, el SDK realiza estos pasos lógi
 
 Los SDK ofrecen diversas opciones para la ejecución de consultas. Por ejemplo, en .NET estas opciones están disponibles en la clase `FeedOptions`. En la tabla siguiente se describen estas opciones y de qué manera pueden afectar el tiempo de ejecución de consulta. 
 
-| Opción | Descripción |
+| Opción | Description |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | Se debe establecer en true para cualquier consulta que se deba ejecutar entre más de una partición. Esta es una marca explícita que le permite realizar compensaciones conscientes de rendimiento durante el tiempo de desarrollo. |
 | `EnableScanInQuery` | Se debe establecer en true si ha decidido no indexar, pero quiere ejecutar la consulta de todos modos mediante una exploración. Solo es aplicable si la indexación para la ruta de filtro solicitada está deshabilitada. | 
@@ -126,7 +126,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 Los encabezados de respuesta principales devueltos por la consulta incluyen los siguientes:
 
-| Opción | Descripción |
+| Opción | Description |
 | ------ | ----------- |
 | `x-ms-item-count` | El número de elementos devueltos en la respuesta. Esto depende del valor de `x-ms-max-item-count` proporcionado, del número de elementos que se pueden incluir en el tamaño máximo de la carga de respuesta, del rendimiento aprovisionado y del tiempo de ejecución de consultas. |  
 | `x-ms-continuation:` | El token de continuación para reanudar la ejecución de la consulta, si hay más resultados disponibles. | 
@@ -143,7 +143,6 @@ A continuación se muestran los factores más comunes que afectan al rendimiento
 | Rendimiento aprovisionado | Mida la RU por consulta y asegúrese de que tiene el rendimiento aprovisionado necesario para sus consultas. | 
 | Creación de particiones y claves de partición | Dé prioridad a las consultas con el valor de clave de partición de baja latencia en la cláusula de filtro. |
 | SDK y opciones de consulta | Siga los procedimientos recomendados del SDK, como las opciones de conectividad directa y optimización de la ejecución de consultas de cliente. |
-| Latencia de red | Justifique la sobrecarga de red en la medición, y use API de hospedaje múltiple para leer en la región más cercana. |
 | Directiva de indexación | Asegúrese de que dispone de las rutas y directivas de indexación necesarias para la consulta. |
 | Métricas de ejecución de consultas | Analice las métricas de ejecución de consultas para identificar posibles reescrituras de formas de datos y consultas.  |
 
@@ -261,7 +260,7 @@ Los SDK del cliente pueden realizar internamente varias operaciones de consulta 
 
 Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métricas devueltas en la ejecución de consultas: 
 
-| Consultar | Métrica de ejemplo | Descripción | 
+| Consultar | Métrica de ejemplo | Description | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | El número de documentos recuperados es 100 + 1 para coincidir con la cláusula TOP. El tiempo de la consulta se invierte mayormente en `WriteOutputTime` y `DocumentLoadTime` dado que es un examen. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount es ahora mayor (500 + 1 para coincidir con la cláusula TOP). | 

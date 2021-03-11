@@ -3,16 +3,16 @@ title: Creación y cifrado de una máquina virtual Linux desde Azure Portal
 description: En este inicio rápido aprenderá a usar Azure Portal para crear y cifrar una máquina virtual Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 188ba72f4da4e5a24554f895473f1c74e48d50fa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896035"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558362"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual desde Azure Portal
 
@@ -31,9 +31,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la pestaña Conceptos básicos, en Detalles del proyecto, asegúrese de que está seleccionada la suscripción correcta.
 1. En "Grupo de recursos", seleccione **Crear nuevo**. Como nombre, escriba *myResourceGroup* y seleccione **Aceptar**.
 1. En **Nombre de máquina virtual** , escriba *MyVM*.
-1. En **Región** , seleccione *(EE. UU.) Este de EE. UU.* .
+1. En **Región**, seleccione *(EE. UU.) Este de EE. UU.* .
 1. Asegúrese de que el valor de **Tamaño** es *Estándar D2s v3*.
-1. En **Cuenta de administrador** , seleccione *Contraseña* en **Tipo de autenticación**. Escriba un nombre de usuario y una contraseña.
+1. En **Cuenta de administrador**, seleccione *Contraseña* en **Tipo de autenticación**. Escriba un nombre de usuario y una contraseña.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Pantalla de creación de máquinas virtuales Linux":::
 
@@ -42,7 +42,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
-1. Seleccione la pestaña "Administración" y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione *Crear nuevo* , asigne a la cuenta el nombre *myStorageAccount* y seleccione "Aceptar"
+1. Seleccione la pestaña "Administración" y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione *Crear nuevo*, asigne a la cuenta el nombre *myStorageAccount* y seleccione "Aceptar"
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Pantalla de creación de grupos de recursos":::
 
@@ -56,19 +56,19 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
 1. Cuando la implementación de la máquina virtual se complete, seleccione **Ir al recurso**.
 1. En la barra lateral izquierda, seleccione **Discos**.
 1. En la barra superior, seleccione **Configuración adicional** .
-1. En **Configuración de cifrado** > **Discos que se van a cifrar** , seleccione **Discos del SO y de datos**.
+1. En **Configuración de cifrado** > **Discos que se van a cifrar**, seleccione **Discos del SO y de datos**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Captura de pantalla que resalta los discos del sistema operativo y de datos":::
 
-1. En **Configuración de cifrado** , elija **Seleccionar un almacén de claves y una clave para el cifrado**.
-1. En la pantalla **Seleccionar la clave de Azure Key Vault** , seleccione **Crear nuevo**.
+1. En **Configuración de cifrado**, elija **Seleccionar un almacén de claves y una clave para el cifrado**.
+1. En la pantalla **Seleccionar la clave de Azure Key Vault**, seleccione **Crear nuevo**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Captura de pantalla que resalta Crear nuevo":::
 
-1. A la izquierda de **Almacén de claves y clave** , seleccione **Hacer clic para seleccionar una clave**.
-1. En **Seleccionar la clave de Azure Key Vault** , en el campo **Almacén de claves** , seleccione **Crear nuevo**.
-1. En la pantalla **Crear almacén de claves** , asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
-1. En la pestaña **Directivas de acceso** , active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
+1. A la izquierda de **Almacén de claves y clave**, seleccione **Hacer clic para seleccionar una clave**.
+1. En **Seleccionar la clave de Azure Key Vault**, en el campo **Almacén de claves**, seleccione **Crear nuevo**.
+1. En la pantalla **Crear almacén de claves**, asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
+1. En la pestaña **Directivas de acceso**, active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Selección de discos y de cifrado":::
 
