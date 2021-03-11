@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9e8ef5bf9d5d8000bfdd581cd7e9ae1a1a775fc9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178140"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503205"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Sí, puede hacerlo. Para obtener instrucciones, consulte [Traslado de recursos e
 
 **¿Cómo puedo eliminar mi instancia administrada?**
 
-Puede eliminar instancias administradas desde Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-delete) o las [API REST de Resource Manager](/rest/api/sql/managedinstances/delete).
+Puede eliminar instancias administradas desde Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-delete) o las [API REST de Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?**
 

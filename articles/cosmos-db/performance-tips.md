@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359054"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428956"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugerencias de rendimiento para Azure Cosmos DB y el SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [SDK de .NET v2](performance-tips.md)
+> * [SDK de .NET v2](performance-tips.md)
 > * [SDK de Java v4](performance-tips-java-sdk-v4-sql.md)
 > * [Versión 2 del SDK de Java asincrónico](performance-tips-async-java.md)
 > * [SDK de Java v2 sincrónico](performance-tips-java.md)
@@ -137,19 +137,19 @@ El SDK de .NET para SQL 1.9.0 y versiones posteriores admiten consultas paralela
 - `MaxDegreeOfParallelism` controla el número máximo de particiones que se pueden consultar en paralelo. 
 - `MaxBufferedItemCount` controla el número de resultados capturados previamente.
 
-**_Grado de optimización del paralelismo_* _
+***Grado de optimización del paralelismo***
 
 La consulta en paralelo funciona consultando varias particiones en paralelo. Sin embargo, los datos de una partición individual se capturan en serie con respecto a la consulta. Al establecer `MaxDegreeOfParallelism` en [SDK v2](sql-api-sdk-dotnet.md) en el número de particiones, tiene la mejor posibilidad de lograr la consulta de mayor rendimiento, siempre y cuando todas las demás condiciones del sistema sigan siendo las mismas. Si no conoce el número de particiones, puede establecer el grado de paralelismo en un número alto. El sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el grado de paralelismo.
 
 Las consultas paralelas son las que mayor ventaja ofrecen si los datos se distribuyen de manera uniforme entre todas las particiones con respecto a la consulta. Si la colección con particiones tiene particiones para que todos o la mayoría de los datos devueltos por una consulta se concentren en algunas particiones (una partición es el peor caso), esas particiones producirán cuellos de botella en el rendimiento de la consulta.
 
-_*_Optimizar MaxBufferedItemCount_*_
+***Optimizar MaxBufferedItemCount***
     
 Las consultas en paralelo están diseñadas para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. Esta captura previa ayuda a mejorar la latencia general de una consulta. El parámetro `MaxBufferedItemCount` limita el número de resultados capturados previamente. Establezca `MaxBufferedItemCount` en el número esperado de resultados devueltos (o un número más alto) para permitir que la consulta reciba el máximo beneficio de la captura previa.
 
 La captura previa funciona de la misma manera, independientemente del grado de paralelismo y hay un único búfer para los datos de todas las particiones.  
 
-_ *Implementación del retroceso según intervalos RetryAfter**
+**Implementación del retroceso según intervalos RetryAfter**
 
 Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una pequeña tasa de solicitudes. Si se limitan las solicitudes, la aplicación del cliente debe volver al límite para el intervalo de reintentos especificado por el servidor. Respetar el retroceso garantiza una cantidad mínima de tiempo en espera entre reintentos. 
 
@@ -180,7 +180,7 @@ Para reducir el número de recorridos de ida y vuelta de red necesarios para rec
 > [!NOTE] 
 > La propiedad `maxItemCount` no se debe utilizar solo para la paginación. Su uso principal es mejorar el rendimiento de las consultas reduciendo el número máximo de elementos devueltos en una sola página.  
 
-También puede establecer el tamaño de página mediante los SDK de Azure Cosmos DB disponibles. La propiedad [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) de `FeedOptions` permite establecer el número máximo de elementos que se devolverán en la operación de enumeración. Cuando `maxItemCount` se establece en-1, el SDK busca automáticamente el valor óptimo, en función del tamaño del documento. Por ejemplo:
+También puede establecer el tamaño de página mediante los SDK de Azure Cosmos DB disponibles. La propiedad [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) de `FeedOptions` permite establecer el número máximo de elementos que se devolverán en la operación de enumeración. Cuando `maxItemCount` se establece en-1, el SDK busca automáticamente el valor óptimo, en función del tamaño del documento. Por ejemplo:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

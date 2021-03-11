@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: de81b6ffb5b4dc944f3d538a116383d06145661b
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b98534b049698ea95c6738ce3404dd5ef8ff7a28
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739808"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502271"
 ---
 # <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Esquema de definición de Azure Cloud Services (clásico) (archivo .csdef)
 
@@ -71,4 +71,4 @@ En la tabla siguiente se describen los atributos del elemento `ServiceDefinition
 | name                    |Necesario. El nombre del servicio. El nombre debe ser único dentro de la cuenta de servicio.|
 | topologyChangeDiscovery | Opcional. Especifica el tipo de notificación de cambio de topología. Los valores posibles son:<br /><br /> -   `Blast`: envía la actualización en cuanto es posible a todas las instancias de rol. Si elige esta opción, el rol debe ser capaz de controlar la actualización de la topología sin tener que reiniciarse.<br />-   `UpgradeDomainWalk`: envía la actualización a cada instancia de rol de forma secuencial después de que la instancia anterior ha aceptado correctamente la actualización.|
 | schemaVersion           | Opcional. Especifica la versión del esquema de definición de servicio. La versión del esquema permite que Visual Studio seleccione las herramientas del SDK correcto que se usarán en la validación del esquema si se instala más de una versión del SDK en paralelo.|
-| upgradeDomainCount      | Opcional. Especifica el número de dominios de actualización en los que se asignan roles de este servicio. Las instancias de rol se asignan a un dominio de actualización cuando se implementa el servicio. Para más información, consulte [Actualización de una implementación o un rol de servicio en la nube](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Administración de la disponibilidad de las máquinas virtuales](../virtual-machines/manage-availability.md) y [Qué es un modelo de servicio en la nube](./cloud-services-model-and-package.md).<br /><br /> Puede especificar hasta 20 dominios de actualización. Si no lo especifica, el número predeterminado de dominios de actualización es 5.|
+| upgradeDomainCount      | Opcional. Especifica el número de dominios de actualización en los que se asignan roles de este servicio. Las instancias de rol se asignan a un dominio de actualización cuando se implementa el servicio. Para más información, consulte [Actualización de una implementación o un rol de servicio en la nube](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Administración de la disponibilidad de las máquinas virtuales](../virtual-machines/availability.md) y [Qué es un modelo de servicio en la nube](./cloud-services-model-and-package.md).<br /><br /> Puede especificar hasta 20 dominios de actualización. Si no lo especifica, el número predeterminado de dominios de actualización es 5.|

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051588"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501235"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -61,7 +61,7 @@ Seleccione una actividad en el lienzo para configurar sus propiedades y parámet
 
 Un conjunto de parámetros define los parámetros obligatorios y opcionales que aceptan los valores de un cmdlet determinado. Todos los cmdlets tienen, al menos, un conjunto de parámetros y algunos tienen varios. Si un cmdlet tiene varios conjuntos de parámetros, debe seleccionar cuál va a usar para poder configurar los parámetros. Puede cambiar el conjunto de parámetros que una actividad usa mediante la selección de **Conjunto de parámetros** y luego de otro conjunto. En este caso, se pierden todos los valores de parámetro que ya había configurado.
 
-En el ejemplo siguiente, el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
+En el ejemplo siguiente, el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
 
 ![Conjunto de parámetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -435,4 +435,4 @@ Tiene la opción de revertir a la versión publicada de un runbook. Esta operaci
 * Para empezar a trabajar con runbooks de PowerShell, vea el [Tutorial: Crear un runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md).
 * Para comprender cómo se realiza la autenticación con la cuenta de ejecución de Automation, consulte [Cuentas de ejecución](automation-security-overview.md#run-as-account).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/#automation).

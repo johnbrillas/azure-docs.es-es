@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6bce6f011086d9855c4da2739addbb34e661e2d6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669902"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507490"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquitecturas de referencia para Oracle Database Enterprise Edition en Azure
 
@@ -29,7 +29,7 @@ Si le interesa obtener más información sobre cómo maximizar el rendimiento de
 
 ## <a name="high-availability-for-oracle-databases"></a>Alta disponibilidad para bases de datos de Oracle
 
-Lograr una alta disponibilidad en la nube es una parte importante de la planificación y el diseño de cada organización. Microsoft Azure ofrece [zonas de disponibilidad](../../../availability-zones/az-overview.md) y conjuntos de disponibilidad (que se pueden usar en las regiones en las que las zonas de disponibilidad no están disponibles). Obtenga más información sobre la [administración de la disponibilidad de las máquinas virtuales](../../manage-availability.md) en el diseño de la nube.
+Lograr una alta disponibilidad en la nube es una parte importante de la planificación y el diseño de cada organización. Microsoft Azure ofrece [zonas de disponibilidad](../../../availability-zones/az-overview.md) y conjuntos de disponibilidad (que se pueden usar en las regiones en las que las zonas de disponibilidad no están disponibles). Obtenga más información sobre la [administración de la disponibilidad de las máquinas virtuales](../../availability.md) en el diseño de la nube.
 
 Además de las ofertas y las herramientas nativas de la nube, Oracle proporciona soluciones para la alta disponibilidad, como [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7), [Data Guard con FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) y [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) que se pueden configurar en Azure. En esta guía se describen las arquitecturas de referencia para cada una de estas soluciones.
 
@@ -39,7 +39,7 @@ Por último, al migrar o crear aplicaciones para la nube, es importante retocar 
 
 Oracle Real Application Cluster (RAC) es una solución de Oracle que ayuda a los clientes a lograr un alto rendimiento al tener muchas instancias que obtienen acceso a un almacenamiento de base de datos (patrón de arquitectura de uso compartido de todo). Aunque Oracle RAC también puede usarse para la alta disponibilidad en el entorno local, no se puede usar Oracle RAC por sí solo para la alta disponibilidad en la nube, ya que solo protege frente a errores de nivel de instancia y no frente a errores de nivel de bastidor o de centro de datos. Por este motivo, Oracle recomienda usar Oracle Data Guard con la base de datos (ya sea de una sola instancia o RAC) para lograr la alta disponibilidad. Por lo general, los clientes requieren un SLA alto para ejecutar sus aplicaciones críticas. Actualmente, Oracle RAC no está certificado o no es compatible con Oracle en Azure. Sin embargo, Azure ofrece características como Availability Zones y ventanas de mantenimiento planeado para ayudar en la protección frente a errores de nivel de instancia. Además, los clientes pueden usar tecnologías como Oracle Data Guard, Oracle GoldenGate y Oracle Sharding para conseguir un rendimiento y una resistencia altos mediante la protección de sus bases de datos contra los errores de nivel de bastidor, de nivel de centro de datos y de políticas geográficas.
 
-Cuando se ejecutan instancias de Oracle Database en varias [zonas de disponibilidad](../../../availability-zones/az-overview.md) junto con Oracle Data Guard o GoldenGate, los clientes pueden obtener un SLA de tiempo de actividad del 99,99 %. En las regiones de Azure en las que todavía no hay zonas de disponibilidad, los clientes pueden usar los [conjuntos de disponibilidad](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) y lograr un SLA de tiempo de actividad del 99,95 %.
+Cuando se ejecutan instancias de Oracle Database en varias [zonas de disponibilidad](../../../availability-zones/az-overview.md) junto con Oracle Data Guard o GoldenGate, los clientes pueden obtener un SLA de tiempo de actividad del 99,99 %. En las regiones de Azure en las que todavía no hay zonas de disponibilidad, los clientes pueden usar los [conjuntos de disponibilidad](../../availability-set-overview.md) y lograr un SLA de tiempo de actividad del 99,95 %.
 
 >NOTA:  Se puede tener un objetivo de tiempo de actividad mucho mayor que el SLA de tiempo de actividad proporcionado por Microsoft.
 
@@ -205,7 +205,7 @@ Durante la solicitud inicial, el servidor de aplicaciones se conecta al director
 
 ## <a name="patching-and-maintenance"></a>Aplicación de revisión y mantenimiento
 
-Al implementar las cargas de trabajo de Oracle en Azure, Microsoft se encarga de todas las aplicaciones de revisión de nivel de sistema operativo del host. Cualquier mantenimiento planeado de nivel de sistema operativo se comunica a los clientes con anterioridad para facilitar el mantenimiento planeado del cliente. Nunca se aplican revisiones a dos servidores de dos Availability Zones diferentes simultáneamente. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../manage-availability.md) para obtener más detalles sobre el mantenimiento y la aplicación de revisión de VM. 
+Al implementar las cargas de trabajo de Oracle en Azure, Microsoft se encarga de todas las aplicaciones de revisión de nivel de sistema operativo del host. Cualquier mantenimiento planeado de nivel de sistema operativo se comunica a los clientes con anterioridad para facilitar el mantenimiento planeado del cliente. Nunca se aplican revisiones a dos servidores de dos Availability Zones diferentes simultáneamente. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../availability.md) para obtener más detalles sobre el mantenimiento y la aplicación de revisión de VM. 
 
 La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) o [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
 

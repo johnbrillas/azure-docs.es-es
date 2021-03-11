@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 192970540f21905b624ce3f6e3558baa935a4d7a
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750760"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489736"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), versión 8 o posterior.
+- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Un recurso de Communication Services implementado y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
 - Un [Token de acceso de usuario](../../access-tokens.md). Asegúrese de establecer el ámbito en "chat" y anote la cadena del token, así como la cadena userId.
@@ -66,7 +66,7 @@ Para la autenticación, el cliente debe hacer referencia al paquete `azure-commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0</version> 
 </dependency>
 ```
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5b2364328fc4e0103b969f94a4c877a388edb7c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2c4ed092604e9511023a7025a69dc7a78652ea56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103618"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430486"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
@@ -144,7 +144,7 @@ _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Consulte también
 * [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante el SDK de .NET).
-* [Data Lake Storage Gen1 .NET SDK Reference](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) (Referencia del SDK de .NET de Data Lake Storage Gen1)
+* [Data Lake Storage Gen1 .NET SDK Reference](/dotnet/api/overview/azure/data-lake-store) (Referencia del SDK de .NET de Data Lake Storage Gen1)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)

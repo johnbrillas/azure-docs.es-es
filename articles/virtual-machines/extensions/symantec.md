@@ -1,20 +1,19 @@
 ---
 title: Instalación de Symantec Endpoint Protection en una máquina virtual Windows en Azure
 description: Aprenda a instalar y configurar la extensión de seguridad de Symantec Endpoint Protection en una máquina virtual de Azure nueva o existente creada con el modelo de implementación clásica.
-author: roiyz
-tags: azure-service-management
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/31/2017
-ms.author: akjosh
-ms.openlocfilehash: e001c85dd960e9d60ff321cfecc8bf8b80de087c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a25e9eb27111a450f787f4efb3e0d39456fc757
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967948"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559654"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Instalación y configuración de Endpoint Protection en una máquina virtual de Azure
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

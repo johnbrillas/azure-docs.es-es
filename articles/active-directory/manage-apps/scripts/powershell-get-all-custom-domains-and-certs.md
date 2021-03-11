@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b7936ca64b01b400ba9a019a6d138ca11dcccc77
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 8325da81fd78762f0ffdcae4eebe93fe567580d0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253058"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550988"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Obtención de todas las aplicaciones de Application Proxy con dominios personalizados e información de certificados
 
@@ -28,7 +28,7 @@ En este script de PowerShell de ejemplo se enumeran todas las aplicaciones de pr
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este ejemplo requiere el [módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) o la [versión preliminar del módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este ejemplo requiere el [módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) o la [versión preliminar del módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

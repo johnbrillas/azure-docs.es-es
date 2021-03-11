@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7dd7f43044a9643eb7e9d5296dfb209e425d5fb6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183792"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504790"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Invalidación de la subred de Traffic Manager mediante Azure PowerShell
 
@@ -43,7 +43,7 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
 
 1. **Recupere el punto de conexión de Traffic Manager:**
 
-    Para habilitar la invalidación de subred, recupere el punto de conexión que quiere agregar a la invalidación y almacénelo en una variable con [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para habilitar la invalidación de subred, recupere el punto de conexión que quiere agregar a la invalidación y almacénelo en una variable con [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Reemplace los valores de Name, ProfileName y ResourceGroupName por los valores del punto de conexión que va a cambiar.
 
@@ -54,7 +54,7 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
     ```
 2. **Agregue el intervalo de direcciones IP en el punto de conexión:**
     
-    Para agregar el intervalo de direcciones IP al punto de conexión, usará [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) para agregar el intervalo.
+    Para agregar el intervalo de direcciones IP al punto de conexión, usará [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange) para agregar el intervalo.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azur
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Una vez que se agreguen los intervalos, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para actualizar el punto de conexión.
+    Una vez que se agreguen los intervalos, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) para actualizar el punto de conexión.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Para completar la eliminación del intervalo de direcciones IP, use [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Para completar la eliminación del intervalo de direcciones IP, use [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange).
 
 1.  **Recupere el punto de conexión de Traffic Manager:**
 
-    Para habilitar la invalidación de subred, recupere el punto de conexión que quiere agregar a la invalidación y almacénelo en una variable con [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para habilitar la invalidación de subred, recupere el punto de conexión que quiere agregar a la invalidación y almacénelo en una variable con [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Reemplace los valores de Name, ProfileName y ResourceGroupName por los valores del punto de conexión que va a cambiar.
 
@@ -102,7 +102,7 @@ Para completar la eliminación del intervalo de direcciones IP, use [Remove-AzTr
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Una vez que se quiten los intervalos, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para actualizar el punto de conexión.
+     Una vez que se quiten los intervalos, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) para actualizar el punto de conexión.
 
     ```powershell
 

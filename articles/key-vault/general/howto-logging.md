@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204021"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503920"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
@@ -42,7 +42,7 @@ az account list
 az account set --subscription "<subscriptionID>"
 ```
 
-Con Azure PowerShell, primero puede enumerar las suscripciones mediante el cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-4.7.0) y, después, conectarse a una de ellas mediante el cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-4.7.0): 
+Con Azure PowerShell, primero puede enumerar las suscripciones mediante el cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) y, después, conectarse a una de ellas mediante el cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext): 
 
 ```powershell-interactive
 Get-AzSubscription
@@ -64,13 +64,13 @@ Con la CLI de Azure, use el comando [az storage account create](/cli/azure/stora
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
 ```
 
-Con Azure PowerShell, use el cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount?view=azps-4.7.0). Tendrá que proporcionar la ubicación correspondiente al grupo de recursos.
+Con Azure PowerShell, use el cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Tendrá que proporcionar la ubicación correspondiente al grupo de recursos.
 
 ```powershell
  New-AzStorageAccount -ResourceGroupName myResourceGroup -Name "<your-unique-storage-account-name>" -Type "Standard_LRS" -Location "eastus"
 ```
 
-En cualquier caso, anote el valor "id" de la cuenta de almacenamiento. La operación con la CLI de Azure devuelve el valor de "id" en la salida. Para obtener el valor de "id" con Azure PowerShell, use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-4.7.0) y asigne la salida a la variable $sa. Así, puede ver la cuenta de almacenamiento con $sa.id. Más adelante en este artículo también se usará la propiedad "$sa.Context".
+En cualquier caso, anote el valor "id" de la cuenta de almacenamiento. La operación con la CLI de Azure devuelve el valor de "id" en la salida. Para obtener el valor de "id" con Azure PowerShell, use [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) y asigne la salida a la variable $sa. Así, puede ver la cuenta de almacenamiento con $sa.id. Más adelante en este artículo también se usará la propiedad "$sa.Context".
 
 ```powershell-interactive
 $sa = Get-AzStorageAccount -Name "<your-unique-storage-account-name>" -ResourceGroup "myResourceGroup"
@@ -84,7 +84,7 @@ El valor "id" de la cuenta de almacenamiento tendrá el formato "/subscriptions/
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Obtención del identificador de recurso del almacén de claves
 
-En el [inicio rápido de la CLI](quick-create-cli.md) y el [inicio rápido de PowerShell](quick-create-powershell.md), creó una clave con un nombre único.  Vuelva a usar ese nombre en los pasos siguientes.  Si no recuerda el nombre del almacén de claves, puede usar el comando [az keyvault list](/cli/azure/keyvault#az_keyvault_list) de la CLI de Azure o el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) de Azure PowerShell para obtenerlo.
+En el [inicio rápido de la CLI](quick-create-cli.md) y el [inicio rápido de PowerShell](quick-create-powershell.md), creó una clave con un nombre único.  Vuelva a usar ese nombre en los pasos siguientes.  Si no recuerda el nombre del almacén de claves, puede usar el comando [az keyvault list](/cli/azure/keyvault#az_keyvault_list) de la CLI de Azure o el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) de Azure PowerShell para obtenerlo.
 
 Use el nombre del almacén de claves para encontrar su identificador de recurso.  Con la CLI de Azure, use el comando [az keyvault show](/cli/azure/keyvault#az_keyvault_show).
 
@@ -92,7 +92,7 @@ Use el nombre del almacén de claves para encontrar su identificador de recurso.
 az keyvault show --name "<your-unique-keyvault-name>"
 ```
 
-Con Azure PowerShell, use el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0).
+Con Azure PowerShell, use el cmdlet [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault).
 
 ```powershell-interactive
 Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
@@ -102,13 +102,13 @@ El identificador de recurso del almacén de claves tendrá el formato "/subscrip
 
 ## <a name="enable-logging-using-azure-powershell"></a>Habilitación del registro con Azure PowerShell
 
-Para habilitar el registro de Key Vault, usaremos el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) de la CLI de Azure, o el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0), junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
+Para habilitar el registro de Key Vault, usaremos el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) de la CLI de Azure, o el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Con Azure PowerShell, usaremos el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0), con la marca **-Enabled** establecida en **$true** y la categoría establecida en `AuditEvent` (la única categoría para el registro de Key Vault):
+Con Azure PowerShell, usaremos el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), con la marca **-Enabled** establecida en **$true** y la categoría establecida en `AuditEvent` (la única categoría para el registro de Key Vault):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
@@ -123,7 +123,7 @@ az monitor diagnostic-settings update
 ```
 -->
 
-Con Azure PowerShell, use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0). 
+Con Azure PowerShell, use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). 
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
@@ -149,7 +149,7 @@ En primer lugar, enumere todos los blobs del contenedor.  Con la CLI de Azure, u
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
 ```
 
-Con Azure PowerShell, use el cmdlet [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0). Para obtener la lista de todos los blobs de este contenedor, escriba:
+Con Azure PowerShell, use el cmdlet [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). Para obtener la lista de todos los blobs de este contenedor, escriba:
 
 ```powershell
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
@@ -165,7 +165,7 @@ Con la CLI de Azure, use el comando [az storage blob download](/cli/azure/storag
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"
 ```
 
-Con Azure PowerShell, use el cmdlet [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) para obtener una lista de los blobs y, después, canalícela al cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) para descargar los registros en la ruta de acceso elegida.
+Con Azure PowerShell, use el cmdlet [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob) para obtener una lista de los blobs y, después, canalícela al cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) para descargar los registros en la ruta de acceso elegida.
 
 ```powershell-interactive
 $blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 27bcb220c67392661cc1b2875823abdca4593bd4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220956"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505076"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "98220956"
 | |  |
 |---|---|
 |**Descargar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentación de la API**|[Documentación de referencia de la API de Python](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
+|**Documentación de la API**|[Documentación de referencia de la API de Python](/python/api/azure-cosmos/)|
 |**Instrucciones de instalación del SDK**|[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introducción**|[Introducción al SDK de Python](create-sql-api-python.md)|
 |**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5.3+](https://www.python.org/downloads/)|

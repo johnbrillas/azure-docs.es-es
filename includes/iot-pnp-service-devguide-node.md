@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 7bf32de017a5f8ad19eb044ae7dbcdc2eaa96ca5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: dfeeb451912dd32770a6ae92d73de83851d9d8f6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521430"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244576"
 ---
 Los recursos siguientes también están disponibles:
 
-- [Documentación de referencia del SDK de Node.js](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest)
+- [Documentación de referencia del SDK de Node.js](/javascript/api/azure-iothub)
 - [Ejemplos de cliente de servicio](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)
 - [Ejemplos de Digital Twins](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js)
 
@@ -71,7 +71,7 @@ registry.getTwin(deviceId, function(err, twin) {
 }
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra cómo debe obtener el gemelo antes de actualizarlo. La propiedad se define en el componente **thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra cómo debe obtener el gemelo antes de actualizarlo. La propiedad se define en el componente **thermostat1**:
 
 ```javascript
 var Registry = require('azure-iothub').Registry;
@@ -142,7 +142,7 @@ client.invokeDeviceMethod(deviceId, methodParams, function (err, result) {
 });
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1**:
 
 ```javascript
 var Client = require('azure-iothub').Client;
@@ -216,7 +216,7 @@ const patch = [{
 await digitalTwinClient.updateDigitalTwin(digitalTwinId, patch);
 ```
 
-En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **thermostat1** :
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **thermostat1**:
 
 ```javascript
 const IoTHubTokenCredentials = require('azure-iothub').IoTHubTokenCredentials;
@@ -260,7 +260,7 @@ const commandResponse = await digitalTwinClient.invokeCommand(digitalTwinId, "ge
 console.log(inspect(commandResponse));
 ```
 
-En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1** :
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en el componente **thermostat1**:
 
 ```javascript
 const IoTHubTokenCredentials = require('azure-iothub').IoTHubTokenCredentials;

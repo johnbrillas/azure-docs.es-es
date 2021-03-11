@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: 1f6abbf68d4f648aeee6c025800f24140c9459e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10fae563f80a4d77e3f4bb1d5ca809a4130b050a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219324"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558855"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimización del rendimiento de TCP/IP para máquinas virtuales de Azure
 
@@ -210,7 +210,7 @@ Puede usar el comando `Get-NetTCPSetting` de PowerShell para ver los valores de 
 Get-NetTCPSetting
 ```
 
-Puede establecer el tamaño inicial de la ventana de TCP y el factor de escalado de TCP en Windows mediante el comando `Set-NetTCPSetting` de PowerShell. Para más información, consulte [Set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Puede establecer el tamaño inicial de la ventana de TCP y el factor de escalado de TCP en Windows mediante el comando `Set-NetTCPSetting` de PowerShell. Para más información, consulte [Set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting).
 
 ```powershell
 Set-NetTCPSetting

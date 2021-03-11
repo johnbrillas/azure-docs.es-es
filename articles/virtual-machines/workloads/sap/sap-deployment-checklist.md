@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40d22a410054f17676c4d9db639fd5e32da18531
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665994"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504310"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -138,7 +138,7 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
         - Si usa Azure Load Balancer junto con sistemas operativos invitados de Linux, compruebe que el parámetro de red de Linux **net.ipv4.tcp_timestamps** esté establecido en **0**. Esta recomendación entra en conflicto con las recomendaciones de las versiones anteriores de [la nota de SAP 2382421](https://launchpad.support.sap.com/#/notes/2382421). Esta nota de SAP se ha actualizado para indicar que el parámetro debe establecerse en **0** para trabajar con equilibradores de carga de Azure.
         - Considere la posibilidad de usar los [grupos de selección de ubicación de proximidad de Azure](../../co-location.md) para conseguir una latencia de red óptima. Para más información, consulte [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
    4. Implementaciones de alta disponibilidad y recuperación ante desastres.
-        - Si implementa el nivel de aplicación de SAP sin definir una zona de disponibilidad de Azure concreta, asegúrese de que todas las máquinas virtuales que ejecutan instancias de diálogo SAP o instancias middleware de un único sistema SAP se implementan en un [conjunto de disponibilidad](../../manage-availability.md).
+        - Si implementa el nivel de aplicación de SAP sin definir una zona de disponibilidad de Azure concreta, asegúrese de que todas las máquinas virtuales que ejecutan instancias de diálogo SAP o instancias middleware de un único sistema SAP se implementan en un [conjunto de disponibilidad](../../availability-set-overview.md).
         - Si no necesita alta disponibilidad para SAP Central Services y DBMS, puede implementar estas máquinas virtuales en el mismo conjunto de disponibilidad que el nivel de aplicación de SAP.
         - Si protege la alta disponibilidad de SAP Central Services y el nivel de DBMS con réplicas pasivas, sitúe los dos nodos de SAP Central Services en un único conjunto de disponibilidad independiente y los dos nodos de DBMS en otro conjunto de disponibilidad.
         - Si implementa en Azure Availability Zones, no puede usar los conjuntos de disponibilidad. Sin embargo, tiene que asegurarse de que implementa los nodos activo y pasivo de Central Services en dos zonas de disponibilidad diferentes. Use zonas de disponibilidad que tengan la menor latencia entre ellas.

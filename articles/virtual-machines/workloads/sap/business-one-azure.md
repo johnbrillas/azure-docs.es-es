@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
-ms.openlocfilehash: c9c2b0c3f55cf5fb6dfd32774baac2a49ec3609f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e17739c65c0b80beb1f6fdd09f31897b317d7858
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677163"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506895"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -102,7 +102,7 @@ Para el tipo de base de datos, están disponibles SQL Server y SAP HANA. Con ind
 
 Aunque ya se destaca en los documentos de base de datos genéricos y específicos, debería estar familiarizado con lo siguiente:
 
-- [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../manage-availability.md)
+- [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../availability.md)
 - [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Estos documentos le ayudarán a decidir la selección de los tipos de almacenamiento y la configuración de alta disponibilidad.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969711"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507913"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -48,7 +48,7 @@ Gracias a esta arquitectura, Azure ha ofrecido de manera constante durabilidad d
 
 Los errores de hardware localizados en el host de proceso o en la plataforma de almacenamiento pueden en ocasiones traducirse en falta de disponibilidad temporal de la máquina virtual que está cubierta por el [contrato de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidad de la máquina virtual. Azure ofrece también un Acuerdo de Nivel de Servicio (SLA) líder del sector para instancias únicas de máquina virtual que usan discos SSD premium de Azure.
 
-Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](./manage-availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor.
+Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](./availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor.
 
 Debido a estos dominios de error independientes, los errores de hardware localizados normalmente no afectan a varias máquinas virtuales del conjunto al mismo tiempo. Tener dominios de error independientes proporciona alta disponibilidad de la aplicación. Se recomienda usar conjuntos de disponibilidad cuando se requiere alta disponibilidad. La sección siguiente abarca el aspecto de la recuperación ante desastres.
 

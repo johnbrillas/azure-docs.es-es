@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739327"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214004"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
 
@@ -20,7 +20,7 @@ ms.locfileid: "92739327"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -49,7 +49,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 | Opción | Descripción |
 |--------|-------------|
 | [Azure Portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | Si su entorno de Azure cumple los requisitos previos y está familiarizado con el uso de plantillas de ARM, estos pasos le ayudarán a iniciar sesión directamente en Azure y a abrir la plantilla de inicio rápido en Azure Portal. Para más información, consulte [Implementación de recursos con plantillas de ARM y Azure Portal](../azure-resource-manager/templates/deploy-portal.md). |
-| [CLI de Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | La interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de comandos que se usa para crear y administrar recursos de Azure. Para ejecutar estos comandos, necesita la CLI de Azure, versión 2.6 o posterior. Para comprobar la versión de la CLI, escriba `az --version`. Para más información, consulte los temas siguientes: <p><p>- [Qué es la CLI de Azure](/cli/azure/what-is-azure-cli?view=azure-cli-latest) <br>- [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) |
+| [CLI de Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | La interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de comandos que se usa para crear y administrar recursos de Azure. Para ejecutar estos comandos, necesita la CLI de Azure, versión 2.6 o posterior. Para comprobar la versión de la CLI, escriba `az --version`. Para más información, consulte los temas siguientes: <p><p>- [Qué es la CLI de Azure](/cli/azure/what-is-azure-cli) <br>- [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo Azure Resource Manager para administrar los recursos de Azure. Para más información, consulte los temas siguientes: <p><p>- [Introducción a Azure PowerShell](/powershell/azure/azurerm/overview) <br>- [Presentación del módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az) <br>- [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [API de REST de Azure Resource Manager](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure proporciona las API de transferencia de estado representacional (REST), que son puntos de conexión de servicio que admiten las operaciones HTTP (métodos) que usa para la creación, recuperación, actualización o eliminación del acceso a los recursos del servicio. Para más información, consulte [Introducción a la API de REST de Azure](/rest/api/azure/). |
 |||
@@ -62,9 +62,9 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 
    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
-1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla** , escriba o seleccione estos valores:
+1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla**, escriba o seleccione estos valores:
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre de un grupo de recursos de Azure nuevo o existente. En este ejemplo se usa `Check-Azure-Status-RG`. |
@@ -186,11 +186,11 @@ Para más información, consulte los temas siguientes:
    }
    ```
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | Región de Azure que se usará para la implementación. En este ejemplo se usa `West US`. |
-   | `templateLink`: `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
-   | `parametersLink`: `uri` | <*quickstart-template-parameter-file-URL*> | Ubicación URL del archivo de parámetros de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Para más información sobre el archivo de parámetros de Resource Manager, consulte estos temas: <p><p>- [Creación de un archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Uso de archivos de parámetros para implementar la plantilla de ARM](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
+   | `templateLink` : `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
+   | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | Ubicación URL del archivo de parámetros de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Para más información sobre el archivo de parámetros de Resource Manager, consulte estos temas: <p><p>- [Creación de un archivo de parámetros de Resource Manager](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Uso de archivos de parámetros para implementar la plantilla de ARM](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | `mode` | <*deployment-mode*> | Ejecute una actualización incremental o una actualización completa. En este ejemplo se usa `Incremental`, que es el valor predeterminado. Para más información, consulte [Modos de implementación de Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md). |
    |||
 
@@ -234,7 +234,7 @@ Para ver la aplicación lógica, puede usar Azure Portal, ejecutar un script que
 
 1. Cuando se abra el diseñador de aplicaciones lógicas, revise la aplicación lógica creada con la plantilla de inicio rápido.
 
-1. Para probar la aplicación lógica, en la barra de herramientas del diseñador, seleccione **Ejecutar** .
+1. Para probar la aplicación lógica, en la barra de herramientas del diseñador, seleccione **Ejecutar**.
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -245,7 +245,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Para más información, consulte [CLI de Azure: az logic workflow show](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
+Para más información, consulte [CLI de Azure: az logic workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -288,7 +288,7 @@ Si planea seguir trabajando en otros inicios rápidos y tutoriales, considere la
 
 1. En Azure Portal, busque y seleccione el grupo de recursos que quiere eliminar, que es `Check-Azure-Status-RG` en este ejemplo.
 
-1. En el menú del grupo de recursos, elija **Introducción** , si aún no está seleccionado. En la página de información general, elija **Eliminar grupo de recursos** .
+1. En el menú del grupo de recursos, elija **Introducción**, si aún no está seleccionado. En la página de información general, elija **Eliminar grupo de recursos**.
 
 1. Para confirmar la operación, escriba el nombre del grupo de recursos.
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Para más información, consulte [CLI de Azure: az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para más información, consulte [CLI de Azure: az group delete](/cli/azure/group#az-group-delete).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

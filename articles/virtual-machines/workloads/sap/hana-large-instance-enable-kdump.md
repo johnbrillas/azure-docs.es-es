@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a9b3d534e74ccd44dfaa35ec5bf3b65f50641c7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e4b06cbcbef79e243116bddb33adbcf6476fac8a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666656"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213375"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA en Azure (instancias grandes)
 
@@ -67,7 +67,7 @@ En este documento se describen los detalles sobre cómo habilitar el servicio Kd
 
 ## <a name="setup-details"></a>Detalles de la configuración
 
-- El script para habilitar Kdump se puede encontrar [aquí](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh).
+- El script para habilitar Kdump se puede encontrar [aquí](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh).
 > [!NOTE]
 > Este script está basado en la configuración del laboratorio y se espera que el cliente se ponga en contacto con el proveedor del sistema operativo para cualquier optimización adicional.
 > Se va a aprovisionar un número de unidad lógica independiente para los servidores nuevos y existentes con el fin de guardar los volcados de memoria, y el script se encargará de configurar el sistema de archivos a partir del número de unidad lógica.

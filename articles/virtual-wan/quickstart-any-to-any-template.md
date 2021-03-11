@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: bf892a45ee6df2ab29a1b326a663dc41057c7ea6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509754"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431387"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Inicio rápido: Creación de una configuración universal mediante una plantilla de ARM
 
@@ -125,13 +125,7 @@ Con la plantilla no se configuran todas las opciones necesarias para una red hí
 
 Cuando ya no necesite los recursos que ha creado, elimínelos. Algunos recursos de Virtual WAN deben eliminarse en un orden determinado debido a las dependencias. La eliminación puede tardar unos 30 minutos.
 
-1. Abra la red WAN virtual que ha creado.
-1. Seleccione un centro de conectividad virtual asociado a la WAN virtual para abrir su página.
-1. Haga clic en **Eliminar**. Elimine todas las entidades (conexiones, puertas de enlace, etc.) del centro de conectividad. Esto puede tardar hasta 30 minutos.
-1. Puede eliminar el centro de conectividad en este momento o más adelante, cuando elimine el grupo de recursos.
-1. Repita el procedimiento para todos los centros de conectividad asociados a la WAN virtual.
-1. En Azure Portal, vaya al grupo de recursos.
-1. Seleccione **Eliminar grupo de recursos**. Así se elimina todo lo que haya en el grupo de recursos, incluidos los centros de conectividad y la WAN virtual.
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831759"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213273"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un HSM administrado de Key Vault mediante una plantilla de Azure Resource Manager
 
@@ -43,7 +43,7 @@ Para iniciar sesión en Azure mediante la CLI puede escribir:
 az login
 ```
 
-Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
 
 ## <a name="create-a-manage-hsm"></a>Creación de una instancia de Managed HSM
 
@@ -55,13 +55,13 @@ El recurso de Azure definido en la plantilla:
 
 Puede encontrar más ejemplos de plantillas de Azure Key Vault [aquí](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-La plantilla requiere el identificador de objeto asociado a la cuenta. Para encontrarlo, use el comando [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) de la CLI de Azure y pase su dirección de correo electrónico en el parámetro `--id`. Puede limitar la salida al identificador de objeto solo con el parámetro `--query`.
+La plantilla requiere el identificador de objeto asociado a la cuenta. Para encontrarlo, use el comando [az ad user show](/cli/azure/ad/user#az_ad_user_show) de la CLI de Azure y pase su dirección de correo electrónico en el parámetro `--id`. Puede limitar la salida al identificador de objeto solo con el parámetro `--query`.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-También puede necesitar su identificador de inquilino. Para encontrarla, use el comando[az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) de la CLI de Azure. Puede limitar la salida al identificador de inquilino solo con el parámetro `--query`.
+También puede necesitar su identificador de inquilino. Para encontrarla, use el comando[az ad user show](/cli/azure/account#az_account_show) de la CLI de Azure. Puede limitar la salida al identificador de inquilino solo con el parámetro `--query`.
 
  ```azurecli-interactive
  az account show --query "tenantId"

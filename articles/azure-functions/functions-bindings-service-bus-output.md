@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788577"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425590"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Enlace de salida de Azure Service Bus para Azure Functions
 
@@ -429,7 +429,7 @@ Si `isSessionsEnabled` se ha establecido en `true`, se respetará `sessionHandle
 |---------|---------|---------|
 |prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
+|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
 |maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
 

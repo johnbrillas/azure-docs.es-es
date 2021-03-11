@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 130cb1d63da27010012c22dc2cdb40c3d8f03273
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178565"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501046"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
 
@@ -170,7 +170,7 @@ Para obtener un punto de recuperación, [exporte](cache-how-to-import-export-dat
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>¿Puedo usar PowerShell o la CLI de Azure para administrar la replicación geográfica?
 
-Sí, se puede administrar la replicación geográfica mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener más información, consulte los [documentos de PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) o [los documentos de la CLI de Azure](/cli/azure/redis/server-link).
+Sí, se puede administrar la replicación geográfica mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener más información, consulte los [documentos de PowerShell](/powershell/module/az.rediscache/#redis_cache) o [los documentos de la CLI de Azure](/cli/azure/redis/server-link).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>¿Cuánto cuesta replicar datos entre regiones de Azure?
 

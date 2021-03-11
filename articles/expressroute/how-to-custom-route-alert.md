@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371501"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504408"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configuración de alertas personalizadas para supervisar rutas anunciadas
 
@@ -42,7 +42,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Está familiarizado con [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* Está familiarizado con el uso de Azure PowerShell. Azure PowerShell es necesario para recopilar los prefijos de red en la puerta de enlace de ExpressRoute. Para más información sobre Azure PowerShell en general, consulte la [documentación de Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
+* Está familiarizado con el uso de Azure PowerShell. Azure PowerShell es necesario para recopilar los prefijos de red en la puerta de enlace de ExpressRoute. Para más información sobre Azure PowerShell en general, consulte la [documentación de Azure PowerShell](/powershell/azure/).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Notas y limitaciones
 
@@ -74,7 +74,7 @@ De forma predeterminada, se asigna el rol **Colaborador** a la entidad de servic
 
  Siga los pasos que se indican a continuación para determinar el rol que se asigna a la entidad de servicio que usa la cuenta de ejecución:
 
-1. Vaya a su cuenta de Automation. Vaya a **Configuración de la cuenta** , seleccione **Cuentas de ejecución**.
+1. Vaya a su cuenta de Automation. Vaya a **Configuración de la cuenta**, seleccione **Cuentas de ejecución**.
 
 2. Seleccione **Roles** para ver la definición de roles en uso.
 
@@ -90,7 +90,7 @@ Para ejecutar los cmdlets de PowerShell en los runbooks de Azure Automation, deb
 
    :::image type="content" source="./media/custom-route-alert-portal/navigate-modules.png" alt-text="Ir a módulos":::
 
-2. Busque en la galería e importe los siguientes módulos: **Az.Accounts** , **Az.Network** , **Az.Automation** y **Az.Profile**.
+2. Busque en la galería e importe los siguientes módulos: **Az.Accounts**, **Az.Network**, **Az.Automation** y **Az.Profile**.
 
    :::image type="content" source="./media/custom-route-alert-portal/import-modules.png" alt-text="Buscar e importar módulos" lightbox="./media/custom-route-alert-portal/import-modules-expand.png":::
   
@@ -108,7 +108,7 @@ Para ejecutar los cmdlets de PowerShell en los runbooks de Azure Automation, deb
 
    :::image type="content" source="./media/custom-route-alert-portal/edit-runbook.png" alt-text="Editar runbook":::
 
-4. En **Editar** , pegue el script de PowerShell. El [script de ejemplo](#script) se puede modificar y usar para supervisar puertas de enlace de ExpressRoute en uno o varios grupos de recursos.
+4. En **Editar**, pegue el script de PowerShell. El [script de ejemplo](#script) se puede modificar y usar para supervisar puertas de enlace de ExpressRoute en uno o varios grupos de recursos.
 
    En el script de ejemplo, observe los siguientes valores:
 
@@ -277,7 +277,7 @@ En este flujo de trabajo, se crea una aplicación lógica que supervisa con regu
 
 ### <a name="1-create-a-logic-app"></a>1. Creación de una aplicación lógica
 
-En **Diseñador de aplicación lógica** , cree una aplicación lógica mediante la plantilla de **aplicación lógica en blanco**. Para conocer los pasos, consulte [Creación de aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
+En **Diseñador de aplicación lógica**, cree una aplicación lógica mediante la plantilla de **aplicación lógica en blanco**. Para conocer los pasos, consulte [Creación de aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Plantilla vacía":::
 
@@ -305,7 +305,7 @@ Al final de la configuración del flujo de trabajo, puede comprobar la coherenci
 
 Una aplicación lógica accede a otras aplicaciones, servicios y a la plataforma mediante conectores. El siguiente paso de este flujo de trabajo es seleccionar un conector para acceder a la cuenta de Azure Automation que se definió anteriormente.
 
-1. En el **diseñador de Logic Apps** , debajo de **Periodicidad** , seleccione **Nuevo paso**. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**.
+1. En el **diseñador de Logic Apps**, debajo de **Periodicidad**, seleccione **Nuevo paso**. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**.
 2. En el cuadro de búsqueda, escriba **Azure Automation** y busque. Seleccione **Crear trabajo**. **Crear trabajo** se usará para activar el runbook de Automation que se creó anteriormente.
 
    :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Crear trabajo":::
@@ -314,21 +314,21 @@ Una aplicación lógica accede a otras aplicaciones, servicios y a la plataforma
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Captura de pantalla que muestra la sección &quot;Periodicidad&quot; con la acción &quot;Conectarse a la entidad de servicio&quot; resaltada.":::
 
-4. Escriba un **nombre de conexión** , agregue el **identificador de cliente** (identificador de la aplicación), **secreto de cliente** y el **identificador de inquilino**. Seleccione **Crear**.
+4. Escriba un **nombre de conexión**, agregue el **identificador de cliente** (identificador de la aplicación), **secreto de cliente** y el **identificador de inquilino**. Seleccione **Crear**.
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Conectarse a la entidad de servicio":::
 
-5. En la página **Crear trabajo** , la entidad de servicio debe tener el rol "Lector" en el **grupo de recursos** que hospeda la cuenta de Automation y "Operador de trabajos de Automation" en la **cuenta de Automation**. Además, compruebe que ha agregado el **nombre del runbook** como un nuevo parámetro.
+5. En la página **Crear trabajo**, la entidad de servicio debe tener el rol "Lector" en el **grupo de recursos** que hospeda la cuenta de Automation y "Operador de trabajos de Automation" en la **cuenta de Automation**. Además, compruebe que ha agregado el **nombre del runbook** como un nuevo parámetro.
 
    :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Captura de pantalla que muestra los valores de Crear trabajo en Periodicidad, donde puede comprobar el nombre del Runbook." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. Obtención de la salida del trabajo
 
-1. Seleccione **Nuevo paso**. Busque "Azure Automation". En la lista **Acciones** , seleccione **Obtener resultado del trabajo**.
+1. Seleccione **Nuevo paso**. Busque "Azure Automation". En la lista **Acciones**, seleccione **Obtener resultado del trabajo**.
 
    :::image type="content" source="./media/custom-route-alert-portal/get-output.png" alt-text="Obtener resultado del trabajo":::
 
-2. En la página **Obtener resultado del trabajo** , especifique la información necesaria para acceder a la cuenta de Automation. Seleccione la **suscripción, grupo de recursos** y **cuenta de Automation** que desea usar. Haga clic en el cuadro **Id. del trabajo**. Cuando aparezca la lista de **contenido dinámico** , seleccione **Id. del trabajo**.
+2. En la página **Obtener resultado del trabajo**, especifique la información necesaria para acceder a la cuenta de Automation. Seleccione la **suscripción, grupo de recursos** y **cuenta de Automation** que desea usar. Haga clic en el cuadro **Id. del trabajo**. Cuando aparezca la lista de **contenido dinámico**, seleccione **Id. del trabajo**.
 
    :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="Id. del trabajo" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
 
@@ -336,8 +336,8 @@ Una aplicación lógica accede a otras aplicaciones, servicios y a la plataforma
 
 La información contenida en la salida de la "acción Crear trabajo de Azure Automation" (pasos anteriores) genera un objeto JSON. **Análisis de JSON** de Logic Apps es una acción integrada para crear tokens descriptivos a partir de las propiedades y valores del contenido JSON. Después, puede usar esas propiedades en el flujo de trabajo.
 
-1. Agregue una acción. En la acción **Obtener resultado del trabajo** , seleccione **Nuevo paso**.
-2. En el cuadro de búsqueda **Elegir una acción** escriba "analizar json" para buscar los conectores que ofrezcan esta acción. En la lista **Acciones** , seleccione la acción **Análisis del archivo JSON** para las operaciones de datos que desee usar.
+1. Agregue una acción. En la acción **Obtener resultado del trabajo**, seleccione **Nuevo paso**.
+2. En el cuadro de búsqueda **Elegir una acción** escriba "analizar json" para buscar los conectores que ofrezcan esta acción. En la lista **Acciones**, seleccione la acción **Análisis del archivo JSON** para las operaciones de datos que desee usar.
 
    :::image type="content" source="./media/custom-route-alert-portal/parse-json.png" alt-text="Análisis del archivo JSON":::
 
@@ -361,15 +361,15 @@ La información contenida en la salida de la "acción Crear trabajo de Azure Aut
 
 En este paso del flujo de trabajo se crea una condición para enviar una alarma por correo electrónico. Para conseguir un formato flexible y personalizado del cuerpo del mensaje de correo electrónico, se introduce una variable auxiliar en el flujo de trabajo.
 
-1. En la **acción Obtener resultado del trabajo** , seleccione **Nuevo paso**. En el cuadro de búsqueda, busque y seleccione **Variables**.
+1. En la **acción Obtener resultado del trabajo**, seleccione **Nuevo paso**. En el cuadro de búsqueda, busque y seleccione **Variables**.
 
    :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo Elegir una acción con una variable en el cuadro de búsqueda y la opción Variables seleccionada.":::
 
-2. En la lista **Acciones** , seleccione la acción **Inicializar variable**.
+2. En la lista **Acciones**, seleccione la acción **Inicializar variable**.
 
    :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Inicializar variables":::
 
-3. Especifique el nombre de la variable. En **Tipo** , seleccione **Cadena**. El **valor** de la variable se asignará más adelante en el flujo de trabajo.
+3. Especifique el nombre de la variable. En **Tipo**, seleccione **Cadena**. El **valor** de la variable se asignará más adelante en el flujo de trabajo.
 
    :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Captura de pantalla que muestra Analizar JSON asociado a la acción Inicializar variable, donde puede especificar un nombre, un tipo y un valor." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
@@ -377,15 +377,15 @@ En este paso del flujo de trabajo se crea una condición para enviar una alarma 
 
 Una vez que se analiza el archivo JSON, la acción **Analizar operaciones de datos JSON** almacena el contenido en la salida *Body*. Para procesar la salida, puede crear un bucle "for each" que repita una o varias acciones en cada elemento de la matriz.
 
-1. En **Inicializar variable** , seleccione **Agregar una acción**. En el cuadro de búsqueda, escriba "para cada uno" como filtro.
+1. En **Inicializar variable**, seleccione **Agregar una acción**. En el cuadro de búsqueda, escriba "para cada uno" como filtro.
 
    :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo Elegir una acción con &quot;para cada uno&quot; en el cuadro de búsqueda y la opción Control seleccionada.":::
 
-2. En la lista **Acciones** , seleccione la acción **For each - Control**.
+2. En la lista **Acciones**, seleccione la acción **For each - Control**.
 
    :::image type="content" source="./media/custom-route-alert-portal/for-each.png" alt-text="For each- Control":::
 
-3. Haga clic en el cuadro de texto **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores). Cuando aparezca la lista **Contenido dinámico** , seleccione **Body** (Cuerpo), que es la salida del JSON analizado.
+3. Haga clic en el cuadro de texto **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores). Cuando aparezca la lista **Contenido dinámico**, seleccione **Body** (Cuerpo), que es la salida del JSON analizado.
 
    :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Captura de pantalla que muestra la variable inicializada asociada a Para cada uno, que contiene el cuadro de texto Seleccionar una salida de los pasos anteriores.":::
 
@@ -393,7 +393,7 @@ Una vez que se analiza el archivo JSON, la acción **Analizar operaciones de dat
 
    :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Control":::
 
-5. En la lista **Acciones** , seleccione **Condition-Control** (Condición-Control). Condition-Control (Condición-Control) es una estructura de control que compara los datos de un flujo de trabajo con valores o campos concretos. A continuación, se pueden especificar las distintas acciones a ejecutar en función de si los datos cumplen la condición, o no.
+5. En la lista **Acciones**, seleccione **Condition-Control** (Condición-Control). Condition-Control (Condición-Control) es una estructura de control que compara los datos de un flujo de trabajo con valores o campos concretos. A continuación, se pueden especificar las distintas acciones a ejecutar en función de si los datos cumplen la condición, o no.
 
    :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Condición - Control":::
 
@@ -405,7 +405,7 @@ Una vez que se analiza el archivo JSON, la acción **Analizar operaciones de dat
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-1.png" alt-text="numRoutesPeer1":::
 
-8. Para agregar otra fila a la condición, elija **Agregar -> Agregar fila**. En el segundo cuadro, en **Contenido dinámico** , seleccione **numRoutePeer2**.
+8. Para agregar otra fila a la condición, elija **Agregar -> Agregar fila**. En el segundo cuadro, en **Contenido dinámico**, seleccione **numRoutePeer2**.
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
@@ -417,23 +417,23 @@ Una vez que se analiza el archivo JSON, la acción **Analizar operaciones de dat
 
     :::image type="content" source="./media/custom-route-alert-portal/condition-if-true.png" alt-text="Si es verdadero":::
 
-11. En Variables, seleccione **Add an action** (Agregar una acción). En la lista de **acciones** , seleccione **Establecer variable**.
+11. En Variables, seleccione **Add an action** (Agregar una acción). En la lista de **acciones**, seleccione **Establecer variable**.
 
     :::image type="content" source="./media/custom-route-alert-portal/condition-set-variable.png" alt-text="Captura de pantalla de la sección &quot;Variables&quot; con la pestaña &quot;Acciones&quot; seleccionada y la opción &quot;Establecer variable&quot; resaltada.":::
 
-12. En **Nombre** , seleccione la variable denominada **EmailBody** que creó anteriormente. Como **Valor** , pegue el script HTML necesario para dar formato al correo electrónico de alerta. Use **Contenido dinámico** para incluir los valores del cuerpo JSON. Después de configurar estas opciones, el resultado es que la variable **Emailbody** contiene toda la información relacionada con la alerta, en formato HTML.
+12. En **Nombre**, seleccione la variable denominada **EmailBody** que creó anteriormente. Como **Valor**, pegue el script HTML necesario para dar formato al correo electrónico de alerta. Use **Contenido dinámico** para incluir los valores del cuerpo JSON. Después de configurar estas opciones, el resultado es que la variable **Emailbody** contiene toda la información relacionada con la alerta, en formato HTML.
 
     :::image type="content" source="./media/custom-route-alert-portal/paste-script.png" alt-text="Establecer variable":::
 
 ### <a name="8-add-the-email-connector"></a><a name="email"></a>8. Incorporación del conector de correo electrónico
 
-Logic Apps proporciona muchos conectores de correo electrónico. En este ejemplo, se agrega un conector de Outlook para enviar la alerta por correo electrónico. En **Establecer variable** , seleccione **Agregar una acción**. En **Elegir una acción** , escriba "enviar correo electrónico" en el cuadro de búsqueda.
+Logic Apps proporciona muchos conectores de correo electrónico. En este ejemplo, se agrega un conector de Outlook para enviar la alerta por correo electrónico. En **Establecer variable**, seleccione **Agregar una acción**. En **Elegir una acción**, escriba "enviar correo electrónico" en el cuadro de búsqueda.
 
 1. Seleccione **Office 365 Outlook**.
 
    :::image type="content" source="./media/custom-route-alert-portal/email.png" alt-text="Enviar correo electrónico":::
 
-2. En la lista **Acciones** , seleccione **Enviar un correo electrónico (V2)** .
+2. En la lista **Acciones**, seleccione **Enviar un correo electrónico (V2)** .
 
    :::image type="content" source="./media/custom-route-alert-portal/email-v2.png" alt-text="Enviar correo electrónico (V2)":::
 
@@ -441,7 +441,7 @@ Logic Apps proporciona muchos conectores de correo electrónico. En este ejemplo
 
    :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Sign in":::
 
-4. En el campo **Cuerpo** , haga clic en **Agregar contenido dinámico**. En el panel Contenido dinámico, agregue la variable **Emailbody**. Rellene los campos **Asunto** y **Para**.
+4. En el campo **Cuerpo**, haga clic en **Agregar contenido dinámico**. En el panel Contenido dinámico, agregue la variable **Emailbody**. Rellene los campos **Asunto** y **Para**.
 
    :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Cuerpo":::
 

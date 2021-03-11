@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: dbcee6e2f1a2b4dc955a141b669851d8367d0d0a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 84fbdbb05c0c928c2d4e47e1f2626b5598661a10
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253648"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551052"
 ---
 # <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>Obtención de todas las aplicaciones de Application Proxy con dominios predeterminados (.msappproxy.net)
 
@@ -28,7 +28,7 @@ En este script de PowerShell se enumeran todas las aplicaciones de proxy de apli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este ejemplo requiere el [módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) o la [versión preliminar del módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este ejemplo requiere el [módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) o la [versión preliminar del módulo AzureAD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

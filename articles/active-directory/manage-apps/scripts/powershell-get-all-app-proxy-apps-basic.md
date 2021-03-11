@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: db23d2381d0532c760df8ca38d823a71225a1af5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0a5ee23a16c10a579c9b39ce3589028603ea7a3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258416"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550627"
 ---
 # <a name="get-all-application-proxy-apps-and-list-basic-information"></a>Obtención de todas las aplicaciones de Application Proxy y lista de la información básica
 
@@ -28,7 +28,7 @@ En este ejemplo de script de PowerShell se enumera información sobre todas las 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-El ejemplo requiere el [módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (Azure AD) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (versión preliminar de Azure AD).
+El ejemplo requiere el [módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2) (Azure AD) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (versión preliminar de Azure AD).
 ## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurepowershell[main](~/powershell_scripts/application-proxy/get-all-appproxy-apps-basic.ps1 "Get all Application Proxy apps")]

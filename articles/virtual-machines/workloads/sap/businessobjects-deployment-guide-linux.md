@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671916"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505943"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -603,7 +603,7 @@ Para reducir el impacto del tiempo de inactividad debido a uno o varios eventos,
 - Use Managed Disks para las máquinas virtuales de un conjunto de disponibilidad.
 - Configure cada capa de aplicación en conjuntos de disponibilidad independientes.
 
-Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales con Linux](../../manage-availability.md).
+Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales con Linux](../../availability.md).
 
 #### <a name="high-availability-for-cms-database"></a>Alta disponibilidad de la base de datos CMS
 

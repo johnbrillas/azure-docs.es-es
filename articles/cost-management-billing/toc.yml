@@ -48,6 +48,8 @@
           href: understand/analyze-unexpected-charges.md
         - name: Administración de costos con Automation
           href: costs/manage-automation.md
+        - name: Recuperación de grandes conjuntos de datos con exportaciones
+          href: costs/ingest-azure-usage-at-scale.md
         - name: Cost Management para asociados
           href: costs/get-started-partners.md
         - name: Migración de los informes de EA a las API de Azure Resource Manager
@@ -278,6 +280,8 @@
           href: manage/cost-management-budget-scenario.md
         - name: Uso de alertas sobre los costos
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
+        - name: Exportación de datos de costo con una clave de SAS de Storage
+          href: costs/export-cost-data-storage-account-sas-key.md
         - name: Asignación de costos
           href: costs/allocate-costs.md
         - name: Conexión con Power BI Desktop
@@ -292,6 +296,8 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Migración desde EA a las API de MCA
           href: costs/migrate-cost-management-api.md
+        - name: Asignación de roles a SPN
+          href: manage/assign-roles-azure-service-principals.md
     - name: Compra y administración de reservas
       items:
         - name: Determinación de lo que se debe comprar

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2121ad4f908d28ab30f15be261b3f155ab6dd983
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039706"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430571"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
@@ -283,7 +283,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 En lugar de consultar las instancias de la orquestación de una en una, puede resultarle más eficaz consultarlas todas a la vez.
 
-Puede usar el método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (JavaScript) o `get_status_all` (Python) para consultar los estados de todas las instancias de orquestación. En .NET se puede pasar un objeto `CancellationToken` en caso de que desee cancelarlo. El método devuelve una lista de objetos que representan las instancias de orquestación que coinciden con los parámetros de consulta.
+Puede usar el método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--) (JavaScript) o `get_status_all` (Python) para consultar los estados de todas las instancias de orquestación. En .NET se puede pasar un objeto `CancellationToken` en caso de que desee cancelarlo. El método devuelve una lista de objetos que representan las instancias de orquestación que coinciden con los parámetros de consulta.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -366,7 +366,7 @@ func durable get-instances
 
 ¿Qué ocurre si no necesita realmente toda la información que puede proporcionar una consulta de instancias estándar? Por ejemplo, ¿qué sucede si solo desea obtener la hora de creación de la orquestación o el estado del entorno de ejecución de la orquestación? Puede restringir la consulta aplicando filtros.
 
-Use el método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) o [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) para obtener una lista de instancias de orquestación que coincidan con un conjunto de filtros predefinidos.
+Use el método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) o [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) para obtener una lista de instancias de orquestación que coincidan con un conjunto de filtros predefinidos.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

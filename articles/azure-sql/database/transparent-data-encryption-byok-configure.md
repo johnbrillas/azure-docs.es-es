@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 610f0a9692c18afbd7bb446959b09bac14d6f629
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461838"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507626"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -79,7 +79,7 @@ Para agregar permisos al servidor en un HSM administrado, agregue el rol de RBAC
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Agregar la clave de Key Vault al servidor y establecer el protector de TDE
 
-- Use el cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) para recuperar el identificador de clave del almacén de claves
+- Use el cmdlet [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para recuperar el identificador de clave del almacén de claves
 - Utilice el cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) para agregar la clave de Key Vault al servidor.
 - Utilice el cmdlet [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) para establecer la clave como protector de TDE para todos los recursos del servidor.
 - Utilice el cmdlet [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar que el protector de TDE se ha configurado según lo previsto.

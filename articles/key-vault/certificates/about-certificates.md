@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919937"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507218"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -91,7 +91,7 @@ Una directiva de certificados contiene información sobre cómo crear y administ
 
 Cuando se crea un certificado de Key Vault desde el principio, debe proporcionarse una directiva. La directiva especifica cómo crear esta versión de certificado de Key Vault o la próxima versión de certificado de Key Vault. Una vez que se ha establecido una directiva, no se requiere en sucesivas operaciones create para futuras versiones. Solo hay una instancia de una directiva para todas las versiones de un certificado de Key Vault.  
 
-En un nivel general, una directiva de certificado contiene la siguiente información (sus decisiones se pueden encontrar [aquí](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
+En un nivel general, una directiva de certificado contiene la siguiente información (sus decisiones se pueden encontrar [aquí](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy):  
 
 -   Propiedades del certificado X509: contiene el nombre de asunto, nombres alternativos de asunto y otras propiedades que se usan para crear una solicitud de certificado X509.  
 -   Propiedades de clave: contiene el tipo de clave, la longitud y los campos de ReuseKeyOnRenewal. Estos campos indican a Key Vault cómo generar una clave. 

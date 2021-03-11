@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 1bd4a3bfc2ba208371ed71720cc8c89a796ad9a2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bdab80725f66814b9bf6bfa9429e3eff96fbc908
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940804"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505110"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante una plantilla de ARM
 
@@ -49,7 +49,7 @@ En la plantilla se definen dos recursos de Azure:
 
     |Propiedad |Descripción |
     |---|---|
-    |Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+    |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
     |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Location|El valor se rellenará automáticamente con la ubicación usada para el grupo de recursos.|
     |Cluster Name|Escriba un nombre único global. Use solo letras minúsculas y números para esta plantilla.|
@@ -148,7 +148,7 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
         
         En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
-        Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/availability.md).
 
         Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
 

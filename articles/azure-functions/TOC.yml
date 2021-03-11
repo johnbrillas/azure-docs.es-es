@@ -270,6 +270,8 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
+                - name: "C# aislado (.NET\_5)"
+                  href: dotnet-isolated-process-developer-howtos.md
                 - name: Java con Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java con Eclipse
@@ -454,9 +456,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
+          href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: Referencia de configuración de aplicación
       href: functions-app-settings.md
     - name: Desencadenadores y enlaces
@@ -475,7 +477,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

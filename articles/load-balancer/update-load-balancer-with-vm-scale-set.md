@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218730"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Actualización o eliminación de un equilibrador de carga usado por conjuntos de escalado de máquinas virtuales
 
@@ -30,7 +30,7 @@ Al trabajar con conjuntos de escalado de máquinas virtuales y una instancia de 
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configuración de un equilibrador de carga para el escalado horizontal de conjuntos de escalado de máquinas virtuales
 
-Asegúrese de que la instancia de Azure Load Balancer tenga configurado un [grupo NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) y que el conjunto de escalado de máquinas virtuales esté colocado en el grupo de back-end del equilibrador de carga. Load Balancer creará automáticamente nuevas reglas NAT de entrada en el grupo NAT de entrada cuando se agreguen nuevas instancias de máquina virtual al conjunto de escalado de máquinas virtuales.
+Asegúrese de que la instancia de Azure Load Balancer tenga configurado un [grupo NAT de entrada](/cli/azure/network/lb/inbound-nat-pool) y que el conjunto de escalado de máquinas virtuales esté colocado en el grupo de back-end del equilibrador de carga. Load Balancer creará automáticamente nuevas reglas NAT de entrada en el grupo NAT de entrada cuando se agreguen nuevas instancias de máquina virtual al conjunto de escalado de máquinas virtuales.
 
 Para comprobar si el grupo NAT de entrada está configurado correctamente:
 
@@ -44,7 +44,7 @@ No se pueden agregar reglas NAT de entrada individuales. Pero se puede agregar u
 
 Para actualizar un conjunto completo de reglas NAT de entrada para los conjuntos de escalado de máquinas virtuales, primero actualice el grupo NAT de entrada en el equilibrador de carga. Después, haga referencia al grupo de NAT de entrada desde el perfil de red del conjunto de escalado de máquinas virtuales. A continuación se muestra un ejemplo completo que usa la CLI.
 
-El nuevo grupo NAT de entrada no debe tener un intervalo de puertos de front-end superpuestos con los grupos NAT de entrada existentes. Para ver los grupos NAT de entrada existentes configurados, use este [comando de la CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+El nuevo grupo NAT de entrada no debe tener un intervalo de puertos de front-end superpuestos con los grupos NAT de entrada existentes. Para ver los grupos NAT de entrada existentes configurados, use este [comando de la CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

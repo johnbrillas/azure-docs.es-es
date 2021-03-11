@@ -1141,7 +1141,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1230,6 +1230,8 @@
               href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
             - name: "Configuración de la escucha de grupo de disponibilidad para SQL\_Server en máquinas virtuales con Red Hat Enterprise Linux en Azure"
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+            - name: Configuración de grupo de disponibilidad Always On con DH2i DxEnterprise
+              href: virtual-machines/linux/dh2i-high-availability-tutorial.md
         - name: Recursos
           items:
             - name: Preguntas más frecuentes
