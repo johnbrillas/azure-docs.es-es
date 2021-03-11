@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 778255dc7259bd66a7c7059ede855464c1e39569
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886131"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445355"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
 - La versión más reciente de la [biblioteca cliente de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
-- Obtenga la versión más reciente de la [biblioteca cliente de .NET Identity](/dotnet/api/azure.identity?view=azure-dotnet).
+- Obtenga la versión más reciente de la [biblioteca cliente de .NET Identity](/dotnet/api/azure.identity).
 - Obtenga la versión más reciente de la [biblioteca cliente de administración de .NET](../../concepts/sdk-options.md).
 
 ## <a name="installing-the-client-library"></a>Instalación de la biblioteca cliente

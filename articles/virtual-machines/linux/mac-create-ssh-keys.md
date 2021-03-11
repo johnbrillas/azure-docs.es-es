@@ -2,17 +2,18 @@
 title: Creación y uso de un par de claves SSH para máquinas virtuales Linux en Azure
 description: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure para mejorar la seguridad del proceso de autenticación.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 7a6971bce2ba4cb3e18455aad34e2d10b73dc066
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 163d200573dc93f7c9e1d5e404febd4f939a6164
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203429"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565264"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Pasos rápidos: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure
 

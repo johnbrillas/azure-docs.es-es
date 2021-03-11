@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955658"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444682"
 ---
 Event Hubs organiza las secuencias de eventos en una o varias particiones. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. Una partición puede considerarse como un "registro de confirmación".
 
@@ -57,4 +57,3 @@ Establecer el número de particiones en el valor máximo permitido es tentador, 
 
 Aunque el envío directo a las particiones es posible, no se recomienda. En su lugar, puede usar las construcciones de nivel superior que se presentan en la sección [Publicador de eventos](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 
-Para más información acerca de particiones y el equilibrio entre disponibilidad y confiabilidad, consulte los artículos [Guía de programación de Event Hubs](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) y [Disponibilidad y coherencia en Event Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md).

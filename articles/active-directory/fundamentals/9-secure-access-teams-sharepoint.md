@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f373c849cd542769fec7a10f20dad04e742c9591
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725085"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565145"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Protección del acceso externo a Microsoft Teams, SharePoint y OneDrive con para la Empresa 
 
@@ -90,7 +90,7 @@ Para más información sobre cómo administrar el acceso externo en Teams, consu
 
 * [Administración del acceso externo en Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Modelos de identidad de Microsoft 365 y Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Modelos de identidad de Microsoft 365 y Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Modelos de identidad y autenticación para Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
@@ -177,7 +177,7 @@ Para obtener más información sobre cómo controlar el acceso externo a SharePo
 
 #### <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden de la lista.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 1. [Determinación de la posición de seguridad para el acceso externo](1-secure-access-posture.md)
 
@@ -189,7 +189,7 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 
 5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
 
-6. [Acceso seguro mediante la Administración de derechos](6-secure-access-entitlement-managment.md)
+6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 
 7. [Acceso seguro mediante directivas de acceso condicional](7-secure-access-conditional-access.md)
 

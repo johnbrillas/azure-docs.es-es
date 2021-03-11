@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 319ab7343792be92005611d26acc382df711bf1e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650981"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565072"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -69,7 +69,7 @@ Para abordar los vectores de amenazas descritos anteriormente, se recomienda cum
 
     Estas cuentas de administrador son cuentas de uso restringido. *Ninguna cuenta local debe tener privilegios administrativos en Microsoft 365.* 
 
-    Para obtener más información, consulte la [información general sobre los roles de administrador de Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Consulte también [Roles para Microsoft 365 en Azure AD](../roles/m365-workload-docs.md).
+    Para obtener más información, consulte la [información general sobre los roles de administrador de Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles). Consulte también [Roles para Microsoft 365 en Azure AD](../roles/m365-workload-docs.md).
 
 1. **Administre dispositivos desde Microsoft 365**. Use la administración de dispositivos móviles (MDM) basados en la nube y unidos a Azure AD para eliminar dependencias en la infraestructura de administración de dispositivos local. Estas dependencias pueden comprometer los controles de seguridad y los dispositivos.
 
@@ -151,7 +151,7 @@ Cuando se usan para aprovisionar cuentas híbridas, Azure AD en los sistemas de
 
 Los grupos en la nube permiten desacoplar la colaboración y el acceso de la infraestructura local.
 
-* **Colaboración**: use Grupos de Microsoft 365 y Microsoft Teams para la colaboración moderna. Retire las listas de distribución locales y [actualice las listas de distribución a grupos de Microsoft 365 en Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Colaboración**: use Grupos de Microsoft 365 y Microsoft Teams para la colaboración moderna. Retire las listas de distribución locales y [actualice las listas de distribución a grupos de Microsoft 365 en Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
 * **Acceso**: use grupos de seguridad de Azure AD o Grupos de Microsoft 365 para autorizar el acceso a aplicaciones en Azure AD.
 * **Licencias de Office 365**: Use las licencias basadas en grupos para aprovisionar en Office 365 usando grupos solo en la nube. Este método desacopla el control de la pertenencia a grupos de la infraestructura local.
@@ -205,7 +205,7 @@ Use el acceso condicional de Azure AD para interpretar las señales y usarlas p
 
    Para obtener más información, consulte [Protocolos de autenticación heredados](../fundamentals/auth-sync-overview.md). O bien, consulte los detalles específicos de [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) y [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
 
-* Implemente las [configuraciones de acceso de dispositivos e identidades](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide) recomendadas.
+* Implemente las [configuraciones de acceso de dispositivos e identidades](/microsoft-365/security/office-365-security/identity-access-policies) recomendadas.
 
 * Si usa una versión de Azure AD que no incluye el acceso condicional, asegúrese de usar los [valores predeterminados de seguridad de Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 

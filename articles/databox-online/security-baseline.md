@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787271"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452380"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Base de referencia de seguridad de Azure para Azure Stack Edge
 
@@ -308,7 +308,7 @@ Es posible que se requieran permisos adicionales para obtener visibilidad sobre 
 
 **Guía**: Puede traer sus propias aplicaciones para que se ejecuten en cualquier máquina virtual creada localmente. Use scripts de PowerShell para crear máquinas virtuales de proceso locales en el dispositivo de Stack Edge. Se recomienda encarecidamente que solo se ejecuten aplicaciones de confianza en las máquinas virtuales locales. 
 
-- [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Supervisión de Azure Security Center**: No aplicable
 

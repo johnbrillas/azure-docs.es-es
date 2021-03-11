@@ -120,7 +120,7 @@
     - name: Creación de un centro de notificaciones mediante SDK
       items:
         - name: 'Creación de un centro de notificaciones: .NET'
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+          href: /dotnet/api/overview/azure/notification-hubs
         - name: 'Creación de un centro de notificaciones: Node.js'
           href: notification-hubs-nodejs-push-notification-tutorial.md
         - name: 'Creación de un centro de notificaciones: Java'

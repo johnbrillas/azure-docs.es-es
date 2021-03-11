@@ -2,17 +2,18 @@
 title: Migración de máquinas virtuales Linux a Azure Premium Storage con Azure Site Recovery
 description: Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 author: luywang
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8a03637352762646b0f209263769dbdb1ff14b21
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806179"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562629"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Uso de Site Recovery para migrar a Premium Storage
 
@@ -165,7 +166,7 @@ Para comprobar que el servidor de configuración se ha asociado correctamente a 
 
    ![Panel Habilitar la replicación con Origen seleccionado][13]
 
-Cuando se diseña el entorno de Azure Storage, se recomienda utilizar cuentas de almacenamiento separadas para cada máquina virtual en un conjunto de disponibilidad. Es recomendable seguir el procedimiento recomendado en la capa de almacenamiento para [utilizar varias cuentas de almacenamiento para cada conjunto de disponibilidad](../manage-availability.md). La distribución de discos de máquina virtual a varias cuentas de almacenamiento ayuda a mejorar la disponibilidad de almacenamiento y distribuye la entrada/salida en toda la infraestructura de Azure Storage.
+Cuando se diseña el entorno de Azure Storage, se recomienda utilizar cuentas de almacenamiento separadas para cada máquina virtual en un conjunto de disponibilidad. Es recomendable seguir el procedimiento recomendado en la capa de almacenamiento para [utilizar varias cuentas de almacenamiento para cada conjunto de disponibilidad](../availability.md). La distribución de discos de máquina virtual a varias cuentas de almacenamiento ayuda a mejorar la disponibilidad de almacenamiento y distribuye la entrada/salida en toda la infraestructura de Azure Storage.
 
 Si las máquinas virtuales están en un conjunto de disponibilidad, en lugar de replicar los discos de todas las máquinas virtuales en una cuenta de almacenamiento, se recomienda encarecidamente migrar varias máquinas virtuales repetidas veces. De esa forma, las máquinas virtuales del mismo conjunto de disponibilidad no comparten una única cuenta de almacenamiento. Use el panel **Habilitar la replicación** para configurar una cuenta de almacenamiento de destino para cada máquina virtual, de una en una.
  

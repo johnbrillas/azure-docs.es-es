@@ -3,16 +3,17 @@ title: Creación y cifrado de una máquina virtual Windows con Azure Portal
 description: En este inicio rápido aprenderá a usar Azure Portal para crear y cifrar una máquina virtual Windows
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 98764df41d5488afaaf7a24e0f1aa2535b0691d7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e29d1de976a027e32564a258fd5669b1e54c60f3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896963"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564448"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows desde Azure Portal
 
@@ -32,7 +33,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la pestaña Datos básicos, en Detalles del proyecto, asegúrese de que está seleccionada la suscripción correcta.
 1. En "Grupo de recursos", seleccione **Crear nuevo**. Como nombre, escriba *myResourceGroup* y seleccione **Aceptar**.
 1. En **Nombre de máquina virtual** , escriba *MyVM*.
-1. En **Región** , seleccione *(EE. UU.) Este de EE. UU.* .
+1. En **Región**, seleccione *(EE. UU.) Este de EE. UU.* .
 1. Compruebe que el valor de **Tamaño** es *Estándar D2s v3*.
 1. En **Cuenta de administrador** , seleccione **Contraseña**. Escriba un nombre de usuario y una contraseña.
 
@@ -57,19 +58,19 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
 1. Cuando la implementación de la máquina virtual se complete, seleccione **Ir al recurso**.
 1. En la barra lateral izquierda, seleccione **Discos**.
 1. En la barra superior, seleccione **Configuración adicional** .
-1. En **Configuración de cifrado** > **Discos que se van a cifrar** , seleccione **Discos del SO y de datos**.
+1. En **Configuración de cifrado** > **Discos que se van a cifrar**, seleccione **Discos del SO y de datos**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Captura de pantalla que muestra los discos del sistema operativo y de datos":::
 
-1. En **Configuración de cifrado** , elija **Seleccionar un almacén de claves y una clave para el cifrado**.
-1. En la pantalla **Seleccionar la clave de Azure Key Vault** , seleccione **Crear nuevo**.
+1. En **Configuración de cifrado**, elija **Seleccionar un almacén de claves y una clave para el cifrado**.
+1. En la pantalla **Seleccionar la clave de Azure Key Vault**, seleccione **Crear nuevo**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Captura de pantalla que muestra la opción Crear nuevo":::
 
-1. A la izquierda de **Almacén de claves y clave** , seleccione **Hacer clic para seleccionar una clave**.
-1. En **Seleccionar la clave de Azure Key Vault** , en el campo **Almacén de claves** , seleccione **Crear nuevo**.
-1. En la pantalla **Crear almacén de claves** , asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
-1. En la pestaña **Directivas de acceso** , active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
+1. A la izquierda de **Almacén de claves y clave**, seleccione **Hacer clic para seleccionar una clave**.
+1. En **Seleccionar la clave de Azure Key Vault**, en el campo **Almacén de claves**, seleccione **Crear nuevo**.
+1. En la pantalla **Crear almacén de claves**, asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
+1. En la pestaña **Directivas de acceso**, active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Selección de discos y de cifrado":::
 

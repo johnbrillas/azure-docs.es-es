@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574195"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561575"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entienda cómo se integra el aprovisionamiento con los registros de Azure Monitor
 
@@ -121,4 +121,4 @@ Se está adoptando un enfoque de código abierto basado en la comunidad para las
 - [Introducción a las consultas de registros de Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 - [Creación y administración de grupos de alertas en Azure Portal](../../azure-monitor/alerts/action-groups.md)
 - [Instalación y uso de las vistas de Log Analytics para Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)
+- [API de registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

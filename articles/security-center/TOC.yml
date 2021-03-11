@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: Creación de directivas e iniciativas de seguridad personalizadas
           href: custom-security-policies.md
-    - name: Protección de máquinas con Azure Defender para servidores
+    - name: Protección de máquinas
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: Introducción a Azure Defender para servidores

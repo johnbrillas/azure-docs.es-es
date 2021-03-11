@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174026"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452159"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -317,17 +317,7 @@ Tal como se explicó [anteriormente](#restore-operations), el cuerpo de la solic
 
 ```json
 {
-  "parameters": {
-        "subscriptionId": "00000000-0000-0000-0000-000000000000",
-        "resourceGroupName": "testVaultRG",
-        "vaultName": "testVault",
-        "fabricName": "Azure",
-        "containerName": "IaasVMContainer;iaasvmcontainerv2;testRG;testVM",
-        "protectedItemName": "VM;iaasvmcontainerv2;testRG;testVM",
-        "recoveryPointId": "348916168024334",
-        "api-version": "2019-05-13",
-      "parameters": {
-        "properties": {
+  "properties": {
           "objectType":  "IaasVMRestoreRequest",
           "recoveryPointId": "348916168024334",
           "recoveryType": "AlternateLocation",
@@ -342,11 +332,8 @@ Tal como se explicó [anteriormente](#restore-operations), el cuerpo de la solic
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
-          }
-        }
-      }
-    }
-}
+     }
+ }
 ```
 
 La respuesta debe controlarse de la misma manera que [se explicó anteriormente para restaurar los discos](#responses).

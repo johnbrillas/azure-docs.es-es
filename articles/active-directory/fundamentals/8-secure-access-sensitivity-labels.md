@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fc8ceddce4d41244d72632db058aa58c0d919db
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365368"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565179"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Control del acceso mediante etiquetas de confidencialidad 
 
-Las [etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) ayudan a controlar el acceso a su contenido en las aplicaciones de Office 365 y en contenedores como Microsoft Teams, los grupos de Microsoft 365 y los sitios de SharePoint. Protegen el contenido sin que afecte a la capacidad de colaboración y la productividad de los usuarios. Las etiquetas de confidencialidad permiten enviar el contenido de su organización a través de dispositivos, aplicaciones y servicios, y, al mismo tiempo, proteger los datos y respetar las directivas de cumplimiento y seguridad. 
+Las [etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels) ayudan a controlar el acceso a su contenido en las aplicaciones de Office 365 y en contenedores como Microsoft Teams, los grupos de Microsoft 365 y los sitios de SharePoint. Protegen el contenido sin que afecte a la capacidad de colaboración y la productividad de los usuarios. Las etiquetas de confidencialidad permiten enviar el contenido de su organización a través de dispositivos, aplicaciones y servicios, y, al mismo tiempo, proteger los datos y respetar las directivas de cumplimiento y seguridad. 
 
 Con las etiquetas de confidencialidad, podrá:
 
 * **Clasificar el contenido sin necesidad de agregar ninguna configuración de protección**. Asigne una clasificación al contenido, como si fuera una etiqueta adhesiva, que perdura y acompaña al contenido siempre que se use y comparta. Puede usar esta clasificación para generar informes de uso y ver los datos de actividad del contenido confidencial.
 
-* **Usar una configuración de protección, como el cifrado, las marcas de agua y las restricciones de acceso**. Por ejemplo, los usuarios pueden usar una etiqueta confidencial con un documento o correo electrónico, y esa etiqueta puede [cifrar el contenido](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) y agregar una marca de agua "confidencial". Además, puede [aplicar una etiqueta de confidencialidad a un contenedor](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide), como un sitio de SharePoint, y regular si los usuarios externos pueden acceder al contenido del sitio.
+* **Usar una configuración de protección, como el cifrado, las marcas de agua y las restricciones de acceso**. Por ejemplo, los usuarios pueden usar una etiqueta confidencial con un documento o correo electrónico, y esa etiqueta puede [cifrar el contenido](/microsoft-365/compliance/encryption-sensitivity-labels) y agregar una marca de agua "confidencial". Además, puede [aplicar una etiqueta de confidencialidad a un contenedor](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites), como un sitio de SharePoint, y regular si los usuarios externos pueden acceder al contenido del sitio.
 
 Las etiquetas de confidencialidad del correo electrónico y otro contenido acompañan al contenido. Las etiquetas de confidencialidad de los contenedores pueden restringir el acceso al contenedor, pero el contenido del contenedor no hereda la etiqueta. Por ejemplo, un usuario podría acceder al contenido de un sitio protegido, descargarlo y compartirlo sin restricciones, a menos que el contenido también tuviera una etiqueta de confidencialidad.
 
@@ -52,7 +52,7 @@ A la hora de pensar en regular el acceso externo al contenido, determine lo sigu
 
 * ¿Cómo definiría lo que es un impacto empresarial alto (HBI), medio (MBI) o bajo (LBI)? Tenga en cuenta el impacto en su organización si determinados tipos de contenido se comparten de forma inapropiada:
 
-   * El contenido con [información esencialmente confidencial](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide), como los números de tarjetas de crédito o de pasaporte.
+   * El contenido con [información esencialmente confidencial](/microsoft-365/compliance/apply-sensitivity-label-automatically), como los números de tarjetas de crédito o de pasaporte.
 
    * El contenido creado por grupos o personas específicos (por ejemplo, oficiales de cumplimiento normativo, responsables financieros o ejecutivos).
 
@@ -66,21 +66,21 @@ A la hora de pensar en regular el acceso externo al contenido, determine lo sigu
 
 * ¿Qué valores predeterminados deberían aplicarse a los datos de alto impacto de negocio (HBI), los sitios o los grupos de Microsoft 365?
 
-* ¿En qué casos usará las etiquetas de confidencialidad con fines de [etiquetado y supervisión](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) frente al [cifrado](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) o para [aplicar restricciones de acceso a contenedores](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* ¿En qué casos usará las etiquetas de confidencialidad con fines de [etiquetado y supervisión](/microsoft-365/compliance/sensitivity-labels) frente al [cifrado](/microsoft-365/compliance/encryption-sensitivity-labels) o para [aplicar restricciones de acceso a contenedores](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)?
 
 **En cuanto al correo electrónico y el contenido**
 
-* ¿Desea [aplicar automáticamente etiquetas de confidencialidad](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) al contenido o prefiere hacerlo de forma manual?
+* ¿Desea [aplicar automáticamente etiquetas de confidencialidad](/microsoft-365/compliance/apply-sensitivity-label-automatically) al contenido o prefiere hacerlo de forma manual?
 
-   * Si decide hacerlo manualmente, ¿desea [recomendar a los usuarios que apliquen una etiqueta](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)?
+   * Si decide hacerlo manualmente, ¿desea [recomendar a los usuarios que apliquen una etiqueta](/microsoft-365/compliance/apply-sensitivity-label-automatically)?
 
 **En cuanto a los contenedores**
 
 * ¿Qué criterios determinarán si los grupos de M365, Teams o los sitios de SharePoint requieren acceso restringido mediante etiquetas de confidencialidad?
 
-* ¿Desea etiquetar solo el contenido de estos contenedores a medida que avanza o desea [etiquetar automáticamente](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) archivos existentes en SharePoint y OneDrive?
+* ¿Desea etiquetar solo el contenido de estos contenedores a medida que avanza o desea [etiquetar automáticamente](/microsoft-365/compliance/apply-sensitivity-label-automatically) archivos existentes en SharePoint y OneDrive?
 
-Consulte estos [escenarios comunes para las etiquetas de confidencialidad](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) y obtenga ideas sobre cómo utilizarlas.
+Consulte estos [escenarios comunes para las etiquetas de confidencialidad](/microsoft-365/compliance/get-started-with-sensitivity-labels) y obtenga ideas sobre cómo utilizarlas.
 
 ### <a name="sensitivity-labels-on-email-and-content"></a>Etiquetas de confidencialidad en el correo electrónico y el contenido
 
@@ -100,7 +100,7 @@ Asignar una etiqueta de confidencialidad a un documento o correo electrónico, e
 
 ### <a name="sensitivity-labels-on-containers"></a>Etiquetas de confidencialidad en los contenedores
 
-Puede aplicar etiquetas de confidencialidad a contenedores como los [grupos de Microsoft 365](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) y los [sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide). Al utilizar una etiqueta de confidencialidad con un contenedor compatible, esta aplicará automáticamente la configuración de clasificación y protección al grupo o sitio conectado. Las etiquetas de confidencialidad de estos contenedores pueden regular los siguientes aspectos de los contenedores:
+Puede aplicar etiquetas de confidencialidad a contenedores como los [grupos de Microsoft 365](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites) y los [sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites). Al utilizar una etiqueta de confidencialidad con un contenedor compatible, esta aplicará automáticamente la configuración de clasificación y protección al grupo o sitio conectado. Las etiquetas de confidencialidad de estos contenedores pueden regular los siguientes aspectos de los contenedores:
 
 * **Privacidad**. Puede decidir quién verá el sitio: usuarios específicos, todos los usuarios internos o cualquier usuario.
 
@@ -116,39 +116,39 @@ Puede aplicar etiquetas de confidencialidad a contenedores como los [grupos de M
 
 Al utilizar una etiqueta de confidencialidad con un contenedor, como un sitio de SharePoint, no se aplica al contenido del sitio: las etiquetas de confidencialidad de los contenedores regulan el acceso al contenido del contenedor. 
 
-* Si desea aplicar etiquetas automáticamente al contenido del contenedor, consulte [Aplicar automáticamente una etiqueta de confidencialidad al contenido](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
+* Si desea aplicar etiquetas automáticamente al contenido del contenedor, consulte [Aplicar automáticamente una etiqueta de confidencialidad al contenido](/microsoft-365/compliance/apply-sensitivity-label-automatically).
 
-* Si desea que los usuarios puedan aplicar etiquetas manualmente a este contenido, asegúrese de [habilitar etiquetas de confidencialidad para los archivos de Office en SharePoint y OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
+* Si desea que los usuarios puedan aplicar etiquetas manualmente a este contenido, asegúrese de [habilitar etiquetas de confidencialidad para los archivos de Office en SharePoint y OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files).
 
 ### <a name="plan-to-implement-sensitivity-labels"></a>Plan para implementar etiquetas de confidencialidad
 
 Una vez que haya decidido cómo usar las etiquetas de confidencialidad, y a qué contenido y sitios desea aplicarlas, consulte esta documentación para llevar a cabo la implementación.
 
-1. [Introducción a las etiquetas de confidencialidad](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+1. [Introducción a las etiquetas de confidencialidad](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-2. [Crear una estrategia de implementación](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+2. [Crear una estrategia de implementación](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-3. [Crear y publicar etiquetas de confidencialidad](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
+3. [Crear y publicar etiquetas de confidencialidad](/microsoft-365/compliance/create-sensitivity-labels)
 
-4. [Restringir el acceso al contenido mediante etiquetas de confidencialidad para aplicar el cifrado](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
+4. [Restringir el acceso al contenido mediante etiquetas de confidencialidad para aplicar el cifrado](/microsoft-365/compliance/encryption-sensitivity-labels)
 
-5. [Usar etiquetas de confidencialidad con equipos, grupos y sitios](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
+5. [Usar etiquetas de confidencialidad con equipos, grupos y sitios](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 
-6. [Habilitar las etiquetas de confidencialidad para archivos de Office en SharePoint y OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
+6. [Habilitar las etiquetas de confidencialidad para archivos de Office en SharePoint y OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files)
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda seguir los pasos por orden.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 1. [Determinación de la posición de seguridad deseada para el acceso externo](1-secure-access-posture.md)
 
-2. [Identificación del estado actual](2-secure-access-current-state.md)
+2. [Detección del estado actual](2-secure-access-current-state.md)
 
 3. [Creación de un plan de gobernanza](3-secure-access-plan.md)
 
 4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
 
-5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
+5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
 
 6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 

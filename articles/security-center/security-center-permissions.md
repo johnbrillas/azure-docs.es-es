@@ -1,24 +1,18 @@
 ---
 title: Permisos en Azure Security Center | Microsoft Docs
 description: En este artículo se explica cómo Azure Security Center usa el control de acceso basado en roles para asignar permisos a los usuarios e identifica las acciones permitidas para cada rol.
-services: security-center
-cloud: na
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: 14ee9f23379a26c1756c622efb7d739f49dd0537
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099189"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443767"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
@@ -39,15 +33,15 @@ Además de estos roles, hay dos roles específicos de Security Center:
 
 En la siguiente tabla se muestran los roles y las acciones permitidas en Security Center.
 
-|Acción|Lector de seguridad / <br> Lector |Administrador de seguridad  |Colaborador del grupo de recursos / <br> Propietario del grupo de recursos  |Colaborador de la suscripción  |Propietario de la suscripción  |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-|Editar directivas de seguridad|-|✔|-|-|✔|
-|Agregar o asignar iniciativas (incluidas las normas de cumplimiento normativo)|-|-|-|-|✔|
-|Habilitación o deshabilitación de Azure Defender|-|✔|-|-|✔|
-|Habilitar o deshabilitar el aprovisionamiento automático|-|✔|-|✔|✔|
-|Aplicar recomendaciones de seguridad en un recurso</br> (y utilizar la [corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
-|Descartar alertas|-|✔|-|✔|✔|
-|Ver alertas y recomendaciones|✔|✔|✔|✔|✔|
+| Acción                                                                                                                                        | Lector de seguridad / <br> Lector | Administrador de seguridad | Colaborador del grupo de recursos / <br> Propietario del grupo de recursos | Colaborador de la suscripción | Propietario de la suscripción |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| Editar directivas de seguridad                                                                                                                          | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Agregar o asignar iniciativas (incluidas las normas de cumplimiento normativo)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
+| Habilitación o deshabilitación de Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Habilitar o deshabilitar el aprovisionamiento automático                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Aplicar recomendaciones de seguridad en un recurso</br> (y utilizar la [corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Descartar alertas                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Ver alertas y recomendaciones                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 
 > [!NOTE]
 > Es recomendable que asigne el rol de menos permisos que los usuarios necesiten para realizar sus tareas. Por ejemplo, asigne el rol Lector a los usuarios que solo necesiten ver información sobre el estado de seguridad de los recursos, pero no llevar a cabo acciones como aplicar recomendaciones o editar directivas.

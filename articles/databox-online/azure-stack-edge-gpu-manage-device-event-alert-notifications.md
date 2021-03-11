@@ -6,16 +6,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c621584fa1dbed06873ac0867e20201e94c4a757
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 585343137a4a8fd8a1fb591c640e1183d71c0fd3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699689"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443104"
 ---
 # <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Administración de notificaciones de alertas de eventos de dispositivos en recursos de Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se describe cómo crear reglas de acción en Azure Portal para desencadenar o suprimir notificaciones de alertas para los eventos de dispositivo que se producen dentro de un grupo de recursos, una suscripción de Azure o un recurso de Azure Stack Edge individual. Este artículo se aplica a todos los modelos de Azure Stack Edge.  
 

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8fd64023b9c07e8dd426b2b51916db4515a5405a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736312"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451513"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -45,7 +45,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Puntos de restauración definidos por el usuario
 
-Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario para un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint?viewFallbackFrom=azurermps-6.2.0) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) o Azure Portal.
+Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario para un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) o Azure Portal.
 
 > [!NOTE]
 > Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el grupo de SQL dedicado en línea y podrá pausarlo indefinidamente para reducir los costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3eb648af60a7be62d08f6b172347778d2358643c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095039"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440129"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Uso de la aceleración de proceso en Azure Stack Edge Pro con GPU para la implementación de Kubernetes
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se describe cómo usar la aceleración de proceso en dispositivos de Azure Stack Edge al usar implementaciones de Kubernetes. Este artículo se aplica a los dispositivos de Azure Stack Edge Pro con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
 

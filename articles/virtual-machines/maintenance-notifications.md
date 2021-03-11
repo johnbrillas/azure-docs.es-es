@@ -3,22 +3,23 @@ title: Notificaciones de mantenimiento
 description: Información general sobre las notificaciones de mantenimiento de las máquinas virtuales que se ejecutan en Azure.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 92cb780a80f1010fd1c2f5d19fe616e0285de73b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560815"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564533"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Control de las notificaciones de mantenimiento planeado
 
 Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura host de las máquinas virtuales. Las actualizaciones son cambios como la aplicación de revisiones en el entorno de hospedaje o la actualización y la retirada de hardware. La mayoría de estas actualizaciones se completan sin que las máquinas virtuales hospedadas resulten afectadas. Sin embargo, hay casos en los que las actualizaciones tienen un impacto:
 
-- Si el mantenimiento no requiere un reinicio, Azure pausa la máquina virtual durante unos segundos mientras se actualiza el host. Estos tipos de operaciones de mantenimiento se aplican los dominios de error de uno en uno. El progreso se detiene si no se reciben señales de estado de advertencia.
+- Si el mantenimiento no requiere un reinicio, Azure pausa la máquina virtual durante unos segundos mientras se actualiza el host. Estos tipos de operaciones de mantenimiento se aplican a los dominios de error de uno en uno. El progreso se detiene si no se reciben señales de estado de advertencia.
 
 - Si el mantenimiento requiere un reinicio, el usuario recibe un aviso de cuándo está programado el mantenimiento. Se le asigna también un período de aproximadamente 35 días en el que puede iniciar el mantenimiento, en el momento en que le sea más conveniente.
 

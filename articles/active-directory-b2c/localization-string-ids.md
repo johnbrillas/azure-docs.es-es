@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108678"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448651"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -357,7 +357,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 | ID | Valor predeterminado |
 | -- | ------------- |
 |intro_msg| La comprobación es necesaria. Haga clic en el botón Enviar.|
-|success_send_code_msg | Se ha enviado el código de verificación a su bandeja de entrada. Cópielo en el siguiente cuadro de entrada de texto.|
+|success_send_code_msg | Se ha enviado el código de verificación. Cópielo en el siguiente cuadro de entrada de texto.|
 |failure_send_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Escriba una dirección de correo electrónico válida e inténtelo de nuevo.|
 |success_verify_code_msg | Se ha verificado la dirección de correo electrónico. Ahora puede continuar.|
 |failure_verify_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Inténtelo de nuevo.|

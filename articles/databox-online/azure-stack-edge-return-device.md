@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb11d7d3b2da9ab793cb18814e4021ea7afeb806
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703191"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443597"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Devolución del dispositivo de Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se explica cómo borrar los datos del dispositivo Azure Stack Edge Pro y luego devolverlo. Una vez que haya devuelto el dispositivo, también puede eliminar el recurso asociado al dispositivo.
 
@@ -38,8 +40,7 @@ Puede iniciar la devolución del dispositivo incluso antes de restablecer el dis
 
 Puede restablecer el dispositivo en la interfaz de usuario web local o en PowerShell. Para obtener instrucciones de PowerShell, vea [Restablecimiento del dispositivo](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-
-[!INCLUDE] [Restablecimiento de datos del dispositivo](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 > [!NOTE]
 > - Si va a intercambiar o actualizar a un dispositivo nuevo, se recomienda restablecer el dispositivo solo después de que haya recibido el dispositivo nuevo.
