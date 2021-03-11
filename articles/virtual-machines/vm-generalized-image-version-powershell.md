@@ -3,18 +3,18 @@ title: Creación de una imagen a partir de una máquina virtual generalizada
 description: Cree una VM con una imagen generalizada en Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b198c094ffd5f2113603fc9d8d2fb1c4e5cd6fe1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dbe1e31a9b56f2f60edbebd8286bf0bfdeaa327e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881964"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560978"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Creación de una VM con una imagen generalizada 
 
@@ -24,7 +24,7 @@ Cuando tenga una versión de una imagen generalizada, puede crear una o varias V
 
 En este ejemplo, se usa el identificador de definición de imagen para asegurarse de que la nueva VM usará la versión más reciente de una imagen. También puede usar una versión específica con el identificador de la versión de imagen de `Set-AzVMSourceImage -Id`. Por ejemplo, para usar la versión de imagen *1.0.0*, escriba: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
-Tenga en cuenta que el uso de una versión de imagen específica significa que Automation podría producir un error si dicha versión específica no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva VM, a menos que se requiera una versión de imagen específica.
+Tenga en cuenta que el uso de una versión de imagen específica significa que la automatización podría producir un error si dicha versión específica no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva VM, a menos que se requiera una versión de imagen específica.
 
 Reemplace los nombres de recursos según sea necesario en estos ejemplos. 
 

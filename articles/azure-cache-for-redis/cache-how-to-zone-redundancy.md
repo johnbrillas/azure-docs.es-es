@@ -6,17 +6,17 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 0cb7ee5b9fa02e726d03bf1ae9935c07ded6e4a6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088019"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508272"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Habilitación de la redundancia de zona para Azure Cache for Redis (versión preliminar)
 En este artículo, aprenderá a configurar una instancia de Azure Cache con redundancia de zona mediante Azure Portal.
 
-Los niveles Estándar, Premium y Enterprise de Azure Cache for Redis hospedan cada caché en dos máquinas virtuales dedicadas para proporcionar redundancia integrada. Aunque estas máquinas virtuales se encuentran en distintos [dominios de error y actualización de Azure](../virtual-machines/manage-availability.md) y tienen alta disponibilidad, son susceptibles a tener errores en el nivel del centro de datos. Azure Cache for Redis también admite la redundancia de zona en los niveles Premium y Enterprise. Una instancia de caché con redundancia de zona se ejecuta en máquinas virtuales distribuidas en [varias zonas de disponibilidad](../virtual-machines/manage-availability.md#use-availability-zones-to-protect-from-datacenter-level-failures). Proporciona mayor resistencia y disponibilidad.
+Los niveles Estándar, Premium y Enterprise de Azure Cache for Redis hospedan cada caché en dos máquinas virtuales dedicadas para proporcionar redundancia integrada. Aunque estas máquinas virtuales se encuentran en distintos [dominios de error y actualización de Azure](../virtual-machines/availability.md) y tienen alta disponibilidad, son susceptibles a tener errores en el nivel del centro de datos. Azure Cache for Redis también admite la redundancia de zona en los niveles Premium y Enterprise. Una instancia de caché con redundancia de zona se ejecuta en máquinas virtuales distribuidas en [varias zonas de disponibilidad](../availability-zones/az-overview.md). Proporciona mayor resistencia y disponibilidad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
@@ -30,7 +30,7 @@ Para crear una instancia de caché, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Crear un recurso**.
   
-1. En la página **Nuevo** , seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
+1. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selección de Azure Cache for Redis.":::
    
@@ -39,12 +39,12 @@ Para crear una instancia de caché, siga estos pasos:
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Suscripción** | Seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. | 
-    | **Grupos de recursos** | Seleccione un grupo de recursos o **Crear nuevo** , y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
+    | **Grupos de recursos** | Seleccione un grupo de recursos o **Crear nuevo**, y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
     | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. | 
     | **Ubicación** | Seleccione una ubicación. | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
     | **Tipo de caché** | Seleccione una caché de [nivel Premium o Enterprise](https://azure.microsoft.com/pricing/details/cache/). |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](cache-overview.md). |
    
-1. En la página **Avanzado** , en el caso de una caché de nivel Premium, elija **Recuento de réplicas**.
+1. En la página **Avanzado**, en el caso de una caché de nivel Premium, elija **Recuento de réplicas**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Recuento de réplicas":::
 
@@ -60,7 +60,7 @@ Para crear una instancia de caché, siga estos pasos:
 
 1. Haga clic en **Crear**. 
    
-    La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución** , la memoria caché está lista para su uso.
+    La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
    
     > [!NOTE]
     > Las zonas de disponibilidad no se pueden cambiar una vez creada la instancia de caché.

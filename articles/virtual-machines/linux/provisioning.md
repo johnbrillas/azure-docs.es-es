@@ -2,19 +2,20 @@
 title: Introducción al aprovisionamiento de Linux
 description: Información general sobre cómo traer imágenes de máquinas virtuales Linux o crear imágenes para usarlas en Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080155"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563226"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Aprovisionamiento de máquinas virtuales Linux en Azure
 Al crear una máquina virtual a partir de una imagen generalizada (Shared Image Gallery o imagen administrada), el plano de control permitirá crear una máquina virtual y pasar los parámetros y valores a la máquina virtual. Esto se denomina *aprovisionamiento* de una máquina virtual. Durante el aprovisionamiento, la plataforma pone los valores necesarios de los parámetros de VM Create (hostname, username, password, SSH keys, customData) a disposición de la máquina virtual cuando esta arranca. 

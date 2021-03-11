@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f8b7162787e870337918794f353ab8dc94c1965
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694961"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518252"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Creación de un emparejamiento de redes virtuales: Resource Manager, diferentes suscripciones e inquilinos de Azure Active Directory
 
@@ -276,7 +276,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
    }
    ```
 
-3. Inicie sesión en Azure como UserA e implemente la plantilla mediante el [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique el nombre de archivo que ha guardado en el paso 2 para el texto del archivo json de ejemplo.
+3. Inicie sesión en Azure como UserA e implemente la plantilla mediante el [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file) o la [CLI de Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique el nombre de archivo que ha guardado en el paso 2 para el texto del archivo json de ejemplo.
 4. Copie el archivo json de ejemplo del paso 2 en un archivo del equipo y realice cambios en las líneas que comienzan por:
    - **name**: cambie *myVnetA/myVnetAToMyVnetB* por *myVnetB/myVnetBToMyVnetA*.
    - **id**: reemplace `<subscription ID>` por el identificador de suscripción de UserB y cambie *myVnetB* por *myVnetA*.

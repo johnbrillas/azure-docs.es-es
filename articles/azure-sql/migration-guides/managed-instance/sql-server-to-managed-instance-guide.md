@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358901"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488977"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guía de migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform o GCP)  
-- Cloud SQL for SQL Server (Google Cloud Platform: GCP) 
+- SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
 
 Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
 
@@ -57,6 +57,8 @@ También puede usar el  [kit de herramientas de evaluación y planeamiento de 
 Para más información acerca de las herramientas disponibles para usar en la fase de detección, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Evaluar 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Una vez descubiertos los orígenes de datos, evalúe cualquier instancia de SQL Server local que se pueda migrar a Azure SQL Managed Instance para identificar los bloqueadores de migración o los problemas de compatibilidad. 
 

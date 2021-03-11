@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e5734591bfc48469eacc1ad39cbb89f3850bfc8c
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97367073"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442169"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperación de un dispositivo GPU de Azure Stack Edge Pro con errores 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 En este artículo se describe cómo recuperarse de un error no tolerable en su dispositivo GPU de Azure Stack Edge Pro. Un error no tolerable en un dispositivo GPU de Azure Stack Edge Pro requiere la sustitución del dispositivo.
 

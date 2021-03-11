@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348362"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559297"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial
 
@@ -21,7 +21,7 @@ Este artículo le guía por el proceso de creación de una página de aterrizaje
 
 ## <a name="overview"></a>Información general
 
-Puede pensar en la página de aterrizaje como el "recibidor" de la oferta de software como servicio (SaaS). Después de que el cliente elija obtener la aplicación, el marketplace comercial le dirigirá a la página de aterrizaje para activar y configurar su suscripción a la aplicación de SaaS. Al crear una oferta de software como servicio (SaaS), en el Centro de partners, puede elegir entre [vender a través de Microsoft](plan-saas-offer.md#listing-options) o no hacerlo. Si solo quiere que se muestre su oferta en el marketplace comercial de Microsoft y no vender a través de Microsoft, puede especificar la forma en la que los clientes potenciales pueden interactuar con la oferta. Al habilitar la opción de anuncio **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita** , debe especificar una URL de página de aterrizaje a la que el usuario pueda dirigirse para acceder a la suscripción o evaluación gratuita.
+Puede pensar en la página de aterrizaje como el "recibidor" de la oferta de software como servicio (SaaS). Después de que el cliente elija obtener la aplicación, el marketplace comercial le dirigirá a la página de aterrizaje para activar y configurar su suscripción a la aplicación de SaaS. Al crear una oferta de software como servicio (SaaS), en el Centro de partners, puede elegir entre [vender a través de Microsoft](plan-saas-offer.md#listing-options) o no hacerlo. Si solo quiere que se muestre su oferta en el marketplace comercial de Microsoft y no vender a través de Microsoft, puede especificar la forma en la que los clientes potenciales pueden interactuar con la oferta. Al habilitar la opción de anuncio **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita**, debe especificar una URL de página de aterrizaje a la que el usuario pueda dirigirse para acceder a la suscripción o evaluación gratuita.
 
 El propósito de la página de aterrizaje es simplemente recibir al usuario para que pueda activar la evaluación gratuita o la suscripción gratuita. Con Azure Active Directory (Azure AD) y Microsoft Graph, habilitará el inicio de sesión único (SSO) para el usuario y obtendrá detalles importantes sobre el usuario que puede usar para activar su evaluación gratuita o suscripción gratuita, incluido su nombre, dirección de correo electrónico y organización.
 
@@ -51,7 +51,7 @@ El primer paso para usar la identidad es asegurarse de que la página de aterriz
 
 Para empezar, siga las instrucciones para [registrar una nueva aplicación](../active-directory/develop/quickstart-register-app.md). Para permitir que los usuarios de otras empresas visiten la aplicación, debe elegir **Accounts in any organizational directory (any Azure AD directory—multitenant) and personal Microsoft accounts (like Skype or Xbox)** (Cuentas en cualquier directorio de la organización (en cualquier directorio de Azure AD: multiinquilino) y cuentas personales de Microsoft (como Skype o Xbox)) cuando se le pregunte quién puede usar la aplicación.
 
-Si tiene previsto consultar la API de Microsoft Graph, [configure la nueva aplicación para acceder a las API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Al seleccionar los permisos de API para esta aplicación, el valor predeterminado **User.Read** es suficiente para recopilar información básica sobre el usuario para que el proceso de incorporación sea automático y sin problemas. No solicite ningún permiso de la API con la etiqueta **necesita el consentimiento del administrador** , ya que esto impedirá que todos los usuarios que no sean administradores visiten la página de aterrizaje.
+Si tiene previsto consultar la API de Microsoft Graph, [configure la nueva aplicación para acceder a las API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Al seleccionar los permisos de API para esta aplicación, el valor predeterminado **User.Read** es suficiente para recopilar información básica sobre el usuario para que el proceso de incorporación sea automático y sin problemas. No solicite ningún permiso de la API con la etiqueta **necesita el consentimiento del administrador**, ya que esto impedirá que todos los usuarios que no sean administradores visiten la página de aterrizaje.
 
 Si requiere permisos elevados como parte del proceso de incorporación o aprovisionamiento, considere la posibilidad de usar la funcionalidad de [consentimiento incremental](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) de Azure AD para que todos los usuarios enviados desde el marketplace puedan interactuar inicialmente con la página de aterrizaje.
 
@@ -59,7 +59,7 @@ Si requiere permisos elevados como parte del proceso de incorporación o aprovis
 
 Microsoft ha proporcionado varias aplicaciones de ejemplo que implementan un sitio web sencillo con el inicio de sesión de Azure AD habilitado. Una vez registrada la aplicación en Azure AD, la hoja **Inicio rápido** ofrece una lista de tipos de aplicaciones y pilas de desarrollo habituales (Figura 1). Elija el que coincida con su entorno y siga las instrucciones para descargarlo y configurarlo.
 
-**_Ilustración 1: Hoja de inicio rápido en Azure Portal_* _
+***Figura 1: Hoja de inicio rápido en Azure Portal***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Muestra la hoja de inicio rápido en Azure Portal.":::
 
@@ -82,7 +82,7 @@ Como parte del flujo de [OpenID Connect](../active-directory/develop/v2-protocol
 
 ## <a name="use-the-microsoft-graph-api"></a>Uso de Microsoft Graph API
 
-El token de identificador contiene información básica para identificar al usuario, pero el proceso de activación puede requerir detalles adicionales, como la empresa del usuario, para completar el proceso de incorporación. Use la [API de Microsoft Graph](/graph/use-the-api) para solicitar esta información para evitar que el usuario vuelva a escribir estos detalles. Los permisos _ *User.Read* * estándar incluyen la siguiente información, de manera predeterminada.
+El token de identificador contiene información básica para identificar al usuario, pero el proceso de activación puede requerir detalles adicionales, como la empresa del usuario, para completar el proceso de incorporación. Use la [API de Microsoft Graph](/graph/use-the-api) para solicitar esta información para evitar que el usuario vuelva a escribir estos detalles. Los permisos **User.Read** estándar incluyen la siguiente información, de forma predeterminada:
 
 | Value | Descripción |
 | ------------ | ------------- |
@@ -95,7 +95,7 @@ El token de identificador contiene información básica para identificar al usua
 | surname | Apellidos del usuario. |
 |||
 
-Se pueden seleccionar propiedades adicionales, como el nombre de la empresa del usuario o la ubicación (país) del usuario, para su inclusión en la solicitud. Para obtener más información, consulte [Propiedades para el tipo de recurso de usuario](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
+Se pueden seleccionar propiedades adicionales, como el nombre de la empresa del usuario o la ubicación (país) del usuario, para su inclusión en la solicitud. Para obtener más información, consulte [Propiedades para el tipo de recurso de usuario](/graph/api/resources/user#properties).
 
 La mayoría de las aplicaciones que se registran con Azure AD conceden permisos delegados para leer la información del usuario del inquilino de Azure AD de su empresa. Cualquier solicitud a Microsoft Graph de esta información debe ir acompañada de un token de acceso como autenticación. Los pasos específicos para generar el token de acceso dependerán de la pila de tecnología que esté usando, pero el código de ejemplo contendrá un ejemplo. Para más información, consulte [Obtener acceso en nombre de un usuario](/graph/auth-v2-user).
 

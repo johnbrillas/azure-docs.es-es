@@ -209,6 +209,8 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: Conexión a otras nubes de IoT
           href: core/howto-build-iotc-device-bridge.md
+        - name: Administración de los dispositivos
+          href: core/how-to-move-device-to-iot.md
     - name: Creación de soluciones integradas
       items:
         - name: Adición de iconos al panel

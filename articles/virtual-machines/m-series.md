@@ -3,16 +3,16 @@ title: 'Serie M: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie M.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: b893d2d381ccea286066d6141142c2ab190242bc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 91c29864367380a303a006d4aac823a22a966a2b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667035"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563099"
 ---
 # <a name="m-series"></a>Serie M
 
@@ -28,7 +28,7 @@ Las máquinas virtuales de la serie M cuentan con la tecnología Hyper-Threading
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Acelerador de escritura](./how-to-enable-write-accelerator.md): Compatible<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |

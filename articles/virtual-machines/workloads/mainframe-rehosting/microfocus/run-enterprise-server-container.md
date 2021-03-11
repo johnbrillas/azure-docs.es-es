@@ -1,7 +1,7 @@
 ---
 title: Ejecución de Micro Focus Enterprise Server 5.0 en un contenedor de Docker en Azure | Microsoft Docs
 description: En este artículo, obtendrá información sobre cómo ejecutar Micro Focus Enterprise Server 5.0 en un contenedor de Docker en Microsoft Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5c436eae53b16c980e9725cfef0573367d144842
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127202"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548383"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Ejecución de Micro Focus Enterprise Server 5.0 en un contenedor de Docker en Azure
 
@@ -54,9 +54,9 @@ Antes de comenzar, revise estos requisitos previos:
 
     2.  Seleccione la **Región** y el **Grupo de recursos** en los que le gustaría implementarla.
 
-    3.  En **Opciones de disponibilidad** , use la configuración predeterminada.
+    3.  En **Opciones de disponibilidad**, use la configuración predeterminada.
 
-    4.  En **Nombre de usuario** , escriba la cuenta de administrador que desea utilizar y la contraseña.
+    4.  En **Nombre de usuario**, escriba la cuenta de administrador que desea utilizar y la contraseña.
 
     5.  Asegúrese de que el **puerto RDP 3389** está abierto. Solo debe estar expuesto públicamente este puerto, para que pueda iniciar sesión en la máquina virtual. A continuación, acepte todos los valores predeterminados y haga clic en **Revisar y crear**.
 
@@ -129,7 +129,7 @@ En este momento, la máquina virtual está ejecutándose y conectada a través d
 
 2.  Obtenga la dirección IP del contenedor acctdemo, para que Docker pueda actuar como servidor del Protocolo de configuración dinámica de host (DHCP) para los contenedores que administra:
 
-    1.  Obtenga el identificador del contenedor en ejecución. Escriba **Docker ps** en el símbolo del sistema y anote el identificador ( **22a0fe3159d0** , en este ejemplo). Guárdelo para el siguiente paso.
+    1.  Obtenga el identificador del contenedor en ejecución. Escriba **Docker ps** en el símbolo del sistema y anote el identificador (**22a0fe3159d0**, en este ejemplo). Guárdelo para el siguiente paso.
 
     2.  Para obtener la dirección IP del contenedor acctdemo, use el identificador del contenedor del paso anterior como sigue:
 

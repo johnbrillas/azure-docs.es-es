@@ -1,26 +1,19 @@
 ---
 title: Ejecución de la extensión de script personalizado en máquinas virtuales Linux en Azure
 description: Automatización de tareas de configuración de máquinas virtuales Linux mediante la extensión de script personalizado v2
-services: virtual-machines-linux
-documentationcenter: ''
-author: amjads1
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 04/25/2018
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.author: amjads
-ms.openlocfilehash: 5ab312dc6da57279ce5cbd4d8efd7912b8a36503
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+author: amjads1
+ms.collection: linux
+ms.date: 04/25/2018
+ms.openlocfilehash: 094e5f4b1bf1611f2d418d3a7b8db15ec5d58878
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390120"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563581"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 

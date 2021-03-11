@@ -222,7 +222,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -388,7 +388,7 @@
     - name: Modelo de precios y medición de uso
       href: logic-apps-pricing.md
     - name: Azure CLI
-      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
+      href: /cli/azure/ext/logic/logic
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: API DE REST

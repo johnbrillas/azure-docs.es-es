@@ -1,57 +1,22 @@
 ---
 title: Recomendaciones de seguridad en el Centro de seguridad de Azure
 description: Este documento explica cómo las recomendaciones del Centro de seguridad de Azure ayudan a proteger los recursos de Azure y a cumplir con las directivas de seguridad.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526531"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100345"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
+# <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
-
-
-## <a name="what-are-security-recommendations"></a>¿Cuáles son las recomendaciones de seguridad?
-
-Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables.
-
-Las recomendaciones son acciones que se deben llevar a cabo para proteger y consolidar los recursos. 
-
-Cada recomendación le proporciona:
-
-- Descripción breve del problema
-- Pasos de corrección que se deben llevar a cabo para implementar la recomendación.
-- Recursos afectados.
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>¿Cómo decide Microsoft qué necesita protección y consolidación?
-
-Las recomendaciones de Security Center se basan en la Prueba comparativa de la seguridad de Azure. Casi todas las recomendaciones tienen una directiva subyacente derivada de un requisito en la prueba comparativa.
-
-Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube. Mas información sobre [Azure Security Benchmark](../security/benchmarks/introduction.md).
-
-Cuando se revisan los detalles de una recomendación, a menudo resulta útil poder ver la directiva subyacente. Para cada recomendación compatible con una directiva, use el vínculo **View policy definition** (Ver definición de directiva) de la página de detalles de la recomendación para ir directamente a la entrada Azure Policy de la directiva pertinente:
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Vínculo a la página de Azure Policy de la directiva específica que admite una recomendación":::
-
-Use este vínculo para ver la definición de directiva y revisar la lógica de evaluación. 
-
-Si va a revisar la lista de recomendaciones de la [guía de referencia de recomendaciones de seguridad](recommendations-reference.md), también verá vínculos a las páginas de definición de directiva:
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Acceso a la página de Azure Policy de una directiva específica directamente desde la página de referencia de recomendaciones de Azure Security Center":::
 
 ## <a name="monitor-recommendations"></a>Supervisión de recomendaciones<a name="monitor-recommendations"></a>
 

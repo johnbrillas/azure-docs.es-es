@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d3fd0b1ffb87a84772000702b958c52ed1cc47c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678938"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438735"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
 
@@ -61,8 +61,8 @@ En la tabla siguiente se asignan las regiones en las que se almacenan los datos 
 | Asia Pacífico (Sídney)           | Europa (Frankfurt)                    |
 | Asia Pacífico (Tokio)            | Europa (Frankfurt)                    |
 | Canada (Central)                | Este de EE. UU. (Ohio)                        |
-| China (Pekín)                 | Europa (Frankfurt)                    |
-| China (Ningxia)                 | Europa (Frankfurt)                    |
+| China (Pekín)                 | No compatible                    |
+| China (Ningxia)                 | No compatible                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
 | Europa (Irlanda)                | Europa (Frankfurt)                    |
 | Europa (Londres)                 | Europa (Frankfurt)                    |

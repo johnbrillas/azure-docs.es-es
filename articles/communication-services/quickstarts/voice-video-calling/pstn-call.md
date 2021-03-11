@@ -8,14 +8,17 @@ ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: d26c089376f5de1ad669ff95a0bf4e96cc8f4682
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b4be542ea8c2d0191b69975e1eaa3d8277e7703
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660011"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488535"
 ---
 # <a name="quickstart-call-to-phone"></a>Inicio rápido: Llamada a teléfono
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de llamadas telefónicas de Communication Services para agregar llamadas RTC a la aplicación.
 
