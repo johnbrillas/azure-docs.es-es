@@ -2,18 +2,18 @@
 title: Cambio de tamaño de una máquina virtual Windows en Azure
 description: Cambie el tamaño que se usa para una máquina virtual de Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7f41c0fb2bf949dd47491761fde8025a2d35155
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832253"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560657"
 ---
 # <a name="resize-a-windows-vm"></a>Cambio de tamaño de una máquina virtual Windows
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo mover una máquina virtual a otro [tamaño de
 
 Después de crear una máquina virtual, puede escalarla o reducirla verticalmente cambiando su tamaño. En algunos casos, hay que desasignarla antes. Esto puede suceder si el nuevo tamaño no está disponible en el clúster de hardware que hospeda la actualmente la máquina virtual.
 
-Si la máquina virtual usa Premium Storage, asegúrese de elegir una versión **s** del tamaño para obtener compatibilidad con este nivel de almacenamiento. Por ejemplo, elija Standard_E4**s**_v3 en lugar de Standard_E4_v3.
+Si la máquina virtual usa Premium Storage, asegúrese de elegir una versión **s** del tamaño para obtener compatibilidad con este nivel de almacenamiento. Por ejemplo, elija Standard_E4 **s** _v3 en lugar de Standard_E4_v3.
 
 ## <a name="use-the-portal"></a>Uso del portal
 

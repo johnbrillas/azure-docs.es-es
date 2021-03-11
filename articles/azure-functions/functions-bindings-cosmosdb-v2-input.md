@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: aca6981e2214b9dbd03e6808e77c26fcd67c13cd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21ca30b24c4824a2d303d02f3df712328885e199
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711576"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435212"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Enlace de entrada de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -300,7 +300,7 @@ namespace CosmosDBSamplesV2
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera una lista de documentos. La función la desencadena una solicitud HTTP. El código usa una instancia de `DocumentClient` que proporciona el enlace de Azure Cosmos DB para leer una lista de documentos. La instancia de `DocumentClient` también se puede usar para las operaciones de escritura.
 
 > [!NOTE]
-> También puede usar la interfaz [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet&preserve-view=true) para simplificar las pruebas.
+> También puede usar la interfaz [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient) para simplificar las pruebas.
 
 ```cs
 using Microsoft.AspNetCore.Http;

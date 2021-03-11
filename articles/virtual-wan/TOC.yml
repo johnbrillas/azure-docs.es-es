@@ -13,6 +13,9 @@
         - name: Enrutamiento universal
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
+        - name: Enrutamiento a redes virtuales de servicios compartidos
+          displayName: Resource Manager route to shared services VNets
+          href: quickstart-route-shared-services-vnet-template.md
 - name: Tutoriales
   expanded: true
   items:

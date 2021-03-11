@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 7ce193c2c2f5e10a27550da68a4c2d2fdcd1db7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a9ca21cc14bb87797c962a89cf87ac184e73735
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399946"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434570"
 ---
 :::row:::
     :::column span="3":::
@@ -24,7 +24,7 @@ ms.locfileid: "81399946"
 :::row-end:::
 
 > [!TIP]
-> Para obtener más información sobre el uso del SDK de Voz de Objective-C con Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> Para obtener más información sobre el uso del SDK de Voz de Objective-C con Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift </a>.
 
 ### <a name="system-requirements"></a>Requisitos del sistema
 
@@ -35,7 +35,7 @@ ms.locfileid: "81399946"
 
 :::row:::
     :::column span="3":::
-        El paquete de CocoaPod para iOS está disponible para su descarga y uso con el entorno de desarrollo integrado (IDE) de <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 o posterior <span class="docon docon-navigate-external x-hidden-focus"></span></a>. En primer lugar, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">descargue el archivo binario de CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extraiga el pod en el mismo directorio para su uso previsto, cree un *Podfile* y enumere `pod` como `target`.
+        El paquete de CocoaPod para iOS está disponible para su descarga y uso con el entorno de desarrollo integrado (IDE) de <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 o posterior </a>. En primer lugar, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">descargue el archivo binario de CocoaPod </a>. Extraiga el pod en el mismo directorio para su uso previsto, cree un *Podfile* y enumere `pod` como `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -58,7 +58,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS expone el SDK de iOS completo para los desarrolladores de .NET. Compile aplicaciones iOS totalmente nativas mediante C# o F# en Visual Studio. Para obtener más información, vea <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        Xamarin.iOS expone el SDK de iOS completo para los desarrolladores de .NET. Compile aplicaciones iOS totalmente nativas mediante C# o F# en Visual Studio. Para obtener más información, vea <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -75,5 +75,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionales
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">Código fuente de Objective-C en la guía de inicio rápido del SDK de Voz de iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">Código fuente de Swift en la guía de inicio rápido del SDK de Voz de iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">Código fuente de Objective-C en la guía de inicio rápido del SDK de Voz de iOS </a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">Código fuente de Swift en la guía de inicio rápido del SDK de Voz de iOS </a>

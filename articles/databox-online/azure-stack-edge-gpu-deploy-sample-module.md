@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4142542c9f17ae464a996df310c50d73d8711d8e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899728"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438206"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Implementación de un módulo de IoT habilitado para GPU en un dispositivo Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 En este artículo se describe cómo implementar un módulo de IoT Edge habilitado para GPU en un dispositivo Azure Stack Edge Pro con GPU. 
 

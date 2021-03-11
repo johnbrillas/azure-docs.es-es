@@ -1,26 +1,20 @@
 ---
 title: Protección de red adaptable en Azure Security Center | Microsoft Docs
 description: Obtenga información sobre cómo usar patrones de tráfico reales para proteger las reglas de los grupos de seguridad de red (NSG) y mejorar aún más la posición de seguridad.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 14523e814c85469aa02a860e87b86defd7823c16
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916191"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439602"
 ---
-# <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
+# <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Mejora de la posición de seguridad de red con la protección de redes adaptativa
 Obtenga información sobre cómo configurar la protección de red adaptable en Security Center.
 
 ## <a name="availability"></a>Disponibilidad

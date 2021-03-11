@@ -3,17 +3,18 @@ title: Ejecución de scripts de shell en una VM Linux de Azure
 description: Este tema describe cómo ejecutar scripts dentro de una máquina virtual Linux de Azure mediante la función Ejecutar comando
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737870"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552939"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Ejecución de scripts de shell en la máquina virtual Linux con Ejecutar comando
 
@@ -65,7 +66,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 > [!NOTE]
 > Para ejecutar comandos como un usuario diferente, introduzca `sudo -u` para especificar una cuenta de usuario.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Navegue hasta una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERACIONES**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 

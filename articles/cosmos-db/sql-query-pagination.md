@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: c49fee169b7bd01ee7cf8a6d539c2125cf6568b3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5faff410fa18c5161d93f739f77eeb9c85d581a8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545322"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430962"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,7 +59,7 @@ Si la consulta devuelve un token de continuación, significa que hay resultados 
 
 En la API de REST de Azure Cosmos DB, puede administrar los tokens de continuación con el encabezado `x-ms-continuation`. Al igual que con las consultas mediante el SDK de .NET o Java, si el encabezado de respuesta `x-ms-continuation` no está vacío, significa que la consulta tiene resultados adicionales.
 
-Siempre que use la misma versión del SDK, los tokens de continuación nunca expiran. Opcionalmente, puede [restringir el tamaño de un token de continuación](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independientemente de la cantidad de datos o el número de particiones físicas del contenedor, las consultas devuelven un único token de continuación.
+Siempre que use la misma versión del SDK, los tokens de continuación nunca expiran. Opcionalmente, puede [restringir el tamaño de un token de continuación](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independientemente de la cantidad de datos o el número de particiones físicas del contenedor, las consultas devuelven un único token de continuación.
 
 No puede usar tokens de continuación para las consultas con [GROUP BY](sql-query-group-by.md) o [DISTINCT](sql-query-keywords.md#distinct), porque estas consultas requerirían almacenar una cantidad significativa de estados. En el caso de las consultas con `DISTINCT`, puede usar tokens de continuación si agrega `ORDER BY` a la consulta.
 

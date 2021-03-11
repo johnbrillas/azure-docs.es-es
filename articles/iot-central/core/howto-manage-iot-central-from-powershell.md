@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: 832147fd06dbc7439500b911efbbde6d9b1d81fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123069"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501397"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Administración de IoT Central desde Azure PowerShell
 
@@ -22,16 +22,18 @@ ms.locfileid: "92123069"
 
 En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral), puede usar [Azure PowerShell](/powershell/azure/) para administrar las aplicaciones.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 Si prefiere ejecutar Azure PowerShell en el equipo local, consulte [Install the Azure PowerShell module](/powershell/azure/install-az-ps) (Instalación del módulo de Azure PowerShell). Cuando ejecute Azure PowerShell localmente, use el cmdlet **Connect-AzAccount** para iniciar sesión en Azure antes de probar los cmdlets descritos en este artículo.
 
 > [!TIP]
-> Si tiene que ejecutar los comandos de PowerShell en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
+> Si tiene que ejecutar los comandos de PowerShell en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Instalación del módulo de IoT Central
 
@@ -70,7 +72,7 @@ El script crea primero un grupo de recursos en la región Este de EE. UU. para l
 |Parámetro         |Descripción |
 |------------------|------------|
 |ResourceGroupName |Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
-|Location |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, se puede crear una aplicación de IoT Central en las zonas geográficas **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido** y **Japón**. |
+|Ubicación |De forma predeterminada, este cmdlet usa la ubicación del grupo de recursos. Actualmente, se puede crear una aplicación de IoT Central en las zonas geográficas **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido** y **Japón**. |
 |Nombre              |Nombre de la aplicación en Azure Portal. |
 |Subdominio         |Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es `https://mysubdomain.azureiotcentral.com`. |
 |SKU               |Actualmente, puede usar **ST1** o **ST2**. Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |

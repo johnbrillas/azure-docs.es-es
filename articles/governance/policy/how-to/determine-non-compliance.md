@@ -3,12 +3,12 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8168bf22aceaf5cbdec4b1346801aa62b7aa4ee
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541278"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439840"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -40,7 +40,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
 
 1. La página **Detalles de cumplimiento** muestra información de la última evaluación del recurso en la asignación de directiva actual. En este ejemplo, el campo **Microsoft.Sql/servers/version** tiene que ser _12.0_ y se espera que la definición de política sea _14.0_. Si el recurso no es compatible por varias razones, estas se muestran en este panel.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Captura de pantalla del panel Detalles de cumplimiento y el motivos por el que no hay cumplimiento es que el valor actual es doce y el valor de destino es catorce." border="false":::
 
    Para una definición de directiva **auditIfNotExists** o **deployIfNotExists**, los detalles incluyen la propiedad **details.type** y cualquier propiedad opcional. Para obtener una lista, consulte [auditIfNotExists propiedades](../concepts/effects.md#auditifnotexists-properties) y [deployIfNotExists propiedades](../concepts/effects.md#deployifnotexists-properties). **Último recurso evaluado** es un recurso relacionado de la sección de **detalles** de la definición.
 
@@ -69,7 +69,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Captura de pantalla del panel Detalles de cumplimiento para ifNotExists, incluido el recuento de recursos evaluados." border="false":::
 
 > [!NOTE]
 > Para proteger los datos, cuando un valor de propiedad es _secreto_, el valor actual muestra asteriscos.
@@ -108,7 +108,7 @@ La siguiente matriz asigna cada _motivo_ posible a la [condición](../concepts/d
 
 En las asignaciones con un [modo de proveedor de recursos](../concepts/definition-structure.md#resource-manager-modes), seleccione el recurso _No compatible_ para abrir una vista más profunda. En la pestaña **Compatibilidad de componentes** hay información adicional específica del modo de proveedor de recursos en la directiva asignada que muestra _No compatible_, **Componente** e **Id. de componente**.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de pantalla de la pestaña Compatibilidad de componentes y detalles de cumplimiento de una asignación de modo de proveedor de recursos." border="false":::
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalles de cumplimiento de la configuración de invitado
 
@@ -122,76 +122,11 @@ Para empezar, siga los mismos pasos de la sección anterior para ver los detalle
 
 En la vista del panel Detalles de cumplimiento, seleccione el vínculo **Último recurso evaluado**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Captura de pantalla de la visualización de los detalles de cumplimiento de la definición de auditIfNotExists." border="false":::
 
 La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase que describe el motivo por el que Asignación de invitado es _No compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-También puede ver los detalles de cumplimiento en Azure PowerShell. En primer lugar, asegúrese de tener el módulo de configuración de invitado instalado.
-
-```azurepowershell-interactive
-Install-Module Az.GuestConfiguration
-```
-
-Puede ver el estado actual de todas las asignaciones de invitado para una VM mediante el comando siguiente:
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
-```
-
-```output
-PolicyDisplayName                                                         ComplianceReasons
------------------                                                         -----------------
-Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
-Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
-```
-
-Para ver solo la frase del _motivo_ que describe la causa por la que la VM _no es compatible_, vuelva solo a la propiedad secundaria del motivo.
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
-```
-
-```output
-The following applications are not installed: '<name>'.
-```
-
-También puede generar un historial de cumplimiento de las asignaciones de invitados en el ámbito de la máquina. La salida de este comando incluye los detalles de cada informe para la VM.
-
-> [!NOTE]
-> La salida puede devolver un gran volumen de datos. Se recomienda almacenar la salida en una variable.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
-<truncated>
-```
-
-Para simplificar esta vista, use el parámetro **ShowChanged**. La salida de este comando solo incluye los informes que tuvieron un cambio en el estado de compatibilidad.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
-Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
-```
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Captura de pantalla de los detalles de cumplimiento de la asignación de invitados." border="false":::
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Historial de cambios (versión preliminar)
 
@@ -205,11 +140,11 @@ Como parte de una nueva **versión preliminar pública**, los últimos 14 días 
 
 1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Captura de pantalla de la pestaña Historial de cambios y las horas de modificación detectadas en la página Cumplimiento de recursos." border="false":::
 
 1. Seleccione uno de los cambios detectados. Las _diferencias visuales_ para el recurso se presentan en la página **Historial de cambios**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Captura de pantalla de las diferencias visuales del historial de cambios en el estado anterior y posterior de las propiedades en la página Historial de cambios." border="false":::
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados pueden no estar relacionados con el estado de compatibilidad actual del recurso.
 

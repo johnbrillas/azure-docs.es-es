@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: eb01f2fabb89c6928dc4919987efa27df36a8a7a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 519dc53f6373ae1a9c8853d3fa90d137e9fa934b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946452"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435416"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -41,7 +41,7 @@ La tabla siguiente muestra los distintos métodos que se pueden usar para crear 
 |[CLI de Azure (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[SDK de .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[SDK de .NET](/dotnet/api/overview/azure/hdinsight)||||X|
 |[SDK de Python](/python/api/overview/azure/hdinsight)||||X|
 |[SDK de Java](/java/api/overview/azure/hdinsight)||||X|
 |[Plantillas del Administrador de recursos de Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||

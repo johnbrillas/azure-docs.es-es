@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725251"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560623"
 ---
 # <a name="securing-external-access-with-groups"></a>Protección del acceso externo mediante grupos 
 
@@ -54,7 +54,7 @@ A medida que desarrolle su estrategia de grupo para proteger el acceso externo a
 
    * *De forma predeterminada, todos los usuarios pueden crear grupos de M365 y los grupos están abiertos para que se unan todos los usuarios (internos y externos) del inquilino*. 
 
-      * La [creación de grupos de Microsoft 365 puede restringirse](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) a los miembros de un grupo de seguridad determinado. Para configurar esta opción, use Windows PowerShell. 
+      * La [creación de grupos de Microsoft 365 puede restringirse](/microsoft-365/solutions/manage-creation-of-groups) a los miembros de un grupo de seguridad determinado. Para configurar esta opción, use Windows PowerShell. 
 
 * **¿Quién debería poder invitar a los usuarios a grupos?** ¿Deberían todos los miembros del grupo poder agregar a otros miembros o solo los propietarios de grupos?
 
@@ -150,13 +150,13 @@ Las organizaciones híbridas tienen una infraestructura local y una infraestruct
 
 ## <a name="microsoft-365-groups"></a>Grupos de Microsoft 365
 
-Los [grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) son un servicio de pertenencia básico que regula todo el acceso a través de M365. Se pueden crear desde [Azure Portal](https://portal.azure.com/) o el [portal de M365](https://admin.microsoft.com/). Al crear un grupo de M365, concede acceso a un grupo de recursos que se usan con fines de colaboración. Consulte [Información general de los grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) y obtenga una lista completa de estos recursos.
+Los [grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) son un servicio de pertenencia básico que regula todo el acceso a través de M365. Se pueden crear desde [Azure Portal](https://portal.azure.com/) o el [portal de M365](https://admin.microsoft.com/). Al crear un grupo de M365, concede acceso a un grupo de recursos que se usan con fines de colaboración. Consulte [Información general de los grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups) y obtenga una lista completa de estos recursos.
 
 Los grupos de M365 tienen las siguientes características para sus roles:
 
 * **Propietarios**. Los propietarios de grupos pueden agregar o quitar miembros y tener permisos únicos, como la posibilidad de eliminar conversaciones de la bandeja de entrada compartida o cambiar la configuración del grupo. Los propietarios de grupos pueden cambiar el nombre del grupo, actualizar la descripción o la imagen, etc.
 
-* **Miembros**. Los miembros pueden acceder a todos los recursos del grupo, pero no pueden cambiar la configuración del grupo. De forma predeterminada, los miembros del grupo pueden agregar invitados al grupo, aunque el propietario puede [controlar esa configuración](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Miembros**. Los miembros pueden acceder a todos los recursos del grupo, pero no pueden cambiar la configuración del grupo. De forma predeterminada, los miembros del grupo pueden agregar invitados al grupo, aunque el propietario puede [controlar esa configuración](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Invitados**. Los invitados de grupos son miembros que no pertenecen a su organización. Los invitados tienen algunas restricciones, de forma predeterminada, en cuanto a la funcionalidad de Teams.
 
@@ -172,11 +172,11 @@ Después de la instalación, agregue miembros y configure las opciones para el u
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda seguir los pasos por orden.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 1. [Determinación de la posición de seguridad deseada para el acceso externo](1-secure-access-posture.md)
 
-2. [Identificación del estado actual](2-secure-access-current-state.md)
+2. [Detección del estado actual](2-secure-access-current-state.md)
 
 3. [Creación de un plan de gobernanza](3-secure-access-plan.md)
 
@@ -190,4 +190,4 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 
 8. [Acceso seguro mediante etiquetas de confidencialidad](8-secure-access-sensitivity-labels.md)
 
-9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)
+9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)

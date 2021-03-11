@@ -3,12 +3,12 @@ title: Adición de un repositorio de artefactos a un laboratorio en Azure DevTes
 description: Obtenga información sobre cómo especificar su propio repositorio de artefactos para el laboratorio en Azure DevTest Labs, a fin de almacenar herramientas que no están disponibles en el repositorio de artefactos públicos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512018"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502202"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Después de que New-AzResourceGroupDeployment se ejecute correctamente, el comando genera información importante, como el estado de aprovisionamiento (debería ser correcto) y los resultados de la plantilla.
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-En esta sección se proporciona un script de PowerShell de ejemplo que se puede usar para agregar un repositorio de artefactos a un laboratorio. Si no tiene Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obtener instrucciones detalladas para instalarlo.
+En esta sección se proporciona un script de PowerShell de ejemplo que se puede usar para agregar un repositorio de artefactos a un laboratorio. Si no tiene Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/) para obtener instrucciones detalladas para instalarlo.
 
 ### <a name="full-script"></a>Script completo
 Este es el script completo, incluidos algunos mensajes detallados y comentarios:

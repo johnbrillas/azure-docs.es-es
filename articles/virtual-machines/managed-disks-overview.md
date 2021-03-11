@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627822"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504737"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -35,7 +35,7 @@ Con discos administrados, puede crear hasta 50 000 **discos** de máquina virtu
 
 ### <a name="integration-with-availability-sets"></a>Integración con conjuntos de disponibilidad
 
-Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
+Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](./availability-set-overview.md) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
 ### <a name="integration-with-availability-zones"></a>Integración con Availability Zones
 
@@ -100,7 +100,7 @@ El disco tiene una capacidad máxima de 4095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
+La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./understand-vm-reboots.md) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
 
 En máquinas virtuales Linux de Azure, el disco temporal normalmente es /dev/sdb, mientras que en máquinas virtuales Windows, el disco temporal es D: de forma predeterminada. El cifrado del lado servidor no cifra el disco temporal, a menos que habilite el cifrado en el host.
 

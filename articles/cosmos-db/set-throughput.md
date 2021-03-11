@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797570"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433937"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -98,13 +98,13 @@ Después de crear un contenedor o una base de datos de Cosmos Azure, se puede ac
 
 Puede recuperar el rendimiento aprovisionado de un contenedor o una base de datos en Azure Portal o mediante los SDK:
 
-* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) en el SDK de .NET.
-* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) en el SDK para Java.
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) en el SDK de .NET.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) en el SDK para Java.
 
 La respuesta de estos métodos también contiene el [rendimiento mínimo aprovisionado](concepts-limits.md#storage-and-database-operations) para el contenedor o la base de datos:
 
-* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) en el SDK de .NET.
-* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) en el SDK para Java.
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) en el SDK de .NET.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) en el SDK para Java.
 
 El valor mínimo real de RU/s puede variar en función de la configuración de la cuenta. Pero generalmente es el máximo de:
 
@@ -116,8 +116,8 @@ El valor mínimo real de RU/s puede variar en función de la configuración de l
 
 Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos mediante Azure Portal o los SDK:
 
-* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) en el SDK de .NET.
-* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) en el SDK para Java.
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) en el SDK de .NET.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) en el SDK para Java.
 
 Si **reduce el rendimiento aprovisionado**, podrá hacerlo hasta el [mínimo](#current-provisioned-throughput).
 
@@ -128,8 +128,8 @@ Si **aumenta el rendimiento aprovisionado**, la operación es instantánea en la
 
 Para comprobar el progreso del escalado mediante programación, consulte el [rendimiento aprovisionado actual](#current-provisioned-throughput) y utilice:
 
-* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) en el SDK de .NET.
-* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) en el SDK para Java.
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) en el SDK de .NET.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) en el SDK para Java.
 
 Puede usar [métricas de Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para ver el historial de rendimiento aprovisionado (RU/s) y el almacenamiento en un recurso.
 

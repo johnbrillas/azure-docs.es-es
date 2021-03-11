@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: acce282dcaac971716a97d7722543d78e28b7a34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584220"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517674"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
 Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 
@@ -241,7 +241,7 @@ Cuando se realiza una solicitud para agregar un editor comprobado, se usan varia
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ha revisado toda la información anterior y sigue recibiendo un error de Microsoft Graph, reúna toda la información siguiente que pueda en relación con la solicitud que genera el error y [póngase en contacto con el soporte técnico de Microsoft](developer-support-help-options.md#open-a-support-request).
+Si ha revisado toda la información anterior y sigue recibiendo un error de Microsoft Graph, reúna toda la información siguiente que pueda en relación con la solicitud que genera el error y [póngase en contacto con el soporte técnico de Microsoft](developer-support-help-options.md#create-an-azure-support-request).
 
 - Timestamp 
 - CorrelationId 
