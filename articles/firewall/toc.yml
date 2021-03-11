@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Implementación y configuración de Firewall Prémium
       href: premium-deploy.md
+    - name: Implementación de certificados de CA de empresa para Prémium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Migración a Azure Firewall Prémium
       href: premium-migrate.md
 - name: Referencia

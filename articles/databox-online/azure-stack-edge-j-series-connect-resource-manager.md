@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37d1b1613f4d346fa22d10e338f442c17b8425a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722099"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439007"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Resource Manager proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. El dispositivo Azure Stack Edge Pro admite las mismas API de Azure Resource Manager para crear, actualizar y eliminar máquinas virtuales en una suscripción local. Esta compatibilidad le permite administrar el dispositivo de manera coherente con la nube. 
 

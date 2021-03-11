@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 48737831440a1402b6974955b4da61a4216b011f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932301"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449771"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C# de Defender para IoT en Linux
 
@@ -27,11 +27,10 @@ En esta guía se explica cómo instalar e implementar el agente de seguridad bas
 
 En esta guía, aprenderá a:
 
-> [!div class="checklist"]
-> * Instalar
-> * Comprobación de la implementación
-> * Desinstalación del agente
-> * Solución de problemas
+- Instalar
+- Comprobación de la implementación
+- Desinstalación del agente
+- Solución de problemas
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -121,8 +120,8 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea la [información general](overview.md) del servicio Defender para IoT.
-- Obtenga más información sobre la [arquitectura](architecture.md) de Defender para IoT.
+- Lea la [información general](overview.md) del servicio Defender for IoT.
+- Más información sobre la [arquitectura](architecture.md) de Defender for IoT.
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 - Obtenga información acerca de las [alertas](concept-security-alerts.md)

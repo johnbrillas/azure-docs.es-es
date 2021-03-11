@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2f968bfd0c3d2884c123b82ccf132d77b117ac9a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6d6181686eaeb90d4fcdae0231430623b84e2c1c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589039"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548519"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para Go mediante Azure DevOps Starter
 
@@ -32,7 +32,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -123,4 +123,4 @@ Cuando dejen de ser necesarios, puede eliminar la instancia de Azure App Service
 Para más información acerca de cómo modificar las canalizaciones de compilación y versión para satisfacer las necesidades de su equipo, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process)

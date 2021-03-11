@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341420"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561235"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
@@ -29,9 +29,9 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) y el resultado es **AMServiceEnabled: False**
+* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y el resultado es **AMServiceEnabled: False**
 
-* Security Center recomiendan **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) y ocurre algo de lo siguiente:
+* Security Center recomiendan **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) y ocurre algo de lo siguiente:
 
   * Todas estas propiedades son false:
 
@@ -49,7 +49,7 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando la importación de **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** y la ejecución de **Get-MProtComputerStatus** da como resultado **AMServiceEnabled = false** .
+* Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** cuando la importación de **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1" )** y la ejecución de **Get-MProtComputerStatus** da como resultado **AMServiceEnabled = false**.
 
 * Security Center recomienda **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta **Get-MprotComputerStatus** y ocurre algo de lo siguiente:
 
@@ -73,7 +73,7 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** existe.
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe.
     - El archivo **dsa_query.cmd** se encuentra en la carpeta de instalación.
-    - La ejecución de **dsa_query.cmd** da como resultado **Component.AM.mode: on - Trend Micro Deep Security Agent detected** .
+    - La ejecución de **dsa_query.cmd** da como resultado **Component.AM.mode: on - Trend Micro Deep Security Agent detected**.
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e85b698e1b3c3a1c3e8730ab85e8b72b7b0d9f6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856014"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548485"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implementación de la aplicación de ASP.NET y el código de Azure SQL Database mediante Azure DevOps Starter
 
@@ -130,7 +130,7 @@ DevOps Starter crea y configura automáticamente los pasos necesarios para imple
 
 A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web. Cada cambio que se realiza en el repositorio de Git inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure. Siga el procedimiento descrito en esta sección o utilice otra técnica para confirmar los cambios en el repositorio. Los cambios en el código inician el proceso de CI/CD e implementan automáticamente los cambios en Azure.
 
-1. En el panel izquierdo, seleccione **Código**y, después, vaya al repositorio.
+1. En el panel izquierdo, seleccione **Código** y, después, vaya al repositorio.
 
 1. Vaya al directorio *SampleWebApplication\Views\Home*, seleccione los puntos suspensivos (...) junto al archivo *Index.cshtml* y, seleccione **Editar**. 
 
@@ -190,7 +190,7 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process)
 
 ## <a name="videos"></a>Vídeos
 
