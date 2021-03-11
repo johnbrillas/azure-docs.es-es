@@ -2,17 +2,17 @@
 title: Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados
 description: Cómo buscar y eliminar discos administrados y no administrados (VHD o blobs en páginas) de Azure no asociados mediante Azure PowerShell.
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4f217a53c23df4f161207aaceb528680ddcddbe7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66a54ea74fcc6d8d354f5adbffe214c34b4c20d5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972805"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554385"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados
 

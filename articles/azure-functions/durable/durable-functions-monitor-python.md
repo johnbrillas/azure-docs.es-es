@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029147"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434770"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Ejemplo de supervisión de problemas del escenario de supervisión en Durable Functions: GitHub
 
 El patrón de supervisión hace referencia a un proceso periódico flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. En este artículo se explica un ejemplo que usa Durable Functions para implementar la supervisión.
 
-[!INCLUDE durable-functions-prerequisites]
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Complete el artículo de inicio rápido](quickstart-python-vscode.md).
+* [Clone o descargue el proyecto de ejemplos de GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/).
+
 
 ## <a name="scenario-overview"></a>Información general de escenario
 
@@ -45,7 +49,6 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 
 ### <a name="e3_monitor-orchestrator-function"></a>Función de orquestador E3_Monitor
 
-# <a name="python"></a>[Python](#tab/python)
 
 La función **E3_Monitor** utiliza la norma *function.json* para las funciones de orquestador.
 
@@ -55,7 +58,6 @@ Este es el código que implementa la función:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Esta función de orquestador realiza las acciones siguientes:
 
@@ -73,7 +75,6 @@ Se pueden ejecutar varias instancias de orquestador de forma simultanea llamando
 
 Al igual que otros ejemplos, las funciones auxiliares de actividad son básicamente funciones normales que usan el enlace del desencadenador `activityTrigger`. La función **E3_TooManyOpenIssues** obtiene una lista de los problemas abiertos actualmente en el repositorio y determina estos son "demasiados": más de tres según el ejemplo.
 
-# <a name="python"></a>[Python](#tab/python)
 
 *function.json* se define como sigue:
 
@@ -83,13 +84,11 @@ Y esta es la implementación.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>Función de actividad E3_SendAlert
 
 La función **E3_SendAlert** usa el enlace de Twilio para enviar un mensaje SMS que notifica al usuario final que existen por lo menos tres problemas abiertos que esperan una resolución.
 
-# <a name="python"></a>[Python](#tab/python)
 
 La *function.json* es simple:
 
@@ -99,7 +98,6 @@ Y este es el código que envía el mensaje SMS:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 

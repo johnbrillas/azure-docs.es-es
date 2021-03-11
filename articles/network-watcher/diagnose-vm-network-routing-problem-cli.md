@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 42174ce094242a6e7412deea0bf1f0eed0f3b6ea
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5dac16e5cc1e88d833bf6d3c2660570fcf8b8e9e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013182"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216962"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
@@ -32,7 +32,7 @@ En este artículo implementará una máquina virtual (VM) y comprobará las comu
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- En este artículo se necesita la versión 2.0 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
+- En este artículo se necesita la versión 2.0 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
 
 - Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato que permite ejecutarlos en un shell de Bash.
 
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Use el próximo salto
 
-Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
+Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
 
 Pruebe la comunicación de salida entre la máquina virtual y una de las direcciones IP de www.bing.com:
 

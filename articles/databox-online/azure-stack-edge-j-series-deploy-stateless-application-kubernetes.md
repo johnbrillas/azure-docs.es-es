@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 40065189f3c1dd52f462985aef344e9cbeb12f0b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804852"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522383"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU por medio de kubectl
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo, se explica cómo se implementa una aplicación sin estado en un clúster de Kubernetes existente utilizando comandos de kubectl. También se describe paso a paso el proceso de creación y configuración de pods en la aplicación sin estado.
 
@@ -25,7 +27,7 @@ Para poder crear un clúster de Kubernetes y usar la herramienta de línea de co
 
 - Tiene credenciales de inicio de sesión en un dispositivo Azure Stack Edge Pro de un nodo.
 
-- Tiene Windows PowerShell 5.0 o una versión posterior instalado en un sistema cliente de Windows para poder obtener acceso al dispositivo Azure Stack Edge Pro. Puede utilizar también cualquier otro cliente que tenga un sistema operativo compatible. En este artículo, el procedimiento que se describe emplea un cliente Windows. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
+- Tiene Windows PowerShell 5.0 o una versión posterior instalado en un sistema cliente de Windows para poder obtener acceso al dispositivo Azure Stack Edge Pro. Puede utilizar también cualquier otro cliente que tenga un sistema operativo compatible. En este artículo, el procedimiento que se describe emplea un cliente Windows. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
 - La funcionalidad de proceso debe estar habilitada en el dispositivo Azure Stack Edge Pro. Para habilitar dicha funcionalidad, vaya a la página **Proceso** de la interfaz de usuario local del dispositivo. A continuación, seleccione la interfaz de red que desee habilitar para el proceso. Seleccione **Habilitar**. Al hacerlo, se crea un conmutador virtual para esa interfaz de red en el dispositivo. Para más información, vea este artículo sobre la [habilitación de la red de proceso en Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183631"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499703"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementación de un modelo de Machine Learning en Azure Functions con Azure Cache for Redis 
 
@@ -128,7 +128,7 @@ Para más información sobre el script de entrada, consulte [Definición del có
 Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 
 > [!IMPORTANT]
-> Al crear una configuración de inferencia para su uso con Azure Functions, debe usar un objeto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
+> Al crear una configuración de inferencia para su uso con Azure Functions, debe usar un objeto [Environment](/python/api/azureml-core/azureml.core.environment%28class%29). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -161,7 +161,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Crear la imagen
 
-Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) o la función de paquete específica del desencadenador que le interese usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador HTTP a partir del modelo y la configuración de inferencia:
+Para crear la imagen de Docker que se implementa en Azure Functions, use [azureml.comtrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) o la función de paquete específica del desencadenador que le interese usar. El siguiente fragmento de código muestra cómo crear un paquete con un desencadenador HTTP a partir del modelo y la configuración de inferencia:
 
 > [!NOTE]
 > En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -317,5 +317,5 @@ Transcurridos unos instantes, el grupo de recursos y todos sus recursos se elimi
 
 * Más información sobre [Azure Cache for Redis](./cache-overview.md)
 * Obtenga información sobre cómo configurar la aplicación de Functions en la documentación de [Functions](../azure-functions/functions-create-function-linux-custom-image.md).
-* [Referencia de API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* [Referencia de API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
 * Creación de una [aplicación de Python que use Azure Cache for Redis](./cache-python-get-started.md)

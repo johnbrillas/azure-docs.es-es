@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a33114dce47ca3df87b1c6c774289c8a8efcf835
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 967d4d4a49809c2b5fa7a344286469bb67eec6cf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739871"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217608"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Habilitación del firewall de aplicaciones web mediante la CLI de Azure
 
@@ -143,7 +143,7 @@ En este artículo, la puerta de enlace de aplicaciones usa una cuenta de almacen
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -156,7 +156,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configuración de diagnóstico
 
-Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Reemplace `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Reemplace `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)

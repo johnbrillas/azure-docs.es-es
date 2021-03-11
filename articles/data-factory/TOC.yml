@@ -586,6 +586,8 @@
           href: control-flow-system-variables.md
         - name: Parametrización de flujos de datos de asignación
           href: parameters-data-flow.md
+        - name: Procedimientos de parametrización
+          href: how-to-expression-language-functions.md
     - name: Seguridad
       items:
         - name: Consideraciones sobre la seguridad del movimiento de datos

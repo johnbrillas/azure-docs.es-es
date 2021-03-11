@@ -3,16 +3,17 @@ title: Uso de claves SSH para conectarse a máquinas virtuales Linux
 description: Obtenga información acerca de cómo generar y utilizar claves SSH en un equipo de Windows para conectarse a una máquina virtual Linux en Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147154"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552786"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
@@ -25,7 +26,7 @@ Para usar las claves SSH desde un cliente Linux o macOS, consulte los [pasos rá
 
 [SSH](https://www.ssh.com/ssh/) es un protocolo de conexión cifrada que permite inicios de sesión seguros a través de conexiones no seguras. SSH es el protocolo de conexión predeterminado de las máquinas virtuales Linux hospedadas en Azure. Aunque el propio SSH proporciona una conexión cifrada, el uso de contraseñas con SSH deja la máquina virtual vulnerable a ataques por fuerza bruta. Se recomienda conectarse a una máquina virtual a través de SSH mediante un par de claves pública y privada, también conocidas como *claves SSH*. 
 
-El par de claves pública y privada es como el bloqueo de la puerta principal. El bloqueo se expone al **público** , es decir, cualquiera que tenga la clave correcta puede abrir la puerta. La clave es **privada** y solo se proporciona a las personas en las que confía porque se puede usar para desbloquear la puerta. 
+El par de claves pública y privada es como el bloqueo de la puerta principal. El bloqueo se expone al **público**, es decir, cualquiera que tenga la clave correcta puede abrir la puerta. La clave es **privada** y solo se proporciona a las personas en las que confía porque se puede usar para desbloquear la puerta. 
 
 - El *clave pública* se coloca en la máquina virtual Linux al crear la máquina virtual. 
 

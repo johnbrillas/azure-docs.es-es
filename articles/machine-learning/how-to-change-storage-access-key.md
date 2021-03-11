@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 787f7727e18b7055055ed2b764ddce5be20f5afc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450799"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503443"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 
@@ -33,7 +33,7 @@ Por motivos de seguridad, es posible que necesite cambiar las claves de acceso d
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 
-* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install).
 
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -142,4 +142,4 @@ Para actualizar Azure Machine Learning de modo que use la clave nueva, siga esto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo registrar almacenes de datos, vea la referencia de la clase [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py).
+Para obtener más información sobre cómo registrar almacenes de datos, vea la referencia de la clase [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29).

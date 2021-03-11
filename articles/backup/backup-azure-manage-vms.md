@@ -3,12 +3,12 @@ title: Administración y supervisión de copias de seguridad de máquinas virtua
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635084"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -97,7 +97,7 @@ Puede ejecutar una copia de seguridad a petición de una máquina virtual despu�
 * La duración de retención para una copia de seguridad a petición es el valor de retención que especificó al desencadenar la copia de seguridad diaria.
 
 > [!NOTE]
-> El servicio de Azure Backup admite hasta nueve copias de seguridad a petición al día, pero Microsoft recomienda no más de cuatro copias de seguridad diarias a petición para garantizar el máximo rendimiento.
+> El servicio Azure Backup admite hasta tres copias de seguridad a petición al día y una copia de seguridad programada adicional.
 
 Para desencadenar una copia de seguridad a petición:
 

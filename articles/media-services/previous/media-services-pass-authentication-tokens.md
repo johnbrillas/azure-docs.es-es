@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo enviar tokens de autenticación de
 services: media-services
 keywords: content protection, DRM, token authentication
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/08/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9007672f9a3e505578459f63a185c8751051ce0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261050"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507966"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Obtenga información sobre cómo pasan los clientes tokens al servicio de entrega de claves de Azure Media Services.
 
@@ -55,8 +55,6 @@ Esta opción se usa para la adquisición de la licencia de PlayReady, mediante e
     </CustomData>
     ```
     Coloque el token de autenticación en el elemento Token.
-
-- Mediante una lista de reproducción alternativa de HTTP Live Streaming (HLS). Si necesita configurar la autenticación de token para la reproducción AES + HLS en iOS/Safari, no hay una manera de enviar directamente el token. Para más información sobre cómo alternar la lista de reproducción para habilitar este escenario, vea esta [entrada de blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

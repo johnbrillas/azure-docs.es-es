@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 98cc41b735a5a25f84bed4b443b735fadb0925e5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8bc289e90470ae9bc8b1996ac08c3144ea78de35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668026"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504719"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -273,7 +273,7 @@ ms.locfileid: "101668026"
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
+[virtual-machines-manage-availability]:../../linux/availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes-linux]:../../linux/sizes.md
 [virtual-machines-sizes-windows]:../../windows/sizes.md
@@ -1805,7 +1805,7 @@ Existen dos tipos de eventos de plataforma Azure que pueden afectar a la disponi
 * Eventos de mantenimiento planeado son actualizaciones periódicas realizadas por Microsoft en la plataforma Azure subyacente para mejorar en general la fiabilidad, el rendimiento y la seguridad de la infraestructura de la plataforma sobre las que se funcionan sus máquinas virtuales.
 * Eventos de mantenimiento no planeado se producen cuando el hardware o la infraestructura física subyacente a su máquina virtual presentan algún tipo de error. Entre estos podemos encontrar errores de la red local, errores de los discos locales u otras errores a nivel de bastidor. Cuando se encuentra un error de este tipo, la plataforma Azure migrará automáticamente la máquina virtual del servidor físico en mal estado que hospeda la máquina virtual a un servidor físico con un estado correcto. Estos eventos no son habituales, pero pueden hacer que su máquina virtual se reinicie.
 
-Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../manage-availability.md).
+Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../availability.md).
 
 #### <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 

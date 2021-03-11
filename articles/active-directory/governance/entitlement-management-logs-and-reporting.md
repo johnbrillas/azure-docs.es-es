@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4c5ab92fcc1d70d12e37ae351e768514b4e7522f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577864"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501709"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -130,7 +130,7 @@ Para establecer la asignación de roles y crear una consulta, siga estos pasos:
 
 ### <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 
-Una vez que tenga la asignación de roles adecuada, inicie PowerShell e [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (si aún no lo ha hecho). Para hacerlo, escriba:
+Una vez que tenga la asignación de roles adecuada, inicie PowerShell e [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps) (si aún no lo ha hecho). Para hacerlo, escriba:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Puede volver a autenticarse y asociar la sesión de PowerShell a esa suscripción mediante un comando, como `Connect-AzAccount –Subscription $subs[0].id`. Para obtener más información sobre cómo autenticarse en Azure desde PowerShell, incluida la forma no interactiva, consulte [Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+Puede volver a autenticarse y asociar la sesión de PowerShell a esa suscripción mediante un comando, como `Connect-AzAccount –Subscription $subs[0].id`. Para obtener más información sobre cómo autenticarse en Azure desde PowerShell, incluida la forma no interactiva, consulte [Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Si tiene varias áreas de trabajo de Log Analytics en esa suscripción, el cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) devuelve la lista de áreas de trabajo. A continuación, puede buscar la que tiene los registros de Azure AD. El campo `CustomerId` devuelto por este cmdlet es el mismo que el valor del "Id. de área de trabajo" que se muestra en la información general del área de trabajo de Log Analytics en Azure Portal.
  
@@ -169,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Envío de la consulta al área de trabajo de Log Analytics
-Por último, una vez que tenga identificada un área de trabajo, puede usar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) para enviar una consulta de Kusto a esa área de trabajo. Estas consultas se escriben en [lenguaje de consulta Kusto](/azure/kusto/query/).
+Por último, una vez que tenga identificada un área de trabajo, puede usar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para enviar una consulta de Kusto a esa área de trabajo. Estas consultas se escriben en [lenguaje de consulta Kusto](/azure/kusto/query/).
  
 Por ejemplo, puede recuperar el intervalo de fechas de los registros de eventos de auditoría en el área de trabajo de Log Analytics, con cmdlets de PowerShell para enviar una consulta como la siguiente:
  

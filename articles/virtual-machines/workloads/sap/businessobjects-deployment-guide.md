@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671898"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505909"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
 
@@ -222,7 +222,7 @@ La plataforma de inteligencia empresarial de SAP contiene muchos componentes dif
 
 Además, el número de dominios de error y actualización que puede utilizar un conjunto de disponibilidad de Azure dentro de una unidad de escalado de Azure no es infinito. Por lo tanto, si agrega continuamente máquinas virtuales a un único conjunto de disponibilidad, llegará un momento en el que dos o más máquinas virtuales coincidan en el mismo dominio de error o actualización. Para obtener más información, consulte la sección [Conjuntos de disponibilidad de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) del documento sobre implementación y planeamiento de Azure Virtual Machines para SAP.
 
-Para comprender el concepto de conjuntos de disponibilidad de Azure y la relación entre los conjuntos de disponibilidad y los dominios de error y actualización, consulte el artículo sobre [administración de la disponibilidad](../../manage-availability.md).
+Para comprender el concepto de conjuntos de disponibilidad de Azure y la relación entre los conjuntos de disponibilidad y los dominios de error y actualización, consulte el artículo sobre [administración de la disponibilidad](../../availability.md).
 
 > [!Important]
 > Los conceptos de zonas de disponibilidad de Azure y de conjuntos de disponibilidad de Azure son mutuamente excluyentes. Esto significa que se pueden implementar dos o varias máquinas virtuales en una zona de disponibilidad específica o en un conjunto de disponibilidad de Azure, pero no en ambos.

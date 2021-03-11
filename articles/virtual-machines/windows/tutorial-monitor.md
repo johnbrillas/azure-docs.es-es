@@ -3,19 +3,19 @@ title: 'Tutorial: Supervisión de máquinas virtuales Windows en Azure'
 description: En este tutorial aprenderá a supervisar el rendimiento y los componentes de la aplicación detectados que se ejecutan en las máquinas virtuales Windows.
 author: mgoedtel
 manager: carmonm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c4345d16efe296413ea9d995c2307bba62d33f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570113"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560708"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
 

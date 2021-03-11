@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f3079ea475c20e3ae0e78319d6c6b24ee579fd0c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498887"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521312"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Control de seguridad: Administración de recursos y del inventario
 
@@ -30,7 +30,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Descripción de Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -156,7 +156,7 @@ Use el acceso condicional de Azure para limitar la capacidad de los usuarios de 
 
 Según el tipo de scripts, puede usar configuraciones específicas del sistema operativo o recursos de terceros para limitar la capacidad de los usuarios de ejecutar scripts en los recursos de proceso de Azure.  También puede usar los controles de aplicación adaptables de Azure Security Center para asegurarse de que solo se ejecute software autorizado y de que todo el software no autorizado no se ejecute en Azure Virtual Machines.
 
-- [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 - [Uso de los controles de aplicaciones adaptables de Azure Security Center](../../security-center/security-center-adaptive-application.md)
 

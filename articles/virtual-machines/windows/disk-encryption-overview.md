@@ -2,18 +2,19 @@
 title: Habilitación de Azure Disk Encryption en máquinas virtuales Windows
 description: En este artículo se proporcionan las instrucciones necesarias para habilitar Microsoft Azure Disk Encryption en las máquinas virtuales Windows.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9436a9ec7db660fa2d7012df98188b96ea8ee16
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e95f770a3335d66eae0a690e148c4d6ddc22d5c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694315"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555336"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para máquinas virtuales Windows
 

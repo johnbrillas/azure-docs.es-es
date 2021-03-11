@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737654"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506708"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -132,7 +132,7 @@ Dado que el proveedor de recursos de Azure Storage no realiza la conmutación po
 
 ### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Las máquinas virtuales (VM) de Azure no conmutan por error como parte de la conmutación por error de una cuenta. Si la región primaria deja de estar disponible y se realiza la conmutación por error en la región secundaria, deberá volver a crear cualquier máquina virtual después de la operación. También hay una potencial pérdida de datos asociada a la conmutación por error de la cuenta. Microsoft recomienda la siguiente guía para [alta disponibilidad](../../virtual-machines/manage-availability.md) y [recuperación ante desastres](../../virtual-machines/backup-recovery.md), que es específica para máquinas virtuales de Azure.
+Las máquinas virtuales (VM) de Azure no conmutan por error como parte de la conmutación por error de una cuenta. Si la región primaria deja de estar disponible y se realiza la conmutación por error en la región secundaria, deberá volver a crear cualquier máquina virtual después de la operación. También hay una potencial pérdida de datos asociada a la conmutación por error de la cuenta. Microsoft recomienda la siguiente guía para [alta disponibilidad](../../virtual-machines/availability.md) y [recuperación ante desastres](../../virtual-machines/backup-recovery.md), que es específica para máquinas virtuales de Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos no administrados de Azure
 

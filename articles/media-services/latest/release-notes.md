@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 14bc7b6f45b04f230252e85cd10b7246529cb751
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: f14328567fdc9840b0a3d07aa23fe2496fd537ca
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095151"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213103"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -294,21 +294,21 @@ Las actualizaciones de la versión de disponibilidad general de la API de V3 inc
 
 ## <a name="november-2018"></a>Noviembre de 2018
 
-El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 con disponibilidad general](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
+El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 con disponibilidad general](/cli/azure/ams) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nuevos comandos
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account)
+- [az ams account-filter](/cli/azure/ams/account-filter)
+- [az ams asset](/cli/azure/ams/asset)
+- [az ams asset-filter](/cli/azure/ams/asset-filter)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy)
+- [az ams job](/cli/azure/ams/job)
+- [az ams live-event](/cli/azure/ams/live-event)
+- [az ams live-output](/cli/azure/ams/live-output)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator)
+- [az ams account mru](/cli/azure/ams/account/mru): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuevas características y cambios importantes
 

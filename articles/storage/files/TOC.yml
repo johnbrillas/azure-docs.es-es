@@ -231,6 +231,8 @@
               href: storage-files-migration-linux-hybrid.md
             - name: Migración desde un NAS local a un servidor de archivos híbridos con Azure File Sync
               href: storage-files-migration-nas-hybrid.md
+            - name: Migración desde un NAS local a un servidor de archivos híbridos con DataBox
+              href: storage-files-migration-nas-hybrid-databox.md
         - name: Desde StorSimple
           items:
             - name: "Guía de migración de StorSimple\_8100 y 8600"

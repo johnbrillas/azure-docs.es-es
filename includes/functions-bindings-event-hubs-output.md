@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002089"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510939"
 ---
 Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
@@ -274,7 +274,7 @@ Hay dos opciones para la generación de un mensaje del centro de eventos desde u
 
 - **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como mensaje del centro de eventos.
 
-- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out). El valor pasado a `set` se conserva como mensaje del centro de eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 

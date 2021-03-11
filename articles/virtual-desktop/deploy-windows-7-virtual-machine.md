@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007580"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508561"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
 
@@ -46,7 +46,7 @@ Para configurar una máquina virtual de Windows 7 en Windows Virtual Desktop:
      shutdown /r /t 0
      ```
 
-12. Siga las instrucciones descritas [aquí](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) para obtener un token de registro.
+12. Siga las instrucciones descritas [aquí](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo) para obtener un token de registro.
 
       - Si prefiere usar Azure Portal, también puede ir a la página de información general del grupo de hosts al que desea agregar la máquina virtual y crear un token en ella.
 

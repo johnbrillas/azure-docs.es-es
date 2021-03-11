@@ -2,16 +2,17 @@
 title: Creación de una máquina virtual Linux mediante la API REST
 description: Aprenda a crear una máquina virtual Linux e Azure que use Managed Disks y autenticación de SSH con la API REST de Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737052"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554571"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 

@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 15e94dac02770bf28aae4cbfc4e337cb68b8be40
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360520"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425332"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso de la biblioteca Bulk Executor en .NET de grafos para realizar operaciones en masa en Gremlin API de Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,12 +25,12 @@ De forma contraria al envío de consultas de Gremlin a una base de datos, en las
 
 ## <a name="bulk-operations-with-graph-data"></a>Operaciones masivas con datos de grafos
 
-La [biblioteca Bulk Executor](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) contiene un espacio de nombres `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` que proporciona funcionalidad para crear e importar objetos de grafos. 
+La [biblioteca Bulk Executor](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) contiene un espacio de nombres `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` que proporciona funcionalidad para crear e importar objetos de grafos. 
 
 El siguiente proceso describe cómo se puede usar la migración de datos para un contenedor de la API de Gremlin:
 1. Recupere los registros del origen de datos.
 2. Construya objetos `GremlinVertex` y `GremlinEdge` a partir de los registros obtenidos y agréguelos a una estructura de datos `IEnumerable`. En esta parte de la aplicación se debería implementar la lógica para detectar y agregar relaciones, en caso de que el origen de datos no sea una base de datos de grafos.
-3. Use el [método BulkImportAsync de Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?preserve-view=true&view=azure-dotnet) para insertar los objetos de grafos en la colección.
+3. Use el [método BulkImportAsync de Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync) para insertar los objetos de grafos en la colección.
 
 Este mecanismo mejorará la eficacia de la migración de datos en comparación con un cliente de Gremlin. Esta mejora se produce porque la inserción de datos con Gremlin requiere que la aplicación envíe una consulta cada vez, que deberá ser validada, evaluada y, finalmente, ejecutada para crear los datos. La biblioteca Bulk Executor controla la validación en la aplicación y envía varios objetos de grafos a la vez por cada solicitud de red.
 
@@ -79,7 +79,7 @@ Para más información sobre los parámetros de la biblioteca Bulk Executor, con
 
 La carga se debe realizar en instancias de objetos `GremlinVertex` y `GremlinEdge`. Le mostramos cómo se pueden crear estos objetos:
 
-**Vértices** :
+**Vértices**:
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -93,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**Bordes** :
+**Bordes**:
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -140,7 +140,7 @@ En el archivo `App.config` se pueden proporcionar los siguientes valores de conf
 
 Configuración|Descripción
 ---|---
-`EndPointUrl`|**Punto de conexión del SDK de .NET** , se puede encontrar en la hoja Información general de la cuenta de base de datos de la API de Gremlin de Azure Cosmos DB. Tiene el formato `https://your-graph-database-account.documents.azure.com:443/`
+`EndPointUrl`|**Punto de conexión del SDK de .NET**, se puede encontrar en la hoja Información general de la cuenta de base de datos de la API de Gremlin de Azure Cosmos DB. Tiene el formato `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Clave principal o secundaria, aparece bajo la cuenta de Azure Cosmos DB. Más información en [Protección del acceso a los datos de Azure Cosmos DB](./secure-access-to-data.md#primary-keys)
 `DatabaseName`, `CollectionName`|Son los **nombres de la base de datos y la colección de destino**. Cuando `ShouldCleanupOnStart` se establece en `true`, estos valores, junto con `CollectionThroughput`, se usarán para su eliminación y para crear una nueva base de datos y una colección. De forma similar, si `ShouldCleanupOnFinish` se establece en `true`, se usarán para eliminar la base de datos tan pronto como la ingesta finalice. Tenga en cuenta que la colección de destino debe ser **una colección ilimitada**.
 `CollectionThroughput`|Se utiliza para crear una nueva colección cuando la opción `ShouldCleanupOnStart` se establece en `true`.
@@ -160,4 +160,4 @@ Configuración|Descripción
 
 * Para obtener más información sobre el paquete NuGet y las notas de la versión de la biblioteca Bulk Executor para .NET, vea los [detalles del SDK de Bulk Executor](sql-api-sdk-bulk-executor-dot-net.md). 
 * Consulte los [Consejos de rendimiento](./bulk-executor-dot-net.md#performance-tips) para optimizar aún más el uso de Bulk Executor.
-* Revise el artículo [Referencia de BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?preserve-view=true&view=azure-dotnet) para más detalles sobre las clases y métodos definidos en este espacio de nombres.
+* Revise el artículo [Referencia de BulkExecutor.Graph](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph) para más detalles sobre las clases y métodos definidos en este espacio de nombres.

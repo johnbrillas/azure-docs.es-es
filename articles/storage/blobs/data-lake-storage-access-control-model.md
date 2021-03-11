@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650395"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439296"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de control de acceso de Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ En la tabla siguiente se muestra cómo combinar roles de Azure y entradas de ACL
 
 
 > [!NOTE] 
-> Para ver el contenido de un contenedor en el Explorador de Azure Storage, las entidades de seguridad deben [iniciar sesión en el Explorador de Storage mediante Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad) y (como mínimo) tener acceso de lectura (R--) a la carpeta raíz (`\`) de un contenedor. Este nivel de permiso les permite mostrar el contenido de la carpeta raíz. Si no quiere que el contenido de la carpeta raíz esté visible, puede asignarles el rol [Lector](../../role-based-access-control/built-in-roles.md#reader). Con ese rol, podrán enumerar los contenedores de la cuenta, pero no el contenido de cada contenedor. Después, puede conceder acceso a directorios y archivos específicos mediante las listas de control de acceso.   
+> Para ver el contenido de un contenedor en el Explorador de Azure Storage, las entidades de seguridad deben [iniciar sesión en el Explorador de Storage mediante Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource) y (como mínimo) tener acceso de lectura (R--) a la carpeta raíz (`\`) de un contenedor. Este nivel de permiso les permite mostrar el contenido de la carpeta raíz. Si no quiere que el contenido de la carpeta raíz esté visible, puede asignarles el rol [Lector](../../role-based-access-control/built-in-roles.md#reader). Con ese rol, podrán enumerar los contenedores de la cuenta, pero no el contenido de cada contenedor. Después, puede conceder acceso a directorios y archivos específicos mediante las listas de control de acceso.   
 
 ## <a name="security-groups"></a>Grupos de seguridad
 

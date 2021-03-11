@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465549"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437543"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de un registro de contenedor de Edge en un dispositivo de Azure Stack Edge Pro con GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 En este artículo se describe cómo habilitar el registro de contenedor de Edge y usarlo desde el clúster de Kubernetes en el dispositivo de Azure Stack Edge Pro. En el ejemplo que se usa en el artículo se detalla cómo se inserta una imagen de un registro de origen, en este caso, Microsoft Container Registry, en el registro del dispositivo de Azure Stack Edge, el registro de contenedor de Edge.
 

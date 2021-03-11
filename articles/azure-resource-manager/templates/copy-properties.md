@@ -3,12 +3,12 @@ title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905934"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521668"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -47,7 +47,7 @@ El valor de count no puede ser un número negativo. Puede ser cero si implementa
 * Azure PowerShell **2.6** o posterior
 * CLI de Azure **2.0.74** o posterior
 * API de REST versión **2019-05-10** o posterior
-* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación.
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación
 
 Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 
@@ -64,7 +64,7 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisk
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }
@@ -265,5 +265,5 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
   * [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-* Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para aprender a implementar su plantilla, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
+* Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

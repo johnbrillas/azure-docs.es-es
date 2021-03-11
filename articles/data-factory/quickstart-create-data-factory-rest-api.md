@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 527f8d63f2a2fd5c44e187c00c0651300eb4ad9f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373732"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517640"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido se describe cómo usar la API de REST para crear
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -300,7 +300,7 @@ Este es la salida de ejemplo:
 En este ejemplo, esta canalización contiene una actividad de copia. La actividad de copia hace referencia a los conjunto de datos "InputDataset" y "OutputDataset" creados en el paso anterior como entrada y salida.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",

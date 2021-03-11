@@ -215,7 +215,7 @@
     - name: Guía para el ajuste de tamaño de las máquinas virtuales
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfaz de la línea de comandos (CLI) de Azure
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Escenarios de ejemplo de Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Detección de correo electrónico
@@ -223,7 +223,7 @@
 - name: Recursos
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: Referencia de la API REST
       href: /rest/api/desktopvirtualization/
     - name: Calculador de experiencia

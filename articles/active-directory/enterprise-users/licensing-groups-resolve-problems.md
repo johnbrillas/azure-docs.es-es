@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ceea2dbcf408b6b35ef7c26580278d3979244119
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900712"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551545"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -106,7 +106,7 @@ Si usa Exchange Online, es posible que algunos de los usuarios de la organizaci�
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](/powershell/exchange/connect-to-exchange-online-powershell).
 
 Después de resolver los problemas de dirección del proxy para los usuarios afectados, asegúrese de forzar el procesamiento de la licencia en el grupo para asegurarse de que ahora se pueden aplicar las licencias.
 

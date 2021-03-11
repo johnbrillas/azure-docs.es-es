@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: ff861b5a58de4f108e49e52e6f09c71d7dd678ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 43ad7a91719430798d93c4883027cb4c58fd3442
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097199"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423916"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,9 +21,9 @@ ms.locfileid: "93097199"
 > [!div class="op_single_selector"]
 >
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
-> * [SDK de fuente de cambios de .NET v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
@@ -41,7 +41,7 @@ ms.locfileid: "93097199"
 |   |   |
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
+|**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**Introducción**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
 |**Plataforma admitida actualmente**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 

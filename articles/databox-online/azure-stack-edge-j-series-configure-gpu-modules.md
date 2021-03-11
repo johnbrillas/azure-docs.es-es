@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935567"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439058"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configuración y ejecución de un módulo en GPU en un dispositivo Azure Stack Edge Pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 El dispositivo Azure Stack Edge Pro contiene una o varias unidades de procesamiento gráfico (GPU). Las GPU son una opción popular para los cálculos de IA, ya que ofrecen funcionalidades de procesamiento en paralelo y son más rápidas en la representación de imágenes que las unidades de procesamiento central (CPU). Para más información sobre la GPU contenida en un dispositivo Azure Stack Edge Pro, vaya a [Especificaciones técnicas de dispositivos de Azure Stack Edge Pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
@@ -44,10 +46,10 @@ Para configurar un módulo para que use la GPU en un dispositivo Azure Stack Edg
 
 4. En **Crear servicio IoT Edge**, escriba la configuración del recurso de IoT Hub:
 
-   |Campo   |Value    |
+   |Campo   |Valor    |
    |--------|---------|
    |Subscription      | Suscripción utilizada por el recurso de Azure Stack Edge. |
-   |Resource group    | Grupo de recursos utilizado por el recurso de Azure Stack Edge. |
+   |Grupo de recursos    | Grupo de recursos utilizado por el recurso de Azure Stack Edge. |
    |IoT Hub           | Elija entre **Crear nuevo** o **Usar existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
    |Nombre              | Si no desea usar el nombre predeterminado proporcionado para el nuevo recurso de IoT Hub, escriba un nombre diferente. |
 

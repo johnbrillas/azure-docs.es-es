@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -48,7 +48,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -310,7 +310,7 @@
         - name: "azure/service-bus, versión\_7"
           href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
         - name: "azure/service-bus, versión\_1"
-          href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
+          href: /javascript/api/overview/azure/service-bus
     - name: PHP
       href: 'https://github.com/Azure/azure-sdk-for-php'
     - name: Ruby
