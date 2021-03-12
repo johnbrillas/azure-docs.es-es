@@ -45,7 +45,7 @@ Use **transformaciones** para configurar tareas comunes para codificar o analiza
 
 ### <a name="viewing-schema"></a>Visualización del esquema
 
-En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) o en otra documentación de referencia del SDK de Media Services v3.
+En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) o en otra documentación de referencia del SDK de Media Services v3.
 
 ### <a name="creating-transforms"></a>Creación de transformaciones
 

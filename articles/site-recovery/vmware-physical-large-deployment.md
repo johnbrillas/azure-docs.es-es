@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047094"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454354"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -214,7 +214,7 @@ Para ejecutar una conmutación por error a gran escala, se recomienda lo siguien
     - [Obtenga más información](recovery-plan-overview.md) sobre los planes de recuperación.
 2. Agregue scripts de runbook de Azure Automation a los planes de recuperación para automatizar cualquier tarea manual en Azure. Las tareas típicas incluyen la configuración de los equilibradores de carga, la actualización de DNS, etc. [Más información](site-recovery-runbook-automation.md)
 2. Antes de realizar la conmutación por error, prepare las máquinas Windows para que puedan cumplir con el entorno de Azure. Los [límites de conmutación por error](#plan-azure-subscriptions-and-quotas) son más altos para las máquinas compatibles. [Obtenga más información](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre los runbooks.
-4.  Desencadene la conmutación por error con el cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) de PowerShell en conjunto con un plan de recuperación.
+4.  Desencadene la conmutación por error con el cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) de PowerShell en conjunto con un plan de recuperación.
 
 
 

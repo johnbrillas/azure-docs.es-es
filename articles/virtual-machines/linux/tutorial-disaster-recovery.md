@@ -2,18 +2,19 @@
 title: 'Tutorial: Configuración de la recuperación ante desastres para máquinas virtuales Linux con Azure Site Recovery'
 description: Aprenda a configurar mediante el servicio Azure Site Recovery la recuperación ante desastres para máquinas virtuales Linux que se encuentren en otra región de Azure.
 author: rayne-wiselman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d14d276c798e40d417a8038aee5b7550e84f4114
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379976"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564754"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutorial: Configuración de la recuperación ante desastres para máquinas virtuales Linux
 
@@ -44,7 +45,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     **Nombre** | **Nube pública** | **Nube del gobierno** | **Detalles**
     --- | --- | --- | ---
     Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Escriba datos desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery. 
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery. 
     Replicación | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Comunicación de la máquina virtual con el servicio Site Recovery. 
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La máquina virtual escribe en Site Recovery para los datos de supervisión y diagnóstico. 
 
@@ -136,7 +137,7 @@ Site Recovery limpia automáticamente la máquina virtual después del simulacro
 
 ### <a name="stop-replicating-the-vm"></a>Detención de la replicación de la máquina virtual
 
-Después de completar un simulacro de la recuperación ante desastres, se recomienda seguir intentando realizar una conmutación por error completa. Si no desea realizar una conmutación por error completa, puede deshabilitar la replicación. Esta operación realiza las siguientes acciones:
+Después de completar un simulacro de la recuperación ante desastres, se recomienda seguir intentando realizar una conmutación por error completa. Si no desea realizar una conmutación por error completa, puede deshabilitar la replicación. Esto hace lo siguiente:
 
 - Quita la máquina virtual de la lista de máquinas replicadas de Site Recovery.
 - Detiene la facturación que realiza Site Recovery de la máquina virtual.

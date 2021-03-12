@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740336"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558022"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas en Azure Active Directory
 
@@ -47,8 +47,8 @@ Para usar unidades administrativas, necesita una licencia de Azure Active Direct
 Puede administrar las unidades administrativas mediante Azure Portal, cmdlets y scripts de PowerShell o Microsoft Graph. Para más información, consulte:
 
 - [Crear, quitar, rellenar y agregar roles a las unidades administrativas](admin-units-manage.md): incluye procedimientos completos.
-- [Trabajo con unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): se describe cómo trabajar con unidades administrativas mediante PowerShell.
-- [Soporte de Graph en unidades administrativas](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): proporciona documentación detallada sobre Microsoft Graph para unidades administrativas.
+- [Trabajo con unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units): se describe cómo trabajar con unidades administrativas mediante PowerShell.
+- [Soporte de Graph en unidades administrativas](/graph/api/resources/administrativeunit): proporciona documentación detallada sobre Microsoft Graph para unidades administrativas.
 
 ### <a name="plan-your-administrative-units"></a>Planeamiento de las unidades administrativas
 

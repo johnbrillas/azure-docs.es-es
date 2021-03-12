@@ -107,6 +107,8 @@
       href: concepts/logging-diagnostics.md
     - name: Relocalización general
       href: concepts/coarse-reloc.md
+    - name: Estrategia de búsqueda de delimitadores
+      href: concepts/anchor-locate-strategy.md
 - name: Referencias
   items:
     - name: SDK para Unity

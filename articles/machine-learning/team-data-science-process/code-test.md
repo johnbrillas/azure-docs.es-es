@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 66853b580ba1b619bf4cc995e05bd3cfaff07cfb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656842"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565876"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -124,7 +124,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     ![Lista de plantillas y botón "Proceso vacío"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar una DSVM para completar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts) (Agentes de compilación y lanzamiento).
+    d. Asigne un nombre a la compilación y seleccione el agente. Puede elegir aquí el valor predeterminado si desea utilizar una DSVM para completar el proceso de compilación. Para más información acerca de los agentes de configuración, consulte [Build and release agents](/azure/devops/pipelines/agents/agents) (Agentes de compilación y lanzamiento).
     
     ![Selecciones de compilación y agentes](./media/code-test/select_agent.PNG)
 

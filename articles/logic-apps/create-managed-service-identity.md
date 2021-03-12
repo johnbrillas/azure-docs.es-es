@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/09/2021
+ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520670"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556628"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -39,7 +39,6 @@ Actualmente, solo las [acciones y desencadenadores integrados específicos](../l
 * Azure Automation
 * Azure Event Grid
 * Azure Key Vault
-* Registros de Azure Monitor
 * Azure Resource Manager
 * HTTP with Azure AD
 
@@ -51,7 +50,7 @@ En este artículo se muestra cómo configurar ambos tipos de identidades adminis
 * [Límites sobre las identidades administradas para aplicaciones lógicas](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Servicios de Azure que admiten la autenticación de Azure AD con las identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). La identidad administrada y el recurso de Azure de destino al que necesita acceder deben usar la misma suscripción a Azure.
 
@@ -94,7 +93,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | **Id. de objeto** | <*identity-resource-ID*> | Identificador único global (GUID) que representa la identidad asignada por el sistema de la aplicación lógica en un inquilino de Azure AD. |
    ||||
@@ -307,7 +306,7 @@ Para poder usar la identidad administrada de la aplicación lógica para la aute
 * [Azure Portal](#azure-portal-assign-access)
 * [Plantilla de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* CLI de Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
+* CLI de Azure ([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
 * [API de REST de Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
