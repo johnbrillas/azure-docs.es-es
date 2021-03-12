@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: 04c611b8a902d27f40893a05f301898c0111748f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f877a631fd3c89d74b9e3b47cf205bbcf173ebc0
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660956"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453417"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configuración de la sincronización con ámbito entre Azure AD y Azure Active Directory Domain Services con PowerShell de Azure AD
 
@@ -39,9 +39,9 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 ## <a name="scoped-synchronization-overview"></a>Introducción a la sincronización con ámbito
 
-De forma predeterminada, todos los usuarios y grupos de un directorio de Azure AD se sincronizan con un dominio administrado. Si solo unos cuantos usuarios necesitan acceso al dominio administrado, puede sincronizar únicamente esas cuentas de usuario. Esta sincronización son ámbito se basa en grupos. Al configurar la sincronización con ámbito basada en grupos, solo las cuentas de usuario que pertenecen a los grupos que especifique se sincronizan con el dominio administrado. Los grupos anidados no están sincronizados, solo los grupos específicos que seleccione.
+De forma predeterminada, todos los usuarios y grupos de un directorio de Azure AD se sincronizan con un dominio administrado. Si solo unos cuantos usuarios necesitan acceso al dominio administrado, puede sincronizar únicamente esas cuentas de usuario. Esta sincronización son ámbito se basa en grupos. Al configurar la sincronización con ámbito basada en grupos, solo las cuentas de usuario que pertenecen a los grupos que especifique se sincronizan con el dominio administrado. Los grupos anidados no se sincronizan, solo los grupos específicos que seleccione.
 
-Puede cambiar el ámbito de sincronización antes o después de crear el dominio administrado. Una entidad de servicio con el identificador de aplicación 2565bd9d-da50-47d4-8b85-4c97f669dc36 define el ámbito de sincronización. Para evitar la pérdida del ámbito, no elimine ni cambie la entidad de servicio. Si se elimina accidentalmente, no se podrá recuperar el ámbito de sincronización. 
+Puede cambiar el ámbito de sincronización antes o después de crear el dominio administrado. Una entidad de servicio define el ámbito de sincronización con el identificador de la aplicación 2565bd9d-da50-47d4-8b85-4c97f669dc36. Para evitar la pérdida de ámbito, no elimine ni cambie la entidad de servicio. Si se elimina accidentalmente, no se puede recuperar el ámbito de sincronización. 
 
 Tenga en cuenta las siguientes advertencias si cambia el ámbito de sincronización:
 
@@ -144,16 +144,16 @@ Para habilitar la sincronización con ámbito basada en grupos para un dominio a
     Cuando se le solicite, especifique las credenciales de un *administrador global* para iniciar sesión en su inquilino de Azure AD con el cmdlet [Connect-AzureAD][Connect-AzureAD]:
 
     ```powershell
-    // Connect to your Azure AD tenant
+    # Connect to your Azure AD tenant
     Connect-AzureAD
 
-    // Retrieve the Azure AD DS resource.
+    # Retrieve the Azure AD DS resource.
     $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
-    // Enable group-based scoped synchronization.
+    # Enable group-based scoped synchronization.
     $enableScopedSync = @{"filteredSync" = "Enabled"}
 
-    // Update the Azure AD DS resource
+    # Update the Azure AD DS resource
     Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $enableScopedSync
     ```
 
@@ -194,16 +194,16 @@ Para deshabilitar la sincronización con ámbito basada en grupos para un domini
 Cuando se le solicite, especifique las credenciales de un *administrador global* para iniciar sesión en su inquilino de Azure AD con el cmdlet [Connect-AzureAD][Connect-AzureAD]:
 
 ```powershell
-// Connect to your Azure AD tenant
+# Connect to your Azure AD tenant
 Connect-AzureAD
 
-// Retrieve the Azure AD DS resource.
+# Retrieve the Azure AD DS resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
-// Disable group-based scoped synchronization.
+# Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
-// Update the Azure AD DS resource
+# Update the Azure AD DS resource
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 

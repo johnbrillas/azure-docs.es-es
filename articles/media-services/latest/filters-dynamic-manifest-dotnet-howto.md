@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d007c104dc53683d49547db582e8de6981ab921f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 11c65498d5a31c2e2ee997bdaf18037b1f0f9060
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093419"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455219"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Creación de filtros con el SDK de .NET de Media Services
 
@@ -29,7 +29,7 @@ Al entregar su contenido a los clientes (streaming de eventos en directo o víde
 
 Para obtener una descripción detallada de esta característica y los escenarios donde se utiliza, vea [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
-En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) y [Filtros de recurso](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](/dotnet/api/microsoft.azure.management.media.models.accountfilter) y [Filtros de recurso](/dotnet/api/microsoft.azure.management.media.models.assetfilter). 
 
 > [!NOTE]
 > No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -43,7 +43,7 @@ En este tema se muestra cómo usar el SDK de .NET de Media Services para definir
 
 ## <a name="define-a-filter"></a>Definición de un filtro  
 
-En .NET, configura selecciones de pista con las clases [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) y [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet). 
+En .NET, configura selecciones de pista con las clases [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection) y [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition). 
 
 El siguiente código define un filtro que incluye las pistas de audio con EC-3 y las pistas de vídeo con velocidad de bits en el intervalo 0 a 1000000.
 

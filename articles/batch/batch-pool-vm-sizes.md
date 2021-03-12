@@ -2,14 +2,14 @@
 title: Elección de los tamaños y las imágenes de máquina virtual de los grupos
 description: Cómo elegir uno de los tamaños de máquina virtual y una de las versiones de sistema operativo disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576708"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455202"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -35,13 +35,11 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | DC | No compatible |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
-| Dav4 | Todos los tamaños |
-| Dasv4 | Todos los tamaños |
+| Dav4, Dasv4 | Todos los tamaños |
 | Ddv4, Ddsv4 |  Todos los tamaños |
 | Dv4, Dsv4 | No compatible |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
-| Eav4 | Todos los tamaños |
-| Easv4 | Todos los tamaños |
+| Eav4, Easv4 | Todos los tamaños |
 | Edv4, Edsv4 |  Todos los tamaños |
 | Ev4, Esv4 | No compatible |
 | F, Fs | Todos los tamaños |
@@ -58,7 +56,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NC | Todos los tamaños |
 | NCv2 | Todos los tamaños |
 | NCv3 | Todos los tamaños |
-| NCasT4_v3 | Ninguno: no disponible todavía |
+| NCasT4_v3 | Todos los tamaños |
 | ND | Todos los tamaños |
 | NDv2 | Ninguno: no disponible todavía |
 | NV | Todos los tamaños |

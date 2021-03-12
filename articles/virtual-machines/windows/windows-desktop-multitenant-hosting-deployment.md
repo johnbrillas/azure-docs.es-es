@@ -2,18 +2,19 @@
 title: Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino
 description: Obtenga información sobre cómo maximizar las ventajas de Software Assurance de Windows para incorporar licencias locales en Azure con derechos de hospedaje multiinquilino.
 author: mimckitt
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: bb86ba6867ad796ef0f5eeb1357a6df9e93e9f9e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670059"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555778"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Los derechos de hospedaje multiinquilino solo están disponibles para Windows 10 (versión 1703 o posterior).
@@ -26,7 +27,7 @@ Para más información, consulte [Hospedaje multiinquilino para Windows 10](htt
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Licencias de suscripción que cumplen los requisitos de los derechos de hospedaje multiinquilino
 
-Con el [centro de administración de Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide) puede confirmar si un usuario tiene asignada una licencia admitida de Windows 10.
+Con el [centro de administración de Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center) puede confirmar si un usuario tiene asignada una licencia admitida de Windows 10.
 
 > [!IMPORTANT]
 > Para poder usar imágenes de Windows 10 en Azure, los usuarios deben tener una de las siguientes licencias de suscripción. Si no la tienen, se pueden adquirir a través de su [asociado de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) o directamente a través de [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
