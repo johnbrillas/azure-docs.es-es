@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649213"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557376"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Control de cuentas de servicio locales
 
@@ -64,7 +64,7 @@ Use la siguiente configuración con las cuentas de usuario empleadas como cuenta
 
 *  **LogonWorkstations**: restrinja los permisos de ubicación donde la cuenta de servicio puede iniciar sesión. Si se ejecuta localmente en una máquina y solo tiene acceso a los recursos de esa máquina, restrinja el inicio de sesión en cualquier otra parte.
 
-* [**No se puede cambiar la contraseña**](/powershell/module/addsadministration/set-aduser?view=win10-ps): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
+* [**No se puede cambiar la contraseña**](/powershell/module/addsadministration/set-aduser): impida que la cuenta de servicio cambie su propia contraseña; para ello, establezca el parámetro en false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Creación de un proceso de administración del ciclo de vida
@@ -151,9 +151,9 @@ Cree una cuenta de servicio solo después de documentar la información pertinen
 
 * [Expiración de la cuenta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Para todas las cuentas de usuario usadas como cuentas de servicio, defina una fecha de finalización realista y precisa para su uso. Establezca esta opción mediante la marca "La cuenta expira". Para obtener más información, consulte [ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Para todas las cuentas de usuario usadas como cuentas de servicio, defina una fecha de finalización realista y precisa para su uso. Establezca esta opción mediante la marca "La cuenta expira". Para obtener más información, consulte [ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Iniciar sesión en ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Iniciar sesión en ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
 * Requisitos de [directiva de contraseñas](../../active-directory-domain-services/password-policy.md)
 

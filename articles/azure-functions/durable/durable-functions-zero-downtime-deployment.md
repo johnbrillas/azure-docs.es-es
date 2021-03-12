@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009490"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558770"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
@@ -111,7 +111,7 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-A continuación, configure la puerta de ensayo para que espere hasta que no haya orquestaciones en ejecución. Para más información, consulte [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) (Liberar control de implementaciones mediante puertas).
+A continuación, configure la puerta de ensayo para que espere hasta que no haya orquestaciones en ejecución. Para más información, consulte [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates) (Liberar control de implementaciones mediante puertas).
 
 ![Puerta de implementación](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 

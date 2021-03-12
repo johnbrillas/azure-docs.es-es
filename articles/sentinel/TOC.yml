@@ -25,6 +25,8 @@
       href: tutorial-respond-threats-playbook.md
 - name: Conceptos
   items:
+    - name: Clasificación de datos mediante entidades
+      href: entities-in-azure-sentinel.md
     - name: Administración del acceso
       items:
         - name: Permisos de Azure Sentinel
@@ -33,18 +35,20 @@
           href: resource-context-rbac.md
     - name: Detección avanzada de ataques de varias fases
       href: fusion.md
-    - name: Plataforma de aprendizaje automático Traiga el suyo
-      href: bring-your-own-ml.md
-    - name: Extender Azure Sentinel por áreas de trabajo e inquilinos
-      href: extend-sentinel-across-workspaces-tenants.md
     - name: Identificación de amenazas avanzadas con UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importación de inteligencia sobre amenazas en Azure Sentinel
       href: import-threat-intelligence.md
+    - name: Plataforma de aprendizaje automático Traiga el suyo
+      href: bring-your-own-ml.md
     - name: "Integración de Microsoft\_365 Defender con Azure Sentinel"
       href: microsoft-365-defender-sentinel-integration.md
     - name: Uso de datos externos con listas de reproducción
       href: watchlists.md
+    - name: Asignación de permisos mediante roles
+      href: roles.md
+    - name: Extender Azure Sentinel por áreas de trabajo e inquilinos
+      href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalización de los datos en tablas
       href: normalization.md
     - name: Seguridad
@@ -62,40 +66,46 @@
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
-            - name: "Office\_365 (ahora con Teams)"
-              href: connect-office-365.md
-            - name: "Dynamics\_365 (nuevo)"
-              href: connect-dynamics-365.md
-            - name: Cloud App Security
-              href: connect-cloud-app-security.md
             - name: Azure Activity Log
               href: connect-azure-activity.md
             - name: Azure AD Identity Protection
               href: connect-azure-ad-identity-protection.md
-            - name: Azure Information Protection
-              href: connect-azure-information-protection.md
-            - name: "Microsoft\_365\_Defender"
-              href: connect-microsoft-365-defender.md
-            - name: Microsoft Defender para punto de conexión (anteriormente MDATP)
-              href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Microsoft Defender para identidad (anteriormente Azure ATP)
-              href: connect-azure-atp.md
-            - name: "Microsoft Defender para Office\_365 (anteriormente Office\_365 ATP)"
-              href: connect-office-365-advanced-threat-protection.md
             - name: Alertas de Azure Defender desde ASC
               href: connect-azure-security-center.md
-            - name: Azure Defender (anteriormente ASC) para IoT
-              href: connect-asc-iot.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
               href: connect-azure-firewall.md
-            - name: Firewall de aplicaciones web (WAF) de Azure
-              href: connect-azure-waf.md
+            - name: Azure Information Protection
+              href: connect-azure-information-protection.md
+            - name: Azure Key Vault
+              href: connect-azure-key-vault.md
+            - name: Azure Kubernetes Service (AKS)
+              href: connect-azure-kubernetes-service.md
             - name: Registros de bases de datos de Azure SQL
               href: connect-azure-sql-logs.md
+            - name: Firewall de aplicaciones web (WAF) de Azure
+              href: connect-azure-waf.md
+            - name: Defender para IoT (anteriormente ASC para IoT)
+              href: connect-asc-iot.md
             - name: Servidor de nombres de dominio
               href: connect-dns.md
+            - name: "Dynamics\_365 (nuevo)"
+              href: connect-dynamics-365.md
+            - name: "Microsoft\_365\_Defender"
+              href: connect-microsoft-365-defender.md
+              expanded: true
+              items:
+                - name: Cloud App Security
+                  href: connect-cloud-app-security.md
+                - name: Microsoft Defender para punto de conexión (anteriormente MDATP)
+                  href: connect-microsoft-defender-advanced-threat-protection.md
+                - name: Microsoft Defender para identidad (anteriormente Azure ATP)
+                  href: connect-azure-atp.md
+                - name: "Microsoft Defender para Office\_365 (anteriormente Office\_365 ATP)"
+                  href: connect-office-365-advanced-threat-protection.md
+            - name: "Office\_365 (ahora con Teams)"
+              href: connect-office-365.md
             - name: Firewall de Windows
               href: connect-windows-firewall.md
             - name: Eventos de seguridad de Windows
@@ -242,12 +252,16 @@
           href: monitor-data-connector-health.md
     - name: Habilitación del análisis del comportamiento de usuarios y entidades
       href: enable-entity-behavior-analytics.md
+    - name: Asignación de campos de datos a entidades
+      href: map-data-fields-to-entities.md
     - name: Administración de varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Trabajo con incidentes en varias áreas de trabajo
       href: multiple-workspace-view.md
     - name: Configuración de claves administradas por el cliente (CMK)
       href: customer-managed-keys.md
+    - name: Mostrar detalles personalizados en alertas
+      href: surface-custom-details-in-alerts.md
     - name: Creación de incidentes a partir de alertas
       href: create-incidents-from-alerts.md
     - name: Mejora en la administración de SOC con métricas de incidentes
@@ -265,10 +279,10 @@
           href: livestream.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
-    - name: Implementación de RBAC avanzado
-      items: null
 - name: Referencia
   items:
+    - name: Principales libros de Azure Sentinel
+      href: top-workbooks.md
     - name: Roles RBAC de Azure
       items:
         - name: Todos los roles de Azure
@@ -285,6 +299,8 @@
           href: watchlist-with-rest-api.md
     - name: Conector de Azure Sentinel en Logic Apps
       href: /connectors/azuresentinel/
+    - name: Referencia de entidades
+      href: entities-reference.md
     - name: Esquema de normalización de la red
       href: normalization-schema.md
     - name: Referencia del esquema del origen de datos

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381501"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453213"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -407,7 +407,7 @@ Para obtener ejemplos de uso de estos tipos, consulte el [repositorio de GitHub 
 
 # <a name="java"></a>[Java](#tab/java)
 
-La anotación [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) proporciona acceso al mensaje de la cola que desencadenó la función.
+La anotación [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) proporciona acceso al mensaje de la cola que desencadenó la función.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -419,7 +419,7 @@ Acceda al mensaje de la cola a través de un parámetro de cadena que coincida c
 
 # <a name="python"></a>[Python](#tab/python)
 
-Puede acceder al mensaje de la cola mediante un parámetro de tipo [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Puede acceder al mensaje de la cola mediante un parámetro de tipo [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 

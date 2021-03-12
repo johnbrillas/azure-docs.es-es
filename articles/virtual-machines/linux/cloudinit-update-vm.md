@@ -2,16 +2,17 @@
 title: Uso de cloud-init en una máquina virtual Linux de Azure
 description: Procedimiento para usar cloud-init con el fin de actualizar e instalar paquetes en una máquina virtual Linux con la CLI de Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 04/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 98198a2eb2476138f7794b26c30397798ede32b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd3c30cb00dae25afeea356cefb86a9c860cde5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373443"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559348"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Usar Uso de cloud-init para instalar paquetes en una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para actualizar paquetes en una máquina virtual Linux (VM) o en conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).

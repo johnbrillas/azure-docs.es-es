@@ -2,18 +2,19 @@
 title: 'Tutorial: Configuración de la recuperación ante desastres para máquinas virtuales Windows con Azure Site Recovery'
 description: Aprenda a habilitar la recuperación ante desastres para las máquinas virtuales Windows en una región de Azure diferente con el servicio Azure Site Recovery.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53cc0b820bd2ffb9fc28b37f44bb71a7b9d3cd30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380011"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555863"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutorial: Habilitación de la recuperación ante desastres para máquinas virtuales Windows
 
@@ -49,7 +50,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 4. Si usa grupos de seguridad de red para limitar el tráfico de red en las máquinas virtuales, cree reglas de NSG que permitan la conectividad saliente (HTTPS 443) para la máquina virtual mediante estas etiquetas de servicio (grupos de direcciones IP). Lo primero que debe hacer es probar las reglas en un grupo de seguridad de red de prueba.
 
-    **Etiqueta** | **Permitir** 
+    **Tag** | **Permitir** 
     --- | --- 
     Etiqueta Storage | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché.
     Etiqueta Azure AD | Permite el acceso a todas las direcciones IP que correspondan a Azure AD.
@@ -162,7 +163,7 @@ La extensión de Site Recovery instalada en la máquina virtual durante la repli
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se ha configurado la recuperación ante desastres de una máquina virtual de Azure y se ha ejecutado un simulacro de recuperación ante desastres. Ahora, puede realizar una conmutación por error completa de la máquina virtual.
+En este tutorial se ha configurado la recuperación ante desastres de una máquina virtual de Azure y se ha ejecutado un simulacro de la recuperación ante desastres. Ahora, puede realizar una conmutación por error completa de la máquina virtual.
 
 > [!div class="nextstepaction"]
 > [Conmutación por error de una máquina virtual en otra región](../../site-recovery/azure-to-azure-tutorial-dr-drill.md)

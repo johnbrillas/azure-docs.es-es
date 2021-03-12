@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 329036f3ed815eaaba94f441e372f4be86edd629
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862044"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558090"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets de Azure AD PowerShell para informes
 
 > [!NOTE] 
-> En la actualidad, estos cmdlets de PowerShell solo funcionan con el módulo de la [versión preliminar de Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
+> En la actualidad, estos cmdlets de PowerShell solo funcionan con el módulo de la [versión preliminar de Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
 
 Para instalar la versión preliminar pública, use lo siguiente. 
 

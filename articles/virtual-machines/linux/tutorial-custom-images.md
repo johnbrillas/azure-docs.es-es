@@ -2,7 +2,7 @@
 title: 'Tutorial: Creación de imágenes de máquina virtual personalizadas con la CLI de Azure'
 description: En este tutorial, aprenderá a usar la CLI de Azure para crear una imagen de máquina virtual personalizada en Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: tutorial
 ms.workload: infrastructure
@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 956e7c18deb597f6347dfd5dfdca99709a7052a0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 40ec86030e136a06fe240e473a469681dcfa7c4f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880984"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557768"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure
 
@@ -112,13 +112,13 @@ Copie el identificador de la definición de imagen de la salida para usarla más
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree una versión de la imagen desde la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Cree una versión de la imagen a partir de la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
 En este ejemplo, es la versión de la imagen es la *1.0.0* y vamos a crear dos réplicas en la región *Centro-oeste de EE. UU.* , una réplica en la región *Centro-sur de EE. UU.* y una réplica en la región *Este de EE. UU. 2* región mediante almacenamiento con redundancia de zona. Las regiones de replicación deben incluir la región donde se encuentra la máquina virtual de origen.
 
-Reemplace el valor de `--managed-image` de este ejemplo por el identificador de la máquina virtual del paso anterior.
+Reemplace el valor de `--managed-image` en este ejemplo por el identificador de la máquina virtual del paso anterior.
 
 ```azurecli-interactive 
 az sig image-version create \

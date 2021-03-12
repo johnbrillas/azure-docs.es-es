@@ -5,15 +5,15 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358225"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560368"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado doble en reposo para discos administrados
 
@@ -35,7 +35,7 @@ Azure Disk Storage admite el cifrado doble en reposo para los discos administrad
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de pantalla de la hoja Conjunto de cifrado de disco, + Agregar está resaltado.":::
 
 1. Seleccione alguna de las regiones admitidas.
-1. Para **Tipo de cifrado** , seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
+1. Para **Tipo de cifrado**, seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
 
     > [!NOTE]
     > Una vez que cree un conjunto de cifrado de disco con un tipo de cifrado en particular, no se puede cambiar. Si desea usar otro tipo de cifrado, debe crear un nuevo conjunto de cifrado de disco.
@@ -62,7 +62,7 @@ Azure Disk Storage admite el cifrado doble en reposo para los discos administrad
 
 1. Vaya al disco.
 1. Seleccione **Cifrado**.
-1. Para **Tipo de cifrado** , seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
+1. Para **Tipo de cifrado**, seleccione **Cifrado doble con claves administradas por el cliente y la plataforma**.
 1. Seleccione el conjunto de cifrado de disco.
 1. Seleccione **Guardar**.
 

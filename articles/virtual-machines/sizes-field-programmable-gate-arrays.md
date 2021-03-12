@@ -3,17 +3,17 @@ title: Tamaños de máquina virtual de Azure para matrices de puertas programabl
 description: Enumera los distintos tamaños optimizados para FPGA disponibles para las máquinas virtuales en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-fpga
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: vikancha
-ms.openlocfilehash: b05c3198f6c3d84f852d9535a3cf0b67f66e01f6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9eb0d5bc93cbe9c2a7cbae56c336115bb227b04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416778"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557682"
 ---
 # <a name="fpga-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizados para FPGA
 

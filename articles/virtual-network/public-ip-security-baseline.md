@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596504"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549012"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Línea de base de seguridad de Azure para la IP pública de Azure
 
@@ -114,9 +114,9 @@ Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), la propia 
 
 Para determinados recursos, existen roles integrados de inventario o predefinidos por consulta a través de herramientas como la CLI de Azure, Azure PowerShell o Azure Portal.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -242,7 +242,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
