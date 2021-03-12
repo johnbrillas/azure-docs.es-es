@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334419"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455621"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,9 +34,9 @@ Para una experiencia de investigación completa de las alertas de seguridad, se 
 
 Advanced Threat Protection para Azure Cosmos DB detecta actividades anómalas que indican intentos inusuales y potencialmente maliciosos de acceso o ataque a las bases de datos. Actualmente, puede desencadenar las siguientes alertas:
 
-- **Acceso desde una ubicación inusual** : Esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a una cuenta de Azure Cosmos, donde alguien se ha conectado al punto de conexión de Azure Cosmos DB desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o una operación de mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado, un atacante externo, etc.).
+- **Acceso desde una ubicación inusual**: Esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a una cuenta de Azure Cosmos, donde alguien se ha conectado al punto de conexión de Azure Cosmos DB desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o una operación de mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado, un atacante externo, etc.).
 
-- **Extracción de datos inusual** : esta alerta se desencadena cuando un cliente extrae una cantidad de datos inusual de una cuenta de Azure Cosmos DB. Esto puede ser el síntoma de la filtración de datos realizada para transferir todos los datos almacenados en la cuenta a un almacén de datos externos.
+- **Extracción de datos inusual**: esta alerta se desencadena cuando un cliente extrae una cantidad de datos inusual de una cuenta de Azure Cosmos DB. Esto puede ser el síntoma de la filtración de datos realizada para transferir todos los datos almacenados en la cuenta a un almacén de datos externos.
 
 
 
@@ -48,11 +48,11 @@ Puede configurar Advanced Threat Protection de varias maneras, como se describe 
 
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
 
-2. En la cuenta de Azure Cosmos DB, en el menú **Configuración** , seleccione **Seguridad avanzada**.
+2. En la cuenta de Azure Cosmos DB, en el menú **Configuración**, seleccione **Seguridad avanzada**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configuración de ATP":::
 
-3. En la hoja de configuración de **Seguridad avanzada** :
+3. En la hoja de configuración de **Seguridad avanzada**:
 
     * Haga clic en la opción **Advanced Threat Protection** para configurarla en **ACTIVADA**.
     * Haga clic en **Guardar** para guardar la directiva de Protección contra amenazas avanzada nueva o actualizada.   
@@ -68,9 +68,9 @@ Use comandos de la API de REST para crear, actualizar u obtener la configuració
 
 Use los siguientes cmdlets de PowerShell:
 
-* [Habilitación de Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Obtención de Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Deshabilitación de Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Habilitación de Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Obtención de Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Deshabilitación de Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[Plantilla ARM](#tab/arm-template)
 
