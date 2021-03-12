@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878959"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520394"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -189,7 +189,6 @@ Azure Machine Learning crea recursos en la suscripción (cliente), pero algunos 
  En los siguientes escenarios puede que tenga que solicitar una asignación de cuota en la suscripción propiedad de Microsoft:
 
 * Área de trabajo habilitada para Azure Private Link con una clave administrada por el cliente (CMK)
-* Azure Container Registry para el área de trabajo detrás de la red virtual
 * Adjunte un clúster de Azure Kubernetes Service habilitado por Private Link en el área de trabajo.
 
 Para solicitar una asignación para dichos casos, siga estos pasos:

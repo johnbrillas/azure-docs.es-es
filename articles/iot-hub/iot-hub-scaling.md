@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538466"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434719"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -77,27 +77,27 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 
 | API | Nivel Basic | Nivel Estándar o Gratis |
 | --- | ---------- | ------------- |
-| [Eliminar un dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sí | Sí |
+| [Eliminar un dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sí | Sí |
 | [Obtener dispositivo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Sí | Sí |
 | [Eliminar módulo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Sí | Sí |
-| [Obtener módulo](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Sí | Sí |
-| [Obtener estadísticas del registro](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Sí | Sí |
-| [Obtener estadísticas de servicios](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Sí | Sí |
-| [Crear o actualizar el dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Sí | Sí |
-| [Crear o actualizar el módulo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sí | Sí |
-| [Consultar IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sí | Sí |
+| [Obtener módulo](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule) | Sí | Sí |
+| [Obtener estadísticas del registro](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getdevicestatistics-msrest-requestoptionsbase-) | Sí | Sí |
+| [Obtener estadísticas de servicios](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getservicestatistics-msrest-requestoptionsbase-) | Sí | Sí |
+| [Crear o actualizar el dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatedevice-string--device--servicecallback-device--) | Sí | Sí |
+| [Crear o actualizar el módulo](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sí | Sí |
+| [Consultar IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager) | Sí | Sí |
 | [Crear el URI de SAS de carga de archivos](/rest/api/iothub/device/createfileuploadsasuri) | Sí | Sí |
 | [Recibir notificación de dispositivo enlazado](/rest/api/iothub/device/receivedeviceboundnotification) | Sí | Sí |
 | [Enviar evento de dispositivo](/rest/api/iothub/device/senddeviceevent) | Sí | Sí |
 | Enviar eventos de módulo | Solo AMQP y MQTT | Solo AMQP y MQTT |
 | [Actualizar estado de la carga de archivo](/rest/api/iothub/device/updatefileuploadstatus) | Sí | Sí |
-| [Operación de dispositivos en bloque](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sí, excepto las funcionalidades de IoT Edge | Sí |
+| [Operación de dispositivos en bloque](/javascript/api/azure-iot-digitaltwins-service/registrymanager#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sí, excepto las funcionalidades de IoT Edge | Sí |
 | [Cancelar trabajo de importación y exportación](/rest/api/iothub/service/jobs/cancelimportexportjob) | Sí | Sí |
 | [Crear trabajo de importación y exportación](/rest/api/iothub/service/jobs/createimportexportjob) | Sí | Sí |
 | [Obtener trabajo de importación y exportación](/rest/api/iothub/service/jobs/getimportexportjob) | Sí | Sí |
 | [Obtener trabajos de importación y exportación](/rest/api/iothub/service/jobs/getimportexportjobs) | Sí | Sí |
-| [Purgar cola de comandos](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sí |
-| [Obtener dispositivo gemelo](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Sí |
+| [Purgar cola de comandos](/javascript/api/azure-iot-digitaltwins-service/registrymanager#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sí |
+| [Obtener dispositivo gemelo](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) |   | Sí |
 | [Obtener módulo gemelo](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Sí |
 | [Invocar método de dispositivo](./iot-hub-devguide-direct-methods.md) |   | Sí |
 | [Actualizar dispositivo gemelo](./iot-hub-devguide-device-twins.md) |   | Sí |
@@ -106,8 +106,8 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 | [Completar notificación de dispositivo enlazado](/rest/api/iothub/device/completedeviceboundnotification) |   | Sí |
 | [Cancelar trabajo](/rest/api/media/jobs/canceljob) |   | Sí |
 | [Crear trabajo](/rest/api/media/jobs/create) |   | Sí |
-| [Obtener trabajo](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Sí |
-| [Consultar trabajos](/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sí |
+| [Obtener trabajo](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob) |   | Sí |
+| [Consultar trabajos](/javascript/api/azure-iot-digitaltwins-service/jobclient#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sí |
 
 ## <a name="message-throughput"></a>Rendimiento de mensajes
 

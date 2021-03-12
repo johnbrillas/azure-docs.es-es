@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56f6c9d3ff3093c3acd28b670e37f823ad5e9f9a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522519"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449839"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activación y configuración del sensor
 
@@ -214,9 +214,9 @@ Se accede a las herramientas de la consola desde el menú lateral.
 |----|---|---|
 | Soporte técnico | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Póngase en contacto con el [servicio de soporte técnico de Microsoft](https://support.microsoft.com/) para obtener ayuda. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
-[Incorporación de sensores](getting-started.md#4-onboard-a-sensor)
+[Incorporación de sensores](getting-started.md#onboard-a-sensor)
 
 [Administración de archivos de activación del sensor](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

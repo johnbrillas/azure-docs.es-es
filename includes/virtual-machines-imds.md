@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175727"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510660"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -345,8 +345,8 @@ Desglose del esquema:
 | `osType` | Linux o Windows | 2017-04-02
 | `placementGroupId` | [Grupo de selección de ubicación](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) que contiene el nombre, el producto y el editor de una máquina virtual si es una imagen de Azure Marketplace | 2018-04-02
-| `platformUpdateDomain` |  El [dominio de actualización](../articles/virtual-machines/manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
-| `platformFaultDomain` | El [dominio de error](../articles/virtual-machines/manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+| `platformUpdateDomain` |  El [dominio de actualización](../articles/virtual-machines/availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+| `platformFaultDomain` | El [dominio de error](../articles/virtual-machines/availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
 | `priority` | Prioridad de la máquina virtual. Consulte [Máquinas virtuales de acceso puntual](../articles/virtual-machines/spot-vms.md) para más información | 2020-12-01
 | `provider` | Proveedor de la máquina virtual | 2018-10-01
 | `publicKeys` | [Colección de claves públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignada a la máquina virtual y rutas de acceso | 2018-04-02

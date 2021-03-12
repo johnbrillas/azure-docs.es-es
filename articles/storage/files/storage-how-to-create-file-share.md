@@ -9,12 +9,12 @@ ms.date: 1/20/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 5a27f38e92955c0aa240f6be394aacd187c3a8b8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370910"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211029"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -35,7 +35,7 @@ Para más información sobre estas tres opciones, consulte [Planeamiento de una 
 ## <a name="prerequisites"></a>Prerrequisitos
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 Los recursos compartidos de archivos de Azure se implementan en *cuentas de almacenamiento*, que son objetos de nivel superior que representan un grupo compartido de almacenamiento. Este grupo de almacenamiento se puede usar para implementar varios recursos compartidos de archivos. 
@@ -213,7 +213,7 @@ New-AzRmStorageShare `
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-Puede crear un recurso compartido de archivos con el comando [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create). Los siguientes comandos de la CLI de Azure suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con la CLI de Azure.
+Puede crear un recurso compartido de archivos con el comando [`az storage share-rm create`](/cli/azure/storage/share-rm#az_storage_share_rm_create). Los siguientes comandos de la CLI de Azure suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con la CLI de Azure.
 
 > [!Important]  
 > En el caso de los recursos compartidos de archivos prémium, el parámetro `--quota` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.

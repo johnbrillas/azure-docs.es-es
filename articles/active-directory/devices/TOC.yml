@@ -80,7 +80,7 @@
     - name: Graph API
       items:
         - name: API de identidad del dispositivo
-          href: /graph/api/resources/device?view=graph-rest-1.0
+          href: /graph/api/resources/device
 - name: Recursos
   items:
     - name: Foro de comentarios de Azure

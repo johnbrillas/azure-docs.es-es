@@ -2,22 +2,22 @@
 title: 'Tutorial: Configuración de implementaciones controladas para Azure Linux Virtual Machines'
 description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación azul-verde.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961535"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552594"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación azul-verde para Azure Linux Virtual Machines
 
@@ -29,7 +29,7 @@ En este artículo, se muestra cómo configurar una canalización de CI/CD que ut
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configuración de CI/CD en máquinas virtuales
 
-Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para las actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
+Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
 
 ### <a name="blue-green-deployments"></a>Implementaciones azul-verde
 
@@ -44,9 +44,9 @@ Puede configurar implementaciones azul-verde en sus "máquinas virtuales" con la
 
    ![Panel de entrega continua con el botón Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-1. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta o crear una. Después, seleccione el proyecto en el que desea configurar la canalización.  
+1. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta existente o crear una nueva. Después, seleccione el proyecto en el que desea configurar la canalización.  
 
-   ![Panel de entrega continua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
+   ![El panel de entrega continua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
 1. Un grupo de implementación es un conjunto lógico de máquinas de destino de implementación que representan los entornos físicos. Por ejemplo, Dev, Test, UAT y Production. Puede crear un grupo de implementación o seleccionar uno existente.
 1. Seleccione la canalización de compilación que publica el paquete que se va a implementar en la máquina virtual. Tenga en cuenta que el paquete publicado debe tener un script de implementación llamado deploy.ps1 o deploy.sh en la carpeta deployscripts de la carpeta raíz del paquete. La canalización ejecuta este script de implementación.

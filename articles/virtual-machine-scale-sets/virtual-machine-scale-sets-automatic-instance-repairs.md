@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ff67ac4be32142848a12185199d63db5a14e6c34
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889021"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501862"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-En el ejemplo siguiente se habilita la directiva de reparaciones automáticas al crear un nuevo conjunto de escalado mediante *[az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* . En primer lugar, cree un grupo de recursos y, a continuación, cree un nuevo conjunto de escalado con un período de gracia de la directiva de reparaciones automáticas establecido en 30 minutos.
+En el ejemplo siguiente se habilita la directiva de reparaciones automáticas al crear un nuevo conjunto de escalado mediante *[az vmss create](/cli/azure/vmss#az-vmss-create)* . En primer lugar, cree un grupo de recursos y, a continuación, cree un nuevo conjunto de escalado con un período de gracia de la directiva de reparaciones automáticas establecido en 30 minutos.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-El siguiente es un ejemplo para actualizar la directiva de reparaciones automáticas de instancias de un conjunto de escalado existente, mediante *[az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* .
+El siguiente es un ejemplo para actualizar la directiva de reparaciones automáticas de instancias de un conjunto de escalado existente, mediante *[az vmss update](/cli/azure/vmss#az-vmss-update)* .
 
 ```azurecli-interactive
 az vmss update \  
@@ -259,7 +259,7 @@ Use la API *setOrchestrationServiceState* con la API versión 2019-12-01 o super
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-Use el cmdlet [get-instance-view](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) para ver el parámetro *serviceState* para las reparaciones automáticas de instancias. 
+Use el cmdlet [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) para ver el parámetro *serviceState* para las reparaciones automáticas de instancias. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Use el cmdlet [set-orchestration-service-state](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) para actualizar el parámetro *serviceState* para las reparaciones automáticas de instancias. Una vez que el conjunto de escalado participe en la característica de reparaciones automáticas, puede usar este cmdlet para suspender o reanudar las reparaciones automáticas del conjunto de escalado. 
+Use el cmdlet [set-orchestration-service-state](/cli/azure/vmss#az-vmss-set-orchestration-service-state) para actualizar el parámetro *serviceState* para las reparaciones automáticas de instancias. Una vez que el conjunto de escalado participe en la característica de reparaciones automáticas, puede usar este cmdlet para suspender o reanudar las reparaciones automáticas del conjunto de escalado. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -278,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) con el parámetro *InstanceView* para ver el parámetro *ServiceState* de las reparaciones automáticas de instancias.
+Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) con el parámetro *InstanceView* para ver el parámetro *ServiceState* de las reparaciones automáticas de instancias.
 
 ```azurepowershell-interactive
 Get-AzVmss `
