@@ -3,19 +3,19 @@ title: Creación de galerías de imágenes compartidas con la CLI de Azure
 description: En este artículo, aprenderá a usar la CLI de Azure para crear una imagen compartida de una máquina virtual en Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee7f7b524225845dc68100ee8ec9292eef111232
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 991b5363b180651b775bd46a0a1353fd124d34e6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882355"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557735"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creación de una instancia de Shared Image Gallery con la CLI de Azure
 

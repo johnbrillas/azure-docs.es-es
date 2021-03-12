@@ -308,6 +308,48 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Panel de calificaciones y reseñas
       href: partner-center-portal/ratings-reviews.md
+    - name: Acceso mediante programación al análisis
+      items:
+        - name: Introducción
+          href: analytics-get-started.md
+        - name: Requisitos previos del acceso mediante programación
+          href: analytics-prerequisites.md
+        - name: Paradigma del acceso mediante programación
+          href: analytics-programmatic-access.md
+        - name: Realice su primera llamada API
+          href: analytics-make-your-first-api-call.md
+        - name: Lista de consultas del sistema
+          href: analytics-system-queries.md
+        - name: Consultas de ejemplo
+          href: analytics-sample-queries.md
+        - name: Aplicación de ejemplo
+          href: analytics-sample-application.md
+        - name: Especificación de consulta personalizada
+          href: analytics-custom-query-specification.md
+        - name: Preguntas frecuentes sobre el análisis mediante programación
+          href: analytics-programmatic-faq.md
+        - name: Referencia de Analytics API
+          items:
+            - name: Lista de API
+              href: analytics-available-apis.md
+            - name: Obtener todos los conjuntos de datos
+              href: analytics-api-get-all-datasets.md
+            - name: Obtención de API de consultas de informe
+              href: analytics-api-get-report-queries.md
+            - name: Eliminación de API de consultas de informe
+              href: analytics-api-delete-report-queries.md
+            - name: Prueba de API de consultas de informe
+              href: analytics-api-try-report-queries.md
+            - name: Obtención de API de informe
+              href: analytics-api-get-report.md
+            - name: Actualización de API de informe
+              href: analytics-api-update-report.md
+            - name: Eliminación de API de informe
+              href: analytics-api-delete-report.md
+            - name: Pausa de API de ejecuciones de informes
+              href: analytics-api-pause-report-executions.md
+            - name: Reanudación de API de ejecuciones de informes
+              href: analytics-api-resume-report-executions.md
     - name: Administración de anomalías de facturación de uso medido
       href: anomaly-detection.md
     - name: Preguntas frecuentes sobre Analytics
