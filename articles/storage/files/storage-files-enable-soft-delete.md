@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 22e4d0998cde14d4461141a53f05cbc19d1ab671
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878976"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218560"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
@@ -35,7 +35,7 @@ En las secciones siguientes se muestra cómo habilitar y usar la eliminación te
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Los cmdlets de eliminación temporal están disponibles en la versión 2.1.3 y posteriores del [módulo de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Los cmdlets de eliminación temporal están disponibles en la versión 2.1.3 y posteriores del [módulo de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="getting-started-with-cli"></a>Introducción a la CLI
 

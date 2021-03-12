@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 44604f910b3ee6e6ce1b21c736c6ad1f0443e996
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880176"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500043"
 ---
 # <a name="security-control-secure-configuration"></a>Control de seguridad: Configuración segura
 
@@ -30,7 +30,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 También puede usar las recomendaciones de Azure Security Center como línea de base de configuración segura para los recursos de Azure.
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -50,7 +50,7 @@ Use las recomendaciones de Azure Security Center para mantener las configuracion
 
 - [Guía de referencia sobre las recomendaciones de seguridad](../../security-center/recommendations-reference.md)
 
-- [Introducción a Azure Automation State Configuration](../../automation/automation-dsc-overview.md)
+- [Introducción a State Configuration de Azure Automation](../../automation/automation-dsc-overview.md)
 
 - [Carga de un VHD y su uso para crear máquinas virtuales Windows nuevas en Azure](../../virtual-machines/windows/upload-generalized-managed.md)
 
@@ -174,7 +174,7 @@ Use Managed Service Identity junto con Azure Key Vault para simplificar y proteg
 
 - [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
 
-- [Autenticación en Key Vault](../../key-vault/general/authentication.md)
+- [Autenticación en Azure Key Vault](../../key-vault/general/authentication.md)
 
 - [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 

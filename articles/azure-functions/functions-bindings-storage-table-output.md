@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033802"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453009"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Enlaces de salida de Azure Table Storage para Azure Functions
 
@@ -418,7 +418,7 @@ Una alternativa consiste en usar un parámetro del método `CloudTable` para esc
 
 # <a name="java"></a>[Java](#tab/java)
 
-Hay dos opciones para la generación de una fila de Table Storage desde una función mediante la anotación [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true):
+Hay dos opciones para la generación de una fila de Table Storage desde una función mediante la anotación [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput):
 
 - **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como una fila de Table Storage.
 
@@ -438,7 +438,7 @@ Hay dos opciones para la generación de un mensaje de fila de Table Storage desd
 
 - **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como una fila de Table Storage.
 
-- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). El valor pasado a `set` se conserva como mensaje del centro de eventos.
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out). El valor pasado a `set` se conserva como mensaje del centro de eventos.
 
 ---
 

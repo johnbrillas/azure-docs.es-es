@@ -1,20 +1,18 @@
 ---
 title: Características y extensiones de las máquinas virtuales de Azure
 description: Más información sobre las extensiones de VM de Azure
-services: virtual-machines
-author: amjads1
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/03/2020
+author: amjads1
 ms.author: amjads
-ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.date: 08/03/2020
+ms.openlocfilehash: e1b96293db0389201fdab3340d8f0e74fefc4c52
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936954"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559722"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones son aplicaciones pequeñas que proporcionan automatización y configuración posterior a la implementación en VM de Azure. La plataforma de Azure hospeda numerosas extensiones, que abarcan aplicaciones de configuración, supervisión, seguridad y utilidad de VM. Los editores toman una aplicación, la encapsulan en una extensión y simplifican la instalación. Solo debe proporcionar parámetros obligatorios. 

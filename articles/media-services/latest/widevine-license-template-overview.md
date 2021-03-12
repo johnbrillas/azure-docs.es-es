@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39cccd270a4947820640940ae43fa0feb3e52028
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 9ef45e804b593f36171907395c564c8c6058c286
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954486"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453740"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Introducción a Media Services v3 con plantilla de licencia de Widevine
 
@@ -67,7 +67,7 @@ Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.
 
 ## <a name="json-message"></a>Mensaje JSON
 
-| Nombre | Value | Descripción |
+| Nombre | Valor | Descripción |
 | --- | --- | --- |
 | payload |Cadena codificada en Base64 |La solicitud de licencia enviada por un cliente. |
 | content_id |Cadena codificada en Base64 |Identificador utilizado para derivar el id. de la clave y la clave de contenido de cada elemento content_key_specs.track_type. |
@@ -85,7 +85,7 @@ Si existe una directiva anterior, no es necesario especificar ninguno de los val
 
 Cada valor de content_key_specs debe especificarse en todas las pistas, independientemente de la opción use_policy_overrides_exclusively. 
 
-| Nombre | Value | Descripción |
+| Nombre | Valor | Descripción |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nombre de tipo de pista. Si se especifica content_key_specs en la solicitud de licencia, asegúrese de especificar todos los tipos de pista explícitamente. Si no lo hace, se producirán errores en la reproducción transcurridos 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define los requisitos de solidez del cliente para la reproducción. <br/> - Se requiere criptografía de caja blanca basada en software. <br/> - Se requiere criptografía de software y un descodificador de ofuscación. <br/> - Las operaciones de criptografía y material clave deben realizarse en un entorno de ejecución de confianza con respaldo del hardware. <br/> - La criptografía y la descodificación del contenido deben realizarse dentro de un entorno de ejecución de confianza con respaldo del hardware.  <br/> - La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de un entorno de ejecución de confianza con respaldo del hardware. |
@@ -94,7 +94,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | content_key_specs.key_id |Binario de cadena codificada en Base64, 16 bytes |Identificador único para la clave. |
 
 ## <a name="policy-overrides"></a>Invalidaciones de directivas
-| Nombre | Value | Descripción |
+| Nombre | Valor | Descripción |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Valor booleano (true o false) |Indica que la reproducción del contenido está permitida. El valor predeterminado es False. |
 | policy_overrides&#46;can_persist |Valor booleano (true o false) |Indica que la licencia puede conservarse en el almacenamiento no volátil para su uso sin conexión. El valor predeterminado es False. |
@@ -109,7 +109,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | policy_overrides&#46;renew_with_usage |Valor booleano (true o false) |Indica que la licencia se enviará para renovación cuando se inicie el uso. Este campo solo se usa si can_renew es "true". |
 
 ## <a name="session-initialization"></a>Inicialización de la sesión
-| Nombre | Value | Descripción |
+| Nombre | Valor | Descripción |
 | --- | --- | --- |
 | provider_session_token |Cadena codificada en Base64 |Este token de sesión se pasa de nuevo en la licencia y existirá en renovaciones posteriores. El token de sesión no se conservará una vez agotadas las sesiones. |
 | provider_client_token |Cadena codificada en Base64 |Token de cliente para devolver en la respuesta de licencia. Si la solicitud de licencia contiene un token de cliente, este valor se omite. El token del cliente se conservará una vez agotadas las sesiones de licencia. |
@@ -117,7 +117,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 
 ## <a name="configure-your-widevine-license-with-net"></a>Configuración de la licencia de Widevine con .NET 
 
-Media Services proporciona una clase que le permite configurar una licencia de Widevine. Para construir la licencia, pase el JSON a [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
+Media Services proporciona una clase que le permite configurar una licencia de Widevine. Para construir la licencia, pase el JSON a [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
 Para configurar la plantilla puede:
 
@@ -263,7 +263,7 @@ public class WidevineTemplate
 
 #### <a name="configure-the-license"></a>Configuración de la licencia
 
-Utilice las clases definidas en la sección anterior para crear el archivo JSON que se usa para configurar [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
+Utilice las clases definidas en la sección anterior para crear el archivo JSON que se usa para configurar [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
 private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()

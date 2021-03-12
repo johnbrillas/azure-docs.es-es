@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9e2f7115560148a1d3b9d2671be54c1ba4d61946
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3da2e116f1f58ca7a5c75da49f64bb8fc046e3ac
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588920"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548502"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Starter
 
@@ -95,7 +95,7 @@ Azure DevOps Starter configura automáticamente una canalización de CI/CD compl
 
 1. En el nombre de la canalización de compilación, seleccione **Historial**. Este panel muestra un registro de auditoría de los cambios recientes de la compilación. Azure DevOps realiza un seguimiento de los cambios realizados en la canalización de compilación y permite comparar las versiones.
 
-1. Seleccione **Desencadenadores**.  DevOps Starter crea automáticamente un desencadenador de integración continua, y cada confirmación al repositorio inicia una nueva compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
+1. Seleccione **Desencadenadores**.  DevOps Starter crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
@@ -126,4 +126,4 @@ Cuando dejen de ser necesarios, puede eliminar la instancia de Azure App Service
 Para más información acerca de cómo modificar las canalizaciones de compilación y versión para satisfacer las necesidades de su equipo, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process)
