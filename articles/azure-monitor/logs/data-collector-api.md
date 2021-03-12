@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 8c5b4eac17b4c7ae9b4081d0eb9118285dc74bd5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e32bf95ef52fdd081eeaa476f44bf5dab99657d6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030976"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452125"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -182,7 +182,7 @@ El código de estado HTTP 200 significa que se ha recibido la solicitud para su 
 
 Esta tabla muestra el conjunto completo de códigos de estado que el servicio puede devolver:
 
-| Código | Status | Código de error | Descripción |
+| Código | Estado | Código de error | Descripción |
 |:--- |:--- |:--- |:--- |
 | 200 |Aceptar | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
@@ -650,7 +650,7 @@ Aunque la API del recopilador de datos debe cubrir la mayor parte de sus necesid
 |---|---|---|
 | [Eventos personalizados](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingesta basada en SDK nativa de Application Insights | Application Insights, instrumentado normalmente a través de un SDK dentro de la aplicación, ofrece la capacidad de enviar datos personalizados a través de los eventos personalizados. | <ul><li> Los datos se generan dentro de la aplicación, pero el SDK no los recibe a través de uno de los tipos de datos predeterminados (solicitudes, dependencias, excepciones, etc.).</li><li> Datos que está correlacionados con mayor frecuencia con otros datos de aplicación en Application Insights </li></ul> |
 | API del recopilador de datos en registros de Azure Monitor | La API del recopilador de datos en registros de Azure Monitor es una forma completamente libre para la ingesta de datos. Pueden enviársele todos los datos cuyo formato sea un objeto JSON. Una vez enviados, se procesarán y estarán disponibles en los registros, para que se correlacionen con otros datos en los registros u otros datos de Application Insights. <br/><br/> Es bastante fácil cargar los datos como archivos en un blob de Azure Blob, desde donde se procesarán y cargarán estos archivos en Log Analytics. Consulte [este](./create-pipeline-datacollector-api.md) artículo para ver un ejemplo de implementación de una canalización de este tipo. | <ul><li> Datos que no necesariamente se generaron dentro de una aplicación instrumentada en Application Insights.</li><li> Algunos ejemplos son tablas de hechos y de búsqueda, datos de referencia, estadísticas agregadas previamente, etc. </li><li> Diseñado para datos a los que se hará referencia con otros datos de Azure Monitor (Application Insights, otros tipos de datos de registros, Security Center, Container Insights y máquinas virtuales, etc.) </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) es la plataforma de datos que se utiliza en Application Insights Analytics y los registros de Azure Monitor. Ahora con disponibilidad general ("GA"), cuando usa la plataforma de datos sin procesar obtiene completa flexibilidad (que requiere la sobrecarga de administración) en el clúster (Kubernetes RBAC, tasa de retención, esquema, etc). Azure Data Explorer proporciona muchas [opciones de ingestión](/azure/data-explorer/ingest-data-overview#ingestion-methods), incluidos los archivos [JSON, CSV y TSV](/azure/kusto/management/mappings?branch=master). | <ul><li> Datos que no se correlacionan con ningún otro dato en Application Insights o los registros. </li><li> Datos que requieren ingesta o procesamiento avanzados que no están disponibles actualmente en los registros de Azure Monitor. </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) es la plataforma de datos que se utiliza en Application Insights Analytics y los registros de Azure Monitor. Ahora con disponibilidad general ("GA"), cuando usa la plataforma de datos sin procesar obtiene completa flexibilidad (que requiere la sobrecarga de administración) en el clúster (Kubernetes RBAC, tasa de retención, esquema, etc). Azure Data Explorer proporciona muchas [opciones de ingestión](/azure/data-explorer/ingest-data-overview#ingestion-methods), incluidos los archivos [JSON, CSV y TSV](/azure/kusto/management/mappings). | <ul><li> Datos que no se correlacionan con ningún otro dato en Application Insights o los registros. </li><li> Datos que requieren ingesta o procesamiento avanzados que no están disponibles actualmente en los registros de Azure Monitor. </li></ul> |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

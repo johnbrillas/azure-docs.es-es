@@ -4,17 +4,17 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 1085daca153431a28fdcc2583d0e31308214bf91
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561452"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510965"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticación mediante Azure Active Directory
 
 > [!IMPORTANT]
-> 1. Actualmente, **solo** Computer Vision API, Face API, Text Analytics API, Lector inmersivo, Form Recognizer, Anomaly Detector y todos los servicios de Bing, excepto Bing Custom Search, admiten la autenticación mediante Azure Active Directory (AAD).
+> 1. Actualmente, **solo** Computer Vision API, Face API, Text Analytics API, Lector inmersivo, Form Recognizer, Anomaly Detector, QnA Maker y todos los servicios de Bing, excepto Bing Custom Search, admiten la autenticación mediante Azure Active Directory (AAD).
 > 2. La autenticación con AAD siempre debe usarse junto con el nombre de subdominio personalizado de su recurso de Azure. Los [puntos de conexión regionales](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) no admiten la autenticación con AAD.
 
 En las secciones anteriores, le mostramos cómo realizar la autenticación en Azure Cognitive Services mediante una clave de suscripción de un solo servicio o de varios servicios. Aunque estas claves proporcionan un camino rápido y fácil para iniciar el desarrollo, se quedan cortas en escenarios más complejos que requieren control de acceso basados en roles de Azure (RBAC de Azure). Echemos un vistazo a lo que se necesita para autenticarse con Azure Active Directory (AAD).
@@ -25,13 +25,13 @@ En las secciones siguientes, usará el entorno de Azure Cloud Shell o la CLI de 
 
 El primer paso es crear un subdominio personalizado. Si desea usar un recurso de Cognitive Services existente que no tenga un nombre de subdominio personalizado, siga las instrucciones de [Subdominios personalizados para Cognitive Services](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) para habilitar el subdominio personalizado para el recurso.
 
-1. Para empezar, abra Azure Cloud Shell, Después [seleccione una suscripción](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
+1. Para empezar, abra Azure Cloud Shell, Después [seleccione una suscripción](/powershell/module/az.accounts/set-azcontext):
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. A continuación, [cree un recurso de Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) con un subdominio personalizado. El nombre del subdominio debe ser único globalmente y no puede incluir caracteres especiales, como: ".", "!", ",".
+2. A continuación, [cree un recurso de Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) con un subdominio personalizado. El nombre del subdominio debe ser único globalmente y no puede incluir caracteres especiales, como: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, deberá asignar
 > [!NOTE]
 > Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse.
 
-1. En primer lugar, vamos a registrar una [aplicación de AAD](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. En primer lugar, vamos a registrar una [aplicación de AAD](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, deberá asignar
 
    Va a necesitar el valor de **ApplicationID** en el paso siguiente.
 
-2. Después, tiene que [crear una entidad de servicio](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para la aplicación de AAD.
+2. Después, tiene que [crear una entidad de servicio](/powershell/module/az.resources/new-azadserviceprincipal) para la aplicación de AAD.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, deberá asignar
    >[!NOTE]
    > Si registra una aplicación en Azure Portal, este paso se completa automáticamente.
 
-3. El último paso es [asignar el rol "Usuario de Cognitive Services"](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) a la entidad de servicio (en el ámbito del recurso). Mediante la asignación de un rol, concede acceso a la entidad de servicio a este recurso. Puede conceder a la misma entidad de servicio acceso a varios recursos de la suscripción.
+3. El último paso es [asignar el rol "Usuario de Cognitive Services"](/powershell/module/az.Resources/New-azRoleAssignment) a la entidad de servicio (en el ámbito del recurso). Mediante la asignación de un rol, concede acceso a la entidad de servicio a este recurso. Puede conceder a la misma entidad de servicio acceso a varios recursos de la suscripción.
    >[!NOTE]
    > Se utiliza el valor de ObjectId de la entidad de servicio, no el valor de ObjectId de la aplicación.
    > ACCOUNT_ID será el identificador de recurso de Azure de la cuenta de Cognitive Services que ha creado. Puede encontrar el identificador de recurso de Azure en las "propiedades" del recurso en Azure Portal.
