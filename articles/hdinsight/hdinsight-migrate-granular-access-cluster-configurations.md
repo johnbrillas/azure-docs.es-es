@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555821"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425896"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -111,11 +111,11 @@ Actualice a la [versión 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.M
 
 Actualice a la [versión 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) o posterior del SDK de HDInsight para .NET. Es posible que sea necesario realizar modificaciones mínimas en el código si está utilizando un método afectado por estos cambios:
 
-- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
-    - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
-    - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true). 
-- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) ahora está en desuso y se ha reemplazado por [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true). 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) y [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) ahora están en desuso. Ahora HTTP siempre está habilitado, por lo que estos métodos ya no son necesarios.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get)**ya no devuelve parámetros confidenciales** como claves de almacenamiento (sitio principal) o credenciales de HTTP (puerta de enlace).
+    - Para recuperar todas las configuraciones, incluidos los parámetros confidenciales, utilice [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list) a partir de ahora.  Tenga en cuenta que los usuarios con el rol "Lector" no podrán usar este método. Esto permite un control granular sobre el cual los usuarios pueden acceder a información confidencial para un clúster. 
+    - Para recuperar solo las credenciales de la puerta de enlace HTTP, utilice [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings). 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update) ahora está en desuso y se ha reemplazado por [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings). 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp) y [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp) ahora están en desuso. Ahora HTTP siempre está habilitado, por lo que estos métodos ya no son necesarios.
 
 ### <a name="sdk-for-python"></a>SDK para Python
 
