@@ -2,17 +2,17 @@
 title: Máquinas virtuales de una plantilla de Azure Resource Manager | Microsoft Azure
 description: Obtenga más información sobre cómo se define el recurso de máquina virtual en una plantilla de Azure Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202103"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555999"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -144,7 +144,7 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
 >
 >
 
-## <a name="api-version"></a>Versión de API
+## <a name="api-version"></a>Versión de la API
 
 Cuando se implementan recursos mediante una plantilla, tendrá que especificar una versión de la API que se utilizará. En el ejemplo, se muestra el recurso de máquina virtual con este elemento apiVersion:
 
@@ -270,7 +270,7 @@ Resource Manager implementa en paralelo todos los recursos que no dependan de ot
 
 Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, necesita una dependencia. También debe establecer una dependencia cuando se define un recurso (un elemento secundario) dentro de otro recurso (un elemento primario). Por ejemplo, las extensiones de script personalizado y la configuración de diagnóstico se definen como recursos secundarios de la máquina virtual. No se creará hasta que la máquina virtual exista. Por lo tanto, los recursos se marcan como dependientes de la máquina virtual.
 
-## <a name="profiles"></a>Perfiles
+## <a name="profiles"></a>Profiles
 
 Al definir un recurso de máquina virtual, se utilizan varios elementos de perfil. Algunos son necesarios y otros, opcionales. Por ejemplo, los elementos hardwareProfile, osProfile, storageProfile y networkProfile son necesarios, pero diagnosticsProfile es opcional. Estos perfiles definen opciones como:
    
