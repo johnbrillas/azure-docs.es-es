@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dc23dec8a8d59a7762e93cdfaa2a39d824506e7b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382130"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521244"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Procedimiento para crear un recurso compartido NFS
 Los recursos compartidos de archivos de Azure son recursos compartidos de archivos totalmente administrados en la nube. En este artículo se describe la creación de un recurso compartido de archivos que usa el protocolo NFS. Para obtener más información sobre ambos protocolos, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-compare-protocols.md).
@@ -31,7 +31,7 @@ Los recursos compartidos de archivos de Azure son recursos compartidos de archiv
     - [Configure una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registro del protocolo NFS 4.1
 Si usa el módulo Azure PowerShell o la CLI de Azure, registre la característica con los siguientes comandos:
@@ -192,7 +192,7 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
+   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
     
 1. Instale la versión más reciente del módulo PowerShellGet.
 
@@ -208,7 +208,7 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0&preserve-view=true).
+   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
    
 1. Para crear un recurso compartido de archivos Premium con el módulo de Azure PowerShell, use el cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare).
 

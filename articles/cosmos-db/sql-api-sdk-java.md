@@ -9,20 +9,20 @@ ms.topic: reference
 ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 96640e55d1ad71bc0e448976b2c9f1fa85b2ab62
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696285"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216605"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
-> * [SDK de fuente de cambios de .NET v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
@@ -50,7 +50,7 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 |**Contribuya al SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introducción**|[Introducción al SDK de Java](./create-sql-api-java.md)|
 |**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-java-application.md)|
-|**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notas de la versión
 

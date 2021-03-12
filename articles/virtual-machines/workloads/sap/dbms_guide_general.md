@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 470b6b0c871d91a2a8a584a6efd04605e0afcf88
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666841"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504021"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -265,7 +265,7 @@ Hay otros métodos de redundancia. Para más información, consulte [Replicació
 
 
 ## <a name="vm-node-resiliency"></a>Resistencia de nodos de máquina virtual
-Azure ofrece varios contratos de nivel de servicio distintos para las máquinas virtuales. Para más información, consulte la versión más reciente de [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Dado que la capa de DBMS es fundamental para la disponibilidad en un sistema SAP, debe comprender los conjuntos disponibilidad, las zonas de disponibilidad y los eventos de mantenimiento. Para más información sobre estos conceptos, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) y [Administración de la disponibilidad de las máquinas virtuales Linux en Azure](../../manage-availability.md).
+Azure ofrece varios contratos de nivel de servicio distintos para las máquinas virtuales. Para más información, consulte la versión más reciente de [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Dado que la capa de DBMS es fundamental para la disponibilidad en un sistema SAP, debe comprender los conjuntos disponibilidad, las zonas de disponibilidad y los eventos de mantenimiento. Para más información sobre estos conceptos, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../availability.md) y [Administración de la disponibilidad de las máquinas virtuales Linux en Azure](../../availability.md).
 
 La recomendación mínima para escenarios DBMS de producción con una carga de trabajo SAP es:
 

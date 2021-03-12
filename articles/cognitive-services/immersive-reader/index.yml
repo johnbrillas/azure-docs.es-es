@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: c19e6c7e05a3478007505ee4f02f12a7eade5eb6
-  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+  ms.openlocfilehash: 4cc05d3b99530e5ba923bfcbf7f749fbcd1c0f20
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93130245"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102616645"
 landingContent:
 - title: Acerca del Lector inmersivo
   linkLists:
@@ -43,28 +43,20 @@ landingContent:
       url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
     - text: Uso de Swift (iOS)
       url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
-  - linkListType: tutorial
-    links:
-    - text: Android
-      url: tutorial-android.md
-    - text: iOS
-      url: tutorial-ios.md
-    - text: Python
-      url: tutorial-python.md
-    - text: Uso de varios recursos del Lector inmersivo
-      url: tutorial-multiple-resources.md
 - title: Exploración de Lector inmersivo
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Creación de un recurso del Lector inmersivo
       url: how-to-create-immersive-reader.md
+    - text: Uso de varios recursos del Lector inmersivo
+      url: how-to-multiple-resources.md
+    - text: Inicio del Lector inmersivo
+      url: how-to-launch-immersive-reader.md
     - text: Establecimiento de la directiva de cookies
       url: how-to/set-cookie-policy.md
     - text: Mostrar matemáticas
       url: how-to/display-math.md
-    - text: Iniciar el Lector inmersivo con contenido HTML
-      url: how-to-launch-with-html.md
     - text: Personalización del botón del Lector inmersivo
       url: how-to-customize-launch-button.md
     - text: Almacenamiento en caché del token de autenticación
