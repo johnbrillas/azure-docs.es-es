@@ -1,7 +1,7 @@
 ---
 title: Implementación de Micro Focus Enterprise Server 5.0 en AKS | Microsoft Docs
 description: Rehospede las cargas de trabajo del sistema central IBM z/OS con el entorno de desarrollo y pruebas Micro Focus en Azure Virtual Machines (VM).
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e5b3857c2252a939080206fb1f92cc422f326fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042535"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564363"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implementación de Micro Focus Enterprise Server 5.0 en AKS
 

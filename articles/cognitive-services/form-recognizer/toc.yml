@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Uso de Form Recognizer con AI Builder
       href: tutorial-ai-builder.md
+    - name: Uso de Form Recognizer con Azure Functions
+      href: tutorial-azure-function.md
     - name: Extracción de datos de formularios en masa
       href: tutorial-bulk-processing.md
 - name: Conceptos
