@@ -6,16 +6,16 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: 201f2f585c907ff82f28b96562efe3622dae6422
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: daf844870670c14db5208f45fbd9c9adf46be985
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666034"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504633"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Cree un grupo de selección de ubicación de proximidad con el portal
+# <a name="create-a-proximity-placement-group-using-the-azure-portal"></a>Creación de un grupo de selección de ubicación de proximidad mediante Azure Portal
 
 Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](../co-location.md#proximity-placement-groups).
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756065"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518745"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Supervisión y visualización de métricas y registros de ejecución de ML
 
@@ -39,7 +39,7 @@ Para obtener información general sobre cómo administrar los experimentos, cons
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Supervisar las ejecuciones con el widget de Jupyter Notebooks
 
-Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
+Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](/python/api/azureml-widgets/azureml.widgets). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
 
 Vea el widget de Jupyter mientras espera a que finalice la ejecución.
     
@@ -78,9 +78,23 @@ Cuando se usa **ScriptRunConfig**, se puede usar ```run.wait_for_completion(show
 
 <a id="queryrunmetrics"></a>
 
-## <a name="query-run-metrics"></a>Métricas de ejecución de consulta
+## <a name="view-run-metrics"></a>Visualización de métricas en ejecución
 
-Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Podría usar esto con el ejemplo anterior para determinar el mejor modelo buscando el modelo con el menor valor de error cuadrático medio (MSE).
+## <a name="via-the-sdk"></a>A través del SDK
+Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Observe el ejemplo siguiente. 
+
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
+
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
+
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -95,18 +109,6 @@ Para obtener la vista de experimentos individuales, seleccione la pestaña **Tod
 También puede editar la tabla de la lista de ejecución para seleccionar varias ejecuciones y mostrar el último valor registrado, el mínimo o el máximo para las ejecuciones. Personalice los gráficos para comparar los valores de las métricas registradas y los agregados en varias ejecuciones. 
 
 ![Detalles de la ejecución en Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Formato de los gráficos 
-
-Use los métodos siguientes en las API de registro para influir en las visualizaciones de las métricas.
-
-|Valor registrado|Ejemplo de código| Formato en el portal|
-|----|----|----|
-|Registrar una matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Gráfico de líneas de una sola variable|
-|Registrar un único valor numérico con el mismo nombre de métrica usado repetidamente (como desde dentro de un bucle)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de líneas de una sola variable|
-|Registrar una fila con dos columnas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de líneas de dos variables|
-|Registrar tabla con dos columnas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de líneas de dos variables|
-
 
 ### <a name="view-log-files-for-a-run"></a>Visualización de los archivos de registro de una ejecución 
 

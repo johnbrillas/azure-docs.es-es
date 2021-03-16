@@ -3,15 +3,15 @@ author: rothja
 ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
-ms.author: jroth
-ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.author: msangapu
+ms.openlocfilehash: bcbbd133c71b2917b73c200c4453ea57385fcaf1
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024282"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102532648"
 ---
-| Resource | Gratuito | Compartido | Básica | Estándar | Premium (v1-v3) | Aislado </th> |
+| Resource | Gratuito | Compartido | Básico | Estándar | Premium (v1-v3) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicaciones web, móviles o de API](https://azure.microsoft.com/services/app-service/) por [plan de Azure App Service](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [plan de App Service](../articles/app-service/overview-hosting-plans.md) |10 por región |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -24,7 +24,7 @@ ms.locfileid: "98024282"
 | Ancho de banda |165 MB |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitado; se aplican [tasas por transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Arquitectura de la aplicación |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets por instancia<sup>7</sup> |5 |35 |350 |Sin límite |Sin límite |Sin límite |
-| Conexiones IP | 600 | 600 | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | 16 000 |
+| Conexiones IP de salida por instancia | 600 | 600 | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | Depende del tamaño de la instancia<sup>8</sup> | 16 000 |
 | Conexiones de depurador [simultáneas](../articles/app-service/troubleshoot-dotnet-visual-studio.md) por aplicación |1 |1 |1 |5 |5 |5 |
 | Instancias de App Service Certificate por suscripción<sup>9</sup>| No compatible | No compatible |10 |10 |10 |10 |
 | Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553953"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657375"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 
@@ -144,6 +144,22 @@ Si publica una canalización, puede elegir que sea la nueva canalización predet
 También puede establecer una canalización predeterminada nueva en la pestaña **Published pipelines** (Canalizaciones publicadas) del punto de conexión.
 
 ![Establecer la canalización predeterminada en la página de canalizaciones publicadas](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+
+## <a name="limitations"></a>Limitaciones
+
+Si realiza cualquier modificación en la canalización de entrenamiento, debe volver a enviarla, **actualizar** la canalización de inferencia y volver a ejecutar esta última canalización.
+
+Tenga en cuenta que en la canalización de inferencia solo se actualizarán los modelos, la transformación de datos no se actualizará.
+
+Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del módulo de transformación como conjunto de datos.
+
+![Captura de pantalla en la que se muestra cómo registrar un conjunto de datos de transformación](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Luego, reemplace de forma manual el módulo **TD-** en la canalización de inferencia con el conjunto de datos registrado.
+
+![Captura de pantalla que muestra cómo reemplazar el módulo de la transformación](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+A continuación, puede enviar la canalización de inferencia con el modelo y la transformación actualizados y publicarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

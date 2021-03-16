@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9989c6ea6b75203d43c37854caef7fdcbc321779
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710573"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519034"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -24,7 +24,7 @@ El contenedor de análisis espacial permite analizar vídeo en streaming en tiem
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
-* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="cree un recurso de Computer Vision"  target="_blank">creación de un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> para el nivel Estándar S1 en Azure Portal con el fin de obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="cree un recurso de Computer Vision"  target="_blank">creación de un recurso de Computer Vision </a> para el nivel Estándar S1 en Azure Portal con el fin de obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que se crea para ejecutar el contenedor de análisis espacial. Los usará más adelante.
 
 
@@ -137,7 +137,7 @@ Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, es
 3. Asigne una variable a la dirección IP del dispositivo. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. Para agregar la dirección IP del dispositivo a la lista de hosts de confianza del cliente, use el comando siguiente: 
@@ -255,13 +255,22 @@ Use la CLI de Azure para crear una instancia de Azure IoT Hub. Reemplace los par
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Consulte [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) para ver las regiones disponibles.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Necesitará instalar [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md), versión 1.0.9. Siga estos pasos para descargar la versión correcta:
@@ -280,6 +289,8 @@ Instale la clave pública de GPG de Microsoft.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -406,13 +417,22 @@ Use la CLI de Azure para crear una instancia de Azure IoT Hub. Reemplace los par
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+Consulte [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) para ver las regiones disponibles.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 Necesitará instalar [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md), versión 1.0.9. Siga estos pasos para descargar la versión correcta:
@@ -431,6 +451,8 @@ Instale la clave pública de GPG de Microsoft.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -497,7 +519,7 @@ Una vez que actualice el manifiesto de implementación para los [dispositivos Az
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |Parámetro  |Descripción  |

@@ -4,12 +4,12 @@ description: Aprenda a crear una función de JavaScript desde la línea de coman
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b14b7d9f97be12a73ffcb2416a00cd4a51bca5f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c9810b1eb9e5f6bc65843d65f2f2452eac1be703
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937253"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447323"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de JavaScript en Azure desde la línea de comandos
 
@@ -96,7 +96,7 @@ Si lo desea, puede ir a [Ejecución local de la función](#run-the-function-loca
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Con un desencadenador HTTP, la función recibe datos de solicitud en la variable `req`, como se define en *function.json*. El objeto devuelto, definido como `$return` en *function.json*, es la respuesta. Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
+Con un desencadenador HTTP, la función recibe datos de solicitud en la variable `req`, como se define en *function.json*. La respuesta se define como `res` en *function.json* y se puede acceder a ella mediante `context.res`. Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### <a name="functionjson"></a>function.json
 

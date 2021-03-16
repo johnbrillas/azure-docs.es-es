@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872016"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503596"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
-Azure Machine Learning facilita la conexión con los datos en la nube.  Proporciona una capa de abstracción en el servicio de almacenamiento subyacente, por lo que puede acceder de forma segura a los datos y trabajar con ellos sin tener que escribir código específico para su tipo de almacenamiento. Azure Machine Learning también ofrece las siguientes funcionalidades de datos:
+Azure Machine Learning facilita la conexión con los datos en la nube. Proporciona una capa de abstracción en el servicio de almacenamiento subyacente, por lo que puede acceder de forma segura a los datos y trabajar con ellos sin tener que escribir código específico para su tipo de almacenamiento. Azure Machine Learning también ofrece las siguientes funcionalidades de datos:
 
 *    Interoperabilidad con DataFrames de Pandas y Spark
 *    Control de versiones y seguimiento del linaje de datos
@@ -53,7 +53,7 @@ En el siguiente diagrama se ofrece una demostración visual de este flujo de tra
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Conexión al almacenamiento con almacenes de datos
 
-Los almacenes de datos de Azure Machine Learning conservan de forma segura la información de conexión en Azure Storage, por lo que no tiene que codificarla en los scripts. [Registre y cree un almacén de datos](how-to-access-data.md) para conectarse fácilmente a su cuenta de almacenamiento y acceder a los datos del servicio de almacenamiento de Azure subyacente. 
+Los almacenes de datos de Azure Machine Learning conservan de forma segura la información de conexión en el almacenamiento de datos de Azure, por lo que no tiene que codificarla en los scripts. [Registre y cree un almacén de datos](how-to-access-data.md) para conectarse fácilmente a la cuenta de almacenamiento y acceder a los datos del servicio de almacenamiento subyacente. 
 
 A continuación se indican los servicios de almacenamiento basados en la nube de Azure que se pueden registrar como almacenes de datos:
 
@@ -65,6 +65,9 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL
+
+>[!TIP]
+> La funcionalidad disponible con carácter general para crear almacenes de datos requiere la autenticación basada en credenciales para acceder a los servicios de almacenamiento, como una entidad de servicio o un token de firma de acceso compartido (SAS). Los usuarios que tienen acceso de *Lector* en el área de trabajo pueden acceder a estas credenciales. <br><br>Si esto supone un problema, [cree un almacén de datos que use el acceso a datos basado en identidad para los servicios de almacenamiento (versión preliminar)](how-to-identity-based-data-access.md). Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Datos de referencia en el almacenamiento con conjuntos de datos
@@ -83,9 +86,9 @@ Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones
 
 Hay 2 tipos de conjuntos de datos: 
 
-+ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
++ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
 
-+ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 En la siguiente documentación se pueden encontrar funcionalidades adicionales de los conjuntos de datos:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349912"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218526"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configuración de DocuSign para el aprovisionamiento automático de usuarios
 
@@ -97,7 +97,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="troubleshooting-tips"></a>Sugerencias para la solución de problemas
 * El aprovisionamiento de un rol o perfil de permiso para un usuario de Docusign se puede realizar mediante una expresión en las asignaciones de atributos con las funciones [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) y [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Por ejemplo, la expresión siguiente aprovisionará el identificador "8032066" cuando un usuario tenga el rol "Administrador de DS" asignado en Azure AD. No se aprovisionará ningún perfil de permiso si el usuario no tiene asignado un rol en Azure AD. El identificador se puede recuperar en el portal de [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
 
-Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "DS Admin", "8032066")
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

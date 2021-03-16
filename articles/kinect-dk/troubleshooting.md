@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: solución de problemas, actualización, error, Kinect, comentarios, recuperación, registro, sugerencias
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587288"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038827"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conocidos y solución de problemas de Azure Kinect
 
@@ -174,6 +174,10 @@ El motor de profundidad de Azure Kinect en Linux usa OpenGL. OpenGL necesita una
 2. Apague el sistema, desconecte el monitor y encienda el sistema. El inicio de sesión automático fuerza la creación de una sesión x-server.
 2. Conéctese mediante SSH y establezca la variable DISPLAY env `export DISPLAY=:0`
 3. Inicie la aplicación Azure Kinect.
+
+La utilidad [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) se puede usar para bloquear inmediatamente la pantalla después del inicio de sesión automático. Agregue el siguiente comando a la aplicación de inicio o al servicio systemd:
+
+`bash -c “xtrlock -b”` 
 
 ## <a name="missing-c-documentation"></a>Falta documentación de C#
 

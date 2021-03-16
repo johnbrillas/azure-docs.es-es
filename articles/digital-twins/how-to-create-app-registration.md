@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f252471cd3cd7e3a950bf2cfe324e580da129041
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209328"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051028"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creación de un registro de aplicaciones para usar con Azure Digital Twins
 
-Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o la aplicación de ejemplo [ADT Explorer](quickstart-adt-explorer.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Al trabajar con una instancia de Azure Digital Twins, es habitual interactuar con esa instancia mediante aplicaciones cliente, como una aplicación cliente personalizada o la aplicación de ejemplo [Azure Digital Twins Explorer](quickstart-adt-explorer.md). Dichas aplicaciones deben autenticarse con Azure Digital Twins para interactuar con él, y algunos de los [mecanismos de autenticación](how-to-authenticate-client.md) que las aplicaciones pueden usar conllevan un **registro de aplicaciones** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
-Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si va a usar una estrategia de autenticación o un ejemplo de código que requiera un registro de aplicaciones, como un **identificador de cliente** y un **identificador de inquilino** , en este artículo se muestra cómo configurar uno.
+Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si va a usar una estrategia de autenticación o un ejemplo de código que requiera un registro de aplicaciones, como un **identificador de cliente** y un **identificador de inquilino**, en este artículo se muestra cómo configurar uno.
 
 ## <a name="using-azure-ad-app-registrations"></a>Uso de registros de aplicaciones de Azure AD
 
@@ -27,7 +27,7 @@ Esto no es necesario en todos los escenarios de autenticación. Sin embargo, si 
 Este registro de la aplicación es donde se configuran los permisos de acceso a las [API de Azure Digital Twins](how-to-use-apis-sdks.md). Más tarde, las aplicaciones cliente se pueden autenticar en el registro de aplicaciones con los **valores de identificador de cliente y de inquilino** y, como resultado, que se le concedan permisos de acceso a las API.
 
 >[!TIP]
-> Es posible que prefiera configurar un nuevo registro de aplicaciones cada vez que lo necesite, *o* , hacer esto solo una vez, y establecer un solo registro de aplicaciones que se compartirá entre todos los escenarios que lo requieran.
+> Es posible que prefiera configurar un nuevo registro de aplicaciones cada vez que lo necesite, *o*, hacer esto solo una vez, y establecer un solo registro de aplicaciones que se compartirá entre todos los escenarios que lo requieran.
 
 ## <a name="create-the-registration"></a>Creación del registro
 
@@ -36,9 +36,9 @@ Empiece por ir a [Azure Active Directory](https://portal.azure.com/#blade/Micr
 :::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Vista de la página del servicio de Azure AD en Azure Portal que resalta la opción del menú Registros de aplicaciones y el botón + Nuevo registro":::
 
 En la página *Registrar una aplicación* que sigue, rellene los valores solicitados:
-* **Name** : nombre para mostrar de una aplicación de Azure AD para asociar al registro.
-* **Tipos de cuenta admitidos** : seleccione *Cuentas de este directorio organizativo solo (Solo directorio predeterminado: inquilino único)*
-* **URI de redirección** : *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Agregue un URI *Cliente público o nativo (móvil o escritorio)* para `http://localhost`.
+* **Name**: nombre para mostrar de una aplicación de Azure AD para asociar al registro.
+* **Tipos de cuenta admitidos**: seleccione *Cuentas de este directorio organizativo solo (Solo directorio predeterminado: inquilino único)*
+* **URI de redirección**: *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Agregue un URI *Cliente público o nativo (móvil o escritorio)* para `http://localhost`.
 
 Cuando termine, pulse el botón *Registrarse*.
 
@@ -52,7 +52,7 @@ A continuación, recopile algunos valores importantes sobre el registro de la ap
 
 :::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Vista del portal de los valores importantes para el registro de la aplicación":::
 
-Anote el _**identificador de aplicación (cliente)**_ y el _**identificador de directorio (inquilino)**_ , como se muestra en **su** página. Estos son los valores que necesitará una aplicación cliente para usar este registro para autenticarse con Azure Digital Twins.
+Anote el _**identificador de aplicación (cliente)**_ y el _**identificador de directorio (inquilino)**_, como se muestra en **su** página. Estos son los valores que necesitará una aplicación cliente para usar este registro para autenticarse con Azure Digital Twins.
 
 ## <a name="provide-azure-digital-twins-api-permission"></a>Concesión del permiso de API de Azure Digital Twins
 
@@ -78,7 +78,7 @@ Cuando termine, pulse *Agregar permisos*.
 
 ### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
 
-En la página *Permisos de API* , compruebe que haya ahora una entrada para Azure Digital Twins que refleje los permisos de lectura y escritura:
+En la página *Permisos de API*, compruebe que haya ahora una entrada para Azure Digital Twins que refleje los permisos de lectura y escritura:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra &quot;Acceso de lectura y escritura&quot; para Azure Digital Twins":::
 

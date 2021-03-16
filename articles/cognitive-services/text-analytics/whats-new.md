@@ -8,19 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736650"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="february-2021"></a>Febrero de 2021
+
+* La versión del modelo `2021-01-15` del punto de conexión PII en [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, que proporciona: 
+  * Compatibilidad ampliada con 9 idiomas nuevos
+  * Calidad de inteligencia artificial mejorada de las categorías de entidades con nombre para todos los idiomas admitidos.
+* Los planes de tarifa de S0 a S4 se retiran el 8 de marzo de 2021. Si tiene un recurso de Text Analytics existente que usa el plan de tarifa S0 a S4, debe actualizarlo para que use el [plan de tarifa](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier) Estándar.
+* El [contenedor de Detección de idioma](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) tiene ya disponibilidad general.
+* Se está retirando la versión 2.1 de la API. 
 
 ## <a name="january-2021"></a>Enero de 2021
 
