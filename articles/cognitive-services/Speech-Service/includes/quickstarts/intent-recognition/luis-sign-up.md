@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: a41c9dc888e85baf021712e3302da7ae6106db47
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 42dc7eb1a74bf2e376f834ee3198ad6a492226e9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81421839"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444481"
 ---
 Para completar el inicio rápido de reconocimiento de la intención, deberá crear una cuenta de LUIS y un proyecto mediante el portal de la versión preliminar de LUIS. Este inicio rápido solo requiere una suscripción a LUIS. *No* se requiere una suscripción al servicio de voz.
 
@@ -18,7 +18,7 @@ Lo primero que debe hacer es crear una cuenta y una aplicación de LUIS mediante
 
 Siga estas instrucciones para crear una aplicación de LUIS:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Inicio rápido: Compilación de una aplicación de un dominio creado previamente<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Inicio rápido: Compilación de una aplicación de un dominio creado previamente</a>
 
 Cuando haya terminado, necesitará cuatro cosas:
 
@@ -39,7 +39,7 @@ Aquí es donde puede encontrar esta información en el [portal de vista previa d
     > [!div class="mx-imgBorder"]
     > ![Publicación de LUIS en el punto de conexión](../../../media/luis/publish-app-popup.png)
 
-3. En el portal de vista previa de LUIS, seleccione **Administrar**y, después, seleccione **Recursos de Azure**. En esta página, encontrará la clave y la ubicación de LUIS (que a veces se denomina _región_).
+3. En el portal de vista previa de LUIS, seleccione **Administrar** y, después, seleccione **Recursos de Azure**. En esta página, encontrará la clave y la ubicación de LUIS (que a veces se denomina _región_).
 
    > [!div class="mx-imgBorder"]
    > ![Clave y ubicación de LUIS](../../../media/luis/luis-key-region.png)

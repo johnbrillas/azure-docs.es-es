@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 8e97fe287335837ad79e6446bb7abf196cda6f75
-  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+  ms.openlocfilehash: be3cbee5bee706bc10036349950c3b128d007a34
+  ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/03/2021
-  ms.locfileid: "99508123"
+  ms.lasthandoff: 03/13/2021
+  ms.locfileid: "103419633"
 highlightedContent:
   items:
   - title: ¿Qué es Speech Service?
@@ -44,7 +44,7 @@ conceptualContent:
       text: Introducción a la conversión de voz a texto
       url: get-started-speech-to-text.md
     - itemType: overview
-      text: Acerca Habla personalizada
+      text: Mejora de la precisión con Habla personalizada
       url: custom-speech-overview.md
     footerLink:
       text: Más
@@ -60,6 +60,12 @@ conceptualContent:
     - itemType: how-to-guide
       text: Mejora de síntesis con SSML
       url: speech-synthesis-markup.md
+    - itemType: overview
+      text: Creación de una voz personalizada
+      url: custom-neural-voice.md
+    - itemType: how-to-guide
+      text: Haga que la conversión de texto a voz sea natural
+      url: how-to-audio-content-creation.md
     footerLink:
       text: Más
       url: index-text-to-speech.yml
@@ -74,20 +80,6 @@ conceptualContent:
     footerLink:
       text: Más
       url: index-speech-translation.yml
-  - title: Reconocimiento de la intención
-    links:
-    - itemType: quickstart
-      text: Reconocimiento de voz, intenciones y entidades
-      url: quickstarts/intent-recognition.md
-    - itemType: how-to-guide
-      text: Reconocimiento de las intenciones de voz con LUIS y C#
-      url: how-to-recognize-intents-from-speech-csharp.md
-    - itemType: reference
-      text: Portal de Language Understanding (LUIS)
-      url: https://www.luis.ai
-    footerLink:
-      text: Más
-      url: index-intent-recognition.yml
   - title: Speaker Recognition
     links:
     - itemType: overview
@@ -107,6 +99,20 @@ conceptualContent:
     - itemType: quickstart
       text: Introducción a Palabra clave personalizada
       url: custom-keyword-basics.md
+  - title: Reconocimiento de la intención
+    links:
+    - itemType: quickstart
+      text: Reconocimiento de voz, intenciones y entidades
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: Reconocimiento de las intenciones de voz con LUIS y C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: Portal de Language Understanding (LUIS)
+      url: https://www.luis.ai
+    footerLink:
+      text: Más
+      url: index-intent-recognition.yml
   - title: Profundización en el escenario
     links:
     - itemType: overview

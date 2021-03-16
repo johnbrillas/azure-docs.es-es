@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738232"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487107"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Actualización de la versión preliminar pública de Computer Vision 3.2
+
+Se ha actualizado la versión preliminar pública de Computer Vision API v3.2. La versión preliminar tiene todas las características Computer Vision y, además, Read API y Analyze API.
+
+> [!div class="nextstepaction"]
+> [Consulte la versión preliminar pública 3 de Computer Vision v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -34,7 +43,7 @@ La versión preliminar pública de Read API v3.2 de Computer Vision, disponible
 [Más información](concept-recognizing-text.md) acerca de Read API.
 
 > [!div class="nextstepaction"]
-> [Use la versión preliminar pública de Read API v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Use la versión preliminar pública de Read API v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Enero de 2021

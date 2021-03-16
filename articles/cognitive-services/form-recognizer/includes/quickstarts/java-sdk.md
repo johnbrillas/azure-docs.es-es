@@ -2,21 +2,25 @@
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para Java'
 description: Use la biblioteca cliente de Form Recognizer para Java con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 02/12/2021
 ms.custom: devx-track-java
-ms.author: pafarley
-ms.openlocfilehash: 4f48416153f5a378f9e4eff84802519250488301
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: 2e52bc8e6e41165da2f274d3613337fe603ccc39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584659"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445228"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
 
@@ -27,11 +31,10 @@ ms.locfileid: "99584659"
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * La última versión de [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * La [herramienta de compilación de Gradle](https://gradle.org/install/) u otro administrador de dependencias.
-* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
-    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
-    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource </a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+  * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+  * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 * Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*).
-
 
 ## <a name="setting-up"></a>Instalación
 
@@ -51,34 +54,14 @@ gradle init --type basic
 
 Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
 
-
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
 En este inicio rápido se usa el administrador de dependencias Gradle. Puede encontrar la biblioteca de cliente y la información de otros administradores de dependencias en el [repositorio central de Maven](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
 En el archivo *build.gradle.kts* del proyecto, incluya la biblioteca cliente como una instrucción `implementation`, junto con los complementos y la configuración necesarios.
 
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-```kotlin
-plugins {
-    java
-    application
-}
-application {
-    mainClass.set("FormRecognizer")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
-}
-```
+#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
 
-> [!NOTE]
-> El SDK de Form Recognizer 3.0.0 refleja la versión 2.0 de la API.
-
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
 ```kotlin
 plugins {
     java
@@ -97,6 +80,27 @@ dependencies {
 
 > [!NOTE]
 > El SDK de Form Recognizer 3.1.0 refleja la versión preliminar 2.1 de la API.
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
+}
+```
+
+> [!NOTE]
+> El SDK de Form Recognizer 3.0.0 refleja la versión 2.0 de la API.
 
 ---
 
@@ -133,40 +137,41 @@ En el método **main** de la aplicación, agregue llamadas para los métodos que
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 * Para obtener una dirección URL de un formulario para prueba, puede usar los pasos anteriores para obtener la dirección URL de SAS de un documento del almacenamiento de blobs. También puede tomar la dirección URL de un documento situado en otro lugar.
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo.
+<!-- markdownlint-disable MD024 -->
+#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
 
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
+
 ---
 
+## <a name="object-model"></a>Modelo de objetos
 
-
-## <a name="object-model"></a>Modelo de objetos 
-
-Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar los modelos personalizados que puede usar para mejorar el reconocimiento. 
+Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar los modelos personalizados que puede usar para mejorar el reconocimiento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
 `FormRecognizerClient` proporciona operaciones para:
 
-- Reconocimiento de los campos de formulario y del contenido, mediante el uso de modelos personalizados entrenados para analizar los formularios personalizados.  Estos valores se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Análisis de formularios personalizados](#analyze-forms-with-a-custom-model).
-- El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo.  El contenido del formulario se devuelve en una colección de objetos `FormPage`. Consulte el ejemplo [Análisis de diseño](#analyze-layout).
-- Reconocimiento de los campos comunes de los recibos de EE. UU. con un modelo de recibo entrenado previamente en el servicio Form Recognizer.  Estos campos y metadatos se devuelven en una colección de objetos `RecognizedForm`. Consulte el ejemplo [Análisis de confirmaciones de recepción](#analyze-receipts).
+* Reconocimiento de los campos de formulario y del contenido, mediante el uso de modelos personalizados entrenados para analizar los formularios personalizados.  Estos valores se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Análisis de formularios personalizados](#analyze-forms-with-a-custom-model).
+* El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo.  El contenido del formulario se devuelve en una colección de objetos `FormPage`. Consulte el ejemplo [Análisis de diseño](#analyze-layout).
+* Reconocimiento de los campos comunes de los recibos de EE. UU. con un modelo de recibo entrenado previamente en el servicio Form Recognizer.  Estos campos y metadatos se devuelven en una colección de objetos `RecognizedForm`. Consulte el ejemplo [Análisis de confirmaciones de recepción](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
 `FormTrainingClient` proporciona operaciones para:
 
-- El entrenamiento de modelos personalizados para analizar todos los campos y los valores que se encuentren en los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo analizará y los campos que se extraerán para cada tipo de formulario.
-- El entrenamiento de modelos personalizados para analizar los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los campos que el modelo va a extraer, así como la precisión estimada para cada campo.
-- La administración de los modelos creados en una cuenta.
-- La copia de un modelo personalizado entre recursos de Form Recognizer.
+* El entrenamiento de modelos personalizados para analizar todos los campos y los valores que se encuentren en los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo analizará y los campos que se extraerán para cada tipo de formulario.
+* El entrenamiento de modelos personalizados para analizar los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los campos que el modelo va a extraer, así como la precisión estimada para cada campo.
+* La administración de los modelos creados en una cuenta.
+* La copia de un modelo personalizado entre recursos de Form Recognizer.
 
 > [!NOTE]
 > Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../quickstarts/label-tool.md).
@@ -174,15 +179,9 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 ## <a name="code-examples"></a>Ejemplos de código
 
 Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para Java:
+<!-- markdownlint-disable MD001 -->
+#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
 
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-* [Autenticar el cliente](#authenticate-the-client)
-* [Análisis de diseño](#analyze-layout)
-* [Análisis de las confirmaciones de recepción](#analyze-receipts)
-* [Entrenar un modelo personalizado](#train-a-custom-model)
-* [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Administrar modelos personalizados](#manage-your-custom-models)
-#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de diseño](#analyze-layout)
 * [Análisis de las confirmaciones de recepción](#analyze-receipts)
@@ -191,6 +190,16 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+* [Autenticar el cliente](#authenticate-the-client)
+* [Análisis de diseño](#analyze-layout)
+* [Análisis de las confirmaciones de recepción](#analyze-receipts)
+* [Entrenar un modelo personalizado](#train-a-custom-model)
+* [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Administrar modelos personalizados](#manage-your-custom-models)
+
 
 ---
 
@@ -233,15 +242,9 @@ Cell has text $89,024.34.
 Cell has text ET.
 ```
 
-
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Esta característica no está disponible en la versión de API seleccionada.
-
-#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
+#### <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/preview)
 
 En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
 
@@ -250,11 +253,16 @@ Para analizar facturas de una dirección URL, use el método `beginRecognizeInvo
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
-> También puede analizar facturas locales. Consulte los métodos [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), como **beginRecognizeInvoices**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
+> También puede analizar facturas locales. Consulte los métodos [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeInvoices**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
 
 El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada factura del documento. En el código siguiente se procesa la factura en el identificador URI especificado y se imprimen los campos y valores principales en la consola.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
 
 ---
 
@@ -270,7 +278,6 @@ En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un m
 Entrene modelos personalizados para analizar todos los campos y valores que se encuentran en los formularios personalizados sin etiquetar manualmente los documentos de entrenamiento.
 
 El método siguiente entrena un modelo en un conjunto de documentos dado e imprime el estado del modelo en la consola. 
-
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
 
@@ -378,7 +385,7 @@ Para analizar los recibos a partir de un URI, use el método **beginRecognizeRec
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
 
 El valor devuelto es una colección de objetos **RecognizedReceipt**, uno para cada página del documento enviado. El siguiente bloque de código recorre en iteración los recibos e imprime los detalles en la consola.
 
@@ -407,12 +414,7 @@ Total Price: null, confidence: 0.93
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Esta característica no está disponible en la versión de API seleccionada.
-
-#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
+#### <a name="v21-preview"></a>[versión preliminar v2.1](#tab/preview)
 
 En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
 
@@ -421,11 +423,16 @@ Para analizar tarjetas de presentación en una dirección URL, use el método `b
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
 > [!TIP]
-> También puede analizar imágenes de tarjeta de presentación locales. Consulte los métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), como **beginRecognizeBusinessCards**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de tarjeta de presentación locales. Consulte los métodos de [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), como **beginRecognizeBusinessCards**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para escenarios relacionados con imágenes locales.
 
 El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada tarjeta del documento. En el código siguiente se procesa la tarjeta de presentación en el identificador URI dado y se imprimen los campos y valores principales en la consola.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
 
 ---
 
@@ -443,7 +450,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
 
-#### <a name="output"></a>Output 
+#### <a name="output"></a>Resultados 
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -481,8 +488,6 @@ Field Accuracy: 1.00
 También puede eliminar un modelo de su cuenta haciendo referencia a su identificador.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_delete)]
-
-
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 

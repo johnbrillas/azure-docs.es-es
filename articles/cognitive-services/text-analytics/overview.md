@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563235"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722286"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
 Text Analytics API es un servicio basado en la nube que proporciona características de procesamiento de lenguaje natural (NLP) para minería de texto y análisis de texto, incluidos: análisis de sentimiento, minería de opiniones, detección de idiomas y reconocimiento de entidades con nombre.
 
-La API forma parte de [Azure Cognitive Services](../index.yml), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo. Puede usar estas características con la [API de REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [biblioteca cliente](quickstarts/client-libraries-rest-api.md).
+La API forma parte de [Azure Cognitive Services](../index.yml), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo. Puede usar estas características con la API de REST [versión 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) o [versión 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/), o la [biblioteca de cliente](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
