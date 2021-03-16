@@ -32,14 +32,16 @@
       href: Concepts/data-sources-and-content.md
     - name: Control de acceso basado en roles de Azure (RBAC de Azure)
       href: Concepts/role-based-access-control.md
+    - name: Respuestas precisas
+      href: reference-precise-answering.md
+    - name: Activación del aprendizaje activo
+      href: How-To/use-active-learning.md
     - name: Proceso del clasificador
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
     - name: Ciclo de vida del desarrollo
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: 'version control, test, index, publish, monitor usage, create'
-    - name: Respuestas precisas
-      href: reference-precise-answering.md
     - name: Procedimientos recomendados
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -67,7 +69,7 @@
         - name: Migración a una nueva base de conocimiento
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Prueba
+        - name: Base de conocimiento de prueba
           href: How-To/test-knowledge-base.md
     - name: Administración de pares de QnA
       items:
@@ -87,13 +89,9 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: Filtrado de QnA por metadatos
           href: How-To/query-knowledge-base-with-metadata.md
-    - name: Configuración del aprendizaje activo para mejorar knowledge base
-      items:
-        - name: Activación del aprendizaje activo
-          href: How-To/use-active-learning.md
-        - name: Obtención de sugerencias de preguntas alternativas
-          href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
+    - name: Obtención de preguntas alternativas sugeridas a través del aprendizaje activo
+      href: How-to/improve-knowledge-base.md
+      displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Análisis y telemetría
       href: How-To/get-analytics-knowledge-base.md
 - name: Referencia

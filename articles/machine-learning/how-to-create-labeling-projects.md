@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097546"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656829"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -107,12 +107,9 @@ Si planea agregar nuevas imágenes al conjunto de datos, utilice la actualizaci�
 
 Para agregar más imágenes al proyecto, use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargarlas en la carpeta adecuada del almacenamiento de blobs. 
 
-Active la casilla **Habilitar la actualización incremental** cuando desee que el proyecto supervise continuamente los nuevos datos en el almacén de datos. Estos datos se extraerán en el proyecto una vez al día cuando se habiliten.
+Active la casilla **Habilitar la actualización incremental** cuando desee que el proyecto supervise continuamente los nuevos datos en el almacén de datos. Estos datos se extraerán en el proyecto una vez día, cuando se habilita, por lo que tras agregar nuevos datos al almacén de datos tendrá que esperar un tiempo para que se muestren en el proyecto.  Puede ver una marca de tiempo de la última vez que se actualizaron los datos vez en la sección **Actualización incremental** de la pestaña **Detalles** del proyecto.
 
 Anule la selección de esta casilla si no desea que las imágenes nuevas que aparecen en el almacén de datos se agreguen a su proyecto.
-
-Puede encontrar la marca de tiempo de la última actualización en la sección **Actualización incremental** de la pestaña **Detalles** del proyecto.
-
 
 ## <a name="specify-label-classes"></a>Especificación de clases de etiquetas
 
