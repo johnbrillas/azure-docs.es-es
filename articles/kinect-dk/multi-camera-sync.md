@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, especificaciones, hardware, DK, funcionalidades, profundidad, color, RGB, IMU, micrófono, matriz, profundidad
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039961"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronización de varios dispositivos de Azure Kinect DK
 
@@ -36,6 +36,9 @@ Hay muchos motivos para usar varios dispositivos de Azure Kinect DK, entre los q
 ## <a name="plan-your-multi-device-configuration"></a>Planeación de la configuración de varios dispositivos
 
 Antes de empezar, asegúrese de revisar [Especificaciones de hardware de Azure Kinect DK](hardware-specification.md) y [Cámara de profundidad de Azure Kinect DK](depth-camera.md).
+
+> [!NOTE]  
+> Quite la tapa de plástico externa para quedar expuestos los conectores de entrada y salida de sincronización.
 
 ### <a name="select-a-device-configuration"></a>Selección de una configuración de dispositivo
 
@@ -63,6 +66,9 @@ El origen del desencadenador debe enviar la señal al puerto **Sync in** del dis
 ![Configuraciones de cable para una señal de desencadenador externa](./media/resources/camera-trigger-signal.jpg)
 
 Para obtener más información sobre cómo trabajar con equipos externos, consulte [Uso de la grabadora de Azure Kinect con dispositivos sincronizados externos](record-external-synchronized-units.md).
+
+> [!NOTE]  
+> La salida de sincronización es la señal VSync de la cámara RGB. Las marcas de tiempo de todos los dispositivos se establecen en cero y en recuento. Microsoft no ha caracterizado el ancho mínimo y máximo del pulso de sincronización y recomienda imitar el pulso generado por la salida de sincronización de Azure Kinect DK.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Planeación de la configuración de la cámara y configuración del software
 

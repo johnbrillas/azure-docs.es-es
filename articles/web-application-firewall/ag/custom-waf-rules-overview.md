@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81383808"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548230"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Personalización de reglas del Firewall de aplicaciones web v2 en Azure Application Gateway
 
@@ -26,7 +26,7 @@ Las reglas personalizadas admiten el uso de lógica de composición para crear r
 
 En una misma regla, las condiciones de coincidencia diferentes siempre se combinan mediante **y**. Por ejemplo, bloquear el tráfico desde una dirección IP específica, y solo si se usa un explorador determinado.
 
-Si quiere aplicar **o** a dos condiciones diferentes, las dos deben estar en reglas distintas. Por ejemplo, bloquear el tráfico desde una dirección IP específica o bloquear el tráfico si se usa un explorador determinado.
+Si quiere usar **o** entre dos condiciones diferentes, las dos deben estar en reglas distintas. Por ejemplo, bloquear el tráfico desde una dirección IP específica o bloquear el tráfico si se usa un explorador determinado.
 
 > [!NOTE]
 > El número máximo de reglas personalizadas de WAF es 100. Para más información sobre los límites de Application Gateway, vea [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
@@ -73,7 +73,7 @@ La regla `$BlockRule` anterior se asigna a la siguiente regla personalizada en A
               }
             ],
             "operator": "Contains",
-            "negationConditon": false,
+            "negationCondition": false,
             "matchValues": [
               "evilbot"
             ],

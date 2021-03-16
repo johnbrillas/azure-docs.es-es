@@ -5,12 +5,12 @@ description: Aprenda a crear y usar un equilibrador de carga interno para expone
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c2c0866aa9a721a73e1eb8fa230f0022cf6b8ca
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285890"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505637"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
 
@@ -23,11 +23,11 @@ Para restringir el acceso a las aplicaciones en Azure Kubernetes Service (AKS), 
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
-Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. Para más información, vea [Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)][use-kubenet] o [Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)][advanced-networking]. Si va a configurar el equilibrador de carga para usar una [dirección IP en una subred diferente][different-subnet], asegúrese de que la entidad de servicio del clúster de AKS también tenga acceso de lectura a esa subred.
+Si usa una subred o un grupo de recursos existentes, la identidad de clúster de AKS necesita permiso para administrar los recursos de red. Para más información, vea [Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)][use-kubenet] o [Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)][advanced-networking]. Si va a configurar el equilibrador de carga para usar una [dirección IP en una subred diferente][different-subnet], asegúrese de que la identidad de clúster de AKS también tenga acceso de lectura a esa subred.
 
-En lugar de una entidad de servicio, también puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md). Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
+Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creación de un conjunto de equilibrador de carga interno
 
@@ -110,7 +110,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Es posible que tenga que conceder a la entidad de servicio del clúster de AKS la función *Colaborador de red* al grupo de recursos en el que están implementados los recursos de la red virtual de Azure. Consulte la entidad de servicio con [az aks show][az-aks-show], como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para crear una asignación de roles, use el comando [az role assignment create][az-role-assignment-create].
+> Es posible que tenga que conceder a la identidad de clúster de AKS el rol *Colaborador de la red* para el grupo de recursos en el que están implementados los recursos de la red virtual de Azure. Consulte la identidad de clúster con [az aks show][az-aks-show], como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. Para crear una asignación de roles, use el comando [az role assignment create][az-role-assignment-create].
 
 ## <a name="specify-a-different-subnet"></a>Especificación de una subred diferente
 

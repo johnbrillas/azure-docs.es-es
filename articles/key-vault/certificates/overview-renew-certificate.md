@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287681"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487192"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
@@ -73,7 +73,10 @@ Para más información sobre la creación de un CSR, consulte [Creación y Combi
 Azure Key Vault también administra la renovación automática de certificados autofirmados. Para más información sobre el cambio de la directiva de emisión y la actualización de los atributos del ciclo de vida de un certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Solución de problemas
-Si el certificado emitido se encuentra en el estado *deshabilitado* en Azure Portal, vaya a **Operación de certificados** y revise el mensaje de error de ese certificado.
+* Si el certificado emitido se encuentra en el estado *deshabilitado* en Azure Portal, vaya a **Operación de certificados** y revise el mensaje de error de ese certificado.
+* Tipo de error: "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR." (El CSR usado para obtener el certificado ya se ha usado. Intente generar un nuevo certificado con un nuevo CSR).
+  Vaya a la sección "Directiva avanzada" del certificado y compruebe si la opción **reuse key on renewal** (usar clave al renovar) está desactivada.
+
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

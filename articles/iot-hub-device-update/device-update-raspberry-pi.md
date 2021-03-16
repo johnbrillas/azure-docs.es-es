@@ -1,17 +1,17 @@
 ---
 title: Tutorial de Device Update para Azure IoT Hub con la imagen de referencia de Yocto para Raspberry Pi 3 B+ | Microsoft Docs
 description: Introducción a Device Update para Azure IoT Hub con la imagen de referencia de Yocto para Raspberry Pi 3 B+.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: bb992e4f33cc833411e7cce560f71adf1dc72076
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca689df97e7268a5c0f7c0479e6514b98ffda9f2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659025"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443461"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Acceso a IoT Hub. Se recomienda usar el nivel S1 (Estándar) o superior.
 
 ## <a name="download-image"></a>Descarga de la imagen
@@ -143,13 +143,11 @@ Use ese número de versión en el paso Importación de la actualización que apa
 
 ## <a name="import-update"></a>Importación de actualización
 
-1. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
-
-2. Seleccione la pestaña Actualizaciones.
-
-3. Seleccione "+ Import New Update" (Importar nueva actualización).
-
-4. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que descargó anteriormente. Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el archivo de actualización del manifiesto APT que descargó anteriormente.
+1. Cree un manifiesto de importación siguiendo estas [instrucciones](import-update.md).
+2. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
+3. Seleccione la pestaña Actualizaciones.
+4. Seleccione "+ Import New Update" (Importar nueva actualización).
+5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que creó anteriormente.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el archivo de actualización que quiere implementar en los dispositivos IoT.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de pantalla que muestra la selección del archivo de actualización." lightbox="media/import-update/select-update-files.png":::
 

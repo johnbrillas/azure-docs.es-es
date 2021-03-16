@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039842"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437168"
 ---
 # <a name="what-is-azure-route-server-preview"></a>¿Qué es Azure Route Server (versión preliminar)? 
 
@@ -37,7 +37,7 @@ Azure Route Server simplifica la configuración, la administración y la impleme
 
 * Ya no es necesario actualizar manualmente las [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) cada vez que la NVA anuncie nuevas rutas o retire las anteriores. 
 
-* Ya no es necesario configurar un equilibrador de carga delante de la NVA con fines de resistencia o rendimiento. Al emparejar varias instancias de la NVA con Azure Route Server, puede configurar los atributos de BGP en la NVA. Estos atributos de BGP permitirán saber a Azure Route Server qué instancia de la NVA debe estar activa o pasiva. 
+* Puede emparejar varias instancias de su NVA con Azure Route Server. Puede configurar los atributos BGP en la NVA y, en función del diseño (por ejemplo, activo-activo para el rendimiento o activo-pasivo para la resistencia), permitir que Azure Route Server sepa qué instancia de NVA es activa o pasiva. 
 
 * La interfaz entre la NVA y Azure Route Server se basa en un protocolo estándar común. Siempre que la NVA admita BGP, puede emparejarla con Azure Route Server. Para más información, consulte [Protocolos de enrutamiento admitidos por Route Server](route-server-faq.md#protocol).
 

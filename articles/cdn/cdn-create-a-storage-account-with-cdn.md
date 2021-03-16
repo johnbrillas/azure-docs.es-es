@@ -1,26 +1,19 @@
 ---
 title: 'Inicio rápido: Integración de una cuenta de Azure Storage en Azure CDN'
-description: Aprenda a usar Azure Content Delivery Network (CDN) para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Azure Storage.
+description: En esta guía de inicio rápido, aprenderá a usar Azure Content Delivery Network (CDN) para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs de Azure Storage.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018620"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561932"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de Azure Storage en Azure CDN
 
@@ -123,9 +116,6 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 3. Para eliminar la cuenta de almacenamiento, selecciónela en el panel y, a continuación, seleccione **Eliminar** en el menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-> [!div class="nextstepaction"]
-> [Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Uso de la red CDN para el contenido estático del servidor desde una aplicación web](cdn-add-to-web-app.md)

@@ -1,17 +1,17 @@
 ---
 title: Tutorial sobre la actualización de dispositivos para Azure IoT Hub mediante el agente de referencia del simulador de Ubuntu 18.04 (x64) | Microsoft Docs
 description: Introducción a la actualización de dispositivos para Azure IoT Hub mediante el agente de referencia del simulador de Ubuntu 18.04 (x64).
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8ca9d03fbeadfaaca06dac49acc7a08f0dd0566d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678304"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443818"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Tutorial sobre la actualización de dispositivos para Azure IoT Hub mediante el agente de referencia del simulador de Ubuntu 18.04 (x64)
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Acceso a IoT Hub. Se recomienda usar el nivel S1 (Estándar) o superior.
 
 ### <a name="download-and-install"></a>Descarga e instalación
@@ -163,29 +163,30 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Importación de actualización
 
-1. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
+1. Cree un manifiesto de importación siguiendo estas [instrucciones](import-update.md).
+2. Seleccione la opción Actualizaciones del dispositivo en Administración de dispositivos automática en la barra de navegación izquierda.
 
-2. Seleccione la pestaña Actualizaciones.
+3. Seleccione la pestaña Actualizaciones.
 
-3. Seleccione "+ Import New Update" (Importar nueva actualización).
+4. Seleccione "+ Import New Update" (Importar nueva actualización).
 
-4. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que descargó anteriormente. Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el archivo de actualización del manifiesto APT que descargó anteriormente.
-   
+5. Seleccione el icono de la carpeta o el cuadro de texto en "Select an Import Manifest File" (Seleccionar un archivo de manifiesto de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione el manifiesto de importación que creó anteriormente.  Seleccione el icono de la carpeta o el cuadro de texto en "Select one or more update files" (Seleccionar uno o varios archivos de importación). Verá un cuadro de diálogo para seleccionar archivos. Seleccione la imagen de actualización de Ubuntu que descargó anteriormente. 
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de pantalla que muestra la selección del archivo de actualización." lightbox="media/import-update/select-update-files.png":::
 
-5. Seleccione el icono de la carpeta o el cuadro de texto en "Select a storage container" (Seleccionar un contenedor de almacenamiento). Luego, seleccione la cuenta de almacenamiento adecuada.
+6. Seleccione el icono de la carpeta o el cuadro de texto en "Select a storage container" (Seleccionar un contenedor de almacenamiento). Luego, seleccione la cuenta de almacenamiento adecuada.
 
-6. Si ya ha creado un contenedor, puede volver a usarlo (de lo contrario, seleccione "+ Contenedor" para crear contenedor de almacenamiento para las actualizaciones).  Seleccione el contenedor que desee usar y haga clic en "Seleccionar".
+7. Si ya ha creado un contenedor, puede volver a usarlo (de lo contrario, seleccione "+ Contenedor" para crear contenedor de almacenamiento para las actualizaciones).  Seleccione el contenedor que desee usar y haga clic en "Seleccionar".
   
   :::image type="content" source="media/import-update/container.png" alt-text="Captura de pantalla que muestra la selección del contenedor." lightbox="media/import-update/container.png":::
 
-7. Seleccione "Enviar" para iniciar el proceso de importación.
+8. Seleccione "Enviar" para iniciar el proceso de importación.
 
-8. Se inicia el proceso de importación y la pantalla cambia a la sección "Historial de importación". Seleccione "Actualizar" para ver el progreso hasta que se complete el proceso de importación. En función del tamaño de la actualización, puede completarse en unos minutos, pero puede tardar más tiempo.
+9. Se inicia el proceso de importación y la pantalla cambia a la sección "Historial de importación". Seleccione "Actualizar" para ver el progreso hasta que se complete el proceso de importación. En función del tamaño de la actualización, puede completarse en unos minutos, pero puede tardar más tiempo.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Captura de pantalla que muestra la secuencia de importación de la actualización." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. Cuando la columna Estado indique que la importación se ha realizado correctamente, seleccione el encabezado "Ready to Deploy" (Listo para implementar). Debería ver la actualización importada en la lista.
+10. Cuando la columna Estado indique que la importación se ha realizado correctamente, seleccione el encabezado "Ready to Deploy" (Listo para implementar). Debería ver la actualización importada en la lista.
 
 [Más información](import-update.md) sobre la importación de actualizaciones.
 

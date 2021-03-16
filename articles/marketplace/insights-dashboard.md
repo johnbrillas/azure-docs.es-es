@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458297"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553942"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Panel Información de marketplace de los análisis de marketplace comercial
 
@@ -28,7 +28,7 @@ El panel Información de Marketplace presenta información general del rendimien
 
 - Tendencia de visitas a la página
 - Tendencia de llamada a acciones
-- Visitas a la página y llamada a acciones frente a ofertas, dominios de referencia e identificadores de campaña
+- Visitas a la página y llamada a acciones frente a ofertas, dominios de referencia e id. de campaña
 - Información de Marketplace por geografía
 - Tabla de detalles de Información de Marketplace
 
@@ -103,6 +103,19 @@ En esta tabla se proporciona una vista de lista de las visitas a la página y la
 
 > [!TIP]
 > Puede usar el icono de descarga que está en la esquina superior derecha de cualquier widget para descargar los datos. Igualmente, para proporcionar comentarios sobre cada uno de los widgets, haga clic en el icono "pulgar hacia arriba" o "pulgar hacia abajo".
+
+| Nombre de la columna en la<br>interfaz de usuario | Nombre del atributo | Definición | Nombre de la columna en informes<br>de acceso mediante programación |
+| ------------ | ------------- | ------------- | ------------- |
+| Date | Fecha de la visita | Fecha de la visita a la página o de la generación de evento de clic de llamada a la acción en la página de la oferta de Azure Marketplace o AppSource. | Date |
+| Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. | OfferName |
+| Dominio de referencia | Dominio de referencia | Nombre del dominio de referencia desde donde se produjo la visita a la página. Si no se ha capturado ningún dominio de referencia para la visita a la página, la entrada correspondiente es "Referral domain not present" (El dominio de referencia no está presente). |  ReferralDomain |
+| Nombre de país | Nombre de país | Nombre del país desde el que se produjo la visita a la página. | CountryName |
+| Visitas de página | Visitas de página | Número de visitas de página asociadas al nombre de la oferta para una fecha determinada. | PageVisits |
+| Obténgalo ahora | Obténgalo ahora | Número de clics en la llamada a la acción "Obténgalo ahora" de la página de la oferta para una fecha determinada. | GetItNow |
+| Ponerse en contacto conmigo | Ponerse en contacto conmigo | Número de clics en la llamada a la acción "Ponerse en contacto conmigo" de la página de la oferta para una fecha determinada. | ContactMe |
+| Versión de prueba | Versión de prueba | Número de clics en la llamada a la acción "Versión de prueba" de la página de la oferta para una fecha determinada. | TestDrive |
+| Versión de prueba gratuita | Versión de prueba gratuita | Número de clics en la llamada a la acción "Versión de prueba gratuita" de la página de la oferta para una fecha determinada. | FreeTrial |
+|||||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

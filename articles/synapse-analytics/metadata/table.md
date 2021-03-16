@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209634"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548468"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tablas de metadatos compartidos de Azure Synapse Analytics
 
 
 Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas con respaldo de Parquet entre sus grupos de Apache Spark y el grupo de SQL sin servidor.
 
-Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet como formato de almacenamiento. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
+Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet como formato de almacenamiento. Los nombres de tabla se convertirán a minúsculas y se deben consultar con el nombre en minúscula. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
 
 Las tablas creadas, administradas y externas de Spark también están disponibles como tablas externas con el mismo nombre en la base de datos sincronizada correspondiente en el grupo de SQL sin servidor. [La exposición de una tabla de Spark en SQL](#expose-a-spark-table-in-sql) proporciona más información sobre la sincronización de la tabla.
 
@@ -101,17 +101,17 @@ En este escenario, tiene una base de datos de Spark denominada `mytestdb`. Consu
 Cree una tabla administrada de Spark con SparkSQL mediante la ejecución del siguiente comando:
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-Este comando crea la tabla `myParquetTable` en la base de datos `mytestdb`. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
+Este comando crea la tabla `myparquettable` en la base de datos `mytestdb`. Los nombres de tabla se convertirán a minúsculas. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Compruebe que `myParquetTable` se incluye en los resultados.
+Compruebe que `myparquettable` se incluye en los resultados.
 
 >[!NOTE]
 >Una tabla que no use Parquet como formato de almacenamiento no se sincronizará.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 Ahora puede leer los datos desde el grupo de SQL sin servidor de la siguiente manera:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 Debe obtener la siguiente fila como resultado:
@@ -160,26 +160,26 @@ En este ejemplo, cree una tabla de Spark externa con los archivos de datos de Pa
 Por ejemplo, con SparkSQL ejecute:
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Reemplace el marcador de posición `<fs>` por el nombre del sistema de archivos que es el sistema de archivos predeterminado del área de trabajo y el marcador de posición `<synapse_ws>` por el nombre del área de trabajo de Synapse que está usando para ejecutar este ejemplo.
 
-En el ejemplo anterior se crea la tabla `myExtneralParquetTable` en la base de datos `mytestdb`. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
+En el ejemplo anterior se crea la tabla `myextneralparquettable` en la base de datos `mytestdb`. Después de un breve retraso, puede ver la tabla del grupo de SQL sin servidor. Por ejemplo, ejecute la siguiente instrucción desde el grupo de SQL sin servidor.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Compruebe que `myExternalParquetTable` se incluye en los resultados.
+Compruebe que `myexternalparquettable` se incluye en los resultados.
 
 Ahora puede leer los datos desde el grupo de SQL sin servidor de la siguiente manera:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 Debe obtener la siguiente fila como resultado:

@@ -7,59 +7,453 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97167485dae155670f0eb83fc3ef9cb658952251
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750520"
 ---
 > [!NOTE]
 > Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
 >
-> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
+> Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1-preview.2/entities/recognition/pii`.
+Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/v3.1-preview.3/entities/recognition/pii`.
 
-| Category   | Subcategoría | Descripción                          | Versión de modelo inicial | Notas |
-|------------|-------------|--------------------------------------|------------------------|---|
-| Person     | N/D         | Nombres de personas.  | `2019-10-01`  | También se devuelve con `domain=phi`. |
-| PersonType | N/D         | Tipos de trabajo o roles mantenido por una persona. | `2020-02-01` | |
-| PhoneNumber | N/D | Números de teléfono (solo números de teléfono de EE. UU y la UE). | `2019-10-01` | También se devuelve con `domain=phi`. |
-|Organización  | N/D | Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas.  | `2019-10-01` | Las nacionalidades y las religiones no se incluyen en este tipo de entidad.  |
-|Organización | Medicina | Empresas y grupos médicos. | `2020-04-01` |  |
-|Organización | Bolsa de valores | Grupos de bolsa de valores. | `2020-04-01` |  |
-| Organización | Deportes | Organizaciones relacionadas con los deportes. | `2020-04-01` |  |
-| Dirección | N/D | Dirección de correo postal completa.  | `2020-04-01` | También se devuelve con `domain=phi`. |
-| Coordenadas GPS de la UE | N/D | Coordenadas GPS de ubicaciones de la Unión Europea.  | `2019-10-01` |  |
-| Email | N/D | Direcciones de correo electrónico. | `2019-10-01` | También se devuelve con `domain=phi`.   |
-| URL | N/D | Direcciones URL de sitios web. | `2019-10-01` | También se devuelve con `domain=phi`. |
-| IP | N/D | Direcciones IP de red. | `2019-10-01` | También se devuelve con `domain=phi`. |
-| DateTime | N/D | Fechas y horas del día. | `2019-10-01` |  | 
-| DateTime | Date | Fechas calendario. | `2019-10-01` | También se devuelve con `domain=phi`. |
-| Cantidad | N/D | Números y cantidades numéricas. | `2019-10-01` |  |
-| Cantidad | Age | Edades. | `2019-10-01` | | |
 
-## <a name="azure-information"></a>Información de Azure
+| Category   |  Descripción                          |
+|------------|-------------|
+| [Person](#category-person)      |  Nombres de personas.  |
+| [PersonType](#category-persontype) | Tipos de trabajo o roles mantenido por una persona. |
+| [Número de teléfono](#category-phonenumber) |Números de teléfono (solo números de teléfono de EE. UU y la UE). |
+| [Organización](#category-organization) |  Compañías, grupos, organismos gubernamentales y otras organizaciones.  |
+| [Dirección](#category-address) | Dirección de correo postal completa.  |
+| [Correo electrónico](#category-email) | Direcciones de correo.   |
+| [URL](#category-url) | Direcciones URL de sitios web.  |
+| [IP](#category-ip) | Direcciones IP de red.  |
+| [DateTime](#category-datetime) | Fechas y horas del día. | 
+| [Cantidad](#category-quantity) | Números y cantidades numéricas.  |
+| [Información de Azure](#azure-information) | Información de Azure identificable, como la información de autenticación.  |
+| [Identificación](#identification) | Identificación específica fiscal y del país.  |
 
-Esta categoría de entidad incluye información de Azure identificable, incluida la información de autenticación y las cadenas de conexión. Disponible a partir de la versión del modelo `2019-10-01` No se devuelve con el parámetro `domain=phi`.
+### <a name="category-person"></a>Categoría: Person
 
-| Subcategoría                           | Descripción                                                                 |
-|---------------------------------------|-----------------------------------------------------------------------------|
-| Clave de autorización de Azure DocumentDB             | Clave de autorización para un servidor de Azure Cosmos DB.                           |
-| Cadena de conexión de base de datos de IAAS de Azure y cadena de conexión de Azure SQL | Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure y una cadena de conexión SQL. |
-| Cadena de conexión de Azure SQL           | Cadena de conexión de una base de datos en Azure SQL Database.                                |
-| Cadena de conexión de Azure IoT           | Cadena de conexión para Azure IoT.                        |
-| Contraseña de configuración de publicación de Azure        | Contraseña para la configuración de publicación de Azure.                                        |
-| Cadena de conexión de Azure Redis Cache   | Cadena de conexión para una instancia de Redis Cache.                             |
-| SAS de Azure                             | Cadena de conexión para software como servicio (SaaS) de Azure.                     |
-| Cadena de conexión de Azure Service Bus   | Cadena de conexión de una instancia de Azure Service Bus.                                 |
-| Clave de la cuenta de Azure Storage             | Clave de una cuenta de Azure Storage.                                   |
-| Clave de la cuenta de Azure Storage (genérica)   | Clave de cuenta genérica para una cuenta de Azure Storage.                           |
-| Cadena de conexión de SQL Server          | Cadena de conexión para un equipo donde se ejecuta SQL Server.                                         |
+Este categoría contiene la entidad siguiente:
 
-## <a name="identification"></a>Identificación
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Person
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Nombres de personas. También se devuelve con `domain=phi`.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-persontype"></a>Categoría: PersonType
+
+Este categoría contiene la entidad siguiente:
+
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        PersonType
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Tipos de trabajo o roles mantenido por una persona.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-phonenumber"></a>Categoría: PhoneNumber
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        PhoneNumber
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Números de teléfono (solo números de teléfono de EE. UU y la UE). También se devuelve con `domain=phi`.
+      
+    :::column-end:::
+:::row-end:::
+
+
+### <a name="category-organization"></a>Categoría: Organización
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Organización
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad.
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Subcategorías
+
+La entidad de esta categoría puede tener las subcategorías siguientes.
+
+:::row:::
+    :::column span="":::
+        **Subcategoría de la entidad**
+
+        Medicina
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Empresas y grupos médicos.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Bolsa de valores
+
+    :::column-end:::
+    :::column span="2":::
+
+        Grupos de bolsa de valores. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Deportes
+
+    :::column-end:::
+    :::column span="2":::
+
+        Organizaciones relacionadas con los deportes.
+      
+    :::column-end:::
+
+:::row-end:::
+
+
+### <a name="category-address"></a>Categoría: Dirección
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Dirección
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Dirección de correo postal completa.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-email"></a>Categoría: Email
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Email
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Direcciones de correo.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-url"></a>Categoría: URL
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        URL
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Direcciones URL de sitios web. 
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-ip"></a>Categoría: IP
+
+Este categoría contiene la entidad siguiente:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        IP
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Direcciones IP de red. 
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-datetime"></a>Categoría: DateTime
+
+Este categoría contiene las entidades siguientes:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        DateTime
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Fechas y horas del día. 
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Subcategorías
+
+La entidad de esta categoría puede tener las subcategorías siguientes.
+
+:::row:::
+    :::column span="":::
+        **Subcategoría de la entidad**
+
+        Fecha
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Fechas calendario.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="category-quantity"></a>Categoría: Cantidad
+
+Este categoría contiene las entidades siguientes:
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Cantidad
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Números y cantidades numéricas.
+      
+    :::column-end:::
+:::row-end:::
+
+#### <a name="subcategories"></a>Subcategorías
+
+La entidad de esta categoría puede tener las subcategorías siguientes.
+
+:::row:::
+    :::column span="":::
+        **Subcategoría de la entidad**
+
+        Age
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Edades.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="azure-information"></a>Información de Azure
+
+Estas categorías de entidad incluyen información de Azure identificable entre la que se incluye la información de autenticación y las cadenas de conexión. No se devuelve con el parámetro `domain=phi`.
+
+:::row:::
+    :::column span="":::
+        **Entidad**
+
+        Clave de autorización de Azure DocumentDB 
+
+    :::column-end:::
+    :::column span="2":::
+        **Detalles**
+
+        Clave de autorización para un servidor de Azure Cosmos DB.   
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de base de datos de IAAS de Azure y cadena de conexión de Azure SQL
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure y una cadena de conexión SQL.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de Azure SQL
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión de una base de datos en Azure SQL Database.
+      
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de Azure IoT  
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión para Azure IoT. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Contraseña de configuración de publicación de Azure  
+
+    :::column-end:::
+    :::column span="2":::
+
+        Contraseña para la configuración de publicación de Azure.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de Azure Redis Cache 
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión para una instancia de Redis Cache.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        SAS de Azure 
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión para software como servicio (SaaS) de Azure.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de Azure Service Bus
+
+    :::column-end:::
+    :::column span="2":::
+
+        Cadena de conexión de una instancia de Azure Service Bus.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Clave de la cuenta de Azure Storage 
+
+    :::column-end:::
+    :::column span="2":::
+
+       Clave de una cuenta de Azure Storage. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Clave de la cuenta de Azure Storage (genérica)
+
+    :::column-end:::
+    :::column span="2":::
+
+       Clave de cuenta genérica para una cuenta de Azure Storage.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Cadena de conexión de SQL Server 
+
+    :::column-end:::
+    :::column span="2":::
+
+       Cadena de conexión para un equipo donde se ejecuta SQL Server.
+      
+    :::column-end:::
+:::row-end:::
+
+### <a name="identification"></a>Identificación
 
 [!INCLUDE [supported identification entities](./identification-entities.md)]

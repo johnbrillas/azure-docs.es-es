@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185485"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487430"
 ---
 # <a name="camera-placement-guide"></a>Guía de selección de ubicación de la cámara
 
@@ -72,12 +72,12 @@ Use la tabla siguiente para determinar la distancia de la cámara desde el punto
 
 | Altura de la cámara | Distancia entre el punto focal y la cámara (mín./máx.) |  
 | ------------- | ---------------------------------------- |  
-| 8'            | 10' - 13'                                  |  
-| 10'           | 7' - 13'                                   |  
-| 12'           | 10' - 17'                                  |  
-| 14'           | 11' - 18'                                  |  
-| 16'           | 12' - 22'                                  |  
-| 20'           | 15' - 30'                                  |  
+| 8'            | 4,6'-8'                                  |  
+| 10'           | 5,8'-10'                                 |  
+| 12'           | 7'-12'                                   |  
+| 14'           | 8'-14''                                  |  
+| 16'           | 9,2'-16'                                 |  
+| 20'           | 11,5'-20'                                |  
 
 En la ilustración siguiente se simulan vistas de cámara de las distancias más cercanas y más lejanas entre el punto focal y la cámara.
 
@@ -91,15 +91,9 @@ En esta sección se describen los rangos de montaje del ángulo de cámara acept
 
 ### <a name="line-configuration"></a>Configuración de línea
 
-En la tabla siguiente se muestran las recomendaciones para las cámaras configuradas para la operación **cognitiveservices.vision.spatialanalysis-personcrossingline**. Para la detección de máscaras faciales, el ángulo de montaje óptimo de la cámara para una altura de cámara de entre 8 y 12 pulgadas es de +/-30 grados.
+En el caso de la operación **cognitiveservices.vision.spatialanalysis-personcrossingline**, +/-5 ° es el ángulo de montaje de cámara óptimo para maximizar la precisión.
 
-| Altura de la cámara | Distancia entre el punto focal y la cámara | Ángulo de montaje de cámara óptimo (mín./máx.) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 8'            | 9'                             | +/-40°                                     |  
-| 10'           | 10'                            | +/-30°                                     |  
-| 12'           | 13'                            | +/-20°                                     |  
-| 16'           | 18'                            | +/-10°                                     |  
-| 20'           | 22'                            | +/-10°                                     |  
+Para la detección de máscaras faciales, el ángulo de montaje óptimo de la cámara para una altura de cámara de entre 8 y 12 pulgadas es de +/-30 grados.
 
 En la ilustración siguiente se simulan vistas de cámara que usan las recomendaciones de ángulo de montaje más a la izquierda (-) y más a la derecha (+) para usar **cognitiveservices.vision.spatialanalysis-personcrossingline** para contar las personas que entran por una puerta.
 

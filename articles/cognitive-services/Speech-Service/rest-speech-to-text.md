@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790620"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032830"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
 La conversión de texto a voz tiene dos API de REST diferentes. Cada API sirve a su propósito especial y usa conjuntos diferentes de puntos de conexión.
 
 Las API de REST de conversión de voz en texto son:
-- La [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30) se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](./migrate-v2-to-v3.md).
+- [La API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30) se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](./migrate-v2-to-v3.md).
 - La [API de REST de conversión de voz en texto para audios breves](#speech-to-text-rest-api-for-short-audio) se usa para la transcripción en línea como alternativa al [SDK de voz](speech-sdk.md). Las solicitudes que usan esta API solo pueden transmitir hasta 60 segundos de audio por solicitud. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>API de REST de conversión de voz en texto v3.0
@@ -152,7 +152,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Se recomienda encarecidamente la carga en streaming (fragmentada) al publicar los datos de audio, ya que puede reducir considerablemente la latencia. Consulte el [código de ejemplo en diferentes lenguajes de programación](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber cómo habilitar el streaming.
 
 >[!NOTE]
->La característica de valoración de la pronunciación solo está disponible actualmente en las regiones `westus`, `eastasia` y `centralindia`. Y actualmente esta característica solo está disponible en el idioma `en-US`.
+>La característica de valoración de la pronunciación solo está disponible actualmente en `en-US`.
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -235,7 +235,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Estado | Descripción |
+| Status | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |

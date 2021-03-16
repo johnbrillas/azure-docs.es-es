@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 03/03/2021
+ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532669"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439568"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL con la opción Servidor flexible
 
@@ -56,7 +56,7 @@ En la imagen siguiente se muestra la transición del error de la máquina virtua
 
 Si está configurada la alta disponibilidad con redundancia de zona, el servicio aprovisiona y mantiene un servidor en espera activa entre zonas de disponibilidad dentro de la misma región de Azure. Los cambios en los datos del servidor de origen se replican sincrónicamente en el servidor en espera para garantizar que no se pierden datos. Con la alta disponibilidad con redundancia de zona, una vez que se desencadena el evento de conmutación por error planeado o sin planear, el servidor en espera se conecta inmediatamente y está disponible para procesar las transacciones entrantes. Esto permite la resistencia del servicio frente a errores en la zona de disponibilidad dentro de una región de Azure que admite varias zonas de disponibilidad, tal como se muestra en la imagen siguiente.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexible: errores de almacenamiento y máquinas virtuales":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Alta disponibilidad con redundancia de zona":::
 
  Consulte el [documento de alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
 
@@ -84,14 +84,42 @@ Los servidores flexibles permiten el acceso privado completo a los servidores me
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-El servicio de servidor flexible está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio expone las métricas del servidor host para supervisar el uso de los recursos y permite configurar registros de consultas lentas. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el máximo rendimiento.
+El servicio de servidor flexible está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio expone las métricas del servidor host para supervisar el uso de los recursos y permite configurar registros de consultas lentas. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el mejor rendimiento.
+
+## <a name="azure-regions"></a>Regiones de Azure
+
+Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance global. El servidor flexible está disponible actualmente en las siguientes regiones de Azure:
+
+| Region (Región) | Disponibilidad | Alta disponibilidad con redundancia de zona | 
+| --- | --- | --- |
+| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Norte de Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Sur de Reino Unido | :heavy_check_mark: | :heavy_check_mark: | 
+| Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
+| Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
+| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | 
+
+Seguimos agregando regiones al servidor flexible.
 
 ## <a name="migration"></a>Migración
 
 El servicio ejecuta la versión Community de PostgreSQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de PostgreSQL a un servidor flexible. 
 
-- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad, como pg_dump y pg_restore, pueden proporcionar una manera más rápida de realizar la migración. Consulte [Migración mediante volcado y restauración](../howto-migrate-using-dump-and-restore.md) para obtener más información.
-- **Azure Database Migration Service** : puede aprovechar Azure Database Migration Service para las migraciones sin problemas y simplificadas a un servidor flexible con un tiempo de inactividad mínimo. Consulte [DMS a través del portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) y [DMS a través de la CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Puede realizar la migración desde la instancia Azure Database for PostgreSQL con la opción Servidor único a la opción Servidor flexible. Consulte este [artículo sobre DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para obtener información.
+- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad, como pg_dump y pg_restore, pueden proporcionar una manera más rápida de realizar la migración. Consulte [Migración mediante volcado y restauración](../howto-migrate-using-dump-and-restore.md) para obtener más información.
+- **Azure Database Migration Service**: puede aprovechar Azure Database Migration Service para las migraciones sin problemas y simplificadas a un servidor flexible con un tiempo de inactividad mínimo. Consulte [DMS a través del portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) y [DMS a través de la CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Puede realizar la migración desde la instancia Azure Database for PostgreSQL con la opción Servidor único a la opción Servidor flexible. Consulte este [artículo sobre DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para obtener información.
+
+## <a name="contacts"></a>Contactos
+Para cualquier pregunta o sugerencia que pueda tener sobre el servidor flexible de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Tenga en cuenta que esta dirección de correo electrónico no es un alias de soporte técnico.
+
+Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
+
+- Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

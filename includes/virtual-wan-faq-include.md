@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624883"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431552"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>¿Qué es Azure Virtual WAN en GA?
 
@@ -93,7 +93,7 @@ Hay dos opciones para agregar servidores DNS para los clientes de P2S. Se prefie
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
 
-Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. La unidad de escalado 1-3 admite 500 conexiones, la unidad de escalado 4-6 admite 1000 conexiones, la unidad de escalado 7-12 admite 5000 conexiones y la unidad de escalado 13-18 admite hasta 10 000 conexiones.
+Cada puerta de enlace de VPN de punto a sitio de usuario tiene dos instancias. Cada instancia admite un número determinado de conexiones a medida que cambia la unidad de escalado. La unidad de escalado 1-3 admite 500 conexiones, la unidad de escalado 4-6 admite 1000 conexiones, la unidad de escalado 7-12 admite 5000 conexiones y la unidad de escalado 13-18 admite hasta 10 000 conexiones.
 
 Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Dado que puede obtener 500 conexiones x 2 por puerta de enlace, no significa que tenga previstas 1000 en lugar de 500 para esta unidad de escalado. Es posible que se deban atender las instancias en que la conectividad de las 500 conexiones adicionales pueda sufrir interrupciones si supera el recuento de conexiones recomendado. Además, asegúrese de planear el tiempo de inactividad en caso de que decida escalar o reducir verticalmente en la unidad de escalado o cambiar la configuración de punto a sitio en VPN Gateway.
 
@@ -125,7 +125,7 @@ No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisito
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>¿Cómo automatizan la conectividad con Azure Virtual WAN los asociados de Virtual WAN?
 
-Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. La automatización incluye la carga de información de la rama, la descarga de la configuración de Azure, la configuración de túneles IPSec en los centros de conectividad virtuales de Azure y la configuración automática de la conectividad desde el dispositivo de rama a Azure Virtual WAN. Cuando tiene cientos de ramas, la conexión mediante asociados de CPE de Virtual WAN es fácil ya que la experiencia de incorporación elimina la necesidad de configurar y administrar la conectividad de IPsec a gran escala. Para más información, consulte [Automatización de asociados de Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. La automatización incluye la carga de información de la rama, la descarga de la configuración de Azure, la configuración de túneles IPsec en los centros de conectividad virtuales de Azure y la configuración automática de la conectividad desde el dispositivo de rama a Azure Virtual WAN. Cuando tiene cientos de ramas, la conexión mediante asociados de CPE de Virtual WAN es fácil ya que la experiencia de incorporación elimina la necesidad de configurar y administrar la conectividad de IPsec a gran escala. Para más información, consulte [Automatización de asociados de Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>¿Qué ocurre si el dispositivo que uso no está en la lista de partners de Virtual WAN? ¿Lo puedo usar a pesar de todo para conectarme a una VPN de Azure Virtual WAN?
 
@@ -213,7 +213,7 @@ El rendimiento total de VPN de un centro de conectividad es de hasta 20 Gbps en
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>¿Puedo usar NAT-T en las conexiones VPN?
 
-Sí, se admite NAT traversal (NAT-T). VPN Gateway de Virtual WAN NO llevará a cabo ninguna funcionalidad similar a la de NAT en los paquetes internos hacia y desde los túneles de IPsec. En esta configuración, asegúrese de que el dispositivo local inicie el túnel IPSec.
+Sí, se admite NAT traversal (NAT-T). VPN Gateway de Virtual WAN NO llevará a cabo ninguna funcionalidad similar a la de NAT en los paquetes internos hacia y desde los túneles de IPsec. En esta configuración, asegúrese de que el dispositivo local inicie el túnel IPsec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>No veo la configuración de 20 Gbps para el centro de conectividad virtual en el portal. ¿Cómo puedo configurarlo?
 
@@ -302,3 +302,7 @@ No. Virtual WAN no almacena datos de clientes.
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>¿Hay proveedores de servicios administrados que pueden administrar Virtual WAN para usuarios como servicio?
 
 Sí. Para obtener una lista de soluciones de proveedores de servicios administrados (MSP) habilitadas a través de Azure Marketplace, consulte el apartado [Ofertas de Azure Marketplace de proveedores de servicios administrados de redes de Azure asociados](../articles/networking/networking-partners-msp.md#msp).
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>¿En qué se diferencia el enrutamiento del centro de conectividad de Virtual WAN de Azure Route Server en una red virtual?
+
+Azure Route Server proporciona un servicio de emparejamiento de Protocolo de puerta de enlace de borde (BGP) que las aplicaciones virtuales de red pueden usar para aprender las rutas desde el servidor de enrutamiento en una red virtual del centro de conectividad de implementación personal. El enrutamiento de WAN virtual ofrece varias funcionalidades, entre las que se incluyen el enrutamiento de tránsito entre redes virtuales, el enrutamiento personalizado, la asociación y propagación de rutas personalizadas y un servicio de centro de conectividad con malla completa y sin interacción, junto con los servicios de conectividad de ExpressRoute, VPN de sitio, VPN de punto a sitio a gran escala y de usuarios remotos, así como funcionalidades de centro seguro (Azure Firewall). Al establecer un emparejamiento BGP entre la aplicación virtual de red y Azure Route Server, puede anunciar las direcciones IP de su aplicación virtual a la red virtual. En todas las funcionalidades de enrutamiento avanzadas, como el enrutamiento de tránsito, el enrutamiento personalizado, etc., puede usar el enrutamiento de Virtual WAN.

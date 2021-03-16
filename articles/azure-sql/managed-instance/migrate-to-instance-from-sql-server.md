@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917807"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565830"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,6 +59,26 @@ Si ha resuelto todos los bloqueadores identificados de la migración y va a cont
 - Las nuevas características que usa como Cifrado de datos transparente (TDE) o los grupos de conmutación por error automática podrían afectar a la CPU y al uso de E/S.
 
 Instancia administrada de SQL garantiza el 99,99 % de disponibilidad incluso en escenarios críticos, por lo que la sobrecarga provocada por estas características no se puede deshabilitar. Para más información, consulte [las causas principales que podrían provocar un rendimiento diferente en SQL Server e Instancia administrada de Azure SQL](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP en memoria (tablas optimizadas para memoria)
+
+SQL Server proporciona la funcionalidad OLTP en memoria que permite el uso de tablas optimizadas para memoria, tipos de tablas optimizadas para memoria y módulos SQL compilados de forma nativa para ejecutar cargas de trabajo con requisitos de procesamiento transaccional de alto rendimiento y latencia baja. 
+
+> [!IMPORTANT]
+> OLTP en memoria solo se admite en el nivel Crítico para la empresa en Azure SQL Managed Instance (y no se admite en el nivel De uso general).
+
+Si tiene tablas optimizadas para memoria o tipos de tablas optimizadas para memoria en la instancia de SQL Server local y está pensando en migrar a Azure SQL Managed Instance, debe:
+
+- Elegir el nivel Crítico para la empresa para la instancia de destino de Azure SQL Managed Instance que admite OLTP en memoria, o bien
+- Si quiere migrar al nivel De uso general en Azure SQL Managed Instance, quite las tablas optimizadas para memoria, los tipos de tablas optimizadas para memoria y los módulos SQL compilados de forma nativa que interactúan con los objetos optimizados para memoria antes de migrar las bases de datos. La siguiente consulta de T-SQL se puede usar para identificar todos los objetos que deben quitarse antes de la migración al nivel De uso general:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Para más información sobre las tecnologías en memoria, vea [Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database y Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
 
 ### <a name="create-a-performance-baseline"></a>Creación de una base de referencia de rendimiento
 

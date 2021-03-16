@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter'
+title: 'Tutorial: Implementación de una aplicación de ASP.NET en Azure Virtual Machines mediante Azure DevOps Starter'
 description: DevOps Starter facilita tanto que se empiece a usar Azure como que se implemente una aplicación de ASP.NET en máquinas virtuales de Azure en pocos pasos.
 ms.author: mlearned
 manager: gwallace
@@ -8,18 +8,18 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: ce11fe5b65cd49cc880713eb4e47b081b6f3b44f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3495d0bd2a446b6b3255887d9b4523eb5a70ac53
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855980"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557325"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implementación de una aplicación de ASP.NET en Azure Virtual Machines mediante Azure DevOps Starter
 
 Azure DevOps Starter ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. 
 
-DevOps Starter también:
+DevOps Starter también:
 * Crea automáticamente recursos de Azure, como una máquina virtual (VM) de Azure.
 * Crea y configura una canalización de versión en Azure DevOps que incluye una canalización de compilación para integración continua.
 * Configura una canalización de versión para implementación continua. 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Configurar la supervisión de Azure Application Insights
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -92,7 +92,7 @@ DevOps Starter configuró automáticamente una canalización de CI/CD en Azure P
 
 1. En el nombre de la canalización de compilación, seleccione **Historial**. Este panel muestra un registro de auditoría de los cambios recientes de la compilación. Azure DevOps realiza un seguimiento de los cambios realizados en la canalización de compilación y permite comparar las versiones.
 
-1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua, y cada confirmación al repositorio inicia una nueva compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
+1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
@@ -129,7 +129,7 @@ DevOps Starter crea y configura automáticamente los pasos necesarios para imple
 
 A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web. Cada cambio que se realiza en el repositorio de Git inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure. Siga el procedimiento descrito en esta sección o utilice otra técnica para confirmar los cambios en el repositorio. Los cambios de código inician el proceso de CI/CD e implementan automáticamente sus cambios en el sitio web de IIS en la máquina virtual de Azure.
 
-1. En el panel izquierdo, seleccione **Código**y, después, vaya al repositorio.
+1. En el panel izquierdo, seleccione **Código** y, después, vaya al repositorio.
 
 1. Vaya al directorio *Views\Home*, seleccione los puntos suspensivos (...) que hay junto al archivo *Index.cshtml* y seleccione **Editar**.
 
@@ -198,4 +198,4 @@ En este tutorial, ha aprendido a:
 Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process)

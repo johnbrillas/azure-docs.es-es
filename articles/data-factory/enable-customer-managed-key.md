@@ -7,29 +7,26 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 2a943b82689184353b9d350b931a069df9c35ff2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392704"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443897"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Cifrado de Azure Data Factory con claves administradas por el cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory cifra los datos en reposo, incluidas las definiciones de entidades y los datos almacenados en caché mientras las ejecuciones están en curso. De forma predeterminada, los datos se cifran con una clave administrada por Microsoft que se genera aleatoriamente y que se asigna de forma única a la factoría de datos. Para obtener garantías de seguridad adicionales, ahora puede habilitar Bring Your Own Key (BYOK) con la característica de claves administradas por el cliente de Azure Data Factory. Cuando se especifica una clave administrada por el cliente, Data Factory usa __tanto__ la clave del sistema de la factoría como la CMK para cifrar los datos del cliente. Si falta alguna de ellas, se deniega el acceso a los datos y a la factoría.
+Azure Data Factory cifra los datos en reposo, incluidas las definiciones de entidades y los datos almacenados en caché mientras las ejecuciones están en curso. De forma predeterminada, los datos se cifran con una clave administrada por Microsoft que se genera aleatoriamente y que se asigna de forma única a la factoría de datos. Para reforzar aún más las medidas de seguridad, ahora puede habilitar Bring Your Own Key (BYOK) con la característica de claves administradas por el cliente de Azure Data Factory. Cuando se especifica una clave administrada por el cliente, Data Factory usa __tanto__ la clave del sistema de la factoría como la CMK para cifrar los datos del cliente. Si falta alguna de ellas, se deniega el acceso a los datos y a la factoría.
 
 Azure Key Vault es necesario para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Key Vault y Azure Data Factory deben estar en el mismo inquilino de Azure Active Directory (Azure AD) y en la misma región, pero pueden estar en distintas suscripciones. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
-
-> [!NOTE]
-> Una clave administrada por el cliente solo se puede configurar en una factoría de datos vacía. La factoría de datos no puede contener recursos, como servicios vinculados, canalizaciones y flujos de datos. Se recomienda habilitar la clave administrada por el cliente justo después de la creación de la factoría.
 
 ## <a name="about-customer-managed-keys"></a>Acerca de las claves administradas por el cliente
 
 En el siguiente diagrama se muestra cómo Data Factory usa Azure Active Directory y Azure Key Vault para realizar solicitudes mediante la clave administrada por el cliente:
 
-  ![Diagrama que muestra cómo funcionan las claves administradas por el cliente en Azure Data Factory](media/enable-customer-managed-key/encryption-customer-managed-keys-diagram.png)
+  :::image type="content" source="media/enable-customer-managed-key/encryption-customer-managed-keys-diagram.png" alt-text="Diagrama que muestra cómo funcionan las claves administradas por el cliente en Azure Data Factory.":::
 
 En la lista siguiente se explican los pasos numerados del diagrama:
 
@@ -39,54 +36,83 @@ En la lista siguiente se explican los pasos numerados del diagrama:
 1. Data Factory encapsula la clave de cifrado de la factoría con la clave de cliente de Azure Key Vault.
 1. En operaciones de lectura y escritura, Data Factory envía solicitudes a Azure Key Vault para desencapsular la clave de cifrado de la cuenta con el fin de realizar operaciones de cifrado y descifrado.
 
+Hay dos maneras de incorporar el cifrado de claves administradas por el cliente a las factorías de datos. Una es en el momento de creación de la fábrica en Azure Portal y el otro es tras la creación de la fábrica, en la interfaz de usuario de Data Factory.
+
 ## <a name="prerequisites---configure-azure-key-vault-and-generate-keys"></a>Requisitos previos: configuración de Azure Key Vault y generación de las claves
 
 ### <a name="enable-soft-delete-and-do-not-purge-on-azure-key-vault"></a>Habilitación de Eliminación temporal y No purgar en Azure Key Vault
 
-Para usar las claves administradas por el cliente con Data Factory, es necesario establecer dos propiedades en Key Vault: __Eliminación temporal__ y __No purgar__. Estas propiedades se pueden habilitar mediante PowerShell o la CLI de Azure en un almacén de claves nuevo o existente. Para aprender a habilitar estas propiedades en un almacén de claves existente, consulte las secciones _Habilitación de la eliminación temporal_ y _Habilitación de la protección de purgas_ en cualquiera de los siguientes artículos:
-
-- [Uso de la eliminación temporal con PowerShell](../key-vault/general/key-vault-recovery.md)
-- [Uso de la eliminación temporal con la CLI](../key-vault/general/key-vault-recovery.md).
+Para usar las claves administradas por el cliente con Data Factory, es necesario establecer dos propiedades en Key Vault: __Eliminación temporal__ y __No purgar__. Estas propiedades se pueden habilitar mediante PowerShell o la CLI de Azure en un almacén de claves nuevo o existente. Para obtener información sobre cómo habilitar estas propiedades en un almacén de claves existente, consulte [Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga](../key-vault/general/key-vault-recovery.md).
 
 Si va a crear una instancia de Azure Key Vault a través de Azure Portal, las propiedades __Eliminación temporal__ y __No purgan__ se pueden habilitar de la siguiente manera:
 
-  ![Captura de pantalla de habilitación de la eliminación temporal y la protección de purga tras la creación de una instancia de Key Vault](media/enable-customer-managed-key/01-enable-purge-protection.png)
+  :::image type="content" source="media/enable-customer-managed-key/01-enable-purge-protection.png" alt-text="Captura de pantalla que muestra cómo habilitar la eliminación temporal y la protección contra purga tras la creación de una instancia de Key Vault.":::
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Concesión a Data Factory de acceso a Azure Key Vault
 
-Asegúrese de que Azure Key Vault y Azure Data Factory se encuentran en el mismo inquilino de Azure Active Directory (Azure AD) y en la _misma región_. Desde el control de acceso de Azure Key Vault, conceda a Managed Service Identity (MSI) de la factoría de datos los permisos siguientes: _Obtener_, _Desencapsular clave_ y _Encapsular clave_. Estos permisos son necesarios para habilitar las claves administradas por el cliente en Data Factory.
+Asegúrese de que Azure Key Vault y Azure Data Factory estén en el mismo inquilino de Azure Active Directory (Azure AD) y en la _misma región_. Desde el control de acceso de Azure Key Vault, conceda los permisos siguientes a la factoría de datos: _Obtener_, _Desencapsular clave_ y _Encapsular clave_. Estos permisos son necesarios para habilitar las claves administradas por el cliente en Data Factory.
 
-  ![Captura de pantalla de habilitación del acceso de Data Factory a Key Vault](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
+* Si desea agregar el cifrado de claves administradas por el cliente [después de crear la factoría en la interfaz de usuario de Data Factory](#post-factory-creation-in-data-factory-ui), asegúrese de que Managed Service Identity (MSI) tiene los tres permisos para Key Vault.
+* Si desea agregar el cifrado de claves administradas por el cliente [en el momento de crear la factoría en Azure Portal](#during-factory-creation-in-azure-portal), asegúrese de que la identidad administrada asignada por el usuario (UA-MI) tiene los tres permisos para Key Vault.
+
+  :::image type="content" source="media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png" alt-text="Captura de pantalla que muestra cómo habilitar el acceso de Data Factory a Key Vault.":::
 
 ### <a name="generate-or-upload-customer-managed-key-to-azure-key-vault"></a>Generación o carga de la clave administrada por el cliente en Azure Key Vault
 
-Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Solo se admiten las claves RSA de 2048 bits con cifrado de Data Factory. Para más información, consulte el artículo [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md) (Claves, secretos y certificados).
+Puede crear sus propias claves y almacenarlas en un almacén de claves. O bien, usar las API de Azure Key Vault para generar las claves. Solo se admiten las claves RSA de 2048 bits con cifrado de Data Factory. Para más información, consulte el artículo [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md) (Claves, secretos y certificados).
 
-  ![Captura de pantalla de generación de claves administradas por el cliente](media/enable-customer-managed-key/03-create-key.png)
+  :::image type="content" source="media/enable-customer-managed-key/03-create-key.png" alt-text="Captura de pantalla que muestra cómo generar una clave administrada por el cliente.":::
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 
-1. Asegúrese de que la instancia de Data Factory esté vacía. La factoría de datos no puede contener recursos, como servicios vinculados, canalizaciones y flujos de datos. Por ahora, la implementación de una clave administrada por el cliente en una factoría que no esté vacía producirá un error.
+### <a name="post-factory-creation-in-data-factory-ui"></a>Tras la creación de la factoría en la interfaz de usuario de Data Factory
 
-1. Para buscar el URI de la clave en Azure Portal, vaya a Azure Key Vault y seleccione la opción de configuración Claves. Seleccione la clave que quiera y luego haga clic en ella para ver sus versiones. Seleccione una de ellas para ver su configuración.
+En esta sección se describe el proceso para agregar el cifrado de claves administradas por el cliente a la interfaz de usuario de Data Factory _tras_ crear la factoría.
 
-1. Copie el valor del campo Identificador de clave, que proporciona el URI.
+> [!NOTE]
+> Una clave administrada por el cliente solo se puede configurar en una factoría de datos vacía. La factoría de datos no puede contener recursos, como servicios vinculados, canalizaciones y flujos de datos. Se recomienda habilitar la clave administrada por el cliente justo después de la creación de la factoría.
 
-    ![Captura de pantalla de obtención del URI de la clave desde Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
+> [!IMPORTANT]
+> Este enfoque no funciona con factorías habilitadas para redes virtuales administradas. Considere la [ruta alternativa](#during-factory-creation-in-azure-portal) si desea cifrar esas factorías.
+
+1. Asegúrese de que la instancia de Managed Service Identity (MSI) de la factoría de datos tiene los permisos _Obtener_, _Desencapsular clave_ y _Encapsular clave_ en Key Vault.
+
+1. Asegúrese de que la instancia de Data Factory esté vacía. La factoría de datos no puede contener recursos como servicios vinculados, canalizaciones y flujos de datos. Por ahora, la implementación de una clave administrada por el cliente en una factoría que no esté vacía producirá un error.
+
+1. Para buscar el URI de la clave en Azure Portal, vaya a Azure Key Vault y seleccione la opción de configuración Claves. Seleccione la clave deseada y haga clic para ver sus versiones. Seleccione una de ellas para ver su configuración.
+
+1. Copie el valor del campo Identificador de clave, que proporciona el URI. :::image type="content" source="media/enable-customer-managed-key/04-get-key-identifier.png" alt-text="Captura de pantalla de obtención del URI de Key Vault.":::
 
 1. Inicie el portal de Azure Data Factory y, mediante la barra de navegación de la izquierda, salte al Portal de administración de Data Factory.
 
-1. Haga clic en el icono de __clave administrada por el cliente__.
-
-    ![Captura de pantalla de habilitación de la clave administrada por el cliente en Data Factory](media/enable-customer-managed-key/05-customer-managed-key-configuration.png)
+1. Haga clic en el icono de la __clave administrada por el cliente__. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Captura de pantalla que muestra cómo habilitar la clave administrada por el cliente en la interfaz de usuario de Data Factory.":::
 
 1. Escriba el URI de la clave administrada por el cliente que copió anteriormente.
 
 1. Haga clic en __Guardar__; el cifrado de claves administradas por el cliente se habilita para Data Factory.
 
+### <a name="during-factory-creation-in-azure-portal"></a>Durante la creación de la factoría en Azure Portal
+
+En esta sección se explican los pasos para agregar el cifrado de claves administradas por el cliente en Azure Portal _durante_ la implementación de la factoría.
+
+Para cifrar la factoría, Data Factory debe recuperar primero la clave administrada por el cliente de Key Vault. Dado que la implementación de la factoría todavía está en curso, Managed Service Identity (MSI) aún no está disponible para autenticarse mediante Key Vault. Por lo tanto, para usar este enfoque, el cliente debe asignar una identidad administrada asignada por el usuario (UA-MI) a la factoría de datos. Asumiremos los roles definidos en la identidad UA-MI y nos autenticaremos mediante Key Vault.
+
+Para obtener más información sobre la identidad administrada asignada por el usuario, consulte [Tipos de identidad administrados](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) y [Asignación de un rol a una identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+1. Asegúrese de que la identidad administrada asignada por el usuario (UA-MI) tiene los permisos _Obtener_, _Desencapsular clave_ y _Encapsular clave_ en Key Vault.
+
+1. En la pestaña __Opciones avanzadas__, active la casilla _Enable encryption using a customer managed key_(Habilitar el cifrado mediante una clave administrada por el cliente)
+  :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="Captura de pantalla que muestra la pestaña de opciones avanzadas para la experiencia de creación de una factoría de datos en Azure Portal.":::
+
+1. Proporcione la URL de la clave administrada por el cliente almacenada en Key Vault.
+
+1. Seleccione una identidad administrada asignada por el usuario adecuada para autenticarse mediante Key Vault.
+
+1. Siga adelante con la implementación de la factoría.
+
 ## <a name="update-key-version"></a>Actualización de la versión de la clave
 
-Al crear una versión de una clave, actualice la factoría de datos para que use esta nueva versión. Siga los mismos pasos que se describen en la sección _Habilitar claves administradas del cliente_, como por ejemplo:
+Al crear una versión de una clave, actualice la factoría de datos para que use esta nueva versión. Siga los mismos pasos que se describen en la sección sobre la [interfaz de usuario de Data Factory](#post-factory-creation-in-data-factory-ui), que incluye:
 
 1. Busque el URI de la nueva versión de la clave en el portal de Azure Key Vault.
 
@@ -98,7 +124,7 @@ Al crear una versión de una clave, actualice la factoría de datos para que use
 
 ## <a name="use-a-different-key"></a>Uso de una clave distinta
 
-Para cambiar la clave usada para el cifrado de Data Factory, debe actualizar manualmente la configuración en Data Factory. Siga los mismos pasos que se describen en la sección _Habilitar claves administradas del cliente_, como por ejemplo:
+Para cambiar la clave usada para el cifrado de Data Factory, debe actualizar manualmente la configuración en Data Factory. Siga los mismos pasos que se describen en la sección sobre la [interfaz de usuario de Data Factory](#post-factory-creation-in-data-factory-ui), que incluye:
 
 1. Busque el URI de la nueva clave en el portal de Azure Key Vault.
 

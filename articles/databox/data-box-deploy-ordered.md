@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201896"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522400"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -28,7 +28,7 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -164,7 +164,7 @@ Verá la salida siguiente:
     WSManStackVersion              3.0
 ```
 
-Si su versión es anterior a la 6.2.4, deberá actualizarla. Para instalar la versión más reciente de Windows PowerShell, consulte [Instalación de Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Si su versión es anterior a la 6.2.4, deberá actualizarla. Para instalar la versión más reciente de Windows PowerShell, consulte [Instalación de Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Instalación de los módulos de Azure PowerShell y de Data Box**
 
@@ -239,7 +239,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
 6. En **Pedido**, vaya a la pestaña **Datos básicos**. Escriba o seleccione la siguiente información y seleccione **Siguiente: destino de los datos>** .
 
-    |Configuración  |Value  |
+    |Configuración  |Valor  |
     |---------|---------|
     |Suscripción      | La suscripción se rellena automáticamente según la selección anterior.|
     |Resource group    | Grupo de recursos especificado anteriormente. |
@@ -355,22 +355,34 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
     ![Opciones expandidas de Bring your own password (Aportar su propia contraseña) para un pedido para importación con Data Box.](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Para usar su propia contraseña para el nuevo dispositivo, para **Set preference for the device password** (Establecer preferencia para la contraseña del dispositivo), seleccione **Use your own password** (Usar su propia contraseña) y escriba una contraseña que cumpla los requisitos de seguridad.
+     
+     La contraseña debe ser alfanumérica y contener entre 12 y 15 caracteres, con al menos una letra mayúscula, una letra minúscula, un carácter especial y un número. 
+
+     - Caracteres especiales permitidos: @ # - $ % ^ ! + = ; : _ ( )
+     - Caracteres no permitidos: I i L o O 0
    
      ![Opciones para usar su propia contraseña de dispositivo en la pantalla Seguridad de un pedido de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Para usar sus propias contraseñas para recursos compartidos:
 
-   - En **Set preference for share passwords** (Establecer preferencia para las contraseñas de los recursos compartidos), seleccione **Use your own passwords** (Usar sus propias contraseñas) y, a continuación, seleccione **Select passwords for the shares** (Seleccionar contraseñas para los recursos compartidos).
+   1. En **Set preference for share passwords** (Establecer preferencia para las contraseñas de los recursos compartidos), seleccione **Use your own passwords** (Usar sus propias contraseñas) y, a continuación, seleccione **Select passwords for the shares** (Seleccionar contraseñas para los recursos compartidos).
      
-        ![Opciones para usar sus propias contraseñas compartidas en la pantalla Seguridad de un pedido de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opciones para usar sus propias contraseñas compartidas en la pantalla Seguridad de un pedido de importación de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Escriba una contraseña para cada cuenta de almacenamiento del pedido. La contraseña se utilizará en todos los recursos compartidos de la cuenta de almacenamiento.
-     
-        Para utilizar la misma contraseña para todas las cuentas de almacenamiento, seleccione **Copy to all** (Copiar en todas). Cuando termine, seleccione **Save** (Guardar).
-     
-        ![Pantalla para escribir las contraseñas de recurso compartido para un pedido de importación con Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Escriba una contraseña para cada cuenta de almacenamiento del pedido. La contraseña se utilizará en todos los recursos compartidos de la cuenta de almacenamiento.
+    
+       La contraseña debe ser alfanumérica y contener entre 12 y 64 caracteres, con al menos una letra mayúscula, una letra minúscula, un carácter especial y un número.
 
-       En la pantalla **Seguridad**, puede usar **View or change passwords** (Ver o cambiar contraseñas) para cambiar las contraseñas.
+       - Caracteres especiales permitidos: @ # - $ % ^ ! + = ; : _ ( )
+       - Caracteres no permitidos: I i L o O 0
+     
+    1. Para utilizar la misma contraseña para todas las cuentas de almacenamiento, seleccione **Copy to all** (Copiar en todas). 
+
+    1. Cuando termine, seleccione **Save** (Guardar).
+     
+       ![Pantalla para escribir las contraseñas de recurso compartido para un pedido de importación con Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    En la pantalla **Seguridad**, puede usar **View or change passwords** (Ver o cambiar contraseñas) para cambiar las contraseñas.
 
 16. En **Security** (Seguridad), si quiere habilitar el cifrado doble basado en software, expanda **Double-encryption (For high-security environments)** (Cifrado doble [para entornos de alta seguridad]) y seleccione **Enable double encryption for the order** (Habilitar el cifrado doble para el pedido).
 

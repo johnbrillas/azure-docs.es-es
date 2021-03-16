@@ -3,25 +3,27 @@ title: Uso de etiquetas de índice de blobs para administrar y buscar datos en A
 description: Vea ejemplos de cómo usar etiquetas de índice de blobs para clasificar, administrar y consultar objetos de blobs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95541256"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563275"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
 
 Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenamiento mediante atributos de etiqueta clave-valor. Estas etiquetas se indexan y se exponen automáticamente como un índice multidimensional que se puede buscar para encontrar fácilmente los datos. En este artículo se muestra cómo establecer, obtener y buscar datos mediante etiquetas de índice de blobs.
 
-> [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos en Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> [!IMPORTANT]
+> Las etiquetas de índice de blob se encuentran actualmente en **versión preliminar** y están disponibles en todas las regiones públicas. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos en Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

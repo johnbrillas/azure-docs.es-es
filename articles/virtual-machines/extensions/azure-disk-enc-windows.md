@@ -1,25 +1,19 @@
 ---
 title: Azure Disk Encryption para Windows
 description: Implementa Azure Disk Encryption en una máquina virtual Windows mediante una extensión de máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: e7c7385f6a9b0afb5791299a1244011e6164a0a7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.collection: windows
+ms.date: 03/19/2020
+ms.openlocfilehash: 10268f8041f21f74e8ebcfaee41d207a53618260
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805246"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566250"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,7 +21,7 @@ ms.locfileid: "98805246"
 
 Azure Disk Encryption aprovecha BitLocker para ofrecer cifrado de disco completo en las máquinas virtuales de Azure que ejecutan Windows.  Esta solución se integra con Azure Key Vault para administrar los secretos y las claves de cifrado de los discos de la suscripción de Key Vault. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para una lista completa de los requisitos previos, consulte [Azure Disk Encryption para máquinas virtuales Windows](../windows/disk-encryption-overview.md), en concreto las secciones siguientes:
 
@@ -43,7 +37,7 @@ Hay dos versiones del esquema de extensión para Azure Disk Encryption (ADE):
 
 Para seleccionar un esquema de destino, la propiedad `typeHandlerVersion` debe establecerse en la versión del esquema que desee usar.
 
-### <a name="schema-v22-no-aad-recommended"></a>Esquema v2.2: Sin AAD (recomendado)
+### <a name="schema-v22-no-aad-recommended"></a>Esquema v2.2: sin AAD (recomendado)
 
 El esquema v2.2 se recomienda para todas las máquinas virtuales nuevas y no requiere propiedades de Azure Active Directory.
 

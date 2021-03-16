@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026495"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713055"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Introducción a los asistentes de voz en Windows
 
@@ -34,7 +34,7 @@ Para empezar a desarrollar un asistente de voz para Windows, deberá asegurarse 
 
 Algunos recursos necesarios para un agente de voz completamente personalizado en Windows requerirán recursos de Microsoft. El [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) proporciona versiones de ejemplo de estos recursos para el desarrollo y las pruebas iniciales, por lo que esta sección no es necesaria para el desarrollo inicial.
 
-- **Modelo de palabras clave:** la activación por voz requiere un modelo de palabras clave de Microsoft con el formato de archivo .bin. El archivo .bin que se proporciona en el ejemplo del asistente de voz de UWP se entrena con la palabra clave "Contoso".
+- **Modelo de palabras clave:** la activación por voz requiere un modelo de palabras clave de Microsoft con el formato de archivo .bin. El archivo .bin que se proporciona en el ejemplo del asistente de voz de UWP se entrena con la palabra clave *Contoso*.
 - **Token de característica de acceso limitado:** dado que las API de ConversationalAgent proporcionan acceso al audio del micrófono, están protegidas con restricciones de la característica de acceso limitado.  Para usar una característica de acceso limitado, tendrá que obtener un token de característica de acceso limitado conectado a la identidad del paquete de la aplicación de Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Establecimiento de un servicio de diálogo

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219070"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -74,7 +74,7 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * Un equilibrador de carga
 > 
 > En el caso de los clústeres, estos recursos se eliminan (y se vuelven a crear) cada vez que el clúster se reduce verticalmente hasta quedarse sin ningún nodo. Sin embargo, para una instancia, los recursos se retienen hasta que esta se elimina completamente (los recursos no se eliminan con la detención). 
-> Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si el grupo de recursos de red virtual está bloqueado, se producirá un error en la eliminación de la instancia o el clúster de proceso. No se puede eliminar el equilibrador de carga hasta que se elimine la instancia o el clúster de proceso.
+> Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si el grupo de recursos de red virtual está bloqueado, se producirá un error en la eliminación de la instancia o el clúster de proceso. No se puede eliminar el equilibrador de carga hasta que se elimine la instancia o el clúster de proceso. Asegúrese también de que no haya ninguna directiva de Azure que prohíba la creación de grupos de seguridad de red.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Puertos necesarios
@@ -83,7 +83,7 @@ Si planea proteger la red virtual mediante la restricción del tráfico de red h
 
 El servicio Batch agrega grupos de seguridad de red (NSG) en el nivel de las interfaces de red (NIC) que están asociadas a las máquinas virtuales. Estos grupos de seguridad de red configuran automáticamente las reglas de entrada y salida para permitir el siguiente tráfico:
 
-- Tráfico de entrada TCP en los puertos 29876 y 29877 desde una __etiqueta de servicio__ __BatchNodeManagement__.
+- Tráfico de entrada TCP en los puertos 29876 y 29877 desde una __etiqueta de servicio__ __BatchNodeManagement__. El tráfico a través de estos puertos está cifrado y lo usa Azure Batch para la comunicación entre el programador y el nodo.
 
     ![Una regla de entrada que usa la etiqueta de servicio BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ El servicio Batch agrega grupos de seguridad de red (NSG) en el nivel de las int
 
 - Tráfico saliente en cualquier puerto para Internet.
 
-- Para el tráfico TCP de entrada de la instancia de proceso en el puerto 44224 desde una __etiqueta de servicio__ de __AzureMachineLearning__.
+- Para el tráfico TCP de entrada de la instancia de proceso en el puerto 44224 desde una __etiqueta de servicio__ de __AzureMachineLearning__. El tráfico a través de este puerto está cifrado y se usa en Azure Machine Learning para la comunicación con las aplicaciones que se ejecutan en las instancias de proceso.
 
 > [!IMPORTANT]
 > Tenga cuidado si modifica reglas de entrada o salida en los grupos de seguridad de red configurados para Batch o las agrega a ellos. Si un grupo de seguridad de red bloquea la comunicación con los nodos de ejecución, el servicio de proceso establece el estado de los nodos de ejecución en inutilizable.
@@ -165,13 +165,13 @@ Hay dos maneras en que puede lograrlo:
 
 * Agregue [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) a la subred que contiene el recurso de proceso. Establezca una ruta definida por el usuario para cada dirección IP que use el servicio Azure Batch en la región en la que existen sus recursos. Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service, ya que esto es necesario para acceder a las instancias de proceso. Cuando agregue la dirección IP de Azure Machine Learning Service, debe agregar la dirección IP para las regiones __primaria y secundaria__ de Azure. La región primaria es aquella en la que se encuentra el área de trabajo.
 
-    Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
+    Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
 
     Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
 
     * Descargue los [intervalos de direcciones IP y las etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) y busque `BatchNodeManagement.<region>` y `AzureMachineLearning.<region>` en el archivo, donde `<region>` es su región de Azure.
 
-    * Use la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP y se filtra para la región Este de EE. UU. 2 (primaria) y Centro de EE. UU. (secundaria):
+    * Use la [CLI de Azure](/cli/azure/install-azure-cli) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP y se filtra para la región Este de EE. UU. 2 (primaria) y Centro de EE. UU. (secundaria):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -321,7 +321,7 @@ Conecte el clúster de HDInsight o de máquina virtual a su área de trabajo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo es la tercera parte de una serie de cuatro capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
+Este artículo es la tercera parte de una serie de cinco capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
 
 * [Parte 1: Introducción a las redes virtuales](how-to-network-security-overview.md)
 * [Parte 2: Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)

@@ -1,19 +1,19 @@
 ---
-title: Compatibilidad de la atestación fuera del proceso con el DaemonSet auxiliar de cita de Intel SGX en Azure
+title: Compatibilidad de la atestación fuera del proceso con el DaemonSet auxiliar de cita de Intel SGX en Azure (versión preliminar)
 description: DaemonSet para generar citas fuera del proceso de la aplicación de SGX. En este artículo se explica cómo se proporciona la utilidad de atestación fuera del proceso para cargas de trabajo confidenciales que se ejecutan dentro de un contenedor.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564164"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553262"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Administración del software de la plataforma con el DaemonSet auxiliar de cita de SGX
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Administración del software de la plataforma con el controlador DaemonSet auxiliar de cita de SGX (versión preliminar)
 
 Las [aplicaciones de enclave](confidential-computing-enclaves.md) que realizan la atestación remota requieren que se genere una cita. Esta cita proporciona una prueba criptográfica de la identidad y del estado de la aplicación, así como el entorno en el que se ejecuta el enclave. La generación de la cita requiere componentes de software de confianza que formen parte de los componentes de software de plataforma (PSW) de Intel.
 
@@ -27,6 +27,13 @@ Intel admite dos modos de atestación para ejecutar la generación de citas:
 Las aplicaciones de SGX creadas con el SDK Open Enclave usan de manera predeterminada el modo de atestación en proceso. Las aplicaciones basadas en SGX permiten el modo fuera del proceso, por lo que requerirían un hospedaje adicional y exponer los componentes necesarios, como Architectural Enclave Service Manager (AESM), externos a la aplicación.
 
 El uso de esta característica es **muy recomendable**, porque mejora el tiempo de actividad de las aplicaciones de enclave durante las actualizaciones de la plataforma Intel o de los controladores de DCAP.
+
+Para habilitar esta característica en el clúster de AKS, modifique el comando add--enable-sgxquotehelper en la CLI al habilitar el complemento de computación confidencial. Dispone de instrucciones sobre la CLI [aquí](confidential-nodes-aks-get-started.md): 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>¿Cuáles son las ventajas del modo fuera del proceso?
 

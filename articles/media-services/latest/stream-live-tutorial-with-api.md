@@ -28,18 +28,18 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 Los siguientes elementos son necesarios para completar el tutorial:
 
 - Instalación de Visual Studio Code o Visual Studio.
-- [Cree una cuenta de Media Services](./create-account-howto.md).<br/>Asegúrese de recordar los valores que usó para el nombre del grupo de recursos y de la cuenta de Media Services.
-- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- [Cree una cuenta de Media Services](./create-account-howto.md).<br/>Asegúrese de copiar los detalles de acceso a la API en formato JSON o de almacenar los valores necesarios para conectarse a la cuenta de Media Services en el archivo con formato .env que se usa en este ejemplo.
+- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Tendrá que usarlas para acceder a la API de este ejemplo, o bien introducirlas en el archivo con formato .env. 
 - Una cámara o un dispositivo (como un equipo portátil) que se utiliza para difundir un evento.
-- Un codificador en directo local que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo de Media Services, consulte [Codificadores en directo locales recomendados](recommended-on-premises-live-encoders.md). La secuencia debe estar en formato **RTMP** o **Smooth Streaming**.  
-- En este ejemplo, se recomienda empezar con un codificador de software como el software de streaming en vivo de OBS Studio. 
+- Un codificador de software local que codifica la transmisión de la cámara y la envía al servicio de streaming en vivo de Media Services mediante el protocolo RTMP. Consulte [Codificadores de streaming en vivo locales comprobados](recommended-on-premises-live-encoders.md). La secuencia debe estar en formato **RTMP** o **Smooth Streaming**.  
+- Para que resulte fácil ponerse en marcha con este ejemplo, se recomienda empezar con un codificador de software como la opción gratuita [OBS Studio de Open Broadcast](https://obsproject.com/download). 
 
 > [!TIP]
 > Asegúrese de revisar [Streaming en vivo con Media Services v3](live-streaming-overview.md) antes de continuar. 
 
 ## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
-Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la máquina con el siguiente comando:  
+Utilice el siguiente comando para clonar en la máquina el siguiente repositorio de Git Hub que contiene el ejemplo de .NET de streaming en vivo:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
@@ -48,6 +48,9 @@ Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la m
 El ejemplo de streaming en vivo se encuentra en carpeta [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live).
 
 Abra [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) en el proyecto que ha descargado. Sustituya los valores por las credenciales que obtuvo al [acceder a las API](./access-api-howto.md).
+
+Tenga en cuenta que también puede usar el archivo con formato .env en la raíz del proyecto para establecer las variables de entorno solo una vez para todos los proyectos del repositorio de ejemplos de .NET. Solo tiene que copiar el archivo sample.env, rellenar la información que obtiene de la página Acceso de API de Media Services en Azure Portal o de la CLI de Azure.  Cambie el nombre del archivo sample.env solo a ".env" para usarlo en todos los proyectos.
+El archivo .gitignore ya está configurado para evitar la publicación del contenido de este archivo en el repositorio bifurcado. 
 
 > [!IMPORTANT]
 > Este ejemplo utiliza un sufijo único para cada recurso. Si cancela la depuración o termina la aplicación sin ejecutarla, acabará con varios objetos eventos en directo en la cuenta. <br/>Asegúrese de detener los objetos LiveEvent en ejecución. En caso contrario, se le **facturará** por ellos.
@@ -58,27 +61,24 @@ En esta sección se examinan las funciones definidas en el archivo [Program.cs](
 
 El ejemplo crea un sufijo único para cada recurso, de modo que no tengamos conflictos de nombres si ejecuta el ejemplo varias veces sin limpiar.
 
-> [!IMPORTANT]
-> Este ejemplo utiliza un sufijo único para cada recurso. Si cancela la depuración o termina la aplicación sin ejecutarla, acabará con varios objetos eventos en directo en la cuenta. <br/>
-> Asegúrese de detener los objetos LiveEvent en ejecución. En caso contrario, se le **facturará** por ellos.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Uso de las API de Media Services con SDK de .NET
 
-Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local. 
+Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que ha clonado al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local (appsettings.json) o por medio del archivo de variables de entorno .env situado en la raíz del repositorio.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-a-live-event"></a>Creación de un evento en directo
 
-En esta sección se muestra cómo crear un tipo de objeto LiveEvent **paso a través** (el valor de LiveEventEncodingType es None). Para obtener más información sobre los tipos disponibles de objetos LiveEvent, consulte [Tipos de objetos LiveEvent](live-events-outputs-concept.md#live-event-types). 
+En esta sección se muestra cómo crear un tipo de objeto LiveEvent **paso a través** (el valor de LiveEventEncodingType es None). Para obtener más información sobre los otros tipos disponibles de eventos en directo, consulte [Tipos de eventos en directo](live-events-outputs-concept.md#live-event-types). Además del tránsito, puede usar un evento de transcodificación en directo para la codificación en la nube con velocidad de bits adaptable de 720p o 1080p. 
  
 Algunos de los aspectos que podría especificar al crear el evento en directo son:
 
-* Ubicación de Media Services.
-* El protocolo de streaming para el objeto LiveEvent (actualmente, se admiten los protocolos RTMP y Smooth Streaming).<br/>No puede cambiar la opción de protocolo mientras estén en ejecución el evento en directo o sus salidas activas asociadas. Si necesita diferentes protocolos, debe crear un evento en directo independiente para cada protocolo de streaming.  
+* El protocolo de ingesta del evento en directo (actualmente, se admiten los protocolos RTMP y Smooth Streaming).<br/>No puede cambiar la opción de protocolo mientras estén en ejecución el evento en directo o sus salidas activas asociadas. Si necesita diferentes protocolos, debe crear un evento en directo independiente para cada protocolo de streaming.  
 * Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP a las que se permite ingerir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).<br/>Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.<br/>Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con cuatro números o intervalo de direcciones CIDR.
 * Al crear el evento, puede especificar que se inicie automáticamente. <br/>Cuando el inicio automático está establecido en true, el evento en directo se inicia después de la creación. Es decir, la facturación comienza en cuanto el evento en directo empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
-* Para que una dirección URL de ingesta sea predictiva, establezca el modo "mnemónica". Para información detallada, consulte [Direcciones URL de ingesta de objetos LiveEvent](live-events-outputs-concept.md#live-event-ingest-urls).
+También hay modos en espera disponibles para iniciar el evento en directo en un estado de "asignación" de menor costo que hace que sea más rápido pasar a un estado "en ejecución". Esto resulta útil en casos como los grupos activos, que necesitan distribuir los canales rápidamente a los transmisores.
+* Para que una dirección URL de ingesta sea predictiva y más fácil de mantener en un codificador en directo basado en hardware, establezca la propiedad "useStaticHostname" en true. Para información detallada, consulte [Direcciones URL de ingesta de objetos LiveEvent](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -101,15 +101,27 @@ Utilice el objeto previewEndpoint para obtener una vista previa y comprobar que 
 
 Una vez que la secuencia fluye en el objeto LiveEvent, puede comenzar el evento de streaming mediante la creación de un recurso, un objeto LiveOutput y un objeto StreamingLocator. Se archivará la secuencia y estará disponible a los usuarios a través del extremo de streaming.
 
+Para aprender estos conceptos, es mejor pensar en el objeto "recurso" como si se tratase de las cintas que antes se insertaban en los reproductores de vídeo. La "salida en directo" es el dispositivo de reproducción de vídeo. El "evento en directo" es simplemente la señal de vídeo que llega a la parte posterior del dispositivo.
+
+En primer lugar, se crea el "evento en directo" para crear la señal.  La señal no fluye hasta que inicie ese evento en directo y se conecte el codificador a la entrada.
+
+La cinta se puede crear en cualquier momento. Se trata simplemente de un "recurso" vacío que se entregará al objeto de salida en directo; es decir, el reproductor de vídeo en esta analogía.
+
+El reproductor de vídeo se puede crear en cualquier momento. Es decir, puede crear una salida en directo antes de iniciar el flujo de la señal o después. Si necesita agilizar el proceso, a veces resulta útil crear la salida antes de iniciar el flujo de la señal.
+
+Para detener el reproductor de vídeo, puede llamar al método delete en el objeto LiveOutput. Esto no elimina el contenido de la cinta o "recurso".  El recurso siempre se mantiene con el contenido de vídeo archivado hasta que se llama al método delete explícitamente en el propio recurso.
+
+La siguiente sección le guiará a través de la creación del recurso ("cinta") y la salida en directo ("reproductor de vídeo").
+
 #### <a name="create-an-asset"></a>Creación de un recurso
 
-Cree un recurso para que lo use el objeto LiveOutput.
+Cree un recurso para que lo use el objeto LiveOutput. En la analogía anterior, se trata de la cinta en la que se graba la señal de vídeo en directo. Los visores podrán ver el contenido de esta cinta virtual en directo o a petición.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateAsset)]
 
 #### <a name="create-a-live-output"></a>Creación de un objeto LiveOutput
 
-Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Cuando se elimina la salida en directo, no se eliminan el recurso subyacente ni el contenido de dicho recurso.
+Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Este es el "reproductor de vídeo" del evento. Cuando se elimina la salida activa, no se eliminan el recurso subyacente ni el contenido del recurso. Considere que equivale a expulsar la cinta. El recurso con la grabación durará el tiempo que desee y, cuando se expulse (es decir, cuando se elimine la salida en directo), estará disponible para la visualización a petición inmediatamente. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveOutput)]
 
@@ -118,7 +130,7 @@ Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. C
 > [!NOTE]
 > Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Detenido**. Para iniciar la transmisión del contenido y aprovechar el [empaquetado dinámico](dynamic-packaging-overview.md) y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).
 
-Cuando publique el recurso del objeto LiveOutput mediante un objeto StreamingLocator, el objeto LiveEvent (hasta la longitud de la ventana de DVR) seguirá estando visible hasta la expiración o eliminación del objeto StreamingLocator, lo que ocurra primero.
+Cuando publique el recurso con un localizador de streaming, el evento en directo (hasta la longitud de la ventana de DVR) seguirá pudiendo verse hasta la expiración o eliminación del localizador de streaming, lo que ocurra primero. Esta es la forma de hacer que la grabación de la "cinta" virtual esté disponible para que la audiencia de visualización pueda verla en directo y a petición. Se puede usar la misma dirección URL para ver el evento en directo, la ventana de DVR o el recurso a petición cuando se complete la grabación (cuando se elimine la salida en directo).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateStreamingLocator)]
 

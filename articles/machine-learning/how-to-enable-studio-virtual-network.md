@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559546"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171556"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -38,7 +38,6 @@ Consulte los demás artículos de esta serie:
 
 > [!IMPORTANT]
 > Si el área de trabajo está en una __nube soberana__, como Azure Government o Azure China 21Vianet, los cuadernos integrados _no_ admiten el uso de almacenamiento que se encuentra en una red virtual. En su lugar, puede usar cuadernos de Jupyter Notebook en una instancia de Compute. Para obtener más información, consulte la sección [Acceso a los datos en un cuaderno de instancia de Compute](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -107,7 +106,6 @@ En la tabla siguiente se describe por qué debe habilitar la autenticación de i
 >
 > Para resolver este problema, elimine la cuenta del almacén de archivos de la red virtual y, a continuación, agréguela de nuevo.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concesión de acceso __Lector__ de identidad administrada del área de trabajo al vínculo privado de almacenamiento
 
 Si la cuenta de almacenamiento de Azure usa un punto de conexión privado, debe conceder a la identidad administrada del área de trabajo acceso **Lector** al vínculo privado. Para más información, consulte el rol integrado [Lector](../role-based-access-control/built-in-roles.md#reader). 
@@ -162,7 +160,7 @@ También debe [habilitar la autenticación de identidad administrada](#configure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo es una parte opcional de una serie de cuatro capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
+Este artículo es la quinta parte de una serie de cinco capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
 
 * [Parte 1: Introducción a las redes virtuales](how-to-network-security-overview.md)
 * [Parte 2: Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)

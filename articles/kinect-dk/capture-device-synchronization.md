@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, profundidad, rgb, interna, externa, sincronización, cadena margarita, desplazamiento de fase
-ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276960"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034324"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Captura de la sincronización de dispositivos Azure Kinect
 
-El hardware de Azure Kinect puede alinear el tiempo de captura de las imágenes de color y de profundidad. La alineación entre las cámaras del mismo dispositivo se denomina **sincronización interna**. La alineación del tiempo de captura de varios dispositivos conectados se denomina **sincronización externa**.
+El hardware de Azure Kinect puede alinear el tiempo de captura de las imágenes de color y de profundidad. La alineación entre las cámaras del mismo dispositivo se denomina **sincronización interna**. La alineación del tiempo de captura de varios dispositivos conectados se denomina **sincronización externa**. La matriz de micrófonos funciona independientemente de las cámaras de color y de profundidad.
 
 ## <a name="device-internal-synchronization"></a>Sincronización interna del dispositivo
 

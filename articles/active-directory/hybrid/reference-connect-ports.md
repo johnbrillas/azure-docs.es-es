@@ -16,12 +16,12 @@ ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 681d92ed162feff0510067556d7eeaa47b12d988
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80331087"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520037"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
@@ -39,7 +39,7 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | LDAP |389 (TCP/UDP) |Se usa para la importación de datos de AD. Los datos se cifran con Kerberos Sign & Seal. |
 | SMB | 445 (TCP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
 | LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando TLS. |
-| RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
+| RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Si se ha cambiado el puerto dinámico, debe abrir ese puerto. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
 |WinRM  | 5985 (TCP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect.|
 |Servicios web de AD DS | 9389 (TCP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect. |
 

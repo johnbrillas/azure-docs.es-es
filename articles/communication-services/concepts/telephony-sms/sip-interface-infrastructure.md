@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659263"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487396"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestructura de la interfaz SIP 
 
@@ -158,12 +158,12 @@ En la tabla siguiente se muestra el intervalo de puertos de los procesadores de 
 
 ## <a name="media-traffic-media-processors-geography"></a>Tráfico de elementos multimedia: Geografía de procesadores de multimedia
 
-El tráfico del elementos multimedia fluye a través de componentes denominados procesadores de multimedia. Los procesadores de multimedia se colocan en los mismos centros de datos que los servidores proxy SIP. Además, hay más procesadores de multimedia para optimizar el flujo de medios. Por ejemplo, ahora no tenemos un componente de proxy de SIP en Australia (SIP fluye a través de Singapur o Hong Kong), pero tenemos el procesador de multimedia local en Australia. La necesidad de los procesadores multimedia a nivel local la determinada la latencia que experimentamos al enviar tráfico a larga distancia, por ejemplo, desde Australia hasta Singapur o Hong Kong. Aunque la latencia en el ejemplo del tráfico que fluye desde Australia hasta Hong Kong o Singapur es aceptable para conservar una buena calidad de llamada para el tráfico SIP, no lo es para el tráfico de elementos multimedia en tiempo real.
+El tráfico del elementos multimedia fluye a través de componentes denominados procesadores de multimedia. Los procesadores de multimedia se colocan en los mismos centros de datos que los servidores proxy SIP. Además, hay más procesadores de multimedia para optimizar el flujo de medios. Por ejemplo, ahora no tenemos un componente de proxy de SIP en Australia (SIP fluye mediante el SAR de Hong Kong o Singapur), pero tenemos el procesador de multimedia local en Australia. La necesidad de los procesadores multimedia de forma local viene determinada por la latencia que experimentamos al enviar tráfico a larga distancia, por ejemplo, desde Australia hasta el SAR de Hong Kong o Singapur. Aunque la latencia en el ejemplo del tráfico que fluye desde Australia hasta el SAR de Hong Kong o Singapur es aceptable para conservar una buena calidad de llamada para el tráfico SIP, no lo es para el tráfico de elementos multimedia en tiempo real.
 
 Ubicaciones en que se implementaron los componentes del proxy SIP y del procesador de multimedia:
 - EE. UU. (dos en los centros de datos de Oeste de EE. UU. y Este de EE. UU.)
 - Europa (centros de datos de Amsterdam y Dublín)
-- Asia (centros de datos de Singapur y Hong Kong)
+- Asia (centros de datos de Singapur y el SAR de Hong Kong)
 - Australia (centros de datos de Este y Sudeste de Australia)
 
 Ubicaciones en las que solo se implementan procesadores de multimedia (SIP fluye a través del centro de datos más cercano de los que se han enumerado anteriormente):

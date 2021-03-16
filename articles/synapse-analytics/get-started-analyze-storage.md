@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: ad16b63360364acd88ab12fb4715d1fd3115c0fb
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 71ba3d99ceee89464dafdf5bf4c16e70df146bef
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209379"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426083"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Análisis de datos en una cuenta de almacenamiento
 
@@ -45,7 +45,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 Puede analizar los datos de la cuenta de ADLS Gen2 predeterminada del área de trabajo o vincular una cuenta de ADLS Gen2 o de almacenamiento de blobs con el área de trabajo seleccionando "**Administrar**" > "**Servicios vinculados**" > "**Nuevo**" (en los pasos siguientes, se ha utilizado la cuenta de ADLS Gen2 principal).
 
 1. En Synapse Studio, vaya al centro **Data** (Datos) y, a continuación, seleccione **Vinculado**.
-1. Vaya a **Cuentas de almacenamiento** > **myworkspace (Principal: contosolake)** .
+1. Vaya a **Azure Data Lake Storage Gen2** > **myworkspace (Primary - contosolake)** [miáreadetrabajo (Principal: contosolake)].
 1. Seleccione **users (Primary)** (usuarios [Principal]). Debería ver la carpeta **NYCTaxi**. Dentro debería ver dos carpetas llamadas **PassengerCountStats_csvformat** y **PassengerCountStats_parquetformat**.
 1. Abra la carpeta **PassengerCountStats_parquetformat**. Dentro, verá un archivo Parquet con un nombre como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
 1. Haga clic con el botón derecho en el archivo **.parquet**, seleccione **Nuevo cuaderno** y, luego, **Load to DataFrame** (Cargar en Dataframe). Se crea un cuaderno con una celda como esta:

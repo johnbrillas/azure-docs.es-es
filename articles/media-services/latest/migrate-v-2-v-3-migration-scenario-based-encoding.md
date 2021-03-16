@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940091"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563666"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de codificación
 
@@ -58,9 +58,9 @@ Haga clic en la imagen siguiente para ver una versión más grande.
 
 ### <a name="v3-encoding-workflow"></a>Flujo de trabajo de codificación de v3
 
-[ ![Flujo de trabajo de codificación para v3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Flujo de trabajo de codificación para v3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
 
-1. Configuración
+1. Configurar
     1. Cree un recurso o use uno existente. Si usa un recurso nuevo, cargue el contenido en dicho recurso. Si usa un recurso existente, debe codificar los archivos que ya existen en el recurso. *No debe cargar más contenido en ese recurso.*
     1. Cree un recurso de salida.  El recurso de salida es el lugar en el que se almacenarán los archivos codificados y los metadatos de entrada y salida.
     1. Obtenga los valores de la transformación:
@@ -84,17 +84,6 @@ Haga clic en la imagen siguiente para ver una versión más grande.
 Si el código de v2 llamó al codificador Standard con un valor preestablecido personalizado, primero debe crear una nueva transformación con el valor preestablecido de codificador Standard personalizado antes de enviar un trabajo.
 
 Los valores preestablecidos personalizados ahora están basados en JSON, no en XML. Vuelva a crear el valor preestablecido en JSON siguiendo el esquema de valores preestablecidos personalizados, tal como se define en la documentación de la [Open API de transformaciones (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json).
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## <a name="input-and-output-metadata-files-from-an-encoding-job"></a>Archivos de metadatos de entrada y salida de un trabajo de codificación
 

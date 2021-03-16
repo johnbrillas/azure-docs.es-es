@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558140"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034768"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -65,7 +65,7 @@ La **telemetría** se usa a menudo con dispositivos de IoT, ya que muchos dispos
 
 Como consecuencia, al diseñar un modelo en Azure Digital Twins, es probable que use **propiedades** en la mayoría de los casos para modelar los gemelos. Esto le permite tener el almacenamiento de seguridad y la capacidad de leer y consultar los campos de datos.
 
-La telemetría y las propiedades a menudo funcionan en conjunto para controlar la entrada de datos desde dispositivos. Como toda la entrada a Azure Digital Twins se realiza a través de [API](how-to-use-apis-sdks.md), normalmente usará la función de entrada para leer los eventos de telemetría o propiedad de los dispositivos, y establecer una propiedad en ADT en respuesta. 
+La telemetría y las propiedades a menudo funcionan en conjunto para controlar la entrada de datos desde dispositivos. Como toda la entrada a Azure Digital Twins se realiza a través de [API](how-to-use-apis-sdks.md), normalmente usará la función de entrada para leer los eventos de telemetría o propiedad de los dispositivos, y establecer una propiedad en Azure Digital Twins en respuesta. 
 
 También puede publicar un evento de telemetría desde la API de Azure Digital Twins. Como con otros tipos de telemetría, es un evento de corta duración que requiere un agente de escucha para el control.
 
@@ -154,11 +154,11 @@ Sin embargo, si tiene muchos modelos para cargar, o si estos tienen muchas inter
 
 _**Para visualizar modelos**_
 
-Una vez que cargue los modelos en la instancia de Azure Digital Twins, podrá verlos en dicha instancia, incluidas todas las relaciones de herencia y modelo, mediante el [**visualizador de modelos de Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Este ejemplo se encuentra actualmente en un estado de borrador. Se recomienda que la comunidad de desarrollo de gemelos digitales extienda y contribuya con este ejemplo. 
+Una vez que cargue los modelos en la instancia de Azure Digital Twins, podrá verlos en dicha instancia, incluidas todas las relaciones de herencia y modelo, mediante el [**visualizador de modelos de Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Este ejemplo se encuentra actualmente en un estado de borrador. Se recomienda que la comunidad de desarrollo de gemelos digitales extienda y contribuya con este ejemplo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [*Conceptos: ¿Qué es una ontología?* ](concepts-ontologies.md)
+* Obtenga información sobre cómo crear modelos basados en ontologías estándar del sector: [*Conceptos: ¿Qué es una ontología?*](concepts-ontologies.md)
 
 * Analice en profundidad la administración de modelos con operaciones de API: [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md)
 

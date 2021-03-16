@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1619622ad9594f252c3d4cf5551704c6a788f9f8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256548"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564091"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Para usar LDAP seguro, el tráfico de red se cifra mediante la infraestructura d
 * En el dominio administrado se aplica una **clave privada**.
     * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado y no debe distribuirse por los equipos cliente.
     * Un certificado que incluye la clave privada utiliza el formato de archivo *.PFX*.
-    * El algoritmo de cifrado del certificado debe ser *TripleDES-SHA1*.
+    * Al exportar el certificado, debe especificar el algoritmo de cifrado *TripleDES-SHA1*. Esto solo se aplica al archivo. pfx y no afecta al algoritmo utilizado por el propio certificado. Tenga en cuenta que la opción *TripleDES-SHA1* solo está disponible a partir de Windows Server 2016.
 * En los equipos cliente se aplica una **clave pública**.
     * Esta clave pública se utiliza para *cifrar* el tráfico LDAP seguro. La clave pública se puede distribuir a los equipos cliente.
     * Los certificados sin la clave privada usan el formato de archivo *.CER*.
@@ -151,6 +151,11 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 1. Como este certificado se utiliza para descifrar datos, debe controlar cuidadosamente el acceso. Se puede usar una contraseña para proteger su uso. Sin la contraseña correcta, el certificado no se puede aplicar a un servicio.
 
     En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. El algoritmo de cifrado debe ser *TripleDES-SHA1*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
+
+    Si realiza la exportación con el [cmdlet export-pfxcertificate de PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate), deberá pasar la marca *-CryptoAlgorithmOption* con TripleDES_SHA1.
+
+    ![Captura de pantalla que muestra cómo cifrar la contraseña](./media/tutorial-configure-ldaps/encrypt.png)
+
 1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds.pfx*. Anote la contraseña y la ubicación del archivo *.PFX*, ya que necesitará esta información en los pasos siguientes.
 1. En la página de revisión, seleccione **Finalizar** para exportar el certificado a un archivo de certificado *.PFX*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha exportado correctamente.
 1. Mantenga MMC abierto para usarlo en la sección siguiente.
@@ -230,12 +235,12 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de las ventanas del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
-    | Configuración                           | Value        |
+    | Configuración                           | Valor        |
     |-----------------------------------|--------------|
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |
     | Source port ranges                | *            |
-    | Destination                       | Cualquiera          |
+    | Destination                       | Any          |
     | Intervalos de puertos de destino           | 636          |
     | Protocolo                          | TCP          |
     | Acción                            | Allow        |

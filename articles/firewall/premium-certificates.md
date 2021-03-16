@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 3914a82903c293cf1a8306b5ecc1f542fef83e72
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549514"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520292"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certificados de la versión preliminar de Azure Firewall Prémium 
 
@@ -90,6 +90,117 @@ Para configurar un certificado de entidad de certificación en la directiva de f
 > Para ver y configurar un certificado desde Azure Portal, debe agregar su cuenta de usuario de Azure a la directiva de acceso de Key Vault. Proporcione a su cuenta de usuario los permisos **Obtener** y **Enumerar** en **Permisos de secretos**.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Directiva de acceso de Azure Key Vault":::
 
+
+## <a name="create-your-own-self-signed-ca-certificate"></a>Creación de su propio certificado de entidad de certificación autofirmado
+
+Para ayudarle a probar y comprobar la inspección de TLS, puede usar los siguientes scripts para crear su propia entidad de certificación raíz autofirmada y entidad de certificación intermedia.
+
+> [!IMPORTANT]
+> En el caso de producción, debe usar la PKI corporativa para crear un certificado de entidad de certificación intermedia. Una PKI corporativa aprovecha la infraestructura existente y controla la distribución de la entidad de certificación raíz a todos los equipos de punto de conexión. Para más información, consulte [Implementación y configuración de certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
+
+Existen dos versiones de este script:
+- Un script de Bash `cert.sh` 
+- Un script de PowerShell `cert.ps1` 
+
+ Además, ambos scripts usan el archivo de configuración `openssl.cnf`. Para usar los scripts, copie el contenido de `openssl.cnf`, y `cert.sh` o `cert.ps1` en el equipo local.
+
+Los scripts generan los siguientes archivos:
+- rootCA.crt/rootCA.key: certificado público de entidad de certificación raíz y clave privada.
+- interCA.crt/interCA.key: certificado público de entidad de certificación intermedia y clave privada.
+- interCA.pfx: paquete pkcs12 de entidad de certificación intermedia que el firewall usará.
+
+> [!IMPORTANT]
+> rootCA.key debe almacenarse en una ubicación segura sin conexión. Los scripts generan un certificado con una validez de 1024 días.
+
+Una vez creados los certificados, impleméntelos en las siguientes ubicaciones:
+- rootCA.crt: se implementa en máquinas de punto de conexión (solo certificado público).
+- interCA.pfx: se importa como certificado en una instancia de Key Vault y se asigna a la directiva de firewall.
+
+### <a name="opensslcnf"></a>**openssl.cnf**
+```
+[ req ]
+default_bits        = 4096
+distinguished_name  = req_distinguished_name
+string_mask         = utf8only
+default_md          = sha512
+
+[ req_distinguished_name ]
+countryName                     = Country Name (2 letter code)
+stateOrProvinceName             = State or Province Name
+localityName                    = Locality Name
+0.organizationName              = Organization Name
+organizationalUnitName          = Organizational Unit Name
+commonName                      = Common Name
+emailAddress                    = Email Address
+
+[ rootCA_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+[ interCA_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true, pathlen:1
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+[ server_ext ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:false
+keyUsage = critical, digitalSignature
+extendedKeyUsage = serverAuth
+```
+
+###  <a name="bash-script---certsh"></a>Script de Bash: cert.sh 
+```bash
+#!/bin/bash
+
+# Create root CA
+openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 1024 -out rootCA.crt -subj "/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA" -config openssl.cnf -extensions rootCA_ext
+
+# Create intermediate CA request
+openssl req -new -nodes -newkey rsa:4096 -keyout interCA.key -sha256 -out interCA.csr -subj "/C=US/ST=US/O=Self Signed/CN=Self Signed Intermediate CA"
+
+# Sign on the intermediate CA
+openssl x509 -req -in interCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out interCA.crt -days 1024 -sha256 -extfile openssl.cnf -extensions interCA_ext
+
+# Export the intermediate CA into PFX
+openssl pkcs12 -export -out interCA.pfx -inkey interCA.key -in interCA.crt -password "pass:"
+
+echo ""
+echo "================"
+echo "Successfully generated root and intermediate CA certificates"
+echo "   - rootCA.crt/rootCA.key - Root CA public certificate and private key"
+echo "   - interCA.crt/interCA.key - Intermediate CA public certificate and private key"
+echo "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded to Key Vault"
+echo "================"
+```
+
+### <a name="powershell---certps1"></a>PowerShell: cert.ps1
+```powershell
+# Create root CA
+openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 3650 -out rootCA.crt -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA' -config openssl.cnf -extensions rootCA_ext
+
+# Create intermediate CA request
+openssl req -new -nodes -newkey rsa:4096 -keyout interCA.key -sha256 -out interCA.csr -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Intermediate CA'
+
+# Sign on the intermediate CA
+openssl x509 -req -in interCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out interCA.crt -days 3650 -sha256 -extfile openssl.cnf -extensions interCA_ext
+
+# Export the intermediate CA into PFX
+openssl pkcs12 -export -out interCA.pfx -inkey interCA.key -in interCA.crt -password 'pass:'
+
+Write-Host ""
+Write-Host "================"
+Write-Host "Successfully generated root and intermediate CA certificates"
+Write-Host "   - rootCA.crt/rootCA.key - Root CA public certificate and private key"
+Write-Host "   - interCA.crt/interCA.key - Intermediate CA public certificate and private key"
+Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded to Key Vault"
+Write-Host "================"
+
+```
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

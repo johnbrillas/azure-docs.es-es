@@ -1,78 +1,62 @@
 ---
-title: Opciones de disponibilidad
-description: Obtención de información sobre las características de disponibilidad para ejecutar máquinas virtuales en Azure
-author: cynthn
-ms.author: cynthn
+title: Opciones de disponibilidad para máquinas virtuales de Azure
+description: Obtenga información sobre las opciones de disponibilidad para ejecutar máquinas virtuales en Azure.
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 0af9d27561649a559913912165e63e913a32ff2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/08/2021
+ms.reviewer: cynthn
+ms.openlocfilehash: 1ea87d40430dbf3edabd557b80ab1456b49f4605
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178293"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507881"
 ---
-# <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
+# <a name="availability-options-for-azure-virtual-machines"></a>Opciones de disponibilidad para máquinas virtuales de Azure
+En este artículo se proporciona una visión general de las opciones de disponibilidad de las máquinas virtuales (VM) de Azure.
 
-En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.
+## <a name="availability-zones"></a>Zonas de disponibilidad
 
-## <a name="high-availability"></a>Alta disponibilidad
+Las [zonas de disponibilidad](../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context) expanden el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Una zona de disponibilidad es una zona separada físicamente dentro de una región de Azure. Hay tres zonas de disponibilidad por cada región de Azure admitida. 
 
-Por lo general, las cargas de trabajo se distribuyen entre máquinas virtuales distintas para obtener un alto rendimiento y crear redundancia en caso de que una máquina virtual se vea afectada debido a una actualización u otro evento. 
+Cada zona de disponibilidad tiene una fuente de alimentación, una red y un sistema de refrigeración distintos. Si diseña las soluciones para que usen máquinas virtuales replicadas en zonas, puede proteger sus datos y aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona. 
 
-Hay algunas opciones que Azure proporciona para lograr alta disponibilidad. En primer lugar, hablemos sobre las construcciones básicas. 
-
-### <a name="availability-zones"></a>Zonas de disponibilidad
-
-Las [zonas de disponibilidad](../availability-zones/az-overview.md) expanden el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Una zona de disponibilidad es una zona separada físicamente dentro de una región de Azure. Hay tres zonas de disponibilidad por cada región de Azure admitida. 
-
-Cada zona de disponibilidad tiene una fuente de alimentación, una red y un sistema de refrigeración distintos. Si diseña las soluciones para que utilicen máquinas virtuales replicadas en zonas, podrá proteger sus datos y aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona. 
-
-![Zonas de disponibilidad](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-Obtenga más información acerca de cómo implementar una máquina virtual [Windows](./windows/create-powershell-availability-zone.md) o [Linux](./linux/create-cli-availability-zone.md) en una zona de disponibilidad.
-
-
-### <a name="fault-domains"></a>Dominios de error
-
-Un dominio de error es un grupo lógico de hardware subyacente que comparte la fuente de alimentación y el conmutador de red, similar a un bastidor dentro de un centro de datos local. 
-
-### <a name="update-domains"></a>Dominios de actualización
-
-Un dominio de actualización es un grupo lógico de hardware subyacente que puede someterse a mantenimiento o reiniciarse al mismo tiempo. 
-
-Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecutándose cuando se realiza el mantenimiento periódico de la plataforma Azure. Es posible que el orden en que se reinician los dominios de actualización no siga una secuencia durante un mantenimiento, pero se reinician de uno en uno.
+## <a name="availability-sets"></a>Conjuntos de disponibilidad
+Un [conjunto de disponibilidad](availability-set-overview.md) es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de disponibilidad propiamente dicho, solo se paga por cada instancia de máquina virtual que cree.
 
 
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de escalado de máquinas virtuales 
 
-Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada muchas máquinas virtuales. Se recomienda la creación de dos o más máquinas virtuales en un conjunto de escalado para proporcionar una aplicación de alta disponibilidad y para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de escalado propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](./disks-types.md#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. Las máquinas virtuales de un conjunto de escalado se pueden implementar en varios dominios de actualización y dominios de error para maximizar la disponibilidad y la resistencia a las interrupciones debidas a interrupciones del centro de datos y a eventos de mantenimiento planeados o no planeados. Las máquinas virtuales de un conjunto de escalado también se pueden implementar en una sola zona de disponibilidad o en regiones. Las opciones de implementación de zona de disponibilidad pueden diferir según el modo de orquestación.
+Los [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context) permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada muchas máquinas virtuales. Se recomienda la creación de dos o más máquinas virtuales en un conjunto de escalado para proporcionar una aplicación de alta disponibilidad y para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de escalado propiamente dicho, solo se paga por cada instancia de máquina virtual que cree.
 
-**Dominios de error y dominios de actualización**
+Las máquinas virtuales de un conjunto de escalado también se pueden implementar en una sola zona de disponibilidad o en regiones. Las opciones de implementación de zona de disponibilidad pueden diferir según el [modo de orquestación](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
 
-Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](./manage-availability.md).
-
-**Modos de orquestación para conjuntos de escalado**
-
-Los modos de orquestación de los conjuntos de escalado de máquinas virtuales permiten tener un mayor control sobre la forma en que el conjunto de escalado administra las instancias de máquina virtual. En cualquier conjunto de escalado se puede habilitar un modo de orquestación uniforme o flexible. La orquestación uniforme está optimizada para cargas de trabajo sin estado a gran escala con instancias idénticas. La orquestación flexible (versión preliminar) está pensada para una alta disponibilidad a escala con tipos de máquinas virtuales idénticos o múltiples. Obtenga más información no solo sobre estos [modos de orquestación](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md), sino también sobre cómo habilitarlos.
+## <a name="load-balancer"></a>Equilibrador de carga
+Combine [Azure Load Balancer](../load-balancer/load-balancer-overview.md) con un conjunto o zona de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. No todos los niveles de las máquinas virtuales incluyen Azure Load Balancer. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, consulte **Equilibrio de carga de máquinas virtuales** para [Linux](linux/tutorial-load-balancer.md) o [Windows](windows/tutorial-load-balancer.md).
 
 
-## <a name="availability-sets"></a>Conjuntos de disponibilidad
-Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de disponibilidad propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](./disks-types.md#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados.
+## <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
+Azure Storage siempre almacena varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red y desastres naturales masivos. La redundancia garantiza que la cuenta de almacenamiento cumple sus objetivos de disponibilidad y durabilidad, aunque se produzcan errores.
 
-En un conjunto de disponibilidad, las máquinas virtuales se distribuyen automáticamente entre estos dominios de error. Este enfoque limita el impacto de potenciales errores de hardware físico, interrupciones de red o cortes de alimentación eléctrica.
+A la hora de decidir qué opción de redundancia es la más adecuada para su escenario, intente buscar un equilibrio entre bajo costo y alta disponibilidad. Entre los factores que ayudan a determinar qué opción de redundancia debe elegir se incluye:
+- Cómo se replican los datos en la región primaria.
+- Si los datos se replicarán en una segunda ubicación que está alejada geográficamente de la región primaria, para protegerse frente a desastres regionales.
+- Si la aplicación necesita acceso de lectura a los datos replicados en la región secundaria en caso de que la región primaria deje de estar disponible por cualquier motivo.
 
-Para las máquinas virtuales que usen [Azure Managed Disks](./faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. 
+Para más información, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md).
 
-Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región. Para más información sobre estos dominios de error de Managed Disks consulte [máquinas virtuales Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) o [máquinas virtuales Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+## <a name="azure-site-recovery"></a>Azure Site Recovery
+Como organización, necesita adoptar una estrategia de continuidad empresarial y de recuperación ante desastres (BCDR) que mantenga sus datos seguros, y sus aplicaciones y cargas de trabajo en línea cuando se produzcan interrupciones planeadas o imprevistas.
 
-![Conjunto de disponibilidad administrado](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) ayuda a garantizar la continuidad empresarial manteniendo las aplicaciones y cargas de trabajo empresariales en funcionamiento durante las interrupciones. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas físicas y virtuales desde un sitio principal a una ubicación secundaria. Cuando se produce una interrupción en el sitio principal, se conmuta por error a la ubicación secundaria y se accede desde allí a las aplicaciones. Cuando la ubicación principal vuelva a estar en ejecución, puede realizar la conmutación por recuperación en ella.
 
-
-Las máquinas virtuales dentro de un conjunto de disponibilidad también se distribuyen automáticamente entre los dominios de actualización. 
-
-![Conjuntos de disponibilidad](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+Site Recovery puede administrar la replicación de:
+- Máquinas virtuales de Azure que se replican entre regiones de Azure.
+- Máquinas virtuales locales, máquinas virtuales de Azure Stack y servidores físicos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ya puede empezar a usar estas características de disponibilidad y redundancia para crear un entorno de Azure. Para información sobre los procedimientos recomendados, consulte [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service).
+- [Creación de una máquina virtual en una zona de disponibilidad](/linux/create-cli-availability-zone.md)
+- [Creación de una máquina virtual en un conjunto de disponibilidad](/linux/tutorial-availability.md)
+- [Creación de un conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/quick-create-portal.md)

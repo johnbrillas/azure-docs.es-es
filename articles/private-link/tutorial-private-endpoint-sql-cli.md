@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544112"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554996"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: CLI de Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: CLI de Azure
 
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen con recursos de Private Link de manera privada.
 
@@ -327,6 +328,6 @@ En este tutorial ha creado:
 
 Ha utilizado la máquina virtual para probar la conectividad de forma segura al servidor SQL mediante el punto de conexión privado.
 
-Aprenda a crear un servicio de Private Link:
+Como paso siguiente, puede que también le interese el escenario de la arquitectura de **aplicación web con conectividad privada a Azure SQL Database**, que conecta una aplicación web situada fuera de la red virtual con el punto de conexión privado de una base de datos.
 > [!div class="nextstepaction"]
-> [Creación de un servicio Private Link](create-private-link-service-portal.md)
+> [Conectividad privada de una aplicación web a Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

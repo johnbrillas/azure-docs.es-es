@@ -5,16 +5,16 @@ author: khyewei
 ms.author: khwei
 ms.reviewer: cynthn
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694128"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553755"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementación de una máquina virtual con el inicio seguro habilitado (versión preliminar)
 
@@ -37,7 +37,7 @@ Cree una máquina virtual con el inicio seguro habilitado.
 1. En la página **Máquinas virtuales**, seleccione **Agregar** y, después, **Máquina virtual**.
 1. En **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
 1. En **Grupo de recursos**, seleccione **Crear nuevo** y especifique un nombre para el grupo de recursos, o bien seleccione un grupo de recursos existente en la lista desplegable.
-1. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el inicio seguro.
+1. En **Detalles de la instancia**, escriba un nombre para la máquina virtual y elija una región que admita el [inicio seguro](trusted-launch.md#public-preview-limitations).
 1. En **Imagen**, seleccione una [imagen que admita el inicio seguro](trusted-launch.md#public-preview-limitations). Es posible que solo vea la versión de la generación 1 de la imagen; es correcto, continúe en el paso siguiente.
 1. Seleccione **Avanzado** en la parte superior de la página para pasar a esta pestaña.
 1. Desplácese hacia abajo hasta la sección **Generación de VM** y seleccione **Gen 2**.
@@ -140,7 +140,7 @@ Para conocer las recomendaciones sobre vTPM y arranque seguro en máquinas virtu
 
 En algunos casos, puede que necesite firmar algunos elementos para disponer del arranque seguro de UEFI.  Por ejemplo, puede que tenga que seguir el [procedimiento para firmar elementos de arranque seguro](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para Ubuntu. En estos casos, debe especificar las claves de inscripción de la utilidad MOK para la máquina virtual. Deberá usar la consola serie de Azure para acceder a la utilidad MOK.
 
-1. Habilite la consola serie de Azure para Linux. Para obtener más información, consulte [Consola serie para Linux](serial-console-linux.md).
+1. Habilite la consola serie de Azure para Linux. Para obtener más información, consulte [Consola serie para Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque **Máquinas virtuales** y seleccione la máquina virtual en la lista.
 1. En **Soporte técnico y solución de problemas**, seleccione **Consola serie**. Se abrirá una página a la derecha, con la consola serie.

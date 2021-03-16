@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9107ef6100a3c362eae982412d54a981851bcb42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712522"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561405"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -52,7 +52,7 @@ En esta sección, va a crear un equilibrador de carga entre regiones y una direc
 3. En la página **Equilibrador de carga**, seleccione **Crear**.
 4. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto.|
@@ -121,7 +121,7 @@ En esta sección va a crear un sondeo de estado para crear la regla de equilibri
 
 3. Use estos valores para configurar el sondeo de estado:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHealthProbe**. |
     | Protocolo | seleccione **TCP**. |
@@ -152,7 +152,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4**. |
@@ -200,9 +200,6 @@ En este tutorial ha:
 * Creado una regla de equilibrio de carga.
 * Probó el equilibrador de carga.
 
-Para más información sobre el equilibrador de carga entre regiones, consulte [Equilibrador de carga entre regiones (versión preliminar)](cross-region-overview.md).
-
-
-Avance al siguiente artículo para obtener información sobre:
+Para más información sobre el equilibrador de carga entre regiones, consulte:
 > [!div class="nextstepaction"]
-> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Equilibrador de carga entre regiones (versión preliminar)](cross-region-overview.md)

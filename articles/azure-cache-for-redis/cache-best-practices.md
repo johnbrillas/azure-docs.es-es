@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654802"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521652"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -30,6 +30,8 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
  * **Localice su instancia de la caché y su aplicación en la misma región.**  Si se conecta a una caché de una región diferente puede aumentar significativamente la latencia y reducir la confiabilidad.  Si bien puede conectarse desde fuera de Azure, no es recomendable, *especialmente cuando se usa Redis como caché*.  Si está usando Redis solo como un almacén de clave/valor, es posible que la latencia no sea su principal preocupación. 
 
  * **Reutilizar las conexiones.**  La creación de nuevas conexiones es costosa y aumenta la latencia, por lo que puede reutilizar las conexiones lo máximo posible. Si prefiere crear nuevas conexiones, asegúrese de cerrar las conexiones anteriores antes de liberarlas (incluso en lenguajes de memoria administrados como .NET o Java).
+
+* **Usar canalización.**  Intente elegir un cliente de Redis que admita la [canalización de Redis](https://redis.io/topics/pipelining) para usar con más eficacia la red con el fin de obtener el mejor rendimiento posible.
 
  * **Configure su biblioteca cliente para usar un *tiempo de espera de la conexión* de al menos 15 segundos**, lo que le dará al sistema tiempo para conectarse incluso en condiciones donde la CPU se use más.  Tener un pequeño valor de tiempo de espera de conexión no garantiza que la conexión se establezca en ese plazo de tiempo.  Si algo sale mal (CPU de cliente alta, CPU de servidor alta, etc.), un valor de tiempo de espera de conexión pequeño hará que el intento de conexión falle. Este comportamiento suele empeorar una situación que ya es mala de por si.  En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar*. En general, le recomendamos que deje el tiempo de espera de conexión en 15 segundos o más. Es mejor dejar que su intento de conexión tenga éxito después de 15 o 20 segundos que hacer que falle rápidamente para volver a intentarlo. Un bucle de reintentos de este tipo puede hacer que la interrupción dure más que si otorgara inicialmente más tiempo al sistema.  
      > [!NOTE]
@@ -51,7 +53,7 @@ Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la
 ## <a name="client-library-specific-guidance"></a>Guía específica de la biblioteca del cliente
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java: ¿Qué cliente debo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +75,8 @@ Si desea probar cómo funciona el código en condiciones de error, considere la 
  * El cliente para pruebas de VM debe estar en la **misma región** que la instancia de caché de Redis.
  * **Se recomienda usar la serie de VM Dv2** para su cliente, ya que tiene mejor hardware y logrará los mejores resultados.
  * Asegúrese de que la VM del cliente que use tenga **al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 
+ * **Realice pruebas en condiciones de conmutación por error** en la memoria caché. Es importante asegurarse de que no se prueba el rendimiento de la memoria caché solo en condiciones de estado estable. Realice pruebas también en condiciones de conmutación por error y mida la carga de la CPU o el servidor en la memoria caché durante ese tiempo. Puede iniciar una conmutación por error [reiniciando el nodo principal](cache-administration.md#reboot). Esto le permitirá ver cómo se comporta la aplicación en términos de rendimiento y latencia durante las condiciones de conmutación por error (se produce durante las actualizaciones y puede producirse durante un evento no planeado). Idealmente, no es deseable ver el pico de carga de CPU o servidor a más de un 80 % incluso durante una conmutación por error, ya que esto puede afectar al rendimiento.
+ * **Algunos tamaños de caché** se hospedan en máquinas virtuales con 4 o más núcleos. Esto resulta útil para distribuir el cifrado o descifrado de TLS, así como las cargas de trabajo de conexión o desconexión de TLS, en varios núcleos para reducir el uso general de la CPU en las máquinas virtuales de caché.  [Vea los detalles sobre los tamaños y los núcleos de máquina virtual aquí](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Ejemplo de script de PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 73dc54ca04ad6ddb275947663959164cc2e3c019
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695250"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547890"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante la CLI de Azure 
 
@@ -56,8 +56,8 @@ az account set --subscription "<subscription ID>"
 Para poder crear una instancia de Azure Route Server, necesitará una red virtual para hospedar la implementación. Use el comando siguiente para crear un grupo de recursos y una red virtual. Si ya tiene una red virtual, puede ir directamente a la sección siguiente.
 
 ```azurecli-interactive
-az group create -n “RouteServerRG” -l “westus” 
-az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --address-prefix “10.0.0.0/16” 
+az group create -n "RouteServerRG" -l "westus" 
+az network vnet create -g "RouteServerRG" -n "myVirtualNetwork" --address-prefix "10.0.0.0/16" 
 ``` 
 
 ### <a name="add-a-subnet"></a>Incorporación de una subred 
@@ -65,13 +65,13 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 1. Agregue una subred llamada *RouteServerSubnet* para implementar la instancia de Azure Route Server en ella. Esta subred es una subred dedicada solo para Azure Route Server. La subred RouteServerSubnet debe ser /27 o un prefijo más corto, (como /26 o /25). De lo contrario, recibirá un mensaje de error al agregar la instancia de Azure Route Server.
 
     ```azurecli-interactive 
-    az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
+    az network vnet subnet create -g "RouteServerRG" --vnet-name "myVirtualNetwork" --name "RouteServerSubnet" --address-prefix "10.0.0.0/24"  
     ``` 
 
 1. Obtenga el identificador de la subred RouteServerSubnet. Para ver el identificador de recurso de todas las subredes de la red virtual, use este comando: 
 
     ```azurecli-interactive 
-    subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
+    subnet_id = $(az network vnet subnet show -n "RouteServerSubnet" --vnet-name "myVirtualNetwork" -g "RouteServerRG" --query id -o tsv) 
     ``` 
 
 El identificador de RouteServerSubnet tiene un aspecto similar al siguiente: 
@@ -83,7 +83,7 @@ El identificador de RouteServerSubnet tiene un aspecto similar al siguiente:
 Cree la instancia de Route Server con este comando: 
 
 ```azurecli-interactive
-az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
+az network routeserver create -n "myRouteServer" -g "RouteServerRG" --hosted-subnet $subnet_id  
 ``` 
 
 La ubicación debe coincidir con la ubicación de la red virtual. HostedSubnet es el identificador de RouteServerSubnet que obtuvo en la sección anterior. 
@@ -94,7 +94,7 @@ Use el siguiente comando para establecer el emparejamiento desde la instancia de
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA1_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -104,7 +104,7 @@ Para configurar el emparejamiento con diferentes NVA u otra instancia de la mism
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name “myRouteServer” -g “RouteServerRG” --peer-ip “nva_ip” --peer-asn “nva_asn” -n “NVA2_name” 
+az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Finalización de la configuración en la NVA 
@@ -112,7 +112,7 @@ az network routeserver peering create --routeserver-name “myRouteServer” -g 
 Para completar la configuración en la NVA y habilitar las sesiones de BGP, necesita la dirección IP y el ASN de la instancia de Azure Route Server. Puede obtener esta información mediante este comando: 
 
 ```azurecli-interactive 
-az network routeserver show -g “RouteServerRG” -n “myRouteServer” 
+az network routeserver show -g "RouteServerRG" -n "myRouteServer" 
 ``` 
 
 La salida tiene la siguiente información. 
@@ -143,14 +143,14 @@ Si tiene una puerta de enlace de ExpressRoute y una instancia de Azure VPN Gatew
 1. Para habilitar el intercambio de rutas entre Azure Route Server y las puertas de enlace, use este comando:
 
 ```azurecli-interactive 
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic true 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic true 
 
 ``` 
 
 2. Para deshabilitar el intercambio de rutas entre Azure Route Server y las puertas de enlace, use este comando:
 
 ```azurecli-interactive
-az network routeserver update -g “RouteServerRG” -n “myRouteServer” --allow-b2b-traffic false 
+az network routeserver update -g "RouteServerRG" -n "myRouteServer" --allow-b2b-traffic false 
 ``` 
 
 ## <a name="troubleshooting"></a>Solución de problemas 
@@ -162,20 +162,20 @@ az network routeserver peering list-advertised-routes -g RouteServerRG --vrouter
 az network routeserver peering list-learned-routes -g RouteServerRG --vrouter-name myRouteServer -n NVA1_name 
 ``` 
 
-## <a name="clean-up"></a>Limpieza 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si ya no necesita la instancia de Azure Route Server, use estos comandos para quitar el emparejamiento de BGP y, a continuación, quite la instancia de Route Server. 
 
 1. Elimine el emparejamiento de BGP entre Azure Route Server y una NVA con este comando:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
+az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Elimine la instancia de Azure Route Server con este comando: 
 
 ```azurecli-interactive 
-az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
+az network routeserver delete -n "myRouteServer" -g "RouteServerRG" 
 ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes

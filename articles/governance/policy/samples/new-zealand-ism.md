@@ -1,22 +1,22 @@
 ---
-title: Detalles del cumplimiento normativo del ISM de Nueva Zelanda
-description: Detalles de la iniciativa integrada del cumplimiento normativo del ISM de Nueva Zelanda. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 02/09/2021
+title: Detalles del cumplimiento normativo del ISM restringido de Nueva Zelanda
+description: Detalles de la iniciativa integrada del cumplimiento normativo del ISM restringido de Nueva Zelanda. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b2f4cec4f2c9abf6fb896ba9d515db1780115716
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5f346f7755cf252ed15513d8dc0a60a9bc5cce3f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100931"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437253"
 ---
-# <a name="details-of-the-new-zealand-ism-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada del cumplimiento normativo del ISM de Nueva Zelanda
+# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada del cumplimiento normativo del ISM restringido de Nueva Zelanda
 
-En el siguiente artículo se detalla la correspondencia entre los **dominios de cumplimiento** y los **controles** de la definición de la iniciativa integrada del cumplimiento normativo de Azure Policy en el ISM de Nueva Zelanda.
-Para más información acerca de este estándar normativo, consulte [Manual de seguridad de la información de Nueva Zelanda](https://www.nzism.gcsb.govt.nz/). Para entender el concepto de _Propiedad_, consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
+En el siguiente artículo se detalla la correspondencia entre los **dominios de cumplimiento** y los **controles** de la definición de la iniciativa integrada del cumplimiento normativo de Azure Policy en el ISM restringido de Nueva Zelanda.
+Para más información acerca de este estándar de cumplimiento, consulte [ISM restringido de Nueva Zelanda](https://www.nzism.gcsb.govt.nz/). Para entender el concepto de _propiedad_, consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
 
-Las siguientes asignaciones son para los controles del **ISM de Nueva Zelanda**. Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**.
+Las siguientes asignaciones son para los controles del **ISM restringido de Nueva Zelanda**. Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**.
 A continuación, busque y seleccione la definición de la iniciativa integrada del cumplimiento normativo del **Manual de seguridad de la información de Nueva Zelanda**.
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ A continuación, busque y seleccione la definición de la iniciativa integrada d
 
 ## <a name="access-control-and-passwords"></a>Control de acceso y contraseñas
 
-### <a name="16132-system-user-identitfication"></a>16.1.32 Identificación del usuario del sistema
+### <a name="16132-system-user-identification"></a>16.1.32 Identificación del usuario del sistema
 
 **Identificador**: NZISM Security Benchmark AC-2 **Propiedad**: Customer
 

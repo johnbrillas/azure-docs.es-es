@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706765"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -54,7 +54,7 @@ Considere las siguientes expresiones de ejemplo:
 |Quiero obtener un equipo, ¿cómo lo hago?|
 |¿Cuándo puedo tener un equipo?|
 
-En este caso, el término principal, "equipo", no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS puede deducir de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, siempre es mejor variarlas.
+En este caso, el término principal, *equipo*, no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS puede deducir de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, siempre es mejor variarlas.
 
 ## <a name="example-utterances-in-each-intent"></a>Expresiones de ejemplo en cada intención
 

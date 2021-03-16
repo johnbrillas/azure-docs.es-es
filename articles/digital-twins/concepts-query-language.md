@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028366"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034683"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
@@ -33,12 +33,17 @@ Puede usar el lenguaje de consulta de Azure Digital Twins para recuperar gemelos
 
 Para enviar una consulta al servicio desde una aplicación cliente, usará la [**API de consulta**](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins. Una manera de usar la API es a mediante uno de los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins.
 
+### <a name="considerations-for-querying"></a>Consideraciones para la consulta
+
+Al escribir consultas para Azure Digital Twins, tenga en cuenta las consideraciones siguientes:
+* **Recuerde la distinción entre mayúsculas y minúsculas**: todas las operaciones de consulta de Azure Digital Twins distinguen mayúsculas de minúsculas, por lo que debe tener cuidado de usar los nombres exactos definidos en los modelos. Si los nombres de propiedad están mal escritos o usan las mayúsculas de forma incorrecta, el conjunto de resultados está vacío y no se devuelven errores.
+* **Comillas simples de escape**: si el texto de la consulta incluye un carácter de comilla simple en los datos, la comilla deberá utilizar el carácter `\` como escape. Este es un ejemplo que trata sobre el valor de una propiedad de *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Referencia: Expresiones y condiciones
 
 En esta sección se describen los operadores y las funciones que están disponibles para escribir consultas de Azure Digital Twins. Para ver consultas de ejemplo que ilustre el uso de estas características, consulte [ *Consulta del grafo gemelo de Azure Digital Twins*](how-to-query-graph.md).
-
-> [!NOTE]
-> Todas las operaciones de consulta de Azure Digital Twins distinguen mayúsculas de minúsculas, por lo que debe tener cuidado de usar los nombres exactos definidos en los modelos. Si los nombres de propiedad están mal escritos o usan las mayúsculas de forma incorrecta, el conjunto de resultados está vacío y no se devuelven errores.
 
 ### <a name="operators"></a>Operadores
 

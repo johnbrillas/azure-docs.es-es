@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691882"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518728"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -115,7 +115,7 @@ Solo puede ver y usar las instancias de proceso que usted cree.  Los **Archivos 
 
 ### <a name="view-logs-and-output"></a>Ver registros y resultados
 
-Use los [widgets del cuaderno](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver el progreso de la ejecución y los registros. Un widget es asincrónico y proporciona actualizaciones hasta que finaliza el entrenamiento. Los widgets de Azure Machine Learning también se admiten en Jupyter y JupterLab.
+Use los [widgets del cuaderno](/python/api/azureml-widgets/azureml.widgets) para ver el progreso de la ejecución y los registros. Un widget es asincrónico y proporciona actualizaciones hasta que finaliza el entrenamiento. Los widgets de Azure Machine Learning también se admiten en Jupyter y JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Captura de pantalla: Widget "::: del cuaderno de Jupyter
 
@@ -186,11 +186,94 @@ Un indicador situado junto al elemento de lista desplegable **Kernel** muestra s
 
 Busque los detalles sobre las instancias de proceso en la página **Proceso** de [Studio](https://ml.azure.com).
 
+## <a name="useful-keyboard-shortcuts"></a>Métodos abreviados de teclado útiles
+De forma similar a los cuadernos de Jupyter Notebook, los cuadernos de Azure Machine Learning Studio tienen una interfaz de usuario modal. El teclado realiza diferentes acciones en función del modo en que se encuentre la celda del cuaderno. Los cuadernos de Azure Machine Learning Studio admiten los siguientes dos modos para una celda de código determinada: el modo de comando y el de edición.
+
+### <a name="command-mode-shortcuts"></a>Métodos abreviados del modo de comando
+
+Una celda se encuentra en modo de comando cuando no hay ningún cursor de texto que le pida que escriba. Cuando una celda está en modo de comando, puede editar el cuaderno en su conjunto, pero no escribir en celdas individuales. Para ingresar al modo de comando, presione `ESC` o use el mouse para seleccionar fuera del área del editor de una celda.  El borde izquierdo de la celda activa es azul y sólido, y el botón **Ejecutar** es azul.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Celda de cuaderno en el modo de comando ":::
+
+| Acceso directo                      | Descripción                          |
+| ----------------------------- | ------------------------------------|
+| Entrar                         | Acceso al modo de edición             |        
+| Mayús + Entrar                 | Ejecución de la celda, selección del siguiente contenido         |     
+| Control/Comando + Entrar       | Ejecución de una celda                            |
+| Alt + Entrar                   | Ejecución de una celda, inserción de la celda de código siguiente    |
+| Control/Comando + Alt + Entrar | Ejecución de una celda, inserción de la celda de Markdown siguiente|
+| Alt + R                       | Ejecutar todo      |                       
+| Y                             | Convertir la celda en código    |                         
+| M                             | Convertir la celda en Markdown  |                       
+| Arriba/K                          | Seleccionar la celda anterior    |               
+| Abajo/J                        | Seleccionar la celda siguiente    |               
+| Un                             | Insertar la celda de código más arriba  |            
+| B                             | Insertar la celda de código abajo   |           
+| Control/Comando + Mayús + A   | Insertar la celda de Markdown arriba    |      
+| Control/Comando + Mayús + B   | Insertar la celda de Markdown abajo   |       
+| X                             | Cortar la celda seleccionada    |               
+| C                             | Copiar la celda seleccionada   |               
+| Mayús + V                     | Pegar la celda seleccionada arriba           |
+| V                             | Pegar la celda seleccionada abajo    |       
+| D D                           | Eliminar la celda seleccionada|                
+| O                             | Toggle Output         |              
+| Mayús + O                     | Alternar el desplazamiento de salida   |          
+| I I                           | Interrumpir kernel |                   
+| 0 0                           | Reiniciar kernel |                     
+| Mayús + barra espaciadora                 | Desplazarse hacia arriba  |                         
+| Space                         | Desplazarse hacia abajo|
+| Pestaña                           | Cambiar el foco al siguiente elemento enfocable (cuando se deshabilita la captura de pestañas)|
+| Control/comando + S           | Guardar cuaderno |                      
+| 1                             | Cambiar a H1|                       
+| 2                             | Cambiar a H2|                        
+| 3                             | Cambiar a H3|                        
+| 4                             | Cambiar a H4 |                       
+| 5                             | Cambiar a H5 |                       
+| 6                             | Cambiar a H6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Métodos abreviados del modo de edición
+
+El modo de edición se indica mediante un cursor de texto que le pide que escriba en el área del editor. Cuando una celda se encuentra en modo de edición, puede escribir en la celda. Para ingresar al modo de edición, presione `Enter` o use el mouse para seleccionar en el área del editor de una celda. El borde izquierdo de la celda activa es verde y está sombreado, y el botón **Ejecutar** es verde. En el modo de edición también verá la solicitud del cursor en la celda.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Celda del cuaderno en el modo de edición":::
+
+Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar código más fácilmente en cuadernos de Azure Machine Learning en el modo de edición.
+
+| Acceso directo                      | Descripción|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Escape                        | Especificar el modo de comandos|  
+| Control/Comando + Espacio       | Activar IntelliSense |
+| Mayús + Entrar                 | Ejecución de la celda, selección del siguiente contenido |                         
+| Control/Comando + Entrar       | Ejecución de una celda  |                                      
+| Alt + Entrar                   | Ejecución de una celda, inserción de la celda de código siguiente  |              
+| Control/Comando + Alt + Entrar | Ejecución de una celda, inserción de la celda de Markdown siguiente  |          
+| Alt + R                       | Ejecución de todas las celdas     |                              
+| Subir                            | Subir el cursor o la celda anterior    |             
+| Bajar                          | Bajar el cursor o la celda siguiente |                  
+| Control/comando + S           | Guardar cuaderno   |                                
+| Control/Comando + arriba          | Ir al inicio de la celda   |                             
+| Control/Comando + abajo        | Ir al final de la celda |                                 
+| Pestaña                           | Finalizar el código o aplicarle sangría (si se habilita la captura de pestañas) |
+| Control/Comando + M           | Habilitar o deshabilitar la captura de pestañas  |                       
+| Control/Cmando + ]           | Aplicar sangría |                                         
+| Control/Comando + [           | Desaplicar sangría  |                                        
+| Control/Comando + A           | Seleccionar todo|                                      
+| Control/Comando + Z           | Deshacer |                                           
+| Control/Comando + Mayús + Z   | Rehacer |                                           
+| Control/Comando + Y           | Rehacer |                                           
+| Control/Comando + Inicio        | Ir al inicio de la celda|                                
+| Control/Comando + Fin         | Ir al final de la celda   |                               
+| Control/Comando + Izquierda        | Ir una palabra a la izquierda |                               
+| Control/Comando + Derecha       | Ir una palabra a la derecha |                              
+| Control/Comando + Retroceso   | Eliminar palabra anterior |                             
+| Control/Comando + Eliminar      | Eliminar palabra posterior |                              
+| Control/Comando + /           | Alternar comentario en celda
+
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
 
-* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si usa un archivo de host o DNS personalizado, agregue una entrada para <instance-name>.<region>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
+* Cuando la instancia de proceso se implementa en un área de trabajo de Private Link, solo se puede [acceder a ella desde la red virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Pasos siguientes
 

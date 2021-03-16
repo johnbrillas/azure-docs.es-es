@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bc959bc0960a2de3d84f8d75f285138eacdbe34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91643464"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434323"
 ---
 ## <a name="reference-docs"></a>Documentos de referencia
 
@@ -24,12 +24,12 @@ El servicio de voz proporciona dos SDK. El primer SDK es el [SDK de voz](../spee
 
 Use la lista siguiente para encontrar los documentos de referencia del SDK de voz adecuado:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK de C# <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK de C++ <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">SDK de Java <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">SDK de Python<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">SDK de JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">SDK de Objective-C <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK de C# </a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK para C++ </a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">SDK para Java </a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">SDK de Python</a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">SDK de JavaScript</a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">SDK de Objective-C </a>
 
 > [!TIP]
 > El SDK del servicio de voz se mantiene y actualiza de forma activa. Para realizar un seguimiento de los cambios, las actualizaciones y las adiciones de características, consulte las [notas de la versión del SDK de voz](../releasenotes.md).
@@ -45,4 +45,4 @@ Para obtener referencias de las distintas API de REST del servicio de voz, consu
 - [API REST: Speech-to-text](../rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Evaluación de la pronunciación](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [API REST: Text-to-speech](../rest-text-to-speech.md) (API de REST: Texto a voz)
-- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">API REST: Transcripción y personalización de Batch <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">API REST: Transcripción y personalización de Batch </a>

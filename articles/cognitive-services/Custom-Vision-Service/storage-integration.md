@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 43cd03e8f4a66d18adc33c943481002ff7b326d3
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2afac0e25c394c9bf265daf1fe3ded3d763a7c61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813214"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508510"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integración de Azure Storage con las notificaciones y la copia de seguridad
 
@@ -29,6 +29,7 @@ En esta guía se muestra cómo usar las API de REST con cURL. También puede usa
 
 - Un recurso de Custom Vision en Azure. Si no tiene uno, vaya a Azure Portal y [cree un recurso de Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). Esta característica no admite actualmente el recurso de Cognitive Services (clave todo en uno).
 - Una cuenta de Azure Storage con un contenedor de blobs. Siga el [ejercicio 1 del laboratorio de Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) si necesita ayuda con este paso.
+* [PowerShell versión 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
 
 ## <a name="set-up-azure-storage-integration"></a>Configuración de la integración de Azure Storage
 

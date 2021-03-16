@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Configuración y habilitación de un módulo de seguridad para Azure RTOS'
-description: Aprenda a incorporar y habilitar el módulo de seguridad para el servicio Azure RTOS en Azure IoT Hub.
+description: En este inicio rápido aprenderá a incorporar y habilitar el módulo de seguridad para el servicio Azure RTOS en Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: e8e9eae576c330f17cd33d027152d463fe19a82b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123903"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447306"
 ---
 # <a name="quickstart-security-module-for-azure-rtos"></a>Inicio rápido: Módulo de seguridad para Azure RTOS 
 

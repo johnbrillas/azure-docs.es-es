@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219544"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426168"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
@@ -77,11 +77,12 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 
 1. En Synapse Studio, vaya al centro **Data** (Datos).
+1. Debería ver una base de datos denominada **SQLPOOL1**. Si no la ve, haga clic en **Refresh** (Actualizar).
 1. Vaya a **SQLPOOL1** > **Tablas**. 
-1. Haga clic con el botón derecho en la tabla **dbo.Trip** y seleccione **New SQL Script** > **Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas).
-1. Espere mientras se crea un nuevo script de SQL y se ejecuta.
-1. Observe que en la parte superior del script de SQL, en **Connect to** (Conectar a) está seleccionado automáticamente el grupo de SQL llamado **SQLPOOL1**.
-1. Reemplace el texto del script de SQL por este código y ejecútelo.
+3. Haga clic con el botón derecho en la tabla **dbo.Trip** y seleccione **New SQL Script** > **Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas).
+4. Espere mientras se crea un nuevo script de SQL y se ejecuta.
+5. Observe que en la parte superior del script de SQL, en **Connect to** (Conectar a) está seleccionado automáticamente el grupo de SQL llamado **SQLPOOL1**.
+6. Reemplace el texto del script de SQL por este código y ejecútelo.
 
     ```sql
     SELECT PassengerCount,

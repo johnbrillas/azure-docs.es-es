@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 56bacf1ae68081d5822fdb0e80762926d4eb581c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f17e42915968f52aee8bd106b5cadd26457998ff
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173739"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501330"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante una plantilla de ARM
 
@@ -32,7 +32,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 - En este artículo se necesita la versión 2.0.61 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
-- Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory. También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para permisos. Si necesita cualquiera de estos recursos, consulte la sección siguiente: en caso contrario, vaya a la sección [Revisión de la plantilla](#review-the-template).
+- Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH. Si necesita este recurso, consulte la sección siguiente; en caso contrario, vaya a la sección [Revisión de la plantilla](#review-the-template).
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 
@@ -47,28 +47,6 @@ ssh-keygen -t rsa -b 2048
 ```
 
 Para más información sobre cómo crear claves SSH, consulte el artículo sobre [Creación y administración de claves SSH para la autenticación en Azure][ssh-keys].
-
-### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-
-Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una entidad de servicio de Azure Active Directory. Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. El parámetro `--skip-assignment` impide que se asignen permisos adicionales. De forma predeterminada, esta entidad de servicio es válida durante un año. Tenga en cuenta que puede usar una identidad administrada en lugar de una entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-La salida es similar a la del ejemplo siguiente:
-
-```json
-{
-  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-  "displayName": "azure-cli-2019-04-19-21-42-11",
-  "name": "http://azure-cli-2019-04-19-21-42-11",
-  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-Anote el valor de *appId* y *password*. Estos valores se usan en los pasos siguientes.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -95,13 +73,10 @@ Para más ejemplos de AKS, consulte el sitio de [plantillas de inicio rápido de
     * **Prefijo de DNS**: escriba un prefijo DNS único para el clúster, como *myakscluster*.
     * **Linux Admin Username** (Nombre de usuario administrador de Linux): escriba un nombre de usuario para conectarse mediante SSH, como *azureuser*.
     * **SSH RSA Public Key** (Clave pública SSH RSA): copie y pegue la parte *pública* del par de claves SSH (de forma predeterminada, el contenido de *~/.ssh/id_rsa.pub*).
-    * **Identificador de cliente de la entidad de servicio**: copie y pegue el valor de *appId* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
-    * **Secreto de cliente de la entidad de servicio**: copie y pegue el valor de *password* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
-    * **Acepto los términos y condiciones anteriores**: active esta casilla para indicar su conformidad.
 
     ![Plantilla de Resource Manager para la creación de un clúster de Azure Kubernetes Service en el portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Seleccione **Comprar**.
+3. Seleccione **Revisar + crear**.
 
 El clúster de AKS tarda unos minutos en crearse. Espere a que el clúster se implemente correctamente para pasar al siguiente paso.
 

@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0612984afe71c3ae497d16968d2470668cc60ca7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596932"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504838"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
@@ -105,6 +105,8 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 
 2. En la lista desplegable de la **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
 
@@ -149,12 +151,14 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) junto con el parámetro `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
 Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de archivos de Azure. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Este es un ejemplo:
 
@@ -211,16 +215,18 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 Habilite los registros mediante el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de Blob Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Este es un ejemplo:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos mediante la CLI de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
@@ -481,21 +487,10 @@ Las entradas del registro se crean solo si se presentan solicitudes al punto de 
 
 - Solicitudes correctas
 - Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo
-- Solicitudes que usan una firma de acceso compartido (SAS) u OAuth, incluidas las solicitudes correctas como con error
-- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs**, y datos de métricas de clase en las tablas **$metric**)
+- Solicitudes que usan Kerberos, NTLM o una firma de acceso compartido (SAS), que incluyen tanto las solicitudes correctas como con error
+- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs** y datos de métricas clásicos en las tablas **$metric**)
 
 Las solicitudes que realiza el propio servicio Azure Files, como la creación o eliminación de registros, no se registran. Para obtener una lista completa de solicitudes de SMB y de REST que se registran, vea [Operaciones registradas de almacenamiento y mensajes de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Registro de solicitudes anónimas
-
- Se registran los siguientes tipos de solicitudes anónimas:
-
-- Solicitudes correctas
-- Errores del servidor
-- Errores de tiempo de espera del cliente y el servidor
-- Solicitudes GET erróneas con el código de error 304 (No modificado)
-
-El resto de las solicitudes anónimas con error no se registran. Para obtener una lista completa de solicitudes de SMB y de REST que se registran, vea [Operaciones registradas de almacenamiento y mensajes de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Acceso a registros en una cuenta de almacenamiento
 
@@ -631,13 +626,12 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
    > [!NOTE]
    > Si los tipos de respuesta no aparecen en la lista desplegable **Valores de dimensión**, significa que el recurso no se ha limitado. Para agregar los valores de dimensión, junto a la lista desplegable **Valores de dimensión**, seleccione **Agregar valor personalizado**, escriba el tipo de respuesta (por ejemplo, **SuccessWithThrottling**), seleccione **Aceptar** y repita estos pasos para agregar todos los tipos de respuesta correspondientes para el recurso compartido de archivos.
 
-8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
-9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
-
+8. Para **recursos compartidos de archivos prémium**, haga clic en el menú desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**. En el caso de **recursos compartidos de archivos estándar**, vaya al **paso n.º 10**.
 
    > [!NOTE]
-   > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+   > Si el recurso compartido de archivos es estándar, en la dimensión **Recurso compartido de archivos** no se mostrarán los recursos compartidos de archivo porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
+9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 10. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 
     > [!TIP]
@@ -654,12 +648,12 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
 4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Capacidad de archivo**.
-6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
-7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
+6. Para **recursos compartidos de archivos prémium**, haga clic en el menú desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**. En el caso de **recursos compartidos de archivos estándar**, vaya al **paso n.º 8**.
 
    > [!NOTE]
-   > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de recursos compartidos de archivos estándar se basan en todos los recursos compartidos de archivos de la cuenta de almacenamiento. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+   > Si el recurso compartido de archivos es estándar, en la dimensión **Recurso compartido de archivos** no se mostrarán los recursos compartidos de archivo porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de recursos compartidos de archivos estándar se basan en todos los recursos compartidos de archivos de la cuenta de almacenamiento. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
+7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 8. Escriba el **Valor de umbral** (en bytes). Por ejemplo, si el tamaño del recurso compartido de archivos es 100 TiB y quiere recibir una alerta cuando su tamaño sea el 80 % de la capacidad, el valor de umbral en bytes es 87960930222080.
 9. Defina los demás **parámetros de alerta** (granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 10. Haga clic en **Add action groups** (Agregar grupos de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
@@ -673,12 +667,12 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
 4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Salida**.
-6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
-7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
+6. Para **recursos compartidos de archivos prémium**, haga clic en el menú desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**. En el caso de **recursos compartidos de archivos estándar**, vaya al **paso n.º 8**.
 
    > [!NOTE]
-   > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de recursos compartidos de archivos estándar se basan en todos los recursos compartidos de archivos de la cuenta de almacenamiento. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+   > Si el recurso compartido de archivos es estándar, en la dimensión **Recurso compartido de archivos** no se mostrarán los recursos compartidos de archivo porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de recursos compartidos de archivos estándar se basan en todos los recursos compartidos de archivos de la cuenta de almacenamiento. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
+7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 8. En el Umbral de valor, escriba **536870912000** bytes. 
 9. Haga clic en la lista desplegable **Granularidad de agregación** y seleccione **24 horas**.
 10. Seleccione la **Frecuencia de evaluación** y **haga clic en Listo**.

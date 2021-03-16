@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685761"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505065"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,13 @@ Las dependencias de salida de AKS se definen casi por completo mediante FQDN, qu
 De forma predeterminada, los clústeres de AKS tienen acceso de salida a Internet ilimitado. Este nivel de acceso a la red permite que los nodos y servicios que ejecuta accedan a recursos externos según sea necesario. Si desea restringir el tráfico de salida, es necesario el acceso a un número limitado de puertos y direcciones para mantener las tareas de mantenimiento del clúster en buen estado. La solución más sencilla para proteger las direcciones de salida consiste en usar un dispositivo de firewall que pueda controlar el tráfico saliente en función de los nombres de dominio. Azure Firewall, por ejemplo, puede restringir el tráfico saliente HTTP y HTTPS en función del FQDN de destino. También puede configurar las reglas de seguridad y de firewall que prefiera para permitir estos puertos y direcciones necesarios.
 
 > [!IMPORTANT]
-> En este documento solo se explica cómo bloquear el tráfico que sale de la subred de AKS. De forma predeterminada, AKS no tiene requisitos de entrada.  No se admite el bloqueo del **tráfico de subred interno** mediante grupos de seguridad de red (NSG) y firewalls. Para controlar y bloquear el tráfico dentro del clúster, use [**_directivas de red_* _][network-policy].
+> En este documento solo se explica cómo bloquear el tráfico que sale de la subred de AKS. De forma predeterminada, AKS no tiene requisitos de entrada.  No se admite el bloqueo del **tráfico de subred interno** mediante grupos de seguridad de red (NSG) y firewalls. Para controlar y bloquear el tráfico dentro del clúster, use [**_directivas de red_**][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Reglas de red de salida y FQDN necesarios para clústeres de AKS
 
 Las siguientes reglas de red y FQDN o aplicación son obligatorias para un clúster de AKS; puede usarlas si quiere configurar una solución que no sea Azure Firewall.
 
-_ Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
+* Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 * Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo de firewall.
 * Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con el clúster de AKS en función de una serie de calificadores.
 * AKS usa un controlador de admisión para insertar el FQDN como una variable de entorno en todas las implementaciones en kube-system y gatekeeper-system, lo que garantiza que toda la comunicación del sistema entre los nodos y el servidor de API usa el FQDN del servidor de API y no su dirección IP. 
@@ -407,7 +407,7 @@ Ahora, un clúster de AKS se puede implementar en una red virtual existente. Tam
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Creación de una entidad de servicio con acceso de aprovisionamiento dentro de la red virtual existente
 
-AKS usa una entidad de servicio para crear recursos de clúster. La entidad de servicio que se pasa en el momento de la creación se usa para crear recursos de AKS subyacentes, como los recursos de almacenamiento, las direcciones IP y los equilibradores de carga que utiliza AKS (en su lugar también se puede usar una [identidad administrada](use-managed-identity.md)). Si no se le han concedido los permisos adecuados siguientes, no podrá aprovisionar el clúster de AKS.
+AKS usa una identidad de clúster (identidad administrada o entidad de servicio) para crear los recursos de clúster. Una entidad de servicio que se pasa en el momento de la creación se usa para crear recursos de AKS subyacentes, como los recursos de almacenamiento, las direcciones IP y los equilibradores de carga que AKS utiliza (en su lugar también se puede usar una [identidad administrada](use-managed-identity.md)). Si no se le han concedido los permisos adecuados siguientes, no podrá aprovisionar el clúster de AKS.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network

@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Alta disponibilidad para máquinas virtuales Windows en Azure'
-description: En este tutorial, aprenderá a usar Azure PowerShell para implementar máquinas virtuales de alta disponibilidad en conjuntos de disponibilidad.
-services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
+title: Implementación de máquinas virtuales en un conjunto de disponibilidad mediante Azure PowerShell
+description: Aprenda a usar Azure PowerShell para implementar máquinas virtuales de alta disponibilidad en conjuntos de disponibilidad.
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736658"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555914"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Creación e implementación de máquinas virtuales de alta disponibilidad con Azure PowerShell
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Creación e implementación de máquinas virtuales en un conjunto de disponibilidad mediante Azure PowerShell
 
 En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de Virtual Machines mediante conjuntos de disponibilidad. Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios nodos de hardware aislados en un clúster. 
 
@@ -28,14 +28,6 @@ En este tutorial, aprenderá a:
 > * Comprobar los tamaños de máquina virtual disponibles
 > * Comprobar Azure Advisor
 
-
-## <a name="availability-set-overview"></a>Información general sobre conjuntos de disponibilidad
-
-Un conjunto de disponibilidad es una funcionalidad de agrupación lógica para aislar los recursos de máquina virtual entre sí cuando se implementan. Azure garantiza que las máquinas virtuales colocadas en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software, solo un subconjunto de las máquinas virtuales se ve afectado y la solución general permanece operativa. Los conjuntos de disponibilidad son esenciales para la creación de soluciones en la nube confiables.
-
-Veamos una solución basada en máquina virtual típica en la podría haber cuatro servidores web front-end y dos máquinas virtuales de back-end. Con Azure, desea definir dos conjuntos de disponibilidad antes de implementar las máquinas virtuales: uno para el nivel de web y otro para el nivel de back-end. Al crear una nueva máquina virtual, especifique el conjunto de disponibilidad como un parámetro. Azure garantiza que las máquinas virtuales están aisladas en varios recursos de hardware físico. Si el hardware físico que uno de los servidores ejecuta tiene un problema, sabe que las restantes instancias de los servidores siguen ejecutándose correctamente porque están en otro hardware.
-
-Use los conjuntos de disponibilidad cuando quiera implementar soluciones basadas en máquinas virtuales confiables en Azure.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 

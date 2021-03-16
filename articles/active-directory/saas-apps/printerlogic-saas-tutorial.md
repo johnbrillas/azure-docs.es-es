@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: b471e113a7e5ae2277e275d53ff8ac8ca9187d1d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 23b534f1ccbd51b028beeee173e5c3e0accd47a3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731241"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con PrinterLogic SaaS
 
@@ -37,10 +37,10 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* PrinterLogic SaaS admite el inicio de sesión único iniciado por **SP e IDP**
-* PrinterLogic SaaS admite el aprovisionamiento de usuarios **Just-In-Time**
+* PrinterLogic SaaS permite utilizar el inicio de sesión único con **SP e IDP**.
+* PrinterLogic SaaS admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-printerlogic-saas-from-the-gallery"></a>Incorporación de PrinterLogic SaaS desde la galería
+## <a name="add-printerlogic-saas-from-the-gallery"></a>Incorporación de PrinterLogic SaaS desde la galería
 
 Para configurar la integración de PrinterLogic SaaS en Azure AD, es preciso que agregue PrinterLogic SaaS desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -146,17 +146,16 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de AskYourTeam, desde donde puede comenzar el flujo de inicio de sesión.  
+* Haga clic en **Probar esta aplicación** en Azure Portal. De este modo, accederá automáticamente a la dirección URL de inicio de sesión de PrinterLogic SaaS, donde podrá comenzar el flujo de inicio de sesión.  
 
-* Acceda directamente a la URL de inicio de sesión de AskYourTeam y ponga en marcha el flujo de inicio de sesión desde allí.
+* Acceda directamente a la dirección URL de inicio de sesión de PrinterLogic SaaS y comience el flujo de inicio de sesión desde allí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de AskYourTeam para la que ha configurado el inicio de sesión único. 
+* En Azure Portal, haga clic en **Probar esta aplicación**. Al hacerlo, debería iniciar sesión automáticamente en la instancia de PrinterLogic SaaS en la que haya configurado el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de AskYourTeam en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de AskYourTeam para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de PrinterLogic SaaS de Aplicaciones, si seleccionó el modo SP en la configuración, accederá automáticamente a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Por el contrario, si selección el modo IDP, debería iniciar sesión automáticamente en la instancia de PrinterLogic SaaS en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado PrinterLogic SaaS, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado PrinterLogic SaaS, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

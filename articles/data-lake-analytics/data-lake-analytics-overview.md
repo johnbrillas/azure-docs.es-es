@@ -7,12 +7,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 4a6ef2821080982e2b34108703bd80574443244a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f2916b45c04aac3e36e8dfb82a6bb9b332f55286
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445520"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449159"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>¿Qué es Azure Data Lake Analytics?
 
@@ -48,6 +48,10 @@ Análisis de Data Lake es una solución muy rentable para ejecutar cargas de tra
 ## <a name="works-with-all-your-azure-data"></a>Funciona con todos los datos de Azure
   
 Data Lake Analytics funciona con Azure Data Lake Store para proporcionar el máximo rendimiento y paralelización, y funciona con los blobs de Azure Storage, Azure SQL Database y Azure Synapse Analytics.
+
+## <a name="in-region-data-residency"></a>Residencia de datos en la región
+  
+Data Lake Analytics no mueve ni almacena los datos de los clientes fuera de la región en la que se implementa.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895465"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650769"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator está disponible en varias ubicaciones de centros de datos.
 
 * **América**: Este de EE. UU., Centro-sur de EE. UU. , Centro-oeste de EE. UU. y Oeste de EE. UU. 2 
 * **Asia Pacífico:** Sur de Corea del Sur, Este de Japón, Sudeste de Asia y Este de Australia
-* **Europa:** Norte de Europa y Oeste de Europa
+* **Europa:** Europa del Norte, Oeste de Europa, Norte de Suiza<sup>1, 2</sup> y Oeste de Suiza<sup>1, 2</sup>
 
 En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la geografía de Azure.
 
@@ -47,6 +47,17 @@ Para hacer que la solicitud se controle en una geografía de Azure específica, 
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> cliente con un recurso ubicado en las regiones Norte de Suiza u Oeste de Suiza puede estar seguro de que sus solicitudes de la API de texto se atienden en Suiza. Para asegurarse de que las solicitudes se controlan en Suiza, cree el recurso de Traductor en la "región de recursos" "Norte de Suiza" u "Oeste de Suiza" y, a continuación, use el punto de conexión personalizado del recurso en las solicitudes de API. Por ejemplo: si crea un recurso de Traductor en Azure Portal con una "región de recursos" como "Norte de Suiza" y el nombre de. recurso es "my-ch-n", el punto de conexión personalizado será "https://my-ch-n.cognitiveservices.azure.com". Y una solicitud de ejemplo para traducir sería:
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup>Traductor personalizado no está disponible actualmente en Suiza.
 
 ## <a name="authentication"></a>Authentication
 
@@ -230,7 +241,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-Las métricas le permiten ver la información de uso y disponibilidad del traductor en Azure Portal, en la sección de métricas, tal como se muestra en la captura de pantalla siguiente. Para obtener más información, vea [Métricas de datos y plataforma](../../../azure-monitor/platform/data-platform-metrics.md).
+Las métricas le permiten ver la información de uso y disponibilidad del traductor en Azure Portal, en la sección de métricas, tal como se muestra en la captura de pantalla siguiente. Para obtener más información, vea [Métricas de datos y plataforma](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Métricas del traductor](../media/translatormetrics.png)
 

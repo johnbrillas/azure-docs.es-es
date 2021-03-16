@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530440"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433274"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
-Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md).
 
@@ -160,7 +160,7 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Puede crear revisiones mediante `JsonPatchDocument` en el [SDK](how-to-use-apis-sdks.md). A continuación se muestra un ejemplo:
+Puede crear revisiones mediante [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument) del SDK para .NET de Azure. A continuación se muestra un ejemplo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -227,7 +227,7 @@ En el fragmento de código se usa la definición de modelo [Room.json](https://g
 Antes de ejecutar el ejemplo, haga lo siguiente:
 1. Descargue el archivo del modelo, colóquelo en el proyecto y reemplace el marcador de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
 2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
