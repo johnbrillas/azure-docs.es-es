@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913490"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425777"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -28,7 +28,7 @@ Siga leyendo para obtener información sobre cómo especificar el modelo de dete
 
 Si no está seguro de si debe usar el modelo más reciente, vaya a la sección [Evaluación de modelos diferentes](#evaluate-different-models) para evaluar el nuevo modelo y comparar los resultados con el conjunto de datos actual.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe estar familiarizado con el concepto de detección de caras de inteligencia artificial. Si no lo está, consulte la guía conceptual de detección de caras o la guía paso a paso:
 
@@ -43,6 +43,7 @@ Al usar la API [Face - Detect], puede asignar la versión del modelo con el par�
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 Una dirección URL de solicitud para la API de REST [Face - Detect] tendrá este aspecto:
 
@@ -52,7 +53,7 @@ Si usa la biblioteca cliente, puede asignar el valor de `detectionModel` si pasa
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Adición de una cara a un objeto Person con el modelo especificado
@@ -62,17 +63,17 @@ El servicio Face puede extraer datos de los rostros de una imagen y asociarlos a
 Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-Este código crea un objeto **PersonGroup** con el identificador `mypersongroupid` y le agrega un objeto **Person**. Después, agrega una cara a este objeto **Person** mediante el modelo `detection_02`. Si no se especifica el parámetro *detectionModel* , la API usará el modelo predeterminado (`detection_01`).
+Este código crea un objeto **PersonGroup** con el identificador `mypersongroupid` y le agrega un objeto **Person**. Después, agrega una cara a este objeto **Person** mediante el modelo `detection_03`. Si no se especifica el parámetro *detectionModel*, la API usará el modelo predeterminado (`detection_01`).
 
 > [!NOTE]
 > No es necesario usar el mismo modelo de detección para todas las caras en un objeto **Person** ni usar el mismo modelo de detección al detectar caras nuevas para compararlas con un objeto **Person** (en la API [Face - Identify], por ejemplo).
@@ -82,13 +83,13 @@ Este código crea un objeto **PersonGroup** con el identificador `mypersongroupi
 También puede especificar un modelo de detección al agregar una cara a un objeto **FaceList** existente. Consulte el siguiente ejemplo de código de la biblioteca cliente .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-Este código crea un objeto **FaceList** denominado `My face collection` y le agrega una cara con el modelo `detection_02`. Si no se especifica el parámetro *detectionModel* , la API usará el modelo predeterminado (`detection_01`).
+Este código crea un objeto **FaceList** denominado `My face collection` y le agrega una cara con el modelo `detection_03`. Si no se especifica el parámetro *detectionModel*, la API usará el modelo predeterminado (`detection_01`).
 
 > [!NOTE]
 > No es necesario usar el mismo modelo de detección para todas las caras en un objeto **FaceList** ni usar el mismo modelo de detección al detectar caras nuevas para compararlas con un objeto **FaceList**.
@@ -97,14 +98,14 @@ Este código crea un objeto **FaceList** denominado `My face collection` y le ag
 
 Los diferentes modelos de detección de caras están optimizados para llevar a cabo distintas tareas. En la tabla siguiente encontrará información general sobre las diferencias.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Opción predeterminada para todas las operaciones de detección de caras. | Publicado en mayo de 2019 y disponible de forma opcional en todas las operaciones de detección de caras.
-|No está optimizado para caras pequeñas, de perfil o borrosas.  | Precisión mejorada en caras pequeñas, de perfil o borrosas. |
-|Devuelve atributos de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     |
-|Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.   | No devuelve puntos de referencia de la cara.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Opción predeterminada para todas las operaciones de detección de caras. | Publicado en mayo de 2019 y disponible de forma opcional en todas las operaciones de detección de caras. |  Publicado en febrero de 2021 y disponible de forma opcional en todas las operaciones de detección de caras.
+|No está optimizado para caras pequeñas, de perfil o borrosas.  | Precisión mejorada en caras pequeñas, de perfil o borrosas. | Mayor precisión, también en caras más pequeñas (64 x 64 píxeles) y orientaciones de caras giradas.
+|Devuelve los atributos principales de la cara (posición de la cabeza, edad, emociones, etc.) si se especifican en la llamada de detección. |  No devuelve atributos de la cara.     | Devuelve los atributos "faceMask" y "noseAndMouthCovered" si se especifican en la llamada de detección.
+|Devuelve puntos de referencia de la cara si se especifican en la llamada de detección.   | No devuelve puntos de referencia de la cara.  | No devuelve puntos de referencia de la cara.
 
-La mejor manera de comparar el rendimiento de los modelos `detection_01` y `detection_02` consiste en usarlos en un conjunto de datos de ejemplo. Se recomienda llamar a la API [Face - Detect] con cada modelo de detección en varias imágenes diferentes, sobre todo en imágenes con muchas caras o con caras difíciles de ver. Preste atención al número de caras que devuelve cada modelo.
+La mejor manera de comparar el rendimiento de los modelos de detección es usarlos en un conjunto de datos de ejemplo. Se recomienda llamar a la API [Face - Detect] con cada modelo de detección en varias imágenes diferentes, sobre todo en imágenes con muchas caras o con caras difíciles de ver. Preste atención al número de caras que devuelve cada modelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

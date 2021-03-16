@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789354"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522298"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -40,9 +40,9 @@ Para obtener más información sobre los precios, consulte [Información sobre e
 
 Sí, el ancho de banda del circuito ExpressRoute se duplica. Por ejemplo, si compra un circuito ExpressRoute de 200 Mbps, obtendrá 200 Mbps para el tráfico de entrada y 200 Mbps para el tráfico de salida.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión VPN que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión privada que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
 
-No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
+No. Puede adquirir una conexión privada de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo usar una cantidad superior al ancho de banda adquirido?
 
@@ -60,7 +60,7 @@ La puerta de enlace de ExpressRoute anunciará los *espacios de direcciones* de 
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>¿Cuántos prefijos se pueden anunciar desde una red virtual a un entorno local en el emparejamiento privado de ExpressRoute?
 
-Se pueden anunciar un máximo de 200 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 199 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, todos esos prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 150 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 151 prefijos en el entorno local.
+Se pueden anunciar un máximo de 1000 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 199 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, todos esos prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 150 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 151 prefijos en el entorno local.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>¿Qué ocurre si se supera el límite de prefijos en una conexión de ExpressRoute?
 
@@ -258,9 +258,13 @@ Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecid
 
 Sí. Las máquinas virtuales implementadas en redes virtuales conectadas al mismo circuito ExpressRoute pueden comunicarse entre sí. Se recomienda configurar el [emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md) para facilitar esta comunicación.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>¿Se puede usar conectividad de sitio a sitio para redes virtuales junto con ExpressRoute?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>¿Puedo configurar una conexión VPN de sitio a sitio para mi red virtual junto con ExpressRoute?
 
 Sí. ExpressRoute puede coexistir con las VPN de sitio a sitio. Vea [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md).
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>¿Cómo habilito el enrutamiento entre mi conexión VPN de sitio a sitio y mi ExpressRoute?
+
+Si quiere habilitar el enrutamiento entre la rama conectada a Expressoute y la rama conectada a una conexión VPN de sitio a sitio, debe configurar el [servidor de rutas de Azure](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>¿Por qué hay una dirección IP pública asociada a la puerta de enlace de ExpressRoute en una red virtual?
 

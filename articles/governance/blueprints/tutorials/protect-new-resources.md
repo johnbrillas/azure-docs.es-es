@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Protección de nuevos recursos con bloqueos'
 description: En este tutorial, usará las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915413"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485748"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
-Con los [bloqueos de recursos](../concepts/resource-locking.md) de Azure Blueprints puede proteger los recursos recién implementados para que no sea puedan alterar, ni siquiera por parte de una cuenta con el rol de _propietario_. Esta protección se puede agregar a las definiciones de recursos del plano técnico creadas por un artefacto de la plantilla de Azure Resource Manager (plantilla ARM).
+Con los [bloqueos de recursos](../concepts/resource-locking.md) de Azure Blueprints puede proteger los recursos recién implementados para que no sea puedan alterar, ni siquiera por parte de una cuenta con el rol de _propietario_. Esta protección se puede agregar a las definiciones de recursos del plano técnico creadas por un artefacto de la plantilla de Azure Resource Manager (plantilla ARM). El bloqueo de recursos del plano técnico se establece durante la asignación del plano técnico.
 
 En este tutorial va a completar estos pasos:
 
 > [!div class="checklist"]
 > - Creación de una definición de plano técnico
 > - Marcado de la definición del plano técnico como **Publicado**
-> - Asignación de la definición del plano técnico a una suscripción existente
+> - Asignación de la definición del plano técnico a una suscripción existente (**establecimiento de bloqueos de recursos**)
 > - Inspección del nuevo grupo de recursos
 > - Anular la asignación del plano técnico para quitar los bloqueos
 
@@ -56,6 +56,9 @@ En primer lugar, cree la definición del plano técnico.
    1. Seleccione la fila **Agregar artefacto** en la entrada **RGtoLock**.
    1. Seleccione **Plantilla de Azure Resource Manager** en **Tipo de artefacto** y en **Nombre para mostrar del artefacto** seleccione **StorageAccount** y deje **Descripción** en blanco.
    1. En la pestaña **Plantilla**, pegue la siguiente plantilla de Resource Manager en el cuadro del editor. Tras pegar la plantilla, seleccione **Agregar** para agregar el artefacto al plano técnico.
+
+      > [!NOTE]
+      > En este paso, se definen los recursos que se van a implementar y que se van a bloquear con el bloqueo de recursos del plano técnico, pero no se incluyen los bloqueos de recursos del plano técnico. Los bloqueos de recursos del plano técnico se establecen como un parámetro de la asignación del plano técnico.
 
    ```json
    {
@@ -142,6 +145,9 @@ Después de publicar la definición del plano técnico puede asignarla a una sus
    - **Asignación de bloqueo**
 
      Seleccione el modo de bloqueo de plano técnico **Solo lectura**. Para más información, consulte [Bloqueo de recursos en planos técnicos](../concepts/resource-locking.md).
+
+     > [!NOTE]
+     > En este paso, va a configurar el bloqueo de recursos del plano técnico en los recursos que se acaban de implementar.
 
    - **Identidad administrada**
 

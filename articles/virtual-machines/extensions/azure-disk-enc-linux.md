@@ -1,25 +1,19 @@
 ---
 title: Azure Disk Encryption para Linux
 description: Implementa Azure Disk Encryption para Linux en una máquina virtual mediante una extensión de máquina virtual.
-services: virtual-machines-linux
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 03/19/2020
+ms.collection: linux
+ms.openlocfilehash: 7c79391e3459804a4b5ce72c2230d17af3269641
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968424"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566267"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -27,7 +21,7 @@ ms.locfileid: "94968424"
 
 Azure Disk Encryption aprovecha el subsistema de dm-crypt de Linux para proporciona un cifrado completo de disco en [determinadas distribuciones de Azure Linux](../linux/disk-encryption-overview.md).  Esta solución se integra con Azure Key Vault para administrar los secretos y las claves de cifrado del disco.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para obtener una lista completa de los requisitos previos, consulte [Azure Disk Encryption para máquinas virtuales Linux](../linux/disk-encryption-overview.md), en concreto las secciones siguientes:
 
@@ -44,7 +38,7 @@ Hay dos versiones del esquema de extensión para Azure Disk Encryption (ADE):
 
 Para seleccionar un esquema de destino, la propiedad `typeHandlerVersion` debe establecerse en la versión del esquema que desee usar.
 
-### <a name="schema-v11-no-aad-recommended"></a>Esquema v1.1: Sin AAD (recomendado)
+### <a name="schema-v11-no-aad-recommended"></a>Esquema v1.1: sin AAD (recomendado)
 
 Se recomienda usar el esquema v1.1, y no requiere propiedades de Azure Active Directory (AAD).
 

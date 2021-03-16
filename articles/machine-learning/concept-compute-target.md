@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791179"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503625"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -101,15 +101,21 @@ Consulte la tabla siguiente para más información sobre las series admitidas y 
 | **Series de maquinas virtuales compatibles**  | **Restricciones** |
 |------------|------------|
 | D | Ninguno. |
+| DDSv4 | Ninguno. |
 | Dv2 | Ninguno. |  
 | Dv3 | Ninguno.|
 | DSv2 | Ninguno. | 
 | DSv3 | Ninguno.|
+| EAv4 | Ninguno. |
+| Ev3 | Ninguno. |
 | FSv2 | Ninguno. | 
+| H | Ninguno. |
+| HB | Requiere aprobación. |
 | HBv2 | Requiere aprobación. |  
 | HCS | Requiere aprobación. |  
 | M | Requiere aprobación. |
-| NC | Ninguno. |    
+| NC | Ninguno. |  
+| NC Promo | Ninguno. |
 | NCsv2 | Requiere aprobación. |
 | NCsv3 | Requiere aprobación. |  
 | NDs | Requiere aprobación. |
@@ -123,7 +129,7 @@ Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede 
 > [!NOTE]
 > Azure Machine Learning no es compatible con todos los tamaños de máquina virtual que admite Azure Compute. Para una lista de los tamaños de máquina virtual disponibles, use uno de los métodos siguientes:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [SDK de Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [SDK de Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Aislamiento de proceso

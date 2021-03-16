@@ -2,18 +2,19 @@
 title: Información general de la compatibilidad de cloud-init con máquinas virtuales Linux en Azure
 description: Información general de las funcionalidades cloud-init para configurar una máquina virtual en tiempo de aprovisionamiento en Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ac907c2ea2ae53bd192c01232c66e0467025daae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096664"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563241"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -97,7 +98,7 @@ Estas imágenes de SLES se han actualizado para aprovisionar mediante cloud-init
 ### <a name="debian"></a>Debian
 | Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sí (nota: se trata de una imagen en versión preliminar y no se **debe** volver a usar, ya que se suprimirá el 1 de enero de 2021) | No, en versión preliminar. |
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sí (nota: se trata de una imagen en versión preliminar y no se **debe** volver a usar, pues se suprimirá el 1 de enero de 2021) | No, en versión preliminar. |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sí (nota: se trata de una imagen en versión preliminar y no se **debe** volver a usar, pues se suprimirá el 1 de enero de 2021) | No, en versión preliminar. |
 | debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| sí | sí, compatibilidad desde la versión del paquete: `20.2-2~deb10u1` |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| sí | sí, compatibilidad desde la versión del paquete: `20.2-2~deb10u1` |
@@ -121,13 +122,13 @@ La implementación de una máquina virtual con cloud-init habilitado es tan simp
 
 El primer paso para implementar esta imagen es crear un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* .
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-El paso siguiente es crear un archivo en el shell actual, denominado *cloud-init.txt* y pegar la siguiente configuración. Para este ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Elija el número 1 para utilizar el editor **nano** . Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
+El paso siguiente es crear un archivo en el shell actual, denominado *cloud-init.txt* y pegar la siguiente configuración. Para este ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Elija el número 1 para utilizar el editor **nano**. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config
@@ -135,6 +136,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> cloud-init tiene varios [tipos de entrada](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init usará la primera línea de CustomData/UserData para indicar cómo debe procesar la entrada; por ejemplo, `#cloud-config` indica que el contenido debe procesarse como una configuración de cloud-init.
+
+
 Presione `ctrl-X` para salir del archivo, escriba `y` para guardar el archivo y presione `enter` para confirmar el nombre del archivo al salir.
 
 El paso final es crear la máquina virtual con el comando [az vm create](/cli/azure/vm). 
@@ -155,7 +160,7 @@ Cuando se haya creado la VM, la CLI de Azure mostrará información específica 
 También puede implementar una máquina virtual con cloud-init habilitado pasando los [parámetros en la plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Solución de problemas de cloud-init
-Una vez que se ha aprovisionado la máquina virtual, cloud-init se ejecuta en todos los módulos y en el script definido en `--custom-data` para configurar dicha máquina virtual.  Si tiene que solucionar algún error u omisión de la configuración, debe buscar el nombre del módulo (`disk_setup` o `runcmd`,0 por ejemplo) en el registro de cloud-init, ubicado en **/var/log/cloud-init.log** .
+Una vez que se ha aprovisionado la máquina virtual, cloud-init se ejecuta en todos los módulos y en el script definido en `--custom-data` para configurar dicha máquina virtual.  Si tiene que solucionar algún error u omisión de la configuración, debe buscar el nombre del módulo (`disk_setup` o `runcmd`,0 por ejemplo) en el registro de cloud-init, ubicado en **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > No todos los errores de módulo dan como resultado un error irrecuperable en la configuración global de cloud-init. Por ejemplo, si se usa el módulo `runcmd` y se produce un error en el script, cloud-init seguirá notificando un aprovisionamiento correcto porque se ejecutó el módulo runcmd.

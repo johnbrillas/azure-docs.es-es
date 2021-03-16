@@ -3,17 +3,17 @@ title: 'Serie HBv2: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie HBv2.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: hpc
+ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 5bcb3d8a6928127de5f0f25e92c8de3a6e510c15
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: edc0e7cb0c7e2f9deb6e8af785fb98be1a1d9968
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671296"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566012"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 
@@ -26,7 +26,7 @@ Las máquinas virtuales de la serie HBv2 incluyen la característica MeliBox HDR
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): compatible ([obtenga más información](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sobre el rendimiento y los posibles problemas) <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 

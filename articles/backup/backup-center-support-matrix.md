@@ -1,24 +1,24 @@
 ---
-title: Matriz de compatibilidad del Centro de copia de seguridad
-description: En este artículo se resumen los escenarios que admite el Centro de copia de seguridad para cada tipo de carga de trabajo
+title: Matriz de compatibilidad del Centro de copias de seguridad
+description: En este artículo se resumen los escenarios que admite el Centro de copias de seguridad para cada tipo de carga de trabajo.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: aedf2d071c4f38d2d873383409c11abdf3c0c72d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700242"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504514"
 ---
-# <a name="support-matrix-for-backup-center"></a>Matriz de compatibilidad del Centro de copia de seguridad
+# <a name="support-matrix-for-backup-center"></a>Matriz de compatibilidad del Centro de copias de seguridad
 
-El Centro de copia de seguridad proporciona un panel único para que las empresas [controlen, supervisen, operen y analicen las copias de seguridad a gran escala](backup-center-overview.md). En este artículo se resumen los escenarios que admite el Centro de copia de seguridad para cada tipo de carga de trabajo.
+El Centro de copia de seguridad proporciona un panel único para que las empresas [controlen, supervisen, operen y analicen las copias de seguridad a gran escala](backup-center-overview.md). En este artículo se resumen los escenarios que admite el Centro de copias de seguridad para cada tipo de carga de trabajo.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 | **Categoría** | **Escenario**  | **Cargas de trabajo compatibles**  | **Límites** |
 | -------------| ------------- | ----------------------- |------------|
-| Supervisión   | Ver todos los trabajos | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | <li> Siete días válidos de trabajos disponibles listos para usar. <br> <li> Cada filtro o menú desplegable admite un máximo de 1000 elementos. Así pues, el Centro de copia de seguridad se puede usar para supervisar un máximo de 1000 suscripciones y 1000 almacenes en los inquilinos. |
+| Supervisión   | Ver todos los trabajos | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | <li> Siete días válidos de trabajos disponibles listos para usar. <br> <li> Cada filtro o menú desplegable admite un máximo de 1000 elementos. Así pues, el Centro de copias de seguridad se puede usar para supervisar un máximo de 1000 suscripciones y 1000 almacenes en los inquilinos. |
 | Supervisión | Ver todas las instancias de copia de seguridad | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Lo mismo que antes. |
 | Supervisión | Ver todas las directivas de copia de seguridad | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Lo mismo que antes. |
 | Supervisión | Ver todos los almacenes | <li> Máquina virtual de Azure <br><br> <li> Servidor de Azure Database for PostgreSQL <br><br> <li> SQL en Azure VM <br><br> <li> SAP HANA en la máquina virtual de Azure <br><br> <li> Azure Files<br/><br/> <li>Azure Blobs<br/><br/> <li>Azure Managed Disks | Lo mismo que antes. |
@@ -38,7 +38,7 @@ El Centro de copia de seguridad proporciona un panel único para que las empresa
 |--------------|---------------|
 | Supervisión | Ver alertas a gran escala |
 | Acciones | Configurar almacenes a gran escala |
-| Acciones | Ejecutar trabajo de restauración entre regiones desde el Centro de copia de seguridad |
+| Acciones | Ejecutar trabajo de restauración entre regiones desde el Centro de copias de seguridad |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

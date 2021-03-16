@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699987"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449856"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Límites y cuotas de los servicios de voz
 
@@ -30,7 +30,9 @@ En las tablas siguientes, los parámetros sin la fila "Ajustable" **no** se pued
 
 | Quota | Gratis (F0)<sup>1</sup> | Estándar (S0) |
 |--|--|--|
-| **Límite de solicitudes simultáneas (modelos base y personalizado)** | 1 | 20 (valor predeterminado) |
+| **Límite de solicitudes simultáneas: modelo base** | 1 | 100 (valor predeterminado) |
+| Ajustable | No<sup>2</sup> | Sí<sup>2</sup> |
+| **Límite de solicitudes simultáneas: modelo personalizado** | 1 | 20 (valor predeterminado) |
 | Ajustable | No<sup>2</sup> | Sí<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transcripción de Azure Batch

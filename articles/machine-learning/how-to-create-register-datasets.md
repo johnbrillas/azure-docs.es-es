@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878212"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522196"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -25,13 +25,13 @@ En este artículo aprenderá a crear conjuntos de datos de Azure Machine Learnin
 
 Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Dado que los datos permanecen en su ubicación existente, no incurre en ningún costo de almacenamiento adicional ni arriesga la integridad de los orígenes de datos. Además, los conjuntos de datos se evalúan de forma diferida, lo que contribuye a la velocidad del rendimiento del flujo de trabajo. Puede crear conjuntos de datos a partir de almacenes de datos, direcciones URL públicas y [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
-Para disfrutar de una experiencia de programación con poco código, [cree conjuntos de valores de Azure Machine Learning con Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets).
+Para tener una experiencia de programación con poco código, consulte [Creación de conjuntos de datos](how-to-connect-data-ui.md#create-datasets).
 
 Con los conjuntos de datos de Azure Machine Learning, puede:
 
 * Mantener una copia de datos única en el almacenamiento, a la que hacen referencia los conjuntos de datos.
 
-* Acceda sin problemas a los datos durante el entrenamiento del modelo sin preocuparse por las cadenas de conexión o las rutas de acceso a datos.[Más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
+* Acceder sin problemas a los datos durante el entrenamiento de un modelo, sin preocuparse por la ruta de acceso a los datos ni por las cadenas de conexión. [Obtenga más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
 
 * Compartir datos y colaborar con otros usuarios.
 
@@ -43,16 +43,16 @@ Para crear y trabajar con conjuntos de datos, necesita:
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que incluye el paquete azureml-datasets.
+* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install), que incluye el paquete azureml-datasets.
 
     * Cree una [instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md) que sea un entorno de desarrollo completamente configurado y administrado que incluya cuadernos integrados y el SDK ya instalado.
 
     **OR**
 
-    * Trabaje en su propio cuaderno de Jupyter Notebook e instale el SDK con [estas instrucciones](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    * Trabaje en su propio cuaderno de Jupyter Notebook e instale el SDK con [estas instrucciones](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7). Si usa distribuciones no compatibles, siga [esta guía](/dotnet/core/install/linux) para instalar .NET Core 2.1 para continuar. 
+> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](/python/api/azureml-dataprep/), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7). Si usa distribuciones no compatibles, siga [esta guía](/dotnet/core/install/linux) para instalar .NET Core 2.1 para continuar. 
 
 ## <a name="compute-size-guidance"></a>Orientación sobre el tamaño de proceso
 
@@ -68,21 +68,21 @@ Existen dos tipos de conjuntos de datos, según el modo en que los usuarios los 
 
 ### <a name="filedataset"></a>FileDataset
 
-[FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para usar en experimentos de entrenamiento, puede [descargar o montar](how-to-train-with-datasets.md#mount-vs-download) los archivos en el proceso como un objeto FileDataset. 
+[FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para usar en experimentos de entrenamiento, puede [descargar o montar](how-to-train-with-datasets.md#mount-vs-download) los archivos en el proceso como un objeto FileDataset. 
 
 Se recomiendan objetos FileDataset para los flujos de trabajo de aprendizaje automático, ya que los archivos de origen pueden estar en cualquier formato, lo que permite una mayor variedad de escenarios de aprendizaje automático, como el de aprendizaje profundo.
 
 Cree un objeto FileDataset con el [SDK de Python](#create-a-filedataset) o [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 ### <a name="tabulardataset"></a>TabularDataset
 
-[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Este modelo de datos le ofrece la posibilidad de materializar los datos en un dataframe de Pandas o Spark para que pueda trabajar con bibliotecas conocidas de entrenamiento y preparación de datos sin tener que salir del cuaderno. Puede crear un objeto `TabularDataset` a partir de archivos .csv, .tsv, .parquet y .jsonl, así como de los [resultados de una consulta SQL](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Este modelo de datos le ofrece la posibilidad de materializar los datos en un dataframe de Pandas o Spark para que pueda trabajar con bibliotecas conocidas de entrenamiento y preparación de datos sin tener que salir del cuaderno. Puede crear un objeto `TabularDataset` a partir de archivos .csv, .tsv, .parquet y .jsonl, así como de los [resultados de una consulta SQL](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Con los objetos TabularDataset, puede especificar una marca de tiempo desde una columna de los datos o desde el lugar en que estén almacenados los datos del patrón de ruta de acceso para habilitar un rasgo de la serie temporal. Esta especificación permite filtrar de forma fácil y eficaz por hora. Para más información, consulte [Demostración de la API relacionada con una serie temporal tabular con datos meteorológicos de NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
 Cree un objeto TabularDataset con el [SDK de Python](#create-a-tabulardataset) o [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> Los flujos de trabajo de AutoML que se generan a través de Azure Machine Learning Studio actualmente solo admiten objetos TabularDataset. 
+> Los flujos de trabajo de [AutoML](concept-automated-ml.md) que se generan mediante Estudio de Azure Machine Learning actualmente solo admiten objetos TabularDataset. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Obtener acceso a los conjuntos de valores de una red virtual
 
@@ -90,22 +90,27 @@ Si el área de trabajo está en una red virtual, debe configurar el conjunto de 
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>Creación de conjuntos de datos
+## <a name="create-datasets-from-datastores"></a>Creación de conjuntos de datos a partir de almacenes de datos
 
-Para que Azure Machine Learning pueda acceder a los datos, deben crearse conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure](how-to-access-data.md) o las direcciones URL web públicas. 
+Para que Azure Machine Learning pueda acceder a los datos, se deben crear conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure Machine Learning](how-to-access-data.md) o las direcciones URL web. 
 
-Para crear conjuntos de datos a partir de un [almacén de datos de Azure](how-to-access-data.md) con el SDK de Python:
+> [!TIP] 
+> Puede crear conjuntos de datos directamente desde las direcciones URL de almacenamiento con el acceso a datos basado en identidad. Más información en [Conexión al almacenamiento mediante el acceso a datos basado en identidad (versión preliminar)](how-to-identity-based-data-access.md).<br><br>
+Esta funcionalidad es una característica [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) en versión preliminar y puede cambiar en cualquier momento. 
 
-1. Compruebe que `contributor` o `owner` acceden al almacén de datos de Azure registrado.
+ 
+Para crear conjuntos de datos a partir de un almacén de datos con el SDK para Python:
 
-2. Cree el conjunto de datos mediante referencias a rutas de acceso en el almacén de datos. Puede crear un conjunto de datos a partir de varias rutas de acceso en varios almacenes de datos. No hay ningún límite en el número de archivos ni el tamaño de los datos a partir de los cuales puede crear un conjunto de datos. 
+1. Compruebe que tiene acceso de `contributor` u `owner` al servicio de almacenamiento subyacente del almacén de datos de Azure Machine Learning registrado. [Compruebe los permisos de la cuenta de almacenamiento en Azure Portal](../role-based-access-control/check-access.md).
+
+1. Cree el conjunto de datos mediante referencias a rutas de acceso en el almacén de datos. Puede crear un conjunto de datos a partir de varias rutas de acceso en varios almacenes de datos. No hay ningún límite en el número de archivos ni el tamaño de los datos a partir de los cuales puede crear un conjunto de datos. 
 
 > [!NOTE]
 > Para cada ruta de acceso de datos, se enviarán algunas solicitudes al servicio de almacenamiento para comprobar si dicha ruta dirige a un archivo o a una carpeta. Esta sobrecarga puede provocar una disminución del rendimiento o un error. Un conjunto de datos que hace referencia a una carpeta con 1000 archivos se considera que hace referencia a una ruta de acceso a datos. Se recomienda crear un conjunto de resultados que haga referencia a menos de 100 rutas de acceso en almacenes de datos para un rendimiento óptimo.
 
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
-Use el método [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un objeto FileDataset sin registrar. 
+Use el método [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un objeto FileDataset sin registrar. 
 
 Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Obtenga más información sobre cómo [usar almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
@@ -122,7 +127,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 Para reutilizar y compartir conjuntos de datos en el experimento en su área de trabajo, [registre el conjunto de datos](#register-datasets). 
 
 > [!TIP] 
-> Cargue archivos desde un directorio local y cree un objeto FileDataset en un único método con el método de versión preliminar pública [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Este método es una característica en vista previa [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) y puede cambiar en cualquier momento. 
+> Cargue archivos desde un directorio local y cree un objeto FileDataset en un único método con el método de versión preliminar pública [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Este método es una característica en vista previa [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento. 
 > 
 >  Este método carga los datos en el almacenamiento subyacente y, como resultado, incurre en costos de almacenamiento. 
 
@@ -154,7 +159,7 @@ weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 ### <a name="set-data-schema"></a>Esquema del conjunto de datos
 
-De forma predeterminada, al crear un objeto TabularDataset, los tipos de datos de las columnas se deducen automáticamente. Si los tipos deducidos no coinciden con los esperados, puede actualizar el esquema del conjunto de datos mediante la especificación los tipos de columna con el código siguiente. El parámetro `infer_column_type` solo es aplicable a los conjuntos de datos creados a partir de archivos delimitados. [Más información sobre los tipos de datos admitidos](/python/api/azureml-core/azureml.data.dataset_factory.datatype?preserve-view=true&view=azure-ml-py).
+De forma predeterminada, al crear un objeto TabularDataset, los tipos de datos de las columnas se deducen automáticamente. Si los tipos deducidos no coinciden con los esperados, puede actualizar el esquema del conjunto de datos mediante la especificación los tipos de columna con el código siguiente. El parámetro `infer_column_type` solo es aplicable a los conjuntos de datos creados a partir de archivos delimitados. [Más información sobre los tipos de datos admitidos](/python/api/azureml-core/azureml.data.dataset_factory.datatype).
 
 
 ```Python
@@ -196,7 +201,7 @@ mount_context = dataset.mount(mounted_path)
 mount_context.start()
 ```
 
-En el caso de TabularDatasets, use el método [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) para ver los datos en un dataframe. 
+En el caso de TabularDatasets, use el método [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) para ver los datos en un dataframe. 
 
 ```python
 # preview the first 3 rows of titanic_ds
@@ -240,13 +245,13 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> Cree y registre un objeto TabularDataset a partir de un dataframe de Pandas o Spark de memoria con un método único con los métodos de versión preliminar pública [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) y [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods). Estos métodos de registro son características en vista previa [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) y pueden cambiar en cualquier momento. 
+> Cree y registre un objeto TabularDataset a partir de un dataframe de Pandas o Spark de memoria con un método único con los métodos de versión preliminar pública [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods) y [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods). Estos métodos de registro son características en vista previa [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y pueden cambiar en cualquier momento. 
 > 
 >  Estos métodos cargan los datos en el almacenamiento subyacente y, como resultado, incurren en costos de almacenamiento. 
 
 ## <a name="register-datasets"></a>Registro de conjuntos de datos
 
-Para completar el proceso de creación, registre los conjuntos de datos con un área de trabajo. Use el método [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) para registrar los conjuntos de datos con el área de trabajo, con el fin de que puedan compartirse con otros usuarios y reutilizarse en varios experimentos en el área de trabajo:
+Para completar el proceso de creación, registre los conjuntos de datos con un área de trabajo. Use el método [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) para registrar los conjuntos de datos con el área de trabajo, con el fin de que puedan compartirse con otros usuarios y reutilizarse en varios experimentos en el área de trabajo:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
@@ -261,7 +266,7 @@ Existen varias plantillas en [https://github.com/Azure/azure-quickstart-template
 Para información sobre el uso de estas plantillas, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Creación de conjuntos de datos con Azure Open Datasets
+## <a name="create-datasets-from-azure-open-datasets"></a>Creación de conjunto de datos con Azure Open Datasets
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. Los conjuntos de datos abiertos se encuentran en la nube en Microsoft Azure y se incluyen en el SDK y en Studio.
 
@@ -269,7 +274,7 @@ Aprenda a crear [conjuntos de datos de Azure Machine Learning en Azure Open Data
 
 ## <a name="train-with-datasets"></a>Entrenamiento con conjuntos de datos
 
-Use sus conjuntos de datos en los experimentos de aprendizaje automático para entrenar modelos de aprendizaje automático. [Más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
+Use sus conjuntos de datos en los experimentos de aprendizaje automático para entrenar modelos de aprendizaje automático. [Obtenga más información sobre cómo entrenar con conjuntos de datos](how-to-train-with-datasets.md).
 
 ## <a name="version-datasets"></a>Conjuntos de datos de versión
 

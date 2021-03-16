@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388216"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520785"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -45,7 +45,7 @@ Por ejemplo, ML automatizado genera los siguientes gráficos en función del tip
 
 Una vez completado el experimento de ML automatizado, se puede encontrar un historial de las ejecuciones mediante:
   - Un explorador con [Estudio de Azure Machine Learning](overview-what-is-machine-learning-studio.md)
-  - Un cuaderno de Jupyter con el [widget Jupyter de RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - Un cuaderno de Jupyter con el [widget Jupyter de RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 En el vídeo y los pasos siguientes, se muestra cómo ver el historial de ejecuciones y los gráficos y las métricas de evaluación del modelo en el estudio:
 
@@ -192,7 +192,7 @@ explained_variance|La varianza explicada calcula la medida en que un modelo da c
 mean_absolute_error|El error absoluto medio es el valor esperado del valor absoluto de la diferencia entre el destino y la predicción.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) <br><br> Tipos: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`: es mean_absolute_error dividido por el intervalo de los datos. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|El error de porcentaje absoluto medio (MAPE) es una medida de la diferencia promedio entre un valor predicho y el valor real.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) ||
 median_absolute_error|El error medio absoluto es la media de todas las diferencias absolutas entre el destino y la predicción. Esta pérdida es estable para los valores atípicos.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf)<br><br>Tipos: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: es median_absolute_error dividido por el intervalo de los datos. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R^2 es el coeficiente de determinación o el porcentaje de reducción de los errores cuadráticos en comparación con un modelo de línea base que da como resultado la media. <br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1] <br><br> Nota: R^2 tiene con frecuencia el intervalo (-inf, 1), pero ML automatizado recorta los valores negativos en los modelos muy malos a -1.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (el coeficiente de determinación) mide la reducción proporcional del error cuadrado medio (MSE) con respecto a la varianza total de los datos observados. <br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1]<br><br>Nota: R<sup>2</sup> a menudo tiene el intervalo [-inf, 1]. El MSE puede ser mayor que la varianza observada, por lo que R<sup>2</sup> puede tener valores negativos arbitrariamente grandes, en función de los datos y las predicciones del modelo. Los clips de ML automatizado informaron puntuaciones de R<sup>2</sup> de -1, por lo que un valor de -1 para R<sup>2</sup> probablemente significa que la puntuación real de R<sup>2</sup> es menor que -1. Tenga en cuenta el resto de valores de métricas y las propiedades de los datos al interpretar una puntuación negativa de R<sup>2</sup>.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |La raíz del error cuadrático medio (RMSE) es la raíz cuadrada de la diferencia cuadrática esperada entre el destino y la predicción. Para un estimador no sesgado, RMSE es igual a la desviación estándar.<br> <br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf)<br><br>Tipos:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: es root_mean_squared_error dividido por el intervalo de los datos. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|La raíz del error logarítmico cuadrático medio es la raíz cuadrada del error logarítmico cuadrático esperado.<br><br>**Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) <br> <br>Tipos: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: es root_mean_squared_log_error dividido por el intervalo de los datos.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| La correlación de Spearman es una medida no paramétrica de la monotonicidad de la relación entre dos conjuntos de datos. A diferencia de la correlación de Pearson, la correlación de Spearman no asume que los conjuntos de datos se distribuyen normalmente. Como sucede con otros coeficientes de correlación, Spearman varía entre -1 y + 1, y 0 implica que no hay ninguna correlación. Las correlaciones de -1 o 1 implican una relación monotónica exacta. <br><br> Spearman es una métrica de correlación de orden de clasificación, lo que significa que los cambios en los valores predichos o reales no cambiarán el resultado de Spearman si no cambian el orden de clasificación de los valores predichos o reales.<br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1]|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

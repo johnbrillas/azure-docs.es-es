@@ -2,25 +2,41 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: 439a75907ccdc6d2f1af4f2a3d9fc951bdd6307d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/25/2021
+ms.openlocfilehash: f8c15b1236d15c193638842ce4dab7e81cd70ace
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948514"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184242"
 ---
 En esta guía se proporciona información y código de ejemplo para ayudarle a empezar a usar la biblioteca cliente de Custom Vision con Go para crear un modelo de detección de objetos. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
 > [!NOTE]
 > Si desea crear y entrenar un modelo de detección de objetos _sin_ escribir código, consulte la [guía basada en explorador](../../get-started-build-detector.md) en su lugar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+Use la biblioteca cliente de Custom Vision para Go para:
 
-- [Go 1.8+](https://golang.org/doc/install)
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* Creación de un proyecto de Custom Vision
+* Adición de etiquetas al proyecto
+* Carga y etiquetado de imágenes
+* Entrenamiento del proyecto
+* Publicación de la iteración actual
+* Prueba del punto de conexión de la predicción
 
-## <a name="install-the-custom-vision-client-library"></a>Instalación de la biblioteca cliente de Custom Vision
+Documentación de referencia [(1)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(predicción)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)| Código fuente de la biblioteca [(entrenamiento)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/customvision/training) [(predicción)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.1/customvision/prediction) 
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* [Go 1.8+](https://golang.org/doc/install)
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Creación de un recurso de Custom Vision"  target="_blank">cree un recurso de Custom Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para crear un recurso de entrenamiento y predicción y obtener las claves y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión de los recursos que cree para conectar la aplicación a Custom Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+
+## <a name="setting-up"></a>Instalación
+
+### <a name="install-the-custom-vision-client-library"></a>Instalación de la biblioteca cliente de Custom Vision
 
 Para escribir una aplicación de análisis de imágenes con Custom Vision para Go, necesitará la biblioteca cliente del servicio Custom Vision. En PowerShell, ejecute el siguiente comando:
 
@@ -33,15 +49,12 @@ O bien, si usa `dep`, dentro de su repositorio ejecute:
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
 [!INCLUDE [python-get-images](../../includes/python-get-images.md)]
 
-## <a name="add-the-code"></a>Adición del código
-
-Cree un archivo llamado *sample.go* en el directorio de proyecto que prefiera.
-
 ## <a name="create-the-custom-vision-project"></a>Creación del proyecto de Custom Vision
+
+Cree un archivo denominado *sample.go* en el directorio del proyecto que prefiera y ábralo en el editor de código que prefiera.
 
 Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes. Además, obtenga la dirección URL del punto de conexión de la página de configuración del sitio web de Custom Vision.
 

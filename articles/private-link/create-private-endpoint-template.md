@@ -1,19 +1,19 @@
 ---
-title: Creación de un punto de conexión privado en Azure Private Link
+title: 'Inicio rápido: Creación de un punto de conexión privado mediante una plantilla de ARM'
 description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear un punto de conexión privado.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705816"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562952"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Inicio rápido: Creación de un punto de conexión privado mediante una plantilla de Resource Manager
 
@@ -118,7 +118,7 @@ A continuación, se muestra cómo conectarse al servidor de SQL Database desde 
     - **Nombre del servidor**: seleccione **sqlserver{uniqueid}.database.windows.net**.
     - **Nombre de usuario**: escriba un nombre de usuario proporcionado durante la creación.
     - **Contraseña**: escriba una contraseña proporcionada durante la creación.
-    - **Recordar contraseña**: Seleccione **Sí**.
+    - **Recordar contraseña**: Seleccione  **Sí**.
 
 5.  Seleccione **Conectar**.
 6.  En el menú de la izquierda, vaya a **Bases de datos**.
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [Azure Private Link](private-link-overview.md).
+Para más información sobre los servicios que admiten un punto de conexión privado, consulte:
+> [!div class="nextstepaction"]
+> [Disponibilidad de Private Link](private-link-overview.md#availability)

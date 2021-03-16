@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388947"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634590"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Evaluación y mejora de la precisión de Habla personalizada
 
@@ -109,16 +109,17 @@ El audio con transcripciones etiquetadas por humanos ofrece las máximas mejoras
 
 Tenga en cuenta estos detalles:
 
+* El entrenamiento con audio aportará más ventajas si el audio también es difícil de entender para las personas. En la mayoría de los casos, debe iniciar el entrenamiento simplemente con texto relacionado.
+* Si utiliza alguno de los idiomas más usados, como el inglés de Estados Unidos, existe la posibilidad de que no sea necesario entrenar con datos de audio. En el caso de estos idiomas, los modelos base ofrecen ya resultados de reconocimiento muy buenos en la mayoría de los escenarios. Probablemente será suficiente con entrenar con texto relacionado.
 * Habla personalizada solo puede capturar el contexto de las palabras para reducir los errores de sustitución, no los de inserción ni los de eliminación.
 * Evite ejemplos que incluyan errores de transcripción, pero incluya audio con distintas calidades.
 * Evite oraciones no relacionadas con el dominio del problema. Las oraciones no relacionadas pueden dañar el modelo.
 * Cuando la calidad de las transcripciones varía, puede duplicar las frases cuya calidad sea excepcionalmente buena (como las transcripciones excelentes que incluyan frases clave) para aumentar su ponderación.
 * El servicio de voz usará automáticamente las transcripciones para mejorar el reconocimiento de las palabras y frases específicas del dominio, como si se hubieran agregado como texto relacionado.
-* El entrenamiento con audio aportará más ventajas si el audio también es difícil de entender para las personas. En la mayoría de los casos, debe iniciar el entrenamiento simplemente con texto relacionado.
 * Una operación de entrenamiento puede tardar varios días en completarse. Para mejorar la velocidad de entrenamiento, asegúrese de crear la suscripción al servicio Voz en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
 
 > [!NOTE]
-> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
+> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio. Aunque un modelo base admita el entrenamiento con datos de audio, el servicio podría usar solo parte del audio. Aún así, usará todas las transcripciones.
 
 > [!NOTE]
 > En los casos en los que cambia el modelo base utilizado para el entrenamiento y tiene audio en el conjunto de datos de entrenamiento, compruebe *siempre* si el nuevo modelo base seleccionado [admite el entrenamiento con datos de audio](language-support.md#speech-to-text). Si el modelo base usado anteriormente no admitía el entrenamiento con datos de audio, y el conjunto de datos de entrenamiento contiene audio, el tiempo de entrenamiento con el nuevo modelo base aumentará **drásticamente** y puede pasar de horas a días e incluso más. Esto es especialmente cierto si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.

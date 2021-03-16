@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Starter'
+title: 'Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Starter'
 description: Azure DevOps Starter facilita la introducción a Azure. DevOps Projects le ayuda, con pocos pasos rápidos, a usar su propio código y repositorio de GitHub para iniciar una aplicación en un servicio de Azure.
 services: vsts
 documentationcenter: vs-devops-build
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c03ba657ac264b72d035f28956354398421ed2f9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854654"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566607"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para el repositorio de GitHub con Azure DevOps Starter
 
@@ -34,7 +34,7 @@ Podrá:
 > * Examen de la canalización de CI/CD de Azure Pipelines
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acceda a un repositorio de GitHub o a un repositorio de Git externo que contenga código .NET, Java, PHP, Node.js, Python o código web estático.
@@ -45,7 +45,7 @@ Azure DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede c
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
     
@@ -97,7 +97,7 @@ Azure DevOps Starter configura automáticamente una canalización de CI/CD en Az
 
    ![Página Compilaciones de Azure Pipelines](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. En la esquina superior derecha de la página **Compilaciones**, puede seleccionar **Editar**, para cambiar la compilación actual, **Cola**, para agregar una nueva compilación, o el botón de puntos suspensivos verticales ( **&#8942;** ), para abrir un menú con más opciones. Seleccione **Editar**.
+1. En la esquina superior derecha de la página **Compilaciones**, puede seleccionar **Editar**, para cambiar la compilación actual, **Cola**, para agregar una nueva compilación, o el botón de puntos suspensivos verticales (**&#8942;**), para abrir un menú con más opciones. Seleccione **Editar**.
 
 1. La compilación lleva a cabo varias tareas, como capturar código fuente del repositorio, restaurar dependencias y publicar salidas para implementaciones. A la derecha, debajo de **Nombre**, cambie el nombre de la canalización de compilación por uno más descriptivo. Seleccione **Guardar y poner en cola** y, después, seleccione **Guardar**. Escriba un comentario y, a continuación, seleccione **Guardar** de nuevo.
 
@@ -118,7 +118,7 @@ Cuando configuró el proceso de CI/CD en este tutorial, creó automáticamente u
 Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process)
 
 Para más información sobre la supervisión de aplicaciones, consulte:
   

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527129"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565842"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configuración de una cuenta de Azure Cosmos DB con copia de seguridad periódica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -115,7 +115,7 @@ Si aprovisiona el rendimiento en el nivel de base de datos, el proceso de copia 
 Las entidades de seguridad que forman parte del rol [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), propietario o colaborador pueden solicitar una restauración o cambiar el período de retención.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Reconocimiento de los costos de las copias de seguridad adicionales
-Se proporcionan dos copias de seguridad gratuitas y las adicionales se cobran según los precios de la región del almacenamiento de copia de seguridad que se describen en los [precios de almacenamiento de copia de seguridad](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por ejemplo, si la retención de copia de seguridad está configurada en 240 horas, es decir, 10 días, y el intervalo de copia de seguridad en 24 horas, eso significa 10 copias de los datos de copia de seguridad. Imagine 1 TB de datos en Oeste de EE. UU. 2, eso sería 1000 * 0,12 ~ 120 USD por el almacenamiento de copia de seguridad de un mes determinado. 
+Se proporcionan dos copias de seguridad gratuitas y las adicionales se cobran según los precios de la región del almacenamiento de copia de seguridad que se describen en los [precios de almacenamiento de copia de seguridad](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por ejemplo, si la retención de copia de seguridad está configurada en 240 horas, es decir, 10 días, y el intervalo de copia de seguridad en 24 horas, eso significa 10 copias de los datos de copia de seguridad. Supongamos 1 TB de datos en Oeste de EE. UU. 2, el coste sería 0,12 * 1000 * 8 por el almacenamiento de copia de seguridad de un mes determinado. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Opciones para gestionar sus propias copias de seguridad

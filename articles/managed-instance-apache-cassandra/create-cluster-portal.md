@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: a05769c66c4b13de5c7197ef5612d64781574987
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d94bedad1ba7a2c6d814021b733404ccc58148ed
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747910"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424689"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal (versión preliminar)
  
@@ -63,16 +63,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configuración de los detalles de la red." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. Si ha creado una red virtual en el último paso, vaya al paso 9. Si seleccionó una red virtual existente, antes de crear el clúster, debe aplicar algunos permisos especiales a la red virtual y a la subred. Para ello, tiene que obtener el identificador de recurso de la red virtual existente. Ejecute el siguiente comando en la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+1. Si ha creado una red virtual en el último paso, vaya al paso 8. Si seleccionó una red virtual existente, antes de crear el clúster, debe aplicar algunos permisos especiales a la red virtual y a la subred. Para ello, use el comando `az role assignment create`, reemplazando `<subscription ID>`, `<resource group name>`, `<VNet name>` y `<subnet name>` con los valores adecuados:
 
    ```azurecli-interactive
-   # get the resource ID of the Virtual Network
-   az network vnet show -n <VNet_name> -g <Resource_Group_Name> --query "id" --output tsv
-
-1. Now apply the special permissions by using the `az role assignment create` command. Replace `<Resource ID>` with the output of previous command:
-
-   ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
    > [!NOTE]

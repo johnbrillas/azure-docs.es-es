@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871102"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487991"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -38,7 +38,7 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 - De manera opcional, la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="fqdns-in-use"></a>FQDN en uso
-### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Estos FQDN están en uso en las regiones siguientes: eastus, southcentralus y westus2.
+### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Estos nombres de dominio completo están en uso en las regiones siguientes: eastus, southcentralus y westus2.
 La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan en el área de trabajo:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -52,7 +52,7 @@ La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan 
     > [!NOTE]
     > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
     
-### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Estos FQDN están en uso en todas las demás regiones
+### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>Estos nombres de dominio completo están en uso en todas las demás regiones públicas
 La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan en el área de trabajo:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -63,6 +63,17 @@ La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan 
     > [!NOTE]
     > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
 
+### <a name="azure-china-21vianet-regions"></a>Regiones de Azure China 21Vianet
+
+Los siguientes nombres de dominio completo son para regiones de Azure China 21Vianet:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > El nombre del área de trabajo de este nombre de dominio completo puede estar truncado. El truncamiento se realiza para mantener la longitud del nombre de dominio completo en 63 caracteres como máximo.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Búsqueda de direcciones IP
 
 Para buscar las direcciones IP internas de los FQDN en la red virtual, use uno de los métodos siguientes:
@@ -94,7 +105,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-La información devuelta por todos los métodos es la misma; una lista de los FQDN y las direcciones IP privadas para los recursos.
+La información devuelta por todos los métodos es la misma; una lista de los FQDN y las direcciones IP privadas para los recursos. El ejemplo siguiente es de una región global de Azure:
 
 | FQDN | Dirección IP |
 | ----- | ----- |
@@ -112,6 +123,12 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 >
 > Para todas estas direcciones IP, use la misma dirección que las entradas `*.api.azureml.ms` devueltas en los pasos anteriores.
 
+En la tabla siguiente se muestran las direcciones IP de ejemplo de las regiones de Azure China 21Vianet:
+
+| FQDN | Dirección IP |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el uso de Azure Machine Learning con una red virtual, consulte la [información general sobre la red virtual](how-to-network-security-overview.md).

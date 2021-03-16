@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691831"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518691"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -69,9 +69,14 @@ En las cinco secciones siguientes se muestra cómo proteger el escenario de red 
 Realice los pasos siguientes para proteger el área de trabajo y los recursos asociados. Estos pasos permiten que los servicios se comuniquen en la red virtual.
 
 1. Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo.
-1. Agregue Azure Key Vault a la red virtual con un [punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md) o un [punto de conexión privado](../key-vault/general/private-link-service.md). Establezca Key Vault para ["permitir que los servicios de confianza de Microsoft puedan omitir este firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Agregue una cuenta de almacenamiento de Azure a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configure Azure Container Registry para usar un punto de conexión privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+1. Agregue los siguientes servicios a la red virtual _ya sea_ mediante un __punto de conexión de servicio__ o mediante un __punto de conexión privado__. También debe permitir que los servicios de confianza de Microsoft accedan a estos servicios:
+    
+    | Servicio | Información de punto de conexión | Información sobre los servicios de confianza permitidos |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Punto de conexión privado](../key-vault/general/private-link-service.md) | [Permite que los servicios de Microsoft de confianza omitan este firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Cuenta de Azure Storage__ | [Punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Concesión de acceso a servicios de Azure de confianza](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Punto de conexión de servicio](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Punto de conexión privado](../container-registry/container-registry-private-link.md) | [Permitir servicios de confianza](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagrama de arquitectura que muestra cómo el área de trabajo y los recursos asociados se comunican entre sí a través de puntos de conexión de servicio o puntos de conexión privados en una red virtual](./media/how-to-network-security-overview/secure-workspace-resources.png)
 
@@ -106,10 +111,7 @@ En esta sección, aprenderá cómo Azure Machine Learning se comunica de forma s
 
 1. El servicio de Azure Batch recibe el trabajo del área de trabajo y envía el trabajo de entrenamiento al entorno de proceso a través del equilibrador de carga público que se aprovisiona con el recurso de proceso. 
 
-1. El recurso de proceso recibe el trabajo e inicia el entrenamiento. El recurso de proceso accede a cuentas de almacenamiento seguras para descargar archivos de entrenamiento y cargar la salida. 
-
-![Diagrama de arquitectura que muestra cómo se envía un trabajo de entrenamiento de Azure Machine Learning mientras se usa una red virtual](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. El recurso de proceso recibe el trabajo e inicia el entrenamiento. El recurso de proceso accede a cuentas de almacenamiento seguras para descargar archivos de entrenamiento y cargar la salida.
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -178,7 +180,7 @@ Para obtener más información sobre los nombres de dominio y las direcciones IP
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo es la primera parte de una serie de cuatro capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
+Este artículo es la primera parte de una serie de cinco capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
 
 * [Parte 2: Introducción a las redes virtuales](how-to-secure-workspace-vnet.md)
 * [Parte 3: Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)

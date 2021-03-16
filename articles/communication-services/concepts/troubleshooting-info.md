@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef1c4d87be39b6af90ed07cba9249cca4cf8bd6a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e35fcd94ef2fbdde0ac3bb7c71f85a3afd15add4
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036034"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487294"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -25,7 +25,7 @@ Animamos a los desarrolladores a enviar sus preguntas, sugerir características 
 
 Para ayudarle a solucionar determinados tipos de problemas, es posible que se le pidan los siguientes datos:
 
-* **Identificador de MS-CV**: este identificador se usa para solucionar problemas de llamadas y mensajes. 
+* **Identificador de MS-CV**: este identificador se usa para solucionar problemas de llamadas y mensajes.
 * **Identificador de la llamada.** : este identificador se usa para identificar las llamadas a Communication Services.
 * **Identificador de mensajes de texto**: este identificador se usa para identificar mensajes de texto.
 * **Registros de llamada**: estos registros contienen información detallada que se puede usar para solucionar problemas de llamada y de red.
@@ -33,14 +33,14 @@ Para ayudarle a solucionar determinados tipos de problemas, es posible que se le
 
 ## <a name="access-your-ms-cv-id"></a>Acceso al identificador de MS-CV
 
-Para acceder al identificador de MS-CV, configure los diagnósticos en la instancia del objeto `clientOptions` al inicializar las bibliotecas de cliente. Se pueden configurar diagnósticos para cualquiera de las bibliotecas cliente de Azure, incluidas las de chat, administración y llamadas VoIP.
+Para acceder al identificador de MS-CV, configure los diagnósticos en la instancia del objeto `clientOptions` al inicializar las bibliotecas de cliente. Se pueden configurar diagnósticos para cualquiera de las bibliotecas cliente de Azure, como chat, identidad y llamadas VoIP.
 
 ### <a name="client-options-example"></a>Ejemplo de opciones de cliente
 
 Los fragmentos de código siguientes muestran la configuración del diagnóstico. Cuando las bibliotecas de cliente se usan con el diagnóstico habilitado, los detalles de diagnóstico se emitirán en el agente de escucha de eventos configurado:
 
 # <a name="c"></a>[C#](#tab/csharp)
-``` 
+```
 // 1. Import Azure.Core.Diagnostics
 using Azure.Core.Diagnostics;
 
@@ -61,13 +61,13 @@ var clientOptions = new ChatClientOptions()
     }
 };
 
-// 4. Initialize the ChatClient instance with the clientOptions 
+// 4. Initialize the ChatClient instance with the clientOptions
 ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential, clientOptions);
 ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync("Thread Topic", new[] { new ChatThreadMember(communicationUser) });
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-``` 
+```
 from azure.communication.chat import ChatClient, CommunicationUserCredential
 endpoint = "https://communication-services-sdk-live-tests-for-python.communication.azure.com"
 chat_client = ChatClient(
@@ -83,22 +83,22 @@ Al presentar a través de Azure Portal una solicitud de soporte técnico relacio
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods 
+// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods
 console.log(call.id)
 ```
 
 # <a name="ios"></a>[iOS](#tab/ios)
 ```objc
-// The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends 
+// The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
 // todo: the code snippet suggests it's a property while the comment suggests it's a method call
-print(call.callId) 
+print(call.callId)
 ```
 
 # <a name="android"></a>[Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods 
-Log.d(call.getCallId()) 
+// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods
+Log.d(call.getCallId())
 ```
 ---
 
@@ -130,21 +130,21 @@ console.log(result); // your message ID will be in the result
 El código siguiente se puede usar para configurar `AzureLogger` para generar registros en la consola mediante la biblioteca de cliente de JavaScript:
 
 ```javascript
-import { AzureLogger } from '@azure/logger'; 
+import { AzureLogger } from '@azure/logger';
 
-AzureLogger.verbose = (...args) => { console.info(...args); } 
-AzureLogger.info = (...args) => { console.info(...args); } 
-AzureLogger.warning = (...args) => { console.info(...args); } 
-AzureLogger.error = (...args) => { console.info(...args); } 
+AzureLogger.verbose = (...args) => { console.info(...args); }
+AzureLogger.info = (...args) => { console.info(...args); }
+AzureLogger.warning = (...args) => { console.info(...args); }
+AzureLogger.error = (...args) => { console.info(...args); }
 
-callClient = new CallClient({logger: AzureLogger}); 
+callClient = new CallClient({logger: AzureLogger});
 ```
 
 # <a name="ios"></a>[iOS](#tab/ios)
 
 Al desarrollar para iOS, los registros se almacenan en archivos `.blog`. Tenga en cuenta que no puede ver los registros directamente porque están cifrados.
 
-Se puede tener acceso a ellos abriendo Xcode. Vaya a Windows > Devices and Simulators > Devices (Windows > Dispositivos y simuladores > Dispositivos). Seleccione el dispositivo. En Installed Apps (Aplicaciones instaladas), seleccione la aplicación y haga clic en "Download container" (Descargar contenedor). 
+Se puede tener acceso a ellos abriendo Xcode. Vaya a Windows > Devices and Simulators > Devices (Windows > Dispositivos y simuladores > Dispositivos). Seleccione el dispositivo. En Installed Apps (Aplicaciones instaladas), seleccione la aplicación y haga clic en "Download container" (Descargar contenedor).
 
 Esto le proporcionará un archivo `xcappdata`. Haga clic con el botón derecho en este archivo y seleccione "Show package contents" (Mostrar contenido del paquete). Después verá los archivos `.blog` que puede adjuntar a la solicitud de soporte técnico de Azure.
 
@@ -152,8 +152,8 @@ Esto le proporcionará un archivo `xcappdata`. Haga clic con el botón derecho e
 
 Al desarrollar para Android, los registros se almacenan en archivos `.blog`. Tenga en cuenta que no puede ver los registros directamente porque están cifrados.
 
-En Android Studio, vaya al explorador de archivos de dispositivo; para ello, seleccione View > Tool Windows > Device File Explorer (Ver > Herramienta Windows > Explorador de archivos de dispositivo) desde el simulador y el dispositivo. El archivo `.blog` se ubicará en el directorio de la aplicación, que debe ser similar a `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Puede adjuntar este archivo a la solicitud de soporte técnico. 
-   
+En Android Studio, vaya al explorador de archivos de dispositivo; para ello, seleccione View > Tool Windows > Device File Explorer (Ver > Herramienta Windows > Explorador de archivos de dispositivo) desde el simulador y el dispositivo. El archivo `.blog` se ubicará en el directorio de la aplicación, que debe ser similar a `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Puede adjuntar este archivo a la solicitud de soporte técnico.
+
 
 ---
 

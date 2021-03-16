@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: a460d77a032f36505c8036bc60aa37017f630e55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501148"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454777"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
@@ -30,7 +30,7 @@ Las funcionalidades de IoT Hub le ayudan a compilar soluciones de IoT escalables
 
 ## <a name="scale-your-solution"></a>Escalado de la solución
 
-IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. Para obtener más información sobre cómo escalar el IoT Hub, vea [Escalado de IOT Hub](iot-hub-scaling.md?branch=release-iotbasic). Para obtener más información sobre los distintos niveles de servicio ofrecidos por IoT Hub y cómo ajustarse mejor a sus necesidades de escalabilidad, vea la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub escala a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo para admitir las cargas de trabajo de IoT. Para obtener más información sobre cómo escalar el IoT Hub, vea [Escalado de IOT Hub](iot-hub-scaling.md). Para obtener más información sobre los distintos niveles de servicio ofrecidos por IoT Hub y cómo ajustarse mejor a sus necesidades de escalabilidad, vea la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Proteger las comunicaciones
 
@@ -104,6 +104,8 @@ IoT Hub y los SDK de dispositivo admiten los siguientes protocolos de conexión 
 * AMQP sobre WebSockets
 * MQTT
 * MQTT sobre WebSockets
+
+IoT Hub y los SDK de dispositivo admiten las convenciones de [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) para conectar dispositivos. Los dispositivos IoT Plug and Play usan un modelo de dispositivo para anunciar su funcionalidad a las aplicaciones habilitadas para IoT Plug and Play. El modelo del dispositivo permite a los creadores de soluciones integrar dispositivos inteligentes con sus soluciones sin necesidad de configuración manual.
 
 Si la solución no puede usar las bibliotecas de dispositivos, los dispositivos pueden usar los protocolos MQTT v3.1.1, HTTPS 1.1 o AMQP 1.0 para conectarse de manera nativa al centro.
 

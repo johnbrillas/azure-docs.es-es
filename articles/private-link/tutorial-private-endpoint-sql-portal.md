@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: el portal'
+title: 'Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: Portal'
 description: Use este tutorial para aprender a crear un servidor SQL de Azure con un punto de conexión privado mediante Azure Portal.
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522165"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554979"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: Azure Portal
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: Azure Portal
 
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen con recursos de Private Link de manera privada.
 
@@ -260,6 +261,6 @@ En este tutorial ha creado:
 
 Ha utilizado la máquina virtual para probar la conectividad de forma segura al servidor SQL mediante el punto de conexión privado.
 
-Aprenda a crear un servicio de Private Link:
+Como paso siguiente, puede que también le interese el escenario de la arquitectura de **aplicación web con conectividad privada a Azure SQL Database**, que conecta una aplicación web situada fuera de la red virtual con el punto de conexión privado de una base de datos.
 > [!div class="nextstepaction"]
-> [Creación de un servicio Private Link](create-private-link-service-portal.md)
+> [Conectividad privada de una aplicación web a Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

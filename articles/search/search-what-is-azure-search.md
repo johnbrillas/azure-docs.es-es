@@ -7,26 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 03/09/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699448"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549896"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
 Azure Cognitive Search ([anteriormente conocido como "Azure Search"](whats-new.md#new-service-name)) es un servicio de búsqueda en la nube que proporciona a los desarrolladores las API y herramientas necesarias para crear una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para aplicaciones móviles y empresariales. 
 
+La búsqueda es fundamental para cualquier aplicación que represente contenido para los usuarios, con escenarios comunes como la búsqueda de catálogos o documentos, la búsqueda de sitios de comercio electrónico o la minería de conocimientos para la ciencia de datos. Las API y la arquitectura de Cognitive Search simplifican la tarea de agregar una recuperación de información sofisticada a cualquier solución.
+
 Un servicio de búsqueda tiene los siguientes componentes:
 
 + Motor de búsqueda para buscar texto completo.
 + Almacenamiento persistente de contenido indexado propiedad del usuario
-+ API para la indexación y consulta
-+ [Enriquecimientos basados en inteligencia artificial](cognitive-search-concept-intro.md), que crean contenido en el que se pueden realizar búsquedas a partir de imágenes, texto sin formato o archivos de aplicaciones
-+ Integración con otros servicios de Azure para datos, aprendizaje automático, inteligencia artificial y seguridad
++ API para la indexación y consulta de contenido
++ [Enriquecimientos basados en inteligencia artificial](cognitive-search-concept-intro.md) opcionales, que crean contenido en el que se pueden realizar búsquedas a partir de imágenes, texto sin estructurar sin formato o archivos de aplicaciones
++ Integración opcional con otros servicios de Azure para datos, aprendizaje automático, inteligencia artificial, supervisión y seguridad
++ Implementación opcional de la [búsqueda semántica (versión preliminar)](semantic-search-overview.md) para mejorar la relevancia
 
 En cuanto a la arquitectura, un servicio de búsqueda se coloca entre los almacenes de datos externos que contienen los datos no indexados y su aplicación cliente que envía solicitudes de consulta a un índice de búsqueda y controla la respuesta.
 
@@ -74,8 +77,9 @@ Una exploración integral de las características principales de la búsqueda se
 
 1. [**Consulte un índice**](search-query-overview.md) mediante el [Explorador de búsqueda](search-explorer.md) en el portal, [API REST](search-get-started-rest.md), [SDK de .NET](/dotnet/api/azure.search.documents.searchclient.search) u otro SDK.
 
-> [!TIP]
-> Minimice los pasos empezando por el [**Asistente para la importación de datos**](search-get-started-portal.md) y un origen de datos de Azure para crear, cargar y consultar un índice en unos minutos.
+Para la exploración inicial, comience por el [**Asistente para la importación de datos**](search-get-started-portal.md) y un origen de datos de Azure integrado para crear, cargar y consultar un índice en unos minutos.
+
+Para obtener ayuda con soluciones complejas o personalizadas, [**póngase en contacto con un asociado**](resource-partners-knowledge-mining.md) con conocimientos profundos en la tecnología de Cognitive Search.
 
 ## <a name="compare-search-options"></a>Comparar opciones de búsqueda
 

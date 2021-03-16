@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584749"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051912"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -272,6 +272,44 @@ Puede buscar en la base de conocimiento publicada, con `isTest=false`, o bien en
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="return-precise-answers"></a>Devolución de respuestas precisas
+
+### <a name="generate-answer-api"></a>Generación de API de respuestas 
+
+El usuario puede habilitar [respuestas precisas](../reference-precise-answering.md) al usar el recurso administrado de QnA Maker. El parámetro answerSpanRequest debe actualizarse por lo mismo.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Igualmente, los usuarios pueden optar por no establecer el parámetro answerSpanRequest para deshabilitar las respuestas precisas.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### <a name="bot-settings"></a>Configuración de bot
+
+Si desea configurar los valores de respuesta precisos para el servicio de bot, vaya al recurso de App Service para el bot. Después, agregue el siguiente valor para actualizar las configuraciones.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Configuración de pantalla|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Solo respuestas precisas|true|true|
+|Solo respuestas largas|false|false|
+|Respuestas largas y precisas|true|false|
 
 ## <a name="common-http-errors"></a>Errores HTTP comunes
 

@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 749dea2d9d46cb69d0c7c8a799a3f82c04d020e8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936182"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549471"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Creación de la primera función durable en Python
 
@@ -48,7 +48,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | Python | Cree un proyecto local de Functions en Python. |
     | Selección de una versión | Azure Functions v3 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
@@ -58,22 +58,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 Visual Studio Code instala Azure Functions Core Tools, en caso de que sea necesario. También crea el proyecto de una aplicación de funciones en una carpeta. Este proyecto contiene los archivos de configuración [host.json](../functions-host-json.md) y [local.settings.json](../functions-run-local.md#local-settings-file).
 
-También se crea un archivo requirements.txt en la carpeta raíz. Especifica los paquetes de Python necesarios para ejecutar la aplicación de funciones.
-
-## <a name="update-azure-functions-extension-bundles-version"></a>Actualización de la versión de los conjuntos de extensiones de Azure Functions
-
-Azure Functions para Python requiere la versión 2.x de los [conjuntos de extensiones de Azure Functions](../functions-bindings-register.md#access-extensions-in-non-net-languages). Los conjuntos de extensiones se configuran en *host.json*.
-
-1. Abra *host.json* en el proyecto. Actualice el conjunto de extensiones `version` a `[2.*, 3.0.0)`. Esto especifica un intervalo de versiones que es mayor o igual a la 2.0 y menor a 3.0.
-
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
-    }
-    ```
-
-1. Se debe volver a cargar VS Code antes de que se refleje la versión actualizada del conjunto de extensiones. En la paleta de comandos, busque el comando *Developer: Reload Window* y ejecútelo.
+También se creará un archivo *requirements.txt* en la carpeta raíz. Especifica los paquetes de Python necesarios para ejecutar la aplicación de funciones.
 
 ## <a name="install-azure-functions-durable-from-pypi"></a>Instalación de azure-functions-durable desde PyPI
 
@@ -83,7 +68,7 @@ Al crear el proyecto, la extensión de VS Code de Azure Functions ha creado aut
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b12
+    azure-functions-durable
     ```
 
 1. Abra el terminal integrado del editor en la carpeta actual (<kbd>Ctrl+Mayús+`</kbd>).

@@ -3,52 +3,54 @@ title: 'Documentación de Swagger: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La documentación de Swagger se puede utilizar para generar automáticamente SDK para varios lenguajes de programación. Todas las operaciones de nuestro servicio son compatibles con Swagger
 services: cognitive-services
-author: PanosPeriorellis
+author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 07/05/2019
-ms.author: erhopf
-ms.openlocfilehash: 6bb50e427fa85a170c5ad23a63d67c01e898a17d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/16/2021
+ms.author: alexeyo
+ms.openlocfilehash: d4369b66bacbe8cff4fc9712ffcd0cb5a370c439
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665691"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636275"
 ---
 # <a name="swagger-documentation"></a>Documentación de Swagger
 
-El servicio de voz ofrece una especificación de Swagger para interactuar con varias de las API REST que se usan para importar datos, crear modelos, probar la precisión de los modelos, crear puntos de conexión personalizados, poner en cola las transcripciones en lote y administrar las suscripciones. La mayoría de las operaciones disponibles a través del portal de Habla personalizada se pueden completar mediante programación con estas API.
+El servicio de voz ofrece una especificación de Swagger para interactuar con varias de las API REST que se usan para importar datos, crear modelos, probar la precisión de los modelos, crear puntos de conexión personalizados, poner en cola las transcripciones en lote y administrar las suscripciones. La mayoría de las operaciones disponibles en el [área de Habla personalizada de Speech Studio](https://aka.ms/customspeech) se pueden completar mediante programación con estas API.
 
 > [!NOTE]
-> Se admiten las operaciones tanto de voz a texto como de texto a voz y están disponibles como API REST, que a su vez se documentan en la especificación de Swagger.
+> Los servicios de voz tienen varias API REST para la [conversión de voz en texto](rest-speech-to-text.md) y la [conversión de texto a voz](rest-text-to-speech.md).  
+>
+> Sin embargo, solo la [API REST Speech-to-text v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) y v2.0 se documentan en la especificación de Swagger. Vea los documentos a los que se hace referencia en el párrafo anterior para obtener información sobre todas las demás API REST de Speech Services.
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generación de código desde la especificación Swagger
 
 La [especificación Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) tiene opciones que permiten probar rápidamente varias rutas de acceso. Sin embargo, a veces es conveniente generar código para todas las rutas de acceso, lo que crea una sola biblioteca de llamadas en la que se puedan basar las soluciones futuras. Echemos un vistazo al proceso para generar una biblioteca Python.
 
-Tendrá que establecer Swagger en la misma región que su suscripción al servicio de voz. Puede confirmar la región en Azure Portal en el recurso de servicio de voz. Para ver una lista completa de las regiones admitidas, consulte [Regiones](regions.md).
+Tendrá que configurar Swagger en la región del recurso de Voz. Puede confirmar la región en la parte de **información general** de la configuración de los recursos de Voz en Azure portal. [Aquí](regions.md#speech-to-text) se encuentra la lista completa de regiones admitidas.
 
-1. En un explorador, vaya a la especificación de Swagger de la región:  
+1. En un explorador, vaya a la especificación de Swagger de la [región](regions.md#speech-to-text):  
        `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
 1. En esa página, haga clic en **Definición de API** y en **Swagger**. Copie la dirección URL de la página que aparece.
-1. En un nuevo explorador, vaya a https://editor.swagger.io
+1. En un nuevo explorador, vaya a [https://editor.swagger.io](https://editor.swagger.io)
 1. Haga clic en **Archivo**, en **Import URL** (URL de importación), pegue la dirección URL y haga clic en **Aceptar**.
 1. Haga clic en **Generate Client** (Generar cliente) y seleccione **Python**. La biblioteca cliente se descarga en el equipo en un archivo `.zip`.
 1. Extraiga todo de la descarga. Puede usar `tar -xf` para extraer todo.
 1. Instale el módulo extraído en el entorno de Python:  
-       `pip install path/to/package/python-client`
+      `pip install path/to/package/python-client`
 1. El nombre del paquete instalado es `swagger_client`. Compruebe que la instalación ha funcionado:  
        `python -c "import swagger_client"`
 
 Puede usar la biblioteca Python que generó con los [ejemplos del servicio de voz en GitHub](https://aka.ms/csspeech/samples).
 
-## <a name="reference-docs"></a>Documentos de referencia
+## <a name="reference-documents"></a>Documentación de referencia
 
-* [REST (Swagger): Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) (API de REST: Transcripción y personalización de Azure Batch)
-* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
-* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [Swagger: Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Text-to-speech REST API](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

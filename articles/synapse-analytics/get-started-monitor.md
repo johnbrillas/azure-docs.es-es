@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7e8525dbebb42e1f387ee8f0c192efd5e64c9453
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209821"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426047"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Supervisión del área de trabajo de Synapse
 
@@ -30,7 +30,7 @@ Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un histori
 
 ## <a name="integration"></a>Integración
 
-1. Vaya a **Integration > Pipeline** (Integración > Canalización). En esta vista, puede ver cada vez que se ha ejecutado una canalización en el área de trabajo. 
+1. Vaya a **Integration > Pipeline runs** (Integración > Ejecuciones de canalización). En esta vista, puede ver cada vez que se ha ejecutado una canalización en el área de trabajo. 
 1. Busque la canalización que ejecutó en el paso anterior y haga clic en el **Nombre de canalización** para ver los detalles.
 1. Haga clic en **Barra de ruta de navegación** cerca de la parte superior de Synapse Studio, haga clic en **Todas las ejecuciones de la canalización** para volver a la vista anterior.
 
@@ -45,8 +45,7 @@ Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un histori
 1. Vaya a **Actividades > Solicitudes de SQL**.
 1. En esta vista puede ver las solicitudes de SQL.
 1. Seleccione un **grupo** para supervisar con el filtro **Grupo**. Ahora puede ver todas las aplicaciones de SQL que se están ejecutando o que se han ejecutado en el área de trabajo de ese grupo.
-1. Busque una solicitud de SQL específica y mantenga el puntero sobre ese elemento. Una vez que mantenga el puntero, verá aparecer un icono de script SQL.
-1. Haga clic en el icono de script SQL para ver el texto completo de la solicitud SQL.
+1. Busque una solicitud de SQL específica y haga clic en el vínculo **Más** para ver el texto completo de la solicitud de SQL.
 
     > [!NOTE] 
     > Las solicitudes de SQL enviadas mediante Synapse Studio en un área de trabajo habilitada para un grupo de SQL dedicado (anteriormente SQL DW) se pueden ver en el centro de supervisión. Para todas las demás actividades de supervisión, puede ir a la supervisión de grupos de SQL dedicados de Azure Portal (anteriormente SQL DW).

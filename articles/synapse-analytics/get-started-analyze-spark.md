@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182492"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423720"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con
     display(df.limit(10))
     ```
 1. En el cuaderno, en el menú **Attach to** (Asociar a), elija el grupo de Spark sin servidor **Spark1** que se creó anteriormente.
-1. Seleccione **Ejecutar** en la celda.
+1. Seleccione **Run** (Ejecutar) en la celda. En caso de que sea necesario, Synapse iniciará una nueva sesión de Spark para ejecutar esta celda. Si se necesita una nueva sesión de Spark, tardará aproximadamente dos segundos en crearse. 
 1. Si solo desea ver el esquema de la trama de datos, ejecute una celda con el siguiente código:
     ```
 

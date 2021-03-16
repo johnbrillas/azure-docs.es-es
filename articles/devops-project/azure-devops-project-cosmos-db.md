@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bdae976d5e5b7d98311d33bb38b5035f2557ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854688"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548706"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Starter
 
@@ -26,7 +26,7 @@ DevOps Starter también:
 
 * Crea y configura una canalización de versión de CI/CD en Azure DevOps.
 
-En este tutorial, aprenderá lo siguiente:
+En este tutorial va a:
 
 > [!div class="checklist"]
 > * Usar DevOps Starter para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB
@@ -37,7 +37,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmar los cambios en Git e implementarlos automáticamente en Azure
 > * Limpiar los recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita una suscripción de Azure, que puede obtener de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -47,7 +47,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -55,11 +55,11 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Habilite la sección **Agregar una base de datos** para **Cosmos DB** y, después, seleccione **Siguiente**.
 
-    ![Adición de una base de datos](_img/azure-devops-project-cosmos-db/add-database.png)
+    ![Agregar una base de datos](_img/azure-devops-project-cosmos-db/add-database.png)
 
     Azure DevOps Starter admite varios marcos de trabajo de las aplicaciones, como **Express.js**, **Aplicación de ejemplo Node.js** y **Sail.js**. En este tutorial, usaremos **Express.js**.
 
-1. Seleccione un servicio de Azure donde quiera implementar la aplicación y, después, haga clic en **Siguiente**. Entre sus opciones, se incluyen App Service en Windows, Azure Kubernetes Service y Azure Web App for Containers. En este tutorial, usaremos **App Service en Windows**.
+1. Seleccione un servicio de Azure para implementar la aplicación y, después, seleccione **Siguiente**. Entre sus opciones, se incluyen App Service en Windows, Azure Kubernetes Service y Azure Web App for Containers. En este tutorial, usaremos **App Service en Windows**.
 
 ## <a name="configure-azure-devops-and-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure
 
@@ -167,4 +167,4 @@ Puede modificar estas canalizaciones de compilación y de versión para satisfac
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
 
-Para obtener más información y conocer los pasos siguientes, vea [Definición de la canalización de implementación continua (CD) de varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
+Para obtener más información y conocer los pasos siguientes, vea [Definición de la canalización de implementación continua (CD) de varias fases](/azure/devops/pipelines/release/define-multistage-release-process).

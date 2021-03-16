@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624847"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095670"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selección de un dominio para un proyecto de Custom Vision
 
@@ -37,7 +37,7 @@ Desde la pestaña de configuración del proyecto de Custom Vision, puede selecci
 |Domain|Propósito|
 |---|---|
 |__General__| Optimizado para una amplia variedad de tareas de detección de objetos. Si ninguno de los otros dominios es adecuado, o no está seguro de cuál elegir, seleccione el dominio General. Identificador: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__General [A1]__| Optimizado para una mejor precisión con un tiempo de inferencia comparable al del dominio General. Se recomienda para necesidades de ubicación de región más precisas, conjuntos de datos más grandes o escenarios de usuario más difíciles. Este dominio requiere más tiempo de entrenamiento, y los resultados no son deterministas: espere una diferencia de mAP del +-1 % con los mismos datos de entrenamiento proporcionados. Identificador: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__General [A1]__| Optimizado para una mejor precisión con un tiempo de inferencia comparable al del dominio General. Se recomienda para necesidades de ubicación de región más precisas, conjuntos de datos más grandes o escenarios de usuario más difíciles. Este dominio requiere más tiempo de entrenamiento, y los resultados no son deterministas: espere una diferencia en el valor promedio de la precisión media del +-1 % con los mismos datos de entrenamiento proporcionados. Identificador: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logotipo__|Optimizado para buscar logotipos de marca en imágenes. Identificador: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Productos en las estanterías__|Optimizado para detectar y clasificar los productos que están en las estanterías. Identificador: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Dominios compactos__| Optimizados para las restricciones de detección de objetos en tiempo real en dispositivos perimetrales.|

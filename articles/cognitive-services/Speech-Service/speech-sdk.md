@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601825"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434519"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -58,13 +58,14 @@ El servicio de **texto a voz (TTS)** está disponible en las siguientes platafor
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 
-Los [asistentes de voz](voice-assistants.md) que usan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados para la finalización de tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
+Los [asistentes para voz](voice-assistants.md) que usan el SDK de Voz le permiten crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El SDK de Voz proporciona una interacción rápida y confiable que incluye conversión de voz en texto, texto a voz y datos de la conversación en una sola conexión. La implementación puede utilizar el canal Direct Line Speech de Bot Framework o el servicio integrado Comandos personalizados para la finalización de las tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
 
-Los **asistentes de voz** están disponibles en las siguientes plataformas:
+Los **asistentes para voz** están disponibles en las siguientes plataformas:
 
   - C++/Windows, Linux y macOS
   - C#/Windows
   - Java/Windows, Linux, macOS y Android (SDK de dispositivos de voz)
+  - Go
 
 #### <a name="keyword-spotting"></a>Detección de palabras clave
 
@@ -113,7 +114,7 @@ La **transcripción del centro de llamadas** está disponible a través del serv
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de audio comprimido con códec
 
-Algunos de los lenguajes de programación del SDK de voz admiten flujos de entrada de audio comprimido con códecs. Para más información, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Uso de entradas de audio comprimido con códec con el SDK de voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Algunos de los lenguajes de programación del SDK de voz admiten flujos de entrada de audio comprimido con códecs. Para más información, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Uso de entradas de audio comprimido con códec con el SDK de voz</a>.
 
 La **entrada de audio comprimido con códecs** está disponible en las siguientes plataformas:
 

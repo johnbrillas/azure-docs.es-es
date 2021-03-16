@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530457"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433325"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
 El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados mediante **relaciones**. 
 
-Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md).
 
@@ -30,7 +30,7 @@ Este artículo está centrado en la administración de las relaciones y el grafo
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-También puede realizar cambios en el grafo mediante el ejemplo del explorador de Azure Digital Twins (ADT), que permite visualizar los gemelos y el grafo, y hace uso del SDK en segundo plano. En la sección siguiente se describe este ejemplo en detalle.
+También puede realizar cambios en el grafo mediante el ejemplo de Azure Digital Twins Explorer, que permite visualizar los gemelos y el grafo, y hace uso del SDK en segundo plano. En la sección siguiente se describe este ejemplo en detalle.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -97,7 +97,7 @@ Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Pa
 Azure Digital Twins también dispone de una API para buscar todas las relaciones de **entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
 >[!NOTE]
-> Las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación. Para más información sobre la clase `IncomingRelationship`, consulte su [documentación de referencia](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
+> Las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación. Para más información sobre la clase `IncomingRelationship`, consulte su [documentación de referencia](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
 
 El ejemplo de código de la sección anterior se centraba en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo. En este ejemplo también se usa la llamada de SDK (resaltada) de un método personalizado que puede aparecer en el contexto de un programa más grande.
 
@@ -157,7 +157,7 @@ En el fragmento de código se usan las definiciones de modelo [*Room.json*](http
 Antes de ejecutar el ejemplo, haga lo siguiente:
 1. Descargue los archivos del modelo, colóquelos en el proyecto y reemplace los marcadores de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
 2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

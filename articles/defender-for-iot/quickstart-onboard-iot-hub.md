@@ -1,6 +1,6 @@
 ---
-title: Incorporación a la solución basada en agente Defender para IoT
-description: Aprenda a incorporar y habilitar el servicio Defender para seguridad de IoT en Azure IoT Hub.
+title: 'Inicio rápido: Incorporación de Defender para IoT a una solución basada en agente'
+description: En este inicio rápido aprenderá a incorporar y habilitar el servicio de seguridad Defender para IoT en Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809140"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449686"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>Incorporación a la solución basada en agente Defender para IoT
+# <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Inicio rápido: Incorporación de Defender para IoT a una solución basada en agente
 
 En este artículo se explica cómo habilitar el servicio Defender para IoT en la instancia existente de IoT Hub. Si actualmente no tiene una instancia de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md) para comenzar.
 
@@ -35,7 +35,11 @@ Puede administrar la seguridad de IoT mediante IoT Hub en Defender para IoT. El 
 > [!NOTE]
 > Actualmente, Defender para IoT solo admite el nivel Estándar de las instancias de IoT Hub.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>Incorporación de Defender para IoT en IoT Hub
+## <a name="prerequisites"></a>Requisitos previos
+
+Ninguno
+
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Incorporación de Defender para IoT a un centro de IoT
 
 Para todos los nuevos centros de IoT, Defender para IoT se establece en **Activado** de forma predeterminada. Puede comprobar que Defender para IoT está **Activado** durante el proceso de creación de IoT Hub.
 
@@ -55,14 +59,23 @@ Para comprobar si está **Activado**:
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Incorporación de Defender para IoT a una instancia de IoT Hub existente
 
-Para supervisar la administración de identidades de dispositivo y los patrones de comunicación entre el dispositivo y la nube y viceversa, realice las siguientes acciones para iniciar el servicio: 
+Puede incorporar Defender para IoT a un centro de IoT existente, en el que después podrá supervisar la administración de identidades de dispositivos y los patrones de comunicación del dispositivo a la nube y viceversa.
 
-1. Vaya a IoT Hub. 
+Para incorporar Defender para IoT a un centro de IoT existente:
 
-1. Seleccione el menú **Información general sobre seguridad**. 
+1. Vaya a su instancia de IoT Hub. 
 
-1. Haga clic en Secure your IoT solution (Proteger la solución de IoT) y complete el formulario de incorporación. 
+1. Seleccione el centro de IoT donde va a incorporar el servicio.
 
+1. En la sección **Seguridad**, seleccione cualquier opción.
+
+1. Haga clic en  **Secure your IoT solution** (Proteger la solución de IoT) y tcomplete el formulario de incorporación. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Seleccione el botón de protección de la solución de IoT para proteger la solución.":::
+
+El botón **Secure your IoT solution** (Proteger la solución de IoT) solo aparecerá si el centro de IoT aún no se ha incorporado, o si durante la incorporación dejó la opción Defender para IoT como **Desactivada**.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="Si el botón de alternancia estaba establecido en Desactivado durante la incorporación.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

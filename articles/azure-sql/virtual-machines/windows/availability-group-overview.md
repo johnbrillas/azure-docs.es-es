@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131906"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504174"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ En el diagrama siguiente se muestra un grupo de disponibilidad para SQL Server 
 
 ## <a name="vm-redundancy"></a>Redundancia de máquina virtual 
 
-Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o en distintas [zonas de disponibilidad](../../../availability-zones/az-overview.md).
+Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/availability-set-overview.md) o en distintas [zonas de disponibilidad](../../../availability-zones/az-overview.md).
 
 La colocación de un conjunto de máquinas virtuales en el mismo conjunto de disponibilidad protege frente a interrupciones en un centro de datos provocadas por un error de equipo (las máquinas virtuales dentro de un conjunto de disponibilidad no comparten recursos) o por actualizaciones (las máquinas virtuales de un conjunto de disponibilidad no se actualizan al mismo tiempo). Las zonas de disponibilidad protegen contra el error de un centro de datos completo, y cada zona representa un conjunto de centros de datos dentro de una región.  Al asegurarse de que los recursos se colocan en diferentes zonas de disponibilidad, ninguna interrupción a nivel de centro de datos podrá desconectar todas las máquinas virtuales.
 
@@ -51,6 +51,7 @@ En una implementación local tradicional, los clientes se conectan al agente de 
 
 Con SQL Server en Azure Virtual Machines, configure un [equilibrador de carga](availability-group-vnn-azure-load-balancer-configure.md) para enrutar el tráfico a su agente de escucha de grupo de disponibilidad, o bien, con SQL Server 2019 CU8 y versiones posteriores, puede configurar un [agente de escucha de nombre de red distribuida (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para reemplazar el agente de escucha de grupo de disponibilidad de VNN tradicional. 
 
+Para más información sobre las opciones de conectividad de clústeres, consulte [Enrutamiento de conexiones de HADR a SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Cliente de escucha de VNN 
 

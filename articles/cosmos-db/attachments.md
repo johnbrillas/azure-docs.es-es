@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092745"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521227"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Datos adjuntos de Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Los datos adjuntos de Azure Cosmos DB son elementos especiales que contienen las referencias a los metadatos asociados con un archivo multimedia o blob externo.
 
@@ -40,6 +40,11 @@ Los datos adjuntos administrados de Azure Cosmos DB se distinguen de la compati
 - Los datos adjuntos no se admiten en todas las versiones de los SDK de Azure Cosmos DB.
 - Los datos adjuntos administrados se limitan a 2 GB de almacenamiento por cuenta de base de datos.
 - Los datos adjuntos administrados no son compatibles con la distribución global de Azure Cosmos DB y no se replican entre regiones.
+
+> [!NOTE]
+> La API de Azure Cosmos DB para MongoDB versión 3.2 emplea datos adjuntos administrados para GridFS y están sujetos a las mismas limitaciones.
+>
+> Se recomienda a los desarrolladores que usan el conjunto de características de MongoDB GridFS actualizar a la API Azure Cosmos DB para MongoDB versión 3.6 o posterior, que está desacoplada de los datos adjuntos y proporciona una mejor experiencia. Como alternativa, los desarrolladores que usan el conjunto de características de MongoDB GridFS también deben considerar el uso de Azure Blob Storage, que está diseñado específicamente para almacenar contenido de blobs y ofrece una funcionalidad ampliada con un coste menor en comparación con GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migración de datos adjuntos a Azure Blob Storage
 
@@ -162,6 +167,6 @@ namespace attachments
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Introducción a [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- Obtener referencias para usar datos adjuntos mediante el [SDK de .NET de Azure Cosmos DB v2](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
-- Obtener referencias para usar datos adjuntos mediante el [SDK de Java de Azure Cosmos DB v2](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Obtener referencias para usar datos adjuntos mediante el [SDK de .NET de Azure Cosmos DB v2](/dotnet/api/microsoft.azure.documents.attachment)
+- Obtener referencias para usar datos adjuntos mediante el [SDK de Java de Azure Cosmos DB v2](/java/api/com.microsoft.azure.documentdb.attachment)
 - Obtener referencias para usar datos adjuntos mediante la [API de REST de Azure Cosmos DB](/rest/api/cosmos-db/attachments)

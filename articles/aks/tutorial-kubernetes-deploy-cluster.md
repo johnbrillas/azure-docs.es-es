@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250645"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509428"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Los clústeres de AKS pueden usar los controles de acceso basado en rol de Kuber
 
 Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr] en la región *eastus*. En el ejemplo siguiente no se especifica una región, por lo que el clúster de AKS también se crea en la región *eastus*. Para más información sobre los límites de recursos y la disponibilidad de regiones para AKS, consulte [Cuotas, restricciones de tamaño de máquina virtual y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 
-Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se crea automáticamente una entidad de servicio de Azure Active Directory, dado que no se especificó ninguna. Aquí, a esta entidad de servicio se le [concede el derecho a extraer imágenes][container-registry-integration] de la instancia de Azure Container Registry (ACR) que creó en el tutorial anterior. Para ejecutar el comando correctamente, es necesario tener un rol **Propietario** o **Administrador de cuenta de Azure** en la suscripción de Azure.
+Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se crea automáticamente una identidad de clúster, ya que no se especificó ninguna. Aquí, a esta identidad de clúster se le [concede el derecho a extraer imágenes][container-registry-integration] de la instancia de Azure Container Registry (ACR) que creó en el tutorial anterior. Para ejecutar el comando correctamente, es necesario tener un rol **Propietario** o **Administrador de cuenta de Azure** en la suscripción de Azure.
 
 ```azurecli
 az aks create \

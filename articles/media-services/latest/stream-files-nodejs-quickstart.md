@@ -1,34 +1,37 @@
 ---
-title: 'Streaming de archivos de vídeo con Azure Media Services: Node.js'
-description: Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
+title: Procedimientos para codificar y hacer streaming de archivos de vídeo con Node.JS
+description: Procedimientos para hacer streaming de archivos de vídeo con Node.JS Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: azure media services, streaming
+keywords: azure media services, stream, Node.JS
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-js
-ms.date: 08/31/2020
+ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 711db5135345fd9b69da9aaea5bc4dbb929d27c9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895142"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212763"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: Node.js
+# <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Procedimientos para codificar y hacer streaming de archivos de vídeo con Node.JS
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En este tutorial se muestra lo fácil que es codificar vídeos y comenzar a transmitirlos en streaming en una amplia variedad de exploradores y dispositivos con Azure Media Services. Se puede especificar contenido de entrada con direcciones URL de HTTPS, direcciones URL de SAS o rutas de acceso a archivos ubicados en Azure Blob Storage.
+Este inicio rápido muestra lo fácil que es codificar e iniciar el streaming de vídeos en una amplia variedad de navegadores y dispositivos con Azure Media Services. Para especificar cualquier archivo de vídeo de entrada se pueden usar direcciones URL HTTPS, direcciones URL SAS o rutas de acceso a archivos ubicados en Azure Blob Storage.
+
+Al finalizar este inicio rápido, sabrá:
+
+- Cómo codificar con Node.JS
+- Cómo hacer streaming con Node.JS
+- Cómo cargar cualquier archivo desde una dirección URL HTTPS con Node.JS
+- Cómo usar un reproductor de cliente HLS o DASH con Node.JS
 
 En el ejemplo de este artículo se codifica contenido que se hace accesible a través de una dirección URL HTTPS. Tenga en cuenta que, actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL de HTTPS.
-
-Al final del tutorial, podrá transmitir un vídeo en streaming.  
 
 ![Reproducción del vídeo](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -39,6 +42,7 @@ Al final del tutorial, podrá transmitir un vídeo en streaming.
 - Instalar [Node.js](https://nodejs.org/en/download/)
 - [Cree una cuenta de Media Services](./create-account-howto.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
 - Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- Siga los pasos que se proporcionan en [Configuración y conexión con Node.js](./configure-connect-nodejs-howto.md) para aprender a usar el SDK del cliente de Node.js.
 
 ## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
 
@@ -50,46 +54,67 @@ Clone un repositorio GitHub que contenga el ejemplo de Node.js de streaming en l
 
 El ejemplo se encuentra en la carpeta [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample).
 
-Abra [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) en el proyecto descargado. Sustituya los valores de `endpoint config` por las credenciales que obtuvo al [acceder a las API](./access-api-howto.md).
+Abra [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.ts) en el proyecto descargado. Actualice el archivo *sample.env* en la carpeta raíz con los valores y las credenciales que obtuvo al [acceder a las API](./access-api-howto.md). Cambie el nombre del archivo *sample.env* a *.env* (sí, solo la extensión).
 
 Este ejemplo realiza las acciones siguientes:
 
-1. Crea una **transformación** (antes comprueba si existe la transformación especificada). 
-2. Crea un **recurso** de salida que se utiliza como salida del **trabajo** de codificación.
-3. Crea la entrada del **trabajo**, que se basa en una dirección URL HTTPS.
-4. Envía el **trabajo** de codificación mediante la entrada y salida que se creó previamente.
-5. Comprueba el estado del trabajo.
-6. Crea un **objeto StreamingLocator**.
-7. Crea direcciones URL de streaming.
+1. Crea una **transformación** con un [valor preestablecido para la codificación según el contenido](./content-aware-encoding.md). En primer lugar, comprueba si existe la transformación especificada.
+1. Crea un **recurso** de salida que utiliza el **trabajo** de codificación para contener el resultado.
+1. Opcionalmente, carga un archivo local mediante el SDK de Blob Storage.
+1. Crea la entrada del **trabajo**, que es una dirección URL HTTPS o un archivo cargado.
+1. Envía el **trabajo** de codificación, para lo que usa la entrada y salida que se crearon previamente.
+1. Comprueba el estado del trabajo.
+1. Descarga la salida del trabajo de codificación en una carpeta local.
+1. Crea un **localizador de streaming** para usarlo en el reproductor
+1. Genera direcciones URL de streaming para HLS y DASH
+1. Reproduce el contenido en una aplicación de reproductor: Azure Media Player
 
-## <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
+## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-1. La aplicación descarga archivos codificados. Cree la carpeta a la que desea que vayan los archivos de salida ir y actualice el valor de la variable **outputFolder** en el archivo [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39).
-1. Abra el **símbolo del sistema**, busque el directorio del ejemplo y ejecute los comandos siguientes.
+1. La aplicación descarga los archivos codificados. Cree la carpeta a la que desea que vayan los archivos de salida ir y actualice el valor de la variable **outputFolder** en el archivo [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59). De forma predeterminada se establece en "Temp".
+1. Abra un **símbolo del sistema** y desplácese al directorio del ejemplo.
+1. Cambie el directorio a la carpeta AMSv3Samples.
 
+    ```bash
+    cd AMSv3Samples
     ```
+
+1. Instale los paquetes que se usan en el archivo *packages.json*.
+
+    ```bash
     npm install 
-    node index.js
     ```
 
-Cuando finalice la ejecución, el resultado debería ser similar a este:
+1. Cambie el directorio a la carpeta *StreamFilesSample*.
 
-![Captura de pantalla de una ventana de comandos con la salida de la aplicación de ejemplo StreamFileSample que muestra las direcciones URL de tres archivos descargados en el directorio local.](./media/stream-files-nodejs-quickstart/run.png)
+    ```bash
+    cd StreamFilesSample
+    ```
+
+1. Inicie Visual Studio Code desde la carpeta *AMSv3Samples* (es necesario para iniciar desde la carpeta en la que se encuentran la carpeta *.vscode* y los archivos *tsconfig.json*).
+
+    ```bash
+    cd ..
+    code .
+    ```
+
+Abra la carpeta *StreamFilesSample* y el archivo *index.ts* en el editor de Visual Studio Code.
+En el archivo *index.ts*, presione F5 para iniciar el depurador.
 
 ## <a name="test-with-azure-media-player"></a>Prueba con Azure Media Player
 
-Para probar el streaming, este artículo usa Azure Media Player. 
+Use Azure Media Player para probar la secuencia. También puede usar cualquier reproductor compatible con HLS o DASH, como Shaka Player, HLS.js, Dash.js u otros.
+
+Debería poder hacer clic en el vínculo generado en el ejemplo e iniciar el reproductor AMP con el manifiesto de DASH cargado.
 
 > [!NOTE]
 > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
 
 1. Abra un explorador web y vaya a [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
- 
-     Puede pegar la dirección URL en formato HLS, Dash o Smooth y Azure Media Player cambiará automáticamente a un protocolo de streaming adecuado en su dispositivo.
+2. En el cuadro **Dirección URL:** , pegue uno de los valores de dirección URL de streaming que recibió al ejecutar la aplicación. Puede pegar la dirección URL en formato HLS, Dash o Smooth y Azure Media Player cambiará a un protocolo de streaming adecuado para su reproducción automática en el dispositivo.
 3. Presione **Actualizar Player**.
 
-Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción. 
+Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -101,11 +126,19 @@ Ejecute el siguiente comando de la CLI:
 az group delete --name amsResourceGroup
 ```
 
+## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Más documentación para desarrolladores sobre Node.js en Azure
+
+- [Azure para desarrolladores de JavaScript y Node.js](/azure/developer/javascript/)
+- [Código fuente de Media Services en el @azure/azure-sdk-for-js repositorio de GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Documentación del paquete de Azure para desarrolladores de Node.js](/javascript/api/overview/azure/)
+
 ## <a name="see-also"></a>Consulte también
 
-[Códigos de error de trabajo](/rest/api/media/jobs/get#joberrorcode).
+- [Códigos de error de trabajo](/rest/api/media/jobs/get#joberrorcode).
+- [Instalación de npm@azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Azure para desarrolladores de JavaScript y Node.js](/azure/developer/javascript/)
+- [Código fuente de Media Services en el @azure/azure-sdk-for-js repositorio](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
 > [Conceptos de Azure Media Services](concepts-overview.md)

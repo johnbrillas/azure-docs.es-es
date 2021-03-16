@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605605"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521550"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
@@ -263,6 +263,19 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticación en el back-end mediante una identidad de API Management
 
 Puede usar la identidad asignada por el sistema para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
+
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Conexión a recursos de Azure detrás del firewall de IP mediante una identidad administrada asignada por el sistema
+
+
+API Management es un servicio de confianza de Microsoft para los siguientes recursos. Esto permite que el servicio se conecte a los siguientes recursos detrás de un firewall. Después de asignar explícitamente el rol de Azure adecuado a la [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) para esa instancia de recurso, el ámbito de acceso para la instancia corresponde al rol de Azure asignado a la identidad administrada.
+
+
+|Servicio de Azure | Vínculo|
+|---|---|
+|Azure Storage | [Acceso de confianza a Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Azure Service Bus | [Acceso de confianza a Azure Service Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Centro de eventos de Azure | [Acceso de confianza a Azure Event Hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 

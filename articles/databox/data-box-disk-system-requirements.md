@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873935"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703140"
 ---
 ::: zone target="docs"
 
@@ -79,6 +79,9 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles para D
 | Clásico | Estándar |
 | Uso general  |Estándar; se admiten V1 y V2. Se admiten niveles frecuentes y esporádicos. |
 | Cuenta de Blob Storage | |
+
+> [!IMPORTANT]
+> Azure Blob Storage no admite el protocolo Network File System (NFS) 3.0 con Data Box Disk.
 
 ## <a name="supported-storage-types-for-upload"></a>Tipos de almacenamiento admitidos para la carga
 

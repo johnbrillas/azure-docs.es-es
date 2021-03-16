@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 03/05/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3359152455df2701d897689a1f177bf63051b94b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122796"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440724"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Introducción a Azure Data Box para importar datos en Azure
 
@@ -39,7 +39,7 @@ En esta guía se describe cómo implementar Azure Data Box mediante Azure Portal
 Antes de empezar:
 
 - Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
-    - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Contrato de cliente de Microsoft (MCA) para suscripciones nuevas o Contrato Enterprise de Microsoft (EA) para suscripciones existentes. Más información sobre [MCA para suscripciones nuevas](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) y [suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 

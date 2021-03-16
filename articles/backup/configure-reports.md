@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710624"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509376"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -22,8 +22,8 @@ En la actualidad, Azure Backup proporciona una solución de informes que usa [re
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-- Los informes de Backup se admiten en máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, el agente de Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) y System Center Data Protection Manager (DPM). Para la copia de seguridad de recursos compartidos de Azure, se muestran los datos de todos los registros creados el 1 de junio de 2020 o después de esa fecha.
-- En el caso de la copia de seguridad de recursos compartidos de Azure, los datos de las instancias protegidas no se muestran actualmente en los informes (el valor predeterminado es cero para todos los elementos de la copia de seguridad).
+- Los informes de Backup se admiten en máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, el agente de Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) y System Center Data Protection Manager (DPM). Para la copia de seguridad de recursos compartidos de archivos de Azure, se muestran los datos de todos los registros creados el 1 de junio de 2020 o después de esa fecha.
+- Para la copia de seguridad de recursos compartidos de archivos de Azure, se muestran los datos de las instancias protegidas para los registros creados después del 1 de febrero de 2021 (el valor predeterminado es cero para los registros anteriores).
 - En las cargas de trabajo de DPM, se admiten los informes de Backup para la versión 5.1.363.0 de DPM y posteriores, y la versión 2.0.9127.0 del agente y posteriores.
 - En las cargas de trabajo de MABS, se admiten los informes de Backup para la versión 13.0.415.0 de MABS y posteriores, y la versión 2.0.9170.0 del agente y posteriores.
 - Los informes de Backup se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo de Log Analytics a la que el usuario tenga acceso. Para ver los informes de un conjunto de almacenes, solo necesita tener acceso de lectura al área de trabajo de Log Analytics a la que los almacenes envían sus datos. No es necesario que tenga acceso a los almacenes individuales.
@@ -142,17 +142,31 @@ El filtro **Tipo de administración de copias de seguridad** en la parte superio
 
 ###### <a name="policy-adherence"></a>Adhesión a la directiva
 
-Con esta pestaña, puede identificar si todas las instancias de copia de seguridad han tenido al menos una copia de seguridad correcta cada día. Puede ver la adhesión a la directiva por período de tiempo o por instancia de copia de seguridad.
+Con esta pestaña, puede identificar si todas las instancias de copia de seguridad han tenido al menos una copia de seguridad correcta cada día. En el caso de los elementos con directiva de copia de seguridad semanal, puede usar esta pestaña para determinar si se ha realizado al menos una copia de seguridad correcta a la semana de todas las instancias de copia de seguridad.
+
+Hay dos tipos de vistas de cumplimiento de directivas disponibles:
+
+* **Cumplimiento de la directiva por período de tiempo**: con esta vista, puede identificar de cuántos elementos se ha hecho al menos una copia de seguridad correcta en un día determinado y de cuántos no se ha hecho una copia de seguridad correcta en ese día. Puede hacer clic en una fila para ver los detalles de todos los trabajos de copia de seguridad que se han desencadenado en el día seleccionado. Tenga en cuenta que, si aumenta el intervalo de tiempo a un valor mayor, como los últimos 60 días, la cuadrícula se representa en una vista semanal y se muestra el recuento de todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en cada día de la semana determinada. Del mismo modo, hay una vista mensual para intervalos de tiempo mayores.
+
+En el caso de los elementos de los que se ha hecho una copia de seguridad semanal, esta cuadrícula le ayuda a identificar todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en la semana determinada. En un intervalo de tiempo mayor, como los últimos 120 días, la cuadrícula se representa en una vista mensual y se muestra el recuento de todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en cada semana del mes determinado. Consulte [Convenciones usadas en Informes de Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obtener más información acerca de las vistas diaria, semanal y mensual.
+
+![Cumplimiento de la directiva por período de tiempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Cumplimiento de la directiva por instancia de copia de seguridad**: con esta vista, puede ver los detalles del cumplimiento de directivas en el nivel de instancia de copia de seguridad. Una celda verde indica que se ha hecho al menos una copia de seguridad correcta de la instancia de copia de seguridad en el día determinado. Una celda roja indica que no se ha hecho ninguna copia de seguridad correcta de la instancia de copia de seguridad en el día determinado. Las agregaciones diarias, semanales y mensuales siguen el mismo comportamiento que la vista de cumplimiento de la directiva por período de tiempo. Puede hacer clic en cualquier fila para ver todos los trabajos de copia de seguridad en la instancia de copia de seguridad determinada en el intervalo de tiempo seleccionado.
+
+![Cumplimiento de la directiva por instancia de copia de seguridad](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>Envío por correo electrónico de informes de Azure Backup
 
 Con la característica **Informe de correo electrónico** disponible en los informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. Para funcionar, esta característica implementa una aplicación lógica en el entorno de Azure que consulta los datos de las áreas de trabajo de Log Analytics (LA) seleccionadas, en función de las entradas que proporcione.
 
-Una vez que se haya creado la aplicación lógica, tendrá que autorizar las conexiones a los registros de Azure Monitor y Office 365. Para ello, vaya a **Logic Apps** en Azure Portal y busque el nombre de la tarea que ha creado. Al seleccionar el elemento de menú **Conexiones de API** se abre la lista de conexiones de API que debe autorizar.
+Una vez que se haya creado la aplicación lógica, tendrá que autorizar las conexiones a los registros de Azure Monitor y Office 365. Para ello, vaya a **Logic Apps** en Azure Portal y busque el nombre de la tarea que ha creado. Al seleccionar el elemento de menú **Conexiones de API** se abre la lista de conexiones de API que debe autorizar. [Obtenga más información sobre cómo configurar los mensajes de correo electrónico y solucionar problemas](backup-reports-email.md).
 
 ###### <a name="customize-azure-backup-reports"></a>Personalización de informes de Azure Backup
 
-Los informes de Backup usan funciones en registros de Azure Monitor. Estas funciones operan sobre los datos de las tablas de Azure Backup sin formato de LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples.
+Los Informes de Backup usan [funciones del sistema en registros de Azure Monitor](backup-reports-system-functions.md). Estas funciones operan sobre los datos de las tablas de Azure Backup sin formato de LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples. 
+
+Para crear sus propios libros de informes con los Informes de Backup como base, puede navegar a Informes de Backup, hacer clic en **Editar** en la parte superior del informe y ver o editar las consultas que se usan en los informes. Consulte la [documentación de los libros de Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para más información sobre cómo crear informes personalizados. 
 
 ## <a name="export-to-excel"></a>Exportación a Excel
 
@@ -175,6 +189,8 @@ Si usa [Azure Lighthouse](../lighthouse/index.yml) con acceso delegado a las sus
 - El informe muestra los detalles de los trabajos (aparte de los trabajos de registro) que se *desencadenaron* en el intervalo de tiempo seleccionado.
 - Los valores que se muestran para el **Almacenamiento en la nube** y las **Instancias protegidas** corresponden al *final* del intervalo de tiempo seleccionado.
 - Los elementos de Backup que se muestran en los informes son los que existen al *final* del intervalo de tiempo seleccionado. No se muestran los elementos de Backup que se eliminaron en medio del intervalo de tiempo seleccionado. Se aplica la misma convención para las directivas de Backup.
+- Si el intervalo de tiempo seleccionado abarca un período de 30 días o menos, los gráficos se representan en la vista diaria, donde hay un punto de datos para cada día. Si el intervalo de tiempo abarca un período mayor que 30 días y menor que (o igual a) 90 días, los gráficos se representan en la vista semanal. En intervalos de tiempo mayores, los gráficos se representan en la vista mensual. Agregar datos semanal o mensualmente ayuda a mejorar el rendimiento de las consultas y a facilitar la lectura de los datos en los gráficos.
+- Las cuadrículas de cumplimiento de directivas también siguen una lógica de agregación similar, como se describió anteriormente. Sin embargo, hay un par de pequeñas diferencias. La primera diferencia es que para los elementos con la directiva de copia de seguridad semanal, no hay ninguna vista diaria (solo están disponibles las vistas semanal y mensual). Además, en las cuadrículas para los elementos con la directiva de copia de seguridad semanal, un "mes" se considera un período de 4 semanas (28 días), y no de 30 días, para evitar que se tengan en cuenta las semanas parciales.
 
 ## <a name="query-load-times"></a>Tiempos de carga de las consultas
 

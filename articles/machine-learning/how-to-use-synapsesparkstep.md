@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.custom: how-to, synapse-azureml
+ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203698"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455066"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá a usar grupos de Apache Spark con tecnología de A
 
 ## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Vinculación del área de trabajo de Azure Machine Learning y el área de trabajo de Azure Synapse Analytics 
 
-Los grupos de Apache Spark se crean y administran en las áreas de trabajo de Azure Synapse Analytics. Para integrar un grupo de Apache Spark en un área de trabajo de Azure Machine Learning, debe crear un vínculo al área de trabajo de Azure Synapse Analytics. 
+Los grupos de Apache Spark se crean y administran en las áreas de trabajo de Azure Synapse Analytics. Para integrar un grupo de Apache Spark en un área de trabajo de Azure Machine Learning, debe [crear un vínculo al área de trabajo de Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md). 
 
 Puede conectar un grupo de Apache Spark a través de la interfaz de usuario de Estudio de Azure Machine Learning mediante la página **Servicios vinculados**. También puede hacerlo a través de la página **Proceso** con la opción **Attach compute** (Asociar proceso).
 

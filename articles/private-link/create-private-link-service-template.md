@@ -1,19 +1,19 @@
 ---
-title: Creación de un servicio Private Link en Azure Private Link
+title: 'Inicio rápido: Creación de un servicio de vínculo privado en Azure Private Link'
 description: En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager (plantilla de ARM) para crear un servicio de Private Link.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705255"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555064"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Inicio rápido: Creación de un servicio de Private Link mediante una plantilla de ARM
 
@@ -112,4 +112,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [Azure Private Link](private-link-overview.md).
+
+Para más información sobre los servicios que admiten un punto de conexión privado, consulte:
+> [!div class="nextstepaction"]
+> [Disponibilidad de Private Link](private-link-overview.md#availability)
