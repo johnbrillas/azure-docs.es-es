@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 489514068d83f7b2953732415ba066a2d4555df8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f8b29da09f5da4a30378cc0228fecad63d196162
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015516"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445586"
 ---
 En este inicio rápido, aprenderá los patrones de diseño básicos de Speaker Recognition mediante el SDK de Voz, que incluyen:
 
@@ -35,9 +35,9 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 
 En primer lugar, deberá instalar Speech SDK. Utilice las siguientes instrucciones en función de la plataforma:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">Linux <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Windows <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">Linux </a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS </a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Windows </a>
 
 ## <a name="import-dependencies"></a>Dependencias de importación
 
@@ -53,7 +53,7 @@ Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechCo
 
 ## <a name="text-dependent-verification"></a>Comprobación dependiente del texto
 
-Speaker Verification es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**. El primer paso es **inscribir** un perfil de voz, de modo que el servicio tenga algo para comparar futuras muestras de voz. En este ejemplo, inscribirá el perfil mediante una estrategia **dependiente del texto**, que requiere que se use una frase de contraseña específica para la inscripción y la comprobación. Consulte los [documentos de referencia](/rest/api/speakerrecognition/) para ver una lista de frases de contraseña admitidas.
+Speaker Verification es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**. El primer paso es **inscribir** un perfil de voz, de modo que el servicio tenga algo para comparar futuras muestras de voz. En este ejemplo, el perfil se inscribe mediante una estrategia **dependiente del texto**, que requiere que se use una frase de contraseña específica tanto para la inscripción como para la comprobación. Consulte los [documentos de referencia](/rest/api/speakerrecognition/) para ver la lista de las frases de contraseña admitidas.
 
 ### <a name="textdependentverification-function"></a>Función TextDependentVerification
 
@@ -93,8 +93,8 @@ Luego, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spe
 
 A diferencia de la comprobación **dependiente del texto**, la comprobación **independiente del texto**:
 
-* No precisa que se diga una frase de contraseña determinada; se puede decir cualquier cosa.
-* No precisa tres muestras de audio, pero *sí* se necesitan 20 segundos de audio total.
+* No es preciso que se diga una frase de contraseña determinada, se puede decir cualquier cosa.
+* No se necesitan tres muestras de audio, pero *sí* 20 segundos de audio en total.
 
 ### <a name="textindependentverification-function"></a>Función TextIndependentVerification
 

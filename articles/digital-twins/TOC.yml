@@ -13,8 +13,12 @@
   items:
     - name: Programación de una aplicación cliente
       href: tutorial-code.md
-    - name: Exploración de los conceptos básicos con una aplicación cliente de ejemplo
-      href: tutorial-command-line-app.md
+    - name: Creación de un grafo
+      items:
+        - name: Uso de una aplicación cliente de ejemplo
+          href: tutorial-command-line-app.md
+        - name: Uso de los comandos de la CLI de Azure
+          href: tutorial-command-line-cli.md
     - name: Conexión de una solución de un extremo a otro
       href: tutorial-end-to-end.md
 - name: Conceptos

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901375"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572092"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -38,7 +38,7 @@ Con Anomaly Detector, puede detectar automáticamente las anomalías existentes 
 |Detección de anomalías en tiempo real. | Detecte anomalías en sus datos de transmisión mediante los puntos de datos vistos anteriormente para determinar si el último de ellos es una anomalía. Esta operación genera un modelo con los puntos de datos enviados y determina si el punto de destino es una anomalía. La llamada a la API con cada nuevo punto de datos que genera le permite supervisar los datos que se crean. |
 |Detección de anomalías en todo el conjunto de datos como un lote | Use la serie temporal para detectar las anomalías que podrían existir en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.         |
 |Detecte los puntos de cambio en el conjunto de datos como un lote. | Use la serie temporal para detectar los puntos de cambio de tendencia que existan en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.    |
-| Obtención de información adicional sobre los datos | Obtenga detalles útiles sobre los datos y las anomalías observadas, como los valores esperados, los límites de anomalías y las posiciones. |
+| Obtención de información adicional sobre los datos | Obtenga útiles detalles sobre los datos y las anomalías observadas, como los valores esperados, los límites de anomalías y las posiciones. |
 | Ajuste de los límites de detección de anomalías | Anomaly Detector API crea automáticamente límites para la detección de anomalías. Configure estos límites para aumentar o disminuir la sensibilidad de la API a las anomalías de datos y ajustar mejor los datos. |
 
 ## <a name="demo"></a>Demostración
@@ -53,13 +53,13 @@ Para saber cómo llamar a Anomaly Detector API, pruebe este [cuaderno](https://a
 Para ejecutar el cuaderno, haga lo siguiente:
 
 1. Obtenga una clave de suscripción válida de Anomaly Detector API y un punto de conexión de API. En la siguiente sección se proporcionan instrucciones para registrarse.
-1. Inicie sesión y haga clic en la opción de clonación en la esquina superior derecha.
-1. Desactive la opción "público" en el cuadro de diálogo antes de completar la operación de clonación, ya que si no, el cuaderno, incluidas las claves de suscripción, será público.
-1. Haga clic en **Run on Free Compute** (Ejecutar en un proceso gratuito).
+1. Inicie sesión y seleccione la opción de clonación en la esquina superior derecha.
+1. Desactive la opción "público" en el cuadro de diálogo antes de completar la operación de clonación, ya que si no lo hace, el cuaderno, incluidas las claves de suscripción, será público.
+1. Seleccione **Run on Free Compute** (Ejecutar en un proceso gratuito).
 1. Seleccione uno de los cuadernos.
 1. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`.
 1. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. En la barra de menús superior, haga clic en **Cell** (celda) y, luego, en **Run All** (Ejecutar todo).
+1. En la barra de menús superior, seleccione **Cell** (Celda) y, luego, en **Run All** (Ejecutar todo).
 
 ## <a name="workflow"></a>Flujo de trabajo
 

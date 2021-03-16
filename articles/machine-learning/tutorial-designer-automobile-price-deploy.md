@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576064"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659520"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -28,7 +28,7 @@ Puede implementar el modelo predictivo desarrollado en la [parte uno del tutoria
 > * Implementación del punto de conexión en tiempo real.
 > * Prueba del punto de conexión en tiempo real.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en el diseñador.
 
@@ -42,7 +42,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
 1. Seleccione, encima del lienzo de la canalización, **Create inference pipeline** > **Real-time inference pipeline** (Crear canalización de inferencia > Canalización de inferencia en tiempo real).
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
 
     La canalización debería tener este aspecto: 
 
@@ -97,7 +97,7 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione el clúster de AKS que ha creado.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
 
     También puede cambiar la configuración **avanzada** del punto de conexión en tiempo real.
     
@@ -137,6 +137,22 @@ Una vez finalizada la implementación, puede ver el punto de conexión en tiempo
 1. Para probar el punto de conexión, vaya a la pestaña **Prueba**. Aquí puede especificar los datos de prueba y seleccionar **Probar** para verificar la salida del punto de conexión.
 
 Para más información sobre cómo utilizar el servicio web, consulte [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md).
+
+## <a name="limitations"></a>Limitaciones
+
+Si realiza cualquier modificación en la canalización de entrenamiento, debe volver a enviarla, **actualizar** la canalización de inferencia y volver a ejecutar esta última canalización.
+
+Tenga en cuenta que en la canalización de inferencia solo se actualizarán los modelos entrenados, la transformación de datos no se actualizará.
+
+Para usar la transformación actualizada en la canalización de inferencia, es preciso registrar la salida de la transformación del módulo de transformación como conjunto de datos.
+
+![Captura de pantalla en la que se muestra cómo registrar un conjunto de datos de transformación](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Luego, reemplace de forma manual el módulo **TD-** en la canalización de inferencia con el conjunto de datos registrado.
+
+![Captura de pantalla que muestra cómo reemplazar el módulo de la transformación](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+A continuación, puede enviar la canalización de inferencia con el modelo y la transformación actualizados e implementarla.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

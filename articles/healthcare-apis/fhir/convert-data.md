@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: 7518f5e2984029c087eec1e6697f3237410bda4b
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 2a34cfee57ecc1870c420c4c0f3c9261aa02f192
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020425"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490932"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Procedimientos para la conversión de datos a FHIR (versión preliminar)
 
@@ -125,6 +125,12 @@ Conceda el rol AcrPull a su instancia del servicio Azure API for FHIR.
 
 ### <a name="register-the-acr-servers-in-azure-api-for-fhir"></a>Registro de los servidores de ACR en Azure API for FHIR
 
+Puede registrar el servidor ACR mediante el Azure Portal o mediante la CLI.
+
+#### <a name="registering-the-acr-server-using-azure-portal"></a>Registro del servidor ACR mediante Azure Portal
+Vaya a la hoja _artefactos_ en _transformación de datos_ en la instancia de Azure API para FHIR. Verá la lista de servidores de ACR registrados actualmente. Haga clic en _Agregar_ y seleccione el servidor de registro en la lista desplegable. Tendrá que hacer clic en _Guardar_ para que el registro surta efecto. Puede tardar unos minutos en aplicar el cambio y reiniciar la instancia.
+
+#### <a name="registering-the-acr-server-using-cli"></a>Registro del servidor ACR mediante la CLI
 En Azure API for FHIR se pueden registrar un máximo de veinte servidores de ACR.
 
 Instale la CLI de healthcareapis desde Azure PowerShell si fuera necesario:
@@ -135,13 +141,13 @@ az extension add -n healthcareapis
 
 Para registrar los servidores de ACR en Azure API for FHIR siga estos ejemplos:
 
-#### <a name="register-a-single-acr-server"></a>Registro de un servidor de ACR individual
+##### <a name="register-a-single-acr-server"></a>Registro de un servidor de ACR individual
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
-#### <a name="register-multiple-acr-servers"></a>Registro de varios servidores de ACR
+##### <a name="register-multiple-acr-servers"></a>Registro de varios servidores de ACR
 
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
@@ -152,8 +158,3 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 Realice una llamada a la API de $convert-data, en la que especifique la referencia de la plantilla en el parámetro templateCollectionReference.
 
 `<RegistryServer>/<imageName>@<imageDigest>`
-
-## <a name="known-issues-and-workarounds"></a>Problemas conocidos y soluciones alternativas
-
-- Algunos archivos de plantilla predeterminados contienen BOM UTF-8. Como consecuencia, los valores de identificador generados contendrán un carácter de BOM, lo que puede generar un problema con el servidor de FHIR. La solución consiste en extraer las plantillas de Microsoft mediante una extensión de VS Code e insertarlas en su propio ACR después de quitar los caracteres BOM de _ID/_Procedure.liquid_, _ID/_Provenance.liquid_ e _ID/_Immunization.liquid_.
-
