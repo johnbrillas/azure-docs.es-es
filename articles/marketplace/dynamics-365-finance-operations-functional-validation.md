@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131248"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613636"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validación funcional de AppSource Dynamics 365 Finance and Operations
 
@@ -50,13 +50,13 @@ Para programar una llamada de revisión final, póngase en contacto con [appsour
 
 2. Realice las siguientes capturas de pantalla del entorno [LCS](https://lcs.dynamics.com/) que coincida con la oferta o solución que desee publicar. Tienen que ser suficientemente claras para que el equipo de certificación pueda leer el texto. Guárdelas como archivos JPG. En lugar de proporcionar capturas de pantalla, también puede proporcionar un permiso a [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) para acceder a su entorno de LCS y comprobar la configuración.
 
-    1. Vaya a **LCS** > **Modelador de procesos empresariales** > **Project library** (Biblioteca de proyecto). Realice capturas de pantalla de todos los pasos del proceso. Incluya las columnas **Diagramas** y **Revisada** , como se muestra aquí:
+    1. Vaya a **LCS** > **Modelador de procesos empresariales** > **Project library** (Biblioteca de proyecto). Realice capturas de pantalla de todos los pasos del proceso. Incluya las columnas **Diagramas** y **Revisada**, como se muestra aquí:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Muestra la ventana biblioteca de proyectos.":::
 
       2. Vaya a **LCS** > **Administración de soluciones** > **Test Solution Package** (Paquete de solución de prueba). Realice capturas de pantallas que incluyan la información general del paquete y el contenido que se muestra en estos ejemplos:
 
-    | Campo | Imagen <img src="" width="400px">|
+    | Campo | Imagen |
     | --- | --- |
     | Introducción al paquete | [![Captura de pantalla que muestra la ventana "Introducción al paquete".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprobadores de soluciones</li></ul> | [![Pantalla de información general del paquete](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |

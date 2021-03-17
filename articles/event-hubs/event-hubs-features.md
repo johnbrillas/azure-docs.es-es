@@ -2,13 +2,13 @@
 title: Información general de las características de Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739082"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601311"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -53,6 +53,13 @@ Los eventos publicados se quitan de un centro de eventos en función de una dire
 - En el caso de Event Hubs **estándar**, el período de retención máximo es de **7 días**. 
 - En el caso de Event Hubs **dedicado**, el período de retención máximo es de **90 días**.
 - Si cambia el período de retención, se aplica a todos los mensajes, incluidos los que ya están en el centro de eventos. 
+
+Event Hubs retiene los eventos durante el tiempo de retención configurado, que se aplica a todas las particiones. Los eventos se eliminan automáticamente cuando se alcanza el período de retención. Si especifica un período de retención de un día, el evento dejará de estar disponible exactamente 24 horas después de que se haya aceptado. No se pueden eliminar eventos explícitamente. 
+
+Si necesita archivar eventos más allá del período de retención permitido, puede hacer que se [almacenen automáticamente en Azure Storage o Azure Data Lake mediante la activación de la característica Capture de Event Hubs](event-hubs-capture-overview.md) y, si necesita buscar o analizar estos archivos, puede [importarlos fácilmente en Azure Synapse](store-captured-data-data-warehouse.md) u otros almacenes y plataformas de análisis similares. 
+
+La razón del límite de Event Hubs en la retención de datos basada en el tiempo es evitar que grandes volúmenes de datos históricos del cliente se mantengan en un almacén que solo está indexado por una marca de tiempo y solo permite el acceso secuencial. La filosofía arquitectónica aquí es que los datos históricos necesitan una indexación más enriquecida y un acceso más directo que la interfaz de eventos en tiempo real que proporcionan Event Hubs o Kafka. Los motores de flujos de eventos no son adecuados para desempeñar el papel de los lagos de datos o los archivos a largo plazo para la creación de orígenes de eventos. 
+ 
 
 > [!NOTE]
 > Event Hubs es un motor de secuencia de eventos en tiempo real y no está diseñado para usarse en lugar de una base de datos o como almacén permanente para secuencias de eventos que se conservan por tiempo indefinido. 

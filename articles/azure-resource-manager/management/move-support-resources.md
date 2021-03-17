@@ -3,12 +3,12 @@ title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ae59bcc65f296a10c68b88f5f6a1ecbc923f8856
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072112"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232603"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -736,7 +736,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Suscripción |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | associations | No | No |
 > | resourceproviders | Sí | Sí |
@@ -858,7 +858,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sí | Sí |
+> | flexibleServers | No | No |
 > | servergroups | No | No |
 > | servers | Sí | Sí |
 > | serversv2 | Sí | Sí |
@@ -1487,7 +1487,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > Las áreas de trabajo que tienen una cuenta de automatización vinculada no se pueden mover. Antes de comenzar una operación de movimiento, asegúrese de desvincular todas las cuentas de automatización.
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Suscripción |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | No | No |
 > | deletedworkspaces | No | No |
@@ -1841,14 +1841,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Suscripción |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | caches | No | No |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Suscripción |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Sí | Sí |
 

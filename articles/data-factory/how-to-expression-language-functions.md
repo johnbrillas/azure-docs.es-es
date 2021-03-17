@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 4aa8a0790e7f5812e8c6a70eab1718f92a5e00d0
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8f22645eafa0969eac3d6c4c0645909f8c650cad
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520309"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199808"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Procedimientos para usar parámetros, expresiones y funciones en Azure Data Factory
 
@@ -25,7 +25,7 @@ En este documento, nos centraremos principalmente en aprender conceptos fundamen
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interfaz de usuario y parámetros de Azure Data Factory
 
-Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para obtener una explicación visual.
+Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para obtener una explicación visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceptos de parámetros y expresiones 
 

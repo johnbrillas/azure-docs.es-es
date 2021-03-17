@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696336"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461141"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Incorporación de un origen de eventos de Event Hubs al entorno de Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Cree un entorno de Azure Time Series Insights según lo explicado en [Creación de un entorno de Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+- Cree un entorno de Azure Time Series Insights según lo explicado en [Creación de un entorno de Azure Time Series Insights](./tutorial-set-up-environment.md).
 - Cree un centro de eventos. Lea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).
 - El centro de eventos tiene que tener eventos de mensajes activos que se le hayan enviado. Encontrará más información en [Envío de eventos a Azure Event Hubs mediante .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Cree un grupo de consumidores dedicado en el centro de eventos para que el entorno de Azure Time Series Insights los consuma. Cada origen del evento de Azure Time Series Insights debe tener su propio grupo de consumidores dedicado que no se comparte con otros consumidores. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores exhiban errores. Hay un límite de 20 grupos de consumidores por centro de eventos. Si desea información más detallada, lea la [Guía de programación de Event Hubs](../event-hubs/event-hubs-programming-guide.md).

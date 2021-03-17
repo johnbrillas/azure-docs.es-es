@@ -3,7 +3,7 @@ title: Uso del codificador Telestream Wirecast para enviar una transmisión en v
 description: 'En este tema se muestra cómo configurar el codificador en directo Wirecast para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. '
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: ecab0ee67dd1d5cee3fd9927c00c9f9d827b2f47
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a736270919f36cb7d4bbd4e686a98ddc57f402fa
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910056"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016838"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 
@@ -76,7 +76,7 @@ Mientras se inicia el canal puede [configurar el codificador](media-services-con
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configuración del codificador Telestream Wirecast
 En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 
-**Vídeo** :
+**Vídeo**:
 
 * Códec: H.264
 * Perfil: alto (nivel 4.0)
@@ -84,7 +84,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 * Fotograma clave: 2 segundos (60 segundos)
 * Velocidad de fotogramas: 30
 
-**Audio** :
+**Audio**:
 
 * Códec: AAC (LC)
 * Velocidad de bits: 192 Kbps
@@ -98,7 +98,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 3. Haga clic en **OK**.
 4. En la página de configuración, establezca el campo **Destination** (Destino) en **Azure Media Services**.
 
-    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)** . Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset** (Nuevo valor preestablecido).
+    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)** . Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset**(Nuevo valor preestablecido).
 
     ![Captura de pantalla en la que se muestra el cuadro de diálogo para elegir una plantilla con la opción BlobTrigger seleccionada.](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure los valores preestablecidos del codificador.
@@ -119,14 +119,14 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
    * Velocidad de muestreo: 44,100 kHz
 
      ![Captura de pantalla en la que se muestra el valor preestablecido del codificador para AzureTest1.](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Presione **Save** (Guardar).
+6. Presione **Save**(Guardar).
 
     El campo de codificación tiene ahora el perfil recién creado disponible para la selección.
 
     Asegúrese de que esté seleccionado el nuevo perfil.
 7. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP** de Wirecast.
 
-    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que ha cambiado el estado de **Iniciando** a **En ejecución** , puede obtener la dirección URL de entrada.
+    Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
 
     Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el puntero sobre **Copy Input URL to clipboard** (Copiar dirección URL de entrada en el Portapapeles) y seleccione **Primary Input URL** (Dirección URL de entrada principal).  
 
@@ -136,7 +136,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
     ![Captura de pantalla en la que se muestra la configuración de salida.](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Seleccione **Aceptar**.
-2. En la pantalla principal de **Wirecast** , confirme que los orígenes de audio y vídeo están listos y haga clic en **Stream** (Transmitir) en la esquina superior izquierda.
+2. En la pantalla principal de **Wirecast**, confirme que los orígenes de audio y vídeo están listos y haga clic en **Stream** (Transmitir) en la esquina superior izquierda.
 
     ![Captura de pantalla en la que se muestra el botón Wirecast Stream.](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
@@ -168,7 +168,7 @@ Si se recibe un error, debe restablecer el canal y ajustar la configuración del
    >La creación de programas tarda menos que la creación de canales.
        
 5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Playback the program(s)** (Reproducir los programas). Luego, seleccione **with Azure Media Player** (con Azure Media Player).  
-6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información con la opción **Program information and settings** (Información y configuración del programa) en el menú.
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copy the Output URL to Clipboard** (Copiar la dirección URL de salida en el Portapapeles) o recupere esta información con la opción **Program information and settings**(Información y configuración del programa) en el menú.
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.  
 

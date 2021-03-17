@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b8110323afda2ad445ffe279030ee7f3035e2b71
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455406"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609692"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.
@@ -48,10 +48,10 @@ Si la aplicación se ha diseñado para predecir una amplia variedad de expresion
 Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Si necesita tener más de 500 intenciones
-Suponga que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Suponga que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Si necesita combinar varias aplicaciones de LUIS y QnA Maker
-Si tiene varias aplicaciones de LUIS y QnA Maker que necesitan responder a un bot, use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior.  Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0). 
+Si tiene varias aplicaciones de LUIS y QnA Maker que necesitan responder a un bot, use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior.  Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Modelo y herramienta de distribución
 Use la herramienta de línea de comandos [Dispatch][dispatch-tool] que se encuentra en las [herramientas de BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar varias aplicaciones de LUIS o QnA Maker en una aplicación principal de LUIS. Este enfoque permite disponer de un dominio primario que incluya todos los asuntos y dominios de sujeto secundarios diferentes en aplicaciones independientes. 
@@ -62,7 +62,7 @@ El dominio principal se indica en LUIS con una versión denominada `Dispatch` en
 
 El bot de chat recibe la expresión y después la envía a la aplicación principal de LUIS para la predicción. La intención de predicción superior de la aplicación principal determina a qué aplicación secundaria de LUIS se llama a continuación. El bot de chat envía la expresión a la aplicación secundaria para una predicción más específica.
 
-Comprenda cómo se lleva a cabo esta jerarquía de llamadas con el [tutorial de la aplicación Dispatcher](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) de Bot Builder v4.  
+Comprenda cómo se lleva a cabo esta jerarquía de llamadas con el [tutorial de la aplicación Dispatcher](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) de Bot Builder v4.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Límites de intención en el modelo de distribución
 Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a un máximo de 500 intenciones. 
@@ -70,7 +70,7 @@ Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a 
 ## <a name="more-information"></a>Más información
 
 * [SDK Bot Framework](https://github.com/Microsoft/botframework)
-* [Tutorial de los modelos de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0)
+* [Tutorial de los modelos de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [CLI de distribución](https://github.com/Microsoft/botbuilder-tools)
 * Ejemplo del bot del modelo de distribución: [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) y [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 

@@ -2,13 +2,13 @@
 title: Escalabilidad - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo escalar Azure Event Hubs mediante el uso de particiones y unidades de procesamiento.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/16/2021
+ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521962"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601293"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
@@ -39,11 +39,7 @@ Para más información sobre la característica de inflado automático, consulte
 ## <a name="partitions"></a>Particiones
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### <a name="partition-key"></a>Clave de partición
 
-Puede usar una [clave de partición](event-hubs-programming-guide.md#partition-key) para asignar datos de eventos entrantes a particiones concretas con fines de organización de los datos. La clave de partición es un valor proporcionado por el remitente que se pasa a un centro de eventos. Se procesa a través de una función hash estática que crea la asignación de la partición. Si no especifica una clave de partición cuando se publica un evento, se usa una asignación de tipo round robin.
-
-El publicador de eventos solo conoce su clave de partición, no la partición en la que se publican los eventos. Este desacoplamiento de la clave y la partición evita al remitente la necesidad de conocer demasiado sobre el procesamiento de bajada. Una identidad única por cada dispositivo o usuario es una buena clave de partición, pero otros atributos como la geografía también pueden usarse para agrupar eventos relacionados en una única partición.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

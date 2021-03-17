@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 2139080367cdce9a5f018afab0970a7bd0e7504c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465809"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634182"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Configuración de una VPN en el dispositivo de Azure Stack Edge Pro R mediante Azure PowerShell
 
@@ -67,7 +67,7 @@ En las secciones siguientes se proporcionan los pasos detallados.
         - Crear una instancia de Azure Virtual Network y las subredes siguientes: *GatewaySubnet* y *AzureFirewallSubnet*.
         - Crear y configurar una instancia de Azure VPN Gateway.
         - Crear y configurar una puerta de enlace de red local de Azure.
-        - Crear y configurar una conexión VPN de Azure entre Azure VPN Gateway y la puerta de enlace de red local.
+        - Crear y configurar una conexión VPN de Azure entre la instancia de Azure VPN Gateway y la puerta de enlace de red local.
         - Crear una instancia de Azure Firewall y agregar reglas de red y aplicación.
         - Crear una tabla de enrutamiento de Azure y agregarle rutas.
 
@@ -80,7 +80,7 @@ En las siguientes secciones se explican cada uno de estos pasos.
 
 ### <a name="download-service-tags-file"></a>Descarga del archivo de etiquetas de servicio
 
-Es posible que ya tenga un archivo `ServiceTags.json` en la carpeta en la que descargó el script. Si no es así, puede descargar el archivo de etiquetas de servicio.
+Es posible que ya tenga un archivo `ServiceTags.json` en la carpeta donde descargó el script. Si no es así, puede descargar el archivo de etiquetas de servicio.
 
 [!INCLUDE [azure-stack-edge-gateway-download-service-tags](../../includes/azure-stack-edge-gateway-download-service-tags.md)]
 
@@ -95,13 +95,13 @@ Para los recursos de Azure que cree, proporcionará los siguientes nombres:
 |---------|---------|
 |virtualNetworks_vnet_name    | Nombre de Azure Virtual Network        |
 |azureFirewalls_firewall_name     | Nombre de Azure Firewall        |
-|routeTables_routetable_name     | Nombre de tabla de enrutamiento de Azure        |
+|routeTables_routetable_name     | Nombre de tabla de rutas de Azure        |
 |publicIPAddresses_VNGW_public_ip_name     | Nombre de dirección IP pública de la puerta de enlace de red virtual       |
 |virtualNetworkGateways_VNGW_name    | Nombre de Azure VPN Gateway (puerta de enlace de red virtual)        |
 |publicIPAddresses_firewall_public_ip_name     | Nombre de dirección IP pública de su instancia de Azure Firewall         |
 |localNetworkGateways_LNGW_name    |Nombre de puerta de enlace de red local de Azure          |
 |connections_vngw_lngw_name    | Nombre de la conexión VPN de Azure. Esta es la conexión entre la puerta de enlace de red virtual y la puerta de enlace de red local.       |
-|ubicación     |Esta es la región en la que quiere crear la red virtual. Seleccione la misma región que la asociada al dispositivo.         |
+|ubicación     |Esta es la región en la que desea crear la red virtual. Seleccione la misma región que la asociada al dispositivo.         |
 
 Las siguientes direcciones IP y espacios de direcciones corresponden a los recursos de Azure creados, entre los que se incluyen la red virtual y las subredes asociadas (predeterminada, de firewall y GatewaySubnet).
 
@@ -165,7 +165,7 @@ Después, configurará la VPN en la interfaz de usuario web local del dispositiv
 
 ## <a name="validate-data-transfer-through-vpn"></a>Validación de la transferencia de datos a través de VPN
 
-Para confirmar que la VPN funciona, copie los datos en un recurso compartido SMB. Siga los pasos descritos en [Agregar un recurso compartido](azure-stack-edge-j-series-manage-shares.md#add-a-share) en el dispositivo de Azure Stack Edge Pro R. 
+Para confirmar que la VPN funciona, copie los datos en un recurso compartido SMB. Siga los pasos descritos en [Agregar un recurso compartido](azure-stack-edge-gpu-manage-shares.md#add-a-share) en el dispositivo de Azure Stack Edge Pro R. 
 
 1. Copie un archivo, por ejemplo \data\pictures\waterfall.jpg en el recurso compartido SMB que montó en el sistema cliente. 
 2. Compruebe que este archivo se muestra en la cuenta de almacenamiento de la nube.

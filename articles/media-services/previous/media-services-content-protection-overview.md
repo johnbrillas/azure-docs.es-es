@@ -3,7 +3,7 @@ title: Protección de su contenido con Azure Media Services | Microsoft Docs
 description: En este artículo se ofrece información general sobre la protección de contenido con Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 287f93a60a1c44b29b75def8cc3ee9adc577971c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695931"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016770"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -105,9 +105,9 @@ Se aplican las siguientes consideraciones:
 * El tipo de cifrado distingue mayúsculas de minúsculas.
 * Se pueden especificar los siguientes tipos de cifrado:
 
-  * **cenc**: Para PlayReady o Widevine (cifrado común)
-  * **cbcs-aapl**: Para FairPlay (cifrado AES-CBC)
-  * **cbc**: Cifrado de sobre AES
+  * **cenc**: para PlayReady o Widevine (cifrado común)
+  * **cbcs-aapl**: para FairPlay (cifrado AES-CBC)
+  * **cbc**: para cifrado de sobre AES
 
 ## <a name="additional-notes"></a>Notas adicionales
 

@@ -10,14 +10,16 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6c8e83838240b989c8c782840d8c771a6f6b7db
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76511219"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487809"
 ---
 # <a name="what-is-azure-iot-edge"></a>¿Qué es Azure IoT Edge?
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Escale horizontalmente la solución de IoT mediante el empaquetado de la lógica de negocios en contenedores estándar y, después, podrá implementar esos contenedores en cualquiera de los dispositivos y supervisarlo todo desde la nube.
 
@@ -25,7 +27,7 @@ Los análisis son un valor añadido empresarial para las soluciones de IoT, pero
 
 Azure IoT Edge está formado por tres componentes:
 
-* Los **módulos de IoT Edge** son contenedores que ejecutan servicios de Azure, de terceros o código propio del usuario. Se implementan en los dispositivos de IoT Edge y se ejecutan en ellos.
+* Los **módulos de IoT Edge** son contenedores que ejecutan servicios de Azure, de terceros o código propio del usuario. Se implementan en dispositivos IoT Edge y se ejecutan de forma local en ellos.
 * El **entorno en tiempo de ejecución de IoT Edge** se ejecuta en todos los dispositivos de IoT Edge y administra los módulos que se implementan en cada dispositivo.
 * Una **interfaz basada en la nube** permite supervisar y administrar los dispositivos de IoT Edge de forma remota.
 

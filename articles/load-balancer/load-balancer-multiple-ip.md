@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84803634"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417831"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
 
@@ -26,7 +26,6 @@ ms.locfileid: "84803634"
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
 
 En este artículo, le mostraremos cómo usar Azure Load Balancer con varias direcciones IP en un controlador de interfaz de red secundario (NIC). En el siguiente diagrama se ilustra nuestro escenario:
 
@@ -42,7 +41,7 @@ En nuestro escenario, usamos la siguiente configuración:
 - Azure Load Balancer se utiliza para exponer dos direcciones IP de servidor front-end, una para cada sitio web. Las direcciones de servidor front-end se utilizan para distribuir el tráfico a la configuración IP correspondiente para cada sitio web.
 - Se usa el mismo número de puerto para las direcciones IP de servidor front-end y las de grupo back-end.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 En nuestro ejemplo de escenario se da por supuesto que tiene un grupo de recursos denominado **contosofabrikam** con la siguiente configuración:
 
@@ -180,7 +179,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure las reglas de equili
 
 4. En **Puerto** y **Puerto back-end**, mantenga el valor predeterminado de **80**.
 
-5. En **IP flotante (Direct Server Return)** , seleccione **Deshabilitado**.
+5. En **IP flotante (Direct Server Return)**, seleccione **Deshabilitado**.
 
 6. <a name="step6-6"></a>Seleccione **Aceptar**.
 

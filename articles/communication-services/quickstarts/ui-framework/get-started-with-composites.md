@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: En este inicio rápido, aprenderá a trabajar con los componentes compuestos del marco de trabajo de la interfaz de usuario.
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 17a8369463a27acffc8bdc52c48e4ae0624f41cd
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539717"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488064"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>Inicio rápido: Introducción a los componentes compuestos del marco de trabajo de la interfaz de usuario
 
@@ -43,7 +43,7 @@ cd my-app
 
 ```
 
-Al final de este proceso, debería tener una aplicación completa dentro de la carpeta `my-app`. En este inicio rápido, se modificarán los archivos dentro de la carpeta `src`.
+Al final de este proceso, debería tener una aplicación completa dentro de la carpeta `my-app`. En este inicio rápido se modificarán los archivos dentro de la carpeta `src`.
 
 ### <a name="install-the-package"></a>Instalar el paquete
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442169"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636647"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperación de un dispositivo GPU de Azure Stack Edge Pro con errores 
 
@@ -52,10 +52,10 @@ Ahora está preparado para implementar las cargas de trabajo que se estaban ejec
 
 Siga estos pasos para restaurar los datos en los recursos compartidos en la nube de Edge en el dispositivo:
 
-1. [Agregue recursos compartidos](azure-stack-edge-j-series-manage-shares.md#add-a-share) con los mismos nombres de recurso compartido creados anteriormente en el dispositivo con errores. Asegúrese de que, al crear recursos compartidos, la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
-1. [Agregue usuarios](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenían acceso al dispositivo anterior.
-1. [Agregue cuentas de almacenamiento](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) asociadas con los recursos compartidos anteriormente en el dispositivo. Al crear cuentas de almacenamiento de Edge, seleccione de un contenedor existente y apunte al contenedor que se asignó a la cuenta de Azure Storage asignada en el dispositivo anterior. Los datos del dispositivo que estaban escritos en la cuenta de almacenamiento de Edge en el dispositivo anterior se cargaron en el contenedor de almacenamiento seleccionado en la cuenta de Azure Storage asignada.
-1. [Actualice los datos del recurso compartido](azure-stack-edge-j-series-manage-shares.md#refresh-shares) desde Azure. Esto despliega todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
+1. [Agregue recursos compartidos](azure-stack-edge-gpu-manage-shares.md#add-a-share) con los mismos nombres de recurso compartido creados anteriormente en el dispositivo con errores. Asegúrese de que, al crear recursos compartidos, la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
+1. [Agregue usuarios](azure-stack-edge-gpu-manage-users.md#add-a-user) que tenían acceso al dispositivo anterior.
+1. [Agregue cuentas de almacenamiento](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) asociadas con los recursos compartidos anteriormente en el dispositivo. Al crear cuentas de almacenamiento de Edge, seleccione de un contenedor existente y apunte al contenedor que se asignó a la cuenta de Azure Storage asignada en el dispositivo anterior. Los datos del dispositivo que estaban escritos en la cuenta de almacenamiento de Edge en el dispositivo anterior se cargaron en el contenedor de almacenamiento seleccionado en la cuenta de Azure Storage asignada.
+1. [Actualice los datos del recurso compartido](azure-stack-edge-gpu-manage-shares.md#refresh-shares) desde Azure. Esto despliega todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
 
 ## <a name="restore-edge-local-shares"></a>Restauración de recursos compartidos locales de Edge
 
@@ -73,7 +73,7 @@ Una vez configurado completamente el dispositivo de sustitución, habilítelo pa
 Siga estos pasos para recuperar los datos de recursos compartidos locales:
 
 1. [Configure el proceso en el dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Vuelva a [agregar un recurso compartido local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Vuelva a [agregar un recurso compartido local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. Ejecute el procedimiento de recuperación que proporciona la solución de protección de datos que prefiera. Consulte las referencias de la tabla anterior.
 
 ## <a name="restore-vm-files-and-folders"></a>Restauración de archivos y carpetas de VM

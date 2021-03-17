@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787543"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612803"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -286,7 +286,7 @@ Si utiliza Azure Bot Service y el problema es que las **pruebas en el chat web**
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resuelva el problema durante la depuración en la máquina local con Bot Framework.
 
-Para más información sobre la depuración local de un bot, consulte [Debug a bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0) (Depuración de un bot).
+Para más información sobre la depuración local de un bot, consulte [Debug a bot](/azure/bot-service/bot-service-debug-bot) (Depuración de un bot).
 
 ## <a name="integrating-luis"></a>Integración de LUIS
 

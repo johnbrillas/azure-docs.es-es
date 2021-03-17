@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633978"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200689"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicación y suscripción con Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Puede usar el agente MQTT de Azure IoT Edge para publicar y suscribirse a mensajes. En este artículo se muestra cómo conectarse a este agente, publicar y suscribirse a mensajes a través de temas definidos por el usuario y usar primitivos de mensajería de IoT Hub. El agente MQTT de IoT Edge está integrado en el centro de IoT Edge. Para obtener más información, consulte las [funcionalidades de intermediación del centro de IoT Edge](iot-edge-runtime.md).
 

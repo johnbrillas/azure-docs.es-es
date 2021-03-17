@@ -3,15 +3,16 @@ title: 'Migración mediante volcado y restauración: Azure Database for MariaDB'
 description: En este artículo se explican dos formas habituales de hacer una copia de seguridad de las bases de datos y restaurarlas en Azure Database for MariaDB, con herramientas como mysqldump, MySQL Workbench y PHPMyAdmin.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
+ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 8f7cb0710c11e0db9628ad19e2ede7ff05a19f88
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8678304e72f11c486911ff4de00633224e878147
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664977"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564480"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migración de la base de datos MariaDB a Azure Database for MariaDB mediante el volcado y la restauración
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MariaDB
@@ -49,7 +50,7 @@ Para optimizar el rendimiento, tenga en cuenta estas consideraciones al volcar g
 -  Use la opción `order-by-primary` de mysqldump al volcar las bases de datos, para que el script de los datos se genere en el orden de la clave principal.
 -   Use la opción `disable-keys` de mysqldump al volcar los datos para deshabilitar las restricciones de clave externa antes de la carga. El hecho de deshabilitar las comprobaciones de clave externa favorece un aumento del rendimiento. Habilite las restricciones y compruebe los datos después de la carga para garantizar la integridad referencial.
 -   Use tablas con particiones cuando sea necesario.
--   Cargue los datos en paralelo. Evite demasiada paralelismo que podría provocar que se alcanzara un límite de recursos, y supervise los recursos mediante las métricas disponibles en Azure Portal. 
+-   Cargue los datos en paralelo. Evite demasiado paralelismo que podría provocar que se alcanzara un límite de recursos, y supervise los recursos mediante las métricas disponibles en Azure Portal. 
 -   Use la opción `defer-table-indexes` de mysqlpump al volcar las bases de datos, para que la creación de índices tenga lugar una vez cargados los datos de las tablas.
 -   Copie los archivos de copia de seguridad en un blob o almacén de Azure y realice la restauración desde allí, lo que debería ser mucho más rápido que realizar la restauración a través de Internet.
 

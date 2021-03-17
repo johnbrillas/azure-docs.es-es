@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 6fc5bea71909d0e17b4ef0256ab0cad644dacbb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95993829"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609658"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves).
@@ -35,7 +35,7 @@ En las siguientes secciones se usan [cmdlets de PowerShell de Traffic Manager](/
 ## <a name="create-azure-resource-group-with-powershell"></a>Crear el grupo de recursos de Azure con PowerShell
 Antes de crear los recursos de Azure, cree un grupo de recursos para que contenga todos los recursos. Ponga al grupo de recursos el nombre `luis-traffic-manager` y use la región `West US`. La región del grupo de recursos almacena metadatos sobre el grupo. No ralentizará los recursos si están en otra región.
 
-Cree un grupo de recursos con el cmdlet **[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)** :
+Cree un grupo de recursos con el cmdlet **[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)**:
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -66,7 +66,7 @@ En las siguientes secciones, creará dos perfiles secundarios, uno para la clave
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Crear el perfil de Traffic Manager Este de EE. UU. con PowerShell
 Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a cabo varios pasos: crear el perfil, así como agregar y establecer el punto de conexión. Un perfil de Traffic Manager puede tener muchos puntos de conexión, pero cada uno de ellos tiene la misma ruta de acceso de validación. Dado que las direcciones URL de punto de conexión de LUIS para las suscripciones del este y oeste son diferentes debido a la clave de la región y el punto de conexión, cada punto de conexión de LUIS tiene que ser un punto de conexión único en el perfil.
 
-1. Cree el perfil con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** :
+1. Cree el perfil con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**:
 
     Use el siguiente cmdlet para crear el perfil. Asegúrese de cambiar `appIdLuis` y `subscriptionKeyLuis`. El valor de subscriptionKey es para la clave de LUIS Este de EE. UU. Si la ruta de acceso no es correcta, incluidos el identificador de la aplicación de LUIS y la clave de punto de conexión, el sondeo de Traffic Manager es un estado de `degraded` dado que Traffic Manager no puede solicitar correctamente el punto de conexión de LUIS. Asegúrese de que el valor de `q` es `traffic-manager-east` para que pueda ver este valor en los registros de punto de conexión de LUIS.
 
@@ -88,7 +88,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 
     Una solicitud correcta no tiene ninguna respuesta.
 
-2. Agregue el punto de conexión Este de EE. UU. con el cmdlet **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** :
+2. Agregue el punto de conexión Este de EE. UU. con el cmdlet **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**:
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -123,7 +123,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Establezca el punto de conexión Este de EE. UU. con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** :
+3. Establezca el punto de conexión Este de EE. UU. con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**:
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -134,7 +134,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>Crear el perfil de Traffic Manager Oeste de EE. UU. con PowerShell
 Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos: cree el perfil y agregue y establezca el punto de conexión.
 
-1. Cree el perfil con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** :
+1. Cree el perfil con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**:
 
     Use el siguiente cmdlet para crear el perfil. Asegúrese de cambiar `appIdLuis` y `subscriptionKeyLuis`. El valor de subscriptionKey es para la clave de LUIS Este de EE. UU. Si la ruta de acceso no es correcta, incluidos el identificador de la aplicación de LUIS y la clave de punto de conexión, el sondeo de Traffic Manager es un estado de `degraded` dado que Traffic Manager no puede solicitar correctamente el punto de conexión de LUIS. Asegúrese de que el valor de `q` es `traffic-manager-west` para que pueda ver este valor en los registros de punto de conexión de LUIS.
 
@@ -156,7 +156,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 
     Una solicitud correcta no tiene ninguna respuesta.
 
-2. Agregue el punto de conexión Oeste de EE. UU. con el cmdlet **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** :
+2. Agregue el punto de conexión Oeste de EE. UU. con el cmdlet **[Add-AzTrafficManagerEndpointConfig](/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**:
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -192,7 +192,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Establezca el punto de conexión Oeste de EE. UU. con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** :
+3. Establezca el punto de conexión Oeste de EE. UU. con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**:
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -203,7 +203,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 ### <a name="create-parent-traffic-manager-profile"></a>Crear el perfil primario de Traffic Manager
 Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de Traffic Manager con el primario.
 
-1. Cree el perfil primario con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** :
+1. Cree el perfil primario con el cmdlet **[New-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**:
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -297,7 +297,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Establezca los puntos de conexión con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** :
+4. Establezca los puntos de conexión con el cmdlet **[Set-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**:
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -371,7 +371,7 @@ Quite las dos claves de punto de conexión de LUIS, los tres perfiles de Traffic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte las opciones de [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler&view=azure-bot-service-4.0) de BotFramework v4 para comprender cómo se puede agregar este código de administración de tráfico a un bot de BotFramework.
+Consulte las opciones de [middleware](/azure/bot-service/bot-builder-create-middleware?tabs=csaddmiddleware%252ccsetagoverwrite%252ccsmiddlewareshortcircuit%252ccsfallback%252ccsactivityhandler) de BotFramework v4 para comprender cómo se puede agregar este código de administración de tráfico a un bot de BotFramework.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: ../../traffic-manager/index.yml

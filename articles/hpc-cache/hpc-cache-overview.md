@@ -4,15 +4,15 @@ description: Descripción de Azure HPC Cache, una solución de aceleración del 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bbb0ca345dc76f566dd55956911703e2c9bf0183
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519343"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471815"
 ---
 # <a name="what-is-azure-hpc-cache"></a>¿Qué es Azure HPC Cache?
 
@@ -55,15 +55,6 @@ La implementación de Azure HPC Cache puede ayudar a acelerar los cálculos en l
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
 Visite la página de [productos de infraestructura global de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) para saber dónde está disponible Azure HPC Cache.
-
-La [característica de claves administradas por el cliente](customer-keys.md) solo se admite en estas regiones de Azure:
-
-* Este de EE. UU.
-* Centro-sur de EE. UU.
-* Oeste de EE. UU. 2
-* Oeste de Europa
-* US Gov: Arizona
-* US Gov - Virginia
 
 Azure HPC Cache reside en una sola región. Puede acceder a datos almacenados en otras regiones si lo conecta a contenedores de blobs ubicados allí. La memoria caché no almacena datos de clientes de forma permanente.
 

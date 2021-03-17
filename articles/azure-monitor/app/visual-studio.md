@@ -4,12 +4,12 @@ description: Análisis del rendimiento y diagnóstico de aplicaciones web durant
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532909"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563545"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure sus aplicaciones con Azure Application Insights en Visual Studio
 En Visual Studio (2015 y versiones posteriores), se pueden diagnosticar y analizar los problemas de rendimiento de las aplicaciones web, tanto en tiempo de depuración como en producción, mediante los datos de telemetría de [Azure Application Insights](./app-insights-overview.md).
@@ -65,17 +65,6 @@ En la línea de Code Lens, encima de cada método de controlador, puede ver un r
 >
 
 [Más información acerca de Application Insights en Code Lens](./visual-studio-codelens.md)
-
-## <a name="trends"></a>Tendencias
-Tendencias es una herramienta para visualizar cómo se comporta la aplicación con el paso del tiempo. 
-
-Elija **Explorar tendencias de telemetría** con el botón de la barra de herramientas de Application Insights o en la ventana Búsqueda de Application Insights. Seleccione una de las cinco consultas comunes para empezar. Puede analizar diferentes conjuntos de datos en función de los tipos de telemetría, los intervalos de tiempo y otras propiedades. 
-
-Para detectar anomalías en los datos, elija una de las opciones de anomalía en la lista desplegable "Tipo de vista". Con las opciones de filtrado de la parte inferior de la ventana, resulta más sencillo centrarse en subconjuntos específicos de la telemetría.
-
-![Tendencias](./media/visual-studio/51.png)
-
-[Más sobre Tendencias](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Supervisión local
 (Desde Visual Studio 2015 Update 2) Si no ha configurado el SDK para enviar datos de telemetría al portal de Application Insights (para que no haya ninguna clave de instrumentación en ApplicationInsights.config), la ventana diagnóstico muestra los datos de telemetría de la sesión de depuración más reciente. 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 313d1a390c30e7e5612b8d9bab7783b6698c35fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618498"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -363,7 +363,7 @@ QnA Maker admite el control de versiones al incluir pasos de conversación de va
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](/azure/bot-service/bot-builder-conversations).
 
 > [!div class="nextstepaction"]
 > [Migración de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)

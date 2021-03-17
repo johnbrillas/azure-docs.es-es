@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694808"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232365"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adición de la corrección ortográfica a las consultas en Cognitive Search
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 El parámetro queryLanguage necesario para la corrección ortográfica debe ser coherente con los [analizadores del lenguaje](index-add-language-analyzers.md) asignados a las definiciones de campo en el esquema de índice. 
 
-+ Este parámetro determina qué lexicones se usan para la corrección ortográfica. También se emplea como entrada para el [algoritmo de clasificación semántica](semantic-how-to-query-response.md), si se está utilizando "queryType=semantic".
++ Este parámetro determina qué lexicones se usan para la corrección ortográfica. También se emplea como entrada para el [algoritmo de clasificación semántica](semantic-answers.md), si se está utilizando "queryType=semantic".
 
 + Los analizadores del lenguaje se usan durante la indexación y la ejecución de consultas para recuperar documentos coincidentes en el índice de búsqueda. Un ejemplo de una definición de campo que utiliza un analizador de lenguaje es `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
 

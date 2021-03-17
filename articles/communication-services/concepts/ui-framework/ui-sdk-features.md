@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services conceptual document
 description: Información sobre las funcionalidades del marco de trabajo de la interfaz de usuario
 author: ddematheu2
 ms.author: dademath
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 51caf1e73cdeda5862e033a05878f35ddb6ff8dc
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5b1aab8b38614249d6b502044b5c4c8170f46b3c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539752"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492224"
 ---
 # <a name="ui-framework-capabilities"></a>Funcionalidades del marco de la interfaz de usuario
 
@@ -71,7 +71,7 @@ El marco de trabajo de la interfaz de usuario de Azure Communication Services pe
 
 | Tipo de componente            | Temas     | Diseño                                                              | Modelos de datos |
 |---------------------------|------------|---------------------------------------------------------------------|-------------|
-| Componente compuesto       |     N/D    | N/D                                                                 |     N/D     |
+| Componente compuesto       |     N/D    | No aplicable                                                                 |     N/D     |
 | Componente base            |     N/D    | El diseño de los componentes puede modificarse con estilos externos         |     N/D     |
 
 
