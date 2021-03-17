@@ -3,12 +3,12 @@ title: 'Consulta a una base de conocimiento: QnA Maker'
 description: Se debe publicar una base de conocimiento. Una vez publicada, se consulta la base de conocimiento a través del punto de conexión de predicción del tiempo de ejecución mediante generateAnswer API.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820388"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008678"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta a una base de conocimiento para obtener respuestas
 
@@ -84,10 +84,9 @@ Una consulta de usuario es la pregunta que el usuario final formula en la base d
     "userId": "sd53lsY="
 }
 ```
+Puede controlar la respuesta estableciendo propiedades como [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) y [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-Puede controlar la respuesta estableciendo propiedades como [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) y [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Use [contexto de conversación](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) con la [función de varios turnos](../how-to/multiturn-conversation.md) para mantener la conversación en marcha con el fin de refinar las preguntas y respuestas y encontrar la respuesta correcta y final.
+Use [contexto de conversación](../how-to/query-knowledge-base-with-metadata.md) con la [función de varios turnos](../how-to/multiturn-conversation.md) para mantener la conversación en marcha con el fin de refinar las preguntas y respuestas y encontrar la respuesta correcta y final.
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>Respuesta de una llamada para generar una respuesta
 

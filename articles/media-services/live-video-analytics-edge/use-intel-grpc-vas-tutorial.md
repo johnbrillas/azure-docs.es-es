@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124421"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465766"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: análisis de vídeo en directo mediante el uso de la extensión de inteligencia artificial de Edge Intel OpenVINO™ DL Streamer 
 
@@ -128,7 +128,7 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     El archivo de manifiesto *deployment.openvino.grpc.cpu.amd64.json* se crea en la carpeta *src/edge/config*.
 
 > [!NOTE]
-También se ha incluido una plantilla *deployment.openvino.grpc.gpu.template.jsen* que habilita el soporte de GPU para el módulo Extensión de inteligencia artificial de Edge para el módulo de extensión de la extensión de AI de Intel OpenVINO DL Streamer. Estas plantillas apuntan a la imagen de Docker Hub de Intel.
+> También se ha incluido una plantilla *deployment.openvino.grpc.gpu.template.jsen* que habilita el soporte de GPU para el módulo Extensión de inteligencia artificial de Edge para el módulo de extensión de la extensión de AI de Intel OpenVINO DL Streamer. Estas plantillas apuntan a la imagen de Docker Hub de Intel.
 
 Las plantillas mencionadas apuntan a la imagen de Docker Hub de Intel. Si prefiere hospedar una copia por su propio Azure Container Registry puede seguir los pasos 1 y 2 siguientes:
 1. Incluya SSH en un dispositivo con las herramientas de la CLI de Docker instaladas (es decir, el dispositivo perimetral) y extraiga/etiquete/inserte el contenedor con estos pasos:

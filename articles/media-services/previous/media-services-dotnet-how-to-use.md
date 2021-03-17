@@ -3,7 +3,7 @@ title: Configuración del equipo para el desarrollo de Media Services con .NET
 description: Conozca los requisitos previos de Media Services usando el SDK de Media Services para .NET. Aprenda también a crear una aplicación de Visual Studio.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dda7849b6a5e22eea4891eacb2678b4c500dc1e1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a2a9ecbcafa89b4981fe403d116ac0288e60b6b6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693670"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013897"
 ---
 # <a name="media-services-development-with-net"></a>Desarrollo de Media Services con .NET
 
