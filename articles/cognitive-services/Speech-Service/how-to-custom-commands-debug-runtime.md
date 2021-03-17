@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021803"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196912"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Depuración de errores durante la ejecución de una aplicación de Comandos personalizados
 
@@ -28,7 +28,7 @@ Si ejecuta la aplicación de Comandos personalizados desde una [aplicación clie
 | Código de error | Detalles |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: Error de actualización de WebSocket con un error de autenticación |
-| [1002](#error-1002)] | El servidor devolvió el código de estado ''404" cuando se esperaba el código "101". |
+| [1002](#error-1002) | El servidor devolvió el código de estado ''404" cuando se esperaba el código "101". |
 
 ### <a name="error-401"></a>Error 401
 - La región especificada en la aplicación cliente no coincide con la región de la aplicación de comandos personalizados.

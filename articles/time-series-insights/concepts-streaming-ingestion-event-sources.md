@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7b7e29b6e2ebb3b229045df439848264540b59b1
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881812"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461630"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Orígenes de eventos de Azure Time Series Insights Gen2
 
@@ -27,7 +27,7 @@ Los eventos se deben enviar como JSON con codificación UTF8.
 
 ## <a name="create-or-edit-event-sources"></a>Crear o editar orígenes de eventos
 
-Los recursos de origen del evento pueden residir en la misma suscripción de Azure que el entorno de Azure Time Series Insights Gen2 o en una suscripción diferente. Puede usar [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), las [plantillas de Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar orígenes de eventos de su entorno.
+Los recursos de origen del evento pueden residir en la misma suscripción de Azure que el entorno de Azure Time Series Insights Gen2 o en una suscripción diferente. Puede usar [Azure Portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), la [CLI de Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), las [plantillas de Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) y la [API de REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para crear, editar o quitar orígenes de eventos de su entorno.
 
 Cuando conecte un origen de eventos, el entorno Azure Time Series Insights Gen2 leerá todos los eventos almacenados actualmente en su lote o en Event Hub, empezando por el evento más antiguo.
 

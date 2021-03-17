@@ -3,7 +3,7 @@ title: Uso de Azure Queue Storage para supervisar las notificaciones sobre traba
 description: Descubra cómo usar el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services. El ejemplo de código está escrito en C# y utiliza el SDK de Media Services para .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 634b508ca15349152540aca90125575b17943929
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: dc6ab94b3685e55125032b0afa52076eae72ba5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696437"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016226"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services con .NET
 

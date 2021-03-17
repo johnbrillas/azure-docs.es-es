@@ -8,14 +8,16 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 444ab8ccfe5a8441a4fd7d280e33d8e929d9387d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d9db9997af20fee226214eb12ad32729cab55caa
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435899"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199249"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Integración e implementación continuas en dispositivos Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Puede adoptar fácilmente DevOps con las aplicaciones de Azure IoT Edge con las tareas integradas de Azure IoT Edge en Azure Pipelines. En este artículo se muestra cómo puede usar las características de integración e implementación continuas de Azure Pipelines para compilar, probar e implementar aplicaciones de forma rápida y eficaz en su instancia de Azure IoT Edge mediante YAML. Como alternativa, puede [usar el editor clásico](how-to-continuous-integration-continuous-deployment-classic.md).
 
@@ -48,7 +50,7 @@ A menos que se especifique lo contrario, los procedimientos descritos en este ar
    Si está creando una nueva solución, clone el repositorio localmente en primer lugar. A continuación, cuando cree la solución, puede elegir crearlo directamente en la carpeta del repositorio. Puede confirmar e insertar fácilmente los nuevos archivos desde allí.
 
 * Un registro de contenedor donde pueda insertar imágenes del módulo. Puede usar [Azure Container Registry](../container-registry/index.yml) o un registro de terceros.
-* Un [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) de Azure activo con al menos dos dispositivos IoT Edge para hacer pruebas de las fases independientes de implementación de prueba y producción. Puede seguir los artículos de la guía de inicio rápido para crear un dispositivo IoT Edge en [Linux](quickstart-linux.md) o [Windows](quickstart.md)
+* Un [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) de Azure activo con al menos dos dispositivos de IoT Edge para hacer pruebas de las fases independientes de implementación de prueba y producción. Puede seguir los artículos de la guía de inicio rápido para crear un dispositivo IoT Edge en [Linux](quickstart-linux.md) o [Windows](quickstart.md)
 
 Para más información sobre el uso Azure Repos, consulte [Share your code with Visual Studio and Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs) (Compartir el código con Visual Studio y Azure Repos).
 

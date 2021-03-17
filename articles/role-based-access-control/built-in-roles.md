@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baa783d0dfb54e0e606e3f6c6d5397941ae7b7bc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724513"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011636"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -6702,7 +6702,7 @@ Permite leer las suscripciones de eventos de EventGrid. [Más información](../e
 
 ### <a name="fhir-data-contributor"></a>Colaborador de datos de FHIR
 
-El rol permite el acceso completo del usuario o la entidad de seguridad a los datos de FHIR. [Más información](../healthcare-apis/configure-azure-rbac.md)
+El rol permite el acceso completo del usuario o la entidad de seguridad a los datos de FHIR. [Más información](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -6741,7 +6741,7 @@ El rol permite el acceso completo del usuario o la entidad de seguridad a los da
 
 ### <a name="fhir-data-exporter"></a>Exportador de datos de FHIR
 
-El rol permite al usuario o a la entidad de seguridad leer y exportar datos de FHIR. [Más información](../healthcare-apis/configure-azure-rbac.md)
+El rol permite al usuario o a la entidad de seguridad leer y exportar datos de FHIR. [Más información](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -6782,7 +6782,7 @@ El rol permite al usuario o a la entidad de seguridad leer y exportar datos de F
 
 ### <a name="fhir-data-reader"></a>Lector de datos de FHIR
 
-El rol permite al usuario o a la entidad de seguridad leer datos de FHIR. [Más información](../healthcare-apis/configure-azure-rbac.md)
+El rol permite al usuario o a la entidad de seguridad leer datos de FHIR. [Más información](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -6821,7 +6821,7 @@ El rol permite al usuario o a la entidad de seguridad leer datos de FHIR. [Más 
 
 ### <a name="fhir-data-writer"></a>Escritor de datos de FHIR
 
-El rol permite al usuario o a la entidad de seguridad leer y escribir datos de FHIR. [Más información](../healthcare-apis/configure-azure-rbac.md)
+El rol permite al usuario o a la entidad de seguridad leer y escribir datos de FHIR. [Más información](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |

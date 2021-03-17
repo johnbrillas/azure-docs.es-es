@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cec97134173cfc7879baf1d914d8f224a0736430
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 301d6eb0867604a6e780eb1d059eef0c153f246f
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593051"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574516"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipulación de modelos
 
@@ -115,7 +115,7 @@ Los límites de un modelo se definen mediante el cuadro que contiene el modelo c
     // Create a query using the model entity
     async private void QueryBounds()
     {
-        remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
+        var remoteBounds = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
         await remoteBounds;
 

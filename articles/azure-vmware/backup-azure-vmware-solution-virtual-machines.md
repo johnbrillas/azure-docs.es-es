@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure VMware Solution con Az
 description: Configure el entorno de Azure VMware Solution para realizar copias de seguridad de máquinas virtuales mediante Azure Backup Server.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585031"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618923"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Azure VMware Solution con Azure Backup Server
 
@@ -73,7 +73,7 @@ En VMware 6.7 y versiones posteriores se ha habilitado TLS como protocolo de co
 
 1. Copie los siguientes valores del registro y péguelos en el Bloc de notas. A continuación, guarde el archivo como TLS.REG sin la extensión .txt.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    

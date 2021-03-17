@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 0462dac12d41fff667212902152b420d1460186d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383643"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573207"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory
 
@@ -221,7 +221,7 @@ Las propiedades siguientes se admiten para HTTP en la configuración `storeSetti
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **HttpReadSettings**. | Sí      |
 | requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | No       |
-| addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | No       |
+| additionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | No       |
 | requestBody              | Cuerpo de la solicitud HTTP.                               | No       |
 | httpRequestTimeout           | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**. | No       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No       |

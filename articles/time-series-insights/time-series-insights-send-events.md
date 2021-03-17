@@ -11,26 +11,26 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8ee2cc5473d83eafc2443f3aea7cab6a2e77727c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023265"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463568"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envío de eventos a un entorno de Azure Time Series Insights Gen1 mediante un centro de eventos
 
 > [!CAUTION]
 > Este es un artículo de Gen1.
 
-En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos en Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
+En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos en Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./tutorial-set-up-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 
 1. Para aprender a crear un centro de eventos, lea la [documentación de Event Hubs](../event-hubs/index.yml).
 1. En el cuadro de búsqueda, busque **Event Hubs**. Haga clic en **Event Hubs** en la lista devuelta.
 1. Seleccione su centro de eventos.
-1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.  
+1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.
 
     [![Lista de centros de eventos](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
@@ -78,7 +78,7 @@ En Azure Time Series Insights Gen2 se pueden agregar datos contextuales a la tel
 
 1. Ir a <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. La dirección URL crea y ejecuta dispositivos simulados de molinos de viento.
 1. En el cuadro **Event Hub Connection String** (Cadena de conexión del centro de eventos) de la página web, pegue la cadena de conexión que copió en el [campo de entrada de molinos de viento](#push-events-to-windmills-sample).
-  
+
     [![Pegar la cadena de conexión de la clave principal en el cuadro de la cadena de conexión del centro de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Seleccione **Click to start** (Haga clic para iniciar).

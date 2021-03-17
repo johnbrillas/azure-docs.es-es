@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832239"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014373"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis en tienda en Azure IoT Central
 
@@ -228,8 +228,8 @@ En este tutorial, se usa el siguiente conjunto de dispositivos reales y simulado
 
 Complete los pasos de los dos artículos siguientes para conectar una puerta de enlace Rigado real y sensores RuuviTag. Cuando haya terminado, vuelva a este tutorial. Dado que ya ha creado las plantillas de dispositivo en este tutorial, no es necesario crearlas de nuevo en el siguiente conjunto de instrucciones.
 
-- Para conectar una puerta de enlace Rigado, consulte [Conexión de una puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Para conectar sensores RuuviTag, consulte [Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). También puede usar estas instrucciones para crear dos sensores simulados, si es necesario.
+- Para conectar una puerta de enlace Rigado, consulte [Conexión de una puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central](../core/howto-connect-rigado-cascade-500.md).
+- Para conectar sensores RuuviTag, consulte [Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central](../core/howto-connect-ruuvi.md). También puede usar estas instrucciones para crear dos sensores simulados, si es necesario.
 
 ## <a name="add-rules-and-actions"></a>Adición de reglas y acciones
 Como parte del uso de sensores en la aplicación de Azure IoT Central para supervisar las condiciones, puede crear reglas para ejecutar acciones cuando se cumplan determinadas condiciones. Una regla está asociada a una plantilla de dispositivo y a uno o varios dispositivos y contiene condiciones que deben cumplirse en función de los eventos o los datos de telemetría del dispositivo. Una regla también tiene una o más acciones asociadas. Las acciones pueden incluir el envío de notificaciones por correo electrónico o el desencadenamiento de una acción de webhook para enviar datos a otros servicios. La plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) incluye algunas reglas predefinidas para los dispositivos de la aplicación.

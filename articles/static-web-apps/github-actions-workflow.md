@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593965"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232042"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flujos de trabajo de acciones de GitHub para la versión preliminar de Azure Static Web Apps
 
@@ -152,7 +152,7 @@ La implementación siempre llama a `npm install` antes de cualquier comando pers
 
 | Get-Help            | Descripción |
 |---------------------|-------------|
-| `app_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de contenido estático.<br><br>Por ejemplo, para configurar una compilación de producción para una aplicación angular, cree un script NPM denominado `build-prod` para ejecutar `ng build --prod` y escriba `npm run build-prod` como comando personalizado. Si se deja en blanco, el flujo de trabajo intenta ejecutar los comandos `npm run build` o `npm run build:Azure`.  |
+| `app_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de contenido estático.<br><br>Por ejemplo, para configurar una compilación de producción para una aplicación angular, cree un script NPM denominado `build-prod` para ejecutar `ng build --prod` y escriba `npm run build-prod` como comando personalizado. Si se deja en blanco, el flujo de trabajo intenta ejecutar los comandos `npm run build` o `npm run build:azure`.  |
 | `api_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de la API de Azure Functions. |
 
 ## <a name="route-file-location"></a>Ubicación del archivo de rutas

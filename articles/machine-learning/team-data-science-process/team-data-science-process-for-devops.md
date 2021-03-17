@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a84942337b3c8eb5f7509f61f9ba5bcd564d8bb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653085"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614078"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Proceso de ciencia de datos en equipo para Developer Operations
 
@@ -25,7 +25,7 @@ En este artículo se exploran las funciones de Developer Operations (DevOps) que
 ## <a name="lesson-path"></a>Ruta de aprendizaje
 En la tabla siguiente se proporciona una guía basada en niveles para completar los objetivos de DevOps de implementación de soluciones de ciencia de datos en Azure.
 
-| Objetivos | Tema | **Recurso** | **Tecnologías** | **Level** | **Requisitos previos** |
+| Objetivo | Tema | **Recurso** | **Tecnologías** | **Level** | **Requisitos previos** |
 |--|--|--|--|--|--|
 | Descripción del análisis avanzado | El ciclo de vida del proceso de ciencia de datos en equipo | [En este tutorial técnico se describe el proceso de ciencia de datos en equipo](overview.md) | Ciencia de datos | Intermedio | Conocimientos generales sobre tecnología, familiaridad con las soluciones de datos, familiaridad con la implementación de soluciones y proyectos de TI |
 | Descripción de la plataforma Microsoft Azure para análisis avanzado | Administración de la información |
@@ -74,7 +74,7 @@ En la tabla siguiente se proporciona una guía basada en niveles para completar 
 |  |  | [Esta referencia explica cómo crear una canalización de datos para la solución, que puede guardar como una plantilla JSON como "paquete"](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | Intermedio | Conocimientos generales sobre informática, experiencia en proyectos de datos |
 |  |  | [Este tema describe la estructura de una plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | Intermedio | Familiaridad con la plataforma Microsoft Azure |
 |  |  | [DSC es una plataforma de administración en PowerShell que permite administrar la infraestructura de desarrollo y TI con configuración como código, guardada como un paquete. Esta referencia es información general sobre ese tema](/powershell/scripting/dsc/overview/overview) | Configuración de estado deseado de PowerShell | Intermedio | Programación de PowerShell, familiaridad con arquitecturas de empresa, scripting |
-|  | Release | [Este artículo de referencia principal contiene los conceptos de compilación, prueba y versión de entornos de CI/CD](/azure/devops/pipelines/?view=azure-devops) | Visual Studio codespace | Experimentado | Desarrollo de software, familiaridad con entornos de CI/CD, familiaridad con un protocolo SDLC |
+|  | Release | [Este artículo de referencia principal contiene los conceptos de compilación, prueba y versión de entornos de CI/CD](/azure/devops/pipelines/) | Visual Studio codespace | Experimentado | Desarrollo de software, familiaridad con entornos de CI/CD, familiaridad con un protocolo SDLC |
 |  |  | [Use esta referencia anterior para runbooks para automatizar la administración de versiones con System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experimentado | Experiencia con System Center Orchestrator |
 |  |  | [Este artículo le ayudará a determinar la mejor opción para implementar los archivos de su aplicación web, back-end de aplicación móvil o aplicación de API en el Azure App Service y, a continuación, le guiará a los recursos adecuados con instrucciones específicas para la opción de su preferencia](../../app-service/deploy-local-git.md) | Implementación de Microsoft Azure | Intermedio | Desarrollo de software, experiencia con la plataforma Microsoft Azure |
 |  | Supervisión | [Esta referencia explica Application Insights y cómo puede agregarlo a las soluciones de análisis avanzados](../../azure-monitor/app/app-insights-overview.md) | Application Insights | Intermedio | Desarrollo de software, familiaridad con la plataforma Microsoft Azure |

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319ab7343792be92005611d26acc382df711bf1e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565072"
+ms.locfileid: "102609913"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -203,7 +203,7 @@ Use el acceso condicional de Azure AD para interpretar las señales y usarlas p
 
 * Use el acceso condicional para [bloquear los protocolos de autenticación heredados](../conditional-access/howto-conditional-access-policy-block-legacy.md) siempre que sea posible. Además, deshabilite los protocolos de autenticación heredados en el nivel de aplicación mediante la configuración específica de una aplicación.
 
-   Para obtener más información, consulte [Protocolos de autenticación heredados](../fundamentals/auth-sync-overview.md). O bien, consulte los detalles específicos de [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) y [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Para obtener más información, consulte [Protocolos de autenticación heredados](../fundamentals/auth-sync-overview.md). O bien, consulte los detalles específicos de [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) y [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
 * Implemente las [configuraciones de acceso de dispositivos e identidades](/microsoft-365/security/office-365-security/identity-access-policies) recomendadas.
 

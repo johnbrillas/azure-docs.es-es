@@ -1,14 +1,14 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 01/19/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 03968b3aa3eaf8f32019cfc5e9e2430c71419f62
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8a243f0a2130e0ec2ebafe726f48e07c148807c1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038142"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016090"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -140,7 +140,7 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 
 | Servicio | Public Azure (Azure público) | Government | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuales<sup>1</sup>  | **Sí** | **Sí** | No |
+| Máquinas virtuales<sup>1</sup>  | **Sí** | **Sí** | **Sí** |
 | Bases de datos de SQL Server | **Sí** | **Sí** | **Sí** |
 | Grupos elásticos de SQL Server | **Sí** | **Sí** | **Sí** |
 | Grupos de capacidad de NetApp Files | **Sí** | **Sí** | **Sí** |

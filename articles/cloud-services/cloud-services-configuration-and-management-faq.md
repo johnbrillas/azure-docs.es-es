@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 31659f4e8e4f9e25a997be54223b8856edfa8abe
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578229"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612990"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Azure Cloud Services (clásico): Preguntas más frecuentes (P+F)
 
@@ -124,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Posibilidad de elegir blob o local para la ubicación de carga de csdef y cscfg, disponible próximamente. Si usa [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true), puede establecer el valor de cada ubicación.
+Posibilidad de elegir blob o local para la ubicación de carga de csdef y cscfg, disponible próximamente. Si usa [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment), puede establecer el valor de cada ubicación.
 
 Capacidad para supervisar las métricas en el nivel de instancia. Hay funcionalidades de supervisión adicionales disponibles en [Supervisión de Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -293,7 +293,7 @@ Los ajustes del diario no son configurables, por lo que no se pueden desactivar.
 Puede habilitar la extensión antimalware mediante el script de PowerShell en la tarea de inicio. Siga los pasos descritos en los siguientes artículos para implementarla: 
  
 - [Creación de una tarea de inicio de PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension)
 
 Para obtener más información sobre los escenarios de implementación de antimalware y cómo habilitarlo desde el portal, vea [Escenarios de implementación de Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 

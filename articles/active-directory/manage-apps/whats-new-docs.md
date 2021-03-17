@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452057"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601770"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
@@ -33,7 +33,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [Concesión del consentimiento del administrador para todo el inquilino a una aplicación](grant-admin-consent.md)
 - [Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Enero de 2021
@@ -84,7 +83,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 
 ### <a name="updated-articles"></a>Artículos actualizados
 - [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
-- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Octubre de 2020
@@ -99,7 +97,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problema al instalar el conector de agente del proxy de aplicación](application-proxy-connector-installation-problem.md)
 - [Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configuración del consentimiento de los usuarios finales a las aplicaciones](configure-user-consent.md)

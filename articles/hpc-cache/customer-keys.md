@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444578"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471964"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -22,7 +22,7 @@ Puede usar Azure Key Vault para controlar la titularidad de las claves usadas pa
 
 Azure HPC Cache también está protegida por el [cifrado del host de la máquina virtual](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) en los discos administrados que contienen los datos almacenados en caché, incluso si agrega una clave de cliente para los discos de caché. La adición de una clave administrada por el cliente para el cifrado doble proporciona un nivel de seguridad adicional a los clientes con necesidades de alta seguridad. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](../virtual-machines/disk-encryption.md) para más información.
 
-Esta característica solo está disponible en algunas de las regiones de Azure donde está disponible Azure HPC Cache. Consulte la lista de [disponibilidad de regiones](hpc-cache-overview.md#region-availability) para más información.
+<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Hay tres pasos para habilitar el cifrado de claves administradas por el cliente para Azure HPC Cache:
 

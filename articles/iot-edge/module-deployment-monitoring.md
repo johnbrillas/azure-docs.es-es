@@ -8,31 +8,33 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85194797"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489989"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Las implementaciones automáticas y la implementación superpuesta le ayudan a administrar y configurar módulos en un gran número de dispositivos IoT Edge.
 
 Azure IoT Edge proporciona dos maneras de configurar los módulos para que se ejecuten en dispositivos IoT Edge. El primer método consiste en implementar módulos en cada dispositivo. Cree un manifiesto de implementación y aplíquelo a un dispositivo determinado por nombre. El segundo método consiste en implementar módulos automáticamente en cualquier dispositivo registrado que cumpla un conjunto de condiciones definidas. Cree un manifiesto de implementación y defina a qué dispositivos se aplica en función de las [etiquetas](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) en el dispositivo gemelo.
 
-Este artículo se centra en la configuración y la supervisión de flotas de dispositivos, lo que se conoce en conjunto como *implementaciones automáticas de IoT Edge*. Los pasos de implementación básicos son los siguientes:
+Este artículo se centra en la configuración y la supervisión de flotas de dispositivos, lo que se conoce en conjunto como *implementaciones automáticas de IoT Edge*.  Los pasos de implementación básicos son los siguientes:
 
-1. Un operador define una implementación que describe un conjunto de módulos y los dispositivos de destino. Cada implementación tiene un manifiesto de implementación que refleja esta información.
+1. Un operador define una implementación que describe un conjunto de módulos y los dispositivos de destino.  Cada implementación tiene un manifiesto de implementación que refleja esta información.
 2. El servicio IoT Hub se comunica con todos los dispositivos de destino para configurarlos con los módulos deseados.
-3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución.
+3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.    Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución.
 4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación.
 
 Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md) (Implementación y supervisión de módulos de IoT Edge a escala).
 
 ## <a name="deployment"></a>Implementación
 
-Una implementación automática de IoT Edge asigna imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes. Una implementación se puede asignar a un único dispositivo (basándose en su identificador) o a un grupo de dispositivos (basándose en las etiquetas). Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de los repositorios de contenedores respectivos, y los configura como corresponde. Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.
+Una implementación automática de IoT Edge asigna imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes.  Una implementación se puede asignar a un único dispositivo (basándose en su identificador) o a un grupo de dispositivos (basándose en las etiquetas).  Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de los repositorios de contenedores respectivos, y los configura como corresponde.  Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.
 
 Solo los dispositivos IoT Edge se pueden configurar con una implementación. El dispositivo debe cumplir los siguientes requisitos previos para poder recibir la implementación:
 
@@ -42,7 +44,7 @@ Solo los dispositivos IoT Edge se pueden configurar con una implementación. El 
 
 ### <a name="deployment-manifest"></a>Manifiesto de implementación
 
-Un manifiesto de implementación es un documento JSON que describe los módulos que se van a configurar en los dispositivos IoT Edge de destino. Contiene los metadatos de configuración de todos los módulos, incluidos los módulos del sistema necesarios (en concreto, el agente de IoT Edge y el centro de IoT Edge).  
+Un manifiesto de implementación es un documento JSON que describe los módulos que se van a configurar en los dispositivos IoT Edge de destino. Contiene los metadatos de configuración de todos los módulos, incluidos los módulos del sistema necesarios (en concreto, el agente de IoT Edge y el centro de IoT Edge).  
 
 Los metadatos de configuración de cada módulo incluyen:
 
@@ -81,11 +83,11 @@ Tenga en cuenta estas restricciones cuando construya una condición de destino:
 
 ### <a name="priority"></a>Priority
 
-Una prioridad define si se debe aplicar una implementación a un dispositivo de destino en relación con otras implementaciones. Una prioridad de implementación es un entero positivo, con un número más grande que indica la prioridad más alta. Si un dispositivo IoT Edge se destina a más de una implementación, se aplica aquella con una prioridad más alta.  Las implementaciones con prioridades inferiores no se aplican, ni se combinan.  Si un dispositivo se destina a dos o más implementaciones con la misma prioridad, se aplica la implementación creada más recientemente (determinada por la marca de tiempo de creación).
+Una prioridad define si se debe aplicar una implementación a un dispositivo de destino en relación con otras implementaciones. Una prioridad de implementación es un entero positivo, con un número más grande que indica la prioridad más alta. Si un dispositivo IoT Edge se destina a más de una implementación, se aplica aquella con una prioridad más alta.    Las implementaciones con prioridades inferiores no se aplican, ni se combinan.    Si un dispositivo se destina a dos o más implementaciones con la misma prioridad, se aplica la implementación creada más recientemente (determinada por la marca de tiempo de creación).
 
 ### <a name="labels"></a>Etiquetas
 
-Las etiquetas son pares de clave/valor de cadena que se pueden usar para filtrar y agrupar las implementaciones. Una implementación puede tener varias etiquetas. Las etiquetas son opcionales y no afectan a la configuración real de los dispositivos IoT Edge.
+Las etiquetas son pares de clave/valor de cadena que se pueden usar para filtrar y agrupar las implementaciones.  Una implementación puede tener varias etiquetas. Las etiquetas son opcionales y no afectan a la configuración real de los dispositivos IoT Edge.
 
 ### <a name="metrics"></a>Métricas
 
@@ -174,7 +176,7 @@ Un lanzamiento por fases es un proceso global en el que un operador implementa c
 
 Un lanzamiento por fases se ejecuta en las fases y los pasos siguientes:
 
-1. Establezca un entorno de prueba de los dispositivos IoT Edge; para ello, aprovisiónelos y defina una etiqueta de dispositivo gemelo como `tag.environment='test'`. El entorno de prueba debe reflejar el entorno de producción en el que finalmente se aplicará la implementación.
+1. Establezca un entorno de prueba de los dispositivos IoT Edge; para ello, aprovisiónelos y defina una etiqueta de dispositivo gemelo como `tag.environment='test'`.  El entorno de prueba debe reflejar el entorno de producción en el que finalmente se aplicará la implementación.
 2. Cree una implementación que incluya los módulos y las configuraciones deseados. La condición de destino debe tener como objetivo probar el entorno de los dispositivos IoT Edge.
 3. Valide la nueva configuración de los módulos en el entorno de prueba.
 4. Actualice la implementación para incluir un subconjunto de los dispositivos IoT Edge de producción mediante la adición de una nueva etiqueta a la condición de destino. Además, asegúrese de que la prioridad de la implementación sea mayor que la de otras implementaciones destinadas actualmente a esos dispositivos
@@ -183,7 +185,7 @@ Un lanzamiento por fases se ejecuta en las fases y los pasos siguientes:
 
 ## <a name="rollback"></a>Reversión
 
-Las implementaciones se pueden revertir si recibe errores o configuraciones incorrectas. Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
+Las implementaciones se pueden revertir si recibe errores o configuraciones incorrectas.  Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
 
 Al eliminar una implementación no se quitan los módulos de los dispositivos de destino. Debe haber otra implementación que defina una nueva configuración para los dispositivos, incluso si se trata de una implementación vacía.
 

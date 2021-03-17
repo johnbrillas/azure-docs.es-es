@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048039"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200305"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá implementarlos en sus dispositivos para usarlos en el perímetro. Si tiene varios módulos que funcionan conjuntamente para recopilar y procesar datos, puede implementarlos todos a la vez y declarar las reglas de enrutamiento que los conectan.
 
@@ -35,7 +37,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 Azure Portal tiene un asistente que le guía en la creación del manifiesto de implementación, en lugar de crear el documento JSON de forma manual. Consta de tres pasos: **Adición de módulos**, **Especificación de rutas** y **Revisión de la implementación**.
 
 >[!NOTE]
->En los pasos de este artículo se refleja la última versión de esquema del agente y el centro de conectividad de IoT Edge. La versión de esquema 1.1 se ha publicado junto con la versión 1.0.10 de IoT Edge y habilita las características de orden de inicio y priorización de rutas del módulo.
+>En los pasos de este artículo se refleja la última versión de esquema del agente y el centro de conectividad de IoT Edge. La versión de esquema 1.1 se publicó junto con la versión 1.0.10 de IoT Edge, y permite las características de orden de inicio y priorización de rutas del módulo.
 >
 >Si va a implementar en un dispositivo con la versión 1.0.9 o anterior, edite **Configuración del entorno de ejecución** en el paso **Módulos** del asistente para usar la versión de esquema 1.0.
 
@@ -47,7 +49,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 1. En la barra superior, seleccione **Establecer módulos**.
 1. En la sección **Configuración de Container Registry** de la página, proporcione las credenciales para acceder a cualquier registro del contenedor privado que contiene las imágenes del módulo.
 1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
-1. Elija uno de los tres tipos de módulos en el menú desplegable:
+1. Elija uno de los tres tipos de módulos en el menú desplegable:
 
    * **Módulo de IoT Edge**: proporcione el nombre del módulo y el identificador URI de la imagen de contenedor. Por ejemplo, el identificador URI de la imagen para el módulo SimulatedTemperatureSensor de ejemplo es `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Si la imagen del módulo está almacenada en un registro de contenedor privado, agregue las credenciales en esta página para tener acceso a la imagen.
    * **Módulo de Marketplace**: módulos hospedados en Azure Marketplace. Algunos módulos de Marketplace requieren una configuración adicional, por lo que debe revisar los detalles del módulo en la lista de [módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
@@ -66,7 +68,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
 En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos de IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. De forma predeterminada, la primera implementación de un nuevo dispositivo incluye una ruta denominada **route** y definida como **FROM /messages/\* INTO $upstream**, lo que significa que cualquier salida de mensajes de cualquier módulo se envía al centro de IoT.  
 
-Los parámetros **Prioridad** y **Período de vida** son parámetros opcionales que se pueden incluir en una definición de ruta. El parámetro Prioridad permite elegir las rutas cuyos mensajes se van a procesar primero o en último lugar. La prioridad se determina mediante un número de 0 a 9, donde 0 es la prioridad máxima. El parámetro Período de vida permite declarar durante cuánto tiempo se deben conservar los mensajes de esa ruta hasta que se procesan o se quitan de la cola.
+Los parámetros **Prioridad** y **Período de vida** son parámetros opcionales que se pueden incluir en una definición de ruta. El parámetro Priority permite elegir en qué rutas los mensajes se procesarán primero o en qué rutas se deben procesar en último lugar. La prioridad se determina estableciendo un número de 0 a 9, donde 0 es la prioridad máxima. El parámetro Time to Live permite declarar durante cuánto tiempo se deben mantener los mensajes de esa ruta hasta que se procesen o se quiten de la cola.
 
 Para obtener más información sobre cómo crear rutas, vea [Declaración de rutas](module-composition.md#declare-routes).
 

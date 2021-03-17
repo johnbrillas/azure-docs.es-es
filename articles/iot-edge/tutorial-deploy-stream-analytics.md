@@ -7,14 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048379"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462055"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Muchas soluciones de IoT usan servicios de análisis para obtener información sobre los datos a medida que llegan a la nube desde los dispositivos IoT. Con Azure IoT Edge, puede tomar la lógica de [Azure Stream Analytics](../stream-analytics/index.yml) y llevarla al propio dispositivo. Al procesar los flujos de telemetría en el perímetro, puede reducir la cantidad de datos cargados y reducir el tiempo que se tarda en reaccionar ante la información procesable.
 
@@ -64,7 +66,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 
 1. Especifique los siguientes valores para crear una cuenta de almacenamiento:
 
-   | Campo | Value |
+   | Campo | Valor |
    | ----- | ----- |
    | Suscripción | Elija la misma suscripción que IoT Hub. |
    | Resource group | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |

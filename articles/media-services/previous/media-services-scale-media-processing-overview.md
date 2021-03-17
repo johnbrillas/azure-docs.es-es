@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5353cf841663d70f2fce6662964358b7828610d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0692996c27f969ffc90078db2ddcc849ee15ab1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020902"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012724"
 ---
 # <a name="media-reserved-units"></a>Unidades reservadas de multimedia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Azure Media Services permite escalar el procesamiento de elementos multimedia mediante la administración de unidades reservadas de multimedia (MRU). Una MRU proporciona la capacidad informática adicional necesaria para codificar elementos multimedia. El número de MRU determina la velocidad con la que se procesan las tareas multimedia y el número de tareas multimedia que se pueden procesar a la vez en una cuenta. Por ejemplo, si la cuenta tiene cinco MRU y hay tareas que procesar, se pueden ejecutar cinco tareas multimedia a la vez. El resto de tareas esperan en una cola y se pueden elegir para procesarse secuencialmente cuando termina la tarea en ejecución. Cada MRU que se aprovisiona se traduce en una reserva de capacidad, pero no proporciona recursos dedicados. Durante períodos de demanda extremadamente alta, puede que todas las MRU no empiecen a procesarse de inmediato.
+Azure Media Services permite escalar el procesamiento de elementos multimedia mediante la administración de unidades reservadas de multimedia (MRU). Una MRU proporciona capacidad informática adicional necesaria para codificar los elementos multimedia. El número de MRU determina la velocidad con la que se procesan las tareas multimedia y el número de tareas multimedia que se pueden procesar a la vez en una cuenta. Por ejemplo, si su cuenta tiene cinco MRU y hay tareas que procesar, se pueden ejecutar cinco tareas multimedia a la vez. El resto de tareas esperarán en la cola y se elegirán para el procesamiento secuencialmente cuando finalice la tarea en ejecución. Cada MRU que aprovisione tiene como resultado una reserva de capacidad, pero no proporciona recursos dedicados. Durante períodos de demanda extremadamente alta, puede que todas las MRU no empiecen a procesarse de inmediato.
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>Selección de los distintos tipos de unidad reservada
 
-Con esta tabla será más fácil tomar la decisión de elegir entre distintas velocidades de codificación.  En ella se muestra la duración de la codificación de un vídeo de 7 minutos y 1080 p en función de la MRU empleada.
+Con esta tabla será más fácil tomar la decisión de elegir entre distintas velocidades de codificación.  En ella se muestra la duración de la codificación de un vídeo de 7 minutos y 1080p en función de la MRU utilizada.
 
 |Tipo de RU|Escenario|Resultados de ejemplo para el vídeo de 7 min y 1080 p |
 |---|---|---|
@@ -37,12 +37,12 @@ Con esta tabla será más fácil tomar la decisión de elegir entre distintas ve
 | **S3**|Codificación con velocidad de bits sencilla y múltiple.<br/>Vídeos con resolución Full HD y 4K. Codificación con respuesta más rápida, sujeta a limitación temporal.|La codificación con el valor predeterminado "H264 Single Bitrate 1080p" tardará aproximadamente 3 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 1080p" tarda aproximadamente 8 minutos.|
 
 > [!NOTE]
-> Si no aprovisiona MRU para la cuenta, las tareas multimedia se procesan con el rendimiento de una MRU S1 y las tareas se seleccionan de manera secuencial. Como no se reserva capacidad de procesamiento, el tiempo de espera entre una tarea que finaliza y otra que empieza depende de la disponibilidad de recursos en el sistema.
+> Si no aprovisiona MRU para su cuenta, las tareas multimedia se procesarán con el rendimiento de una MRU S1 y las tareas se seleccionarán de manera secuencial. Como no se reserva capacidad de procesamiento, el tiempo de espera entre una tarea que finaliza y otra que empieza dependerá de la disponibilidad de los recursos del sistema.
 
 ## <a name="considerations"></a>Consideraciones
 
-* En los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer se recomienda encarecidamente aprovisionar la cuenta con diez unidades S3. Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
-* En el caso de las tareas de codificación que no tienen MRU, no hay ningún límite superior con respecto al tiempo que las tareas pueden pasar en cola y, como máximo, solo una tarea se ejecuta a la vez.
+* Para los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda encarecidamente aprovisionar la cuenta con diez MRU S3. Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
+* En el caso de las tareas de codificación que no tienen MRU, no hay ningún límite superior con respecto al tiempo que las tareas pueden pasar en estado en cola y, como máximo, solo una tarea se ejecutará a la vez.
 
 ## <a name="billing"></a>Facturación
 

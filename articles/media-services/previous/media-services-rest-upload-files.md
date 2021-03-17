@@ -3,7 +3,7 @@ title: Carga de archivos en una cuenta de Azure Media Services mediante REST | M
 description: Aprenda a incorporar contenido multimedia en Media Services mediante la creación y carga de recursos con REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042982"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012945"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 
@@ -90,7 +90,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
         ]
     }
     ```
-4. En la parte izquierda de la ventana **Postman** , haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)**  -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)** .
+4. En la parte izquierda de la ventana **Postman**, haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)**  -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)** .
 
     La parte de la dirección URL se rellena con la variable de entorno **AzureADSTSEndpoint** (anteriormente en el tutorial estableció los valores de las variables de entorno para que admiten la colección).
 
@@ -192,8 +192,8 @@ Creación y configuración de una nueva solicitud:
 1. Presione **+** para crear una nueva pestaña de solicitud.
 2. Seleccione la operación **PUT** y pegue **{{UploadURL}}** en la dirección URL.
 2. Deje la pestaña **Autorización** tal cual (no la establezca en **Bearer Token [Token de portador]** ).
-3. En la pestaña **Encabezados** especifique: **Clave** : "x-ms-blob-type" y **Valor** : "BlockBlob".
-2. En la pestaña **Cuerpo** , haga clic en **binario**.
+3. En la pestaña **Encabezados** especifique: **Clave**: "x-ms-blob-type" y **Valor**: "BlockBlob".
+2. En la pestaña **Cuerpo**, haga clic en **binario**.
 4. Elija el archivo con el nombre que especificó en la variable de entorno **MediaFileName**.
 5. Presione **Enviar**.
 

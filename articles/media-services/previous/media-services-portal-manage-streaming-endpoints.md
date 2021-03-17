@@ -3,7 +3,7 @@ title: Administración de puntos de conexión de streaming con Azure Portal | Mi
 description: En este artículo se muestra cómo administrar los puntos de conexión de streaming mediante Azure Portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: bda244267e81d959abbc4ae0a8532ddce68d5726
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041979"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017399"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure
 
@@ -38,7 +38,7 @@ Para obtener información sobre cómo escalar el punto de conexión de streaming
 Para comenzar a administrar puntos de conexión de streaming de su cuenta, haga lo siguiente.
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
-2. En la hoja **Configuración** , haga clic en **Puntos de conexión de streaming**.
+2. En la hoja **Configuración**, haga clic en **Puntos de conexión de streaming**.
    
     ![Captura de pantalla que muestra la página "Media Services" con "Puntos de conexión de streaming" seleccionado en la hoja "Configuración".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
@@ -99,7 +99,7 @@ Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de co
 
 La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto las regiones de China y el Gobierno Federal.
 
-Una vez habilitada, la configuración de **Access Control** , del **nombre de host personalizado y de la **autenticación de firma de Akamai** se deshabilita.
+Una vez habilitada, la configuración de **Access Control**, del **nombre de host personalizado y de la **autenticación de firma de Akamai** se deshabilita.
  
 > [!IMPORTANT]
 > La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. Para obtener más información sobre las características de Azure CDN, consulte la [información general de la red CDN](../../cdn/cdn-overview.md).
