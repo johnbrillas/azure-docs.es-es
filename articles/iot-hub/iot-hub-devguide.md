@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735929"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009205"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador de Azure IoT Hub
 
@@ -56,7 +56,7 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 
 * En [Control de acceso a IoT Hub](iot-hub-devguide-security.md) se describe el modelo de seguridad que se usa para conceder acceso a las funciones de IoT Hub tanto para los dispositivos como para los componentes de la nube. El artículo incluye información acerca del uso de tokens y certificados X.509, y los detalles de los permisos que puede conceder.
 
-* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo* . En el artículo también se describe la funcionalidad que los dispositivos gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
+* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo*. En el artículo también se describe la funcionalidad que los dispositivos gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
 
 * En [Invocación de un método directo en un dispositivo](iot-hub-devguide-direct-methods.md) se describe el ciclo de vida de un método directo. En el artículo se describe cómo invocar métodos en un dispositivo desde la aplicación de back-end y cómo controlar el método directo en el dispositivo.
 
@@ -68,12 +68,10 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 
 * [Referencia: lenguaje de consulta para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md): describe el lenguaje de consulta de IoT Hub que le permite recuperar información desde su instancia de IoT Hub sobre los dispositivos gemelos y los trabajos.
 
-* [Referencia: cuotas y limitaciones](iot-hub-devguide-quotas-throttling.md): resume las cuotas establecidas en el servicio de IoT Hub y la limitación que se produce cuando supera una cuota.
+* En [Referencia: cuotas y limitaciones](iot-hub-devguide-quotas-throttling.md) se resumen las cuotas establecidas en el servicio de IoT Hub y la limitación que se produce cuando supera una cuota.
 
 * [Referencia: precios](iot-hub-devguide-pricing.md): proporciona información general sobre diferentes SKU y precios para IoT Hub y detalles sobre cómo las distintas funciones se miden como mensajes en IoT Hub.
 
-* [Referencia: SDK de servicio y de dispositivo](iot-hub-devguide-sdks.md): muestra los diversos SDK de Azure IoT para desarrollar aplicaciones de dispositivo y de servicio que interactúen con su IoT Hub. El artículo incluye vínculos a documentación de la API en línea.
+* En [Referencia: SDK de servicio y de dispositivo](iot-hub-devguide-sdks.md) se muestran los diversos SDK de Azure IoT para desarrollar aplicaciones de dispositivo y de servicio que interactúen con su IoT Hub. El artículo incluye vínculos a documentación de la API en línea.
 
 * [Referencia: compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md): proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT. En el artículo se describe la compatibilidad con el protocolo MQTT integrado en los SDK de IoT de Azure y se proporciona información acerca de cómo utilizar el protocolo MQTT directamente.
-
-* [Glosario](iot-hub-devguide-glossary.md): una lista de términos habituales relacionados con IoT Hub.

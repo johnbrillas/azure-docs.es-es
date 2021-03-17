@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633185"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201599"
 ---
 # <a name="monitor-module-twins"></a>Supervisión de módulos gemelos
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Los módulos gemelos de Azure IoT Hub permiten supervisar la conectividad y el estado de las implementaciones de IoT Edge. Los módulos gemelos almacenan información útil en su centro de IoT sobre el rendimiento de los módulos en ejecución. Los módulos del entorno de ejecución [Agente de IoT Edge](iot-edge-runtime.md#iot-edge-agent) y [Centro de IoT Edge](iot-edge-runtime.md#iot-edge-hub) mantienen cada uno sus módulos gemelos, `$edgeAgent` y `$edgeHub`, respectivamente:
 

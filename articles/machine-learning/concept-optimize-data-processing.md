@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 77edac14ef13901725eed656835e1a937d4f4ddf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360826"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472212"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimización del procesamiento de datos con Azure Machine Learning
 
@@ -64,9 +64,9 @@ Si no puede agregar más RAM a la máquina, puede aplicar las técnicas siguient
 
 Técnica | Descripción
 ----|----
-Compresión | Use una representación diferente para los datos, de forma que use menos memoria y no afecte significativamente a los resultados del cálculo.<br><br>*Ejemplo* : En lugar de almacenar las entradas como cadena con unos 10 bytes o más por cada entrada, guárdelas como valor booleano, true o false, que puede almacenar en 1 byte.
-Fragmentación | Cargue datos en la memoria en subconjuntos (fragmentos), y procesar los datos de a un subconjunto a la vez, o varios subconjuntos en paralelo. Este método funciona mejor si tiene que procesar todos los datos, pero no necesita cargar en la memoria todos los datos a la vez. <br><br>*Ejemplo* : En lugar de procesar a la vez los datos de todo un año, cargue y procese los datos un mes cada vez.
-Indización | Aplique y usa un índice, un resumen que le indica dónde encontrar los datos que le interesan. La indexación es útil cuando solo necesita usar un subconjunto de los datos, en lugar del conjunto completo.<br><br>*Ejemplo* : Si tiene datos de ventas de todo un año ordenados por mes, un índice le ayuda a buscar rápidamente el mes deseado que quiere procesar.
+Compresión | Use una representación diferente para los datos, de forma que use menos memoria y no afecte significativamente a los resultados del cálculo.<br><br>*Ejemplo*: En lugar de almacenar las entradas como cadena con unos 10 bytes o más por cada entrada, guárdelas como valor booleano, true o false, que puede almacenar en 1 byte.
+Fragmentación | Cargue datos en la memoria en subconjuntos (fragmentos), y procesar los datos de a un subconjunto a la vez, o varios subconjuntos en paralelo. Este método funciona mejor si tiene que procesar todos los datos, pero no necesita cargar en la memoria todos los datos a la vez. <br><br>*Ejemplo*: En lugar de procesar a la vez los datos de todo un año, cargue y procese los datos un mes cada vez.
+Indización | Aplique y usa un índice, un resumen que le indica dónde encontrar los datos que le interesan. La indexación es útil cuando solo necesita usar un subconjunto de los datos, en lugar del conjunto completo.<br><br>*Ejemplo*: Si tiene datos de ventas de todo un año ordenados por mes, un índice le ayuda a buscar rápidamente el mes deseado que quiere procesar.
 
 ## <a name="scale-data-processing"></a>Escalado del procesamiento de datos
 
@@ -86,8 +86,6 @@ Si está familiarizado con `Pandas`| Dataframe `Modin` o `Dask`
 Si prefiere `Spark` | `PySpark`
 Para menos de 1 GB | `Pandas` localmente **o** una instancia de proceso de Azure Machine Learning
 Para datos de más de 10 GB| Muévase a un clúster mediante `Ray`, `Dask`o `Spark`
-
-Puede crear clústeres de `Dask` en el clúster de proceso de Azure Machine Learning con el paquete [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure). O bien, puede ejecutar `Dask` localmente en una instancia de proceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

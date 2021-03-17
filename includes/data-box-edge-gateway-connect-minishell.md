@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 10c1680afd6cd6673efe3fe9d2397a0dc6a04859
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 881d22592e57ef14885eedf2330c71ffa154a136
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738969"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603309"
 ---
 Dependiendo del sistema operativo del cliente, los procedimientos para conectarse de forma remota al dispositivo son diferentes.
 
@@ -60,17 +60,17 @@ Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
 
 En el cliente de Linux que usará para conectarse:
 
-- [Instale la versión más reciente de PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) desde GitHub para obtener la característica de comunicación remota SSH. 
+- [Instale la versión más reciente de PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux) desde GitHub para obtener la característica de comunicación remota SSH. 
 - [Instale solo el paquete `gss-ntlmssp` desde el módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para los clientes de Ubuntu, use el siguiente comando:
     - `sudo apt-get install gss-ntlmssp`
 
-Para más información, vaya a [Comunicación remota de PowerShell a través de SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Para más información, vaya a [Comunicación remota de PowerShell a través de SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Siga estos pasos para conectarse de forma remota desde un cliente NFS.
 
 1. Para abrir la sesión de PowerShell, escriba:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. Para conectarse mediante el cliente remoto, escriba:
 

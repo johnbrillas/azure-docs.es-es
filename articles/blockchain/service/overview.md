@@ -1,15 +1,15 @@
 ---
 title: Introducción a Azure Blockchain Service
 description: Introducción a Azure Blockchain Service
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963885"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573632"
 ---
 # <a name="what-is-azure-blockchain-service"></a>¿Qué es Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ Azure Blockchain Service es un servicio de libro de contabilidad totalmente admi
 * Administración de consorcios integrada
 * Desarrollo de contratos inteligentes con herramientas de desarrollo conocidas
 
-Azure Blockchain Service está diseñado para admitir varios protocolos de libro de contabilidad. Actualmente, ofrece compatibilidad con el libro de contabilidad [Quorum](https://www.goquorum.com/) de Ethereum mediante el mecanismo de consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Azure Blockchain Service está diseñado para admitir varios protocolos de libro de contabilidad. Actualmente, ofrece compatibilidad con el libro de contabilidad [Quorum](https://www.goquorum.com/) de Ethereum mediante el mecanismo de consenso [Istanbul Byzantine Fault Tolerance (IBFT)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/).
 
 Estas funcionalidades no requieren casi ninguna tarea de administración y todas se proporcionan sin ningún costo adicional. Puede centrarse en el desarrollo de aplicaciones y la lógica empresarial en lugar de asignar tiempo y recursos a la administración de máquinas virtuales e infraestructura. Además, puede seguir desarrollando la aplicación con las herramientas de código abierto y en la plataforma que prefiera para ofrecer sus soluciones sin necesidad de adquirir nuevas aptitudes.
 

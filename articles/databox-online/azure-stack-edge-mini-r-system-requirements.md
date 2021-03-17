@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834075"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634199"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Mini R
 
@@ -38,7 +38,7 @@ Los requisitos del sistema de Azure Stack Edge Mini R son los siguientes:
 
 ## <a name="supported-edge-storage-accounts"></a>Cuentas admitidas de almacenamiento de Edge
 
-Se admiten las siguientes cuentas de almacenamiento de Edge con la interfaz de REST del dispositivo. Las cuentas de almacenamiento de Edge se crean en el dispositivo. Para obtener más información, consulte [Cuentas de almacenamiento de Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+Se admiten las siguientes cuentas de almacenamiento de Edge con la interfaz de REST del dispositivo. Las cuentas de almacenamiento de Edge se crean en el dispositivo. Para obtener más información, consulte [Cuentas de almacenamiento de Edge](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Tipo  |Cuenta de almacenamiento  |Comentarios  |
 |---------|---------|---------|

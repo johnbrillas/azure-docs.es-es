@@ -6,16 +6,16 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 391bc24b8468281c0a9e9fd287a0a3ac3d3380b2
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6b75548d6fce7539c2eeb71523a5a045b0b6607b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510927"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495357"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +44,7 @@ Abra el archivo **pom.xml** en el editor de texto. Agregue el siguiente elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 ```
 
@@ -60,13 +60,18 @@ Desde el directorio del proyecto:
 Use el código siguiente para empezar:
 
 ```java
-import com.azure.communication.identity.*;
-import com.azure.communication.common.*;
-import java.io.*;
-import java.util.*;
-import java.time.*;
+package com.communication.quickstart;
 
+import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.core.credential.*;
 import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+
+import java.io.IOException;
+import java.time.*;
+import java.util.*;
 
 public class App
 {
@@ -97,10 +102,10 @@ String accessKey = "SECRET";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .endpoint(endpoint)
-    .accessKey(accessKey)
-    .httpClient(httpClient)
-    .buildClient();
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accessKey))
+        .httpClient(httpClient)
+        .buildClient();
 ```
 
 Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](/java/api/overview/azure/core-http-netty-readme) proporcionado por `azure-core`.
@@ -109,6 +114,8 @@ También puede proporcionar toda la cadena de conexión mediante la función `co
 ```java
 // Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
     .httpClient(httpClient)
@@ -130,7 +137,7 @@ Use el método `getToken` para emitir un token de acceso para la identidad de Co
 
 ```java
 // Issue an access token with the "voip" scope for a user identity
-List<String> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
+List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
 AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
 OffsetDateTime expiresAt = accessToken.getExpiresAt();
 String token = accessToken.getToken();
@@ -143,7 +150,7 @@ También puede usar el método "createUserAndToken" para crear una entrada nueva
 
 ```java
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
-CommunicationUserIdentifierWithTokenResult result = client.createUserAndToken(scopes);
+CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();
 System.out.println("\nCreated a user identity with ID: " + user.getId());
 AccessToken accessToken = result.getUserToken();
@@ -161,7 +168,7 @@ Para actualizar un token de acceso, use el objeto `CommunicationUserIdentifier` 
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
-response = communicationIdentityClient.getToken(identity, scopes);
+AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 
 ## <a name="revoke-access-tokens"></a>Revocación de los tokens de acceso

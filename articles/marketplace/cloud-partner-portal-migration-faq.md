@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880345"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613619"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -22,7 +22,7 @@ Cloud Partner Portal se ha convertido en el Centro de partners. El Centro de par
 
 Puede seguir haciendo negocios en el Centro de partners:
 
-| Área<img src="" width=200px> | Cambios |
+| Área | Cambios |
 | --- | --- |
 | Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md). |
 | Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
@@ -41,7 +41,7 @@ No, la cuenta actual se conservará. Esto significa que, si ya es un partner, pu
 
 A continuación se muestran vínculos del Centro de partners de páginas que se suelen usar en Cloud Partner Portal. Si ha guardado como favoritos los vínculos de Cloud Partner Portal, le interesará actualizarlos.
 
-| Página de Cloud Partner Portal <img src="" width=100px>| Vínculo de página de Cloud Partner Portal | Vínculo de página del Centro de partners |
+| Página de Cloud Partner Portal | Vínculo de página de Cloud Partner Portal | Vínculo de página del Centro de partners |
 | --- | --- | --- |
 | Página Todas las ofertas | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | Página Todos los publicadores | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -75,7 +75,7 @@ Todos los tipos de oferta admitidos anteriormente en Cloud Partner Portal se adm
 
 En el caso de los tipos de oferta admitidos en el Centro de partners, todas las ofertas se han movido con independencia de su estado; también se han movido las ofertas borrador, las eliminadas de la lista y las de versión preliminar.
 
-| Tipo de oferta <img src="" width=150px>| ¿Se ha movido al Centro de partners? <img src="" width=100px>| Pasos siguientes |
+| Tipo de oferta | ¿Se ha movido al Centro de partners? | Pasos siguientes |
 | --- | --- | --- |
 | SaaS | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en [Planeamiento de una oferta de SaaS en el marketplace comercial](plan-saas-offer.md). |
 | Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en el artículo sobre la [planificación de ofertas de máquina virtual](marketplace-virtual-machines.md). |
@@ -181,7 +181,7 @@ Puede solicitar [dejar de vender una oferta](partner-center-portal/update-existi
 
 Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando. La transición al Centro de partners presenta pequeños cambios. Revise la tabla siguiente para asegurarse de que el código sigue funcionando en el Centro de partners.
 
-| API <img src="" width=100px>| Descripción del cambio | Impacto |
+| API | Descripción del cambio | Impacto |
 | --- | --- | --- |
 | POST Publish, GoLive, Cancel | En el caso de las ofertas migradas, el encabezado de respuesta tendrá un formato diferente, pero continuará funcionando de la misma manera, lo que denota una ruta de acceso relativa para recuperar el estado de la operación. | Al enviar cualquiera de las solicitudes POST correspondientes para una oferta, el encabezado de ubicación tendrá uno de los dos formatos, según el estado de migración de la oferta: <ul><li>Ofertas no migradas: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operación GET | En el caso de las ofertas que anteriormente admitían un campo "Dirección de correo electrónico para notificaciones" en la respuesta, este campo quedará en desuso y ya no se devolverá para las ofertas migradas. | En el caso de las ofertas migradas, ya no se enviarán notificaciones a la lista de correos electrónicos especificados en las solicitudes. En su lugar, el servicio de API se alineará con el proceso de correo electrónico de notificaciones del Centro de partners para enviar correos electrónicos. En concreto, las notificaciones del progreso de la operación se enviarán a la dirección de correo electrónico establecida en la sección de información de contacto del vendedor de la configuración de la cuenta en el Centro de partners.<br><br>Asegúrese de que la dirección de correo electrónico establecida en la sección de información de contacto del vendedor en la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/management) en el Centro de partners es la correcta para recibir notificaciones. |

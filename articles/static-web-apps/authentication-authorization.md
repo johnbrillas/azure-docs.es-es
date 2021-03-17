@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826547"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419293"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticación y autorización para Azure Static Web Apps (versión preliminar)
 
@@ -145,19 +145,18 @@ Por ejemplo, para iniciar sesión con GitHub, podría incluir un vínculo de ini
 
 Si decide admitir más de un proveedor, debe exponer un vínculo específico del proveedor para cada uno en su sitio web.
 
-Puede usar una [regla de ruta](routes.md) para asignar un proveedor predeterminado a una ruta descriptiva, como _/login_.
+Puede usar una [regla de ruta](./configuration.md#routes) para asignar un proveedor predeterminado a una ruta descriptiva, como _/login_.
 
 ```json
 {
   "route": "/login",
-  "serve": "/.auth/login/github"
+  "redirect": "/.auth/login/github"
 }
 ```
 
 ### <a name="post-login-redirect"></a>Redireccionamiento posterior al inicio de sesión
 
 Si quiere que un usuario vuelva a una página específica después de iniciar sesión, proporcione una dirección URL en el parámetro de cadena de consulta `post_login_redirect_uri`.
-
 
 ## <a name="logout"></a>Logout
 
@@ -167,12 +166,12 @@ La ruta `/.auth/logout` cierra la sesión de los usuarios en el sitio web. Puede
 <a href="/.auth/logout">Log out</a>
 ```
 
-Puede usar una [regla de ruta](routes.md) para asignar una ruta descriptiva, como _/logout_.
+Puede usar una [regla de ruta](./configuration.md#routes) para asignar una ruta descriptiva, como _/logout_.
 
 ```json
 {
   "route": "/logout",
-  "serve": "/.auth/logout"
+  "redirect": "/.auth/logout"
 }
 ```
 

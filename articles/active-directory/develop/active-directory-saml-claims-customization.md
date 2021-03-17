@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102706"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600956"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -71,7 +71,7 @@ Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID)
 |------|-------------|
 | Email | Dirección de correo electrónico del usuario |
 | userprincipalName | Nombre principal de usuario (UPN) del usuario. |
-| onpremisessamaccount | Nombre de cuenta SAM que se ha sincronizado desde Azure AD local. |
+| onpremisessamaccountname | Nombre de cuenta SAM que se ha sincronizado desde Azure AD local. |
 | objectid | ObjectId del usuario en Azure AD |
 | employeeid | Id. de empleado del usuario |
 | Sincronización de Azure AD Connect: Extensiones de directorio | Extensiones de directorio [sincronizadas desde Active Directory local con Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |

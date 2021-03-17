@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393860"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417678"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -39,7 +39,8 @@ Para confirmar si se está limitando el recurso compartido, puede acceder y usar
     Si se limita una solicitud en los recursos compartidos de archivos estándar, se registran los siguientes tipos de respuesta:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Si se limita una solicitud en los recursos compartidos de archivos prémium, se registran los siguientes tipos de respuesta:
 
@@ -50,7 +51,7 @@ Para confirmar si se está limitando el recurso compartido, puede acceder y usar
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Para más información sobre cada tipo de respuesta, consulte [Dimensiones de métricas](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Para más información sobre cada tipo de respuesta, consulte [Dimensiones de métricas](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Captura de pantalla de las opciones de métricas para recursos compartidos de archivos Premium que muestra un filtro de propiedad "Tipo de respuesta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -239,14 +240,15 @@ Para confirmarlo, puede usar las métricas de Azure en el portal:
 4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
 6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
-7. Haga clic en la lista desplegable **Valores de la dimensión** y seleccione los tipos de respuesta adecuados para el recurso compartido de archivos.
+7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los tipos de respuesta adecuados para el recurso compartido de archivos.
 
-    Para los recursos compartidos de archivos estándar, seleccione los siguientes tipos de respuesta:
+    Para recursos compartidos de archivos estándar, seleccione los siguientes tipos de respuesta:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
-    Para los recursos compartidos de archivos prémium, seleccione los siguientes tipos de respuesta:
+    Para recursos compartidos de archivos prémium, seleccione los siguientes tipos de respuesta:
 
     - SuccessWithShareEgressThrottling
     - SuccessWithShareIngressThrottling
@@ -256,21 +258,20 @@ Para confirmarlo, puede usar las métricas de Azure en el portal:
     - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Si los tipos de respuesta no aparecen en la lista desplegable **Valores de la dimensión**, significa que el recurso no se ha limitado. Para agregar los valores de dimensión, junto a la lista desplegable **Valores de la dimensión**, seleccione **Agregar valor personalizado**, especifique el tipo de respuesta (por ejemplo, **SuccessWithThrottling**), elija **Aceptar** y repita estos pasos para agregar todos los tipos de respuesta aplicables para el recurso compartido de archivos.
+   > Si los tipos de respuesta no aparecen en la lista desplegable **Valores de dimensión**, significa que el recurso no se ha limitado. Para agregar los valores de dimensión, junto a la lista desplegable **Valores de dimensión**, seleccione **Agregar valor personalizado**, escriba el tipo de respuesta (por ejemplo, **SuccessWithThrottling**), seleccione **Aceptar** y repita estos pasos para agregar todos los tipos de respuesta correspondientes para el recurso compartido de archivos.
 
-8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
-9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
-
+8. Para **recursos compartidos de archivos prémium**, haga clic en el menú desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**. En el caso de **recursos compartidos de archivos estándar**, vaya al **paso n.º 10**.
 
    > [!NOTE]
-   > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+   > Si el recurso compartido de archivos es estándar, en la dimensión **Recurso compartido de archivos** no se mostrarán los recursos compartidos de archivo porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
 
+9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
 10. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 
     > [!TIP]
     > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
-11. Haga clic en **Add action groups** (Agregar grupo de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta; para ello, seleccione un grupo de acciones existente o cree uno.
+11. Haga clic en **Add action groups** (Agregar grupos de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
 12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 

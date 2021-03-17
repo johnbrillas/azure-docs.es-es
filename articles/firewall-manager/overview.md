@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132450"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573462"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -88,7 +88,6 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Error en la incorporación en masa de direcciones IP|El firewall del centro de conectividad seguro pasa al estado con errores si se agregan varias direcciones IP públicas.|Agregue incrementos menores de direcciones IP públicas. Por ejemplo, agréguelas de 10 en 10.|
 |La versión Estándar de DDoS Protection no es compatible con los centros virtuales protegidos|La versión Estándar de DDoS Protection no se integra con las vWAN.|Investigando|
 |Los registros de actividad no son totalmente compatibles|La directiva de firewall no admite actualmente registros de actividad.|Investigando|
-|Configuración de intervalos de direcciones IP privadas de SNAT|Los [valores de intervalo IP privado](../firewall/snat-private-range.md) se omiten si está configurada una directiva de Azure Firewall. Se usa el comportamiento predeterminado de Azure Firewall, de modo que no se aplica SNAT en las reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918).|Investigando|
 |Algunas configuraciones de firewall no se migran cuando se migra el firewall para usar la directiva de firewall|Las zonas de disponibilidad y las direcciones privadas SNAT no se migran al migrar a la directiva de Azure Firewall.|Investigando| 
 
 ## <a name="next-steps"></a>Pasos siguientes

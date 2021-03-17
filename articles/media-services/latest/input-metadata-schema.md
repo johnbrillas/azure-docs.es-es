@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360061"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634692"
 ---
 # <a name="input-metadata"></a>Metadatos de entrada
 
@@ -39,9 +39,7 @@ Puede encontrar el ejemplo de esquema JSON al final de este artículo.
 Contiene una colección de elementos AssetFile para el trabajo de codificación.  
 
 > [!NOTE]
-> Los cuatro elementos secundarios siguientes deben aparecer en secuencia.  
-> 
-> 
+> Los cuatro elementos secundarios siguientes deben aparecer en secuencia.
 
 | Nombre  | Descripción |
 | --- | --- | 
@@ -67,7 +65,7 @@ Contiene una colección de elementos AssetFile para el trabajo de codificación.
 
 | Nombre | Descripción |
 | --- | --- |
-| **FourCC**<br />Obligatorio |Código FourCC del códec de vídeo que ffmpeg notifica.<br /><br />Ejemplo: `"FourCC": "avc1"` |
+| **FourCC**<br />Obligatorio |Código FourCC del códec de vídeo que ffmpeg notifica.<br /><br />Ejemplo: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **Perfil** |Perfil de la pista de vídeo. <br /><br />Ejemplo: `"Profile": "Main"`|
 | **Level** |Nivel de la pista de vídeo. <br /><br />Ejemplo: `"Level": "3.2"`|
 | **PixelFormat** |Formato de píxel de la pista de vídeo. <br /><br />Ejemplo: `"PixelFormat": "yuv420p"`|
@@ -82,9 +80,9 @@ Contiene una colección de elementos AssetFile para el trabajo de codificación.
 | **HasBFrames** |Número de pista de vídeo de fotogramas B. <br /><br />Ejemplo: `"HasBFrames": 2`|
 | **Metadata** |Cadenas genéricas de clave-valor que sirven para almacenar información de diversa índole. <br />Vea el ejemplo completo al final del artículo. |
 | **Id**<br />Obligatorio |Índice de base cero de esta pista de audio o vídeo.<br /><br /> este **identificador** no es necesariamente el objeto TrackID que se usa en un archivo MP4. <br /><br />Ejemplo: `"Id": 2`|
-| **Codec** |Cadena de códec de pista de vídeo. <br /><br />Ejemplo: `"Codec": "h264"`|
+| **Codec** |Cadena de códec de pista de vídeo. <br /><br />Ejemplo: `"Codec": "h264 | hev1"`|
 | **CodecLongName** |Nombre largo del códec de pista de vídeo o audio. <br /><br />Ejemplo: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
-| **Codec** |Cadena de códec de pista de vídeo. <br /><br />Ejemplo: `"Codec": "h264"`|
+| **Codec** |Cadena de códec de pista de vídeo. <br /><br />Ejemplo: `"Codec": "h264 | hev1"`|
 | **TimeBase**<br />Obligatorio |Base de tiempo.<br /><br />Ejemplo: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Número de fotogramas (presente para pistas de vídeo). <br /><br />Ejemplo: `"NumberOfFrames": 2107`|
 | **StartTime** |Hora de inicio de la pista.<br /><br />Ejemplo: `"StartTime": "PT0.033S"` |
