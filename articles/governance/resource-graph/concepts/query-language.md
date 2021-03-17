@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624765"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633808"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -32,7 +32,9 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |ResourceContainers |Sí |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
 |AlertsManagementResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|ExtendedLocationResources |No |Incluye recursos _relacionados_ con `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Parcial, solo conectar _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Incluye los recursos _relacionados_ con la evaluación de revisiones de Azure Virtual Machines. |
 |PatchInstallationResources|No |Incluye los recursos _relacionados_ con la instalación de revisiones de Azure Virtual Machines. |
@@ -40,6 +42,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |RecoveryServicesResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.DataProtection` y `Microsoft.RecoveryServices`. |
 |SecurityResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Security`. |
 |ServiceHealthResources |No |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |No |Incluye recursos _relacionados_ con `Microsoft.WorkloadMonitor`. |
 
 Para ver una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).
 
