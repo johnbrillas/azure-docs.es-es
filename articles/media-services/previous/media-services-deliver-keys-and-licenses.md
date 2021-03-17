@@ -3,7 +3,7 @@ title: Uso de Azure Media Services para entregar licencias de DRM a claves de AE
 description: En este artículo se describe cómo puede utilizar Azure Media Services para proporcionar licencias de PlayReady y Widevine y claves de AES, pero realizar el resto (codificación, cifrado y streaming) con los servidores locales.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693655"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465715"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Media Services para entregar licencias de DRM a claves AES
 
@@ -41,9 +41,6 @@ Media Services admite varias formas de autorizar a los usuarios que realizan sol
 El siguiente diagrama muestra los pasos principales que debe llevar a cabo con el fin de usar Media Services para entregar licencias de PlayReady y/o Widevine, pero realizar el resto con los servidores locales:
 
 ![Protección con PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
-
-## <a name="download-sample"></a>Descarga de un ejemplo
-Para descargar el ejemplo que se describe en este artículo, consulte [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses) (Uso de Azure Media Services para entregar licencias de PlayReady y/o Widevine con .NET).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
 

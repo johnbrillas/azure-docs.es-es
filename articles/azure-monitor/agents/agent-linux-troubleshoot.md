@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 202182d6485bc340a7f9bb34622e483dcc9ff891
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f8558644fc24f3190247e57b4de7228af161a2a8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041882"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631173"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -82,7 +82,7 @@ Hemos visto que una reinstalación limpia del agente corregirá la mayoría de l
 
  >[!NOTE]
  >Edición de archivos de configuración para los contadores de rendimiento, y Syslog se sobrescribe si la colección se configura desde el [menú de datos Configuración avanzada de Log Analytics](../agents/agent-data-sources.md#configuring-data-sources) en Azure Portal para el área de trabajo. Para deshabilitar la configuración para todos los agentes, deshabilite la colección de **Configuración avanzada** de Log Analytics o, para un único agente, ejecute lo siguiente:  
-> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+> `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
 ## <a name="installation-error-codes"></a>Códigos de error de instalación
 

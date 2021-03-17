@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7206ebfc1ad44f4deb2e98ddbeba633463f17ee5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c28ed042156865c52607ce031507c696f28b4e7c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562289"
+ms.locfileid: "102617308"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -24,7 +24,7 @@ Las máquinas virtuales de la serie NCv3 disponen de la tecnología de las GPU N
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
-[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 Interconexión de Nvidia NVLink: No compatible<br>
 
 > [!IMPORTANT]

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547255"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611970"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Procedimientos recomendados para compilar una aplicación con Azure Database for MySQL 
 
@@ -76,7 +76,7 @@ Observará un retraso entre el servidor de origen y la réplica, ya que la repli
 ## <a name="database-deployment"></a>Implementación de bases de datos 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configuración de una tarea de Azure Database for MySQL en la canalización de implementación de CI/CD
-En ocasiones, es necesario implementar cambios en la base de datos. En tales casos, puede usar la integración continua (CI) y la entrega continua (CD) mediante [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) y emplear una tarea para que el [servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) actualice la base de datos mediante la ejecución de un script personalizado en ella.
+En ocasiones, es necesario implementar cambios en la base de datos. En tales casos, puede usar la integración continua (CI) y la entrega continua (CD) mediante [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) y emplear una tarea para que el [servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) actualice la base de datos mediante la ejecución de un script personalizado en ella.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Uso de un proceso eficaz para la implementación manual de bases de datos 
 Durante la implementación manual de bases de datos, siga estos pasos para minimizar el tiempo de inactividad o reducir el riesgo de implementaciones con errores: 

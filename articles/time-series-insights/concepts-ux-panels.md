@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736859"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464095"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 
@@ -25,7 +25,7 @@ En este artículo se describen las distintas características y opciones disponi
 
 Para empezar a usar el Explorador de Azure Time Series Insights, debe hacer lo siguiente:
 
-* Tener aprovisionado un entorno de Azure Time Series Insights Gen2. Lea el tutorial de [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) para más información sobre el aprovisionamiento de una instancia.
+* Tener aprovisionado un entorno de Azure Time Series Insights Gen2. Lea el tutorial de [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md) para más información sobre el aprovisionamiento de una instancia.
 * [Proporcionar acceso a datos](./concepts-access-policies.md) al entorno de Azure Time Series Insights Gen2 que creó para la cuenta. Puede proporcionar acceso al resto de usuarios y a usted mismo.
 * Agregar un origen de eventos al entorno de Azure Time Series Insights Gen2 para insertar datos en el entorno:
   * Aprenda a [conectarse a un centro de eventos](./how-to-ingest-data-event-hub.md)
@@ -92,7 +92,7 @@ El cuadro muestra los campos de instancia y otros metadatos asociados con las in
 
 También puede eliminar elementos de datos específicos de su cuadro de datos actual seleccionando el control **Eliminar** (papelera de reciclaje) de color rojo a la izquierda del elemento. El cuadro le permite controlar el modo en que se muestra cada elemento en el gráfico. Puede optar por agregar sombras mínimas/máximas, puntos de datos, desplazar el elemento en el tiempo y visualizar la instancia de forma escalonada.
 
-Además, el control exploraciones le permite crear fácilmente turnos de tiempo y gráficos de dispersión.  
+Además, el control exploraciones le permite crear fácilmente turnos de tiempo y gráficos de dispersión.
 
   [![Opciones de diseño del cuadro](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 

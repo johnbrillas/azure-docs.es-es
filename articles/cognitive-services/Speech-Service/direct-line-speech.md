@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601123"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611800"
 ---
 # <a name="what-is-direct-line-speech"></a>¿Qué es Direct Line Speech?
 
@@ -60,11 +60,11 @@ Direct Line Speech y su funcionalidad asociada para los asistentes de voz consti
 ## <a name="reference-docs"></a>Documentos de referencia
 
 * [Acerca del SDK de Voz](./speech-sdk.md)
-* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot Service](/azure/bot-service/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)
 * [Obtención del SDK de voz](speech-sdk.md)
-* [Creación e implementación de un bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Creación e implementación de un bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 * [Obtención de la solución Virtual Assistant y la plantilla empresarial](https://github.com/Microsoft/AI)

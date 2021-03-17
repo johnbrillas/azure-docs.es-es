@@ -14,25 +14,25 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab5871749630b047f6498a2439f77693a999c798
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590749"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493941"
 ---
 # <a name="monitor-media-services-metrics"></a>Supervisión de las métricas de Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y entender por qué se recomienda usar las métricas y los registros de diagnóstico de Azure Media Services, consulte [Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor](media-services-metrics-diagnostic-logs.md).
+[Azure Monitor](../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y entender por qué se recomienda usar las métricas y los registros de diagnóstico de Azure Media Services, consulte [Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor](monitoring/monitor-media-services-data-reference.md).
 
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API REST o consultarlas mediante la CLI de Azure. En este artículo se muestra cómo supervisar las métricas con los gráficos de Azure Portal y la CLI de Azure.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Creación de una cuenta de Media Services](./create-account-howto.md)
-- Consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md)
+- Consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](monitoring/monitor-media-services-data-reference.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Visualización de métricas en Azure Portal
 
@@ -46,7 +46,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
     * &lt;Nombre de la cuenta de Media Services&gt;/&lt;nombre de punto de conexión de streaming&gt;
     * &lt;nombre de la cuenta de almacenamiento&gt;
 
-    Aplique un filtro, seleccione el recurso y pulse **Aplicar**. Para más información acerca de los recursos y métricas que se admiten, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
+    Aplique un filtro, seleccione el recurso y pulse **Aplicar**. Para más información acerca de los recursos y métricas que se admiten, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](monitoring/monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > Para cambiar entre los recursos que quiera supervisar, haga clic en el cuadro **Origen** y repita este paso.
