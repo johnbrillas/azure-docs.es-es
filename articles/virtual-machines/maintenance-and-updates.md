@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972074"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500009"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -23,7 +23,7 @@ Las actualizaciones raramente afectan a las máquinas virtuales hospedadas. Cuan
 - Si la actualización no requiere un reinicio, la máquina virtual se pone en pausa mientras se actualiza el host, o bien se migra directamente a un host ya actualizado. 
 - Si el mantenimiento requiere un reinicio, se notifica al usuario el mantenimiento planeado. Asimismo, Azure proporciona un período de tiempo en el que puede iniciar el mantenimiento a la hora que le sea más conveniente. El período de mantenimiento de autoservicio es normalmente de 35 días, a menos que el mantenimiento sea urgente. Azure está invirtiendo en tecnologías para reducir los casos en los que el mantenimiento planificado de la plataforma requiere el reinicio de la máquina virtual. Para obtener instrucciones sobre la administración del mantenimiento planeado, vea Control de las notificaciones de mantenimiento planeado mediante la [CLI](maintenance-notifications-cli.md) de Azure, [PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md).
 
-En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para obtener más información sobre eventos no planeados (interrupciones), vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./manage-availability.md) o el artículo correspondiente para [Linux](./manage-availability.md).
+En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para más información sobre eventos no planeados (interrupciones), consulte el artículo sobre la [administración de la disponibilidad de máquinas virtuales para Windows](./availability.md) o el artículo correspondiente para [Linux](./availability.md).
 
 Dentro de una máquina virtual, puede obtener una notificación sobre el próximo mantenimiento si [usa Scheduled Events para Windows](./windows/scheduled-events.md) o para [Linux](./linux/scheduled-events.md).
 
@@ -87,7 +87,7 @@ En un conjunto de disponibilidad, las máquinas virtuales individuales se repart
 
 Los *conjuntos de escalado* de máquinas virtuales son un recurso informático de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que sucede con los conjuntos de disponibilidad, cuando se usan conjuntos de escalado, solo un dominio de actualización se actualiza en un momento determinado durante el mantenimiento programado.
 
-Para obtener más información sobre la configuración de las máquinas virtuales para la alta disponibilidad, vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./manage-availability.md) o el artículo correspondiente para [Linux](./manage-availability.md).
+Para más información sobre la configuración de máquinas virtuales para alta disponibilidad, consulte el artículo sobre la [administración de la disponibilidad de las máquinas virtuales para Windows](./availability.md) o el artículo correspondiente para [Linux](./availability.md).
 
 #### <a name="availability-zones"></a>Zonas de disponibilidad
 

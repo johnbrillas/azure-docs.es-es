@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/07/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 25db4e7f3e4e1f7056979c4c40c6ffc61f340439
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: dd72865e35318c7ff43dc17b7c92b9cc2f3e9790
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345378"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436862"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>Notas de la versión de la versión preliminar de Azure Stack Edge Pro con GPU
+
+[!INCLUDE [applies-to-Pro-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 En las notas de la versión siguientes, se identifican las incidencias críticas pendientes y las resueltas de la versión preliminar de 2008 de los dispositivos Azure Stack Edge Pro con GPU.
 
 Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar el dispositivo Azure Stack Edge Pro, revise detenidamente la información que encontrará en las notas de la versión.
 
-Este artículo se aplica a la versión siguiente de software: **Azure Stack Edge Pro 2008**. 
+Este artículo se aplica a la versión siguiente de software: **Azure Stack Edge Pro 2008**.
 
 <!--- **2.1.1328.1904**-->
 
@@ -35,7 +37,7 @@ Se han agregado las características siguientes en la versión Azure Stack Edge�
 
 ## <a name="known-issues"></a>Problemas conocidos 
 
-En la tabla siguiente se proporciona un resumen de las incidencias conocidas del dispositivo Azure Stack Edge Pro.
+En la siguiente tabla se proporciona un resumen de las incidencias conocidas del dispositivo Azure Stack Edge Pro.
 
 | No. | Característica | Problema | Soluciones alternativas o comentarios |
 | --- | --- | --- | --- |
@@ -51,7 +53,7 @@ En la tabla siguiente se proporciona un resumen de las incidencias conocidas del
 |**10.**|Kubernetes |El puerto 31000 está reservado para el panel de Kubernetes. De forma similar, en la configuración predeterminada, las direcciones IP 172.28.0.1 y 172.28.0.10 se reservan para el servicio Kubernetes y el servicio DNS principal, respectivamente.|No use las direcciones IP reservadas.|
 |**11.**|Kubernetes |Actualmente, Kubernetes no permite servicios LoadBalancer con varios protocolos. Por ejemplo, un servicio DNS que tuviese que escuchar en TCP y UDP. |Para solucionar esta limitación de Kubernetes con MetalLB, se pueden crear dos servicios, uno para TCP y otro para UDP, en el mismo selector del pod. Estos servicios usan la misma clave de uso compartido y el mismo valor de spec.loadBalancerIP para compartir la misma dirección IP. También puede compartir las direcciones IP si tiene más servicios que direcciones IP disponibles. <br> Para obtener más información, consulte [Uso compartido de las direcciones IP](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Clúster de Kubernetes|Los módulos de Azure IoT Edge existentes en Marketplace no se ejecutarán en el clúster de Kubernetes como plataforma de hospedaje para IoT Edge en un dispositivo Azure Stack Edge.|Estos módulos deberán modificarse antes de implementarlos en el dispositivo Azure Stack Edge. Para más información, consulte el tema sobre modificación de los módulos de Azure IoT Edge de Marketplace para que se ejecuten en un dispositivo Azure Stack Edge.<!-- insert link-->|
-|**13.**|Kubernetes |En un dispositivo Azure Stack Edge, no se admiten los montajes de enlace basados en archivos con Azure IoT Edge en Kubernetes.|IoT Edge usa una capa de traducción para traducir las opciones `ContainerCreate` a construcciones de Kubernetes. La creación de asignaciones de `Binds` al directorio hostpath o esta creación y los posteriores montajes de los enlaces basados en archivos no se puede enlazar a rutas de acceso en los contenedores de IoT Edge.|
+|**13.**|Kubernetes |En un dispositivo Azure Stack Edge, no se admiten los montajes de enlace basados en archivos con Azure IoT Edge en Kubernetes.|IoT Edge usa una capa de traducción para traducir las opciones `ContainerCreate` a construcciones de Kubernetes. La creación de asignaciones de `Binds` al directorio `hostpath` o esta creación y los posteriores montajes de los enlaces basados en archivos no se pueden enlazar a rutas de acceso en los contenedores de IoT Edge.|
 |**14.**|Kubernetes |Si trae sus propios certificados para IoT Edge y los agrega en el dispositivo Azure Stack Edge, los nuevos certificados no se seleccionarán como parte de la actualización de los gráficos de Helm.|Para solucionar este problema, [conéctese a la interfaz de PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md). Reinicie los pods `iotedged` y `edgehub`.|
 |**15.**|Certificados |En determinados casos, el estado del certificado en la interfaz de usuario local puede tardar varios segundos en actualizarse. |Los escenarios siguientes en la interfaz de usuario local pueden verse afectados.<ul><li>La columna **Estado** en la página **Certificados**.</li><li>El icono **Seguridad** en la página de **Introducción**.</li><li>El icono **Configuración** en la página de **Información general**.</li></ul>  |
 

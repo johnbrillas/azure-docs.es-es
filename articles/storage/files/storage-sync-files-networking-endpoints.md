@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673866"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218611"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuración de puntos de conexión de red de Azure File Sync
 Azure Files y Azure File Sync proporcionan dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -34,7 +34,7 @@ En este artículo se da por hecho que:
 
 Además:
 - Si planea usar Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Creación de los puntos de conexión privados
 Al crear un punto de conexión privado para un recurso de Azure, se implementan los recursos siguientes:
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Creación del punto de conexión privado de sincronización de almacenamiento
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Creación del punto de conexión privado del servicio de sincronización de almacenamiento
 > [!Important]  
 > Para usar puntos de conexión privados en el recurso del servicio de sincronización de almacenamiento, debe usar la versión del agente Azure File Sync versión 10.1 o superior. Las versiones del agente anteriores a 10.1 no admiten puntos de conexión privados en el servicio de sincronización de almacenamiento. Todas las versiones anteriores del agente admiten puntos de conexión privados en el recurso de la cuenta de almacenamiento.
 
@@ -597,19 +597,44 @@ Para deshabilitar el acceso al punto de conexión público del servicio de sincr
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 La CLI de Azure no admite el establecimiento de la propiedad `incomingTrafficPolicy` en el servicio de sincronización de almacenamiento. Seleccione la pestaña de Azure PowerShell para obtener instrucciones sobre cómo deshabilitar el punto de conexión público del servicio de sincronización de almacenamiento.
 
 ---
+
+## <a name="azure-policy"></a>Azure Policy
+Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento con respecto a esos estándares a gran escala. Azure Files y Azure File Sync exponen varias directivas de red de auditoría y corrección útiles que le ayudan a supervisar y automatizar la implementación.
+
+Las directivas auditan el entorno y le avisan si las cuentas de almacenamiento o los servicios de sincronización de almacenamiento difieren del comportamiento definido. Por ejemplo, si se habilitó un punto de conexión público cuando la directiva se estableció para tener deshabilitados los puntos de conexión públicos. La modificación o implementación de directivas van todavía más lejos al modificar de forma proactiva un recurso (por ejemplo, el servicio de sincronización de almacenamiento) o implementar recursos (por ejemplo, puntos de conexión privados) para alinearlos con las directivas.
+
+Las siguientes directivas predefinidas están disponibles para Azure Files y Azure File Sync:
+
+| Acción | Servicio | Condición | Nombre de la directiva |
+|-|-|-|-|
+| Auditoría | Azure Files | El punto de conexión público de la cuenta de almacenamiento está habilitado. Para más información, consulte [Deshabilitación del acceso al punto de conexión público de la cuenta de almacenamiento](#disable-access-to-the-storage-account-public-endpoint). | Se debe restringir el acceso de red a las cuentas de almacenamiento. |
+| Auditoría | Azure File Sync | El punto de conexión público del servicio de sincronización de almacenamiento está habilitado. Para más información, consulte [Deshabilitación del acceso al punto de conexión público del servicio de sincronización de almacenamiento](#disable-access-to-the-storage-sync-service-public-endpoint). | El acceso a las redes públicas debe estar deshabilitado para Azure File Sync |
+| Auditoría | Azure Files | La cuenta de almacenamiento necesita al menos un punto de conexión privado. Para más información, consulte [Creación del punto de conexión privado de la cuenta de almacenamiento](#create-the-storage-account-private-endpoint). | La cuenta de almacenamiento debería utilizar una conexión de vínculo privado |
+| Auditoría | Azure File Sync | El servicio de sincronización de almacenamiento necesita al menos un punto de conexión privado. Para más información, consulte [Creación del punto de conexión privado del servicio de sincronización de almacenamiento](#create-the-storage-sync-service-private-endpoint). | Azure File Sync debe usar un vínculo privado |
+| Modificar | Azure File Sync | Deshabilite el punto de conexión público del servicio de sincronización de almacenamiento. | Modificar: configurar Azure File Sync para deshabilitar el acceso a la red pública |
+| Implementar | Azure File Sync | Implemente un punto de conexión privado para el servicio de sincronización de almacenamiento. | Configurar Azure File Sync con puntos de conexión privados |
+| Implementar | Azure File Sync | Implemente un registro D en la zona DNS privatelink.afs.azure.net. | Configurar Azure File Sync para usar zonas DNS privadas |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Configuración de una directiva de implementación de puntos de conexión privados
+Para configurar una directiva de implementación de puntos de conexión privados, vaya a [Azure Portal](https://portal.azure.com/) y busque **Directiva**. El centro de Azure Policy debe aparecer en los primeros lugares. Vaya a **Creación** > **Definiciones** en la tabla de contenido del centro de Policy. El panel **Definiciones** resultante contiene las directivas predefinidas en todos los servicios de Azure. Para encontrar la directiva específica, seleccione la categoría **Almacenamiento** en el filtro de categoría o busque **Configurar Azure File Sync con puntos de conexión privados**. Seleccione **...** y **Asignar** para crear una directiva a partir de la definición.
+
+La hoja **Aspectos básicos** del asistente **Asignar directiva** le permite establecer una lista de exclusión de ámbitos, recursos o grupos de recursos y asignar un nombre descriptivo a la directiva para ayudarle a distinguirla. No es necesario modificarlos para que la directiva funcione, pero puede hacerlo si quiere realizar modificaciones. Seleccione **Siguiente** para avanzar a la página **Parámetros**. 
+
+En la hoja **Parámetros**, seleccione **...** junto a la lista desplegable **privateEndpointSubnetId** para elegir la red virtual y la subred donde se deben implementar los puntos de conexión privados para los recursos del servicio de sincronización de almacenamiento. El asistente resultante puede tardar varios segundos en cargar las redes virtuales disponibles en la suscripción. Elija la red virtual o subred adecuada para su entorno y haga clic en **Seleccionar**. Seleccione **Siguiente** para avanzar a la página **Corrección**.
+
+Para que el punto de conexión privado se implemente cuando se identifique un servicio de sincronización de almacenamiento sin un punto de conexión privado, debe seleccionar **Crear una tarea de corrección** en la página **Corrección**. Por último, seleccione **Revisar y crear** para revisar la asignación de directivas y **Crear** para crearla.
+
+La asignación de directivas resultante se ejecutará de forma periódica y es posible que no lo haga inmediatamente después de su creación.
 
 ## <a name="see-also"></a>Consulte también
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

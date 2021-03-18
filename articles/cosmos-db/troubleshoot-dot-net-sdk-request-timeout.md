@@ -4,17 +4,17 @@ description: Aprenda a diagnosticar y corregir las excepciones de tiempo de espe
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340505"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440010"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnóstico y solución de problemas de tiempo de espera de la solicitud del SDK de .NET en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,6 +41,22 @@ La lista siguiente contiene las causas y las soluciones conocidas para las excep
 
 ### <a name="high-cpu-utilization"></a>Uso elevado de CPU
 El uso elevado de la CPU es el caso más común. Para lograr una latencia óptima, el uso de la CPU debe ser de aproximadamente el 40 por ciento. Use 10 segundos como intervalo para supervisar el uso máximo de la CPU (no el promedio). Los picos de CPU son más habituales con consultas entre particiones en las que se pueden realizar varias conexiones para una sola consulta.
+
+Si el error contiene información de `TransportException`, también podría contener la información de `CPU History`:
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* Si las medidas de la CPU superan el 70 %, es probable que el problema de tiempo de estera se deba al agotamiento de la CPU. En este caso, la solución es investigar el origen del uso intensivo de la CPU y reducirlo, o bien escalar el equipo a un tamaño de recurso mayor.
+* Si las medidas de la CPU no se producen cada 10 segundos (por ejemplo, los intervalos o tiempos de medición indican tiempos mayores entre las medidas), la causa es el colapso de subprocesos. En este caso, la solución es investigar el origen u orígenes del colapso de subprocesos (subprocesos potencialmente bloqueados) o escalar los equipos a un tamaño de recurso mayor.
 
 #### <a name="solution"></a>Solución:
 La aplicación cliente que usa el SDK se debe escalar vertical u horizontalmente.

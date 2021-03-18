@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050246"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557019"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -33,6 +33,8 @@ En este artículo se muestra cómo crear la aplicación lógica y un flujo de tr
 * Agregar un desencadenador y una acción.
 
 * Ejecutar, probar, depurar y revisar el historial de ejecución de forma local.
+
+* Buscar los detalles del nombre de dominio para el acceso al firewall.
 
 * Implementar en Azure, que incluye opcionalmente habilitar Application Insights.
 
@@ -280,6 +282,7 @@ Para poder crear una aplicación lógica, antes debe crear un proyecto local, co
    1. Reemplace el valor de la propiedad `AzureWebJobsStorage` por la cadena de conexión de la cuenta de almacenamiento que guardó anteriormente, por ejemplo:
 
       Antes:
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +294,7 @@ Para poder crear una aplicación lógica, antes debe crear un proyecto local, co
       ```
 
       Después:
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +306,25 @@ Para poder crear una aplicación lógica, antes debe crear un proyecto local, co
       ```
 
    1. Cuando haya terminado, asegúrese de guardar los cambios.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>Habilitación de la creación de conectores integrados
+
+Puede crear sus propios conectores integrados para cualquier servicio que necesite mediante el [marco de extensibilidad de la versión preliminar](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). De forma similar a los conectores integrados, como Azure Service Bus y SQL Server, estos conectores proporcionan mayor rendimiento, baja latencia, conectividad local y se ejecutan de forma nativa en el mismo proceso que el entorno de ejecución de la versión preliminar.
+
+La funcionalidad de creación solo está disponible actualmente en Visual Studio Code, pero no está habilitada de manera predeterminada. Para crear estos conectores, antes debe convertir el proyecto de una extensión basada en agrupación (Node.js) a una basada en paquetes NuGet (.NET).
+
+> [!IMPORTANT]
+> Esta acción es una operación unidireccional que no se puede deshacer.
+
+1. En el panel Explorador, en la raíz del proyecto, mueva el puntero del ratón sobre cualquier área en blanco debajo de todos los demás archivos y carpetas, abra el menú contextual y seleccione **Convert to Nuget-based Logic App project** (Convertir en proyecto de aplicación lógica basada en Nuget).
+
+   ![Captura de pantalla que muestra el panel Explorador con el menú contextual del proyecto abierto desde un área en blanco en la ventana de proyecto.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. Cuando se le pida, confirme la conversión del proyecto.
+
+1. Para continuar, revise y siga los pasos descritos en el artículo [Azure Logic Apps en ejecución en cualquier ubicación: extensibilidad de conectores integrada](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -555,7 +578,7 @@ Para agregar un punto de interrupción, siga estos pasos:
 
 1. Para revisar la información disponible cuando se alcanza un punto de interrupción, en la vista de ejecución, examine el panel **Variables**.
 
-1. Para continuar con la ejecución del flujo de trabajo, en la barra de herramientas de depuración, seleccione **Continuar** (botón de reproducción). 
+1. Para continuar con la ejecución del flujo de trabajo, en la barra de herramientas de depuración, seleccione **Continuar** (botón de reproducción).
 
 Puede agregar y quitar puntos de interrupción en cualquier momento durante la ejecución del flujo de trabajo. Sin embargo, si actualiza el archivo **workflow.json** después de que se inicie la ejecución, los puntos de interrupción no se actualizan automáticamente. Para actualizar los puntos de interrupción, reinicie la aplicación lógica.
 
@@ -737,6 +760,55 @@ Después de realizar actualizaciones en la aplicación lógica, puede ejecutar o
    ![Captura de pantalla que muestra el estado de cada paso del flujo de trabajo actualizado más las entradas y salidas de la acción "Respuesta" expandida.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. Para detener la sesión de depuración, en el menú **Ejecutar**, seleccione **Detener depuración** (Mayús+F5).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Búsqueda de nombres de dominio para el acceso al firewall
+
+Antes de implementar y ejecutar el flujo de trabajo de la aplicación lógica en Azure Portal, si su entorno tiene estrictos requisitos de red o firewalls que limitan el tráfico, debe configurar los permisos para las conexiones de desencadenador o acción que existan en el flujo de trabajo.
+
+Para buscar los nombres de dominio completos (FQDN) de estas conexiones, siga estos pasos:
+
+1. En el proyecto de la aplicación lógica, abra el archivo **connections.json**, que se crea después de agregar el primer desencadenador o acción basado en conexión al flujo de trabajo, y busque el objeto `managedApiConnections`.
+
+1. Para cada conexión que ha creado, busque, copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
+
+   Este archivo **connections.json** de ejemplo contiene dos conexiones, una conexión AS2 y una conexión de Office 365, con estos valores de `connectionRuntimeUrl`:
+
+   * AS2: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
@@ -1348,6 +1420,7 @@ Al intentar iniciar una sesión de depuración, aparece el error **"Error exists
 1. En la siguiente tarea, elimine la línea, `"dependsOn: "generateDebugSymbols"`, junto con la coma del final de la línea anterior, por ejemplo:
 
    Antes:
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1432,7 @@ Al intentar iniciar una sesión de depuración, aparece el error **"Error exists
    ```
 
    Después:
+
    ```json
     {
       "type": "func",

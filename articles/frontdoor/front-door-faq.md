@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741861"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212457"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Preguntas más frecuentes sobre Azure Front Door
 
@@ -87,6 +87,9 @@ Las rutas de Front Door no están ordenadas y se selecciona una ruta específic
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?
 
+> [!NOTE]
+> La nueva SKU Front Door Premium proporciona una manera más recomendable de bloquear la aplicación mediante un punto de conexión privado. [Más información sobre los puntos de conexión privados](./standard-premium/concept-private-link.md)
+
 Para que la aplicación solo acepte tráfico procedente su instancia específica de Front Door, debe configurar listas de control de acceso de IP para el back-end y, a continuación, restringir el tráfico del back-end al valor específico del encabezado "X-Azure-FDID" enviado por Front Door. Estos pasos se detallan a continuación:
 
 - Configure la creación de listas de control de acceso de IP de los back-end para que acepten tráfico únicamente del espacio de direcciones IP de back-end de Azure Front Door y de los servicios de infraestructura de Azure. Consulte los detalles de IP siguientes para la creación de listas de control de acceso en el back-end:
@@ -99,7 +102,7 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
 
 - Busque el valor de `Front Door ID` en la sección de información general de la página del portal de Front Door. Después, puede usar ese valor para filtrar el encabezado entrante "**X-Azure-FDID**" que Front Door envió al back-end para asegurarse de que solo se permite su propia instancia de Front Door específica (porque los intervalos IP anteriores se comparten con otras instancias de Front Door de otros clientes).
 
-- Aplique el filtrado de reglas en el servidor web back-end para restringir el tráfico basado en el valor del encabezado "X-Azure-FDID" resultante. Tenga en cuenta que algunos servicios como Azure App Service proporcionan esta funcionalidad de [filtrado basado en encabezados](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) sin necesidad de cambiar la aplicación o el host.
+- Aplique el filtrado de reglas en el servidor web back-end para restringir el tráfico basado en el valor del encabezado "X-Azure-FDID" resultante. Tenga en cuenta que algunos servicios como Azure App Service proporcionan esta funcionalidad de [filtrado basado en encabezados](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) sin necesidad de cambiar la aplicación o el host.
 
   Este es un ejemplo de [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

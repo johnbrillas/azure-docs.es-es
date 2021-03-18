@@ -1,19 +1,18 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493318"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215075"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
-Azure Policy establece las convenciones de los recursos. Las definiciones de directiva describen las [condiciones](#conditions) de cumplimiento de los recursos y qué sucederá si se cumple una condición. Una condición compara un [campo](#fields) o un [valor](#value) de propiedad de recurso con un valor requerido. Para acceder a los campos de propiedad de recurso, se usa [alias](#aliases). Cuando el campo de una propiedad de recurso es una matriz, se puede usar un [alias de matriz](#understanding-the--alias) especial para seleccionar valores de todos los miembros de la matriz y aplicar una condición a cada uno de ellos.
-Más información sobre las [condiciones](#conditions).
+Azure Policy establece las convenciones de los recursos. Las definiciones de directiva describen las [condiciones](#conditions) de cumplimiento de los recursos y qué sucederá si se cumple una condición. Una condición compara un [campo](#fields) o un [valor](#value) de propiedad de recurso con un valor requerido. Para acceder a los campos de propiedad de recurso, se usa [alias](#aliases). Cuando el campo de una propiedad de recurso es una matriz, se puede usar un [alias de matriz](#understanding-the--alias) especial para seleccionar valores de todos los miembros de la matriz y aplicar una condición a cada uno de ellos. Más información sobre las [condiciones](#conditions).
 
 La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O bien, puede exigir que todos los recursos tengan una etiqueta concreta. Los recursos secundarios heredan las asignaciones de directivas. Si una asignación de directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
@@ -118,7 +117,7 @@ Actualmente se admiten los siguientes modos del proveedor de recursos como **ver
 
 ## <a name="metadata"></a>Metadatos
 
-La propiedad `metadata` opcional almacena información acerca de la definición de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Aun así, hay algunas propiedades _comunes_ que se usan en Azure Policy y los elementos integrados.
+La propiedad `metadata` opcional almacena información acerca de la definición de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Aun así, hay algunas propiedades _comunes_ que se usan en Azure Policy y los elementos integrados. Cada propiedad `metadata` tiene un límite de 1024 caracteres.
 
 ### <a name="common-metadata-properties"></a>Propiedades de metadatos comunes
 
@@ -151,7 +150,7 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
   - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure Portal cree asignaciones de roles durante la asignación de directivas. Esta propiedad es útil en caso de que desee asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de roles de la directiva (o por cada definición de roles de todas las directivas de la iniciativa). El valor del parámetro debe ser un recurso o un ámbito válidos.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.
   Requerido cuando se actualiza una definición de directiva existente que está asignada.
-- `allowedValues`: (Opcional) Proporciona una matriz de los valores que acepta el parámetro durante la asignación.
+- `allowedValues`: (Opcional) Proporciona una matriz de los valores que acepta el parámetro durante la asignación. Las comparaciones de valores permitidas distinguen mayúsculas de minúsculas. 
 
 Por ejemplo, podría definir una definición de directiva para limitar las ubicaciones en las que se pueden implementar los recursos. Un parámetro para esa definición de directiva podría ser **allowedLocations**. Este parámetro podría utilizarse por cada asignación de la definición de directiva para limitar los valores aceptados. El uso de **strongType** proporciona una experiencia mejorada al completar la asignación mediante el portal:
 
@@ -286,15 +285,13 @@ Una condición evalúa si un campo cumple determinados criterios. Estas son las 
 
 Para **less**, **lessOrEquals**, **greater** y **greaterOrEquals**, si el tipo de propiedad no coincide con el tipo de condición, se produce un error. La comparación de cadenas se realiza con `InvariantCultureIgnoreCase`.
 
-Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
-El valor no debe contener más de un carácter comodín `*`.
+Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor. El valor no debe contener más de un carácter comodín `*`.
 
 Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**.
 
 ### <a name="fields"></a>Campos
 
-Las condiciones que evalúan si los valores de las propiedades de la carga de solicitudes de recursos cumplen determinados criterios se pueden formar usando una expresión **field**.
-Se admiten los siguientes campos:
+Las condiciones que evalúan si los valores de las propiedades de la carga de solicitudes de recursos cumplen determinados criterios se pueden formar usando una expresión **field**. Se admiten los siguientes campos:
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Se admiten los siguientes campos:
 > `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas. Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
 
 > [!NOTE]
-> En las expresiones **field** que hacen referencia a **\[\*\] alias**, cada elemento de la matriz se evalúa de forma individual con el operador **and** lógico entre elementos.
-> Para obtener más información, consulte [Referencia a las propiedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+> En las expresiones **field** que hacen referencia a **\[\*\] alias**, cada elemento de la matriz se evalúa de forma individual con el operador **and** lógico entre elementos. Para obtener más información, consulte [Referencia a las propiedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Uso de etiquetas con parámetros
 
@@ -472,6 +468,7 @@ Las expresiones **field count** pueden enumerar la misma matriz de campos hasta 
 Para más información sobre cómo trabajar con propiedades de matrices en Azure Policy, incluida una explicación detallada sobre cómo se evalúa la expresión **field count**, consulte [Referencia a las propiedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="value-count"></a>Value count
+
 Cuente el número de miembros de una matriz que satisfacen una condición. La matriz puede ser una matriz de literales o una [referencia a un parámetro de matriz](#using-a-parameter-value). La estructura de la expresión **value count** es la siguiente:
 
 ```json
@@ -496,7 +493,7 @@ Las siguientes propiedades se utilizan con **value count**:
 
 Se aplican los límites siguientes:
 - Se pueden usar hasta 10 expresiones **value count** en una única definición de **policyRule**.
-- Cada expresión **value count** puede realizar hasta 100 iteraciones. Este número incluye el número de iteraciones realizadas por cualquier expresión **value count** principal.
+- Cada expresión **value count** puede realizar hasta 100 iteraciones. Este número incluye el número de iteraciones realizadas por cualquier expresión **value count** principal.
 
 #### <a name="the-current-function"></a>Función current
 
@@ -679,7 +676,7 @@ Ejemplo 3: Compruebe si el nombre de un recurso coincide con alguno de los patro
 }
 ```
 
-Ejemplo 4: Compruebe si alguno de los prefijos de dirección de red virtual no está en la lista de prefijos aprobados.
+Ejemplo 4: Compruebe si alguno de los prefijos de dirección de red virtual no está en la lista de prefijos aprobados.
 
 ```json
 {
@@ -769,7 +766,7 @@ Azure Policy admite los siguientes tipos de efecto:
 - **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
 - **DeployIfNotExists**: implementa un recurso relacionado si todavía no existe.
 - **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
-- **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso.
+- **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso o suscripción.
 - **EnforceOPAConstraint** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v3 para clústeres de Kubernetes autoadministrados en Azure.
 - **EnforceRegoPolicy** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v2 en Azure Kubernetes Service.
 
@@ -822,18 +819,18 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **range**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
-    - **targetRange**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+  - **range**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+  - **targetRange**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
 
-    Devuelve si el intervalo de direcciones IP especificado contiene el intervalo de direcciones IP de destino. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
+  Devuelve si el intervalo de direcciones IP especificado contiene el intervalo de direcciones IP de destino. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
 
-    Formatos compatibles:
-    - Dirección IP única (ejemplos: `10.0.0.0`, `2001:0DB8::3:FFFE`)
-    - Intervalo de CIDR (ejemplos: `10.0.0.0/24`, `2001:0DB8::/110`)
-    - Intervalo definido por direcciones IP de inicio y final (ejemplos: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+  Formatos compatibles:
+  - Dirección IP única (ejemplos: `10.0.0.0`, `2001:0DB8::3:FFFE`)
+  - Intervalo de CIDR (ejemplos: `10.0.0.0/24`, `2001:0DB8::/110`)
+  - Intervalo definido por direcciones IP de inicio y final (ejemplos: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
 - `current(indexName)`
-    - Función especial que solo se puede usar dentro de [expresiones count](#count).
+  - Función especial que solo se puede usar dentro de [expresiones count](#count).
 
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 

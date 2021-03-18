@@ -5,12 +5,12 @@ description: Procedimientos recomendados con los recursos de red virtual y la co
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2bd332dbf9412f5c42e77b14ada3aab67ec8b66a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366575"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508595"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -43,11 +43,11 @@ Container Networking Interface (CNI) es un protocolo independiente del proveedor
 
 Una ventaja importante de las redes de Azure CNI para producción es que el modelo de red permite separar el control y la administración de los recursos. Desde una perspectiva de seguridad, se suele preferir que distintos equipos administren y protejan los recursos. Las redes de Azure CNI permiten la conexión directa a recursos de Azure existentes, a recursos locales o a otros servicios mediante direcciones IP asignadas a cada pod.
 
-Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo de recursos independiente del clúster de AKS. Delegue permisos en la entidad de servicio de AKS para acceder y administrar estos recursos. La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
+Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo de recursos independiente del clúster de AKS. Delegue permisos en la identidad de clúster de AKS para acceder y administrar estos recursos. La identidad de clúster que usa el clúster de AKS debe tener como mínimo permisos de [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation]. En lugar de una entidad de servicio, también puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
+De forma predeterminada, AKS usa una identidad administrada para su identidad de clúster, pero tiene la opción de usar una entidad de servicio en su lugar. Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation]. Para más información sobre las identidades administradas, consulte [Uso de identidades administradas en Azure Kubernetes Service](use-managed-identity.md).
 
 Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado horizontal o las actualizaciones de clúster, también es necesario que haya otras direcciones IP disponibles para utilizarlas en la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server, como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 

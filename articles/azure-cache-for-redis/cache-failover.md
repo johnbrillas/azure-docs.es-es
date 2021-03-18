@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093092"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210740"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Conmutación por error y aplicación de revisiones para Azure Cache for Redis
 
@@ -72,6 +72,10 @@ La mayoría de las bibliotecas cliente intentan volver a conectarse a la memoria
 Dado que no es posible evitar las conmutaciones por error totalmente, escriba sus aplicaciones cliente para lograr resistencia a interrupciones de conexión y solicitudes con error. Aunque la mayoría de las bibliotecas cliente se vuelven a conectar automáticamente al punto de conexión de la caché, pocas intentan enviar de nuevo las solicitudes con error. En función del escenario de la aplicación, es posible que la lógica de reintento con retroceso tenga sentido.
 
 Para probar la resistencia de una aplicación cliente, use un [reinicio](cache-administration.md#reboot) como desencadenador manual para las interrupciones de conexión. Además, se recomienda [programar actualizaciones](cache-administration.md#schedule-updates) en una memoria caché. Indique al servicio de administración que aplique revisiones en tiempo de ejecución de Redis durante ventanas semanales especificadas. Normalmente, estas ventanas se establecen en períodos en los que el tráfico de la aplicación cliente es bajo, para evitar posibles incidentes.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>¿Se puede recibir una notificación previa a un mantenimiento planeado?
+
+Azure Cache for Redis publica ahora notificaciones en un canal de publicación/suscripción llamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) unos 30 segundos antes de las actualizaciones planeadas. Se trata de notificaciones en tiempo de ejecución, y se compilan especialmente para las aplicaciones que pueden usar disyuntores para omitir los comandos de caché o búfer, por ejemplo, durante las actualizaciones planeadas. No es un mecanismo que pueda notificarle con días u horas de antemano.
 
 ### <a name="client-network-configuration-changes"></a>Cambios en la configuración de red del cliente
 

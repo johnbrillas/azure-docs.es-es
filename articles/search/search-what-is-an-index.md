@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539101"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433801"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Creación de índices de búsqueda en Azure Cognitive Search
 
@@ -61,7 +61,7 @@ Otros elementos están contraídos por motivos de brevedad, pero los siguientes 
 
 ## <a name="choose-a-client"></a>Elección de un cliente
 
-Hay varias metodologías para crear un índice de búsqueda. Se recomienda Azure Portal o las API REST para realizar las primeras pruebas de desarrollo y de prueba de concepto.
+Hay varias maneras de crear un índice de búsqueda. Se recomienda Azure Portal o los SDK en las primeras fases de desarrollo y con las pruebas de concepto.
 
 Durante el desarrollo, haga planes para realizar recompilaciones con frecuencia. Como se crean estructuras físicas en el servicio, la mayoría de las modificaciones realizadas en una definición de campo existente, requieren [quitar los índices y volverlos a crear](search-howto-reindex.md). Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido.
 
@@ -110,7 +110,7 @@ En el caso de Cognitive Search, los SDK de Azure implementan características di
 
 La colección `fields` define un documento de búsqueda. Necesitará campos para las consultas y las claves. Probablemente también necesitará campos para admitir filtros, facetas y ordenaciones. Es posible que también necesite campos para los datos que el usuario nunca ve, por ejemplo, puede que desee campos para los márgenes de beneficios o las promociones de marketing que puede usar para modificar el intervalo de búsqueda.
 
-Un campo de tipo Edm.String se debe diseñar como la clave del documento. Se usa para identificar de forma única cada documento de búsqueda. Puede recuperar un documento por su clave para rellenar una página de detalles.  
+Un campo de tipo Edm.String se debe diseñar como la clave del documento. Se usa para identificar de forma única cada documento de búsqueda y distingue mayúsculas de minúsculas. Puede recuperar un documento por su clave para rellenar una página de detalles.
 
 Si los datos de entrada son jerárquicos por naturaleza, asigne el [tipo complejo](search-howto-complex-data-types.md) de tipo de datos para representar las estructuras anidadas. El conjunto de datos de ejemplo integrado, Hotels, muestra tipos complejos mediante una dirección (contiene varios subcampos) que tiene una relación de uno a uno con cada hotel y una colección compleja de habitaciones, en la que hay varias habitaciones asociadas con cada hotel. 
 

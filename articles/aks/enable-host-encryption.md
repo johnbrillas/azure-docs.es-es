@@ -3,13 +3,13 @@ title: Habilitación del cifrado basado en host en Azure Kubernetes Service (AKS
 description: Aprenda a configurar un cifrado basado en host en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071857"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430163"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Cifrado basado en host en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -26,6 +26,13 @@ Esta característica solo se puede establecer durante la creación del clúster 
 ### <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que tiene instalada la extensión de la CLI `aks-preview` versión v0.4.73 o posterior.
+- Asegúrese de que tiene habilitada la marca de características `EnableEncryptionAtHostPreview` bajo `Microsoft.ContainerService`.
+
+Para poder usar el cifrado en el host para las máquinas virtuales o los conjuntos de escalado de máquinas virtuales, debe habilitar la característica en la suscripción. Envíe un correo electrónico a **encryptionAtHost@microsoft.com** con los identificadores de suscripción para que la característica se habilite para sus suscripciones. 
+
+> [!IMPORTANT]
+> Debe enviar un correo electrónico a **encryptionAtHost@microsoft.com** con los identificadores de suscripción para que la característica se habilite para los recursos de proceso. No puede habilitarlo usted mismo para los recursos de proceso.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
@@ -41,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limitaciones
 
-- Solo se puede habilitar en grupos de nodos nuevos o en clústeres nuevos.
+- Solo se puede habilitar en grupos de nodos nuevos.
 - Solo se puede habilitar en [regiones de Azure][supported-regions] que admiten el cifrado del lado servidor de discos administrados de Azure y solo con [tamaños de máquinas virtuales compatibles][supported-sizes] específicos.
 - Requiere un clúster de AKS y un grupo de nodos basado en Virtual Machine Scale Sets (VMSS) como *tipo de conjunto de máquinas virtuales*.
 

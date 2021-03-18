@@ -1,5 +1,5 @@
 ---
-title: Restauración de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
+title: Importación de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 description: Restauración de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b1ee779be118fcafd0efa2bd2718ece1c34c50d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: a9efa17fb782d5a913493907b66973272e4e0356
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954335"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441795"
 ---
-# <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Restauración de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
+# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importación de la base de datos de ejemplo AdventureWorks en Hiperescala de PostgreSQL habilitada para Azure Arc
 
 [AdventureWorks](/sql/samples/adventureworks-install-configure) es una base de datos de ejemplo que contiene una base de datos OLTP que se usa en los tutoriales y ejemplos. Microsoft la proporciona y mantiene como parte del [repositorio de GitHub de ejemplos de SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
@@ -24,7 +24,7 @@ Un proyecto de código abierto ha convertido la base de datos AdventureWorks par
 - [Proyecto original](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Seguimiento del proyecto que hace una conversión previa de los archivos CSV para que sean compatibles con PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-En este documento se describe un proceso sencillo para restaurar la base de datos de ejemplo AdventureWorks en el grupo de servidores de Hiperescala de PostgreSQL.
+En este documento se describe un proceso sencillo para importar la base de datos de ejemplo AdventureWorks en el grupo de servidores Hiperescala de PostgreSQL.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -38,7 +38,7 @@ Ejecute un comando como este para descargar los archivos. Reemplace antes el val
 >  El contenedor deberá tener conectividad a Internet a través del puerto 443 para descargar el archivo de GitHub.
 
 > [!NOTE]
->  Use el nombre de pod del nodo de coordinación del grupo de servidores de Hiperescala de PostgreSQL. Este nombre es <server group name>-0.  Si no está seguro del nombre del pod, ejecute el comando `kubectl get pod`.
+>  Use el nombre de pod del nodo de coordinación del grupo de servidores de Hiperescala de PostgreSQL. Su nombre es <server group name>c-0 (por ejemplo, postgres01c-0, donde c significa nodo de coordinación).  Si no está seguro del nombre del pod, ejecute el comando `kubectl get pod`.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
@@ -47,7 +47,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash
 #kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## <a name="step-2-restore-the-adventureworks-database"></a>Paso 2: Restauración de la base de datos AdventureWorks
+## <a name="step-2-import-the-adventureworks-database"></a>Paso 2: Importación de la base de datos AdventureWorks
 
 Del mismo modo, puede ejecutar un comando kubectl exec para usar la herramienta CLI de psql que se incluye en los contenedores de grupos de servidores de Hiperescala de PostgreSQL para crear y cargar la base de datos.
 
@@ -60,7 +60,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 #kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-A continuación, ejecute un comando como este para restaurar la base de datos, sustituyendo antes el valor del nombre del pod y del espacio de nombres.
+A continuación, ejecute un comando como este para importar la base de datos; sustituya el valor del nombre del pod y del espacio de nombres antes de ejecutarlo.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql
@@ -82,6 +82,6 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
     * [Diseño de una base de datos multiinquilino](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Diseño de un panel de análisis en tiempo real](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-   > \* En los documentos anteriores, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Lleve a cabo los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
+   > \* En los documentos anteriores, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Implemente los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
-- [Escalado horizontal del grupo de servidores Hiperescala de Azure Database for PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Escalado del grupo de servidores Hiperescala de Azure Database for PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)

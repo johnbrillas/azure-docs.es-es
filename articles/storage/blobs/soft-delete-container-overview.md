@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390188"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211148"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -27,8 +27,8 @@ Para una protección integral de los datos de blobs, Microsoft recomienda habili
 - Control de versiones de blobs, para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 - Eliminación temporal de blobs, para restaurar un blob o una versión que se ha eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> No se puede deshacer la eliminación de una cuenta de almacenamiento. La eliminación temporal de contenedores no protege contra la eliminación de una cuenta de almacenamiento, sino solo contra la eliminación de los contenedores de esa cuenta. Para proteger una cuenta de almacenamiento de la eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure Resource Manager, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> La eliminación temporal de contenedores se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ## <a name="how-container-soft-delete-works"></a>Funcionamiento de la eliminación temporal de contenedores
 
@@ -46,14 +46,14 @@ Una vez que haya expirado el período de retención, el contenedor se eliminará
 
 La deshabilitación de la eliminación temporal de contenedores no provoca la eliminación permanente de los contenedores que se eliminaron temporalmente. Los contenedores que ya haya eliminado temporalmente se eliminarán de forma permanente en el momento de expiración del período de retención que estaba en vigor en el momento en que se eliminó el contenedor.
 
+> [!IMPORTANT]
+> La eliminación temporal de contenedores no protege contra la eliminación de una cuenta de almacenamiento, sino solo contra la eliminación de los contenedores de esa cuenta. Para proteger una cuenta de almacenamiento de la eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure Resource Manager, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
 La eliminación temporal de contenedores está disponible en versión preliminar en todas las regiones de Azure.
 
-> [!IMPORTANT]
-> La versión preliminar de la eliminación temporal de contenedores está pensada para usos que no tengan que ver con la producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
-
-La versión 2019-12-12 y posteriores de la API de REST de Azure Storage admiten la eliminación temporal de contenedores.
+La versión 2019-12-12 o posteriores de la API REST de Azure Storage admiten la eliminación temporal de contenedores.
 
 ### <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
 

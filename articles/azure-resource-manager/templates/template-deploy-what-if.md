@@ -3,14 +3,14 @@ title: Hipótesis para la implementación de plantillas
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591631"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547941"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
@@ -391,8 +391,6 @@ Puede usar la operación "what-if" a través de los SDK de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para usar la operación what-if en una canalización, consulte [Prueba de plantillas de Resource Manager con What-If en una canalización](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - Si observa resultados incorrectos de la operación hipotética, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Para información sobre un módulo de Microsoft Learn que abarque el uso de hipótesis, consulte [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de ARM](/learn/modules/arm-template-test/).
-- Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-- Para implementar plantillas con la CLI de Azure, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).
-- Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas de Resource Manager y Administrador de recursos API de REST](deploy-rest.md).

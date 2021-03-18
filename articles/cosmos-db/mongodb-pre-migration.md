@@ -1,21 +1,31 @@
 ---
 title: Pasos previos a la migración para migraciones de datos a la API de Azure Cosmos DB para MongoDB
 description: Este documento proporciona información general sobre los requisitos previos para una migración de datos de MongoDB a Cosmos DB.
-author: christopheranderson
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.author: chrande
-ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: anfeldma
+ms.openlocfilehash: cdc5dc9cee3520d9a3f22ff710dfa193e6ef4fed
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656965"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553296"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Esta guía sobre los pasos previos a la migración de MongoDB es la primera de una serie sobre la migración de MongoDB a Mongo API de Azure Cosmos DB a gran escala. Los clientes con licencias e implementación de MongoDB en una infraestructura autoadministrada pueden querer reducir y administrar el costo de su patrimonio de datos mediante la migración a un servicio en la nube administrado como Azure Cosmos DB, que ofrece precios de pago por uso y escalabilidad elástica. Esta serie tiene como objetivo guiar al cliente a través del proceso de migración:
+>
+> 1. [Antes de la migración](mongodb-pre-migration.md): realice un inventario del patrimonio de datos existente de MongoDB, planee la migración y elija las herramientas de migración adecuadas.
+> 2. Ejecución: migre desde MongoDB a Azure Cosmos DB con los [tutoriales]() proporcionados.
+> 3. [Después de la migración](mongodb-post-migration.md): actualice y optimice las aplicaciones existentes para que se ejecuten con el nuevo patrimonio de datos de Azure Cosmos DB.
+>
+
+Un buen plan antes de la migración puede tener un gran impacto en la oportunidad y el éxito de la migración del equipo. Una buena analogía para los pasos anteriores a la migración es el inicio de un nuevo proyecto: puede que empiece definiendo los requisitos, después describe las tareas necesarias y da prioridad a las tareas más importantes para que se aborden en primer lugar. Esto ayuda a que la programación del proyecto sea predecible aunque, evidentemente, pueden surgir requisitos imprevistos que compliquen esta programación. Volviendo a la migración, la creación de un plan de ejecución completo en la fase anterior a la migración reduce la posibilidad de que aparezcan tareas de migración inesperadas en fases posteriores del proceso; esto supone un ahorro de tiempo durante la migración y ayuda a garantizar que se cumplan los objetivos.
 
 Antes de migrar los datos de MongoDB (ya sea local o en la nube) a la API de Azure Cosmos DB para MongoDB, se debe hacer lo siguiente:
 

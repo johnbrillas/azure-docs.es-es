@@ -5,35 +5,29 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630037"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563343"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-En este artículo se muestra cómo configurar Azure App Service o Azure Functions para usar Azure Active Directory (Azure AD) como proveedor de autenticación.
-
-> [!NOTE]
-> El flujo de configuración rápida establece un registro de aplicación de AAD V1. Si desea usar [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluido [MSAL](../active-directory/develop/msal-overview.md)), siga las [instrucciones de configuración avanzada](#advanced).
-
-Siga estos procedimientos recomendados para configurar la aplicación y la autenticación:
-
-- Asigne a cada aplicación de App Service sus propios permisos y consentimiento.
-- Configure cada aplicación de App Service con su propio registro.
-- Evite el uso compartido de permisos entre entornos mediante registros de aplicación independientes para ranuras de implementación independientes. Al probar nuevo código, esta práctica puede ayudar a evitar que los problemas afecten a la aplicación de producción.
-
-> [!NOTE]
-> Esta característica no está disponible actualmente en el plan de Consumo para Linux para Azure Functions.
+En este artículo se muestra cómo configurar la autenticación para Azure App Service o Azure Functions de modo que la aplicación inicie la sesión de los usuarios con Azure Active Directory (Azure AD) como proveedor de autenticación.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configuración rápida
 
+La opción **Rápido** está diseñada para simplificar la autenticación y requiere unos pocos clics.
+
+La configuración rápida creará automáticamente un registro de aplicación que usa el punto de conexión de Azure Active Directory v1. Para usar [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluido [MSAL](../active-directory/develop/msal-overview.md)), siga las [instrucciones de configuración avanzada](#advanced).
+
 > [!NOTE]
 > La opción **Rápida** no está disponible en las nubes de las administraciones públicas.
+
+Para habilitar la autenticación mediante la opción **Rápido**, siga estos pasos:
 
 1. En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación.
 2. En el panel de navegación izquierdo, seleccione **Autenticación/Autorización** > **Activado**.
@@ -58,27 +52,24 @@ Para obtener un ejemplo de configuración de inicio de sesión de Azure AD para
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configuración avanzada
 
-Puede configurar la aplicación manualmente si quiere usar un registro de aplicaciones de otro inquilino de Azure AD. Para completar esta configuración personalizada:
-
-1. Crear un registro en Azure AD.
-2. Proporcionar algunos detalles de registro a App Service.
+Para que Azure AD actúe como proveedor de autenticación en la aplicación, debe registrar la aplicación en este servicio. La opción Rápido lo hace automáticamente. La opción Avanzado permite registrar manualmente la aplicación, personalizando el registro e insertando manualmente los detalles de registro en App Service. Esto resulta útil, por ejemplo, si quiere usar un registro de aplicaciones de un inquilino de Azure AD diferente de aquel donde está App Service.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Creación de un registro de aplicaciones en Azure AD para la aplicación App Service
 
-Para configurar la aplicación de App Service, necesitará la siguiente información:
+En primer lugar, creará el registro de la aplicación. Al hacerlo, recopile la siguiente información que necesitará más adelante cuando configure la autenticación en la aplicación App Service:
 
 - Id. de cliente
 - Id. de inquilino
 - Secreto de cliente (opcional)
 - URI de Id. de aplicación
 
-Lleve a cabo los siguiente pasos:
+Para registrar la aplicación, lleve a cabo los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. Anote la **Dirección URL** de la aplicación. La usará para configurar el registro de la aplicación de Azure Active Directory.
-1. Haga clic en **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
+1. En el menú del portal, seleccione **Azure Active Directory**, vaya a la pestaña **Registros de aplicaciones** y seleccione **Nuevo registro**.
 1. En la página **Register an application** (Registrar una aplicación), escriba el **nombre** del registro de aplicaciones.
 1. En **URI de redirección**, seleccione **Web** y escriba `<app-url>/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Seleccione **REGISTRAR**.
+1. Seleccione **Registrar**.
 1. Una vez creado el registro de la aplicación, copie el **Id. de aplicación (cliente)** y el **Id. de directorio (inquilino)** para usarlos más adelante.
 1. Seleccione **Autenticación**. En **Concesión implícita**, habilite **Tokens de id.** para permitir que el usuario de OpenID Connect inicie sesión desde App Service.
 1. (Opcional) Seleccione **Personalización de marca**. En **URL de página principal**, escriba la dirección URL de la aplicación de App Service y seleccione **Guardar**.
@@ -113,9 +104,13 @@ Lleve a cabo los siguiente pasos:
 
 Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación de App Service.
 
-## <a name="configure-a-native-client-application"></a>Configuración de una aplicación de cliente nativo
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configuración de las aplicaciones cliente para acceder a la instancia de App Service
 
-Puede registrar clientes nativos para permitir la autenticación en la API web hospedada en la aplicación con una biblioteca cliente como la **Biblioteca de autenticación de Active Directory**.
+En la sección anterior, registró la instancia de App Service o Azure Functions para autenticar a los usuarios. En esta sección se explica cómo registrar aplicaciones de demonio o de cliente nativas para que puedan solicitar acceso a las API expuestas por la instancia de App Service en nombre de los usuarios o en su propio nombre. No es necesario completar los pasos de esta sección si solo desea autenticar a los usuarios.
+
+### <a name="native-client-application"></a>Aplicación cliente nativa
+
+Puede registrar clientes nativos para solicitar acceso a las API de la aplicación de App Service en nombre de un usuario que ha iniciado sesión.
 
 1. En [Azure Portal], seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 1. En la página **Register an application** (Registrar una aplicación), escriba el **nombre** del registro de aplicaciones.
@@ -129,9 +124,9 @@ Puede registrar clientes nativos para permitir la autenticación en la API web h
 1. Seleccione el registro de aplicaciones que creó anteriormente para la aplicación de App Service. Si no ve el registro de aplicación, compruebe que agregó el ámbito **user_impersonation** en [Creación de un registro de aplicaciones en Azure AD para la aplicación App Service](#register).
 1. En **Permisos delegados**, seleccione **user_impersonation** y luego seleccione **Agregar permisos**.
 
-Ahora ha configurado una aplicación cliente nativa que puede acceder a la aplicación de App Service en nombre de un usuario.
+Ahora ha configurado una aplicación cliente nativa que puede solicitar acceso a la aplicación de App Service en nombre de un usuario.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configuración de una aplicación cliente demonio para llamadas de servicio a servicio
+### <a name="daemon-client-application-service-to-service-calls"></a>Aplicación cliente de demonio (llamadas de servicio a servicio)
 
 La aplicación puede adquirir un token para llamar a una API web hospedada en App Service o la aplicación de funciones en nombre propio (no en el nombre de un usuario). Este escenario es útil para las aplicaciones de demonio no interactivas que realizan tareas sin un usuario que ha iniciado sesión. Usa la concesión de [credenciales del cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0 estándar.
 
@@ -155,6 +150,14 @@ En la actualidad, esto permite a _cualquier_ aplicación cliente en el inquilino
 1. En el App Service de destino o el código de la aplicación de función, ahora puede validar que los roles esperados están presentes en el token (esto no se realiza mediante autenticación o autorización de App Service). Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
 
 Ahora ha configurado una aplicación cliente demonio que puede acceder a la aplicación de App Service con su propia identidad.
+
+## <a name="best-practices"></a>Procedimientos recomendados
+
+Independientemente de la configuración que use para la autenticación, los siguientes procedimientos recomendados mantendrán el inquilino y las aplicaciones más seguros:
+
+- Asigne a cada aplicación de App Service sus propios permisos y consentimiento.
+- Configure cada aplicación de App Service con su propio registro.
+- Evite el uso compartido de permisos entre entornos mediante registros de aplicación independientes para ranuras de implementación independientes. Al probar nuevo código, esta práctica puede ayudar a evitar que los problemas afecten a la aplicación de producción.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565932"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454250"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -137,7 +137,7 @@ Para que le resulte más fácil empezar a realizar copias de seguridad de los da
 
 Si el código de ejemplo proporcionado anteriormente no cumple sus requisitos, también puede crear su propia función. La función debe ser capaz de realizar las siguientes tareas para completar la copia de seguridad:
 - Lea periódicamente el contenido de la cola para saber si contiene notificaciones de Event Grid. Consulte el [SDK de la cola de Storage](../storage/queues/storage-quickstart-queues-dotnet.md) para conocer los detalles de implementación.
-- Si la cola contiene [notificaciones de eventos de Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extraiga toda la información exclusiva de `<key, label>` de los mensajes de eventos. La combinación de clave y etiqueta es el identificador único para los cambios de pares clave-valor en el almacén primario.
+- Si la cola contiene [notificaciones de eventos de Event Grid](./concept-app-configuration-event.md#event-schema), extraiga toda la información exclusiva de `<key, label>` de los mensajes de eventos. La combinación de clave y etiqueta es el identificador único para los cambios de pares clave-valor en el almacén primario.
 - Lea toda la configuración del almacén primario. Actualice solo los valores del almacén secundario que tengan un evento correspondiente en la cola. Elimine toda la configuración del almacén secundario que estaba presente en la cola, pero no en el almacén primario. Puede usar el [SDK de App Configuration](https://github.com/Azure/AppConfiguration#sdks) para acceder a los almacenes de configuración mediante programación.
 - Elimine los mensajes de la cola si no hubo ninguna excepción durante el procesamiento.
 - Implemente el control de errores de acuerdo con sus necesidades. Consulte el ejemplo de código anterior para ver algunas excepciones comunes que quizá quiera administrar.
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Para crear los recursos necesarios y administrar los roles, la cuenta debe tener permisos de `Owner` en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con las asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+> Para crear los recursos necesarios y administrar los roles, la cuenta debe tener permisos de `Owner` en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con las asignaciones de roles, vea [cómo asignar roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 Use los siguientes comandos o [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para conceder a la identidad administrada de la aplicación de funciones acceso a los almacenes de App Configuration. Use estos roles:
 - Asigne el rol `App Configuration Data Reader` al almacén de App Configuration primario.

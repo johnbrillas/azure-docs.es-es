@@ -2,18 +2,19 @@
 title: 'Desconexión de un disco de datos de una máquina virtual Linux: Azure'
 description: Información sobre cómo desconectar un disco de datos de una máquina virtual de Azure mediante la CLI de Azure o Azure Portal.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 29a2cbbf2c390b81aa62b064a7cf93decbaa7457
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897146"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565995"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Desconexión de un disco de datos de una máquina virtual Linux
 
@@ -108,13 +109,10 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 
 1. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 1. En la hoja de la máquina virtual, seleccione **Discos**.
-1. En la parte superior de la hoja **Discos**, seleccione **Editar**.
-1. En la hoja **Discos**, en el extremo derecho del disco de datos que desea desconectar, haga clic en el botón de desconexión ![imagen del botón de desconexión](./media/detach-disk/detach.png).
-1. Después de quitar el disco, haga clic en **Guardar** en la parte superior de la hoja.
+1. En la hoja **Discos**, en el extremo derecho del disco de datos que quiere desasociar, seleccione el botón **X** para ejecutar la operación.
+1. Después de quitar el disco, seleccione **Guardar** en la parte superior de la hoja.
 
-El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
-
-
+El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual. El disco no se ha eliminado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea reutilizar el disco de datos, basta con que lo [conecte a otra máquina virtual](add-disk.md).

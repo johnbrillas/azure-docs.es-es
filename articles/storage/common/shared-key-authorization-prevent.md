@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677570"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215585"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
 
@@ -22,12 +22,8 @@ Cada solicitud segura a una cuenta de Azure Storage debe estar autorizada. De fo
 
 Cuando se impide la autorización con clave compartida para una cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes posteriores a esa cuenta autorizadas con las claves de acceso de la cuenta. Solo se realizarán correctamente las solicitudes protegidas que estén autorizadas con Azure AD. Para más información sobre el uso de Azure AD, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> Azure Storage admite la autorización de Azure AD solo para solicitudes de Blob Storage y Queue Storage. Si impide la autorización con clave compartida para una cuenta de almacenamiento, se producirá un error en las solicitudes a Azure Files o al almacenamiento de tablas que usan la autorización con clave compartida. Dado que Azure Portal siempre usa la autorización con clave compartida para acceder a los datos de archivos y tablas, si se deniega la autorización con clave compartida para la cuenta de almacenamiento, no podrá acceder a los datos de archivos o tablas en Azure Portal.
->
-> Microsoft recomienda migrar los datos de Azure Files o Table Storage a una cuenta de almacenamiento independiente antes de denegar el acceso a la cuenta a través de la clave compartida, o bien que no aplique esta configuración a las cuentas de almacenamiento que admiten cargas de trabajo de Azure Files o Table Storage.
->
-> Denegar el acceso con clave compartida para una cuenta de almacenamiento no afecta a las conexiones SMB a Azure Files.
+> [!IMPORTANT]
+> La denegación de la autorización con clave compartida se encuentra actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 En este artículo se describe cómo detectar solicitudes enviadas con la autorización con clave compartida y cómo corregir la autorización con clave compartida para la cuenta de almacenamiento. Para aprender a registrarse para la versión preliminar, consulte [Acerca de la versión preliminar](#about-the-preview).
 
@@ -41,7 +37,7 @@ Para más información sobre cómo interpretar las solicitudes realizadas con un
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Supervisión del número de solicitudes autorizadas con clave compartida
 
-Para realizar el seguimiento de cómo se autorizan las solicitudes a una cuenta de almacenamiento, use el Explorador de métricas de Azure situado en Azure Portal. Para más información sobre el Explorador de métricas, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md).
+Para realizar el seguimiento de cómo se autorizan las solicitudes a una cuenta de almacenamiento, use el Explorador de métricas de Azure situado en Azure Portal. Para más información sobre el Explorador de métricas, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Siga estos pasos para crear una métrica que realice el seguimiento de las solicitudes llevadas a cabo con clave compartida o SAS:
 
@@ -67,7 +63,7 @@ Una vez configurada la métrica, las solicitudes a la cuenta de almacenamiento c
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de pantalla que muestra las solicitudes agregadas autorizadas con clave compartida":::
 
-También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes autorizadas con clave compartida en la cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes autorizadas con clave compartida en la cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Análisis de registros para identificar los clientes que están autorizando solicitudes con clave compartida o SAS
 
@@ -75,14 +71,14 @@ Los registros de Azure Storage capturan detalles sobre las solicitudes realizada
 
 Para registrar las solicitudes a su cuenta de Azure Storage con el fin de evaluar cómo se autorizan, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](../blobs/monitor-blob-storage.md).
 
-El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creación de una configuración de diagnóstico en Azure Portal
 
 Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure Log Analytics, primero debe crear una configuración de diagnóstico que indique qué tipos de solicitudes y para qué servicios de almacenamiento quiere registrar los datos. Para crear una configuración de diagnóstico en Azure Portal, siga estos pasos:
 
 1. Inscríbase en la [versión preliminar de registro de Azure Storage en Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage o use un área de trabajo de Log Analytics existente. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Cree un área de trabajo de Log Analytics en la suscripción que contenga la cuenta de Azure Storage o use un área de trabajo de Log Analytics existente. Después de configurar el registro de la cuenta de almacenamiento, los registros estarán disponibles en el área de trabajo de Log Analytics. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. En la sección Supervisión, seleccione **Configuración de diagnóstico (versión preliminar)** .
 1. Seleccione el servicio de Azure Storage cuyas solicitudes quiere registrar. Por ejemplo, elija **Blob** para registrar las solicitudes a Blob Storage.
@@ -95,7 +91,7 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 
 Puede crear una configuración de diagnóstico para cada tipo de recurso de Azure Storage en la cuenta de almacenamiento.
 
-Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Puede encontrar una referencia sobre los campos disponibles en los registros de Azure Storage en Azure Monitor en el artículo [Registros de recursos (versión preliminar)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +106,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-También puede configurar una regla de alerta basada en esta consulta para que le informe sobre las solicitudes autorizadas con clave compartida o SAS. Para más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+También puede configurar una regla de alerta basada en esta consulta para que le informe sobre las solicitudes autorizadas con clave compartida o SAS. Para más información, consulte [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Corrección de la autorización mediante clave compartida
 
@@ -133,11 +129,23 @@ Para denegar la autorización con clave compartida para una cuenta de almacenami
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de pantalla que muestra cómo denegar el acceso con clave compartida para una cuenta":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para denegar la autorización con clave compartida para una cuenta de almacenamiento con PowerShell, instale el [módulo de PowerShell Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), versión 3.4.0 o posterior. A continuación, configure la propiedad **AllowSharedKeyAccess** para una cuenta de almacenamiento nueva o existente.
+
+En el ejemplo siguiente se muestra cómo denegar el acceso con clave compartida en una cuenta de almacenamiento existente con PowerShell. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para denegar la autorización de clave compartida para una cuenta de almacenamiento con la CLI de Azure, instale la CLI de Azure, versión 2.9.1 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). A continuación, configure la propiedad **allowSharedKeyAccess** para una cuenta de almacenamiento nueva o existente.
 
-En el ejemplo siguiente se muestra cómo establecer la propiedad **allowSharedKeyAccess** con la CLI de Azure. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
+En el ejemplo siguiente se muestra cómo denegar el acceso con clave compartida en una cuenta de almacenamiento existente con la CLI de Azure. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -193,13 +201,13 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Permisos para admitir o denegar el acceso con clave compartida
 
-Para establecer la propiedad **AllowSharedKeyAccess** para la cuenta de almacenamiento, un usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (RBAC de Azure) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\** _. Los roles integrados con esta acción incluyen:
+Para establecer la propiedad **AllowSharedKeyAccess** para la cuenta de almacenamiento, un usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (Azure RBAC) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\*** . Los roles integrados con esta acción incluyen:
 
 - El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
 - El rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen _*Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
+Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen **Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
 
 Las asignaciones de roles deben tener el ámbito del nivel de la cuenta de almacenamiento o superior para permitir que un usuario permita o deniegue el acceso con clave compartida para la cuenta de almacenamiento. Para obtener más información sobre el ámbito de los roles, vea [Comprensión del ámbito para RBAC de Azure](../../role-based-access-control/scope-overview.md).
 
@@ -236,12 +244,17 @@ Algunas herramientas de Azure ofrecen la opción de usar la autorización Azure 
 | Azure IoT Hub | Compatible. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell es un shell integrado en Azure Portal. Azure Cloud Shell hospeda archivos para la persistencia en un recurso compartido de archivos de Azure en una cuenta de almacenamiento. Estos archivos dejarán de estar accesibles si la autorización con clave compartida se deniega para esa cuenta de almacenamiento. Para más información, consulte [Conexión con el almacenamiento de Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para ejecutar comandos en Azure Cloud Shell a fin de administrar cuentas de almacenamiento para las que se deniega el acceso con clave compartida, primero debe asegurarse de que se le han concedido los permisos necesarios para estas cuentas mediante RBAC de Azure. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Migración de cargas de trabajo de Azure Files y almacenamiento de tablas
+
+Azure Storage admite la autorización de Azure AD solo para solicitudes de Blob Storage y Queue Storage. Si impide la autorización con clave compartida para una cuenta de almacenamiento, se producirá un error en las solicitudes a Azure Files o al almacenamiento de tablas que usan la autorización con clave compartida. Dado que Azure Portal siempre usa la autorización con clave compartida para acceder a los datos de archivos y tablas, si se deniega la autorización con clave compartida para la cuenta de almacenamiento, no podrá acceder a los datos de archivos o tablas en Azure Portal.
+
+Microsoft recomienda migrar los datos de Azure Files o Table Storage a una cuenta de almacenamiento independiente antes de denegar el acceso a la cuenta a través de la clave compartida, o bien que no aplique esta configuración a las cuentas de almacenamiento que admiten cargas de trabajo de Azure Files o Table Storage.
+
+Denegar el acceso con clave compartida para una cuenta de almacenamiento no afecta a las conexiones SMB a Azure Files.
+
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
 La versión preliminar para denegar la autorización con clave compartida está disponible en la nube pública de Azure. Solo se admite para las cuentas de almacenamiento que utilizan el modelo de implementación de Azure Resource Manager. Para información sobre qué cuentas de almacenamiento usan el modelo de implementación de Azure Resource Manager, consulte [Tipos de cuentas de almacenamiento](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Esta versión preliminar está pensada para usos distintos del de producción.
 
 La versión preliminar incluye las limitaciones que se describen en las secciones siguientes.
 

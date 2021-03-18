@@ -6,16 +6,20 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 421f80493a9cb88e8bbbddc06aa9a24042b64b17
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695467"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211624"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitación de Snapshot Debugger para aplicaciones de .NET en Azure App Service
 
-Actualmente, Snapshot Debugger puede usarse con aplicaciones ASP.NET y ASP.NET Core que se ejecutan en Azure App Service en planes de servicio de Windows. Se recomienda ejecutar la aplicación en el nivel de servicio básico o superior al usar el depurador de instantáneas. Para la mayoría de las aplicaciones, los niveles de servicio Gratuito y Compartido no tienen suficiente memoria ni espacio en disco para guardar las instantáneas.
+Actualmente, Snapshot Debugger admite aplicaciones ASP.NET y ASP.NET Core que se ejecutan en Azure App Service en planes de servicio de Windows.
+
+Se recomienda ejecutar la aplicación en el nivel de servicio básico o superior al usar Snapshot Debugger.
+
+Para la mayoría de las aplicaciones, los niveles de servicio Gratuito y Compartido no tienen suficiente memoria ni espacio en disco para guardar las instantáneas.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Habilitación de Snapshot Debugger
 Para habilitar Snapshot Debugger en una aplicación, siga las instrucciones que se indican a continuación.
@@ -28,7 +32,10 @@ Si está ejecutando otro tipo de servicio de Azure, aquí encontrará instruccio
 * [Máquinas virtuales o físicas locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
-> Si usa una versión preliminar de .NET Core o su aplicación hace referencia a un SDK de Application Insights, ya sea directamente o indirectamente a través de un ensamblado dependiente, siga primero las instrucciones que se indican en [Habilitar Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación y, luego, complete el resto de las instrucciones siguientes. 
+> Si usa una versión preliminar de .NET Core o su aplicación hace referencia a un SDK de Application Insights, ya sea directa o indirectamente a través de un ensamblado dependiente, siga las instrucciones que se indican en [Habilitar Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación y, luego, complete el resto de las instrucciones siguientes. 
+>
+> La instalación sin código de Application Insights Snapshot Debugger sigue la directiva de compatibilidad de .NET Core.
+> Para más información sobre los entornos de ejecución admitidos, consulte [Directiva de compatibilidad de .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Snapshot Debugger se instaló previamente como parte del entorno de ejecución de App Services, pero es necesario activarlo si quiere obtener instantáneas para la aplicación de App Service.
 
@@ -46,6 +53,16 @@ Una vez que haya implementado una aplicación, siga los pasos que se indican a c
 4. Snapshot Debugger está habilitado con una configuración de aplicación de App Services.
 
     ![Configuración de aplicación para Snapshot Debugger][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Habilitación de Snapshot Debugger para otras nubes
+
+Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) y [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide), mediante la cadena de conexión de Application Insights.
+
+|Propiedad de cadena de conexión    | Nube del Gobierno de EE. UU. | Nube de China |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para más información sobre otras invalidaciones de conexión, consulte la [documentación de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Deshabilitación de Snapshot Debugger
 

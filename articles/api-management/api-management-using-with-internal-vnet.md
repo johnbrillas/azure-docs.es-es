@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 10154f496d76ce6b9eb19d610fdff8d7a4023c2d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145521"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565961"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -68,13 +68,13 @@ Después de que la implementación se realiza correctamente, verá la dirección
 ![Panel de API Management con una red virtual interna configurada][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> La consola de prueba disponible en Azure Portal no funcionará con un servicio implementado en una red virtual **interna** , ya que la dirección Url de puerta de enlace no está registrada en el DNS público. En su lugar, debe usar la consola de prueba que se ofrece en el **Portal para desarrolladores**.
+> La consola de prueba disponible en Azure Portal no funcionará con un servicio implementado en una red virtual **interna**, ya que la dirección Url de puerta de enlace no está registrada en el DNS público. En su lugar, debe usar la consola de prueba que se ofrece en el **Portal para desarrolladores**.
 
 ### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Implementación de API Management en Virtual Network
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 También puede habilitar la conectividad de la red virtual utilizando cmdlets de PowerShell.
 
@@ -83,7 +83,7 @@ También puede habilitar la conectividad de la red virtual utilizando cmdlets de
 * Actualice una implementación existente de un servicio API Management dentro de una red virtual: Use el cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover un servicio API Management existente en una red virtual y configurarlo para utilizar el tipo de red virtual interna.
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuración de DNS
-Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio DNS.
+Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio DNS. La configuración de una zona privada de Azure DNS y su vinculación al servicio API Management de la red virtual donde se implementa es la opción recomendada.  Haga clic [aquí](../dns/private-dns-getstarted-portal.md) para obtener información sobre cómo configurar una zona privada en Azure DNS.
 
 > [!NOTE]
 > El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión pueden ser la puerta de enlace, Azure Portal y el portal del desarrollador, el punto de conexión de administración directa y GIT.

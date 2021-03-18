@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895947"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553245"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -46,7 +46,7 @@ A partir de la versión de API `2019-05-06`, los errores y advertencias del inde
 
 El indexador no pudo leer el documento del origen de datos. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Tipos de campo incoherentes en distintos documentos | "El tipo de valor no coincide con el tipo de columna. No se pudo almacenar `'{47.6,-122.1}'` en la columna de autores.  El tipo esperado es JArray".  "Error al convertir el tipo de datos nvarchar a float".  "Error de conversión al convertir el valor nvarchar "12 meses" al tipo de datos int".  “Error de desbordamiento aritmético al convertir expresión al tipo de datos int”. | Asegúrese de que el tipo de cada campo sea el mismo en los distintos documentos. Por ejemplo, si el campo `'startTime'` del primer documento es DateTime y el del segundo documento es una cadena, se mostrará este error. |
 | errores del servicio subyacente del origen de datos | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Compruebe la instancia de almacenamiento para asegurarse de que es correcta. Es posible que tenga que ajustar el escalado o la creación de particiones. |
@@ -57,7 +57,7 @@ El indexador no pudo leer el documento del origen de datos. Estos pueden ser los
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Error: No se pudo extraer el contenido o los metadatos del documento
 El indexador con un origen de datos de blob no pudo extraer el contenido o los metadatos del documento (por ejemplo, un archivo PDF). Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | el blob está por encima del límite de tamaño | El documento tiene `'150441598'` bytes, lo que supera el tamaño máximo de `'134217728'` bytes para la extracción de documentos con el nivel de servicio actual. | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
 | el blob tiene un tipo de contenido no admitido | El documento tiene un tipo de contenido no admitido `'image/png'` | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
@@ -69,7 +69,7 @@ El indexador con un origen de datos de blob no pudo extraer el contenido o los m
 ## <a name="error-could-not-parse-document"></a>Error: No se pudo analizar el documento
 El indexador leyó el documento desde el origen de datos, pero hubo un problema al convertir el contenido del documento en el esquema de asignación de campos especificado. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Falta la clave del documento. | No puede faltar la clave del documento ni estar vacía | Asegúrese de que todos los documentos tengan claves de documento válidas. La clave del documento se determina estableciendo la propiedad "key" como parte de la [definición del índice](/rest/api/searchservice/create-index#request-body). Los indizadores emitirán este error cuando la propiedad marcada como "key" no se encuentre en un documento concreto. |
 | La clave del documento no es válida | La clave del documento no puede tener más de 1024 caracteres | Modifique la clave del documento para que cumpla los requisitos de validación. |
@@ -86,7 +86,7 @@ Es posible que se haya producido un error en la asignación de salida porque los
 ## <a name="error-could-not-execute-skill"></a>Error: No se pudo ejecutar la aptitud
 El indexador no pudo ejecutar una aptitud del conjunto de aptitudes.
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Problemas de conectividad transitorios | Se produjo un error transitorio. Inténtelo de nuevo más tarde. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 | Posible error del producto | Se ha producido un error inesperado. | Esto indica una clase desconocida de error y puede significar que hay un error del producto. Registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para obtener ayuda. |
@@ -147,7 +147,7 @@ El valor máximo que puede establecer para el parámetro `timeout` es de 230 se
 
 El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índice de búsqueda. Estos pueden ser los motivos:
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
 | El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
@@ -189,7 +189,7 @@ Este error se produce cuando el indexador no puede finalizar el procesamiento de
 
 Este error se produce cuando el indexador está intentando [proyectar datos en un almacén de conocimiento](knowledge-store-projection-overview.md) y se genera un error al hacerlo.  Este error puede ser constante y necesitar corrección, o puede ser un error transitorio del receptor de salida de la proyección. En este último caso, puede que tenga que esperar y volver a intentarlo para que se resuelva.  A continuación se muestra un conjunto de estados de error conocidos y posibles soluciones.
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | No se pudo actualizar el BLOB de proyección `'blobUri'` en el contenedor `'containerName'` |El contenedor especificado no existe. | El indexador comprobará si el contenedor especificado se ha creado previamente y lo creará si es necesario, pero solo realizará esta comprobación una vez por cada ejecución de indexador. Este error significa que algo eliminó el contenedor después de este paso.  Para resolver este error, pruebe esto: deje solo la información de la cuenta de almacenamiento, espere a que finalice el indexador y vuelva a ejecutarlo. |
 | No se pudo actualizar el BLOB de proyección `'blobUri'` en el contenedor `'containerName'` |No se pueden escribir los datos en la conexión de transporte: El host remoto forzó el cierre de la conexión existente. | Se considera que este es un error transitorio con Azure Storage y que, por tanto, para resolverlo debe volver a ejecutar el indexador. Si se produce este error de forma constante, registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para que se pueda investigar en profundidad.  |
@@ -226,7 +226,7 @@ Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, p
 }
 ```
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | La entrada de aptitud tiene un tipo incorrecto | "La entrada de aptitud obligatoria no era del tipo esperado `String`. Nombre: `text`; origen: `/document/merged_content`".  "La entrada de aptitud obligatoria no tenía el formato esperado. Nombre: `text`; origen: `/document/merged_content`".  "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz".  "No se puede seleccionar `0` en un elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
 | Falta la entrada de aptitud | "Falta la entrada de aptitud obligatoria. Nombre: `text`; origen: `/document/merged_content`". "Falta el valor `/document/normalized_images/0/imageTags`".  "No se puede seleccionar `0` en una matriz `/document/pages` de longitud `0`". | Si todos los documentos reciben esta advertencia, lo más probable es que haya un error ortográfico en las rutas de acceso de las entradas, por lo que debe revisar nuevamente el uso de mayúsculas y minúsculas en el nombre de la propiedad, ver si faltan o sobran `*` en la ruta de acceso y asegurarse de que los documentos del origen de datos proporcionan las entradas obligatorias. |
@@ -236,6 +236,8 @@ Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, p
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Advertencia:  La entrada de aptitud "languageCode" tiene los siguientes códigos de idioma "X,Y,Z", uno de los cuales es al menos válido.
 Uno o varios de los valores que pasan a la entrada `languageCode` opcional de una aptitud de nivel inferior no se admiten. Esta situación puede darse si se pasa la salida de [LanguageDetectionSkil](cognitive-search-skill-language-detection.md) a aptitudes posteriores y la salida consta de más idiomas de los que se admiten en esas aptitudes de nivel inferior.
+
+Tenga en cuenta que también puede recibir una advertencia similar a la siguiente si una entrada no válida `countryHint` se pasa a LanguageDetectionSkill. Si esto ocurre, compruebe que el campo que usa del origen de datos con esa entrada contiene códigos de país alfabéticos de dos letras ISO 3166-1. Si algunos son válidos y otros no, continúe con las siguientes instrucciones, pero reemplace `languageCode` por `countryHint` y `defaultLanguageCode` por `defaultCountryHint` para que coincidan con su caso de uso.
 
 Si sabe que el conjunto de datos solo tiene un idioma, debe quitar el elemento [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) y la entrada de aptitud `languageCode` y usar en cambio el parámetro de aptitud `defaultLanguageCode` para esa aptitud, suponiendo que el idioma sea compatible con ella.
 
@@ -318,7 +320,7 @@ Para más información, consulte [Límites de índice](search-limits-quotas-capa
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Advertencia: No se pudo asignar el campo de salida "X" al índice de búsqueda
 Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Consulte [Asignación de campos de salida](cognitive-search-output-field-mapping.md) para obtener más información.
 
-| Motivo | Detalles/ejemplo | Resolución |
+| Motivo | Detalles/ejemplo | Solución |
 | --- | --- | --- |
 | No se puede iterar en un elemento que no sea una matriz | "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Este error se produce cuando la salida no es una matriz. Si cree que la salida es una matriz, compruebe si hay errores en la ruta de acceso del campo de origen de salida indicada. Por ejemplo, es posible que tenga un elemento `*` adicional o ausente en el nombre del campo de origen. También es posible que la entrada a esta aptitud sea NULL, lo que da lugar a una matriz vacía. Busque detalles similares en la sección [La entrada de aptitudes no es válida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).    |
 | No se puede seleccionar `0` en un elemento que no sea una matriz | "No se puede seleccionar `0` en un elemento que no sea una matriz `/document/pages`". | Esto puede ocurrir si la salida de las aptitudes no produce una matriz y el nombre del campo de origen de salida tiene un índice de matriz o `*` en su ruta de acceso. Compruebe las rutas de acceso proporcionadas en los nombres del campo de origen de salida y en el valor de campo del nombre de campo indicado. Busque detalles similares en la sección [La entrada de aptitudes no es válida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).  |

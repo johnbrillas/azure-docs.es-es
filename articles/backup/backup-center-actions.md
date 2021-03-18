@@ -1,18 +1,18 @@
 ---
 title: Acciones con el Centro de copias de seguridad
-description: En este artículo se explica cómo realizar acciones con el Centro de copia de seguridad.
+description: En este artículo se explica cómo realizar acciones con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894582"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506497"
 ---
-# <a name="perform-actions-using-backup-center-preview"></a>Acciones con el Centro de copias de seguridad (versión preliminar)
+# <a name="perform-actions-using-backup-center"></a>Acciones con el Centro de copias de seguridad
 
-El Centro de copias de seguridad permite realizar acciones clave relacionadas con la copia de seguridad desde una interfaz central sin necesidad de ir a un almacén individual. Estas son algunas de las acciones que puede realizar desde el Centro de copias de seguridad:
+El Centro de copias de seguridad permite realizar las principales acciones relacionadas con las copias de seguridad desde una interfaz central sin necesidad de ir a un almacén individual. Estas son algunas de las acciones que puede realizar desde el Centro de copias de seguridad:
 
 * Configurar la copia de seguridad de los orígenes de datos
 * Restaurar una instancia de copia de seguridad
@@ -59,7 +59,7 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos qu
 
 ### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Si restaura desde un almacén de Recovery Services
 
-1. Vaya al Centro de copias de seguridad y seleccione **Restauración** en la parte superior de la pestaña **Información general**.
+1. Vaya al Centro de copias de seguridad y seleccione **Restaurar** en la parte superior de la pestaña **Información general**.
 
     ![Información general del Centro de copias de seguridad para restaurar la máquina virtual](./media/backup-center-actions/backup-center-overview-restore.png)
 
@@ -71,7 +71,7 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos qu
 
 ### <a name="if-youre-restoring-from-a-backup-vault"></a>Si restaura desde un almacén de Backup
 
-1. Vaya al Centro de copias de seguridad y seleccione **Restauración** en la parte superior de la pestaña **Información general**.
+1. Vaya al Centro de copias de seguridad y seleccione **Restaurar** en la parte superior de la pestaña **Información general**.
 2. Seleccione el tipo de origen de datos que quiere restaurar (en este caso, servidor de Azure Database for PostgreSQL).
 
     ![Seleccionar el origen de datos para restaurar el servidor de Azure Database for PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
@@ -140,4 +140,4 @@ Para desencadenar una copia de seguridad a petición, vaya al Centro de copias d
 
 * [Supervisión y funcionamiento de las copias de seguridad](backup-center-monitor-operate.md)
 * [Gobernanza del conjunto de copias de seguridad](backup-center-govern-environment.md)
-* [Obtención de información detallada sobre las copias de seguridad](backup-center-obtain-insights.md)
+* [Obtención de conclusiones sobre las copias de seguridad](backup-center-obtain-insights.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875743"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439466"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -58,14 +58,22 @@ Si no tiene ningún rol que conceda permisos para la capa de administración, el
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>¿Qué sucede si no puedo obtener los permisos de la capa de administración que necesito de mi administrador?
 
-Si quiere acceder a los contenedores de blobs o a las colas, puede adjuntarlos a esos recursos con las credenciales de Azure.
+Si quiere acceder a los contenedores de blobs, a los contenedores o directorios de ADLS Gen2, o a las colas, puede asociarlos a esos recursos con las credenciales de Azure.
 
 1. Abra el cuadro de diálogo Conectar.
-2. Seleccione "Agregar un recurso a través de Azure Active Directory (Azure AD)". Seleccione Siguiente.
-3. Seleccione la cuenta de usuario y el inquilino asociados al recurso al que los está adjuntando. Seleccione Siguiente.
-4. Seleccione el tipo de recurso, escriba la dirección URL del recurso y escriba un nombre para mostrar único para la conexión. Seleccione Siguiente y luego Conectar.
+1. Seleccione el tipo de recurso al que desea conectarse.
+1. Seleccione **Iniciar sesión con Azure Active Directory (Azure AD)** . Seleccione **Next** (Siguiente).
+1. Seleccione la cuenta de usuario y el inquilino asociados al recurso al que los está adjuntando. Seleccione **Next** (Siguiente).
+1. Escriba la dirección URL del recurso y un nombre para mostrar único para la conexión. Seleccione **Siguiente** y luego **Conectar**.
 
-Actualmente no tenemos una solución relacionada con RBAC de Azure para otros tipos de recursos. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+Actualmente no tenemos una solución relacionada con RBAC de Azure para otros tipos de recursos. Como solución alternativa, puede solicitar una dirección URL de SAS y asociarla al recurso siguiendo estos pasos:
+
+1. Abra el cuadro de diálogo Conectar.
+1. Seleccione el tipo de recurso al que desea conectarse.
+1. Seleccione **Firma de acceso compartido (SAS) de cuenta**. Seleccione **Next** (Siguiente).
+1. Escriba la dirección URL de SAS que ha recibido y un nombre para mostrar único para la conexión. Seleccione **Siguiente** y luego **Conectar**.
+ 
+Para más información sobre cómo asociar recursos, consulte cómo [conectarse a un recurso individual](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Roles integrados de Azure recomendados
 

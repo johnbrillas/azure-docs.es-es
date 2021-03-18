@@ -1,20 +1,20 @@
 ---
 title: 'Escenario: Enrutamiento a redes virtuales de servicios compartidos'
 titleSuffix: Azure Virtual WAN
-description: 'Escenarios de enrutamiento: configure rutas para acceder a una red virtual de servicios compartidos con una carga de trabajo a la que desee que accedan todas las redes virtuales y ramas.'
+description: 'Escenarios de enrutamiento: configure rutas para acceder a una red virtual de servicios compartidos con una carga de trabajo a la que quiera que accedan todas las redes virtuales y ramas.'
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461471"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442968"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Escenario: Enrutamiento a redes virtuales de servicios compartidos
 
@@ -30,9 +30,9 @@ Podemos usar una matriz de conectividad para resumir los requisitos de este esce
 
 | From             | A:   |*Redes virtuales aisladas*|*Red virtual compartida*|*Ramas*|
 |---|---|---|---|---|
-|**Redes virtuales aisladas**|&#8594;|        | Directo | Directo |
-|**Redes virtuales compartidas**  |&#8594;| Directo | Directo | Directo |
-|**Ramas**      |&#8594;| Directo | Directo | Directo |
+|**Redes virtuales aisladas**| ->|        | Directo | Directo |
+|**Redes virtuales compartidas**  |->| Directo | Directo | Directo |
+|**Ramas**      |->| Directo | Directo | Directo |
 
 En cada una de las celdas de la tabla anterior se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) se comunica con un destino (el lado "A" del flujo, los encabezados de columna en cursiva). En este escenario no hay ningún firewall o dispositivo virtual de red, por lo que la comunicación fluye directamente a través de Virtual WAN (de ahí la palabra "Directo" en la tabla).
 
@@ -61,21 +61,21 @@ Para más información sobre el enrutamiento de centros virtuales, vea [Acerca d
 
 Para configurar el escenario, tenga en cuenta los siguientes pasos:
 
-1. Identifique la red virtual **Shared Services** (Servicios compartidos).
+1. Identifique la red virtual de **servicios compartidos**.
 2. Cree una tabla de rutas personalizada. En el ejemplo, hacemos referencia a la tabla de rutas como **RT_SHARED**. Para conocer los pasos para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Use los valores siguientes como guía:
 
    * **Asociación**
-     * Para **Redes virtuales, *excepto* la red virtual de servicios compartidos** , seleccione las redes virtuales que desea aislar. Esto hará que todas estas redes virtuales (excepto la red virtual de servicios compartidos) puedan alcanzar el destino en función de las rutas de la tabla de rutas RT_SHARED.
+     * En **VNets *except* the shared services VNet** (Redes virtuales, excepto la red virtual de servicios compartidos), seleccione las redes virtuales que quiera aislar. Esto hará que todas estas redes virtuales (excepto la red virtual de servicios compartidos) puedan alcanzar el destino en función de las rutas de la tabla de rutas RT_SHARED.
 
    * **Propagación**
-      * En el caso de **Ramas** , propague las rutas a esta tabla de rutas, además de a cualquier otra tabla de rutas que ya haya seleccionado. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de todas las conexiones de rama (VPN/ER/VPN de usuario).
-      * En **Redes virtuales** , seleccione la **red virtual de servicios compartidos**. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de la conexión de la red virtual de servicios compartidos.
+      * En el caso de **Ramas**, propague las rutas a esta tabla de rutas, además de a cualquier otra tabla de rutas que ya haya seleccionado. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de todas las conexiones de rama (VPN/ER/VPN de usuario).
+      * En **Redes virtuales**, seleccione la **red virtual de servicios compartidos**. Debido a este paso, la tabla de rutas RT_SHARED aprenderá las rutas de la conexión de red virtual de servicios compartidos.
 
 Esto dará lugar a la configuración de enrutamiento que se muestra en la ilustración siguiente:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Red virtual de servicios compartidos" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagrama de la red virtual de servicios compartidos." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre Virtual WAN, consulte las [preguntas más frecuentes](virtual-wan-faq.md).
+* Para configurar el uso de una plantilla de Resouce Manager, consulte [Inicio rápido: Ruta a redes virtuales de servicios compartidos mediante una plantilla de Resouce Manager](quickstart-route-shared-services-vnet-template.md).
 * Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).

@@ -3,13 +3,13 @@ title: Creación de un clúster privado de Azure Kubernetes Service
 description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
-ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/5/2021
+ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181234"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556543"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -70,19 +70,26 @@ Donde `--enable-private-cluster` es una marca obligatoria para un clúster priva
 
 Se pueden aprovechar los siguientes parámetros para configurar la zona DNS privada.
 
-1. "System" es el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
-2. El valor "None" significa que AKS no creará una zona DNS privada.  Esto requiere que Traiga su propio servidor DNS y configure la resolución DNS para el FQDN privado.  Si no configura la resolución DNS, el DNS solo se podrá resolver dentro de los nodos del agente y provocará problemas en el clúster después de la implementación.
-3. El "nombre de zona DNS privada personalizada" debe estar en el siguiente formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. Necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga al menos el rol `private dns zone contributor` en la zona DNS privada personalizada.
+- "System" es el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
+- El valor "None" significa que AKS no creará una zona DNS privada.  Esto requiere que Traiga su propio servidor DNS y configure la resolución DNS para el FQDN privado.  Si no configura la resolución DNS, el DNS solo se podrá resolver dentro de los nodos del agente y provocará problemas en el clúster después de la implementación. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requiere la creación de una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga al menos el rol `private dns zone contributor`.
+- "fqdn-subdomain" solo se puede usar con "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" para proporcionar capacidades de subdominio a `privatelink.<region>.azmk8s.io`.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* La versión preliminar 0.4.71 de AKS o posterior
+* La versión preliminar 0.5.3 de AKS o posterior.
 * La API, versión 2020-11-01 o posterior
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Creación de un clúster de AKS privado con zona de DNS privado (versión preliminar)
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Creación de un clúster de AKS privado con una zona DNS privada (versión preliminar)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opciones para conectarse al clúster privado
 
@@ -142,5 +149,5 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md

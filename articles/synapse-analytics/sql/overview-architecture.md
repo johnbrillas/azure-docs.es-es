@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679625"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441897"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitectura de SQL de Azure Synapse 
 
@@ -35,7 +35,7 @@ SQL de Synapse usa una arquitectura basada en nodos. Las aplicaciones se conecta
 
 El nodo de control de Azure Synapse SQL utiliza un motor de consultas distribuidas para optimizar las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo. 
 
-El nodo de control del grupo de SQL sin servidor utiliza el motor de procesamiento de consultas distribuidas (DQP) para optimizar y orquestar la ejecución distribuida de consultas de usuario, para lo cual se dividen en consultas más pequeñas que se ejecutarán en nodos de proceso. Cada consulta pequeña se denomina "tarea", que representa una unidad de ejecución distribuida. Lee los archivos del almacenamiento, combina los resultados de otras tareas, agrupa u ordena los datos recuperados de otras tareas. 
+El nodo de control del grupo de SQL sin servidor utiliza el motor de procesamiento de consultas distribuidas (DQP) para optimizar y orquestar la ejecución distribuida de consultas de usuario, para lo cual se dividen en consultas más pequeñas que se ejecutarán en nodos de proceso. Cada consulta pequeña se denomina "tarea", que representa una unidad de ejecución distribuida. Se leen los archivos del almacenamiento, se combinan los resultados de otras tareas, se agrupan u ordenan los datos recuperados de otras tareas. 
 
 Los nodos de ejecución almacenan todos los datos del usuario en Azure Storage y ejecutan las consultas en paralelo. El servicio de movimiento de datos (DMS) es un servicio interno de nivel de sistema que mueve datos entre los nodos según sea necesario para ejecutar consultas en paralelo y devolver resultados precisos. 
 
@@ -49,7 +49,7 @@ Con un almacenamiento y proceso desacoplados, cuando se usa SQL de Synapse, es p
 
 SQL de Synapse aprovecha Azure Storage para proteger los datos del usuario. Puesto que los datos se almacenan y administran en Azure Storage, el consumo de almacenamiento se cobra aparte. 
 
-El grupo de SQL sin servidor le permite consultar los archivos del lago de datos en modo de solo lectura, mientras que el grupo de SQL también le permite ingerir datos. Cuando se ingieren datos en el grupo de SQL dedicado, los datos se particionan en **distribuciones** para optimizar el rendimiento del sistema. Puede elegir qué modelo de particionamiento quiere usar para distribuir los datos cuando define la tabla. Se admiten estos patrones de particionamiento:
+El grupo de SQL sin servidor permite consultar los archivos de Data Lake, mientras que el grupo de SQL dedicado permite consultar e ingerir datos de los archivos de Data Lake. Cuando se ingieren datos en el grupo de SQL dedicado, los datos se particionan en **distribuciones** para optimizar el rendimiento del sistema. Puede elegir qué modelo de particionamiento quiere usar para distribuir los datos cuando define la tabla. Se admiten estos patrones de particionamiento:
 
 * Hash
 * Round Robin
@@ -107,7 +107,7 @@ Una tabla distribuida con el método round robin distribuye los datos uniformeme
 ## <a name="replicated-tables"></a>Tablas replicadas
 Una tabla replicada proporciona el rendimiento de consultas más rápido para tablas pequeñas.
 
-Una tabla que se replica tiene una copia completa de la tabla almacenada en la caché de cada nodo de proceso. Por lo tanto, al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Las tablas replicadas se usan mejor con tablas pequeñas. Se requiere almacenamiento adicional y hay sobrecargas adicionales que se producen al escribir datos que hacen que las tablas grandes sean poco prácticas. 
+Una tabla que se replica tiene una copia completa de la tabla almacenada en la caché de cada nodo de proceso. Por lo tanto, al replicar una tabla se elimina la necesidad de transferir datos entre nodos de proceso antes de una combinación o agregación. Las tablas replicadas se usan mejor con tablas pequeñas. Se requiere almacenamiento adicional y hay sobrecargas adicionales que se producen al escribir datos que hacen que las tablas grandes sean poco prácticas. 
 
 En el diagrama siguiente se muestra una tabla replicada que se almacena en caché en la primera distribución de cada nodo de proceso. 
 

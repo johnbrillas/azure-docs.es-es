@@ -3,12 +3,12 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589528"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424672"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
@@ -32,6 +32,9 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 -   Si no necesita administrar facturaciones o cuotas de forma distinta entre los componentes.
 -   Si es correcto tener una clave de API con el mismo acceso a los datos de todos los componentes. Diez claves de API son suficientes para las necesidades en todos ellos.
 -   Si es correcto tener la misma detección inteligente y la misma configuración de integración de elementos de trabajo en todos los roles.
+
+> [!NOTE]
+> Si desea consolidar varios recursos de Application Insights, puede apuntar los componentes de aplicación existentes a un nuevo recurso de Application Insights consolidado. La telemetría almacenada en el recurso anterior no se transferirá al nuevo recurso, por lo que solo eliminará el recurso antiguo cuando tenga suficiente telemetría en el nuevo para la continuidad empresarial.
 
 ### <a name="other-things-to-keep-in-mind"></a>Otros aspectos que se deben tener en cuenta
 

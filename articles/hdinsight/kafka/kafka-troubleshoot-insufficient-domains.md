@@ -4,14 +4,14 @@ description: No se pudo crear el clúster debido a que no hay suficientes domini
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
-ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939051"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501352"
 ---
-# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Escenario: No se pudo crear el clúster debido a `not sufficient fault domains in region` en Azure HDInsight
+# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Escenario: No se ha podido crear el clúster debido a un error de `not sufficient fault domains in region` en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 
@@ -23,7 +23,7 @@ Recibo un mensaje de error parecido a `not sufficient fault domains in region` c
 
 Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
 
-Cada región de Azure tiene un número concreto de dominios de error. Para obtener una lista de los dominios y el número de dominios de error que contienen, consulte la documentación sobre los [conjuntos de disponibilidad](../../virtual-machines/manage-availability.md).
+Cada región de Azure tiene un número concreto de dominios de error. Para obtener una lista de los dominios y el número de dominios de error que contienen, consulte la documentación sobre los [conjuntos de disponibilidad](../../virtual-machines/availability.md).
 
 En HDInsight, los clústeres de Kafka se deben aprovisionar en una región con al menos tres dominios de error.
 

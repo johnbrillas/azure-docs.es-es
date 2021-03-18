@@ -9,12 +9,12 @@ ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: ad660ee69bb568e1a76d59344cf31fbf044aaae9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581436"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430945"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -44,13 +44,13 @@ El almacenamiento inmutable admite las características siguientes:
 
 - **Compatibilidad con todos los niveles de blobs:** las directivas WORM son independientes del nivel de Azure Blob Storage y se aplican a todos los niveles: de archivo, frecuente y esporádico. Los usuarios pueden transferir sus datos al nivel que les ofrezca la mayor optimización de costos de acuerdo con sus cargas de trabajo sin alterar la inmutabilidad de los datos.
 
-- **Configuración en el nivel de contenedor**: los usuarios pueden configurar las directivas de retención con duración definida y las etiquetas de suspensión legal a nivel del contenedor. Mediante valores de configuración sencillos en el nivel de contenedor, los usuarios pueden crear y bloquear las directivas de retención con duración definida, ampliar los intervalos de retención, establecer y eliminar suspensiones legales, etc. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes.
+- **Configuración en el nivel de contenedor**: los usuarios pueden configurar las directivas de retención con duración definida y las etiquetas de suspensión legal a nivel del contenedor. Mediante valores de configuración sencillos en el nivel de contenedor, los usuarios pueden crear y bloquear las directivas de retención con duración definida, ampliar los intervalos de retención, establecer y eliminar suspensiones legales, etc. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes. En el caso de una cuenta habilitada para HNS, estas directivas también se aplican a todos los directorios de un contenedor.
 
 - **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría de directiva. En él se muestran hasta siete comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas y contiene el identificador de usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure la directiva, de acuerdo con las directrices de regulación SEC 17a-4(f). El [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) muestra un registro más completo de todas las actividades del plano de control, mientras que al habilitar los [registros de recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md) se conservan y se muestran las operaciones del plano de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasan al estado WORM inmutable en menos de 30 segundos. Todos los nuevos blobs que se carguen en ese contenedor protegido mediante directiva también pasarán a un estado inmutable. Una vez que todos los blobs estén en un estado inmutable, la directiva inmutable se confirma y no se permite ninguna operación de sobrescritura o eliminación en el contenedor inmutable.
+Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasan al estado WORM inmutable en menos de 30 segundos. Todos los nuevos blobs que se carguen en ese contenedor protegido mediante directiva también pasarán a un estado inmutable. Una vez que todos los blobs estén en un estado inmutable, la directiva inmutable se confirma y no se permite ninguna operación de sobrescritura o eliminación en el contenedor inmutable. En el caso de una cuenta habilitada para HNS, no se puede cambiar el nombre de los blobs ni moverlos a un directorio diferente.
 
 Tampoco se permite la eliminación de la cuenta de almacenamiento y el contenedor si hay blobs en un contenedor protegidos mediante una directiva de suspensión legal o de duración definida bloqueada. Una directiva de suspensión legal protegerá contra la eliminación del blob, el contenedor y la cuenta de almacenamiento. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación de blobs durante el tiempo especificado. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación del contenedor solo si existe al menos un blob en el contenedor. Solo un contenedor con una directiva de duración definida *bloqueada* protegerá contra eliminaciones de la cuenta de almacenamiento; los contenedores con directivas de duración definida desbloqueadas no ofrecen protección contra la eliminación de la cuenta de almacenamiento ni cumplimiento.
 
@@ -175,6 +175,9 @@ Sí. Cuando se crea por primera vez una directiva de retención con duración de
 **¿Se puede usar la eliminación temporal junto con las directivas de blob inmutables?**
 
 Sí, si los requisitos de cumplimiento permiten habilitar la eliminación temporal. La [eliminación temporal para Azure Blob Storage](./soft-delete-blob-overview.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, con independencia de que exista una directiva de retención con duración definida o una suspensión legal. Se recomienda habilitar la eliminación temporal para mayor protección antes de aplicar y confirmar las directivas WORM inmutables.
+
+**En el caso de una cuenta habilitada para HNS, ¿puedo cambiar el nombre de un blob o moverlo si el blob está en el estado inmutable?**
+No, tanto el nombre como la estructura de directorios se consideran datos de nivel de contenedor importantes que no se pueden modificar una vez que se haya implementado la directiva inmutable. El cambio de nombre y el desplazamiento solo están disponibles para las cuentas habilitadas para HNS en general.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

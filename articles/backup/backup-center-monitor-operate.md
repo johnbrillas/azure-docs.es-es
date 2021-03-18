@@ -3,12 +3,12 @@ title: Supervisión y funcionamiento de copias de seguridad con el Centro de cop
 description: En este artículo se explica cómo supervisar y usar las copias de seguridad a gran escala con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719549"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506132"
 ---
 # <a name="monitor-and-operate-backups-using-backup-center"></a>Supervisión y funcionamiento de copias de seguridad con el Centro de copias de seguridad
 
@@ -16,7 +16,7 @@ Como administrador de copias de seguridad, puede usar el Centro de copias de seg
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* El Centro de copias de seguridad admite actualmente copias de seguridad de VM de Azure, SQL en VM de Azure, SAP HANA en VM de Azure, Azure Files y Blobs de Azure, Azure Managed Disks y servidor de Azure Database for PostgreSQL.
+* El Centro de copias de seguridad es compatible actualmente con copias de seguridad de VM de Azure, SQL en VM de Azure, SAP HANA en VM de Azure, Azure Files y Blobs de Azure, Azure Managed Disks y servidor de Azure Database for PostgreSQL.
 * Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para una lista detallada de los escenarios admitidos y no admitidos.
 
 ## <a name="backup-instances"></a>Instancias de copia de seguridad

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098373"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218169"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos de inteligencia artificial de Azure Percept
 
@@ -29,9 +29,9 @@ Azure Percept Studio contiene modelos de ejemplo para las siguientes aplicacione
 
 Con modelos previamente entrenados, no se requiere ninguna recopilación de datos de entrenamiento ni codificación. Solo tiene que implementar el modelo que desee en Azure Percept DK desde el portal y abrir la secuencia de vídeo del kit de desarrollo para ver la inferencia de modelos en acción. También se puede acceder a los datos de telemetría de la inferencia de modelos a través de la herramienta [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
 
-## <a name="pre-built-solutions"></a>Soluciones pregeneradas
+## <a name="reference-solutions"></a>Soluciones de referencia
 
-También está disponible una [solución de análisis espacial pregenerada para la detección de personas](https://github.com/george-moore/Santa-Cruz-AI-App). La solución pregenerada es una aplicación de inteligencia artificial de código abierto que proporciona el recuento de personas en el perímetro con eventos de entrada y salida de la zona definida por el usuario. La salida de vídeo e inteligencia artificial del dispositivo perimetral local se envía a [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) y la interfaz de usuario se ejecuta como un sitio web de Azure. La inferencia de inteligencia artificial se proporciona mediante un modelo de IA de código abierto para la detección de personas.
+También hay disponible una [solución de referencia de recuento de personas](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app). Esta solución de referencia es una aplicación de inteligencia artificial de código abierto que proporciona el recuento de personas en el perímetro con eventos de entrada y salida de la zona definida por el usuario. La salida de vídeo e inteligencia artificial del dispositivo perimetral local se envía a [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) y la interfaz de usuario se ejecuta como un sitio web de Azure. La inferencia de inteligencia artificial se proporciona mediante un modelo de IA de código abierto para la detección de personas.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="GIF de una solución preconfigurada de análisis espacial.":::
 

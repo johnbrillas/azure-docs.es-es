@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726774"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487885"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
@@ -30,7 +30,7 @@ Se mostrará la siguiente ventana:
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada pendientes       | Número de eventos de entrada que están pendientes. Un valor distinto de cero para esta métrica implica que el trabajo no puede mantenerse al día con el número de eventos entrantes. Si este valor se aumenta lentamente o sistemáticamente y pasa a ser distinto de cero, debe escalar el trabajo horizontalmente. Para más información, visite [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md). |
 | Errores de conversión de datos | Número de eventos de salida que no se pudieron convertir al esquema de salida previsto. La directiva de errores puede cambiarse a "Drop" para quitar los eventos que se producen en este escenario. |
-| Porcentaje de uso de CPU (versión preliminar)       | Porcentaje de CPU que utiliza el trabajo. Si esta métrica es constantemente superior al 80 %, podría significar un cuello de botella del trabajo en la CPU, lo que puede provocar que los eventos de entrada se retrasen. Puede aumentar el número de SU asignadas a su trabajo para mitigar estos problemas. |
+| Porcentaje de uso de CPU (versión preliminar)       | Porcentaje de CPU que utiliza el trabajo. Aunque este valor sea muy alto (90 % o superior), no debe aumentar el número de SU en función de esta métrica por sí sola. Si aumenta el número de eventos de entrada pendientes o el retraso de la marca de agua, puede usar esta métrica de porcentaje de uso de CPU para determinar si la CPU es el cuello de botella. Es posible que esta métrica tenga picos intermitentes. Se recomienda realizar pruebas de escalado para determinar el límite superior del trabajo después del cual se incrementan las entradas pendientes o el retraso de la marca de agua debido a un cuello de botella de la CPU. |
 | Primeros eventos de entrada       | Eventos cuya marca de tiempo de aplicación es anterior a su hora de llegada por más de cinco minutos. |
 | Solicitudes de función con errores | Número de llamadas a la función Azure Machine Learning con error (si corresponde). |
 | Eventos de función        | Número de eventos enviados a la función Azure Machine Learning (si corresponde). |

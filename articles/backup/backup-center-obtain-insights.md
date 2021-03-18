@@ -3,12 +3,12 @@ title: Obtención de conclusiones mediante el Centro de copias de seguridad
 description: Obtenga información sobre cómo analizar las tendencias históricas y sacar conclusiones más profundas sobre las copias de seguridad con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719464"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506023"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtención de conclusiones mediante el Centro de copias de seguridad
 
@@ -44,20 +44,22 @@ A continuación se muestran las vistas disponibles:
 
 1. **Resumen**: use esta pestaña para obtener información general sobre el conjunto de copias de seguridad. [Más información](./configure-reports.md#summary)
 
-1. **Elementos de copia de seguridad**: use esta pestaña para ver información y tendencias sobre el almacenamiento en la nube consumido en el nivel de elemento de Backup. [Más información](./configure-reports.md#backup-items)
+2. **Elementos de copia de seguridad**: use esta pestaña para ver información y tendencias sobre el almacenamiento en la nube consumido en el nivel de elemento de Backup. [Más información](./configure-reports.md#backup-items)
 
-1. **Uso**: use esta pestaña para ver los parámetros de facturación principales de las copias de seguridad. [Más información](./configure-reports.md#usage)
+3. **Uso**: use esta pestaña para ver los parámetros de facturación principales de las copias de seguridad. [Más información](./configure-reports.md#usage)
 
-1. **Trabajos**: use esta pestaña para ver tendencias de ejecución prolongada de los trabajos, como el número de trabajos con errores por día y las causas principales de los errores de los trabajos. [Más información](./configure-reports.md#jobs)
+4. **Trabajos**: use esta pestaña para ver tendencias de ejecución prolongada de los trabajos, como el número de trabajos con errores por día y las causas principales de los errores de los trabajos. [Más información](./configure-reports.md#jobs)
 
-1. **Directivas**: use esta pestaña para ver información sobre todas las directivas activas, como el número de elementos asociados y el almacenamiento en la nube total consumido por los elementos de los que se ha realizado una copia de seguridad por una directiva determinada. [Más información](./configure-reports.md#policies)
+5. **Directivas**: use esta pestaña para ver información sobre todas las directivas activas, como el número de elementos asociados y el almacenamiento en la nube total consumido por los elementos de los que se ha realizado una copia de seguridad por una directiva determinada. [Más información](./configure-reports.md#policies)
 
-1. **Optimizar**: use esta pestaña para obtener visibilidad sobre las posibles oportunidades de optimización de costos para las copias de seguridad. [Más información](./configure-reports.md#optimize)
+6. **Optimizar**: use esta pestaña para obtener visibilidad sobre las posibles oportunidades de optimización de costos para las copias de seguridad. [Más información](./configure-reports.md#optimize)
 
-1. **Adhesión a la directiva**: use esta pestaña para visualizar si cada instancia de copia de seguridad tiene al menos una copia de seguridad correcta al día.
+7. **Adhesión a la directiva**: use esta pestaña para visualizar si cada instancia de copia de seguridad tiene al menos una copia de seguridad correcta al día. [Más información](./configure-reports.md#policy-adherence)
+
+También puede configurar los mensajes de correo electrónico para cualquiera de estos informes mediante la característica [Informe de correo electrónico](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Supervisión y funcionamiento de las copias de seguridad](backup-center-monitor-operate.md)
-- [Control del conjunto de copias de seguridad](backup-center-govern-environment.md)
+- [Gobernanza del conjunto de copias de seguridad](backup-center-govern-environment.md)
 - [Acciones con el Centro de copias de seguridad](backup-center-actions.md)

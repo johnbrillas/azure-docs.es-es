@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258225"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487957"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
 
@@ -161,7 +161,7 @@ Si aún no puede realizar ningún progreso, póngase en contacto con el servicio
 ## <a name="other-scenarios"></a>Otros escenarios
 
 - El proxy de aplicación de Azure solicita un vale de Kerberos antes de enviar su solicitud a una aplicación. Algunas aplicaciones de terceros no permiten este método de autenticación. Estas aplicaciones esperan que se lleven a cabo negociaciones más convencionales. La primera solicitud es anónima, lo que permite que la aplicación responda con los tipos de autenticación que admite mediante un error 401. Este tipo de negociación de Kerberos se puede habilitar con los pasos descritos en este documento: [Delegación restringida de Kerberos para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md).
-- La autenticación de varios saltos se usa normalmente en escenarios con una aplicación en niveles y con un back-end y un front-end, los cuales requieren realizar una autenticación, como SQL Server Reporting Services. Para configurar el escenario de múltiples saltos, consulte el artículo de soporte técnico [La delegación restringida de Kerberos puede requerir un protocolo de transición en escenarios de múltiples saltos](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- La autenticación de varios saltos se usa normalmente en escenarios con una aplicación en niveles y con un back-end y un front-end, los cuales requieren realizar una autenticación, como SQL Server Reporting Services. Para más información, consulte [Cómo configurar la delegación restringida de Kerberos para páginas proxy de inscripción web](/troubleshoot/windows-server/identity/configure-kerberos-constrained-delegation).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

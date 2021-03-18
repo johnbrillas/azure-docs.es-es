@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX con
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729020"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506572"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Los comandos anteriores crean una dirección IP que se eliminará si elimina el clúster de AKS. Como alternativa, puede crear una dirección IP en otro grupo de recursos que se pueda administrar de forma independiente del clúster de AKS. Si crea una dirección IP en otro grupo de recursos, asegúrese de que la entidad de servicio usada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos, como *Colaborador de la red*. Para obtener más información, consulte [Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de AKS][aks-static-ip].
+> Los comandos anteriores crean una dirección IP que se eliminará si elimina el clúster de AKS. Como alternativa, puede crear una dirección IP en otro grupo de recursos que se pueda administrar de forma independiente del clúster de AKS. Si crea una dirección IP en otro grupo de recursos, asegúrese de que la entidad del clúster usada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos, como *Colaborador de la red*. Para obtener más información, consulte [Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de AKS][aks-static-ip].
 
 Ahora implemente el gráfico *nginx-ingress* con Helm. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 

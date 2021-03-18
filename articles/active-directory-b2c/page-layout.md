@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492253"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499856"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
@@ -74,9 +74,12 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de registro de inicio de sesión unificado con el vínculo de restablecimiento de contraseña (unifiedssp)
 
+> [!TIP]
+> Si localiza la página para que admita varias configuraciones regionales o idiomas en un flujo de usuario. El artículo sobre los [identificadores de localización](localization-string-ids.md) proporciona la lista de identificadores de localización que puede utilizar para la versión de la página que seleccione.
+
 **2.1.2**
 - Se ha corregido el problema de codificación de la localización para idiomas como el español y el francés.
-- Permite que el vínculo "contraseña olvidada" se use como intercambio de notificaciones como IDP social.
+- Permite que el vínculo "contraseña olvidada" se use como intercambio de notificaciones. Para más información, consulte [Autoservicio de restablecimiento de contraseña](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Se ha agregado una UXString `heading` además de `intro` para que se muestre en la página como un título. Está oculta de forma predeterminada.

@@ -3,12 +3,12 @@ title: Extender Azure DevTest Labs mediante Azure Functions | Microsoft Docs
 description: Obtenga información sobre cómo extender Azure DevTest Labs mediante Azure Functions.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620cda83094ee65f421a5529a9d5b51e505ec48e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476315"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501165"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Uso de Azure Functions para ampliar DevTest Labs
 Puede usar Azure Functions para admitir escenarios adicionales más allá de los que DevTest Labs ya admite. Azure Functions se puede usar para ampliar la funcionalidad integrada del servicio para satisfacer las necesidades específicas de su empresa. En la lista siguiente se proporcionan algunos de los escenarios posibles. En este artículo se muestra cómo implementar uno de estos escenarios de ejemplo.
@@ -43,27 +43,27 @@ Hay una acción adicional que se puede llevar a cabo. Para todas las máquinas v
 ## <a name="step-by-step-walkthrough"></a>Tutorial paso a paso
 En esta sección se proporcionan instrucciones paso a paso para configurar los recursos de Azure necesarios para actualizar la página **Soporte interno**. En este tutorial se proporciona un ejemplo de extensión de DevTest Labs. Puede usar este patrón para otros escenarios.
 
-### <a name="step-1-create-a-service-principal"></a>Paso 1: Creación de una entidad de servicio 
-El primer paso es obtener una entidad de servicio con permisos para la suscripción que contiene el laboratorio. La entidad de servicio debe usar la autenticación basada en contraseña. Se puede hacer con la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0), o [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md). Si ya tiene una entidad de servicio para usar, puede omitir este paso.
+### <a name="step-1-create-a-service-principal"></a>Paso 1: Creación de una entidad de servicio 
+El primer paso es obtener una entidad de servicio con permisos para la suscripción que contiene el laboratorio. La entidad de servicio debe usar la autenticación basada en contraseña. Se puede hacer con la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), o [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md). Si ya tiene una entidad de servicio para usar, puede omitir este paso.
 
 Anote el **identificador de la aplicación**, **clave** y el **identificador de inquilino** de la entidad de servicio. Los necesitará más adelante en este tutorial. 
 
-### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Paso 2: Descarga del ejemplo y apertura en Visual Studio 2019
+### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Paso 2: Descarga del ejemplo y apertura en Visual Studio 2019
 Descargue una copia del [ejemplo de Azure Functions en C#](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) localmente (ya sea mediante la clonación del repositorio o la descarga del repositorio desde [aquí](https://github.com/Azure/azure-devtestlab/archive/master.zip)).  
 
 1. Abra la solución de ejemplo con Visual Studio 2019.  
 1. Instale la carga de trabajo **Desarrollo de Azure** para Visual Studio si aún no lo tiene instalado. Se puede instalar mediante el elemento de menú **Herramientas** -> **Obtener herramientas y características**.
 
-    ![Carga de trabajo de desarrollo de Azure](./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png)
+    ![Carga de trabajo Desarrollo de Azure](./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png)
 1. Compile la solución. Seleccione **Compilar** y luego el elemento de menú **Compilar solución**.
 
-### <a name="step-3-deploy-the-sample-to-azure"></a>Paso 3: Implementación del ejemplo en Azure
+### <a name="step-3-deploy-the-sample-to-azure"></a>Paso 3: Implementación del ejemplo en Azure
 En Visual Studio, en la ventana **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **AzureFunctions** y, a continuación, seleccione **Publicar**. Siga el Asistente para completar la publicación en una aplicación de funciones de Azure nueva o existente. Para información detallada sobre el desarrollo y la implementación de funciones mediante Visual Studio, consulte [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md).
 
 ![Cuadro de diálogo Publicar](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
 
 
-### <a name="step-4--gather-application-settings"></a>Paso 4:  Recopilación de la configuración de la aplicación
+### <a name="step-4--gather-application-settings"></a>Paso 4: Recopilación de la configuración de la aplicación
 Una vez publicadas las funciones, debe obtener las direcciones URL de estas funciones desde Azure Portal. 
 
 1. Acceda a [Azure Portal](https://portal.azure.com). 
@@ -77,7 +77,7 @@ Una vez publicadas las funciones, debe obtener las direcciones URL de estas func
 También necesitará información adicional sobre la entidad de servicio, como el identificador de la aplicación, la clave y el identificador del inquilino.
 
 
-### <a name="step-5--update-application-settings"></a>Paso 5:  Actualización de la configuración de la aplicación
+### <a name="step-5--update-application-settings"></a>Paso 5: Actualización de la configuración de la aplicación
 En Visual Studio, después de publicar la función de Azure, seleccione **Editar configuración de Azure App Service** en **Acciones**. Actualice la siguiente configuración de la aplicación (remoto):
 
 - AzureFunctionUrl_ApplyUpdates
@@ -89,7 +89,7 @@ En Visual Studio, después de publicar la función de Azure, seleccione **Editar
 
     ![Configuración de la aplicación](./media/extend-devtest-labs-azure-functions/application-settings.png)
 
-### <a name="step-6-test-the-azure-function"></a>Paso 6: Prueba de la función de Azure
+### <a name="step-6-test-the-azure-function"></a>Paso 6: Prueba de la función de Azure
 El último paso de este tutorial es probar la función de Azure.  
 
 1. Vaya a la función **UpdateInternalSupportPage** en la aplicación de función creada en el paso 3. 

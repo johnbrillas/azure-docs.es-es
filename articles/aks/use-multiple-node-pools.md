@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182866"
+ms.locfileid: "102218492"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -130,9 +130,11 @@ Una carga de trabajo puede requerir la división de los nodos de un clúster en 
 #### <a name="limitations"></a>Limitaciones
 
 * Todas las subredes asignadas a grupos de nodos deben pertenecer a la misma red virtual.
-* Los pods del sistema deben tener acceso a todos los nodos del clúster para proporcionar una funcionalidad crítica, como la resolución de DNS mediante coreDNS.
-* La asignación de una subred única por grupo de nodos está limitada a Azure CNI durante la versión preliminar.
-* No se admite el uso de directivas de red con una subred única por grupo de nodos durante la versión preliminar.
+* Los pods del sistema deben tener acceso a todos los nodos o pods del clúster para proporcionar funcionalidad crítica, como la resolución de DNS y la tunelización de logs/exec/port-forward proxy de kubectl.
+* Si expande la red virtual después de crear el clúster, debe actualizar este (es decir, debe realizar cualquier operación de clúster administrada, aunque no cuentan las operaciones del grupo de nodos) antes de agregar una subred fuera del CIDR original. AKS generará un error con la opción Agregar ahora en el grupo de agentes aunque originalmente se hubiera permitido. Si no sabe cómo conciliar el clúster, abra una incidencia de soporte técnico. 
+* No se admite la directiva de red de Calico. 
+* No se admite la directiva de red de Azure.
+* Kube-proxy espera un único CIDR contiguo y lo usa para tres optimizaciones. Consulte esta [propuesta de mejora de Kubernetes](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) y -cluster-cidr [aquí](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) para obtener más información. En Azure CNI, la subred del primer grupo de nodos se asignará a kube-proxy. 
 
 Para crear un grupo de nodos con una subred dedicada, pase el identificador de recurso de subred como parámetro adicional al crear un grupo de nodos.
 

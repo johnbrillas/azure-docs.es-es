@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368054"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488280"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Información general sobre la migración: SQL Server a SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,6 +104,7 @@ En la tabla siguiente se enumeran las herramientas de migración recomendadas:
 
 |Technology | Descripción|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate para Azure SQL le permite detectar y evaluar el patrimonio de datos de SQL a gran escala en VMware, y proporciona recomendaciones de implementación de Azure SQL, ajuste de tamaño de destino y estimaciones mensuales. | 
 |[Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant es una herramienta de escritorio que proporciona evaluaciones perfectas de SQL Server y migraciones a Azure SQL Database (tanto de esquemas como de datos). La herramienta se puede instalar en un servidor local o en la máquina local con conectividad a las bases de datos de origen. El proceso de migración es un movimiento de datos lógico entre los objetos de la base de datos de origen y de destino. </br> - Migración de bases de datos únicas (esquema y datos)|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Servicio de Azure propio que puede migrar las bases de datos de SQL Server a Azure SQL Database con Azure Portal o de forma automatizada con PowerShell. Azure DMS requiere la selección de una instancia de Azure Virtual Network (VNet) preferida durante el aprovisionamiento para asegurarse de que hay conectividad con las bases de datos de SQL Server de origen. </br> - Migración de bases de datos únicas o a escala. |
 | | |

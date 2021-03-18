@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo escribir 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 32c3c05b61d2ee8fc79d7c863ddbe84de5fe7e2b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623055"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432747"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guía de programación de .NET para Azure Event Hubs (paquete heredado Microsoft.Azure.EventHubs)
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](./event-hubs-about.md).
@@ -73,21 +73,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > Si no está familiarizado con las particiones, consulte [este artículo](event-hubs-features.md#partitions). 
 
-Al enviar datos de eventos, puede especificar un valor con hash para generar una asignación de partición. La partición se especifica mediante la propiedad [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Sin embargo, la decisión de usar particiones implica la elección entre disponibilidad y coherencia. 
-
-### <a name="availability-considerations"></a>Consideraciones sobre disponibilidad
-
-El uso de una clave de partición es opcional y debe considerar detenidamente si desea o no utilizar uno. Si no especifica una clave de partición al publicar un evento, Event Hubs equilibra la carga entre las particiones. En muchos casos, el uso de una clave de partición es una buena elección si el orden de los eventos es importante. Cuando se usa una clave de partición, estas particiones requieren la disponibilidad en un solo nodo y las interrupciones pueden producirse a lo largo del tiempo; por ejemplo, cuando los nodos de ejecución se reinician y revisan. Por lo tanto, si establece un identificador de partición y esa partición deja de estar disponible por alguna razón, un intento de acceder a los datos de esa partición provocará un error. Si la alta disponibilidad es lo más importante, no especifique una clave de partición. En ese caso, los eventos se envían a las particiones mediante un algoritmo de equilibrio de cargas interno. En este escenario, se realiza una selección explícita entre disponibilidad (ningún identificador de partición) y coherencia (anclar eventos a un identificador de partición).
-
-Otra consideración es el control de retrasos en el procesamiento de eventos. En algunos casos podría ser mejor quitar datos y reintentarlo que intentar seguir con el procesamiento, lo que puede provocar más retrasos de procesamiento descendente. Por ejemplo, con un tablero de cotizaciones es preferible esperar a tener todos los datos actualizados, pero en un escenario de chat en directo o VOIP sería preferible disponer de los datos rápidamente, aunque no estén completos.
-
-Dadas estas consideraciones de disponibilidad, en estos casos puede elegir una de las siguientes estrategias de control de errores:
-
-- Detener (dejar de leer Event Hubs hasta que se solucionen cosas)
-- Quitar (los mensajes no son importantes, quítelos)
-- Reintentar (reintentar los mensajes cuando lo vea apropiado)
-
-Para obtener más información y una explicación sobre las ventajas y desventajas entre la disponibilidad y la coherencia, consulte [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md). 
+Al enviar datos de eventos, puede especificar un valor con hash para generar una asignación de partición. La partición se especifica mediante la propiedad [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Sin embargo, la decisión de usar particiones implica la elección entre disponibilidad y coherencia. Para más información, consulte [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md).
 
 ## <a name="batch-event-send-operations"></a>Operaciones de envío de eventos por lotes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 113c8adccc5e8b1c3321569f32ca3fb33423ccd8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341573"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562884"
 ---
 # <a name="access-built-in-metrics"></a>Acceso a las métricas integradas
 
@@ -44,7 +44,9 @@ Para acceder a las métricas desde el host, exponga y asigne el puerto de las m�
 Elija números de puerto de host diferentes y únicos si va a asignar los puntos de conexión de métricas de edgeHub y edgeAgent.
 
 > [!NOTE]
-> Si quiere deshabilitar las métricas, establezca la variable de entorno `MetricsEnabled` en `false` para **edgeAgent**.
+> La variable de entorno `httpSettings__enabled` no se debe establecer en `false` para que las métricas integradas estén disponibles para la recopilación.
+>
+> Las variables de entorno que se pueden usar para deshabilitar las métricas se muestran en [Documentación del repositorio azure/iotedge](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## <a name="available-metrics"></a>Métricas disponibles
 

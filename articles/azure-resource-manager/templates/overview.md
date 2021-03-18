@@ -2,13 +2,13 @@
 title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/08/2021
+ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621846"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455742"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -17,6 +17,8 @@ Con el traslado a la nube, muchos equipos han adoptado métodos de desarrollo m�
 Para cumplir estos desafíos, puede automatizar las implementaciones y usar la práctica de infraestructura como código. En el código, debe definir la infraestructura que va a implementar. Así pues, el código de infraestructura se convierte en parte del proyecto. Al igual que el código de la aplicación, puede almacenar el código de infraestructura en un repositorio de origen y agregarle un número de versión. Cualquier miembro del equipo podrá ejecutar el código e implementar entornos similares.
 
 Para implementar la infraestructura como código para las soluciones de Azure, use las plantillas de Azure Resource Manager (plantillas de ARM). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
+
+Hemos incorporado un nuevo lenguaje para desarrollar plantillas de ARM. El lenguaje se denomina Bicep y se encuentra actualmente en versión preliminar. Bicep y las plantillas en formato JSON ofrecen las mismas funcionalidades. Puede convertir la plantilla entre los dos lenguajes. Bicep proporciona una sintaxis que es más fácil de usar para crear plantillas. Para más información, consulte [¿Qué es Bicep (versión preliminar)?](bicep-overview.md).
 
 ## <a name="why-choose-arm-templates"></a>¿Por qué elegir plantillas de Resource Manager?
 
@@ -68,7 +70,7 @@ La plantilla contiene las secciones siguientes:
 
 * [Funciones definidas por el usuario](template-user-defined-functions.md): cree funciones personalizadas que simplifiquen la plantilla.
 
-* [Recursos](template-syntax.md#resources): especifique los recursos que se van a implementar.
+* [Recursos](resource-declaration.md): especifique los recursos que se van a implementar.
 
 * [Salidas](template-outputs.md): devuelva valores de los recursos implementados.
 
@@ -109,6 +111,15 @@ REQUEST BODY
 ```
 
 Tenga en cuenta que el valor de **apiVersion** establecido en la plantilla para el recurso se usa como la versión de API para la operación REST. Puede implementar la plantilla varias veces y confiar en que seguirá funcionando. Al usar la misma versión de la API, no tiene que preocuparse de los cambios importantes que se pueden introducir en versiones posteriores.
+
+Para implementar una plantilla, use cualquiera de las siguientes opciones:
+
+* [Azure Portal](deploy-portal.md)
+* [CLI de Azure](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [Button del repositorio de GitHub](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="template-design"></a>Diseño de plantilla
 

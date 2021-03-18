@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389746"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455829"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureActiveDirectory** | Azure Active Directory. | Salida | No | Sí |
 | **AzureActiveDirectoryDomainServices** | Tráfico de administración para las implementaciones dedicadas a Azure Active Directory Domain Services. | Ambos | No | Sí |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | Salida | No | No |
+| **AzureAPIForFHIR** | Azure API for FHIR (Recursos Rápidos de Interoperabilidad en Salud).<br/><br/> *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.*| Salida | No | No |
 | **AzureArcInfrastructure** | Servidores habilitados para Azure Arc, Kubernetes habilitado para Azure Arc y tráfico de configuración de invitado.<br/><br/>*Nota:* Esta etiqueta tiene una dependencia en las etiquetas **AzureActiveDirectory**,**AzureTrafficManager** y **AzureResourceManager**. *Esta etiqueta no se puede configurar actualmente desde Azure Portal*.| Salida | No | Sí |
 | **AzureBackup** |Azure Backup.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory**. | Salida | No | Sí |
 | **AzureBotService** | Azure Bot Service. | Salida | No | No |
@@ -130,7 +131,7 @@ Puede obtener información de intervalo y la etiqueta de servicio actual para in
 Puede recuperar mediante programación la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [CLI de Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
@@ -152,7 +153,7 @@ Los intervalos de direcciones IP de estos archivos están en notación CIDR.
 
 ### <a name="tips"></a>Sugerencias 
 - Puede detectar actualizaciones de una publicación a la siguiente si observa los valores *changeNumber* en aumento en el archivo JSON. Cada subsección (por ejemplo, **Storage.WestUS**) tiene su propio *changeNumber* que se incrementa a medida que se producen cambios. El nivel superior de *changeNumber* del archivo aumenta cuando alguna de las subsecciones ha cambiado.
-- Para ver ejemplos de cómo analizar la información de la etiqueta de servicio (por ejemplo, obtener todos los intervalos de direcciones para Storage en Oeste de EE. UU.), consulte la documentación de [PowerShell de Service Tag Discovery API](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Para ver ejemplos de cómo analizar la información de la etiqueta de servicio (por ejemplo, obtener todos los intervalos de direcciones para Storage en Oeste de EE. UU.), consulte la documentación de [PowerShell de Service Tag Discovery API](/powershell/module/az.network/Get-AzNetworkServiceTag).
 - Cuando se agreguen nuevas direcciones IP a las etiquetas de servicio, no se usarán en Azure durante al menos una semana. Esto le proporciona tiempo para actualizar cualquier sistema que pueda necesitar para realizar un seguimiento de las direcciones IP asociadas a las etiquetas de servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/05/2021
+ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710590"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454599"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: Servidor flexible
 
@@ -36,7 +36,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Se utilizan para analizar una dirección en los elementos que la componen. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Aborda el ejemplo del conjunto de datos estandarizado de EE. UU.|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | Funciones de comprobación de la integridad de la relación.|
-> |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | Método de acceso de bloom: índice basado en archivos de firma.|
+> |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | Método de acceso de bloom: índice basado en archivos de firma.|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | Compatibilidad con la indexación de tipos de datos comunes en GIN|
 > |[btree_gist](https://www.postgresql.org/docs/12/btree-gist.html)                   | 1.5             | Compatibilidad con la indexación de tipos de datos comunes en GiST|
 > |[citext](https://www.postgresql.org/docs/12/citext.html)                       | 1.6             | Tipo de datos para cadenas de caracteres que no distinguen mayúsculas de minúsculas|
@@ -53,6 +53,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | Inspección del contenido de páginas de bases de datos a un nivel bajo.|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | Examina la caché del búfer compartido|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de trabajos para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | Examen de la asignación de espacio libre (FSM).|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | Prepara los datos de relación|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | Realiza un seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas|
@@ -102,6 +103,7 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | Inspección del contenido de páginas de bases de datos a un nivel bajo.|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Examina la caché del búfer compartido|
+> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Programador de trabajos para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | Examen de la asignación de espacio libre (FSM).|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | Prepara los datos de relación|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | Realiza un seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas|
@@ -130,6 +132,27 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 
 Recomendamos implementar los servidores con la [integración con red virtual](concepts-networking.md) si tiene previsto usar estas dos extensiones. De forma predeterminada, la integración con red virtual permite conexiones entre servidores en la red virtual. También puede elegir usar [grupos de seguridad de red (red virtual)](../../virtual-network/manage-network-security-group.md) para personalizar el acceso.
 
+## <a name="pg_cron"></a>pg_cron
+
+[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) es un programador de trabajos sencillo basado en cron para PostgreSQL que se ejecuta dentro de la base de datos como una extensión. La extensión de pg_cron se puede usar para ejecutar tareas de mantenimiento programado en una base de datos PostgreSQL. Por ejemplo, puede ejecutar un vaciado periódico de una tabla o quitar trabajos de datos antiguos.
+
+`pg_cron` puede ejecutar varios trabajos en paralelo, pero ejecuta como máximo una sola instancia de un determinado trabajo a la vez. Si se supone que debe comenzar una segunda ejecución antes de que finalice la primera, la segunda ejecución se pone en cola y se inicia en cuanto se completa la primera. Esto garantiza que los trabajos se ejecutan exactamente tantas veces como estén programados y no se ejecutan simultáneamente.
+
+He aquí algunos ejemplos:
+
+En este ejemplo se eliminan datos antiguos el sábado a las 03:30 (GMT):
+```
+SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
+```
+En este ejemplo se ejecuta un vaciado todos los días a las 10:00 (GMT):
+```
+SELECT cron.schedule('0 10 * * *', 'VACUUM');
+```
+
+En este ejemplo se anula la programación de todas las tareas de pg_cron:
+```
+SELECT cron.unschedule(jobid) FROM cron.job;
+```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

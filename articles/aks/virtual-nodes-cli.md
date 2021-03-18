@@ -6,23 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348481"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508187"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
 En este artículo se muestra cómo usar la CLI de Azure para crear y configurar los recursos de red virtual y un clúster de AKS, y cómo habilitar después los nodos virtuales.
 
-> [!NOTE]
-> En [este artículo](virtual-nodes.md) se ofrece información general sobre la disponibilidad de regiones y las limitaciones en el uso de nodos virtuales.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas* (Azure CNI). De manera predeterminada, los clústeres de AKS se crean con redes *básicas* (kubenet). En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas* (Azure CNI). De forma predeterminada, los clústeres de AKS se crean con redes *básicas* (kubenet). En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+
+> [!IMPORTANT]
+> Antes de usar nodos virtuales con AKS, revise las [limitaciones de los nodos virtuales de AKS][virtual-nodes-aks] y las [limitaciones de redes virtuales de ACI][virtual-nodes-networking-aci]. Estas limitaciones afectan a la ubicación, la configuración de redes y otros detalles de configuración del clúster de AKS y los nodos virtuales.
 
 Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
@@ -30,7 +31,7 @@ Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su s
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado* , tal como se muestra en el siguiente ejemplo de salida:
+El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado*, tal como se muestra en el siguiente ejemplo de salida:
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -38,7 +39,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-Si el proveedor se muestra como *NotRegistered* , registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
+Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -62,7 +63,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual con el comando [az network vnet create][az-network-vnet-create]. En el ejemplo siguiente se crea una red virtual denominada *myVnet* con un prefijo de dirección de *10.0.0.0/8* y una subred llamada *myAKSSubnet*. El valor predeterminado del prefijo de la dirección de esta subred es *10.240.0.0/16* :
+Cree una red virtual con el comando [az network vnet create][az-network-vnet-create]. En el ejemplo siguiente se crea una red virtual denominada *myVnet* con un prefijo de dirección de *10.0.0.0/8* y una subred llamada *myAKSSubnet*. El valor predeterminado del prefijo de la dirección de esta subred es *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -85,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Creación de una entidad de servicio o uso de una identidad administrada
 
-Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una entidad de servicio de Azure Active Directory. Esta entidad de servicio puede crearse automáticamente mediante la CLI de Azure o el portal, o puede crear una previamente y asignar permisos adicionales. También puede usar una identidad administrada para los permisos en lugar de una entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
+Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una identidad de clúster. Esta identidad de clúster se puede crear automáticamente mediante la CLI de Azure o el portal, o puede crear una previamente y asignar permisos adicionales. De manera predeterminada, esta identidad de clúster es una identidad administrada. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md). También puede usar una entidad de servicio como identidad de clúster. En los pasos siguientes se muestra cómo crear y asignar manualmente la entidad de servicio al clúster.
 
 Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. El parámetro `--skip-assignment` impide que se asignen permisos adicionales.
 
@@ -175,7 +176,7 @@ Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux* :
+La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux*:
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -352,3 +353,5 @@ Los nodos virtuales suelen ser un componente de una solución de escalado en AKS
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

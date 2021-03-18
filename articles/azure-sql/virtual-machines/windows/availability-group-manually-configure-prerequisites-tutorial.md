@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951724"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508765"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -145,7 +145,7 @@ En la tabla siguiente se resumen las opciones de configuración de red:
 
 ## <a name="create-availability-sets"></a>Creación de conjuntos de disponibilidad
 
-Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad de cara al mantenimiento, tanto planeado como no planeado. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad de cara al mantenimiento, tanto planeado como no planeado. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Necesita dos conjuntos de disponibilidad. El primero es para los controladores de dominio y el segundo, para las máquinas virtuales con SQL Server.
 
@@ -205,7 +205,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 | **Cuenta de almacenamiento de información de diagnóstico** |*Se crea automáticamente* |
 
    >[!IMPORTANT]
-   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md).
+   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/availability.md).
 
 Azure crea las máquinas virtuales.
 
@@ -383,7 +383,7 @@ Tenga en cuenta las siguientes decisiones de diseño antes de continuar.
 
 * **Almacenamiento: Azure Managed Disks**
 
-   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../../../virtual-machines/availability.md).
 
 * **Red: direcciones IP privadas en producción**
 
@@ -539,7 +539,7 @@ Repita los pasos en la otra máquina virtual con SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ajuste de los umbrales de red de clústeres de conmutación por error
 
-Al ejecutar nodos de clúster de conmutación por error Windows en VM de Azure con grupos de disponibilidad de SQL Server, cambie la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información al respecto, consulte [IaaS con umbrales de red de clústeres de conmutación por error de optimización de SQL Server](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+Al ejecutar nodos del clúster de conmutación por error Windows en máquinas virtuales de Azure con grupos de disponibilidad de SQL Server, cambie la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información al respecto, consulte [IaaS con umbrales de red de clústeres de conmutación por error de optimización de SQL Server](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configuración del firewall en cada máquina virtual con SQL Server

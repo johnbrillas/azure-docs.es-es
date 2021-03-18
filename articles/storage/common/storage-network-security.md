@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4aa4e0566093f01e5f14691158f37c630c753b00
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e395ce996bf7e6889a27fcb04b0e643cf63c58b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714755"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430894"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -136,7 +136,7 @@ Al planear la recuperación ante desastres durante una interrupción regional, d
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
-Para aplicar una regla de red virtual a una cuenta de almacenamiento, el usuario debe tener permisos apropiados para las subredes que se van a agregar. El permiso necesario es *Join Service to a Subnet* (Unir el servicio a una subred) y se incluye en el rol integrado *Colaborador de la cuenta de almacenamiento*. También se puede agregar a definiciones de roles personalizados.
+Para aplicar una regla de red virtual a una cuenta de almacenamiento, el usuario debe tener permisos apropiados para las subredes que se van a agregar. Un [colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) o un usuario al que se haya concedido permiso para la [operación del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` a través de un rol personalizado de Azure puede aplicar una regla.
 
 La cuenta de almacenamiento y las redes virtuales a las que se concedió acceso pueden estar en distintas suscripciones, incluidas suscripciones que formen parte del un inquilino de Azure AD diferente.
 

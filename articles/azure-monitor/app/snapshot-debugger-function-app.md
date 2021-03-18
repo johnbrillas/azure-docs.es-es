@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675536"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211947"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Habilitación de Snapshot Debugger para aplicaciones .NET y .NET Core en Azure Functions
 
@@ -123,6 +123,35 @@ Archivo de host
   }
 }
 ```
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Habilitación de Snapshot Debugger para otras nubes
+
+Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) y [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+A continuación se muestra un ejemplo de `host.json` actualizado con el punto de conexión del agente en la nube del Gobierno de EE. UU.:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
+A continuación se muestran las invalidaciones admitidas del punto de conexión del agente Snapshot Debugger:
+
+|Propiedad    | Nube del Gobierno de EE. UU. | Nube de China |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
 ## <a name="disable-snapshot-debugger"></a>Deshabilitación de Snapshot Debugger
 

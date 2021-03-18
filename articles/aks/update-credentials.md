@@ -5,16 +5,16 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389015"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501182"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
-De forma predeterminada, los clústeres de AKS se crean con una entidad de servicio que tiene un período de expiración de un año. A medida que se aproxima a la fecha de expiración, puede restablecer las credenciales para ampliar la entidad de servicio durante un período de tiempo adicional. También puede actualizar o rotar las credenciales como parte de una directiva de seguridad definida. En este artículo se describe cómo actualizar estas credenciales para un clúster de AKS.
+Los clústeres de AKS creados con una entidad de servicio tiene un período de expiración de un año. A medida que se aproxima a la fecha de expiración, puede restablecer las credenciales para ampliar la entidad de servicio durante un período de tiempo adicional. También puede actualizar o rotar las credenciales como parte de una directiva de seguridad definida. En este artículo se describe cómo actualizar estas credenciales para un clúster de AKS.
 
 Es posible que también haya [integrado el clúster de AKS con Azure Active Directory][aad-integration] y que lo utilice como proveedor de autenticación del clúster. En ese caso, tendrá dos identidades más creadas para el clúster: la aplicación de servidor de AAD y la aplicación cliente de AAD, y también puede restablecer esas credenciales.
 

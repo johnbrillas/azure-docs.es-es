@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 545b02ee8496c9530b263227d4138441f27f0cf9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374055"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441710"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -345,7 +345,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
-|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esta configuración permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) en la documentación de ASP.NET Core. |
+|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. Esta configuración permite el filtrado del registro de funciones específicas. Para más información, consulte [Configuración de los niveles de registro](configure-monitoring.md#configure-log-levels). |
 |console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 

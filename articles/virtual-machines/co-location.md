@@ -1,24 +1,21 @@
 ---
-title: Colocalización de máquinas virtuales
-description: Obtenga información sobre cómo colocalizar recursos de máquina virtual de Azure para mejorar la latencia.
+title: Grupos de selección de ubicación de proximidad
+description: Obtenga información sobre el uso de grupos con ubicación por proximidad en Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: e193b7d084723ad50ddc0d1a40e0b6c8a111af73
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 1a65a1e4ecd989f3a7c4968c424472c3c6dfe472
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924054"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559082"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Colocación de recursos para mejorar la latencia
-
-Al implementar la aplicación en Azure, la propagación de instancias entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. 
-
-## <a name="proximity-placement-groups"></a>Grupos de selección de ubicación de proximidad
+# <a name="proximity-placement-groups"></a>Grupos de selección de ubicación de proximidad
 
 Si coloca las máquinas virtuales en una sola región, reducirá la distancia física entre las instancias. Además, si las coloca en una sola zona de disponibilidad, estarán todavía más cercanas físicamente. Aun así, a medida que la superficie de Azure crece, una sola zona de disponibilidad puede abarcar varios centros de datos físicos, lo que es posible que provoque una latencia de red que puede afectar al rendimiento de la aplicación. 
 

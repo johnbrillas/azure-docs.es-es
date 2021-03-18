@@ -1,24 +1,18 @@
 ---
 title: Controles de aplicación adaptables en Azure Security Center
 description: Este documento le ayuda a usar los controles de aplicaciones adaptables de Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas de Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: de5c5fbb6673d022517bba2486ed4aa1f739d19b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834398"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439585"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -193,6 +187,12 @@ Para corregir los problemas:
 
 1. Para tener más detalles, junto con la lista de máquinas afectadas, seleccione una alerta.
 
+    En la página de alertas se muestran los detalles adicionales de las alertas y se proporciona un vínculo **Realizar acción** con recomendaciones sobre cómo mitigar la amenaza.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="La hora de inicio de las alertas de controles de aplicaciones adaptables":::
+
+    > [!NOTE]
+    > Los controles de aplicaciones adaptables calculan los eventos una vez cada doce horas. La "hora de inicio de la actividad" que se muestra en la página Alertas es la hora a la que los controles de aplicaciones adaptables crearon la alerta, **no** el tiempo que estuvo activo el proceso sospechoso.
 
 
 ## <a name="move-a-machine-from-one-group-to-another"></a>Movimiento de una máquina virtual de un grupo a otro
@@ -219,7 +219,7 @@ Cuando se mueve una máquina de un grupo a otro, la directiva de control de apli
 
 Para administrar los controles de aplicaciones adaptables mediante programación, use nuestra API REST. 
 
-La documentación completa de la API se puede encontrar [aquí](/rest/api/securitycenter/adaptiveapplicationcontrols).
+La documentación de API pertinente está disponible en [la sección Controles de aplicación adaptables de la documentación de la API de Security Center](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Algunas de las funciones que están disponibles en la API REST:
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051231"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561898"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -71,7 +71,7 @@ Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas
 - Tablas
 
 > [!NOTE]
-> Microsoft recomienda usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos.
+> Microsoft recomienda usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos. Sin embargo, la actualización no se puede deshacer.
 >
 > Para obtener más información sobre la actualización a una cuenta de uso general v2, consulte [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Actualizar a una cuenta de almacenamiento de uso general v2).
 
@@ -87,13 +87,18 @@ Las cuentas de almacenamiento de uso general v1 proporcionan acceso a todos los 
 - Colas
 - Tablas
 
-Microsoft recomienda las cuentas de uso general v2 para la mayoría de los escenarios. Puede usar cuentas de uso general v1 en estos escenarios:
+Puede usar cuentas de uso general v1 en estos escenarios:
 
 - Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
 
 - Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.
 
 - Usa una versión de la [API de REST de servicios de almacenamiento](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x. No puede actualizar la aplicación.
+
+> [!NOTE]
+> Aunque Microsoft recomienda cuentas de uso general v2 para la mayoría de los escenarios, seguirá admitiendo cuentas de uso general v1 para clientes nuevos y existentes. Puede crear cuentas de almacenamiento de uso general v1 en nuevas regiones siempre que Azure Storage esté disponible en esas regiones. Microsoft no tiene actualmente ningún plan para dejar de ofrecer soporte técnico para las cuentas de uso general v1 y proporcionará un aviso previo de al menos un año antes de dejar de usar cualquier característica de Azure Storage. Microsoft seguirá proporcionando actualizaciones de seguridad para las cuentas de uso general v1, pero no se espera el desarrollo de ninguna característica nueva para este tipo de cuenta.
+>
+> A partir del 1 de octubre de 2020, el precio de las cuentas de uso general v1 en nuevas regiones de Azure Storage es equivalente a los precios de las cuentas de uso general v2 de esas regiones. Los precios en las regiones existentes de Azure Storage no han cambiado. Para más información sobre los precios de las cuentas de uso general v1 en una región específica, consulte la página de precios de Azure Storage. Elija su región y, junto a **Ofertas de precios**, seleccione **Otros**.
 
 ### <a name="blockblobstorage-accounts"></a>Cuentas BlockBlobStorage
 

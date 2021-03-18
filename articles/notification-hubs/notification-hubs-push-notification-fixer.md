@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010790"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455032"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Azure Notification Hubs
 
@@ -32,7 +32,7 @@ Es fundamental entender primero cómo Notification Hubs inserta notificaciones e
 
 ![Arquitectura de Notification Hubs][0]
 
-En un flujo de notificaciones de envío típico, el mensaje se envía desde el *back-end de la aplicación* a Notification Hubs. Notification Hubs procesa todos los registros. Tiene en cuenta las etiquetas y expresiones de etiquetas configuradas para determinar los destinos. Los destinos son los registros que necesitan recibir la notificación push. Estos registros pueden comprender cualquiera de nuestras plataformas compatibles: Android, Baidu (dispositivos Android en China), Fire OS (Amazon), iOS, Windows y Windows Phone.
+En un flujo de notificaciones de envío típico, el mensaje se envía desde el *back-end de la aplicación* a Notification Hubs. Notification Hubs procesa todos los registros. Tiene en cuenta las etiquetas y expresiones de etiquetas configuradas para determinar los destinos. Los destinos son los registros que necesitan recibir la notificación push. Estos registros pueden abarcar cualquiera de nuestras plataformas admitidas: Android, Baidu (dispositivos Android en China), Fire OS (Amazon), iOS, Windows y Windows Phone.
 
 Con los destinos establecidos, Notification Hubs inserta las notificaciones en el *servicio de notificaciones push* para la plataforma del dispositivo. Algunos ejemplos incluyen Apple Push Notification Service (APNs) para iOS y macOS, y Firebase Cloud Messaging (FCM) para dispositivos Android. Notification Hubs lleva a las notificaciones a dividirse en varios lotes de registros. Se autentica con el servicio de notificaciones push respectivo basado en las credenciales que se establecieron en Azure Portal, en **Configuración del centro de notificaciones**. Luego, el servicio de notificaciones de inserción reenvía las notificaciones a los respectivos *dispositivos cliente*.
 
@@ -90,7 +90,7 @@ Por ejemplo, supongamos que todos los registros con Notification Hubs usan la et
 
 ### <a name="template-issues"></a>Problemas de plantillas
 
-Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Templates].
+Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Plantillas].
 
 ### <a name="invalid-registrations"></a>Registros no válidos
 
@@ -105,7 +105,7 @@ Cada lote se envía al servicio de notificaciones push que, a su vez, acepta y v
 
 En este caso, el registro de errores se quita de la base de datos. A continuación, volvemos a intentar la entrega de notificaciones para el resto de los dispositivos de ese lote.
 
-Para obtener más información del error del intento de entrega erróneo en un registro, pude usar las API REST de Notification Hubs: [Telemetría por mensaje: Obtención de telemetría de mensaje de notificación](/rest/api/notificationhubs/get-notification-message-telemetry) y [Comentarios de PNS](/previous-versions/azure/reference/mt705560(v=azure.100)). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para más información sobre el error de intento de entrega en un registro, puede usar las API REST de Notification Hubs: [Telemetría por mensaje: Get notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) y [PNS Feedback](/previous-versions/azure/reference/mt705560(v=azure.100)). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas del servicio de notificaciones push
 
@@ -127,9 +127,9 @@ Estas son rutas de acceso para diagnosticar la causa principal de las notificaci
 
 #### <a name="push-notification-service-developer-portal"></a>Portal para desarrolladores del servicio de notificaciones push
 
-Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de la Plataforma universal de Windows mediante Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 Para revisar y comparar las credenciales con las que obtuvo en el portal para desarrolladores de los servicios de notificaciones push, vaya a la pestaña **Directivas de acceso** en Azure Portal.
 
@@ -149,22 +149,22 @@ Puede ver y administrar todos los registros de su centro. Los registros se puede
 
 Haga clic con el botón derecho en el centro de notificaciones en **Explorador de servidores** y seleccione **Diagnosticar**. 
 
-![Explorador de servidores de Visual Studio: Menú de diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
+![Explorador de servidores de Visual Studio: menú Diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
 Verá la página siguiente:
 
-![Visual Studio: Página de diagnóstico](./media/notification-hubs-push-notification-fixer/diagnose-page.png)
+![Visual Studio: página Diagnosticar](./media/notification-hubs-push-notification-fixer/diagnose-page.png)
 
 Cambie a la página **Registros de dispositivos**:
 
-![Visual Studio: Registros de dispositivos](./media/notification-hubs-push-notification-fixer/VSRegistrations.png)
+![Visual Studio: Registros de dispositivos](./media/notification-hubs-push-notification-fixer/VSRegistrations.png)
 
 Puede usar la página **Envío de prueba** para enviar un mensaje de notificación de prueba:
 
-![Visual Studio: Envío de prueba](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
+![Visual Studio: Envío de prueba](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
-> Use Visual Studio para editar registros solo durante las pruebas o el desarrollo, y con un número limitado de registros. Si necesita modificar sus registros en bloque, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Procedimiento: exportar y modificar registros en bloque](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
+> Use Visual Studio para editar registros solo durante las pruebas o el desarrollo, y con un número limitado de registros. Si necesita modificar los registros de forma masiva, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Procedimiento: cómo exportar y modificar registros en bloque](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
 
 #### <a name="service-bus-explorer"></a>Explorador de Service Bus
 
@@ -172,7 +172,7 @@ Muchos clientes usan el [Explorador de Service Bus](https://github.com/paolosalv
 
 ### <a name="verify-message-notifications"></a>Comprobar las notificaciones de mensajes
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 Para enviar una notificación de prueba a los clientes sin que el back-end del servicio esté en funcionamiento, en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS**, seleccione **Envío de prueba**.
 
@@ -187,7 +187,7 @@ También puede enviar notificaciones de prueba desde Visual Studio.
 Para más información acerca del uso de Notification Hubs con el Explorador de servidores de Visual Studio, consulte estos artículos:
 
 * [Cómo ver los registros de dispositivos de los centros de notificaciones](/previous-versions/windows/apps/dn792122(v=win.10))
-* [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+* [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depuración de las notificaciones incorrectas y revisión del resultado de la notificación
@@ -249,7 +249,7 @@ Este mensaje indica que se han configurado credenciales no válidas en Notificat
 
 ### <a name="review-telemetry"></a>Revisar la telemetría
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 En el portal, puede obtener una rápida introducción de toda la actividad que tiene lugar en el centro de notificaciones.
 
@@ -295,7 +295,7 @@ Para más información sobre el acceso mediante programación, consulte [Acceso 
 [Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
-[En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+[Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
-[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
 [Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

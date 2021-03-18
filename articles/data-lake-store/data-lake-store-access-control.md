@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094869"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424145"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -286,7 +286,11 @@ En Azure Portal, diríjase a **Azure Active Directory > Aplicaciones empresarial
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>¿Admite Data Lake Storage Gen1 la herencia de ACL?
 
-No, pero las ACL predeterminada pueden usarse para establecer las ACL para archivos y carpetas secundarios recién creados en la carpeta principal.  
+No, pero las ACL predeterminada pueden usarse para establecer las ACL para archivos y carpetas secundarios recién creados en la carpeta principal.
+
+### <a name="what-are-the-limits-for-acl-entries-on-files-and-folders"></a>¿Cuáles son los límites de las entradas de ACL en archivos y carpetas?
+
+Se pueden establecer 32 listas ACL por archivo y por directorio. Las ACL de acceso y predeterminadas tienen su propio límite de 32 entradas de ACL. Si es posible, use grupos de seguridad para las asignaciones de ACL. Con los grupos, es menos probable que supere el número máximo de entradas de ACL por archivo o directorio.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 

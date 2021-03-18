@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732734"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217421"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Snapshot Debugger de Application Insights en la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas.
 
 Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Para identificar algunas de las posibles causas comunes, puede comenzar comprobando el estado de las instantáneas.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Asegúrese de que está usando el punto de conexión de Snapshot Debugger adecuado
+
+Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) y [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+En el caso de App Service y las aplicaciones que usan el SDK de Application Insights, tiene que actualizar la cadena de conexión mediante los reemplazos admitidos para Snapshot Debugger, tal y como se define a continuación:
+
+|Propiedad de cadena de conexión    | Nube del Gobierno de EE. UU. | Nube de China |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para más información sobre otros reemplazos de conexión, consulte la [documentación de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+En Function App, tiene que actualizar el archivo `host.json` mediante los reemplazos admitidos siguientes:
+
+|Propiedad    | Nube del Gobierno de EE. UU. | Nube de China |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+A continuación se muestra un ejemplo del archivo `host.json` actualizado con el punto de conexión del agente en la nube del Gobierno de EE. UU.:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Uso de la comprobación de estado de instantáneas
 Algunos problemas comunes provocan que no se muestre la opción Abrir instantánea de depuración. Por ejemplo, el uso de una instancia de Snapshot Collector no actualizada, el hecho de alcanzar el límite diario de carga o, quizás, la tardanza de la instantánea en cargarse. Use la comprobación de estado de instantáneas para solucionar problemas comunes.
@@ -35,9 +72,10 @@ Si no se soluciona el problema, consulte los siguientes pasos de solución de pr
 
 Asegúrese de que está usando la clave de instrumentación correcta en la aplicación publicada. Por lo general, la clave de instrumentación se lee desde el archivo ApplicationInsights.config. Compruebe que el valor es igual que la clave de instrumentación para el recurso de Application Insights que ve en el portal.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Comprobación de la configuración de cliente SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Comprobación de la configuración de cliente TLS/SSL (ASP.NET)
 
-Si tiene una aplicación ASP.NET hospedada en Azure App Service o en IIS en una máquina virtual, la aplicación podría no conectarse al servicio Snapshot Debugger porque falta un protocolo de seguridad SSL.
+Si tiene una aplicación ASP.NET que está hospedada en Azure App Service o en IIS en una máquina virtual, la aplicación podría no conectarse al servicio Snapshot Debugger porque falta un protocolo de seguridad SSL.
+
 [El punto de conexión de Snapshot Debugger requiere la versión 1.2 de TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). El conjunto de protocolos de seguridad de SSL es una de las peculiaridades habilitadas por el valor targetFramework en la sección system.web de web.config. Si el valor targetFramework de httpRuntime es 4.5.2 o inferior, no se incluye TLS 1.2 de forma predeterminada.
 
 > [!NOTE]
@@ -64,6 +102,10 @@ Si usa una versión preliminar de .NET Core o las referencias de aplicación del
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Comprobación de la página de estado de la extensión de sitio de los servicios de diagnóstico
 Si Snapshot Debugger se ha habilitado a través del [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) en el portal, es que se ha habilitado mediante la extensión de sitio de los servicios de diagnóstico.
+
+> [!NOTE]
+> La instalación sin código de Application Insights Snapshot Debugger sigue la directiva de compatibilidad de .NET Core.
+> Para más información sobre los entornos de ejecución admitidos, consulte [Directiva de compatibilidad de .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Puede comprobar la página de estado de esta extensión si va a la siguiente dirección URL: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 

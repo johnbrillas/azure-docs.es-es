@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838677"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219206"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
 En este tema, se explica cómo realizar tareas de administración, como [reiniciar](#reboot) y [programar actualizaciones](#schedule-updates), en las instancias de Azure Cache for Redis.
@@ -57,6 +57,8 @@ Sí, si reinicia la memoria caché se borran todas las conexiones de cliente. El
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>¿Se pierden los datos de mi memoria caché si reinicio?
 Si reinicia los nodos **Principal** y **Réplica**, se pueden perder todos los datos de la memoria caché (o de esa partición si utiliza una memoria premium con el agrupamiento en clústeres habilitado), pero esto no está garantizado. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de realizar la copia de seguridad.
 
@@ -69,8 +71,9 @@ Sí. Para ver instrucciones de PowerShell, consulte [Reinicio de una instancia d
 La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la instancia de caché. Una ventana de mantenimiento le permite controlar los días y las horas de una semana durante los que se pueden actualizar las máquinas virtuales que hospedan la memoria caché. Azure Cache for Redis hará todo lo posible por iniciar y finalizar la actualización del software del servidor de Redis en el período de tiempo especificado que defina.
 
 > [!NOTE] 
-> El período de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a las actualizaciones de Azure o del sistema operativo de las máquinas virtuales que hospedan la caché.
+> La ventana de mantenimiento se aplica a las actualizaciones del servidor de Redis y a las actualizaciones del sistema operativo de las máquinas virtuales que hospedan la memoria caché. La ventana de mantenimiento no se aplica a las actualizaciones del sistema operativo host en los hosts que hospedan las máquinas virtuales de la memoria caché ni otros componentes de redes de Azure. En raras ocasiones, en las que las memorias caché se hospedan en modelos más antiguos (puede saber si la memoria caché está en un modelo anterior si el nombre DNS de la memoria caché se resuelve con el sufijo "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" o "cloudapi.de"), la ventana de mantenimiento no se aplicará a las actualizaciones del sistema operativo invitado.
 >
+
 
 ![Programar actualizaciones](./media/cache-administration/redis-schedule-updates.png)
 
