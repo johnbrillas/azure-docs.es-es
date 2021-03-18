@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515046"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510700"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -42,24 +42,26 @@ Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emi
 
 | Size | Fecha de retirada del aislamiento | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 15 de mayo de 2020 |
-| Standard_D15_v2<sup>1</sup>  | 15 de mayo de 2020 |
-
-<sup>1</sup>  Para obtener más información sobre los programas de retirada de aislamiento Standard_DS15_v2 y Standard_D15_v2, consulte las preguntas frecuentes.
+| Standard_DS15_v2 | 15 de mayo de 2021 |
+| Standard_D15_v2  | 15 de mayo de 2021 |
+| Standard_G5  | 15 de febrero de 2022 |
+| Standard_GS5  | 15 de febrero de 2022 |
+| Standard_E64i_v3  | 15 de febrero de 2022 |
+| Standard_E64is_v3  | 15 de febrero de 2022 |
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 ### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: ¿Se retirará el tamaño o solo la característica de "aislamiento"?
-**R.** : Si el tamaño de la máquina virtual no tiene el subíndice "i", solo se retirará la característica de "aislamiento". Si no es necesario el aislamiento, no es necesario realizar ninguna acción y la VM seguirá funcionando según lo previsto. Entre los ejemplos se incluyen Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si el tamaño de la máquina virtual incluye el subíndice "i", el tamaño se retirará.
+**R.** : En este momento, solo se va a retirar la característica de aislamiento de los tamaños de VM. Los tamaños aislados en desuso seguirán existiendo en un estado no aislado. Si no es necesario el aislamiento, no es necesario realizar ninguna acción y la VM seguirá funcionando según lo previsto.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: ¿Hay un tiempo de inactividad cuando la máquina virtual se encuentra en un hardware no aislado?
-**R.** : Si no hay necesidad de aislamiento, no es necesaria ninguna acción y no se producirá ningún tiempo de inactividad.
+**R.** : Si no hay necesidad de aislamiento, no es necesaria ninguna acción y no se producirá ningún tiempo de inactividad. En caso contrario, si se requiere aislamiento, el anuncio incluirá el tamaño de reemplazo recomendado. La selección del tamaño de reemplazo requerirá que nuestros clientes cambien el tamaño de sus máquinas virtuales.  
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: ¿Hay alguna diferencia de costo por cambiar a una máquina virtual no aislada?
 **R.** : No
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: ¿Cuándo se van a retirar los otros tamaños aislados?
-**R.** : Se enviarán recordatorios 12 meses antes de que el tamaño aislado esté oficialmente en desuso.
+**R.** : Se enviarán recordatorios 12 meses antes de que el tamaño aislado esté oficialmente en desuso. Nuestro anuncio más reciente incluye la retirada de la característica de aislamiento de Standard_G5, Standard_GS5, Standard_E64i_v3 y Standard_E64i_v3.  
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Soy un cliente de Azure Service Fabric que se basa en los niveles de durabilidad Silver o Gold. ¿Me afectará este cambio?
 **R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 
@@ -69,11 +71,20 @@ Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emi
  
 | Date | Acción |
 |---|---| 
-| 18 de noviembre de 2019 | Disponibilidad de D/DS15i_v2 (pago por uso, instancia reservada de un año) | 
-| 14 de mayo de 2020 | Último día para comprar la instancia reservada de un año de D/DS15i_v2 | 
-| 15 de mayo de 2020 | Se ha quitado la garantía de aislamiento de D/DS15_v2 | 
-| 15 de mayo de 2021 | Retirada de D/DS15i_v2 (todos los clientes, excepto los que compraron una instancia reservada de tres años de D/DS15_v2 antes del 18 de noviembre de 2019)| 
-| 17 de noviembre de 2022 | Retirada de D/DS15i_v2 cuando se realizan instancias reservadas de tres años (para los clientes que compraron instancias reservadas de tres años de D/DS15_v2 antes del 18 de noviembre de 2019) |
+| 15 de mayo de 2020<sup>1</sup> | Anuncio de retirada de aislamiento de D/DS15_v2| 
+| 15 de mayo de 2021 | Se ha quitado la garantía de aislamiento de D/DS15_v2| 
+
+<sup>1</sup> Los clientes ya existentes que usen estos tamaños recibirán un anuncio por correo electrónico con instrucciones detalladas sobre los pasos a seguir.  
+
+### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>P: ¿Cuáles son los hitos para la retirada del aislamiento de G5, Gs5, E64i_v3 y E64is_v3? 
+**R.** : 
+ 
+| Date | Acción |
+|---|---|
+| 15 de febrero de 2021<sup>1</sup> | Anuncio de retirada de aislamiento de G5/GS5/E64i_v3/E64is_v3 |
+| 15 de febrero de 2022 | Garantía de aislamiento de G5/GS5/E64i_v3/E64is_v3 eliminada |
+
+<sup>1</sup> Los clientes ya existentes que usen estos tamaños recibirán un anuncio por correo electrónico con instrucciones detalladas sobre los pasos a seguir.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
