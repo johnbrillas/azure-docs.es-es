@@ -3,14 +3,14 @@ title: Implementación de una instancia de Hybrid Runbook Worker en Azure Automa
 description: En este artículo se describe cómo instalar Hybrid Runbook Worker de Azure Automation para ejecutar runbooks en máquinas con Linux en su centro de datos local o en su entorno en la nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581190"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182339"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -43,12 +43,15 @@ El rol de Hybrid Runbook Worker requiere el [agente de Log Analytics](../azure-m
 La característica Hybrid Runbook Worker admite las siguientes distribuciones. Se supone que todos los sistemas operativos son x64. No se admite x86 para ningún sistema operativo.
 
 * Amazon Linux 2012.09 a 2015.09
-* CentOS Linux 5, 6 y 7
+* CentOS Linux 5, 6, 7 y 8
 * Oracle Linux 5, 6 y 7
-* Red Hat Enterprise Linux Server 5, 6 y 7
+* Red Hat Enterprise Linux Server 5, 6, 7 y 8
 * Debian GNU/Linux 6, 7 y 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS y 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 y 15 (no se publicaron las versiones 13 y 14 de SUSE)
+
+> [!IMPORTANT]
+> Antes de habilitar la característica Update Management, que depende del rol Hybrid Runbook Worker del sistema, confirme las distribuciones que admite [aquí](update-management/overview.md#supported-operating-systems).
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -63,7 +66,7 @@ Los requisitos mínimos de un sistema Linux y una instancia de Hybrid Runbook Wo
 |Glibc |Biblioteca GNU C| 2.5-12 |
 |Openssl| Bibliotecas OpenSSL | 1.0 (se admiten TLS 1.1 y TLS 1.2)|
 |Curl | Cliente web de cURL | 7.15.5|
-|Python ctypes | Python 2.x es obligatorio |
+|Python ctypes | Se requieren Python 2.x o Python 3.x |
 |PAM | Módulos de autenticación conectables|
 | **Paquete opcional** | **Descripción** | **Versión mínima**|
 | PowerShell Core | Para ejecutar runbooks de PowerShell, es necesario instalar PowerShell Core. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo. | 6.0.0 |
@@ -87,13 +90,16 @@ Las instancias de Hybrid Runbook Worker admiten un conjunto limitado de tipos de
 
 |Tipo de runbook | Compatible |
 |-------------|-----------|
-|Python 2 |Sí |
-|PowerShell |Sí<sup>1</sup> |
+|Python 3 (versión preliminar)|Sí, necesario solo para estas distribuciones: SUSE LES 15, RHEL 8 y CentOS 8|
+|Python 2 |Sí, para cualquier distribución que no requiera Python 3<sup>1</sup> |
+|PowerShell |Sí<sup>2</sup> |
 |Flujo de trabajo de PowerShell |No |
 |Gráfico |No |
 |Flujo de trabajo gráfico de PowerShell |No |
 
-<sup>1</sup>Los runbooks de PowerShell requieren que PowerShell Core esté instalado en la máquina con Linux. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo.
+<sup>1</sup>Consulte [Sistemas operativos Linux compatibles](#supported-linux-operating-systems).
+
+<sup>2</sup>Los runbooks de PowerShell requieren que PowerShell Core esté instalado en la máquina Linux. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo.
 
 ### <a name="network-configuration"></a>Configuración de red
 

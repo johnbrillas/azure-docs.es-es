@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 22548703b456eb28a30c2d210d21f810d7b3ae6e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952705"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448377"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de GitHub mediante Azure Active Directory B2C
 
@@ -68,7 +68,10 @@ Para permitir el inicio de sesión con una cuenta de GitHub en Azure Active Dire
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Haga clic en **Ejecutar flujo de usuario**.
+1. Seleccione el botón **Ejecutar flujo de usuario**.
+1. En la página de registro o de inicio de sesión, seleccione **GitHub** para iniciar sesión con la cuenta de GitHub.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end
 
@@ -199,6 +202,13 @@ Para el perfil técnico de GitHub es necesario agregar las transformaciones de n
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **GitHub** para iniciar sesión con la cuenta de GitHub.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end

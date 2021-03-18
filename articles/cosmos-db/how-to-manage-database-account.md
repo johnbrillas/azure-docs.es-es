@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339876"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489759"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -153,7 +153,7 @@ La opción de conmutación automática por error permite que Azure Cosmos DB c
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
-3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**. 
+3. En el panel **Conmutación automática por error**, asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**. 
 
 4. Seleccione **Guardar**.
 
@@ -182,7 +182,7 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
-3. En el panel **Conmutación automática por error** , asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**.
+3. En el panel **Conmutación automática por error**, asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**.
 
 4. Para modificar la prioridad de la conmutación por error, arrastre las regiones de lectura mediante los tres puntos del lado izquierdo de la fila que aparecen al mantener el puntero sobre ellos.
 
@@ -206,7 +206,7 @@ Consulte [Establecimiento de la prioridad de conmutación por error con PowerShe
 El proceso para realizar una conmutación por error manual implica cambiar la región de escritura de la cuenta (prioridad de conmutación por error = 0) a otra región configurada para la cuenta.
 
 > [!NOTE]
-> No se puede realizar la conmutación por error manual de cuentas con varias regiones de escritura. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
+> No se puede realizar la conmutación por error manual de cuentas con varias regiones de escritura. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detecta que una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 
@@ -216,7 +216,7 @@ El proceso para realizar una conmutación por error manual implica cambiar la re
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
 
-3. En el menú **Conmutación por error manual** , seleccione la nueva región de escritura. Active la casilla de verificación para indicar que comprende que esta opción cambia la región de escritura.
+3. En el menú **Conmutación por error manual**, seleccione la nueva región de escritura. Active la casilla de verificación para indicar que comprende que esta opción cambia la región de escritura.
 
 4. Para desencadenar la conmutación por error, seleccione **Aceptar**.
 

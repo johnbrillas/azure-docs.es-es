@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d43eda404a5257c0ec28a884b6ebf182330ba51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690947"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488422"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guía de migración: SQL Server a SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform o GCP)  
-- Cloud SQL for SQL Server (Google Cloud Platform: GCP) 
+- SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
 
 Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-sql-database-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
 
@@ -58,6 +58,8 @@ También puede usar el  [kit de herramientas de evaluación y planeamiento de 
 Para más información acerca de las herramientas disponibles para usar en la fase de detección, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Evaluar 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Una vez detectados los orígenes de datos, evalúe cualquier base de datos de SQL Server local que se pueda migrar a Azure SQL Database para identificar los bloqueadores de la migración o los problemas de compatibilidad. 
 

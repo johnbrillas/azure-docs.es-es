@@ -3,14 +3,14 @@ title: Administración de los scripts previos y posteriores en la implementació
 description: En este artículo se describe cómo configurar y administrar los scripts previos y posteriores a las implementaciones de actualizaciones.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701508"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485544"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -19,6 +19,8 @@ Los scripts previos y posteriores son runbooks para ejecutar en la cuenta de Azu
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de scripts previos y posteriores
 
 Para que un runbook se utilice como script previo o posterior, debe importarlo en su cuenta de Automation y [publicarlo](../manage-runbooks.md#publish-a-runbook).
+
+Actualmente solo se admiten los runbooks de PowerShell y Python 2 como scripts anteriores o posteriores. Otros tipos de runbook, como los de Python 3, gráficos, flujo de trabajo de PowerShell o el flujo de trabajo gráfico de PowerShell no se admiten actualmente como scripts anteriores o posteriores.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parámetros de scripts previos y posteriores
 
@@ -91,9 +93,6 @@ Se puede encontrar un ejemplo completo con todas las propiedades en: [Get softwa
 > [!NOTE]
 > El objeto `SoftwareUpdateConfigurationRunContext` puede contener entradas duplicadas para las máquinas. Esto puede hacer que los scripts previos y posteriores se ejecuten varias veces en la misma máquina. Para solucionar este comportamiento, use `Sort-Object -Unique` para seleccionar solo nombres de VM únicos.
 
-> [!NOTE]
-> Actualmente solo se admiten los runbooks de PowerShell como scripts anteriores o posteriores. Otros tipos de runbook, como los de Python, gráficos, flujo de trabajo de PowerShell o el flujo de trabajo de PowerShell gráfico no se admiten actualmente como scripts anteriores o posteriores.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Uso de un script previo o posterior en una implementación
 
 Para usar un script previo o posterior en una implementación de actualizaciones, solo tiene que empezar por crear una implementación de actualizaciones. Seleccione **Scripts previos y scripts posteriores**. Se abrirá la página **Seleccionar scripts previos + scripts posteriores**.
@@ -120,7 +119,7 @@ Al seleccionar la ejecución de la implementación de actualizaciones, se muestr
 
 ## <a name="stop-a-deployment"></a>Detención de una implementación
 
-Si quiere detener una implementación basada en un script previo, debe [generar](../automation-runbook-execution.md#throw) una excepción. Si no lo hace, la implementación y el script posterior se seguirán ejecutando. El siguiente fragmento de código muestra cómo generar una excepción.
+Si quiere detener una implementación basada en un script previo, debe [generar](../automation-runbook-execution.md#throw) una excepción. Si no lo hace, la implementación y el script posterior se seguirán ejecutando. En el fragmento de código siguiente se muestra cómo generar una excepción mediante PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+En Python 2, el control de excepciones se administra en un bloque [try](https://www.python-course.eu/exception_handling.php).
 
 ## <a name="interact-with-machines"></a>Interacción con máquinas
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+En Python 2, si quiere generar un error cuando se produzca una condición determinada, use una instrucción [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement).
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Ejemplos

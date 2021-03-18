@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536839"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489368"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Creación de consultas en Azure Cognitive Search
 
@@ -21,18 +21,21 @@ Si va a compilar una consulta por primera vez, en este artículo se describen lo
 
 ## <a name="whats-a-query-request"></a>¿Qué es una solicitud de consulta?
 
-Una consulta es una solicitud de solo lectura en la colección de documentos de un índice de búsqueda único. Especifica un elemento "queryType" y una expresión de consulta a través del parámetro "search". La expresión de consulta podría tener términos de búsqueda, una frase entre comillas y operadores.
+Una consulta es una solicitud de solo lectura en la colección de documentos de un índice de búsqueda único. Especifica que un parámetro "search" contiene la expresión de consulta, formada por términos, expresiones entre comillas y operadores.
 
-Una consulta también puede tener el elemento "count" para devolver el número de coincidencias encontradas en el índice, "select" para elegir los campos que se devuelven en el resultado de la búsqueda y "orderby" para ordenar los resultados. En el ejemplo siguiente se ofrece una idea general de una solicitud de consulta al mostrar un subconjunto de los parámetros disponibles. Para obtener más información sobre la composición de consultas, vea [Tipos de consultas y composiciones](search-query-overview.md) y [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents).
+Los parámetros adicionales proporcionan más definición a la consulta y la respuesta. Por ejemplo, "searchFields" limita el ámbito de ejecución de consultas a campos específicos, "select" especifica los campos que se devolverán en los resultados y "count" devuelve el número de coincidencias encontradas en el índice.
+
+En el ejemplo siguiente se ofrece una idea general de una solicitud de consulta al mostrar un subconjunto de los parámetros disponibles. Para obtener más información sobre la composición de consultas, vea [Tipos de consultas y composiciones](search-query-overview.md) y [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 

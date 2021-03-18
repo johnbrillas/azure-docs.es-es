@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 63288bca124959463dc6ea16cb9d681c68ad00da
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953825"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448207"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante el protocolo SAML en Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ ms.locfileid: "98953825"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Habilite el inicio de sesión mediante la adición de un [perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md) a una directiva personalizada.
+En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta de organización de Salesforce mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). Para habilitar el inicio de sesión, agregue un [proveedor de identidades de SAML](identity-provider-generic-saml.md) a una directiva personalizada.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -77,7 +77,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 1. En la página **Administrar** de la aplicación conectada, haga clic en **Administrar perfiles**.
 2. Seleccione los perfiles (o grupos de usuarios) que quiere que realicen la federación con Azure AD B2C. Como administrador del sistema, active la casilla **Administrador del sistema** para poder realizar la federación con su cuenta de Salesforce.
 
-## <a name="create-a-self-signed-certificate"></a>Crear un certificado autofirmado
+## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
@@ -100,7 +100,7 @@ Debe almacenar el certificado que creó en el inquilino de Azure AD B2C.
 
 Si desea que los usuarios inicien sesión con una cuenta de Salesforce, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
-Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para obtener más información, consulte [Definición de un perfil técnico de proveedor de identidades SAML](saml-identity-provider-technical-profile.md).
+Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva. Para más información, consulte cómo [definir un proveedor de identidades de SAML](identity-provider-generic-saml.md).
 
 1. Abra el archivo *TrustFrameworkExtensions.xml*.
 1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
@@ -186,6 +186,13 @@ Puede definir una cuenta de Salesforce como un proveedor de notificaciones; para
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **Salesforce** para iniciar sesión con la cuenta de Salesforce.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end

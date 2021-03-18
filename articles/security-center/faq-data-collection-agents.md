@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595774"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456120"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -29,11 +29,11 @@ Security Center recopila datos de las máquinas virtuales de Azure, los conjunto
 
 No. Las áreas de trabajo que crea Security Center, mientras estén configuradas para los registros de Azure Monitor por facturación de nodo, no incurren en gastos de registros de Azure Monitor. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
 
-- **Azure Defender está desactivado**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará si Azure Defender está desactivado.
+- **Azure Defender desactivado**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará si Azure Defender está desactivado.
 
-- **Azure Defender está activado**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
+- **Azure Defender activado**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
 
-Para más información, vea [Precios de Security Center ](https://azure.microsoft.com/pricing/details/security-center/).
+Para obtener información sobre los precios en la moneda de su elección y según su región, consulte [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > El plan de tarifa de Log Analytics de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center.
@@ -146,7 +146,7 @@ Si el agente de Log Analytics está instalado directamente en la máquina virtua
 
 El agente instalado continuará generando informes para las áreas de trabajo ya configuradas y, además, los generará para el área de trabajo configurada en Security Center (el hospedaje múltiple se admite en las máquinas Windows).
 
-Si el área de trabajo configurada es un área de trabajo de usuario (no el área de trabajo predeterminada de Security Center), debe instalar la solución "Security" o "SecurityCenterFree" para que Security Center empiece a procesar eventos de máquinas virtuales y equipos que notifican a esa área de trabajo.
+Si el área de trabajo configurada es un área de trabajo de usuario (no el área de trabajo predeterminada de Security Center), debe instalar la solución "Security" o "SecurityCenterFree" para que Security Center empiece a procesar eventos de VM y equipos que dependen de esa área de trabajo.
 
 El hospedaje múltiple del agente todavía no es compatible con las máquinas Linux; por lo tanto, si se detecta una instalación de agente existente, no se producirá el aprovisionamiento automático y no se modificará la configuración de la máquina.
 

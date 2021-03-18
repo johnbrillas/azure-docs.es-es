@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934406"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555132"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -62,7 +62,7 @@ Existen dos representaciones de las horas de uso: uso normalizado de VM y uso si
 
 En esta sección se proporcionan las horas de uso totales y la tendencia de las ofertas basadas en el uso en Azure Marketplace. El gráfico de uso normalizado de las ofertas se describe a continuación.
 
-- El gráfico de columnas apiladas de **uso normalizado de las ofertas** muestra un desglose de las horas de uso normalizado correspondientes a las 5 ofertas principales según el período de cálculo seleccionado. En el gráfico se muestran las cinco ofertas principales y el resto se agrupan en la categoría **Restantes**.
+- El gráfico de columnas apiladas de **uso normalizado de las ofertas** muestra un desglose de las horas de uso normalizado correspondientes a las cinco ofertas principales según el período de cálculo seleccionado. En el gráfico se muestran las cinco ofertas principales y el resto se agrupan en la categoría **Restantes**.
 - En el gráfico de barras apiladas se muestra una tendencia de crecimiento mensual para el intervalo de fechas seleccionado. Las columnas de mes representan las horas de uso de las ofertas, con las horas de mayor uso para el mes correspondiente. En el gráfico de líneas se muestra la tendencia del porcentaje de crecimiento trazada en el eje Y secundario.
 - Puede seleccionar las ofertas específicas de la leyenda para mostrar solo esas ofertas en el gráfico.
 
@@ -117,46 +117,45 @@ En la **tabla de detalles de uso** se muestra una lista numerada de los 1000 re
 
 _**Tabla 1: diccionario de términos de datos**_
 
-| Nombre de la columna | Nombre del atributo | Definición |
-| ------------ | ------------- | ------------- |
-| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. Antes era el GUID de la suscripción a Azure. |
-| MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. |
-| Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. |
-| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como Canal. Los valores posibles son:<ui><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> |
-| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los valores posibles son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> |
-| SKU | SKU | Plan asociado con la oferta. |
-| Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. |
-| Versión preliminar de SKU | Versión preliminar de SKU | Valor que le mostrará si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar". |
-| SKU Billing Type (Tipo de facturación de la SKU) | SKU Billing Type (Tipo de facturación de la SKU) | Tipo de facturación asociado a cada SKU de la oferta. Los valores posibles son:<ul><li>Gratuito</li><li>De pago</li></ul> |
-| IsInternal | Obsoleto | Obsoleto |
-| Tamaño de máquina virtual | Tamaño de la máquina virtual | En el caso de los tipos de oferta basados en VM, esta entidad indica el tamaño de la VM asociada a la SKU de la oferta. |
-| Nombre de la instancia de nube | Nombre de la instancia de nube | Microsoft Cloud donde se produjo la implementación de una VM. |
-| ServicePlanName | Obsoleto | En desuso (es la misma definición que la SKU). |
-| Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. |
-| DeploymentMethod | Obsoleto | En desuso (es la misma definición que el tipo de oferta).
- |
-| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente del nombre de la suscripción a Azure del cliente. |
-| Fecha de uso | Fecha de uso | Fecha de generación de eventos de uso para recursos basados en el uso. |
-| IsMultisolution | Es multisolución | Indica si la oferta es un tipo de oferta multisolución. |
-| Cliente nuevo | Obsoleto | Obsoleto |
-| Tamaño de núcleo | Tamaño de núcleo | Número de núcleos asociados con la oferta basada en la VM. |
-| Usage Type (Tipo de uso) | Usage Type (Tipo de uso) | Indica si el evento de uso asociado a la oferta es uno de los siguientes:<ul><li>Uso normalizado</li><li>Uso sin procesar</li><li>Uso medido</li></ul> |
-| Trial End Date (Fecha de fin de la prueba) | Trial End Date (Fecha de fin de la prueba) | La fecha del período de prueba de este pedido va a finalizar o ha finalizado. |
-| Customer Currency (CC) [Moneda del cliente (CC)] | Moneda del cliente | Moneda que usa el cliente para las transacciones en Marketplace comercial. |
-| Price (CC) [Precio (CC)] | Price | Precio unitario de la SKU que se muestra en la moneda del cliente. |
-| Payout Currency (PC) [Moneda de pago (PC)] | Moneda de pago | Se paga al publicador en función los eventos de uso asociados al recurso en la moneda que haya configurado ese publicador. |
-| Estimated Price (PC) [Precio estimado (PC)] | Precio estimado | Precio unitario de la SKU en la moneda que haya configurado el publicador. |
-| Usage Reference (Referencia de uso) | Usage Reference (Referencia de uso) | GUID concatenado que se usa para conectar el informe de uso (en el análisis de Marketplace comercial) con el informe de transacciones de pago. La referencia de uso está conectada con OrderId y LineItemId en el informe de transacciones de pago. |
-| Unidad de uso | Unidad de uso | Unidad de consumo asociada a la SKU. |
-| Customer Id | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. |
-| Id. de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. |
-| Cantidad de uso | Cantidad de uso | Unidades de uso totales que usa el recurso que implementa el cliente.<br>Estas se basan en el elemento de Tipo de uso. Por ejemplo, si el Tipo de uso es de Uso normalizado, entonces la Cantidad de uso es para el Uso normalizado. |
-| NormalizedUsage | Uso normalizado | Unidades de uso normalizadas totales que usa el recurso que implementa el cliente.<br>Las horas de uso normalizadas se definen para contabilizar el número de núcleos de VM ([número de núcleos de VM] x [horas de uso sin procesar]). Las máquinas virtuales designadas como "SHAREDCORE" usan 1/6 (o 0,1666) como multiplicador de [número de núcleos de máquina virtual]. |
-| MeteredUsage | Uso medido | Unidades de uso totales que consumen los medidores configurados con la oferta que implementó el cliente. |
-| RawUsage | Raw Usage (Uso sin procesar) | Unidades de uso sin procesar totales que usa el recurso que implementa el cliente.<br>Las horas de uso sin procesar se definen como la cantidad de tiempo que las VM se han ejecutado en términos de unidades de uso. |
-| Estimated Extended Charge (CC) [Cargo total estimado (CC)] | Cargo total estimado en la moneda del cliente | Indica los cargos asociados al uso. La columna es el producto de precio (CC) y la cantidad de uso. |
-| Estimated Extended Charge (PC) [Cargo total estimado (PC)] | Cargo total estimado en la moneda de pago | Indica los cargos asociados al uso. La columna es el producto del precio estimado (PC) y la cantidad de uso. |
-||||
+| Nombre de la columna en la<br>interfaz de usuario | Nombre del atributo | Definición | Nombre de la columna en informes<br>de acceso mediante programación |
+| ------------ | ------------- | ------------- | ------------- |
+| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. Antes era el GUID de la suscripción a Azure. | MarketplaceSubscriptionId |
+| MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. | MonthStartDate |
+| Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. | OfferType |
+| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como Canal. Los valores posibles son:<ui><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
+| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los valores posibles son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Plan asociado con la oferta. | SKU |
+| Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | CustomerCountry |
+| Versión preliminar de SKU | Versión preliminar de SKU | Valor que le mostrará si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar". | IsPreviewSKU |
+| SKU Billing Type (Tipo de facturación de la SKU) | SKU Billing Type (Tipo de facturación de la SKU) | Tipo de facturación asociado a cada SKU de la oferta. Los valores posibles son:<ul><li>Gratuito</li><li>De pago</li></ul> | SKUBillingType |
+| IsInternal | Obsoleto | Obsoleto | Obsoleto |
+| Tamaño de máquina virtual | Tamaño de la máquina virtual | En el caso de los tipos de oferta basados en VM, esta entidad indica el tamaño de la VM asociada a la SKU de la oferta. | VMSize |
+| Nombre de la instancia de nube | Nombre de la instancia de nube | Microsoft Cloud donde se produjo la implementación de una VM. | Nombre de instancia en la nube |
+| ServicePlanName | Obsoleto | En desuso (es la misma definición que la SKU). | ServicePlanName |
+| Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. | OfferName |
+| DeploymentMethod | Obsoleto | En desuso (es la misma definición que el tipo de oferta). | DeploymentMethod |
+| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente del nombre de la suscripción a Azure del cliente. | CustomerCompanyName |
+| Fecha de uso | Fecha de uso | Fecha de generación de eventos de uso para recursos basados en el uso. | UsageDate |
+| IsMultisolution | Es multisolución | Indica si la oferta es un tipo de oferta multisolución. | IsMultisolution |
+| Cliente nuevo | Obsoleto | Obsoleto | IsNewCustomer |
+| Tamaño de núcleo | Tamaño de núcleo | Número de núcleos asociados con la oferta basada en la VM. | CoreSize |
+| Usage Type (Tipo de uso) | Usage Type (Tipo de uso) | Indica si el evento de uso asociado a la oferta es uno de los siguientes:<ul><li>Uso normalizado</li><li>Uso sin procesar</li><li>Uso medido</li></ul> | UsageType |
+| Trial End Date (Fecha de fin de la prueba) | Trial End Date (Fecha de fin de la prueba) | La fecha del período de prueba de este pedido va a finalizar o ha finalizado. | TrialEndDate |
+| Customer Currency (CC) [Moneda del cliente (CC)] | Moneda del cliente | Moneda que usa el cliente para las transacciones en Marketplace comercial. | CustomerCurrencyCC |
+| Price (CC) [Precio (CC)] | Price | Precio unitario de la SKU que se muestra en la moneda del cliente. | PriceCC |
+| Payout Currency (PC) [Moneda de pago (PC)] | Moneda de pago | Se paga al publicador en función los eventos de uso asociados al recurso en la moneda que haya configurado ese publicador. | PayoutCurrencyPC |
+| Estimated Price (PC) [Precio estimado (PC)] | Precio estimado | Precio unitario de la SKU en la moneda que haya configurado el publicador. | EstimatedPricePC |
+| Usage Reference (Referencia de uso) | Usage Reference (Referencia de uso) | GUID concatenado que se usa para conectar el informe de uso (en el análisis de Marketplace comercial) con el informe de transacciones de pago. La referencia de uso está conectada con OrderId y LineItemId en el informe de transacciones de pago. | UsageReference |
+| Unidad de uso | Unidad de uso | Unidad de consumo asociada a la SKU. | UsageUnit |
+| Customer ID | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. | CustomerId |
+| Identificador de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. | BillingAccountId |
+| Cantidad de uso | Cantidad de uso | Unidades de uso totales que usa el recurso que implementa el cliente.<br>Estas se basan en el elemento de Tipo de uso. Por ejemplo, si el Tipo de uso es de Uso normalizado, entonces la Cantidad de uso es para el Uso normalizado. | UsageQuantity |
+| NormalizedUsage | Uso normalizado | Unidades de uso normalizadas totales que usa el recurso que implementa el cliente.<br>Las horas de uso normalizadas se definen para contabilizar el número de núcleos de VM ([número de núcleos de VM] x [horas de uso sin procesar]). Las máquinas virtuales designadas como "SHAREDCORE" usan 1/6 (o 0,1666) como multiplicador de [número de núcleos de máquina virtual]. | NormalizedUsage |
+| MeteredUsage | Uso medido | Unidades de uso totales que consumen los medidores configurados con la oferta que implementó el cliente. | MeteredUsage |
+| RawUsage | Raw Usage (Uso sin procesar) | Unidades de uso sin procesar totales que usa el recurso que implementa el cliente.<br>Las horas de uso sin procesar se definen como la cantidad de tiempo que las VM se han ejecutado en términos de unidades de uso. | RawUsage |
+| Estimated Extended Charge (CC) [Cargo total estimado (CC)] | Cargo total estimado en la moneda del cliente | Indica los cargos asociados al uso. La columna es el producto de precio (CC) y la cantidad de uso. | EstimatedExtendedChargeCC |
+| Estimated Extended Charge (PC) [Cargo total estimado (PC)] | Cargo total estimado en la moneda de pago | Indica los cargos asociados al uso. La columna es el producto del precio estimado (PC) y la cantidad de uso. | EstimatedExtended ChargePC |
+|||||
 
 ### <a name="usage-page-filters"></a>Filtros de la página de uso
 

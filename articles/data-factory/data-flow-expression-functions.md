@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/04/2021
-ms.openlocfilehash: 8b63565457498663250eb6ab5dc1361e43bbffaf
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 03/04/2021
+ms.openlocfilehash: dee896c8e4946cb4f6406d2f9f50547d2723da05
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585014"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448989"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -1196,8 +1196,75 @@ ___.
 
 ## <a name="conversion-functions"></a>Funciones de conversión
 
-Las funciones de conversión se usan para convertir datos y tipos de datos.
+Las funciones de conversión se usan para convertir datos y probar tipos de datos.
 
+### <code>isBoolean</code>
+<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+Permite comprobar si el valor de la cadena es booleano según las reglas de ``toBoolean()``
+* ``isBoolean('true') -> true``
+* ``isBoolean('no') -> true``
+* ``isBoolean('microsoft') -> false``
+___
+### <code>isByte</code>
+<code><b>isByte(<value1> : string) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un byte con un formato opcional según las reglas de ``toByte()``
+* ``isByte('123') -> true``
+* ``isByte('chocolate') -> false``
+___
+### <code>isDate</code>
+<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si la cadena de fecha de entrada es una fecha con un formato de fecha de entrada opcional. Consulte SimpleDateFormat de Java para conocer los formatos disponibles. Si se omite el formato de fecha de entrada, el formato predeterminado es ``yyyy-[M]M-[d]d``. Los formatos aceptados son ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
+* ``isDate('2012-8-18') -> true``
+* ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
+___
+### <code>isShort</code>
+<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento corto con un formato opcional según las reglas de ``toShort()``
+* ``isShort('123') -> true``
+* ``isShort('$123' -> '$###') -> true``
+* ``isShort('microsoft') -> false``
+___
+### <code>isInteger</code>
+<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento entero con un formato opcional según las reglas de ``toInteger()``
+* ``isInteger('123') -> true``
+* ``isInteger('$123' -> '$###') -> true``
+* ``isInteger('microsoft') -> false``
+___
+### <code>isLong</code>
+<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento largo con un formato opcional según las reglas de ``toLong()``
+* ``isLong('123') -> true``
+* ``isLong('$123' -> '$###') -> true``
+* ``isLong('gunchus') -> false``
+___
+### <code>isFloat</code>
+<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento flotante con un formato opcional según las reglas de ``toFloat()``
+* ``isFloat('123') -> true``
+* ``isFloat('$123.45' -> '$###.00') -> true``
+* ``isFloat('icecream') -> false``
+___
+### <code>isDouble</code>
+<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento doble con un formato opcional según las reglas de ``toDouble()``
+* ``isDouble('123') -> true``
+* ``isDouble('$123.45' -> '$###.00') -> true``
+* ``isDouble('icecream') -> false``
+___
+### <code>isDecimal</code>
+<code><b>isDecimal (<value1> : string) => boolean</b></code>.<br/><br/>
+Permite comprobar si el valor de la cadena es un elemento decimal con un formato opcional según las reglas de ``toDecimal()``
+* ``isDecimal('123.45') -> true``
+* ``isDecimal('12/12/2000') -> false``
+___
+### <code>isTimestamp</code>
+<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code>.<br/><br/>
+Permite comprobar si la cadena de fecha de entrada es una marca de tiempo con un formato de marca de tiempo de entrada opcional. Consulte la clase SimpleDateFormat de Java para conocer los formatos disponibles. Si la marca de tiempo se omite, se usa el patrón predeterminado ``yyyy-[M]M-[d]d hh:mm:ss[.f...]``. Puede pasar una zona horaria opcional en forma de "GMT", "PST", "UTC", "America/Cayman". La marca de tiempo admite una precisión de hasta milisegundos con un valor de 999. Consulte la clase SimpleDateFormat de Java para conocer los formatos disponibles.
+* ``isTimestamp('2016-12-31 00:12:00') -> true``
+* ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
+* ``isTimestamp('2012-8222.18') -> false``
+___
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Codifica la cadena especificada en Base64.  
@@ -1353,6 +1420,15 @@ Selecciona un valor de columna por su posición relativa (de base 1) en la secue
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+___
+### <code>hex</code>
+<code><b>hex(<value1>: binary) => string</b></code><br/><br/>
+Devuelve una representación de cadena hexa de un valor binario * ``hex(toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])) -> '1fadbe'``
+___
+### <code>unhex</code>
+<code><b>unhex(<value1>: string) => binary</b></code>.<br/><br/>
+Deshace la representación hexa de un valor binario de su representación de cadena. Se puede usar junto con SHA2, MD5 para convertir de cadena a representación binaria *   ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
+*   ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``.
 
 ## <a name="window-functions"></a>Funciones de ventana
 Las siguientes funciones solo están disponibles en las transformaciones de ventana.

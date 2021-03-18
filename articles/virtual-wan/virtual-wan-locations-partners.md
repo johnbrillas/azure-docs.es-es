@@ -5,21 +5,22 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
+ms.custom: references_regions
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a02a02eeb40c1a61df88c49bf967b2ca57befc3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621486"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489334"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
 En este artículo se proporciona información sobre las regiones admitidas de Virtual WAN y los asociados de conectividad en concentradores virtuales.
 
-Azure Virtual WAN es un servicio de redes que ofrece conectividad de rama a rama automatizada y optimizada mediante Azure. Azure Virtual WAN permite conectar y configurar los dispositivos de rama para comunicarse con Azure. Esta acción puede realizarse manualmente o con dispositivos de proveedores mediante un asociado de Virtual WAN. El uso de dispositivos de asociados permite la administración de la configuración, facilita el uso y simplifica la conectividad.
+Azure Virtual WAN es un servicio de redes que ofrece conectividad de rama a rama automatizada y optimizada mediante Azure. Azure Virtual WAN permite conectar y configurar los dispositivos de rama para comunicarse con Azure. La conexión y la configuración se pueden realizar manualmente o con dispositivos de proveedores mediante un asociado de Virtual WAN. El uso de dispositivos de asociados permite la administración de la configuración, facilita el uso y simplifica la conectividad.
 
 La conectividad desde el dispositivo local se establece de forma automática para el concentrador virtual. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). Solo se puede tener un concentrador por región.
 
@@ -40,31 +41,34 @@ Algunos asociados de conectividad pueden extender la automatización para inclui
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Los siguientes asociados están en nuestra hoja de ruta en función de una hoja de términos firmada por las empresas, que indica el ámbito del trabajo para automatizar la conectividad de IPsec entre el dispositivo asociado y las puertas de enlace de VPN de Azure Virtual WAN: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) y SharpLink.
+Los siguientes asociados están en nuestra hoja de ruta en función de una hoja de términos firmada por las empresas, que indica el ámbito del trabajo para automatizar la conectividad de IPsec entre el dispositivo asociado y las instancias de VPN Gateway de Azure Virtual WAN: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) y SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Asociados con ofertas del Centro virtual integrado
-Además de tener conectividad IPSec automatizada de sucursales, algunos asociados ofrecen **Dispositivos virtuales de red (NVA)** que se pueden integrar directamente en el centro de Azure Virtual WAN.  Esto permite a los clientes finalizar sus conexiones de rama en un dispositivo de terceros compatible con el Centro virtual.  
+
+Además de tener conectividad IPSec automatizada de sucursales, algunos asociados ofrecen **aplicaciones virtuales de red (NVA)** que se pueden integrar directamente en el centro de Azure Virtual WAN.  Esto permite a los clientes finalizar sus conexiones de rama en un dispositivo de terceros compatible con el centro virtual.  
 
 Los asociados que ofrecen NVA en el centro de Virtual WAN deben:
 
-* Tener implementada la automatización de conectividad IPSec desde su dispositivo de rama e incorporar su oferta NVA al centro de Azure Virtual WAN.
+* Tener implementada la automatización de conectividad IPSec desde su dispositivo de rama e incorporar su oferta NVA al centro de Azure Virtual WAN.
 * Tener una oferta de Dispositivo virtual de red existente disponible en Azure Marketplace.
 
-Si es un asociado y tiene preguntas sobre los NVA administrados en la oferta del Centro virtual, póngase en contacto con nosotros enviando un correo electrónico a vwannvaonboarding@microsoft.com.
+Si es un asociado y tiene preguntas sobre las NVA administradas en la oferta del centro virtual, póngase en contacto con nosotros por correo electrónico a través de la dirección vwannvaonboarding@microsoft.com.
 
 ## <a name="integrated-virtual-hub-nva-partners"></a>Asociados de NVA del Centro virtual integrado
+
 Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora están disponibles para su implementación en el centro de Virtual WAN.
 
 |Asociados|Guía de implementación/instrucciones/configuración|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guía de implementación de WAN de Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Durante la versión preliminar pública de la instancia de WAN de Cisco Cloud Services (CSR) en el Centro de VWAN, Cisco requiere que el cliente final se registre como un cliente de Cisco EFT (versión de prueba temprana); para ello, debe enviar un correo electrónico a vwan_public_preview@external.cisco.com y la solicitud de la guía de implementación de vManage. |
+|[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Durante la versión preliminar pública de la instancia de WAN de Cisco Cloud Services (CSR) en el Centro de VWAN, Cisco requiere que el cliente final se registre como un cliente de Cisco EFT (versión de prueba temprana); para ello, debe enviar un correo electrónico a vwan_public_preview@external.cisco.com y la solicitud de la guía de implementación de vManage. 
+|[VMware SD-WAN en el centro de Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Durante la versión preliminar pública de VMware SD-WAN en el centro de VWAN, VMware requiere que el cliente se registre mediante el envío de un correo electrónico a vhubsupport@vmware.com. [Guía de implementación de VMware SD-WAN en el centro de Virtual WAN](https://kb.vmware.com/s/article/82746)|
 
-Los siguientes asociados están preparados para agregar NVA en las ofertas del Centro virtual en un futuro próximo: Redes de Aviatrix, Citrix, VeloCloud y Versa.
+Los siguientes asociados están preparados para agregar NVA en las ofertas del centro virtual en un futuro próximo: Redes de Aviatrix, Citrix y Versa.
 
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+[!INCLUDE [Virtual WAN regions file](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

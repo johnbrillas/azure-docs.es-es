@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693652"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487157"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Creación de consultas semánticas en Cognitive Search
 
@@ -21,6 +21,8 @@ ms.locfileid: "101693652"
 > El tipo de consulta semántica se encuentra en versión preliminar pública, y está disponible mediante la API REST en versión preliminar y Azure Portal. Las características en vista previa (GB) se ofrecen tal cual, en [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Durante el lanzamiento de la versión preliminar inicial, no se aplica ningún cargo por la búsqueda semántica. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
 En este artículo, aprenderá a formular una solicitud de búsqueda que usa la clasificación semántica y generará subtítulos y respuestas semánticos.
+
+Las consultas semánticas suelen funcionar mejor en los índices de búsqueda que se crean a partir de contenido de texto intensivo, como PDF o documentos con grandes fragmentos de texto.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +40,7 @@ En este artículo, aprenderá a formular una solicitud de búsqueda que usa la c
 
 ## <a name="whats-a-semantic-query"></a>¿Qué es una consulta semántica?
 
-En Cognitive Search, una consulta es una solicitud parametrizada que determina el procesamiento de las consultas y la forma de las respuestas. Una *consulta semántica* agrega parámetros que invocan el algoritmo de reclasificación semántica. Este algoritmo puede evaluar el contexto y el significado de los resultados coincidentes y promover los mejores a los primeros puestos.
+En Cognitive Search, una consulta es una solicitud parametrizada que determina el procesamiento de las consultas y la forma de las respuestas. Una *consulta semántica* agrega parámetros que invocan el modelo de reclasificación semántica. Este algoritmo puede evaluar el contexto y el significado de los resultados coincidentes, promover los mejores a los primeros puestos, y devolver respuestas semánticas y subtítulos.
 
 La solicitud siguiente es representativa de una consulta semántica básica (sin respuestas).
 
@@ -48,7 +50,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
     "search": " Where was Alan Turing born?",    
     "queryType": "semantic",  
     "searchFields": "title,url,body",  
-    "queryLanguage": "en-us",  
+    "queryLanguage": "en-us"  
 }
 ```
 
@@ -60,7 +62,7 @@ Solo las 50 primeras coincidencias de los resultados iniciales se pueden clasifi
 
 La especificación completa de la API REST se puede encontrar en [Search Documents (versión preliminar de REST)](/rest/api/searchservice/preview-api/search-documents).
 
-Las consultas semánticas están pensadas para preguntas abiertas del tipo: "¿cuál es la mejor planta para los polinizadores?" o "¿cómo freír un huevo?". Si quiere que en la contestación se incluyan las respuestas, puede agregar un parámetro **`answer`** opcional en la solicitud.
+Las consultas semánticas proporcionan subtítulos y resaltado automáticamente. Si quiere que en la contestación se incluyan las respuestas, puede agregar un parámetro **`answer`** opcional en la solicitud. Este parámetro, más la construcción de la propia cadena de consulta, producirá una respuesta en la respuesta.
 
 En el ejemplo siguiente se usa hotels-sample-index para crear una solicitud de consulta semántica con respuestas y subtítulos semánticos:
 
@@ -82,37 +84,66 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formulación de la solicitud
 
-1. Establezca **`"queryType"`** en "semantic" y **`"queryLanguage"`** en "en-us". Ambos parámetros son obligatorios.
+En esta sección se describen los parámetros de consulta necesarios para la búsqueda semántica.
 
-   El parámetro queryLanguage debe ser coherente con los [analizadores del lenguaje](index-add-language-analyzers.md) asignados a las definiciones de campo en el esquema de índice. Si queryLanguage es "en-us", todos los analizadores del lenguaje también deben tener una variante inglesa ("en.microsoft" o "en.lucene"). Los analizadores independientes del lenguaje, como Keyword o Simple, no tienen ningún conflicto con los valores de queryLanguage.
+#### <a name="step-1-set-querytype-and-querylanguage"></a>Paso 1: Establecer queryType y queryLanguage
 
-   En una solicitud de consulta, si usa también la [corrección ortográfica](speller-how-to-add.md), el valor de queryLanguage que establezca se aplica por igual al corrector ortográfico, a las respuestas y a los subtítulos. No hay invalidaciones para partes individuales. 
+Agregue los siguientes parámetros al resto. Ambos parámetros son obligatorios.
 
-   Aunque el contenido de un índice de búsqueda puede estar redactado en varios idiomas, es más probable que la entrada de la consulta lo esté en uno. El motor de búsqueda no comprueba la compatibilidad de queryLanguage, el analizador del lenguaje ni el idioma en que está redactado el contenido, por lo que debe asegurarse de establecer el ámbito de las consultas en consecuencia para evitar que se generen resultados incorrectos.
+```json
+"queryType": "semantic",
+"queryLanguage": "en-us",
+```
+
+El parámetro queryLanguage debe ser coherente con los [analizadores del lenguaje](index-add-language-analyzers.md) asignados a las definiciones de campo en el esquema de índice. Si queryLanguage es "en-us", todos los analizadores del lenguaje también deben tener una variante inglesa ("en.microsoft" o "en.lucene"). Los analizadores independientes del lenguaje, como Keyword o Simple, no tienen ningún conflicto con los valores de queryLanguage.
+
+En una solicitud de consulta, si usa también la [corrección ortográfica](speller-how-to-add.md), el valor de queryLanguage que establezca se aplica por igual al corrector ortográfico, a las respuestas y a los subtítulos. No hay invalidaciones para partes individuales. 
+
+Aunque el contenido de un índice de búsqueda puede estar redactado en varios idiomas, es más probable que la entrada de la consulta lo esté en uno. El motor de búsqueda no comprueba la compatibilidad de queryLanguage, el analizador del lenguaje ni el idioma en que está redactado el contenido, por lo que debe asegurarse de establecer el ámbito de las consultas en consecuencia para evitar que se generen resultados incorrectos.
 
 <a name="searchfields"></a>
 
-1. Establezca **`"searchFields"`** (opcional, pero recomendable).
+#### <a name="step-2-set-searchfields"></a>Paso 2: Establecer searchFields
 
-   En una consulta semántica, el orden de los campos en "searchFields" refleja la prioridad o la importancia relativa del campo en las clasificaciones semánticas. Solo se usan campos de cadena de nivel superior (solos o de una colección). Dado que searchFields se comporta de forma diferente en las consultas de Lucene simples y completas (donde no hay un orden de prioridad implícito), otros campos y subcampos que no sean de cadena no producirán un error, pero tampoco se usarán en la clasificación semántica.
+Este parámetro es opcional, ya que no se produce ningún error si lo omite, pero se recomienda encarecidamente proporcionar una lista ordenada de campos para los subtítulos y las respuestas.
 
-   Al especificar searchFields, siga estas instrucciones:
+El parámetro searchFields se usa para identificar los pasajes que se van a evaluar para determinar su "similitud semántica" con la consulta. En el caso de la versión preliminar, no se recomienda dejar searchFields en blanco, ya que el modelo requiere una sugerencia sobre qué campos son más importantes para procesar.
 
-   + Los campos concisos, como HotelName o un título, deben preceder a los campos detallados, como Description.
+El orden de searchFields es crítico. Si ya usa searchFields en consultas de Lucene simples o completas existentes, asegúrese de volver a visitar este parámetro al cambiar a un tipo de consulta semántica.
 
-   + Si el índice tiene un campo de dirección URL que es textual (legible por el usuario, como `www.domain.com/name-of-the-document-and-other-details` y no está enfocado a la máquina como `www.domain.com/?id=23463&param=eis`), colóquelo en segundo lugar en la lista (o en primer lugar si no hay ningún campo de título conciso).
+Siga estas instrucciones para garantizar resultados óptimos cuando se especifique dos o más parámetros searchFields:
 
-   + Si solo se especifica un campo, se considerará un campo descriptivo para la clasificación semántica de los documentos.  
++ Incluya solo campos de cadena y campos de cadena de nivel superior en las colecciones. Si se incluyen campos que no son de cadena o campos de nivel inferior en una colección, no se produce ningún error, pero esos campos no se usarán en la clasificación semántica.
 
-   + Si no se especifica ningún campo, todos los campos de búsqueda se tienen en cuenta para la clasificación semántica de los documentos. Sin embargo, esta opción no se recomienda, ya que puede que el índice de búsqueda no produzca los resultados más óptimos.
++ El primer campo siempre debe ser conciso (por ejemplo, un título o un nombre). Lo ideal es que tenga menos de 25 palabras.
 
-1. Quite las cláusulas **`"orderBy"`** , si las hay en una solicitud existente. La puntuación semántica se usa para ordenar los resultados y, si incluye la lógica de ordenación explícita, se devuelve un error HTTP 400.
++ Si el índice tiene un campo de dirección URL que es textual (legible por el usuario, como `www.domain.com/name-of-the-document-and-other-details`, y no enfocado a la máquina, como `www.domain.com/?id=23463&param=eis`), colóquelo en segundo lugar en la lista (o en primer lugar si no hay ningún campo de título conciso).
 
-1. Opcionalmente, agregue el parámetro **`"answers"`** establecido en "extractive" y especifique el número de respuestas si quiere más de 1.
++ Siga esos campos por los campos descriptivos en los que se pueda encontrar la respuesta a las consultas semánticas, como el contenido principal de un documento.
 
-1. También tiene la opción de personalizar el estilo de resaltado que se aplica a los subtítulos. Los subtítulos aplican el formato de resaltado sobre los pasajes principales del documento que resumen la respuesta. El valor predeterminado es `<em>`. Si quiere especificar el tipo de formato (por ejemplo, fondo amarillo), puede establecer los parámetros highlightPreTag y highlightPostTag.
+Si solo se especifica un campo, use los campos descriptivos en los que se pueda encontrar la respuesta a las consultas semánticas, como el contenido principal de un documento. Elija un campo que proporcione contenido suficiente.
 
-1. Especifique cualquier otro parámetro que quiera en la solicitud. Parámetros, como [speller](speller-how-to-add.md), [select](search-query-odata-select.md) y count mejoran la calidad de la solicitud y la legibilidad de la respuesta.
+#### <a name="step-3-remove-orderby-clauses"></a>Paso 3: Quitar las cláusulas orderBy
+
+Quite todas las cláusulas orderBy, si las hay en una solicitud existente. La puntuación semántica se usa para ordenar los resultados y, si incluye la lógica de ordenación explícita, se devuelve un error HTTP 400.
+
+#### <a name="step-4-add-answers"></a>Paso 4: Agregar respuestas
+
+De manera opcional, agregue "respuestas" si quiere incluir un procesamiento adicional que proporcione una respuesta. Las respuestas (y los subtítulos) se formulan a partir de los pasajes que se encuentran en los campos enumerados en searchFields. Asegúrese de incluir campos con abundante contenido en searchFields para obtener los mejores subtítulos y respuestas en una respuesta.
+
+Existen condiciones explícitas e implícitas que generan respuestas. 
+
++ Las condiciones explícitas incluyen la adición de "answers=extractive". Además, para especificar el número de respuestas devueltas en la respuesta global, agregue "count" seguido de un número: `"answers=extractive|count=3"`.  El valor predeterminado es uno. El máximo es cinco.
+
++ Las condiciones implícitas incluyen una construcción de cadena de consulta que se presta a una respuesta. Es más probable que se responda una consulta compuesta por "qué hotel tiene la habitación verde", que una consulta formada por una instrucción como "hotel con interior decorativo". Como cabría esperar, la consulta no puede dejarse sin especificar ni tener un valor NULL.
+
+Lo más importante es que, si la consulta no parece una pregunta, se omite el procesamiento de respuestas, aunque el parámetro "answers" esté establecido.
+
+#### <a name="step-5-add-other-parameters"></a>Paso 5: Agregar otros parámetros
+
+Especifique cualquier otro parámetro que quiera incluir en la solicitud. Parámetros, como [speller](speller-how-to-add.md), [select](search-query-odata-select.md) y count mejoran la calidad de la solicitud y la legibilidad de la respuesta.
+
+También tiene la opción de personalizar el estilo de resaltado que se aplica a los subtítulos. Los subtítulos aplican el formato de resaltado sobre los pasajes principales del documento que resumen la respuesta. El valor predeterminado es `<em>`. Si quiere especificar el tipo de formato (por ejemplo, fondo amarillo), puede establecer los parámetros highlightPreTag y highlightPostTag.
 
 ### <a name="review-the-response"></a>Revisar la respuesta
 
@@ -146,7 +177,7 @@ En la tabla siguiente se resumen los parámetros de consulta que se usan en una 
 | queryType | String | Los valores válidos son simple, full y semantic. Para las consultas semánticas, se requiere un valor de "semantic". |
 | queryLanguage | String | Necesario para las consultas semánticas. Actualmente, solo está implementado "en-us". |
 | searchFields | String | Una lista delimitada por comas de campos que permiten búsqueda. Opcional, pero recomendable. Especifica los campos en los que se produce la clasificación semántica. </br></br>A diferencia de los tipos de consulta simple y completa, el orden en que se muestran los campos determina la precedencia.|
-| answers |String | Campo opcional para especificar que el resultado incluya las respuestas semánticas. Actualmente, solo está implementado "extractive". Las respuestas se pueden configurar para que se devuelvan cinco como máximo. En este ejemplo, "extractive|count3" muestra un recuento de tres respuestas. El valor predeterminado es 1.|
+| answers |String | Campo opcional para especificar que el resultado incluya las respuestas semánticas. Actualmente, solo está implementado "extractive". Las respuestas se pueden configurar para que se devuelvan cinco como máximo. El valor predeterminado es uno. En este ejemplo se muestra un recuento de tres respuestas: "extractive\|count3". |
 
 ## <a name="query-with-search-explorer"></a>Consulta con el Explorador de búsqueda
 
@@ -155,7 +186,7 @@ La consulta siguiente se dirige al ejemplo integrado hotels-sample-index, con la
 ### <a name="with-querytypesemantic"></a>Con queryType=semantic
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 Los primeros resultados son los siguientes.

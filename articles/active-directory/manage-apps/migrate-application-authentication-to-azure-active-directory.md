@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd33f9e0b249db6b7c6bd0a0a556d0bb4cf79312
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101074"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453262"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 
@@ -55,13 +55,13 @@ Es probable que sus aplicaciones usen los siguientes tipos de autenticación:
 
 **Para asegurarse de que los usuarios puedan acceder de forma fácil y segura a las aplicaciones, el objetivo es tener un único conjunto de controles y directivas de acceso en los entornos locales y en la nube.**
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) ofrece una plataforma de identidad universal que proporciona a los usuarios, asociados y clientes una identidad única para acceder a las aplicaciones que quieran y colaborar desde cualquier plataforma y dispositivo.
+[Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) ofrece una plataforma de identidad universal que proporciona a los usuarios, asociados y clientes una identidad única para acceder a las aplicaciones que quieran y colaborar desde cualquier plataforma y dispositivo.
 
 ![Diagrama de conectividad de Azure Active Directory](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
 
-Azure AD tiene un [conjunto completo de funcionalidades de administración de identidades](/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad). La estandarización de la autorización y la autenticación de sus aplicaciones en Azure AD le permite obtener las ventajas que ofrecen estas funcionalidades.
+Azure AD tiene un [conjunto completo de funcionalidades de administración de identidades](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). La estandarización de la autorización y la autenticación de sus aplicaciones en Azure AD le permite obtener las ventajas que ofrecen estas funcionalidades.
 
-Consulte recursos de migración adicionales en la dirección [https://aka.ms/migrateapps](https://aka.ms/migrateapps).
+Consulte recursos de migración adicionales en la dirección [https://aka.ms/migrateapps](./migration-resources.md).
 
 ## <a name="benefits-of-migrating-app-authentication-to-azure-ad"></a>Ventajas de migrar la autenticación de las aplicaciones a Azure AD
 
@@ -71,9 +71,9 @@ Cambiar la autenticación de la aplicación a Azure AD le ayudará a administra
 
 Para proteger las aplicaciones, es necesaria una vista completa de todos los factores de riesgo. La migración de las aplicaciones a Azure AD consolida sus soluciones de seguridad. Por ejemplo, puede:
 
-- Mejorar el acceso seguro de los usuarios a las aplicaciones y los datos corporativos asociados mediante la tecnología de las[directivas de acceso condicional](/azure/active-directory/active-directory-conditional-access-azure-portal), la [autenticación multifactor](/azure/active-directory/authentication/concept-mfa-howitworks) y la [protección de identidades](/azure/active-directory/active-directory-identityprotection) basadas en el riesgo en tiempo real.
+- Mejorar el acceso seguro de los usuarios a las aplicaciones y los datos corporativos asociados mediante la tecnología de las[directivas de acceso condicional](../conditional-access/overview.md), la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) y la [protección de identidades](../identity-protection/overview-identity-protection.md) basadas en el riesgo en tiempo real.
 
-- Proteger el acceso del usuario con privilegios a su entorno mediante el acceso de administrador [Just-in-Time](/azure/managed-applications/request-just-in-time-access).
+- Proteger el acceso del usuario con privilegios a su entorno mediante el acceso de administrador [Just-in-Time](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 - Usar el [diseño multiinquilino, distribuido geográficamente y de alta disponibilidad de Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/) para sus necesidades empresariales más críticas.
 
@@ -85,30 +85,30 @@ Su organización puede tener varias soluciones de Administración de acceso a id
 
 **Con Azure AD, puede reducir los costos de infraestructura de la siguiente manera:**
 
-- Ofrezca acceso remoto seguro a aplicaciones locales mediante [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy).
+- Ofrezca acceso remoto seguro a aplicaciones locales mediante [Azure AD Application Proxy](./application-proxy.md).
 
-- Disasocie las aplicaciones del enfoque de credenciales local en el inquilino mediante la [configuración de Azure AD como proveedor de identidades universal de confianza](/azure/active-directory/hybrid/plan-connect-user-signin#choosing-the-user-sign-in-method-for-your-organization).
+- Disasocie las aplicaciones del enfoque de credenciales local en el inquilino mediante la [configuración de Azure AD como proveedor de identidades universal de confianza](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
 
 ### <a name="increase-productivity"></a>Aumento de la productividad
 
 Las ventajas económicas y de seguridad animan a las organizaciones a adoptar Azure AD, pero la adopción y cumplimiento completos son más probables si los usuarios también se benefician. Con Azure AD puede hacer lo siguiente:
 
-- Mejore la experiencia de [inicio de sesión único (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on) del usuario final con un acceso sin problemas y seguro a cualquier aplicación, desde cualquier dispositivo y cualquier ubicación.
+- Mejore la experiencia de [inicio de sesión único (SSO)](./what-is-single-sign-on.md) del usuario final con un acceso sin problemas y seguro a cualquier aplicación, desde cualquier dispositivo y cualquier ubicación.
 
-- Aproveche las funcionalidades de autoservicio de IAM, como el [autoservicio de restablecimiento de contraseña](/azure/active-directory/authentication/concept-sspr-howitworks) y el [autoservicio de administración de grupos](/azure/active-directory/users-groups-roles/groups-self-service-management).
+- Aproveche las funcionalidades de autoservicio de IAM, como el [autoservicio de restablecimiento de contraseña](../authentication/concept-sspr-howitworks.md) y el [autoservicio de administración de grupos](../enterprise-users/groups-self-service-management.md).
 
 - Reduzca la sobrecarga administrativa mediante la administración de una única identidad para cada usuario en todos los entornos locales y en la nube:
 
-  - [Automatice el aprovisionamiento](/azure/active-directory/active-directory-saas-app-provisioning) de las cuentas de usuario (en la [galería de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)) basadas en identidades de Azure AD.
+  - [Automatice el aprovisionamiento](../app-provisioning/user-provisioning.md) de las cuentas de usuario (en la [galería de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)) basadas en identidades de Azure AD.
   - Acceda a todas las aplicaciones desde el panel Mis aplicaciones en [Azure Portal](https://portal.azure.com/).
 
-- Permita a los desarrolladores proteger el acceso a sus aplicaciones y mejorar la experiencia del usuario final mediante el uso de la [plataforma de identidad de Microsoft](/azure/active-directory/develop/about-microsoft-identity-platform) con la biblioteca de autenticación de Microsoft (MSAL).
+- Permita a los desarrolladores proteger el acceso a sus aplicaciones y mejorar la experiencia del usuario final mediante el uso de la [plataforma de identidad de Microsoft](../develop/v2-overview.md) con la biblioteca de autenticación de Microsoft (MSAL).
 
-- Permita a sus asociados el acceso a los recursos en la nube mediante la [colaboración B2B de Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). De este modo, se elimina la sobrecarga que supone configurar la federación de punto a punto con sus asociados.
+- Permita a sus asociados el acceso a los recursos en la nube mediante la [colaboración B2B de Azure AD](../external-identities/what-is-b2b.md). De este modo, se elimina la sobrecarga que supone configurar la federación de punto a punto con sus asociados.
 
 ### <a name="address-compliance-and-governance"></a>Control de cumplimiento y gobernanza
 
-Garantice el cumplimiento de los requisitos normativos al aplicar las directivas de acceso corporativo y supervisar el acceso de los usuarios a las aplicaciones y datos asociados mediante API y herramientas de auditoría integradas. Con Azure AD, puede supervisar los inicios de sesión en la aplicación mediante informes que usan [herramientas de supervisión de eventos e incidentes de seguridad (SIEM)](/azure/active-directory/reports-monitoring/plan-monitoring-and-reporting). Puede acceder a los informes desde el portal o las API y auditar mediante programación quién tiene acceso a las aplicaciones, así como quitar el acceso a los usuarios inactivos a través de revisiones de acceso.
+Garantice el cumplimiento de los requisitos normativos al aplicar las directivas de acceso corporativo y supervisar el acceso de los usuarios a las aplicaciones y datos asociados mediante API y herramientas de auditoría integradas. Con Azure AD, puede supervisar los inicios de sesión en la aplicación mediante informes que usan [herramientas de supervisión de eventos e incidentes de seguridad (SIEM)](../reports-monitoring/plan-monitoring-and-reporting.md). Puede acceder a los informes desde el portal o las API y auditar mediante programación quién tiene acceso a las aplicaciones, así como quitar el acceso a los usuarios inactivos a través de revisiones de acceso.
 
 ## <a name="plan-your-migration-phases-and-project-strategy"></a>Planificación de las fases de migración y la estrategia del proyecto
 
@@ -214,11 +214,11 @@ La primera decisión en la migración de una aplicación es qué aplicaciones se
 
 **Uso de servicios de federación de Active Directory (AD FS) para recopilar un inventario de aplicaciones correctas:**
 
-- **Use Azure AD Connect Health.** Si tiene una licencia de Azure AD Premium, se recomienda que implemente [Azure AD Connect Health](/azure/active-directory/hybrid/how-to-connect-health-adfs) para analizar el uso de la aplicación en el entorno local. Puede usar el [informe de la aplicación de ADFS](/azure/active-directory/manage-apps/migrate-adfs-application-activity) (versión preliminar) para detectar las aplicaciones de ADFS que se pueden migrar y evaluar la preparación de la aplicación que se va a migrar. Después de completar la migración, implemente [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery), que le permite supervisar continuamente la shadow IT de su organización una vez que esté en la nube.
+- **Use Azure AD Connect Health.** Si tiene una licencia de Azure AD Premium, se recomienda que implemente [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) para analizar el uso de la aplicación en el entorno local. Puede usar el [informe de la aplicación de ADFS](./migrate-adfs-application-activity.md) (versión preliminar) para detectar las aplicaciones de ADFS que se pueden migrar y evaluar la preparación de la aplicación que se va a migrar. Después de completar la migración, implemente [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery), que le permite supervisar continuamente la shadow IT de su organización una vez que esté en la nube.
 
-- **Análisis de registros de AD FS**. Si no tiene licencias de Azure AD Premium, se recomienda que use las herramientas de migración de la aplicación de ADFS a Azure AD basadas en [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Consulte la [guía de soluciones](https://aka.ms/migrateapps/adfssolutionguide):
+- **Análisis de registros de AD FS**. Si no tiene licencias de Azure AD Premium, se recomienda que use las herramientas de migración de la aplicación de ADFS a Azure AD basadas en [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Consulte la [guía de soluciones](./migrate-adfs-apps-to-azure.md):
 
-[Migración de aplicaciones de servicios de federación de Active Directory (AD FS) a Azure AD.](https://aka.ms/migrateapps/adfssolutionguide)
+[Migración de aplicaciones de servicios de federación de Active Directory (AD FS) a Azure AD.](./migrate-adfs-apps-to-azure.md)
 
 ### <a name="using-other-identity-providers-idps"></a>Uso de otros proveedores de identidades (IdP)
 
@@ -234,10 +234,10 @@ En el entorno en la nube, necesita visibilidad enriquecida, control sobre el via
 
 - **API**: para las aplicaciones conectadas a la infraestructura en la nube, puede usar las API y las herramientas de esos sistemas para empezar a realizar un inventario de las aplicaciones hospedadas. En el entorno de Azure:
 
-  - Use el cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true) para obtener información sobre los sitios web de Azure.
+  - Use el cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) para obtener información sobre los sitios web de Azure.
 
-  - Use el cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true) para obtener información sobre las aplicaciones web de Azure.
-
+  - Use el cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) para obtener información sobre Azure Web Apps.
+D
   - Puede encontrar todas las aplicaciones que se ejecutan en Microsoft IIS desde la línea de comandos de Windows mediante [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
   - Use [aplicaciones](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) y [entidades de servicio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) para obtener información sobre una aplicación y una instancia de la aplicación en un directorio de Azure AD.
@@ -270,7 +270,7 @@ Una vez que encuentre las aplicaciones, identificará estos tipos de aplicacione
 
 Las aplicaciones ya modernizadas tienen más probabilidades de trasladarse a Azure AD. Estas aplicaciones ya usan protocolos de autenticación modernos (como SAML u OpenID Connect) y se pueden volver a configurar para autenticarse con Azure AD.
 
-Además de las opciones de la [galería de aplicaciones de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), estas pueden ser aplicaciones que ya existen en la organización o cualquier aplicación de terceros de un proveedor que no forma parte de la galería de Azure AD ([aplicaciones que no son de la galería](/azure/active-directory/manage-apps/add-non-gallery-app)).
+Además de las opciones de la [galería de aplicaciones de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), estas pueden ser aplicaciones que ya existen en la organización o cualquier aplicación de terceros de un proveedor que no forma parte de la galería de Azure AD ([aplicaciones que no son de la galería](./add-application-portal.md)).
 
 Aplicaciones heredadas que elige modernizar
 
@@ -288,13 +288,13 @@ En el caso de ciertas aplicaciones que usan protocolos de autenticación heredad
 
 - Las aplicaciones desarrolladas con estándares de autenticación locales que no tiene la intención de trasladar.
 
-Azure AD puede aportar grandes ventajas a estas aplicaciones heredadas, ya que puede habilitar las características modernas de seguridad y gobernanza de Azure AD como la [autenticación multifactor](/azure/active-directory/authentication/concept-mfa-howitworks), el [acceso condicional](/azure/active-directory/conditional-access/overview), [Identity Protection](/azure/active-directory/identity-protection/), el [acceso de aplicaciones delegado](/azure/active-directory/manage-apps/access-panel-manage-self-service-access) y las [revisiones de acceso](https://docs.microsoft.com/azure/active-directory/governance/manage-user-access-with-access-reviews#create-and-perform-an-access-review) en estas aplicaciones sin modificarlas en lo absoluto.
+Azure AD puede aportar grandes ventajas a estas aplicaciones heredadas, ya que puede habilitar las características modernas de seguridad y gobernanza de Azure AD como la [autenticación multifactor](../authentication/concept-mfa-howitworks.md), el [acceso condicional](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), el [acceso de aplicaciones delegado](./access-panel-manage-self-service-access.md) y las [revisiones de acceso](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) en estas aplicaciones sin modificarlas en lo absoluto.
 
-Comience por **extender estas aplicaciones a la nube** con Azure AD [Application Proxy](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) con un método sencillo de autenticación (por ejemplo, el almacenamiento de contraseñas) para que los usuarios migren rápidamente, o a través de las [integraciones de asociados](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) con los controladores de entrega de aplicaciones que ya ha implementado.
+Comience por **extender estas aplicaciones a la nube** con Azure AD [Application Proxy](./application-proxy-configure-single-sign-on-password-vaulting.md) con un método sencillo de autenticación (por ejemplo, el almacenamiento de contraseñas) para que los usuarios migren rápidamente, o a través de las [integraciones de asociados](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) con los controladores de entrega de aplicaciones que ya ha implementado.
 
 ### <a name="new-line-of-business-lob-apps"></a>Nuevas aplicaciones de línea de negocio (LoB)
 
-Normalmente se desarrollan aplicaciones LoB para el uso interno en la organización. Si tiene aplicaciones nuevas en la canalización, se recomienda usar la [plataforma de identidad de Microsoft](/azure/active-directory/develop/about-microsoft-identity-platform) para implementar OpenID Connect.
+Normalmente se desarrollan aplicaciones LoB para el uso interno en la organización. Si tiene aplicaciones nuevas en la canalización, se recomienda usar la [plataforma de identidad de Microsoft](../develop/v2-overview.md) para implementar OpenID Connect.
 
 ### <a name="apps-to-deprecate"></a>Aplicaciones que se dejarán de usar
 
@@ -316,10 +316,10 @@ Esta fase se realiza correctamente con lo siguiente:
 
   - A qué sistemas se conectan esas aplicaciones o desde qué sistemas se conectan y en qué dispositivos acceden los usuarios.
 
-  - Si se van a migrar, dejar en desuso o a conectarse con [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
+  - Si se van a migrar, dejar en desuso o a conectarse con [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
 > [!NOTE]
-> Puede descargar la [hoja de cálculo de detección de aplicaciones](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) para registrar las aplicaciones que quiere migrar a la autenticación de Azure AD, y las que quiere dejar de administrar con [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
+> Puede descargar la [hoja de cálculo de detección de aplicaciones](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) para registrar las aplicaciones que quiere migrar a la autenticación de Azure AD, y las que quiere dejar de administrar con [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
 ## <a name="phase-2-classify-apps-and-plan-pilot"></a>Fase 2: clasificación de aplicaciones y planificación del piloto
 
@@ -351,7 +351,7 @@ Puede optar por comenzar la migración de aplicaciones con las aplicaciones de p
 
 En un escenario en el que quizá no tenga experiencia en el uso de Azure AD y los servicios de identidad, considere la posibilidad de mover primero las **aplicaciones de prioridad más baja** a Azure AD. Esto reducirá el impacto en sus operaciones y podrá tomar impulso. Una vez que haya trasladado correctamente estas aplicaciones y haya ganado la confianza de la parte interesada, podrá continuar con la migración de las otras aplicaciones.
 
-Si no hay ninguna prioridad clara, considere la posibilidad de mover primero las aplicaciones que se encuentran en la [galería de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) y admitir varios proveedores de identidades (ADFS u Okta) porque son más fáciles de integrar. Es probable que estas aplicaciones sean las **aplicaciones de prioridad más alta** de la organización. Para ayudarle a integrar las aplicaciones SaaS con Azure AD, hemos desarrollado un conjunto de [tutoriales](/azure/active-directory/saas-apps/tutorial-list) que le guían a lo largo del proceso de configuración.
+Si no hay ninguna prioridad clara, considere la posibilidad de mover primero las aplicaciones que se encuentran en la [galería de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) y admitir varios proveedores de identidades (ADFS u Okta) porque son más fáciles de integrar. Es probable que estas aplicaciones sean las **aplicaciones de prioridad más alta** de la organización. Para ayudarle a integrar las aplicaciones SaaS con Azure AD, hemos desarrollado un conjunto de [tutoriales](../saas-apps/tutorial-list.md) que le guían a lo largo del proceso de configuración.
 
 Cuando tenga una fecha límite para migrar las aplicaciones, el cubo con las aplicaciones de prioridad más alta tomará la carga de trabajo principal. Más adelante puede seleccionar las aplicaciones de menor prioridad, ya que no cambiarán el costo aunque haya cambiado la fecha límite. Incluso si debe renovar la licencia, será para una cantidad pequeña.
 
@@ -399,7 +399,7 @@ Una vez que haya clasificado la aplicación y haya documentado los detalles, ase
 
 ### <a name="plan-a-pilot"></a>Planeamiento de un piloto
 
-Las aplicaciones que seleccione para el piloto deben representar los requisitos importantes de identidad y seguridad de la organización, y debe tener una participación clara de los propietarios de la aplicación. Los pilotos suelen ejecutarse en un entorno de prueba independiente. Consulte los [procedimientos recomendados para un piloto](/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) en la página de planes de implementación.
+Las aplicaciones que seleccione para el piloto deben representar los requisitos importantes de identidad y seguridad de la organización, y debe tener una participación clara de los propietarios de la aplicación. Los pilotos suelen ejecutarse en un entorno de prueba independiente. Consulte los [procedimientos recomendados para un piloto](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) en la página de planes de implementación.
 
 **No se olvide de los asociados externos.** Asegúrese de que participan en las programaciones y pruebas de migración. Por último, asegúrese de que tienen una manera de acceder al departamento de soporte técnico en caso de problemas importantes.
 
@@ -409,7 +409,7 @@ Aunque algunas aplicaciones son fáciles de migrar, otras pueden tardar más tie
 
 Muchos proveedores de aplicaciones SaaS cobran por cambiar la conexión de SSO. Consulte con ellos y prepárese para este escenario.
 
-Azure AD también tiene [límites de servicio y restricciones](/azure/active-directory/users-groups-roles/directory-service-limits-restrictions) que debe tener en cuenta.
+Azure AD también tiene [límites de servicio y restricciones](../enterprise-users/directory-service-limits-restrictions.md) que debe tener en cuenta.
 
 ### <a name="app-owner-sign-off"></a>Aprobación del propietario de la aplicación
 
@@ -421,9 +421,9 @@ Antes de iniciar el proceso de migración, tómese un momento para examinar a fo
 
 ### <a name="identities-and-data"></a>Identidades y datos
 
-La mayoría de las organizaciones tienen requisitos específicos relacionados con la protección de datos e identidades que varían según el segmento del sector y las funciones del puesto en las organizaciones. Consulte el artículo de [configuraciones de identidad y acceso a dispositivos](/microsoft-365/enterprise/microsoft-365-policies-configurations) para conocer nuestras recomendaciones, incluido un conjunto de [directivas de acceso condicional](/azure/active-directory/active-directory-conditional-access-azure-portal) y funcionalidades relacionadas.
+La mayoría de las organizaciones tienen requisitos específicos relacionados con la protección de datos e identidades que varían según el segmento del sector y las funciones del puesto en las organizaciones. Consulte el artículo de [configuraciones de identidad y acceso a dispositivos](/microsoft-365/enterprise/microsoft-365-policies-configurations) para conocer nuestras recomendaciones, incluido un conjunto de [directivas de acceso condicional](../conditional-access/overview.md) y funcionalidades relacionadas.
 
-Puede usar esta información para proteger el acceso a todos los servicios integrados con Azure AD. Estas recomendaciones están alineadas con la puntuación de seguridad de Microsoft, así como con la [puntuación de identidad de Azure AD](/azure/active-directory/fundamentals/identity-secure-score). La puntuación le ayuda a:
+Puede usar esta información para proteger el acceso a todos los servicios integrados con Azure AD. Estas recomendaciones están alineadas con la puntuación de seguridad de Microsoft, así como con la [puntuación de identidad de Azure AD](../fundamentals/identity-secure-score.md). La puntuación le ayuda a:
 
 - Medir de forma objetiva su nivel de seguridad de la identidad
 
@@ -431,7 +431,7 @@ Puede usar esta información para proteger el acceso a todos los servicios integ
 
 - Ver si las mejoras han logrado sus objetivos
 
-Esto también le ayudará a implementar los [cinco pasos para proteger la infraestructura de identidades](/azure/security/azure-ad-secure-steps). Use la guía como punto inicial para su organización y ajuste las directivas para cumplir los requisitos específicos de su organización.
+Esto también le ayudará a implementar los [cinco pasos para proteger la infraestructura de identidades](../../security/fundamentals/steps-secure-identity.md). Use la guía como punto inicial para su organización y ajuste las directivas para cumplir los requisitos específicos de su organización.
 
 ### <a name="who-is-accessing-your-data"></a>¿Quién accederá a los datos?
 
@@ -439,11 +439,11 @@ Azure AD admite dos categorías principales de usuarios para las aplicaciones y
 
 - **Internos:** empleados, contratistas y proveedores que tengan cuentas en el proveedor de identidades. Esto podría requerir más dinamizaciones con diferentes reglas para los administradores o ejecutivos, en contraste con otros empleados.
 
-- **Externos:** proveedores, distribuidores u otros asociados comerciales que interactúan con su organización en el curso normal de las actividades empresariales con la [colaboración B2B de Azure AD](/azure/active-directory/b2b/what-is-b2b).
+- **Externos:** proveedores, distribuidores u otros asociados comerciales que interactúan con su organización en el curso normal de las actividades empresariales con la [colaboración B2B de Azure AD](../external-identities/what-is-b2b.md).
 
-Puede definir grupos para estos usuarios y cubrirlos de diversas maneras. Puede optar por que un administrador deba agregar miembros manualmente a un grupo o puede habilitar el autoservicio de pertenencia al grupo. Se pueden establecer reglas que agreguen miembros automáticamente a los grupos según los criterios especificados con [grupos dinámicos](/azure/active-directory/users-groups-roles/groups-dynamic-membership).
+Puede definir grupos para estos usuarios y cubrirlos de diversas maneras. Puede optar por que un administrador deba agregar miembros manualmente a un grupo o puede habilitar el autoservicio de pertenencia al grupo. Se pueden establecer reglas que agreguen miembros automáticamente a los grupos según los criterios especificados con [grupos dinámicos](../enterprise-users/groups-dynamic-membership.md).
 
-Los usuarios externos también pueden recomendar a los clientes que requieren de atención especial. El producto independiente denominado [Azure AD B2C](/azure/active-directory-b2c/active-directory-b2c-overview) admite la autenticación del cliente. No obstante, eso no se explica en estas notas.
+Los usuarios externos también pueden recomendar a los clientes que requieren de atención especial. El producto independiente denominado [Azure AD B2C](../../active-directory-b2c/overview.md) admite la autenticación del cliente. No obstante, eso no se explica en estas notas.
 
 ### <a name="devicelocation-used-to-access-data"></a>Dispositivo/ubicación usados para acceder a los datos
 
@@ -451,7 +451,7 @@ También son importantes tanto el dispositivo como la ubicación que utiliza un 
 
 ![Diagrama que muestra la relación entre la ubicación de usuario y el acceso a los datos](media/migrating-application-authentication-to-azure-active-directory-6.jpg)
 
-Teniendo en cuenta estos aspectos del recurso, el usuario y el dispositivo, puede optar por usar las funcionalidades de [acceso condicional de Azure AD](/azure/active-directory/active-directory-conditional-access-azure-portal). El acceso condicional va más allá de los permisos de usuario: se basa en una combinación de factores, como la identidad de un usuario o un grupo, la red a la que está conectado el usuario, el dispositivo y la aplicación que está usando y el tipo de datos al que intenta acceder. El acceso que se concede al usuario se adapta a este conjunto más amplio de condiciones.
+Teniendo en cuenta estos aspectos del recurso, el usuario y el dispositivo, puede optar por usar las funcionalidades de [acceso condicional de Azure AD](../conditional-access/overview.md). El acceso condicional va más allá de los permisos de usuario: se basa en una combinación de factores, como la identidad de un usuario o un grupo, la red a la que está conectado el usuario, el dispositivo y la aplicación que está usando y el tipo de datos al que intenta acceder. El acceso que se concede al usuario se adapta a este conjunto más amplio de condiciones.
 
 ### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
 
@@ -475,13 +475,13 @@ Una vez que haya logrado la participación de la empresa, el siguiente paso es e
 
 Use las herramientas y las guías siguientes para seguir los pasos exactos necesarios para migrar las aplicaciones a Azure AD:
 
-- **Guía de migración general**: use las notas del producto, las herramientas, las plantillas de correo electrónico y el cuestionario de aplicaciones en el [kit de herramientas de migración de aplicaciones a Azure AD](https://aka.ms/migrateapps) para detectar, clasificar y migrar sus aplicaciones.
+- **Guía de migración general**: use las notas del producto, las herramientas, las plantillas de correo electrónico y el cuestionario de aplicaciones en el [kit de herramientas de migración de aplicaciones a Azure AD](./migration-resources.md) para detectar, clasificar y migrar sus aplicaciones.
 
-- **Aplicaciones SaaS**: vea consulte la lista de [cientos de tutoriales de aplicaciones SaaS](/azure/active-directory/active-directory-saas-tutorial-list) y el [plan de implementación completo de SSO de Azure AD](https://aka.ms/ssodeploymentplan) para realizar paso a paso el proceso integral.
+- **Aplicaciones SaaS**: vea consulte la lista de [cientos de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md) y el [plan de implementación completo de SSO de Azure AD](https://aka.ms/ssodeploymentplan) para realizar paso a paso el proceso integral.
 
-- **Aplicaciones que se ejecutan en el entorno local**: aprenda todo [sobre Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy) y use el [plan de implementación completo de Azure AD Application Proxy](https://aka.ms/AppProxyDPDownload) para empezar a trabajar rápidamente.
+- **Aplicaciones que se ejecutan en el entorno local**: aprenda todo [sobre Azure AD Application Proxy](./application-proxy.md) y use el [plan de implementación completo de Azure AD Application Proxy](https://aka.ms/AppProxyDPDownload) para empezar a trabajar rápidamente.
 
-- **Aplicaciones que está desarrollando**: lea nuestra guía paso a paso de [integración](/azure/active-directory/develop/active-directory-integrating-applications) y [registro](/azure/active-directory/develop/active-directory-v2-app-registration).
+- **Aplicaciones que está desarrollando**: lea nuestra guía paso a paso de [integración](../develop/quickstart-register-app.md) y [registro](../develop/quickstart-register-app.md).
 
 Después de la migración, puede optar por enviar la comunicación que informa a los usuarios de la implementación correcta y recordarles los pasos nuevos que deben seguir.
 
@@ -489,7 +489,7 @@ Después de la migración, puede optar por enviar la comunicación que informa a
 
 Durante el proceso de migración, es posible que la aplicación ya tenga un entorno de prueba que se usa durante las implementaciones normales. Puede seguir usando este entorno para las pruebas de migración. Si actualmente no hay disponible un entorno de prueba, quizá pueda configurar uno con Azure App Service o Azure Virtual Machines, en función de la arquitectura de la aplicación. Puede optar por configurar un inquilino de Azure AD de prueba independiente para usarlo cuando desarrolle las configuraciones de las aplicaciones. Este inquilino se iniciará en un estado limpio y no estará configurado para sincronizarse con ningún sistema.
 
-Para probar todas las aplicaciones, inicie sesión con un usuario de prueba y asegúrese de que todas las funcionalidades son las mismas que antes de la migración. Si durante las pruebas determina que los usuarios deberán actualizar la configuración de [MFA](/active-directory/authentication/howto-mfa-userstates) o [SSPR](/azure/active-directory/authentication/quickstart-sspr), o si agrega esta funcionalidad durante la migración, asegúrese de agregarla al plan de comunicaciones para el usuario final. Consulte las plantillas de comunicación con el usuario final de [MFA](https://aka.ms/mfatemplates) y [SSPR](https://aka.ms/ssprtemplates).
+Para probar todas las aplicaciones, inicie sesión con un usuario de prueba y asegúrese de que todas las funcionalidades son las mismas que antes de la migración. Si durante las pruebas determina que los usuarios deberán actualizar la configuración de [MFA](/active-directory/authentication/howto-mfa-userstates) o [SSPR](../authentication/tutorial-enable-sspr.md), o si agrega esta funcionalidad durante la migración, asegúrese de agregarla al plan de comunicaciones para el usuario final. Consulte las plantillas de comunicación con el usuario final de [MFA](https://aka.ms/mfatemplates) y [SSPR](https://aka.ms/ssprtemplates).
 
 Una vez que haya migrado las aplicaciones, vaya a [Azure Portal](https://aad.portal.azure.com/) para probar si la migración se realizó correctamente. Siga las instrucciones que se describen a continuación:
 
@@ -497,20 +497,21 @@ Una vez que haya migrado las aplicaciones, vaya a [Azure Portal](https://aad.por
 
 - Seleccione **Administrar &gt; Usuarios y grupos** para asignar al menos un usuario o grupo a la aplicación.
 
-- Seleccione **Administrar &gt; Acceso condicional**. Revise la lista de directivas y asegúrese de que no está bloqueando el acceso a la aplicación con una [directiva de acceso condicional](/azure/active-directory/active-directory-conditional-access-azure-portal).
+- Seleccione **Administrar &gt; Acceso condicional**. Revise la lista de directivas y asegúrese de que no está bloqueando el acceso a la aplicación con una [directiva de acceso condicional](../conditional-access/overview.md).
 
 En función de cómo configure la aplicación, compruebe que el inicio de sesión único funciona correctamente.
 
 | Tipo de autenticación      | Prueba                                             |
 | ------------------------ | --------------------------------------------------- |
 | **OAuth / OpenID Connect** | Seleccione **Aplicaciones empresariales &gt; Permisos** y asegúrese de haber dado su consentimiento a que la aplicación se use en la organización desde la configuración del usuario correspondiente a la aplicación. |
-| **SSO basado en SAML** | Use el botón [Probar la configuración de SAML](/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) que está en **Inicio de sesión único.** |
-| **SSO basado en contraseñas** | Descarga e instalación de la [extensión de inicio de sesión seguro de Mis aplicaciones](/azure/active-directory/user-help/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
-| **[Proxy de aplicación](/azure/active-directory/manage-apps/application-proxy)** | Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obtener más ayuda. |
+| **SSO basado en SAML** | Use el botón [Probar la configuración de SAML](./debug-saml-sso-issues.md) que está en **Inicio de sesión único.** |
+| **SSO basado en contraseñas** | Descarga e instalación de la [extensión de inicio de sesión seguro de Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único. |
+
+|  **[Application Proxy](./application-proxy.md)** | Asegúrese de que el conector esté en ejecución y de que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](./application-proxy-troubleshoot.md) para obtener más ayuda. |
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-Si tiene problemas, consulte nuestra [Guía de solución de problemas de aplicaciones](https://aka.ms/troubleshoot-apps) para obtener ayuda. Consulte también [Problemas al iniciar sesión en aplicaciones desarrolladas de manera personalizada](/azure/active-directory/manage-apps/application-sign-in-problem-custom-dev).
+Si tiene problemas, consulte nuestra [Guía de solución de problemas de aplicaciones](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) para obtener ayuda. Consulte también [Problemas al iniciar sesión en aplicaciones desarrolladas de manera personalizada](./application-sign-in-problem-federated-sso-gallery.md).
 
 ### <a name="plan-rollback"></a>Planeamiento de la reversión
 
@@ -554,19 +555,21 @@ Una vez que haya migrado las aplicaciones, puede enriquecer la experiencia del u
 
 **Haga que las aplicaciones se puedan buscar**
 
-**Dirija al usuario** a la experiencia del portal [Mis aplicaciones](/azure/active-directory/user-help/my-apps-portal-end-user-access#my-apps-secure-sign-in-extension). Aquí, podrá acceder a todas las aplicaciones basadas en la nube, a las aplicaciones que pone a su disposición mediante [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) y a las aplicaciones que usan [Application Proxy](/azure/active-directory/manage-apps/application-proxy), siempre que tenga permisos de acceso a esas aplicaciones.
+**Dirija al usuario** a la experiencia del portal [Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Aquí, podrá acceder a todas las aplicaciones basadas en la nube, a las aplicaciones que pone a su disposición mediante [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) y a las aplicaciones que usan [Application Proxy](./application-proxy.md), siempre que tenga permisos de acceso a esas aplicaciones.
+
 
 Puede guiar a los usuarios en la búsqueda de sus aplicaciones:
 
-- Use la característica de [inicio de sesión único existente](/azure/active-directory/active-directory-saas-custom-apps#existing-single-sign-on) para **vincular a los usuarios a cualquier aplicación**.
+- Use la característica de [inicio de sesión único existente](./view-applications-portal.md) para **vincular a los usuarios a cualquier aplicación**.
 
-- Habilite el [acceso de autoservicio a las aplicaciones](/azure/active-directory/application-access-self-service-how-to) de una aplicación y **permita que los usuarios agreguen aplicaciones que usted mantiene**.
 
-- [Oculte las aplicaciones de los usuarios finales](/azure/active-directory/manage-apps/hide-application-from-user-portal) (aplicaciones predeterminadas de Microsoft u otras aplicaciones) para **hacer que las aplicaciones que necesitan sean más fáciles de encontrar**.
+- Habilite el [acceso de autoservicio a las aplicaciones](./manage-self-service-access.md) de una aplicación y **permita que los usuarios agreguen aplicaciones que usted mantiene**.
+
+- [Oculte las aplicaciones de los usuarios finales](./hide-application-from-user-portal.md) (aplicaciones predeterminadas de Microsoft u otras aplicaciones) para **hacer que las aplicaciones que necesitan sean más fáciles de encontrar**.
 
 ### <a name="make-apps-accessible"></a>Hacer que las aplicaciones sean accesibles
 
-**Permita que los usuarios accedan a las aplicaciones desde sus dispositivos móviles**. Los usuarios pueden acceder al portal Mis aplicaciones con el explorador administrado de Intune en sus dispositivos [iOS](/azure/active-directory/manage-apps/hide-application-from-user-portal) versión 7.0 o posterior o [Android](/azure/active-directory/manage-apps/hide-application-from-user-portal).
+**Permita que los usuarios accedan a las aplicaciones desde sus dispositivos móviles**. Los usuarios pueden acceder al portal Mis aplicaciones con el explorador administrado de Intune en sus dispositivos [iOS](./hide-application-from-user-portal.md) versión 7.0 o posterior o [Android](./hide-application-from-user-portal.md).
 
 Los usuarios pueden descargar un **explorador administrado de Intune**:
 
@@ -580,7 +583,7 @@ Los usuarios pueden [descargar la extensión de inicio de sesión seguro de Mis 
 
 - **Buscar sus aplicaciones y hacer que se muestren sus aplicaciones usadas más recientemente**.
 
-- **Convertir automáticamente las direcciones URL internas** que haya configurado en [Application Proxy](/azure/active-directory/manage-apps/application-proxy) en las direcciones URL externas adecuadas. Los usuarios ahora pueden trabajar con los vínculos con los que están familiarizados, independientemente de dónde se encuentren.
+- **Convertir automáticamente las direcciones URL internas** que haya configurado en [Application Proxy](./application-proxy.md) en las direcciones URL externas adecuadas. Los usuarios ahora pueden trabajar con los vínculos con los que están familiarizados, independientemente de dónde se encuentren.
 
 **Permita que los usuarios abran las aplicaciones desde Office.com.**
 
@@ -590,11 +593,11 @@ Los usuarios pueden ir a [Office.com](https://www.office.com/) para **buscar las
 
 Azure AD proporciona una ubicación de acceso centralizada para administrar las aplicaciones migradas. Vaya a [Azure Portal](https://portal.azure.com/) y habilite las siguientes funcionalidades:
 
-- **Proteger el acceso de los usuarios a las aplicaciones.** Habilite las [directivas de acceso condicional](/azure/active-directory/active-directory-conditional-access-azure-portal) o [Identity Protection](/azure/active-directory/active-directory-identityprotection) para proteger el acceso de los usuarios a las aplicaciones en función del estado del dispositivo, la ubicación, etc.
+- **Proteger el acceso de los usuarios a las aplicaciones.** Habilite las [directivas de acceso condicional](../conditional-access/overview.md) o [Identity Protection](../identity-protection/overview-identity-protection.md) para proteger el acceso de los usuarios a las aplicaciones en función del estado del dispositivo, la ubicación, etc.
 
-- **Aprovisionamiento automático.** Configure el [aprovisionamiento automático de usuarios](/azure/active-directory/manage-apps/user-provisioning) con una variedad de aplicaciones SaaS de terceros a las que los usuarios necesitan acceder. Además de crear identidades de usuario, incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian.
+- **Aprovisionamiento automático.** Configure el [aprovisionamiento automático de usuarios](../app-provisioning/user-provisioning.md) con una variedad de aplicaciones SaaS de terceros a las que los usuarios necesitan acceder. Además de crear identidades de usuario, incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian.
 
-- **Delegar la administración** **de acceso de usuarios**. Según sea necesario, habilite el acceso de autoservicio a las aplicaciones y *asigne un aprobador de la empresa para aprobar el acceso a esas aplicaciones*. Use la [administración de grupos de autoservicio](/azure/active-directory/users-groups-roles/groups-self-service-management) para los grupos asignados a las colecciones de aplicaciones.
+- **Delegar la administración** **de acceso de usuarios**. Según sea necesario, habilite el acceso de autoservicio a las aplicaciones y *asigne un aprobador de la empresa para aprobar el acceso a esas aplicaciones*. Use la [administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md) para los grupos asignados a las colecciones de aplicaciones.
 
 - **Delegar el acceso de administrador.** Use el **rol de directorio** para asignar un rol de administrador (por ejemplo, administrador de aplicaciones, administrador de aplicaciones en la nube o desarrollador de aplicaciones) al usuario.
 
@@ -602,13 +605,13 @@ Azure AD proporciona una ubicación de acceso centralizada para administrar las
 
 También puede usar [Azure Portal](https://portal.azure.com/) para auditar todas las aplicaciones desde una ubicación centralizada.
 
-- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales** u obtenga acceso a la misma información de la [API de informes de Azure AD](/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) para integrarla en sus herramientas favoritas.
+- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales** u obtenga acceso a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md) para integrarla en sus herramientas favoritas.
 
 - **Vea los permisos de una aplicación** mediante los **permisos de aplicaciones empresariales** para las aplicaciones que usan OAuth u OpenID Connect.
 
-- **Obtenga conclusiones del inicio de sesión** con los **inicios de sesión de aplicaciones empresariales**. Acceda a la misma información de la [API de informes de Azure AD](/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal).
+- **Obtenga conclusiones del inicio de sesión** con los **inicios de sesión de aplicaciones empresariales**. Acceda a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md).
 
-- **Visualice el uso de la aplicación** desde el [paquete de contenido de Azure AD Power BI](/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to).
+- **Visualice el uso de la aplicación** desde el [paquete de contenido de Azure AD Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
 
 ### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
 
@@ -622,7 +625,7 @@ Esta fase se realiza correctamente cuando se cumple lo siguiente:
 
 Los planes de implementación explican el valor empresarial, la planificación, los pasos de implementación y la administración de las soluciones de Azure AD, incluidos los escenarios de migración de aplicaciones. Reúnen todo lo que necesita para empezar la implementación y aprovechar las funcionalidades de Azure AD. Las guías de implementación incluyen contenido como procedimientos recomendados de Microsoft, comunicaciones para el usuario final, guías de planeación, pasos de implementación, casos de prueba, etc.
 
-Hay muchos [planes de implementación](https://aka.ms/deploymentplans) disponibles y siempre estamos creando más.
+Hay muchos [planes de implementación](../fundamentals/active-directory-deployment-plans.md) disponibles y siempre estamos creando más.
 
 ### <a name="contact-support"></a>Ponerse en contacto con soporte técnico
 

@@ -1,5 +1,5 @@
 ---
-title: Panel Pedidos del Centro de partners de los análisis del marketplace comercial, Microsoft AppSource y Azure Marketplace
+title: Panel Pedidos del Centro de partners de los análisis del marketplace comercial | Microsoft AppSource y Azure Marketplace
 description: Obtenga información sobre cómo acceder a informes analíticos sobre los pedidos de ofertas del marketplace comercial en un formato gráfico y descargable.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955032"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561388"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
@@ -111,32 +111,32 @@ En la tabla Detalles del pedido se muestra una lista numerada de los 1000 pedid
 - Aplique filtros a la tabla **Detalles del pedido** a fin de mostrar solo los datos que le interesen. Filtre por país o región, tipo de licencia de Azure, tipo de licencia del marketplace comercial, tipo de oferta, estado de pedido, evaluaciones gratuitas, identificador de suscripción del marketplace comercial, identificador de cliente y nombre de la empresa.
 - Cuando un cliente protegido adquiere un pedido, la información de **Customer Detailed Data** (Datos detallados del pedido) se enmascara (************).
 
-**_Tabla 1: Diccionario de términos de datos_* _
+***Tabla 1: Diccionario de términos de datos***
 
-| Nombre de la columna | Nombre del atributo | Definición |
-| ------------ | ------------- | ------------- |
-| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. |
-| MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. |
-| Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. |
-| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> |
-| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los distintos valores son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> |
-| SKU | SKU | Plan asociado con la oferta. |
-| Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. |
-| Versión preliminar de SKU | Versión preliminar de SKU | El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar". |
-| Identificador del pedido | Identificador del pedido | Identificador único del pedido del cliente para el servicio de Marketplace comercial. Las ofertas basadas en el uso de máquinas virtuales no están asociadas con un pedido. |
-| Cantidad del pedido | Cantidad del pedido | Número de recursos asociados al identificador del pedido para pedidos activos. |
-| Nombre de la instancia de nube | Nombre de la instancia de nube | Microsoft Cloud donde se produjo la implementación de una VM. |
-| Cliente nuevo | Cliente nuevo | El valor identifica si un nuevo cliente adquirió una o varias de sus ofertas por primera vez. El valor es "Sí" si es el mismo mes natural de la "Fecha de adquisición". El valor es "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado. |
-| Order Status (Estado del pedido) | Order Status (Estado del pedido) | Estado de un pedido de Marketplace comercial en el momento en que se actualizaron por última vez los datos. |
-| Order Cancel Date (Fecha de cancelación de pedido) | Order Cancel Date (Fecha de cancelación de pedido) | Fecha en que se canceló el pedido de Marketplace comercial. |
-| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
-| Order Purchase Date (Fecha de compra del pedido) | Order Purchase Date (Fecha de compra del pedido) | Fecha en que se creó el pedido de Marketplace comercial. |
-| Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. |
-| Trial End Date (Fecha de fin de la prueba) | Trial End Date (Fecha de fin de la prueba) | La fecha del período de prueba de este pedido va a finalizar o ha finalizado. |
-| Customer Id | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. |
-| Id. de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el _ *identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. |
-| AssetCount | Número de recursos | Número de recursos asociados al identificador del pedido. |
-||||
+| Nombre de la columna en la<br>interfaz de usuario | Nombre del atributo | Definición | Nombre de la columna en informes<br>de acceso mediante programación |
+| ------------ | ------------- | ------------- | ------------- |
+| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. | Identificador de la suscripción a Marketplace |
+| MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. El formato es aaaa-mm-dd. | MonthStartDate |
+| Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. | OfferType |
+| Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
+| Marketplace License Type (Tipo de licencia de Marketplace) | Marketplace License Type (Tipo de licencia de Marketplace) | Método de facturación de la oferta de Marketplace comercial. Los distintos valores son:<ul><li>Facturado a través de Azure</li><li>Traiga su propia licencia</li><li>Gratuito</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | Plan asociado con la oferta. | SKU |
+| Customer Country (País del cliente) | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | CustomerCountry |
+| Versión preliminar de SKU | Versión preliminar de SKU | El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar". | IsPreviewSKU |
+| Identificador del pedido | Identificador del pedido | Identificador único del pedido del cliente para el servicio de Marketplace comercial. Las ofertas basadas en el uso de máquinas virtuales no están asociadas con un pedido. | OrderId |
+| Cantidad del pedido | Cantidad del pedido | Número de recursos asociados al identificador del pedido para pedidos activos. | OrderQuantity |
+| Nombre de la instancia de nube | Nombre de la instancia de nube | Microsoft Cloud donde se produjo la implementación de una VM. | Nombre de instancia en la nube |
+| Cliente nuevo | Cliente nuevo | El valor identifica si un nuevo cliente adquirió una o varias de sus ofertas por primera vez. El valor es "Sí" si es el mismo mes natural de la "Fecha de adquisición". El valor es "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado. | IsNewCustomer |
+| Order Status (Estado del pedido) | Order Status (Estado del pedido) | Estado de un pedido de Marketplace comercial en el momento en que se actualizaron por última vez los datos. | OrderStatus |
+| Order Cancel Date (Fecha de cancelación de pedido) | Order Cancel Date (Fecha de cancelación de pedido) | Fecha en que se canceló el pedido de Marketplace comercial. | OrderCancelDate |
+| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. | CustomerCompanyName |
+| Order Purchase Date (Fecha de compra del pedido) | Order Purchase Date (Fecha de compra del pedido) | Fecha en que se creó el pedido de Marketplace comercial. El formato es aaaa-mm-dd. | OrderPurchaseDate |
+| Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. | OfferName |
+| Trial End Date (Fecha de fin de la prueba) | Trial End Date (Fecha de fin de la prueba) | La fecha del período de prueba de este pedido va a finalizar o ha finalizado. | TrialEndDate |
+| Customer ID | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. | CustomerId |
+| Identificador de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. | BillingAccountId |
+| AssetCount | Número de recursos | Número de recursos asociados al identificador del pedido. | Obsoleto |
+|||||
 
 ### <a name="orders-page-filters"></a>Filtros de la página de pedidos
 

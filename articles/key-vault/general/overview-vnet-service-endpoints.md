@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 42d388aed618a5a92212152166573719c9e973c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371029"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431064"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -27,7 +27,7 @@ Hay una excepción importante a esta restricción. Si un usuario ha decidido per
 Puede configurar los [firewalls y redes virtuales de Key Vault](network-security.md) para denegar el acceso al tráfico de todas las redes (incluido el tráfico de Internet) de forma predeterminada. Puede conceder acceso al tráfico desde redes virtuales específicas de Azure y rangos de direcciones IP públicas de Internet, lo que le permite generar un límite de red seguro para las aplicaciones.
 
 > [!NOTE]
-> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, y configurar firewall y reglas de red virtual) no se ven afectadas por los firewall ni las reglas de red virtual.
+> Los firewall de Key Vault y las reglas de red virtual solo se aplican al [plan de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, configurar firewalls y reglas de red virtual, e implementar secretos o claves mediante plantillas de ARM) no se ven afectadas por los firewalls ni las reglas de red virtual.
 
 Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servicio:
 
@@ -43,7 +43,6 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 | --- | --- |
 |Servicio de implementación de Azure Virtual Machines|[Implementar certificados en máquinas virtuales desde el almacén de claves administrado por el cliente](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Servicio de implementación de plantillas de Azure Resource Manager|[Pasar valores seguros durante la implementación](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|SKU de Azure Application Gateway v2|[Terminación TLS con certificados de Key Vault](../../application-gateway/key-vault-certs.md)|
 |Servicio de cifrado de volúmenes de Azure Disk Encryption|Permitir el acceso a BitLocker Key (máquina virtual Windows) o a la frase de contraseña de DM (máquina virtual Linux) y a la clave de cifrado durante la implementación de máquinas virtuales. Esto habilita [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Permitir la opción de copia de seguridad y restauración de claves y secretos pertinentes durante la copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](../../backup/backup-overview.md).|
 |Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Azure Storage Service Encryption con la [clave de cliente](/microsoft-365/compliance/customer-key-overview).|

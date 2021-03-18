@@ -1,26 +1,26 @@
 ---
 title: Definiciones de directivas integradas en Azure Security Center
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Security Center. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 4509ea09dc75a366e1360d0eeef481552f500f2f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093059"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613402"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definiciones integradas de Azure Policy en Azure Security Center
 
 Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../governance/policy/overview.md) relacionadas con Azure Security Center. Están disponibles las siguientes agrupaciones de definiciones de directivas:
 
-- El grupo [iniciativas](#azure-security-center-initiatives) muestra las definiciones de iniciativas de Azure Policy en la categoría "Security Center".
+- El grupo [iniciativas](#azure-security-center-initiatives) muestra las definiciones de iniciativas de Azure Policy en la categoría "Security Center".
 - En el grupo [iniciativa predeterminada](#azure-security-center-initiatives) se muestran todas las definiciones de Azure Policy que forman parte de la iniciativa predeterminada de Azure Security Center, [Azure Security Benchmark](../security/benchmarks/introduction.md). Este punto de referencia ampliamente respetado creado por Microsoft está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
-- El grupo [categoría](#azure-security-center-category) muestra todas las definiciones de Azure Policy en la categoría "Security Center".
+- El grupo [categoría](#azure-security-center-category) muestra todas las definiciones de Azure Policy en la categoría "Security Center".
 
 Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](./tutorial-security-policy.md). Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../governance/policy/samples/built-in-policies.md).
 
@@ -32,7 +32,7 @@ Para comprender las directivas integradas que Security Center supervisa, consul
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Iniciativa predeterminada de Azure Security Center
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Iniciativa predeterminada de Security Center (Azure Security Benchmark)
 
 Para comprender las directivas integradas que Security Center supervisa, consulte la tabla siguiente:
 
@@ -44,13 +44,4 @@ Para comprender las directivas integradas que Security Center supervisa, consul
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido sobre las definiciones de directiva de seguridad de Azure Policy en Security Center. Para más información, consulte los siguientes artículos:
-
-- Los elementos integrados se pueden encontrar en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
-- Revise la [estructura de definición de Azure Policy](../governance/policy/concepts/definition-structure.md).
-- Vea la [Descripción de los efectos de directivas](../governance/policy/concepts/effects.md).
-- [Guía de planeamiento y operaciones de Azure Security Center](./security-center-planning-and-operations-guide.md): Aprenda a planear y entender las consideraciones de diseño en Azure Security Center.
-- [Supervisión del estado de seguridad en Azure Security Center](./security-center-monitoring.md): Aprenda a supervisar el estado de los recursos de Azure.
-- [Administración y respuesta a las alertas de seguridad en Azure Security Center](./security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-- [Supervisión de las soluciones de asociados con Azure Security Center](./security-center-partner-integration.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Azure Policy](../governance/policy/overview.md): Aprenda a auditar y regular los recursos de Azure.
+En este artículo, ha aprendido sobre las definiciones de directiva de seguridad de Azure Policy en Security Center. Para obtener más información sobre las iniciativas, las directivas y cómo se relacionan con las recomendaciones de Security Center, vea [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)

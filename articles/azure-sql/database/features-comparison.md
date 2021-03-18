@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
-ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691916"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489776"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -30,7 +30,11 @@ Azure SQL Database e Instancia administrada de SQL Database comparten una base d
 - Características de seguridad: [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles), [Enmascaramiento de datos dinámico](/sql/relational-databases/security/dynamic-data-masking) ([consulte la guía de introducción](dynamic-data-masking-overview.md)), [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) y Detección de amenazas (consulte las guías de introducción de [SQL Database](threat-detection-configure.md) y e [Instancia administrada de SQL](../managed-instance/threat-detection-configure.md)).
 - Funcionalidades de varios modelos: [Procesamiento de gráficos](/sql/relational-databases/graphs/sql-graph-overview), [Datos JSON](/sql/relational-databases/json/json-data-sql-server) ([consulte la guía de introducción](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) e [Índices XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Azure administra las bases de datos y garantiza su alta disponibilidad. Algunas características que pueden afectar a la alta disponibilidad o no se pueden usar en el entorno de PaaS tienen funcionalidades limitadas en SQL Database e Instancia administrada de SQL. Estas características se describen en las tablas siguientes. Si necesita más detalles sobre las diferencias, las encontrará en las páginas de [Azure SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md) o [Instancia administrada de Azure SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Azure administra las bases de datos y garantiza su alta disponibilidad. Algunas características que pueden afectar a la alta disponibilidad o no se pueden usar en el entorno de PaaS tienen funcionalidades limitadas en SQL Database e Instancia administrada de SQL. Estas características se describen en las tablas siguientes.
+
+Si necesita más detalles sobre las diferencias, los encontrará en las páginas aparte:
+- [Diferencias entre Azure SQL Database y SQL Server](transact-sql-tsql-differences-sql-server.md)
+- [Diferencias entre Azure SQL Managed Instance y SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Características de SQL Database e Instancia administrada de SQL
 

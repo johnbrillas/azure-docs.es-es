@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/09/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691525"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551661"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Se puede definir una directiva de auditoría para una base de datos específica 
 
 - Si la *auditoría de servidor está habilitada*, *se aplica siempre a la base de datos*. La base de datos se auditará, independientemente de la configuración de auditoría de la base de datos.
 
+- Cuando se define una directiva de auditoría en el nivel de base de datos para un área de trabajo de Log Analytics o un destino del Centro de eventos, las siguientes operaciones no conservarán la directiva de auditoría de nivel de base de datos de origen.
+    - [Copia de base de datos](database-copy.md)
+    - [Restauración a un momento dado](recovery-using-backups.md)
+    - [Replicación geográfica](active-geo-replication-overview.md) (la base de datos secundaria no tendrá auditoría de nivel de base de datos)
+
 - Al habilitar la auditoría en la base de datos, además de en el servidor, *no* se invalida ni cambia ninguna de las opciones de la auditoría del servidor. Ambas auditorías existirán en paralelo. En otras palabras, la base de datos se auditará dos veces en paralelo; una vez por la directiva de servidor y otra vez por la directiva de base de datos.
 
    > [!NOTE]
@@ -94,7 +99,8 @@ La auditoría de Azure SQL Database y Azure Synapse almacena 4000 caracteres d
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
   > [!NOTE]
-  > No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del Centro de eventos a través del cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la **base de datos SQL** o el **servidor SQL**.
@@ -104,18 +110,18 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
 4. Si prefiere habilitar la auditoría en el nivel de base de datos, cambie **Auditoría** a **Activado**. Si está habilitada la auditoría del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría del servidor.
 
-5. Tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo en registros de Azure Monitor (versión preliminar), o en un centro de eventos para consumirlos mediante el centro de eventos (versión preliminar). Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
+5. Tiene varias opciones para configurar dónde se escribirán los registros de auditoría. Puede escribir registros en una cuenta de almacenamiento de Azure, en un área de trabajo de Log Analytics para su consumo en registros de Azure Monitor, o en un centro de eventos para consumirlos mediante el centro de eventos. Puede configurar cualquier combinación de estas opciones, y los registros de auditoría se escribirán en cada una.
   
    ![opciones de almacenamiento](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoría de operaciones de Soporte técnico de Microsoft
 
-Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar) para Azure SQL Server le permite auditar las operaciones de los ingenieros de soporte técnico de Microsoft cuando necesitan acceder al servidor durante una solicitud de soporte técnico. El uso de esta funcionalidad, junto con su propia auditoría, permite una mayor transparencia de su personal, y permite la detección de anomalías, la visualización de tendencias y la prevención de pérdida de datos.
+Auditoría de operaciones de Soporte técnico de Microsoft para Azure SQL Server le permite auditar las operaciones de los ingenieros de soporte técnico de Microsoft cuando necesitan acceder al servidor durante una solicitud de soporte técnico. El uso de esta funcionalidad, junto con su propia auditoría, permite una mayor transparencia de su personal, y permite la detección de anomalías, la visualización de tendencias y la prevención de pérdida de datos.
 
-Para habilitar Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar), vaya a **Auditoría** en el encabezado Seguridad en el panel **Azure SQL Server** y cambie **Auditing of Microsoft support operations (Preview)** (Auditoría de operaciones de Soporte técnico de Microsoft [versión preliminar]) a **Activado**.
+Para habilitar Auditoría de operaciones de Soporte técnico de Microsoft, vaya a **Auditoría** en el encabezado Seguridad en el panel **Azure SQL Server** y cambie **Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar)** a **Activado**.
 
   > [!IMPORTANT]
-  > Auditoría de operaciones de Soporte técnico de Microsoft (versión preliminar) no admite el destino de la cuenta de almacenamiento. Para habilitar la funcionalidad, se debe configurar un área de trabajo Log Analytics o un destino de Event Hubs.
+  > Auditoría de operaciones de Soporte técnico de Microsoft no admite el destino de la cuenta de almacenamiento. Para habilitar la funcionalidad, se debe configurar un área de trabajo Log Analytics o un destino de Event Hubs.
 
 ![Captura de pantalla de Operaciones de Soporte técnico de Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Para configurar la escritura de registros de auditoría en una cuenta de almacen
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoría para el destino de Log Analytics
   
-Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics (versión preliminar)** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
+Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Para obtener información más detallada sobre las áreas de trabajo de Log Anal
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
 
-Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos (versión preliminar)** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
+Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -278,8 +284,8 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-- [Administrar la directiva de auditoría de un servidor](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
-- [Administrar la directiva de auditoría de una base de datos](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+- [Administrar la directiva de auditoría de un servidor](/cli/azure/sql/server/audit-policy)
+- [Administrar la directiva de auditoría de una base de datos](/cli/azure/sql/db/audit-policy)
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso de plantillas del Administrador de recursos de Azure
 

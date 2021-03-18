@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 73964fa1840f3f220662000eb91d34c3eb37bbd8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: c060a029b1cdbdd890ced96cab732966cb652de0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584432"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500587"
 ---
 # <a name="userinfo-endpoint"></a>Punto de conexión de UserInfo
 
@@ -56,104 +56,116 @@ La información de usuario UserJourney especifica:
 1. Agregue el siguiente proveedor de notificaciones:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Token Issuer</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="UserInfoIssuer">
-          <DisplayName>JSON Issuer</DisplayName>
-          <Protocol Name="None" />
-          <OutputTokenFormat>JSON</OutputTokenFormat>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <!-- The Below claims are what will be returned on the UserInfo Endpoint if in the Claims Bag-->
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="objectId"/>
-            <InputClaim ClaimTypeReferenceId="givenName"/>
-            <InputClaim ClaimTypeReferenceId="surname"/>
-            <InputClaim ClaimTypeReferenceId="displayName"/>
-            <InputClaim ClaimTypeReferenceId="signInNames.emailAddress"/>
-          </InputClaims>
-          <OutputClaims />
-        </TechnicalProfile>
-        <TechnicalProfile Id="UserInfoAuthorization">
-          <DisplayName>UserInfo authorization</DisplayName>
-          <Protocol Name="None" />
-          <InputTokenFormat>JWT</InputTokenFormat>
-          <Metadata>
-            <!-- Update the Issuer and Audience below -->
-            <!-- Audience is optional, Issuer is required-->
-            <Item Key="issuer">https://yourtenant.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/</Item>
-            <Item Key="audience">[ "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333" ]</Item>
-            <Item Key="client_assertion_type">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-            <!-- Optional claims to read from the access token  -->
-            <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Token Issuer</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="UserInfoIssuer">
+            <DisplayName>JSON Issuer</DisplayName>
+            <Protocol Name="None" />
+            <OutputTokenFormat>JSON</OutputTokenFormat>
+            <CryptographicKeys>
+              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+            </CryptographicKeys>
+            <!-- The Below claims are what will be returned on the UserInfo Endpoint if in the Claims Bag-->
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="objectId"/>
+              <InputClaim ClaimTypeReferenceId="givenName"/>
+              <InputClaim ClaimTypeReferenceId="surname"/>
+              <InputClaim ClaimTypeReferenceId="displayName"/>
+              <InputClaim ClaimTypeReferenceId="signInNames.emailAddress"/>
+            </InputClaims>
+          </TechnicalProfile>
+          <TechnicalProfile Id="UserInfoAuthorization">
+            <DisplayName>UserInfo authorization</DisplayName>
+            <Protocol Name="None" />
+            <InputTokenFormat>JWT</InputTokenFormat>
+            <Metadata>
+              <!-- Update the Issuer and Audience below -->
+              <!-- Audience is optional, Issuer is required-->
+              <Item Key="issuer">https://yourtenant.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/</Item>
+              <Item Key="audience">[ "22222222-2222-2222-2222-222222222222", "33333333-3333-3333-3333-333333333333" ]</Item>
+              <Item Key="client_assertion_type">urn:ietf:params:oauth:client-assertion-type:jwt-bearer</Item>
+            </Metadata>
+            <CryptographicKeys>
+              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+            </CryptographicKeys>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+              <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email"/>
+              <!-- Optional claims to read from the access token. -->
+              <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
                  <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
                  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/> -->
-          </OutputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+            </OutputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ``` 
 
-1. La sección outputClaims del perfil técnico UserInfoIssuer especifica los atributos que quiere devolver. Se llama al perfil técnico UserInfoIssuer al final del recorrido del usuario. 
-1. El perfil técnico UserInfoAuthorization valida la firma, el nombre del emisor y la audiencia del token, y extrae la notificación del token de entrada. Cambie los siguientes metadatos para que reflejen su entorno:
+1. La sección InputClaims del perfil técnico **UserInfoIssuer** especifica los atributos que quiere devolver. Se llama al perfil técnico UserInfoIssuer al final del recorrido del usuario. 
+1. El perfil técnico **UserInfoAuthorization** valida la firma, el nombre del emisor y la audiencia del token y extrae la notificación del token de entrada. Cambie los siguientes metadatos para que reflejen su entorno:
     1. **issuer**: Este valor debe ser idéntico a la notificación `iss` dentro de la notificación del token de acceso. Los tokens emitidos por Azure AD B2C usan un emisor con el formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Obtenga más información sobre la [personalización de tokens](configure-tokens.md).
     1. **IdTokenAudience**: Debe ser idéntico a la notificación `aud` dentro de la notificación del token de acceso. En Azure AD B2C, la notificación `aud` es el identificador de la aplicación de usuario de confianza. Este valor es una colección y admite varios valores mediante una coma delimitadora.
 
-En el siguiente token de acceso, el valor de la notificación `iss` es `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. El valor de la notificación `aud` es `22222222-2222-2222-2222-222222222222`.
+        En el siguiente token de acceso, el valor de la notificación `iss` es `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. El valor de la notificación `aud` es `22222222-2222-2222-2222-222222222222`.
 
-```json
-{
-  "exp": 1605549468,
-  "nbf": 1605545868,
-  "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
-  "sub": "44444444-4444-4444-4444-444444444444",
-  "aud": "22222222-2222-2222-2222-222222222222",
-  "acr": "b2c_1a_signup_signin",
-  "nonce": "defaultNonce",
-  "iat": 1605545868,
-  "auth_time": 1605545868,
-  "name": "John Smith",
-  "given_name": "John",
-  "family_name": "Smith",
-  "tid": "11111111-1111-1111-1111-111111111111"
-}
-```
+        ```json
+        {
+          "exp": 1605549468,
+          "nbf": 1605545868,
+          "ver": "1.0",
+          "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
+          "sub": "44444444-4444-4444-4444-444444444444",
+          "aud": "22222222-2222-2222-2222-222222222222",
+          "acr": "b2c_1a_signup_signin",
+          "nonce": "defaultNonce",
+          "iat": 1605545868,
+          "auth_time": 1605545868,
+          "name": "John Smith",
+          "given_name": "John",
+          "family_name": "Smith",
+          "tid": "11111111-1111-1111-1111-111111111111"
+        }
+        ```
+    
+1.  El elemento OutputClaims del perfil técnico **UserInfoAuthorization** especifica los atributos que quiere leer desde el token de acceso. **ClaimTypeReferenceId** es la referencia a un tipo de notificación. El elemento **PartnerClaimType** opcional es el nombre de la notificación definida en el token de acceso.
+
+
 
 ### <a name="2-add-the-userjourney-element"></a>2. Adición del elemento UserJourney 
 
 El elemento [UserJourney](userjourneys.md) define la ruta de acceso que el usuario toma al interactuar con la aplicación. Agregue el elemento **UserJourneys**, si no existe, con el elemento **UserJourney** identificado como `UserInfoJourney`:
 
 ```xml
-<UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
-  <Authorization>
-    <AuthorizationTechnicalProfiles>
-      <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
-    </AuthorizationTechnicalProfiles>
-  </Authorization>
-  <OrchestrationSteps >
-    <OrchestrationStep Order="1" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>objectId</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges UserIdentity="false">
-        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="2" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="UserInfoIssuer" />
-  </OrchestrationSteps>
-</UserJourney>
+<!-- 
+<UserJourneys> -->
+  <UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
+    <Authorization>
+      <AuthorizationTechnicalProfiles>
+        <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
+      </AuthorizationTechnicalProfiles>
+    </Authorization>
+    <OrchestrationSteps >
+      <OrchestrationStep Order="1" Type="ClaimsExchange">
+        <Preconditions>
+          <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+            <Value>objectId</Value>
+            <Action>SkipThisOrchestrationStep</Action>
+          </Precondition>
+        </Preconditions>
+        <ClaimsExchanges UserIdentity="false">
+          <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+        </ClaimsExchanges>
+      </OrchestrationStep>
+      <OrchestrationStep Order="2" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="UserInfoIssuer" />
+    </OrchestrationSteps>
+  </UserJourney>
+<!-- 
+</UserJourneys> -->
 ```
 
 ### <a name="3-include-the-endpoint-to-the-relying-party-policy"></a>3. Inclusión del punto de conexión en la directiva de usuario de confianza
@@ -161,9 +173,13 @@ El elemento [UserJourney](userjourneys.md) define la ruta de acceso que el usuar
 Para incluir el punto de conexión UserInfo en la aplicación de usuario de confianza, agregue un elemento [Endpoint](relyingparty.md#endpoints) al archivo *SocialAndLocalAccounts/SignUpOrSignIn.xml*. 
 
 ```xml
-<Endpoints>
-  <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
-</Endpoints>
+<!--
+<RelyingParty> -->
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+<!-- 
+</RelyingParty> -->
 ```
 
 El elemento de usuario de confianza completado será como el siguiente:
@@ -236,7 +252,7 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/policy-name/v2.0/.wel
 ```http
 GET /yourtenant.onmicrosoft.com/b2c_1a_signup_signin/openid/v2.0/userinfo
 Host: b2cninja.b2clogin.com
-Authorization: Bearer <your ID token>
+Authorization: Bearer <your access token>
 ```
 
 Una respuesta correcta tiene el siguiente aspecto:

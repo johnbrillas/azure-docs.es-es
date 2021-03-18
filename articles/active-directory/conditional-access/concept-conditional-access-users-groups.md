@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364586"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427137"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acceso condicional: Usuarios y grupos
 
-Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. Azure Active Directory evalúa todas las directivas y se asegura de que se cumplan todos los requisitos antes de conceder acceso al usuario.
+Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. Azure Active Directory evalúa todas las directivas y se asegura de que se cumplan todos los requisitos antes de conceder acceso al usuario. Además de este artículo, tenemos un vídeo sobre [cómo incluir o excluir usuarios de las directivas de acceso condicional](https://www.youtube.com/watch?v=5DsW1hB3Jqs) que le guían por el proceso que se describe a continuación. 
 
 ![Usuario como señal en las decisiones tomadas por acceso condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 

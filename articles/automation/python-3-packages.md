@@ -3,26 +3,26 @@ title: Administración de paquetes de Python 3 en Azure Automation
 description: En este artículo se describe cómo administrar paquetes de Python 3 (versión preliminar) en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f39f49ff47b935da7ffc777ee45bd219f5740b5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: fd4d8ee92b670bc2544619a0dce16a26d9342c13
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734308"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122041"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Administración de paquetes de Python 3 (versión preliminar) en Azure Automation
 
-Azure Automation permite ejecutar runbooks de Python 3 (versión preliminar) en Azure y en Hybrid Runbook Worker de Linux. Para simplificar los runbooks, puede usar los paquetes de Python para importar los módulos que necesite. En este artículo se describe cómo administrar y usar paquetes de Python 3 (versión preliminar) en Azure Automation.
+Azure Automation permite ejecutar runbooks de Python 3 (versión preliminar) en Azure y en Hybrid Runbook Worker de Linux. Para simplificar los runbooks, puede usar los paquetes de Python para importar los módulos que necesite. Para importar un solo paquete, consulte [Importación de un paquete](#import-a-package). Para importar un paquete con varios paquetes, consulte [Importación de un paquete con dependencias](#import-a-package-with-dependencies). En este artículo se describe cómo administrar y usar paquetes de Python 3 (versión preliminar) en Azure Automation.
 
-## <a name="import-packages"></a>Importación de paquetes
+## <a name="import-a-package"></a>Importación de un paquete
 
 Seleccione **Paquetes de Python** en **Recursos compartidos**, en la cuenta de Automation. Seleccione **+ Agregar un paquete de Python**.
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Captura de pantalla de la página Paquetes de Python 3 que muestra los paquetes de Python 3 en el menú izquierdo y la opción para agregar un paquete de Python 2 resaltada.":::
 
-En la página **Agregar un paquete de Python**, seleccione Python 3 para la **versión** y elija un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. Con el paquete seleccionado, haga clic en **Aceptar** para cargarlo.
+En la página **Add Python Package** (Agregar un paquete de Python), seleccione **Python 3** como **versión** y elija un paquete local para cargar. El paquete puede ser un archivo **.whl** o **.tar.gz**. Con el paquete seleccionado, haga clic en **Aceptar** para cargarlo.
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Captura de pantalla que muestra la página Agregar un paquete de Python 3, con un archivo tar.gz cargado y seleccionado.":::
 
@@ -30,19 +30,35 @@ Una vez que se ha importado un paquete, se muestra en la página paquetes de Pyt
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Captura de pantalla que muestra la página Paquetes de Python 3 después de importar un paquete.":::
 
-## <a name="import-packages-with-dependencies"></a>Importación de paquetes con dependencias
+### <a name="import-a-package-with-dependencies"></a>Importación de un paquete con dependencias
 
-Azure Automation no resuelve las dependencias de los paquetes de Python durante el proceso de importación. Sin embargo, hay una manera de importar un paquete con todas sus dependencias.
-
-### <a name="manually-download"></a>Descarga manual
-
-En una máquina Windows de 64 bits con [Python 3.8](https://www.python.org/downloads/release/python-380/) y [pip](https://pip.pypa.io/en/stable/) instalados, ejecute el siguiente comando para descargar un paquete y todas sus dependencias:
+Para importar un paquete de Python 3 y sus dependencias, importe el siguiente script de Python en un runbook de Python 3 y, luego, ejecútelo.
 
 ```cmd
-C:\Python38\Scripts\pip3.8.exe download -d <output dir> <package name>
+https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
-Una vez que se han descargado los paquetes, puede importarlos en la cuenta de Automation.
+#### <a name="importing-the-script-into-a-runbook"></a>Importación del script en un runbook
+Para información sobre cómo importar el runbook, consulte [Importación de un runbook desde Azure Portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copie el archivo de GitHub en el almacenamiento al que se pueda acceder desde el portal antes de realizar la importación.
+
+La página **Importar un runbook** adopta como valor predeterminado el nombre del runbook para que coincida con el nombre del script. Si tiene acceso al campo, puede cambiar el nombre. El campo **Tipo de runbook** puede adoptar como valor predeterminado **Python 2**. Si es así, asegúrese de cambiarlo a **Python 3**.
+
+:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Captura de pantalla que muestra la página de importación de runbooks de Python 3.":::
+
+#### <a name="executing-the-runbook-to-import-the-package-and-dependencies"></a>Ejecución del runbook para importar el paquete y las dependencias
+
+Después de crear y publicar el runbook, ejecútelo para importar el paquete. Consulte [Inicio de un runbook en Azure Automation](start-runbooks.md) para más información sobre la ejecución del runbook.
+
+El script `import_py3package_from_pypi.py` requiere los siguientes parámetros:
+
+| Parámetro | Descripción |
+|---------------|-----------------|
+|subscription_id | Identificador de suscripción de la cuenta de Automation |
+| resource_group | Nombre del grupo de recursos en el que se define la cuenta de Automation |
+| automation_account | Nombre de la cuenta de Automation |
+| module_name | Nombre del módulo que se va a importar desde `pypi.org` |
+
+Para más información sobre el uso de parámetros con runbooks, consulte [Trabajar con parámetros del runbook](start-runbooks.md#work-with-runbook-parameters).
 
 ## <a name="use-a-package-in-a-runbook"></a>Usar un paquete en un runbook
 

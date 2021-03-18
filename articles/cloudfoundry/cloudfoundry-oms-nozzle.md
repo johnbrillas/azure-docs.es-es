@@ -1,7 +1,7 @@
 ---
 title: Implementación del inyector de Azure Log Analytics para la supervisión de Cloud Foundry
 description: Guía paso a paso sobre cómo implementar el inyector de Cloud Foundry Loggregator para Azure Log Analytics. Use el inyector para supervisar las métricas de rendimiento y mantenimiento del sistema Cloud Foundry.
-services: virtual-machines-linux
+services: virtual-machines
 author: ningk
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54001c47d03b686a8e7c1f59f1e53d405e3bc506
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021595"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557393"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
@@ -28,7 +28,7 @@ En este documento, aprenderá a implementar el inyector en su entorno de CF y, d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los pasos siguientes son requisitos previos para implementar el inyector.
 
@@ -36,7 +36,7 @@ Los pasos siguientes son requisitos previos para implementar el inyector.
 
 Puede usar el inyector con una implementación de CF de código abierto o con una implementación de Pivotal Cloud Foundry (PCF).
 
-* [Implementar Cloud Foundry en Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
+* [Implementación de Cloud Foundry en Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
 * [Implementar Pivotal Cloud Foundry en Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
@@ -65,7 +65,7 @@ Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla
    * **Suscripción**: si tiene varias suscripciones, elija la misma que la de la implementación de CF.
    * **Grupo de recursos**: puede crear un grupo de recursos o seleccionar el mismo que el de la implementación de CF.
    * **Ubicación**: escriba la ubicación.
-   * **Plan de tarifa**: seleccione **Aceptar** para completar.
+   * **Plan de tarifa**: haga clic en **Aceptar** para finalizar.
 
 Para más información, consulte [Introducción a Azure Monitor](../azure-monitor/overview.md).
 
@@ -81,8 +81,8 @@ Para más información, consulte [Introducción a Azure Monitor](../azure-monito
     * **Ubicación del grupo de recursos**: seleccione la ubicación del grupo de recursos.
     * **OMS_Workspace_Name**: escriba un nombre de área de trabajo; si el área de trabajo no existe, la plantilla creará una.
     * **OMS_Workspace_Region**: seleccione la ubicación del área de trabajo.
-    * **OMS_Workspace_Pricing_Tier**: seleccione la SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
-    * **Términos legales**: haga clic en Términos legales y, después, en "Crear" para aceptar los términos legales.
+    * **OMS_Workspace_Pricing_Tier**: seleccione el SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
+    * **Condiciones legales**: haga clic en Condiciones legales y, después, en "Crear" para aceptar los términos legales.
 1. Después de haber especificado todos los parámetros, haga clic en "Crear" para implementar la plantilla. Una vez completada la implementación, el estado se mostrará en la pestaña Notificaciones.
 
 
@@ -191,9 +191,9 @@ Puede personalizar estas vistas o crearlas a través del **Diseñador de vistas*
 
 ### <a name="2-create-alert-rules"></a>2. Creación de reglas de alerta
 
-Puede [crear las alertas](../azure-monitor/platform/alerts-overview.md) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
+Puede [crear las alertas](../azure-monitor/alerts/alerts-overview.md) y personalizar las consultas y los valores de umbral según sea necesario. Estas son las alertas recomendadas:
 
-| Consulta de búsqueda                                                                  | Generación de alerta según | Descripción                                                                       |
+| Consulta de búsqueda                                                                  | Generación de alerta según | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs.Domain.cf-apps** indica si el dominio cf-apps está actualizado. Significa que las solicitudes de aplicación de CF procedentes de Cloud Controller están sincronizadas con bbs.LRPsDesired (instancias de aplicación aptas para Diego) para su ejecución. Si no se obtienen datos, significa que el dominio cf-apps no está actualizado en el período de tiempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | En las celdas Diego, 0 indica un estado correcto y 1, incorrecto. Establezca la alerta si se detectan varias celdas Diego en estado incorrecto en el período de tiempo especificado. |

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385615"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177798"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -483,6 +483,7 @@ A continuación se indican algunas de las limitaciones de la actividad ForEach y
 |---|---|
 | No se puede anidar un bucle ForEach dentro de otro bucle ForEach (o un bucle Until). | Diseñar una canalización de dos niveles, donde la canalización externa con el bucle ForEach exterior recorre en iteración una canalización interna con el bucle anidado. |
 | La actividad ForEach tiene un valor máximo de `batchCount` de 50 para procesamiento en paralelo y un máximo de 100 000 elementos. | Diseñar una canalización de dos niveles, donde la canalización externa con la actividad ForEach recorre en iteración una canalización interna. |
+| SetVariable no se puede utilizar dentro de una actividad ForEach que se ejecuta en paralelo, ya que las variables son globales para toda la canalización, no se limitan a una instrucción ForEach o a cualquier otra actividad. | Considere la posibilidad de usar una instrucción ForEach secuencial o ejecutar la canalización dentro de ForEach (variable/parámetro administrados en la canalización secundaria).|
 | | |
 
 ## <a name="next-steps"></a>Pasos siguientes

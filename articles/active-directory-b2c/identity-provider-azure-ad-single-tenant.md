@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a3cca7740adb6fa44b162e8c8740d1be1c7aa6b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: dc824c7e4caa2a634a60f7d8a69870ddd961998c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953893"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448479"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 
 1. En **Id. de cliente**, escriba el identificador de aplicación que ha anotado anteriormente.
 1. En **Secreto de cliente**, escriba el secreto de cliente que ha anotado anteriormente.
-1. En **Ámbito**, escriba el valor de `openid profile`.
+1. En **Ámbito**, escriba `openid profile`.
 1. Deje los valores predeterminados para **Tipo de respuesta** y **Modo de respuesta**.
 1. (Opcional) En **Sugerencia de dominio**, escriba `contoso.com`. Para más información, consulte [Configuración de inicio de sesión directo con Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. En **Asignación de notificaciones del proveedor de identidades**, seleccione las siguientes notificaciones:
@@ -111,7 +111,10 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Haga clic en **Ejecutar flujo de usuario**.
+1. Seleccione el botón **Ejecutar flujo de usuario**.
+1. En la página de registro o de inicio de sesión, seleccione **Contoso Azure AD** para iniciar sesión con la cuenta de Contoso de Azure AD.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end
 
@@ -220,7 +223,14 @@ Para obtener un token del punto de conexión de Azure AD es preciso definir los 
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **Contoso Azure AD** para iniciar sesión con la cuenta de Contoso de Azure AD.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

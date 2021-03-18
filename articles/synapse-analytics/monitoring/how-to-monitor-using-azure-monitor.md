@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672760"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549862"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Uso de Azure Monitor con el área de trabajo de Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ Cree o agregue una configuración de diagnóstico para el área de trabajo, el g
 1. Asigne un nombre de la configuración, seleccione **Enviar a Log Analytics** y, después, seleccione un área de trabajo en **Área de trabajo de Log Analytics**.
 
     > [!NOTE]
-    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para más información, consulte las [limitaciones conocidas de Log Analytics](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para obtener más información, consulte la [referencia de registros de AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Seleccione **Guardar**.
 

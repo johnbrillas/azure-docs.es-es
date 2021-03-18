@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173943"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500519"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "96173943"
 >
 > **Si es un usuario final y necesita volver a su cuenta, vaya a [https://aka.ms/sspr](https://aka.ms/sspr)** .
 
-El [autoservicio de restablecimiento de contraseña (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) es una característica de Azure Active Directory (AD) que permite a los usuarios restablecer sus contraseñas sin ponerse en contacto con el personal de TI. Los usuarios se pueden desbloquear rápidamente ellos mismos y continuar trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los empleados se desbloqueen ellos mismos, su organización puede reducir el tiempo no productivo y los altos costes de soporte técnico para los problemas más comunes relacionados con las contraseñas.
+El [autoservicio de restablecimiento de contraseña (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) es una característica de Azure Active Directory (AD) que permite a los usuarios restablecer sus contraseñas sin ponerse en contacto con el personal de TI. Los usuarios se pueden desbloquear rápidamente ellos mismos y continuar trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los empleados se desbloqueen ellos mismos, su organización puede reducir el tiempo no productivo y los altos costes de soporte técnico para los problemas más comunes relacionados con las contraseñas.
 
 SSPR ofrece las siguientes funcionalidades clave:
 
@@ -78,6 +78,7 @@ Para obtener más información sobre los precios, consulte [Precios de Azure Act
 | Vídeos| [Capacite a sus usuarios con una mejor escalabilidad de TI](https://youtu.be/g9RpRnylxS8) 
 | |[¿Qué es el autoservicio de restablecimiento de contraseña?](https://youtu.be/hc97Yx5PJiM)|
 | |[Implementación del autoservicio de restablecimiento de contraseña](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Cómo habilitar y configurar SSPR en Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[¿Cómo se configura el autoservicio de restablecimiento de contraseña para los usuarios de Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Cómo [preparar a los usuarios para] registrar [su] información de seguridad para Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Cursos en línea|[Administración de identidades en Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR para ofrecer a los usuarios una experiencia moderna y protegida. Consulte especialmente el módulo "[Administración de usuarios y grupos de Azure Active Directory](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)". |

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652320"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547839"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Aptitud cognitiva para la extracción de frases clave
 
@@ -41,6 +41,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Vea [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) (Lista completa de idiomas admitidos). |
 | `maxKeyPhraseCount`   | (Opcional) Es el número máximo de frases clave para producir. |
+| `modelVersion`   | (Opcional) La versión del modelo que se va a usar al llamar al servicio de Text Analytics. Si no se especifica, el valor predeterminado será el más reciente disponible. Se recomienda no especificar este valor a menos que sea absolutamente necesario. Vea [Control de versiones de modelos en Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) para obtener más información. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
@@ -109,8 +110,8 @@ En el ejemplo anterior, el resultado de su aptitud se escribirá en un nuevo nod
 
 Puede usar "document/myKeyPhrases" como entrada en otras aptitudes o como origen de una [asignación de campos de salida](cognitive-search-output-field-mapping.md).
 
-## <a name="errors-and-warnings"></a>Errores y advertencias
-Si proporciona un código de idioma no admitido, se generará un error y no se extraerán las frases clave.
+## <a name="warnings"></a>Advertencias
+Si proporciona un código de idioma no admitido, se generará una advertencia y no se extraerán las frases clave.
 Si el texto está vacío, se creará una advertencia.
 Si el texto tiene más de 50 000 caracteres, solo se analizarán los primeros 50 000 caracteres y se emitirá una advertencia.
 

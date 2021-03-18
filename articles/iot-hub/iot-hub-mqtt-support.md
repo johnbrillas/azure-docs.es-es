@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027805"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431268"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -55,9 +55,9 @@ La tabla siguiente contiene vínculos a ejemplos de código para cada idioma adm
 | Idioma | Parámetro de protocolo MQTT | Parámetro de protocolo MQTT sobre Web Sockets
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt recurre a MQTT sobre Web Sockets si se produce un error en MQTT. Para especificar solo MQTT sobre Web Sockets, use TransportType.Mqtt_WebSocket_Only. |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt recurre a MQTT sobre Web Sockets si se produce un error en MQTT. Para especificar solo MQTT sobre Web Sockets, use TransportType.Mqtt_WebSocket_Only. |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Compatible con MQTT de forma predeterminada | Agregue `websockets=True` en la llamada para crear el cliente. |
 
 En el siguiente fragmento se muestra cómo especificar el protocolo MQTT sobre Web Sockets al usar el SDK de Node.js para IoT de Azure:
@@ -111,6 +111,8 @@ En el [repositorio de ejemplo de IoT MQTT](https://github.com/Azure-Samples/IoTM
 
 En estos ejemplos se usa la biblioteca Eclipse Mosquitto para enviar mensajes al agente MQTT implementado en IoT Hub.
 
+Para obtener información sobre cómo adaptar los ejemplos para usar las convenciones de [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), consulte [Tutorial: Uso de MQTT para desarrollar un cliente del dispositivo IoT Plug and Play](../iot-pnp/tutorial-use-mqtt.md).
+
 Este repositorio contiene:
 
 **Para Windows:**
@@ -158,7 +160,7 @@ Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad d
 
   Para obtener más información sobre cómo generar tokens de SAS, consulte la sección del dispositivo sobre el [uso de tokens de seguridad de IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Al realizar la prueba, también puede utilizar la extensión multiplataforma [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o el comando de la extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) para generar rápidamente un token de SAS que pueda copiar y pegar en su propio código.
+  Al realizar la prueba, también puede utilizar la extensión multiplataforma [Azure IoT Tools para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o el comando de la extensión de la CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) para generar rápidamente un token de SAS que pueda copiar y pegar en su propio código.
 
 ### <a name="for-azure-iot-tools"></a>Para Azure IoT Tools
 

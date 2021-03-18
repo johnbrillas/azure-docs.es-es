@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 639bed3dcd8f3f443b73f51efb60e7c8aeaa00a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034061"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504225"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * No cree más de un clúster AKS en la misma subred.
 * Los clústeres de AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio de Kubernetes, el intervalo de direcciones de pod o el intervalo de direcciones de la red virtual del clúster.
-* La entidad de servicio usada por el clúster de AKS debe tener al menos el rol de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Como propietario de la suscripción, también debe tener los permisos adecuados para crear una entidad de servicio y asignarle permisos. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
+* La identidad de clúster que usa el clúster de AKS debe tener al menos el rol de [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. También debe tener los permisos adecuados, como propietario de la suscripción, para crear una identidad del clúster y asignarle permisos. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -245,10 +245,9 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Azure Dev Spaces][dev-spaces], [implementar aplicaciones existentes con Helm][use-helm] o [crear nuevas aplicaciones con Helm][develop-helm].
+Con un clúster de AKS implementado en la subred de red virtual existente, ahora puede usar el clúster de forma habitual. Empiece a [crear aplicaciones con Helm][develop-helm] o a [implementar aplicaciones existentes con Helm][use-helm].
 
 <!-- LINKS - External -->
-[dev-spaces]: ../dev-spaces/index.yml
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy

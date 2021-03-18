@@ -7,15 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.custom: b2c-support
+ms.openlocfilehash: 3a5afcd8c0ef0c31353cd2369ead332675c9877f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108628"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453128"
 ---
 # <a name="localization-element"></a>Elemento Localization
 
@@ -146,7 +147,7 @@ El elemento **LocalizedString** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| ElementType | Sí | Valores posibles: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation) o [UxElement](#uxelement).   | 
+| ElementType | Sí | Valores posibles: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [FormatLocalizedStringTransformationClaimType](#formatlocalizedstringtransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation) o [UxElement](#uxelement).   | 
 | ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. |
 | StringId | Sí | Si **ElementType** se establece en `ClaimType`, este elemento contiene una referencia a un atributo de un tipo de notificación. Valores posibles: `DisplayName`, `AdminHelpText` o `PatternHelpText`. El valor `DisplayName` se usa para establecer el nombre para mostrar de la notificación. El valor `AdminHelpText` se usa para establecer el nombre del texto de ayuda del usuario de la notificación. El valor `PatternHelpText` se usa para establecer el texto de ayuda del patrón de la notificación. Si **ElementType** se establece en `UxElement`, este elemento contiene una referencia a un atributo de un elemento de la interfaz de usuario. Si **ElementType** se establece en `ErrorMessage`, este elemento especifica el identificador de un mensaje de error. Vea la lista completa de los identificadores de `UxElement` en [Id. de cadena Localization](localization-string-ids.md).|
 
@@ -231,6 +232,31 @@ En el ejemplo siguiente se muestra cómo localizar el mensaje de error UserMessa
 
 ```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="formatlocalizedstringtransformationclaimtype"></a>FormatLocalizedStringTransformationClaimType
+
+El valor FormatLocalizedStringTransformationClaimType se usa para dar formato a las notificaciones en una cadena localizada. Para más información, consulte [Transformaciones de las notificaciones de FormatLocalizedString](string-transformations.md#formatlocalizedstring).
+
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+El siguiente ejemplo muestra cómo localizar el formato de cadena de la transformación de notificaciones FormatLocalizedStringTransformationClaimType.
+
+```xml
+<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
 ```
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
@@ -335,7 +361,7 @@ El valor de UxElement se usa para localizar uno de los elementos de la interfaz 
 
 ### <a name="displaycontrol"></a>DisplayControl
 
-El valor DisplayControl se usa para localizar uno de los elementos de la interfaz de usuario del [control de visualización](display-controls.md). En el ejemplo siguiente se muestra cómo localizar los botones Enviar y Comprobar. 
+El valor DisplayControl se usa para localizar uno de los elementos de la interfaz de usuario del [control de visualización](display-controls.md). Cuando está habilitado, el control de pantalla localizedStrings tiene ***prioridad** _ en algunos de los StringIDs _ *UxElement**, como **ver_but_send**, **ver_but_edit**, **ver_but_resend** y **ver_but_verify**. En el ejemplo siguiente se muestra cómo localizar los botones Enviar y Comprobar. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

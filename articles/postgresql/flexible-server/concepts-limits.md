@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516522"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451904"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
 
@@ -68,7 +68,7 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 
 ### <a name="storage"></a>Storage
 
-- Una vez configurado, no se puede reducir el tamaño del almacenamiento.
+- Una vez configurado, no se puede reducir el tamaño del almacenamiento. Tendrá que crear un nuevo servidor con el tamaño de almacenamiento deseado y realizar el proceso de volcado y restauración manual para migrar las bases de datos.
 - Actualmente, la característica de crecimiento automático del almacenamiento no está disponible. Supervise el uso y aumente el almacenamiento a un tamaño superior. 
 - Cuando el uso del almacenamiento alcanza el 95 % o si la capacidad disponible es inferior a 5 GiB, el servidor cambia automáticamente al **modo de solo lectura** para evitar los errores asociados con las situaciones de disco lleno. 
 - Se recomienda establecer reglas de alerta para `storage used` o `storage percent` cuando superen determinados umbrales para que pueda tomar medidas con antelación, como aumentar el tamaño del almacenamiento. Por ejemplo, puede establecer una alerta si el porcentaje de almacenamiento supera el 80 % de uso.

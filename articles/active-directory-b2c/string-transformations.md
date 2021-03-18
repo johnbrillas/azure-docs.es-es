@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994849"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452244"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -149,6 +149,42 @@ Use que esta transformación de notificaciones para establecer un valor de Claim
     - **value**: Contoso terms of service...
 - Notificaciones de salida:
     - **createdClaim**: el tipo ClaimType TOS contiene el valor "Contoso terms of service…".
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Copie el valor de una notificación en otra si el valor de la notificación de entrada coincide con el predicado de la notificación de salida. 
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo de la notificación que se va a copiar. |
+| OutputClaim | outputClaim | string | El tipo de notificación que se genera después de que se haya invocado esta transformación de notificaciones. El valor de la notificación de entrada se comprueba con este predicado de notificación. |
+
+En el ejemplo siguiente se copia el valor de la notificación signInName en la notificación phoneNumber, solo si signInName es un número de teléfono. Para ver el ejemplo completo, consulte la directiva del módulo [Inicio de sesión con número de teléfono o correo electrónico](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml).
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Ejemplo 1
+
+- Notificaciones de entrada:
+    - **inputClaim**: bob@contoso.com
+- Notificaciones de salida:
+    - **outputClaim**: la notificación de salida no se cambiará de su valor original.
+
+### <a name="example-2"></a>Ejemplo 2
+
+- Notificaciones de entrada:
+    - **inputClaim**: +11234567890
+- Notificaciones de salida:
+    - **outputClaim**: +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -290,6 +326,77 @@ El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor p
     - **outputClaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Aplique formato a varias notificaciones de acuerdo con una cadena de formato localizada proporcionada. Esta transformación usa el método `String.Format` de C#.
+
+
+| Elemento | TransformationClaimType | Tipo de datos | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | La colección de notificaciones de entrada que actúa como parámetros de formato de cadena {0}, {1}, {2}. |
+| InputParameter | stringFormatId | string |  El valor `StringId` de una [cadena localizada](localization.md).   |
+| OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
+
+> [!NOTE]
+> El formato de cadena máximo permitido es 4000.
+
+Para usar la transformación de notificaciones FormatLocalizedString:
+
+1. Defina una [cadena de localización](localization.md) y asóciela con un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
+1. El `ElementType` del elemento `LocalizedString` debe establecerse en `FormatLocalizedStringTransformationClaimType`.
+1. `StringId` es un identificador único que se define y se usa más adelante en la transformación de notificaciones `stringFormatId`.
+1. En la transformación de notificaciones, especifique la lista de notificaciones que se van a establecer con la cadena localizada. A continuación, establezca `stringFormatId` en el valor `StringId` del elemento de cadena localizado. 
+1. En un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o una transformación de notificaciones de entrada o salida de [control de visualización](display-controls.md), haga una referencia a la transformación de notificaciones.
+
+
+En el ejemplo siguiente se genera un mensaje de error cuando una cuenta ya está en el directorio. En el ejemplo se definen cadenas localizadas para inglés (valor predeterminado) y español.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La transformación de notificaciones crea un mensaje de respuesta basado en la cadena localizada. El mensaje contiene la dirección de correo electrónico del usuario insertada en la cadena localizada *ResponseMessge_EmailExists*.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Ejemplo
+
+- Notificaciones de entrada:
+    - **inputClaim**: sarah@contoso.com
+- Parámetros de entrada:
+    - **stringFormat**:  ResponseMessge_EmailExists
+- Notificaciones de salida:
+  - **outputClaim**: el correo electrónico "sarah@contoso.com" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Da formato a una notificación de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método `String.Format` de C#.
@@ -299,6 +406,9 @@ Da formato a una notificación de acuerdo con la cadena de formato proporcionada
 | InputClaim | inputClaim |string |ClaimType que actúa como el parámetro {0} de formato de cadena. |
 | InputParameter | stringFormat | string | El formato de cadena, incluido el parámetro {0}. Este parámetro de entrada admite [expresiones de transformación de notificaciones de cadena](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
+
+> [!NOTE]
+> El formato de cadena máximo permitido es 4000.
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con un parámetro {0}. El ejemplo siguiente crea un **userPrincipalName**. Todos los perfiles técnicos de proveedores de las identidades de redes sociales, como `Facebook-OAUTH` llaman a **CreateUserPrincipalName** para generar un **userPrincipalName**.
 
@@ -335,6 +445,9 @@ Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionad
 | InputClaim | inputClaim | string | ClaimType que actúa como el parámetro {1} de formato de cadena. |
 | InputParameter | stringFormat | string | El formato de cadena, incluidos los parámetros {0} y {1}. Este parámetro de entrada admite [expresiones de transformación de notificaciones de cadena](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
+
+> [!NOTE]
+> El formato de cadena máximo permitido es 4000.
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con dos parámetros, {0} y {1}. En el ejemplo siguiente se crea un **displayName** con el formato especificado:
 

@@ -1,24 +1,18 @@
 ---
 title: Recomendaciones de corrección de Azure Security Center | Microsoft Docs
 description: En este artículo se explica cómo responder a las recomendaciones de Azure Security Center para proteger los recursos y cumplir con las directivas de seguridad.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807997"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438274"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 
@@ -81,5 +75,5 @@ La operación de corrección usa una implementación de plantilla o una llamada 
 
 En este documento, se mostró cómo aplicar las recomendaciones de corrección de Security Center. Para obtener más información sobre Security Center, vea las páginas siguientes:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure
+* [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)

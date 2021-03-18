@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 756cadd42e8cda557a90c39e2412f5d4f3290835
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3db4999f1cb6185f02a40395842c30b9d77072b3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741215"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489028"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -34,9 +34,9 @@ En esta sección se proporcionan referencias para las soluciones de las bases de
 
 ### <a name="oracle"></a>Oracle
 
-* [Rendimiento de Oracle Database en volúmenes individuales de Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Guía de procedimientos recomendados para la implementación de Oracle en Azure con Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Imágenes de VM de Oracle y su implementación en Microsoft Azure: Opciones de configuración de almacenamiento compartido](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
+* [Rendimiento de Oracle Database en volúmenes individuales de Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Ventajas del uso de Azure NetApp Files con Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
 ### <a name="machine-learning"></a>Machine Learning
@@ -77,10 +77,12 @@ En esta sección se proporcionan referencias de soluciones de SAP en Azure.
 * [Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
+* [Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en RHEL: Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Herramienta Azure Application Consistent Snapshot (AzAcSnap)](azacsnap-introduction.md)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
+* [Implementación de DBMS de Azure Virtual Machines de Oracle para la carga de trabajo de SAP: Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Implementación de SAP AnyDB (Oracle 19c) con Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
@@ -139,6 +141,7 @@ En esta sección se proporcionan referencias para las soluciones de informática
 ### <a name="analytics"></a>Análisis
 
 * [Azure NetApp Files: un sistema de archivos compartidos que se usará con la cuadrícula SAS en Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
+* [Azure NetApp Files: sistema de archivos compartidos para usar con SAS Grid en MS Azure: actualización de RHEL8.3/nconnect](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Prácticas recomendadas para usar Microsoft Azure con SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
 ## <a name="azure-platform-services-solutions"></a>Soluciones de servicios de la plataforma Azure

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124958"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489793"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Preguntas comunes sobre máquinas virtuales en Azure Marketplace
 
@@ -49,6 +49,19 @@ Para obtener más información, consulte estos artículos:
 Cada vez que trato de crear una imagen desde el VHD, se produce el error "VHD ya está registrado con el repositorio de imágenes como un recurso" en Azure PowerShell. No he creado ninguna imagen antes ni he encontrado ninguna imagen con este nombre en Azure. ¿Cómo se resuelve este problema?
 
 Este problema suele aparecer si ha creado una máquina virtual desde un disco duro virtual que tiene un bloqueo. Asegúrese de que no hay ninguna máquina virtual asignada desde este disco duro virtual y, después, vuelva a intentar la operación. Si el problema continúa, abra una incidencia de soporte técnico. Vea [Soporte técnico para el Centro de partners](support.md).
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>¿Cómo puedo probar una imagen de vista previa oculta?
+
+Puede implementar imágenes de vista previa ocultas mediante plantillas de inicio rápido.
+Para implementar una imagen de vista previa de Linux: 
+1. Vaya a esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) y seleccione "Implementar en Azure". Esto le llevará a Azure Portal.
+2. En Azure Portal, seleccione "Editar plantilla".
+3. En la plantilla JSON, busque el elemento imageReference y actualice los valores de publisherid, offerid, skuid y version de la imagen. Para probar la imagen de vista previa, anexe "-PREVIEW" a offerid.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Haga clic en Guardar
+5. Rellene el resto de los detalles. Elija Revisar y crear.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1319f806dd2f32233dcfe7383f5283b67827f16f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896196"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102517584"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge Pro con GPU mediante Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 La solución Azure Stack Edge Pro permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración del dispositivo Azure Stack Edge Pro. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
 
@@ -24,30 +26,12 @@ Este artículo se centra en cómo puede conectarse a la interfaz de PowerShell d
 
 ## <a name="connect-to-the-powershell-interface"></a>Conectarse a la interfaz de PowerShell
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## <a name="create-a-support-package"></a>Crear un paquete de soporte
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-<!--## Upload certificate
-
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
-
-You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
-
-- Root CA certificate or the owner CA
-- Device CA certificate
-- Device key certificate
-
-The following example shows the usage of this cmdlet to install IoT Edge certificates:
-
-```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
-```
-When you run this cmdlet, you will be prompted to provide the password for the network share.
-
-For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>Ver la información del dispositivo
  
@@ -86,17 +70,8 @@ Si el rol de proceso está configurado en su dispositivo, también puede obtener
 
 Un servicio multiproceso (MPS) en las GPU de Nvidia proporciona un mecanismo donde varios trabajos pueden compartir las GPU, donde cada trabajo tiene asignado cierto porcentaje de los recursos de la GPU. MPS es una característica en vista previa (GB) en el dispositivo Azure Stack Edge Pro con GPU. Para habilitar MPS en el dispositivo, siga estos pasos:
 
-1. Antes de comenzar, asegúrese de que: 
+[!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
-    1. Ha configurado y [activado el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md) con un recurso de Azure Stack Edge Pro o Data Box Gateway en Azure.
-    1. Ha [configurado el proceso en este dispositivo en Azure Portal](azure-stack-edge-deploy-configure-compute.md#configure-compute).
-    
-1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
-1. Use el siguiente comando para habilitar MPS en el dispositivo.
-
-    ```powershell
-    Start-HcsGpuMPS
-    ```
 
 ## <a name="reset-your-device"></a>Restablecer el dispositivo
 
@@ -148,45 +123,13 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Depurar problemas de Kubernetes relacionados con IoT Edge
 
-<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
+Antes de empezar, debe disponer de lo siguiente:
 
-<!--### Create config file for system namespace
-
-To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
-
-Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
-
-Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
-
-```PowerShell
-[10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EVXhNekl4TkRRME5sb1hEVE13TURVeE1USXhORFEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0M1CjlJbzRSU2hudG90QUdxdjNTYmRjOVd4UmJDYlRzWXU5S0RQeU9xanVoZE1UUE9PcmROOGNoa0x4NEFyZkZaU1AKZithUmhpdWZqSE56bWhucnkvZlprRGdqQzQzRmV5UHZzcTZXeVVDV0FEK2JBdi9wSkJDbkg2MldoWGNLZ1BVMApqU1k0ZkpXenNFbzBaREhoeUszSGN3MkxkbmdmaEpEanBQRFJBNkRWb2pIaktPb29OT1J1dURvUHpiOTg2dGhUCkZaQXJMZjRvZXRzTEk1ZzFYRTNzZzM1YVhyU0g3N2JPYVVsTGpYTzFYSnpFZlZWZ3BMWE5xR1ZqTXhBMVU2b1MKMXVJL0d1K1ArY
-===========CUT=========================================CUT===================
-    server: https://compute.myasegpu1.wdshcsso.com:6443
-    name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: aseuser
-    name: aseuser@kubernetes
-current-context: aseuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: aseuser
-    user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJY1hOTXRPU2VwbG93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURBMU1UTXlNVFEwTkRaYUZ3MHlNVEExTVRNeU1UVXhNVEphTUJJeApFREFPQmdOVkJBTVRCMkZ6WlhWelpYSXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCCkFRRHVjQ1pKdm9qNFIrc0U3a1EyYmVjNEJkTXdpUEhmU2R2WnNDVVY0aTRRZGY1Yzd0dkE3OVRSZkRLQTY1d08Kd0h0QWdlK3lLK0hIQ1Qyd09RbWtNek1RNjZwVFEzUlE0eVdtRDZHR1cWZWMExBR1hFUUxWWHRuTUdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-
-[10.100.10.10]: PS>
-```
--->
-
+- Red de proceso configurada. Vea [Tutorial: Configuración de la red para Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Rol de proceso configurado en el dispositivo.
+    
 En un dispositivo Azure Stack Edge Pro que tenga configurado el rol de proceso, puede solucionar problemas o supervisar el dispositivo con dos conjuntos diferentes de comandos.
 
 - Uso de comandos de `iotedge` Estos comandos están disponibles para las operaciones básicas del dispositivo.
@@ -401,7 +344,7 @@ Para obtener los registros de un módulo, ejecute el siguiente comando desde la 
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-Dado que la marca `all-containers` volcará todos los registros de todos los contenedores, una buena manera de ver los errores recientes es usar la opción `--tail 10`.
+Dado que la marca `all-containers` vuelca todos los registros de todos los contenedores, una buena manera de ver los errores recientes es usar la opción `--tail 10`.
 
 A continuación se muestra una salida de ejemplo. 
 
@@ -532,8 +475,8 @@ Al cambiar el uso de la memoria y el procesador, siga estas instrucciones.
 
 - La memoria predeterminada es el 25 % de la especificación del dispositivo.
 - El número de procesadores predeterminado es el 30 % de la especificación del dispositivo.
-- Al cambiar los valores de memoria y cantidad de procesadores, se recomienda que varíe los valores entre el 15 % y el 65 % de la memoria del dispositivo y el número de procesadores. 
-- Se recomienda un límite superior del 65 % para que haya suficientes recursos para los componentes del sistema. 
+- Al cambiar los valores de memoria y la cantidad de procesadores, se recomienda que varíe los valores entre el 15 % y el 60 % de la memoria del dispositivo y el número de procesadores. 
+- Se recomienda un límite superior del 60 % para que haya suficientes recursos para los componentes del sistema. 
 
 ## <a name="connect-to-bmc"></a>Conexión al BMC
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171661"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447935"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -203,6 +203,24 @@ En el recorrido del usuario, puede representar el subrecorrido de contraseña ol
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Agregue el siguiente paso de orquestación entre el paso actual y el paso siguiente. El nuevo paso de orquestación que agrega comprueba si la notificación `isForgotPassword` existe. Si la notificación existe, invoca el [subrecorrido de restablecimiento de contraseña](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. Después de agregar el nuevo paso de orquestación, vuelva a enumerar los pasos de forma secuencial sin omitir los enteros de 1 a N.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Establecimiento del recorrido de usuario que se va a ejecutar
 
@@ -262,7 +280,7 @@ En el diagrama siguiente:
 1. El usuario selecciona el vínculo **¿Olvidó la contraseña?** Azure AD B2C devuelve el código de error AADB2C90118 a la aplicación.
 1. La aplicación controla el código de error e inicia una nueva solicitud de autorización. La solicitud de autorización especifica el nombre de la directiva de restablecimiento de contraseña, por ejemplo, **B2C_1_pwd_reset**.
 
-![Flujo de restablecimiento de contraseña](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Flujo de usuario de restablecimiento de contraseña heredada](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 Para ver un ejemplo, eche un vistazo a un [ejemplo sencillo de ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) que muestra la vinculación de los flujos de usuario.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ef9e3689f5846ddfc66c47a15967a18fc6550d35
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182424"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504259"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -24,10 +24,9 @@ En este artículo se muestra cómo usar las redes de *Azure CNI* para crear y us
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * Los clústeres de AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio de Kubernetes, el intervalo de direcciones de pod, o el intervalo de direcciones de la red virtual del clúster.
-* La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
+* La identidad de clúster que usa el clúster de AKS debe tener como mínimo permisos de [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* En lugar de una entidad de servicio, puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 * La subred asignada al grupo de nodos AKS no puede ser una [subred delegada](../virtual-network/subnet-delegation-overview.md).
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
@@ -220,7 +219,7 @@ La planeación de las direcciones IP para los servicios K8S y el puente de Docke
 
 Los valores de pods por nodo al usar Azure CNI con asignación dinámica de direcciones IP han cambiado ligeramente del comportamiento de CNI tradicional:
 
-|CNI|Método de implementación|Default|Configurable en la implementación|
+|CNI|Método de implementación|Valor predeterminado|Configurable en la implementación|
 |--|--| :--: |--|
 |Azure CNI tradicional|Azure CLI|30|Sí (hasta 250)|
 |Azure CNI con asignación dinámica de direcciones IP|Azure CLI|250|Sí (hasta 250)|

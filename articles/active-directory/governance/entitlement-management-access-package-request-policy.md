@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449978"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426967"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de solicitud de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -60,7 +60,7 @@ Si tiene un conjunto de usuarios que deben tener una configuración de solicitud
 
 1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
 
-1. Haga clic en **Directivas ** y luego en **Agregar directiva**.
+1. Haga clic en **Directivas** y luego en **Agregar directiva**.
 
 1. Comenzará en la pestaña **Aspectos básicos**. Escriba un nombre y una descripción para la directiva.
 
@@ -198,7 +198,7 @@ Para cambiar la configuración de solicitudes y aprobación de un paquete de acc
 
 1. Haga clic en **Next**.
 
-1. Si quiere exigir que los solicitantes proporcionen información adicional al solicitar acceso a un paquete de acceso, siga los pasos descritos en []() para configurar la información del solicitante (versión preliminar).
+1. Si desea exigir a los solicitantes que proporcionen información adicional al solicitar acceso a un paquete de acceso, siga los pasos de [Cambio de la configuración de información de aprobación y del solicitante (versión preliminar) para un paquete de acceso de administración de derechos de Azure AD](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) para configurar la información del solicitante (versión preliminar).
 
 1. Configure los valores del ciclo de vida.
 

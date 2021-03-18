@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016769"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449635"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -103,10 +103,10 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   >
   > * **Huella digital**: MD5
   >
-  > Después de agregar el desencadenador o la acción SFTP-SSH que quiera a la aplicación lógica, debe proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, **_no escriba ni edite manualmente la clave_* _, ya que podría provocar un error en la conexión. En su lugar, asegúrese de _*_copiar la clave_*_ del archivo de clave privada SSH y _*_pegar_*_ esa clave en los detalles de la conexión. 
+  > Después de agregar el desencadenador o la acción SFTP-SSH que quiera a la aplicación lógica, debe proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, ***no escriba ni edite manualmente la clave***, ya que podría provocar un error en la conexión. En su lugar, asegúrese de ***copiar la clave*** del archivo de clave privada SSH y ***pegar*** esa clave en los detalles de la conexión. 
   > Para obtener más información, consulte la sección [Conectarse a SFTP con SSH](#connect) que se detalla más adelante en este artículo.
 
-_ Conocimientos básicos sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * La aplicación lógica desde donde quiere acceder a la cuenta de SFTP. Para comenzar con un desencadenador SFTP-SSH, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción SFTP-SSH, inicie la aplicación lógica con otro desencadenador, por ejemplo, el desencadenador **Recurrence**.
 
@@ -170,7 +170,15 @@ Si la clave privada está en formato PuTTy, que usa la extensión de nombre de a
 
 ## <a name="considerations"></a>Consideraciones
 
-En esta sección se describen las consideraciones para revisar las acciones y los desencadenadores de este conector.
+En esta sección se describen las consideraciones para revisar cuando use las acciones y los desencadenadores de este conector.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Uso de diferentes carpetas SFTP para la carga y el procesamiento de archivos
+
+En su servidor SFTP, asegúrese de utilizar carpetas independientes para el almacenamiento de los archivos cargados y donde el desencadenador supervisa esos archivos para su procesamiento, lo que significa que necesita una forma de mover los archivos entre esas carpetas. De lo contrario, el desencadenador no se activa y se comporta de forma impredecible, por ejemplo, omitiendo un número aleatorio de archivos que procesa el desencadenador.
+
+Si se produce este problema, quite los archivos de la carpeta que supervisa el desencadenador y use una carpeta diferente para almacenar los archivos cargados.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ Para crear un archivo en el servidor SFTP, puede usar la acción **Crear archivo
 
    1. Seleccione **Editar** > **Copiar**.
 
-   1. En el desencadenador o la acción SFTP-SSH que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key**, que admite varias líneas.  **_Asegúrese de pegar_* _ la clave. _*_No escriba ni edite la clave manualmente_*_.
+   1. En el desencadenador o la acción SFTP-SSH que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key**, que admite varias líneas.  **_Asegúrese de pegar_ *_ la clave. _* _No escriba ni edite la clave manualmente_**.
 
-1. Cuando termine de especificar los detalles de conexión, seleccione _*Crear**.
+1. Cuando termine de especificar los detalles de conexión, seleccione **Crear**.
 
 1. Ahora, proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 

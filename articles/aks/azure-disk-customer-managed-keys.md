@@ -4,12 +4,12 @@ description: Traiga sus propias claves (BYOK) para cifrar el sistema operativo y
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728142"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499210"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Cuando se agregan nuevos grupos de nodos al clúster creado anteriormente, la cl
 La clave de cifrado del disco del sistema operativo se usará para cifrar el disco de datos si no se proporciona la clave para el disco de datos a partir de v1.17.2, y también puede cifrar los discos de datos de AKS con las demás claves.
 
 > [!IMPORTANT]
-> Asegúrese de que tiene las credenciales de AKS adecuadas. La entidad de servicio deberá tener acceso de colaborador al grupo de recursos donde se implementa diskencryptionset. De lo contrario, obtendrá un error que sugiere que la entidad de servicio no tiene permisos.
+> Asegúrese de que tiene las credenciales de AKS adecuadas. La identidad administrada deberá tener acceso de colaborador al grupo de recursos donde se implementa diskencryptionset. De lo contrario, obtendrá un error que sugiere que la identidad administrada no tiene permisos.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below

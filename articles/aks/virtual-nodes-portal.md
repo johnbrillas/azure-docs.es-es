@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4c67d3608d2128385c273425ea495a02fa5a8c45
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180911"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501811"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -64,7 +64,7 @@ En la página **Escalado**, seleccione *Habilitado* en **Nodos virtuales**.
 
 ![Creación del clúster de AKS y habilitación de los nodos virtuales](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-De forma predeterminada, se crea una entidad de servicio de Azure Active Directory. Esta entidad de servicio se usa para la comunicación del clúster y la integración con otros servicios de Azure. También puede usar una identidad administrada para los permisos en lugar de una entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
+De forma predeterminada, se crea una identidad del clúster. Esta identidad del clúster se usa para la comunicación del clúster y la integración con otros servicios de Azure. De forma predeterminada, esta identidad del clúster es una identidad administrada. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md). También puede usar una entidad de servicio como identidad del clúster.
 
 El clúster también se configurado para redes avanzadas. Los nodos virtuales están configurados para usar su propia subred de red virtual de Azure. Esta subred tiene permisos delegados para conectarse a recursos de Azure entre el clúster de AKS. Si aún no tiene una subred delegada, Azure Portal crea y configura la red virtual de Azure y la subred para su uso con los nodos virtuales.
 

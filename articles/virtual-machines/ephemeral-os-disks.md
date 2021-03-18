@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684566"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485765"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
 
@@ -244,6 +244,11 @@ A. Los discos efímeros no admiten:
 - Azure Backup
 - Azure Site Recovery  
 - Intercambio de discos del sistema operativo 
+
+> [!NOTE]
+> 
+> No se podrá acceder al disco efímero mediante el portal. Recibirá el error "Recurso no encontrado" o "404" al acceder al disco efímero que se espera.
+> 
  
 ## <a name="next-steps"></a>Pasos siguientes
 Puede crear una máquina virtual con un disco de SO efímero mediante la [CLI de Azure](/cli/azure/vm#az-vm-create).

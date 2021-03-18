@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688559"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500536"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -69,8 +69,8 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |passwordPolicies     |String|La directiva de la contraseña. Es una cadena que consta de un nombre de directiva diferente separado por una coma. Por ejemplo, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persistente, salida|
 |physicalDeliveryOfficeName (officeLocation)|String|La ubicación del lugar de trabajo del usuario. La longitud máxima es 128.|Sí|No|Persistente, salida|
 |postalCode      |String|El código postal de la dirección del usuario. El código postal es específico del país o la región del usuario. En Estados Unidos de América, este atributo contiene el código ZIP. La longitud máxima es 40.|Sí|No|Persistente, salida|
-|preferredLanguage    |String|El idioma preferido del usuario. Debe seguir el código ISO 639-1. Ejemplo: "en-US".|No|No|Persistente, salida|
-|refreshTokensValidFromDateTime|DateTime|Los tokens de actualización emitidos antes de esta hora no son válidos. Las aplicaciones obtendrán un error al usar un token de actualización no válido para adquirir un nuevo token de acceso. Si esto ocurre, la aplicación tendrá que adquirir un nuevo token de actualización realizando una solicitud al punto de conexión de autorización. Solo lectura.|No|No|Output|
+|preferredLanguage    |String|El idioma preferido del usuario. El formato de idioma preferido se basa en RFC 4646. El nombre es una combinación de un código de referencia cultural ISO 639 de dos letras en minúsculas asociado con un idioma y un código de referencia cultural secundaria ISO 3166 de dos letras en mayúsculas asociado con un país o región. Ejemplo: "en-US" o "es-ES".|No|No|Persistente, salida|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Los tokens de actualización emitidos antes de esta hora no son válidos. Las aplicaciones obtendrán un error al usar un token de actualización no válido para adquirir un nuevo token de acceso. Si esto ocurre, la aplicación tendrá que adquirir un nuevo token de actualización realizando una solicitud al punto de conexión de autorización. Solo lectura.|No|No|Output|
 |signInNames ([Identidades](#identities-attribute)) |String|El nombre de inicio de sesión único del usuario de cuenta local de cualquier tipo en el directorio. Use este atributo para obtener un usuario con el valor de inicio de sesión sin especificar el tipo de cuenta local.|No|No|Entrada|
 |signInNames.userName ([Identidades](#identities-attribute)) |String|El nombre de inicio de sesión único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un nombre de usuario de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
 |signInNames.phoneNumber ([Identidades](#identities-attribute)) |String|El número de teléfono único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un número de teléfono de inicio de sesión específico. Si se especifica este atributo en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
@@ -101,9 +101,9 @@ Una cuenta de cliente, que podría ser un consumidor, un asociado o un ciudadano
 - Identidad **Local**: el nombre de usuario y la contraseña almacenados localmente en el directorio de Azure AD B2C. A menudo se hace referencia a estas identidades como "cuentas locales".
 - Identidad **Federado**: también denominada cuenta *social* o de *empresa*, la identidad del usuario se administra mediante un proveedor de identidades federado, como Facebook, Microsoft, ADFS o Salesforce.
 
-Un usuario con una cuenta de cliente puede iniciar sesión con varias identidades. Por ejemplo, el nombre de usuario, el correo electrónico, el Id. de empleado, el Id. oficial y otros. Una sola cuenta puede tener varias identidades, tanto locales como sociales, con la misma contraseña.
+Un usuario con una cuenta de cliente puede iniciar sesión con varias identidades. Por ejemplo, el nombre de usuario, el correo electrónico, el Id. de empleado, el Id. oficial y otros. Una sola cuenta puede tener varias identidades, tanto locales como sociales, con la misma contraseña. 
 
-En Microsoft Graph API, las identidades locales y federadas se almacenan en el atributo `identities` del usuario, que es de tipo [objectIdentity][graph-objectIdentity]. La colección `identities` representa un conjunto de identidades que se usan para iniciar sesión en una cuenta de usuario. Esta colección permite al usuario iniciar sesión en la cuenta de usuario con cualquiera de sus identidades asociadas.
+En Microsoft Graph API, las identidades locales y federadas se almacenan en el atributo `identities` de usuario, que es de tipo [objectIdentity](/graph/api/resources/objectidentity). La colección `identities` representa un conjunto de identidades que se usan para iniciar sesión en una cuenta de usuario. Esta colección permite al usuario iniciar sesión en la cuenta de usuario con cualquiera de sus identidades asociadas. El atributo Identities puede contener hasta diez objetos [objectIdentity](/graph/api/resources/objectidentity). Cada objeto contiene las siguientes propiedades:
 
 | Nombre   | Tipo |Descripción|
 |:---------------|:--------|:----------|

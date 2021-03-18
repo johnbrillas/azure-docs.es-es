@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660376"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119916"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de inicio de sesión en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ La directiva de inicio de sesión contiene las siguientes directrices:
 * Los usuarios pueden iniciar sesión con una cuenta local de Azure AD B2C
 * Registrarse o iniciar sesión con una cuenta de redes sociales
 * Restablecimiento de contraseña
-* Los usuarios no pueden suscribirse a una cuenta local de Azure AD B2C. Para crear una cuenta, un administrador puede usar [MS Graph API](microsoft-graph-operations.md).
+* Los usuarios no pueden suscribirse a una cuenta local de Azure AD B2C. Para crear una cuenta, un administrador puede usar [Azure Portal](manage-users-portal.md#create-a-consumer-user) o [MS Graph API](microsoft-graph-operations.md).
 
 ![Flujo de edición de perfiles](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -75,26 +75,34 @@ El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](s
 1. Agregue el siguiente proveedor de notificaciones al elemento `ClaimsProviders`:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. Dentro del elemento `<BuildingBlocks>`, agregue el siguiente valor de [ContentDefinition](contentdefinitions.md) para hacer referencia a la versión 1.2.0 o un URI de datos más reciente:
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>Carga y prueba de la directiva
@@ -103,7 +111,7 @@ El perfil técnico **SelfAsserted-LocalAccountSignin-Email** es [autoafirmado](s
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Marco de experiencia de identidad**.
-1. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de directiva modificados.
+1. Seleccione **Cargar directiva personalizada** y cargue el archivo de la directiva que ha modificado, *TrustFrameworkExtensions.xml*.
 1. Seleccione la directiva de inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
 1. Debería poder iniciar sesión con la cuenta que ha creado (mediante MS Graph API), sin el vínculo de registro.
 

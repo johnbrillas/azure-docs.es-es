@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a020559229771fff1ecc8fb512a5b2af70240cdd
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378005"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509513"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -136,10 +136,13 @@ Cuando se puede recuperar una máquina virtual con copia de seguridad, se usa el
 
 4. En la pantalla **Seleccionar tipo de recuperación**, seleccione dónde quiere restaurar los datos y, después, elija **Siguiente**.
 
-    - **Recuperar en instancia original**: Al recuperar en la instancia original, se elimina el disco duro virtual original. MABS recupera el disco duro virtual y otros archivos de configuración en la ubicación original mediante VSS Writer de Hyper-V. Al final del proceso de recuperación, las máquinas virtuales siguen siendo de alta disponibilidad.
+    - **Recuperar en instancia original**: al recuperar en la instancia original, se eliminan el disco duro virtual original y todos los puntos de control asociados. MABS recupera el disco duro virtual y otros archivos de configuración en la ubicación original mediante VSS Writer de Hyper-V. Al final del proceso de recuperación, las máquinas virtuales siguen siendo de alta disponibilidad.
         Para la recuperación, el grupo de recursos debe estar presente. Si no está disponible, realice la recuperación en una ubicación alternativa y, después, haga que la máquina virtual sea de alta disponibilidad.
 
     - **Recuperar como máquina virtual para cualquier host**: MABS admite la recuperación de ubicación alternativa (ALR), que proporciona una recuperación sin problemas de una máquina virtual de Hyper-V protegida en otro host de Hyper-V, con independencia de la arquitectura del procesador. Las máquinas virtuales de Hyper-V que se recuperan en un nodo de clúster no tendrán alta disponibilidad. Si elige esta opción, el Asistente para recuperación presentará una pantalla adicional para identificar el destino y la ruta de acceso de destino.
+    
+        >[!NOTE]
+        >Si selecciona el host original, el comportamiento es el mismo que el de **Recuperar en instancia original**. Se eliminan el disco duro virtual original y todos los puntos de control asociados.
 
     - **Copiar en una carpeta de red**: MABS admite la recuperación de nivel de elemento (ILR), que permite la recuperación de nivel de elemento de archivos, carpetas, volúmenes y discos duros virtuales (VHD) a partir de una copia de seguridad de nivel de host de máquinas virtuales de Hyper-V en un recurso compartido de red o un volumen en un servidor protegido de MABS. No es necesario que el agente de protección de MABS esté instalado dentro del invitado para realizar la recuperación de nivel de elemento. Si elige esta opción, el Asistente para recuperación presentará una pantalla adicional para identificar el destino y la ruta de acceso de destino.
 

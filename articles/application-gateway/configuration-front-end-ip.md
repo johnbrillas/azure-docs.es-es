@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: eff63510f70dd7b4cdd522cc5a2a68096cda7166
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058657"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548723"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuración de la dirección IP de front-end de Application Gateway
 
@@ -30,7 +30,7 @@ Para obtener más información, vea las [preguntas más frecuentes sobre Applica
 
 No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación TLS.
 
-Se admite solo una dirección IP pública o una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
+Se admite solo una dirección IP pública y una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
 
 - Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicación. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 

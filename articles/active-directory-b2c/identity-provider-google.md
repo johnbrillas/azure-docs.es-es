@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c89e7e948b8a48c7e8d43950ffc2748efff6f51b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: a3b0be062025681af2b03dfd2e57f1af2d99d701
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953876"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448360"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -72,7 +72,10 @@ Escriba el **nombre** de la aplicación. Escriba *b2clogin.com* en la sección *
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Haga clic en **Ejecutar flujo de usuario**.
+1. Seleccione el botón **Ejecutar flujo de usuario**.
+1. En la página de registro o de inicio de sesión, seleccione **Google** para iniciar sesión con la cuenta de Google.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end
 
@@ -170,7 +173,14 @@ Puede definir una cuenta de Google como proveedor de notificaciones; para ello, 
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
+
+1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
+1. En **Aplicación**, seleccione la aplicación web que [registró anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **Google** para iniciar sesión con la cuenta de Google.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end
 

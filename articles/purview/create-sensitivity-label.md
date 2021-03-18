@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693533"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502453"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -114,13 +114,24 @@ Por ejemplo:
 Una vez que extienda el etiquetado a los recursos de Azure Purview, puede seleccionar las etiquetas que quiere que estén disponibles en Purview. Para obtener más información, consulte [Creación de nuevas etiquetas de confidencialidad o modificación de las etiquetas existentes](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>Creación de nuevas etiquetas de confidencialidad o modificación de las etiquetas existentes
 
+Cuando se usan etiquetas de confidencialidad para las aplicaciones de Office en Windows, macOS, iOS y Android, los usuarios ven las nuevas etiquetas en un plazo de cuatro horas y en el plazo de una hora para Office en la Web. Sin embargo, puede que sea necesario esperar hasta 24 horas para que los cambios se repliquen en todas las aplicaciones y servicios.
+
+> [!IMPORTANT]
+> No elimine una etiqueta a menos que comprenda el impacto en los usuarios. Para obtener más información, consulte [Quitar y eliminar etiquetas](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) en la documentación de Microsoft 365.
+>
+
+**Para crear etiquetas de confidencialidad o modificar las ya existentes**:
+
 1. Abra el [Centro de seguridad y cumplimiento de Microsoft 365](https://protection.office.com/homepage). 
 
 1. En **Soluciones**, seleccione **Information Protection** y, a continuación, seleccione **Crear una etiqueta**. 
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Creación de etiquetas de confidencialidad en el Centro de seguridad y cumplimiento de Microsoft 365" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Asigne un nombre a la etiqueta. A continuación, en **Definir el ámbito de esta etiqueta**, seleccione **Archivos y correos electrónicos** y **Recursos de Azure Purview**.
+1. Asigne un nombre a la etiqueta. En **Define the scope for this label** (Definir el ámbito de esta etiqueta):
+
+    - En todos los casos, seleccione **Azure Purview assets** (Recursos de Azure Purview).
+    - Para etiquetar archivos, seleccione también **Files & emails** (Archivos y mensajes de correo electrónico). Esta opción no es necesaria para etiquetar solo recursos de base de datos. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Creación de la etiqueta en el Centro de seguridad y cumplimiento de Microsoft 365" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
@@ -149,10 +160,6 @@ Una vez que extienda el etiquetado a los recursos de Azure Purview, puede selecc
 
     Para obtener más información, consulte [Prioridad de etiqueta (el orden importa)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) en la documentación de Microsoft 365.
 
-> [!IMPORTANT]
-> No elimine una etiqueta a menos que comprenda el impacto en los usuarios. 
->
-> Para obtener más información, consulte [Quitar y eliminar etiquetas](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) en la documentación de Microsoft 365.
 
 Continúe [examinando los datos para aplicar etiquetas automáticamente](#scan-your-data-to-apply-labels-automatically) y, a continuación:
 

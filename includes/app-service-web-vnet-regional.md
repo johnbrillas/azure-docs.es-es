@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98225629"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473751"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -38,6 +38,8 @@ De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a s
 
 > [!NOTE]
 > Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Si enruta todo el tráfico de salida a la VNet, las direcciones de salida seguirán siendo las que aparecen en las propiedades de la aplicación, a menos que proporcione otras rutas para enviar allí el tráfico.
+> 
+> La integración de red virtual regional no puede usar el puerto 25.
 
 Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
 

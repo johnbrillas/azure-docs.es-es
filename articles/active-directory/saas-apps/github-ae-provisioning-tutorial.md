@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178745"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427018"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub AE para aprovisionar usuarios automáticamente
 
@@ -32,6 +32,7 @@ En este tutorial se describen los pasos que debe realizar en GitHub AE y Azure 
 > * Crear usuarios en GitHub AE
 > * Eliminar usuarios de GitHub AE cuando ya no necesiten acceso
 > * Mantener los atributos de usuario sincronizados entre Azure AD y GitHub AE
+> * Aprovisionamiento de grupos y pertenencias a grupos en GitHub AE
 > * Inicio de sesión único en [GitHub AE](./github-ae-tutorial.md) (recomendado)
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -59,7 +60,7 @@ Para empezar a administrar el aprovisionamiento de GitHub AE, agregue GitHub A
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios o grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios a GitHub AE, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a GitHub AE, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios o grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios o grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -111,17 +112,27 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.formatted|String|
    |DisplayName|String|
 
-10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to GitHub AE** (Sincronizar grupos de Azure Active Directory con GitHub AE).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para GitHub AE, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Revise los atributos de grupo que se sincronizan entre Azure AD y GitHub AE en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de GitHub AE con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+
+      |Atributo|Tipo|
+      |---|---|
+      |DisplayName|String|
+      |externalId|String|
+      |members|Referencia|
+
+12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para GitHub AE, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en GitHub AE.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en GitHub AE.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
@@ -133,6 +144,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 2. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro de cambios
+
+* 18/02/2021: Se ha agregado compatibilidad para el aprovisionamiento de grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

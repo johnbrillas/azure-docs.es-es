@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030892"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500434"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
 Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos de registro estén disponibles una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
 
 ## <a name="typical-latency"></a>Latencia típica
-La latencia hace referencia al momento en el que los datos se crean en el sistema supervisado y el momento en el que están disponibles para su análisis en Azure Monitor. La latencia típica para la ingesta de datos de registro es de entre 2 y 5 minutos. La latencia específica para cualquier dato determinado varía en función de una serie de factores que se explican más adelante.
+La latencia hace referencia al momento en el que los datos se crean en el sistema supervisado y el momento en el que están disponibles para su análisis en Azure Monitor. La latencia típica para la ingesta de datos de registro es de entre 20 y 3 minutos. Sin embargo, la latencia específica para cualquier dato determinado varía en función de una serie de factores que se explican más adelante.
 
 
 ## <a name="factors-affecting-latency"></a>Factores que afectan a la latencia
 El tiempo total de ingesta para un determinado conjunto de datos puede dividirse en las siguientes áreas de alto nivel. 
 
-- Tiempo del agente: el tiempo para detectar un evento, recopilarlo y enviarlo al punto de ingesta de Azure Monitor como una entrada de registro. En la mayoría de los casos, este proceso se controla mediante un agente.
+- Tiempo del agente: es el tiempo para detectar un evento, recopilarlo y enviarlo al punto de ingesta de Azure Monitor como una entrada de registro. En la mayoría de los casos, este proceso se controla mediante un agente. La red puede introducir latencia adicional.
 - Tiempo de canalización: el tiempo que le lleva a la canalización de ingesta procesar la entrada del registro. Esto incluye el análisis de las propiedades del evento y la incorporación potencial de información calculada.
 - Tiempo de indexación: el tiempo dedicado a la ingesta de una entrada de registro en el almacén de macrodatos de Azure Monitor.
 
@@ -36,16 +36,17 @@ Los agentes y las soluciones de administración utilizan diferentes estrategias 
 - La solución de Active Directory Replication realiza su valoración cada cinco días, mientras que la solución de Active Directory Assessment realiza una evaluación semanal de la infraestructura de Active Directory. El agente recopilará estos registros solo cuando la evaluación esté completada.
 
 ### <a name="agent-upload-frequency"></a>Frecuencia de carga del agente
-Para asegurarse de que el agente de Log Analytics es ligero, el agente almacena en búfer los registros y los carga periódicamente en Azure Monitor. La frecuencia de carga varía entre 30 segundos y 2 minutos, según el tipo de datos. La mayoría de los datos se carga en menos de 1 minuto. Las condiciones de red pueden afectar negativamente a la latencia de estos datos para acceder al punto de ingesta de Azure Monitor.
+Para asegurarse de que el agente de Log Analytics es ligero, el agente almacena en búfer los registros y los carga periódicamente en Azure Monitor. La frecuencia de carga varía entre 30 segundos y 2 minutos, según el tipo de datos. La mayoría de los datos se carga en menos de 1 minuto. 
+
+### <a name="network"></a>Red
+Las condiciones de red pueden afectar negativamente a la latencia de estos datos para acceder al punto de ingesta de Azure Monitor.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Registros de actividad, registros de recursos y métricas de Azure
 Los datos de Azure tardan más tiempo en estar disponibles en el punto de ingesta de Log Analytics para su procesamiento:
 
-- Los datos de los registros de recursos tardan entre 2 y 15 minutos, en función del servicio de Azure. Vea [esta consulta](#checking-ingestion-time) para examinar la latencia en su entorno
-- Las métricas de la plataforma de Azure tardan 3 minutos en enviarse al punto de ingesta de Log Analytics.
-- Los datos de registro de actividad tardarán aproximadamente entre 10 y 15 minutos en enviarse al punto de ingesta de Log Analytics.
-
-Una vez disponibles en el punto de ingesta, tardarán entre 2 y 5 minutos más en estar disponibles para su consulta.
+- Normalmente, los registros de recursos agregan 30-90 segundos, según el servicio de Azure. Algunos servicios de Azure (específicamente, Azure SQL Database y Azure Virtual Network) notifican actualmente sus registros a intervalos de 5 minutos. Se está trabajando para mejorarlos aún más. Vea [esta consulta](#checking-ingestion-time) para examinar la latencia en su entorno
+- Las métricas de la plataforma Azure tardan 3 minutos más en exportarse a Azure Monitor el punto de ingesta de registros.
+- Los datos del registro de actividad pueden tardar más de 10-15 minutos, si se usa la integración heredada. Se recomienda usar la configuración de diagnóstico de nivel de suscripción para introducir registros de actividad en registros de Azure Monitor, lo que supone una latencia adicional de aproximadamente 30 segundos.
 
 ### <a name="management-solutions-collection"></a>Recopilación de las soluciones de administración
 Algunas soluciones no recopilan los datos de un agente y pueden usar un método de recopilación que introduce latencia adicional. Algunas soluciones recopilan los datos a intervalos regulares sin intentar la recopilación casi en tiempo real. A continuación se incluyen algunos ejemplos específicos:
@@ -56,6 +57,9 @@ Algunas soluciones no recopilan los datos de un agente y pueden usar un método 
 Consulte la documentación de cada solución para determinar su frecuencia de recopilación.
 
 ### <a name="pipeline-process-time"></a>Tiempo del proceso de canalización
+
+Una vez disponibles en el punto de ingesta, tardarán entre 30 y 60 minutos más en estar disponibles para su consulta.
+
 Una vez que las entradas de registro se han ingerido en la canalización de Azure Monitor (como se indica en la propiedad [_TimeReceived](./log-standard-columns.md#_timereceived)), se escriben en un almacenamiento temporal para garantizar el aislamiento de inquilinos y para asegurarse de que no se pierden datos. Normalmente, este proceso agrega de 5 a 15 segundos. Algunas soluciones de administración implementan algoritmos más pesados para agregar datos y obtener perspectivas a medida que los datos van entrando. Por ejemplo, Network Performance Monitor agrega los datos de entrada en intervalos de 3 minutos, agregando así una latencia de 3 minutos. Otro proceso que agrega latencia es el proceso que controla los registros personalizados. En algunos casos, este proceso puede agregar algunos minutos de latencia a los registros recopilados de los archivos por el agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Aprovisionamiento de nuevos tipos de datos personalizados
@@ -141,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Lea el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) para Azure Monitor.
+* Lea el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/) para Azure Monitor.

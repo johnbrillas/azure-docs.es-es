@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377112"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519612"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -23,7 +23,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
 
 ### <a name="step-1-check-azure-vm-health"></a>Paso 1: Comprobación del estado de la máquina virtual de Azure
 
-- **Asegúrese de que el estado de aprovisionamiento de la máquina virtual de Azure sea "Ejecutando"** : Si el [estado de aprovisionamiento de la máquina virtual](../virtual-machines/states-lifecycle.md#provisioning-states) es **Detenido/Desasignado/Actualizando**, interferirá con la operación de copia de seguridad. Abra *Azure Portal > VM > Información general >* y compruebe el estado de la máquina virtual para asegurarse de que esté **en ejecución**; y vuelva a intentar la operación de copia de seguridad.
+- **Asegúrese de que el estado de aprovisionamiento de la máquina virtual de Azure sea "Ejecutando"** : Si el [estado de aprovisionamiento de la máquina virtual](../virtual-machines/states-billing.md) es **Detenido/Desasignado/Actualizando**, interferirá con la operación de copia de seguridad. Abra *Azure Portal > VM > Información general >* y compruebe el estado de la máquina virtual para asegurarse de que esté **en ejecución**; y vuelva a intentar la operación de copia de seguridad.
 - **Revise las actualizaciones o los reinicios del sistema operativo pendientes**: Asegúrese de que no haya ninguna actualización o reinicio pendiente del sistema operativo en la máquina virtual.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Paso 2: Comprobación del estado del servicio de agente invitado de la máquina virtual de Azure
@@ -53,11 +53,11 @@ Azure Backup usa la Extensión de instantánea de máquina virtual para realizar
 
 - **Compruebe si el antivirus está bloqueando la extensión**: Puede haber software antivirus que impida la ejecución de extensiones.
   
-  Cuando se produzca el error de copia de seguridad, compruebe si hay entradas de registro en los *_registros de aplicación del Visor de eventos_* _ con el _*_nombre de la aplicación con error: IaaSBcdrExtension.exe_*_. Si ve entradas, es posible que el antivirus configurado en la máquina virtual restrinja la ejecución de la extensión de copia de seguridad. Pruebe a excluir los directorios siguientes en la configuración del antivirus y vuelva a intentar la operación de copia de seguridad.
+  Cuando se produzca el error de copia de seguridad, compruebe si hay entradas de registro en los ***registros de aplicación del Visor de eventos** _ con el *_nombre de la aplicación con error: IaaSBcdrExtension.exe_**. Si ve entradas, es posible que el antivirus configurado en la máquina virtual restrinja la ejecución de la extensión de copia de seguridad. Pruebe a excluir los directorios siguientes en la configuración del antivirus y vuelva a intentar la operación de copia de seguridad.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- _*Compruebe si es necesario tener acceso a la red**: Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas del estado de las extensiones se publican en Azure Storage. [Más información](../virtual-machines/extensions/features-windows.md#network-access).
+- **Compruebe si es necesario tener acceso a la red**: Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas del estado de las extensiones se publican en Azure Storage. [Más información](../virtual-machines/extensions/features-windows.md#network-access).
   - Si usa una versión no compatible del agente, deberá autorizar el acceso saliente a Azure Storage en esa región desde la máquina virtual.
   - Si ha bloqueado el acceso a `168.63.129.16` con el firewall invitado o con un proxy, las extensiones generarán un error con independencia de lo mencionado anteriormente. Se requieren los puertos 80, 443 y 32526, [más información](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -101,7 +101,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorVmProvisioningStateFailed<br>
 **Mensaje de error**: la máquina virtual está en un estado de aprovisionamiento con errores<br>
 
-Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-lifecycle.md#provisioning-states).
+Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-billing.md).
 
 - Si alguna extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
 - Si el estado de aprovisionamiento de la máquina virtual es un estado de actualización, puede interferir con la copia de seguridad. Asegúrese de que sea correcto y vuelva a intentar la operación de copia de seguridad.

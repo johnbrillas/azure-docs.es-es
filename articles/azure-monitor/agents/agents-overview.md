@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: b8cfb483f2b06c072707c57ff45b7ad995a22eb4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034445"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551477"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -152,10 +152,10 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 
 ### <a name="linux"></a>Linux
 
-| Sistema operativo | Agente de Azure Monitor | Agente de Log Analytics | Dependency Agent | Extensión Diagnostics | 
+| Sistema operativo | Agente de Azure Monitor <sup>1</sup> | Agente de Log Analytics <sup>1</sup> | Dependency Agent | Extensión Diagnostics <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
-| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5+                                           |   | X | X | X |
@@ -164,26 +164,28 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
-| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
 
-<sup>1</sup> Requiere que Python 3 esté instalado en la máquina.
+<sup>1</sup> Requiere que Python (2 o 3) esté instalado en la máquina.
 
-<sup>2</sup> Problema conocido al recopilar eventos de Syslog. Actualmente solo se admiten los datos de rendimiento.
+<sup>2</sup> Requiere que Python 2 esté instalado en la máquina.
+
+<sup>3</sup> Problema conocido al recopilar eventos de Syslog. Actualmente solo se admiten los datos de rendimiento.
 #### <a name="dependency-agent-linux-kernel-support"></a>Compatibilidad del kernel de Linux con Dependency Agent
 
 Dado que Dependency Agent funciona en el nivel de kernel, la compatibilidad también depende de la versión del kernel. En la tabla siguiente se enumeran la versión principal y secundaria de los sistemas operativos Linux y las versiones de kernel admitidas para Dependency Agent.

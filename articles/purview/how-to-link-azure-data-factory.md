@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807655"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449618"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -73,7 +73,7 @@ Siga los pasos que se indican a continuación para conectar una cuenta existente
 
 Cuando un usuario de Purview registra una instancia de Data Factory a la que tiene acceso, ocurre lo siguiente en el back-end:
 
-1. El **MSI de Data Factory** se agrega al rol RBAC de Purview: **Conservador de datos de Purview**.
+1. La **identidad administrada de Data Factory** se agrega al rol RBAC de Purview: **Conservador de datos de Purview**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Captura de pantalla que muestra el MSI de Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,92 @@ Para quitar una conexión de Data Factory, haga lo siguiente:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de pantalla que muestra cómo seleccionar factorías de datos para quitar la conexión." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configuración de un IR autohospedado para recopilar el linaje desde SQL local
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configuración de una instancia de Integration Runtime autohospedada para recopilar el linaje
 
-El linaje de la actividad de copia de Data Factory está disponible en bases de datos SQL locales. Si está ejecutando un entorno de ejecución de integración autohospedado para el movimiento de datos con Azure Data Factory y quiere capturar el linaje en Azure Purview, asegúrese de que la versión sea 4.8.7418.1 o posterior. Para obtener más información sobre el entorno de ejecución de integración autohospedado, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+El linaje de la actividad de copia de Data Factory está disponible para los almacenes de datos locales, como las bases de datos SQL. Si está ejecutando un entorno de ejecución de integración autohospedado para el movimiento de datos con Azure Data Factory y quiere capturar el linaje en Azure Purview, asegúrese de que la versión sea 5.0 o posterior. Para obtener más información sobre el entorno de ejecución de integración autohospedado, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <a name="supported-azure-data-factory-activities"></a>Actividades admitidas de Azure Data Factory
 
 Azure Purview captura el linaje en tiempo de ejecución de las siguientes actividades de Azure Data Factory:
 
-- Copia de datos
-- Data Flow
-- Ejecución de paquetes SSIS
+- [Copiar datos](../data-factory/copy-activity-overview.md)
+- [Flujo de datos](../data-factory/concepts-data-flow-overview.md)
+- [Ejecución de paquetes SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Azure Purview anula el linaje si el origen o el destino usan un sistema de almacenamiento de datos no admitido.
 
 La integración entre Data Factory y Purview solo admite un subconjunto de los sistemas de datos que admite Data Factory, como se explica en las secciones siguientes.
 
-### <a name="data-factory-copy-data-support"></a>Compatibilidad de Copia de datos de Data Factory
+### <a name="data-factory-copy-activity-support"></a>Compatibilidad con la actividad de copia de Data Factory
 
-| Sistema de almacenamiento de datos | Se admite como origen | 
+| Almacén de datos | Compatible | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sí | 
-| ADLS Gen2 | Sí | 
-| Blob de Azure | Sí |
-| Azure Cosmos DB (API de SQL) | Sí | 
-| Azure Cosmos DB (Mongo API) | Sí |
+| Azure Blob Storage | Sí |
 | Azure Cognitive Search | Sí | 
-| Explorador de datos de Azure | Sí | 
+| Azure Cosmos DB (SQL API) \* | Sí | 
+| API de Azure Cosmos DB para MongoDB \* | Sí |
+| Azure Data Explorer \* | Sí | 
+| Azure Data Lake Storage Gen1 | Sí | 
+| Azure Data Lake Storage Gen2 | Sí | 
 | Azure Database for Maria DB \* | Sí | 
-| Azure Database for MYSQL \* | Sí | 
+| Azure Database for MySQL \* | Sí | 
 | Azure Database for PostgreSQL \* | Sí |
 | Azure File Storage | Sí | 
-| Azure Table Storage | Sí |
 | Azure SQL Database \* | Sí | 
-| Azure SQL MI \* | Sí | 
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sí | 
-| SQL Server local \* | Sí | 
+| Azure SQL Managed Instance \* | Sí | 
+| Azure Synapse Analytics \* | Sí | 
+| Azure Table Storage | Sí |
 | Amazon S3 | Sí | 
-| Teradata | Sí | 
-| Conector de tabla de SAP | Sí |
-| SAP ECC | Sí | 
-| Hive | Sí | 
+| Hive \* | Sí | 
+| SAP ECC \* | Sí |
+| SAP Table | Sí |
+| SQL Server \* | Sí | 
+| Teradata \* | Sí |
+
+*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
 > [!Note]
 > La característica de linaje tiene cierta sobrecarga de rendimiento en la actividad de copia de Data Factory. Aquellos que configuren las conexiones de Data Factory en Purview pueden observar que determinados trabajos de copia tardan más tiempo en completarse. Pero, en su mayor parte, el impacto es o ninguno o insignificante. Póngase en contacto con soporte técnico y proporcione la comparación de tiempo si los trabajos de copia tardan mucho más tiempo del habitual en terminar.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitaciones conocidas en el linaje de la actividad de copia
+
+Actualmente, si usa las siguientes características de la actividad de copia, el linaje no se admite todavía:
+
+- Copia de datos en Azure Data Lake Storage Gen1 mediante el formato binario.
+- Copia de datos en Azure Synapse Analytics mediante PolyBase o la instrucción COPY.
+- Configuración de compresión para archivos binarios, de texto delimitado, de Excel, JSON y XML.
+- Opciones de partición de origen para Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server y la tabla de SAP.
+- Opción de detección de partición de origen para almacenes basados en archivos.
+- Copia de datos en un receptor basado en archivos con la configuración de número máximo de filas por archivo.
+- Adición de más columnas durante la copia.
+
 ### <a name="data-factory-data-flow-support"></a>Compatibilidad de Data Flow de Data Factory
 
-| Sistema de almacenamiento de datos | Compatible |
+| Almacén de datos | Compatible |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sí |
-| ADLS Gen2 | Sí |
-| Blob de Azure | Sí |
+| Azure Blob Storage | Sí |
+| Azure Data Lake Storage Gen1 | Sí |
+| Azure Data Lake Storage Gen2 | Sí |
 | Azure SQL Database \* | Sí |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sí |
+| Azure Synapse Analytics \* | Sí |
+
+*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Compatibilidad de Ejecución de paquete de SSIS de Data Factory
 
-| Sistema de almacenamiento de datos | Compatible |
+| Almacén de datos | Compatible |
 | ------------------- | ------------------- |
-| Blob de Azure | Sí |
-| ADLS Gen1 | Sí |
-| ADLS Gen2 | Sí |
-| Azure SQL Database \* | Sí |
-| Azure SQL MI \*| Sí |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sí |
-| SQL Server local \* | Sí |
+| Azure Blob Storage | Sí |
+| Azure Data Lake Storage Gen1 | Sí |
+| Azure Data Lake Storage Gen2 | Sí |
 | Azure File Storage | Sí |
+| Azure SQL Database \* | Sí |
+| Azure SQL Managed Instance \*| Sí |
+| Azure Synapse Analytics \* | Sí |
+| SQL Server \* | Sí |
 
-*\* En escenarios de SQL (Azure y locales), Azure Purview no admite procedimientos almacenados ni scripts para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
+*\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
 > [!Note]
 > Azure Data Lake Storage Gen2 ya está disponible con carácter general. Se recomienda que empiece a usarlo hoy mismo. Para más información, consulte la [página del producto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -172,7 +188,7 @@ Entre otras formas de buscar información en la vista de linaje se incluyen las 
 
 - En la pestaña **Linaje**, mantenga el mouse sobre las formas para obtener una vista previa de la información adicional sobre el recurso en la información sobre herramientas.
 - Seleccione el nodo o el borde para ver el tipo de recurso al que pertenece o para cambiar de recurso.
-- Las columnas de un conjunto de datos se muestran en el lado izquierdo de la pestaña **Linaje**. Para obtener más información sobre el linaje de nivel de columna, vea [Linaje de nivel de columna](catalog-lineage-user-guide.md#column-level-lineage).
+- Las columnas de un conjunto de datos se muestran en el lado izquierdo de la pestaña **Linaje**. Para obtener más información sobre el linaje de nivel de columna, vea [Linaje de nivel de columna](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### <a name="data-lineage-for-11-operations"></a>Linaje de datos de operaciones 1:1
 

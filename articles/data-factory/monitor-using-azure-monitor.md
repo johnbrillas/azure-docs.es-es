@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586870"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550304"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -76,7 +76,7 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
    ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para obtener más información, consulte la [referencia de registros de AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
 1. Seleccione **Guardar**.
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718733"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487858"
 ---
 # <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
@@ -50,6 +50,7 @@ Haga clic en el nombre del proveedor de recursos en la tabla siguiente para ver 
 | [microsoft.storagesync](#microsoftstoragesync) |
 | [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
+| [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
@@ -2047,6 +2048,62 @@ Servicio de Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft.StorSimple/operations/read | Enumera u obtiene las operaciones. |
 
 ## <a name="web"></a>Web
+
+### <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+Servicio de Azure: [Azure Spring Cloud](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Acción | Descripción |
+> | --- | --- |
+> | Microsoft.AppPlatform/register/action | Permite registrar la suscripción en el proveedor de recursos Microsoft.AppPlatform. |
+> | Microsoft.AppPlatform/unregister/action | Permite anular el registro de la suscripción en el proveedor de recursos Microsoft.AppPlatform. |
+> | Microsoft.AppPlatform/locations/checkNameAvailability/action | Permite comprobar la disponibilidad del nombre del recurso. |
+> | Microsoft.AppPlatform/locations/operationResults/Spring/read | Permite leer el resultado de la operación del recurso. |
+> | Microsoft.AppPlatform/locations/operationStatus/operationId/read | Permite leer el estado de la operación del recurso. |
+> | Microsoft.AppPlatform/operations/read | Permite enumerar las operaciones disponibles de Microsoft Azure Spring Cloud. |
+> | Microsoft.AppPlatform/skus/read | Permite enumerar las SKU de Microsoft Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/write | Permite crear o actualizar una instancia específica del servicio Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/delete | Permite eliminar una instancia de servicio de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/read | Permite obtener instancias de servicio de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/enableTestEndpoint/action | Permite habilitar la funcionalidad de punto de conexión de prueba para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/disableTestEndpoint/action | Permite deshabilitar la funcionalidad de punto de conexión de prueba para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/listTestKeys/action | Permite enumerar las claves de prueba para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/regenerateTestKey/action | Permite volver a generar la clave de prueba para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/write | Permite crear o actualizar la aplicación para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/delete | Permite eliminar la aplicación para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/read | Permite obtener las aplicaciones para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Permite obtener la dirección URL de carga de recursos de una aplicación específica de Microsoft Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Permite validar el dominio personalizado para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/bindings/write | Permite crear o actualizar el enlace para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/bindings/delete | Permite eliminar el enlace para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/bindings/read | Permite obtener los enlaces para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/write | Permite crear o actualizar la implementación para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/delete | Permite eliminar la implementación para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/read | Permite obtener las implementaciones para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Permite iniciar la implementación para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Permite detener la implementación para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Permite reiniciar la implementación para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Permite obtener la dirección URL del archivo de registro de una implementación de aplicación específica de Microsoft Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | Permite enumerar las SKU de una implementación de aplicación. |
+> | Microsoft.AppPlatform/Spring/apps/domains/write | Permite crear o actualizar el dominio personalizado para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/domains/delete | Permite eliminar el dominio personalizado para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/apps/domains/read | Permite obtener los dominios personalizados para una aplicación específica. |
+> | Microsoft.AppPlatform/Spring/certificates/write | Permite crear o actualizar el certificado para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/certificates/delete | Permite eliminar el certificado para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/certificates/read | Permite obtener los certificados para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/configServers/read | Permite obtener el servidor de configuración para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/configServers/write | Permite crear o actualizar el servidor de configuración para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/deployments/read | Permite obtener las implementaciones para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/detectors/read | Permite obtener los detectores para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/read | Permite obtener la configuración de supervisión para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/write | Permite crear o actualizar la configuración de supervisión para una instancia de servicio específica de Azure Spring Cloud. |
+> | **DataAction** | **Descripción** |
+> | Microsoft.AppPlatform/Spring/configService/read | Permite leer el contenido de la configuración (por ejemplo, application.yaml) para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/configService/read | Permite leer la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/eurekaService/write | Permite escribir la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/eurekaService/delete | Permite eliminar la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | Microsoft.AppPlatform/Spring/logstreamService/read | Permite leer el registro de streaming de la aplicación de usuario para una instancia de servicio específica de Azure Spring Cloud. |
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 

@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378305"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425709"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
@@ -55,7 +55,7 @@ De forma predeterminada, [Functions Proxies](functions-proxies.md) usará acceso
 
 Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end. 
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -80,7 +80,7 @@ Cuando `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` se establece en `true`,
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-En la versión 2.x y posteriores del entorno en tiempo de ejecución de Functions, se configura el comportamiento de la aplicación en función del entorno en tiempo de ejecución. Este valor se [lee durante la inicialización](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Puede establecer `AZURE_FUNCTIONS_ENVIRONMENT` en cualquier valor, pero se admiten [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [desarrollo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [almacenamiento provisional](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [producción](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Cuando no se ha establecido `AZURE_FUNCTIONS_ENVIRONMENT`, el valor predeterminado es `Development` en un entorno local, y `Production` en Azure. Esta configuración debe usarse en lugar de `ASPNETCORE_ENVIRONMENT` para establecer el entorno de ejecución. 
+En la versión 2.x y posteriores del entorno en tiempo de ejecución de Functions, se configura el comportamiento de la aplicación en función del entorno en tiempo de ejecución. Este valor se lee durante la inicialización y se puede establecer en cualquier valor. El tiempo de ejecución solo respeta los valores de `Development`, `Staging` y `Production`. Cuando esta configuración de la aplicación no está presente durante la ejecución en Azure, se supone que el entorno es `Production`. Use esta opción en lugar de `ASPNETCORE_ENVIRONMENT` si necesita cambiar el entorno de tiempo de ejecución de Azure por uno distinto de `Production`. Azure Functions Core Tools establece `AZURE_FUNCTIONS_ENVIRONMENT` en `Development` cuando se ejecuta en un equipo local y no se puede invalidar en el archivo local.settings.json. Para más información, consulte [Métodos y clase Startup basados en entorno](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
@@ -159,11 +159,11 @@ Determina si está habilitada la edición en Azure Portal. Los valores válidos 
 
 ## <a name="functions_extension_version"></a>VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS
 
-La versión del tiempo de ejecución de Functions para usar en esta aplicación de función. Una tilde con la versión principal significa utilizar la versión más reciente de esa versión principal (por ejemplo, "~2"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "2.0.12345"). El valor predeterminado es "~2". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución.
+Versión del tiempo de ejecución de Functions que hospeda la aplicación de funciones. Una tilde (`~`) con la versión principal significa que se utiliza la versión más reciente de esa versión principal (por ejemplo, "~3"). Cuando haya disponibles versiones nuevas de la misma versión principal, se instalarán automáticamente en la aplicación de función. Para anclar la aplicación a una versión específica, use el número completo de la versión (por ejemplo, "3.0.12345"). El valor predeterminado es "~3". Un valor de `~1` ancla la aplicación a la versión 1.x del tiempo de ejecución. Para más información, consulte [Selección de un destino para versiones de runtime de Azure Functions](functions-versions.md).
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~2|
+|VERSIÓN DE LA \_EXTENSIÓN\_ DE FUNCTIONS|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 

@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878585"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428650"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
-Puede montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure basada en Linux o Windows o un sistema Linux o Windows que se ejecuta de forma local mediante el protocolo NFS 3.0. En este artículo se proporcionan instrucciones paso a paso. Para obtener más información acerca de la compatibilidad con el protocolo NFS 3.0 en Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
+Puede montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure basada en Linux o un sistema Linux que se ejecuta de forma local mediante el protocolo NFS 3.0. En este artículo se proporcionan instrucciones paso a paso. Para obtener más información acerca de la compatibilidad con el protocolo NFS 3.0 en Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Paso 1: Registro de la característica de protocolo NFS 3.0 con la suscripción
 
@@ -107,9 +107,7 @@ Cree un contenedor en la cuenta de almacenamiento mediante alguna de estas herra
 
 ## <a name="step-7-mount-the-container"></a>Paso 7: Montaje del contenedor
 
-Cree un directorio en el sistema Windows o Linux y, a continuación, monte un contenedor en la cuenta de almacenamiento.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Cree un directorio en el sistema Linux y, a continuación, monte un contenedor en la cuenta de almacenamiento.
 
 1. En un sistema Linux, cree un directorio.
 
@@ -126,32 +124,6 @@ Cree un directorio en el sistema Windows o Linux y, a continuación, monte un co
    - Reemplace el marcador de posición `<storage-account-name>` que aparece en este comando por el nombre de la cuenta de almacenamiento.  
 
    - Reemplace el marcador de posición `<container-name>` por el nombre del contenedor.
-
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. Abra el cuadro de diálogo **Características de Windows** y, a continuación, active la característica **Cliente para NFS**. 
-
-   ![Característica Cliente para Network File System](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Abra una ventana del **símbolo del sistema** (cmd.exe). A continuación, monte un contenedor mediante el comando [mount](/windows-server/administration/windows-commands/mount).
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Reemplace el marcador de posición `<storage-account-name>` que aparece en este comando por el nombre de la cuenta de almacenamiento.  
-
-   - Reemplace el marcador de posición `<container-name>` por el nombre del contenedor.
-
-3. Si necesita permisos de escritura, puede que necesite cambiar el UID y el GID predeterminados que usa Windows para conectarse al recurso compartido. Para ello, ejecute los siguientes comandos de PowerShell como administrador:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Reinicie el servicio de cliente NFS o reinicie el servidor después de efectuar este cambio.
 
 ---
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542468"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547907"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
@@ -187,10 +187,10 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 }
 ```
 
-Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](../cognitive-services/text-analytics/overview.md), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](/dotnet/api/system.globalization.stringinfo) en .NET para extraer el contenido correcto.  [Se pueden encontrar aquí más detalles.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+Tenga en cuenta que los desplazamientos devueltos para las entidades en la salida de esta aptitud se devuelven directamente desde la [API de Text Analytics](../cognitive-services/text-analytics/overview.md), lo que significa que si los usa para indexar en la cadena original, debe usar la clase [StringInfo](/dotnet/api/system.globalization.stringinfo) en .NET para extraer el contenido correcto.  [Se pueden encontrar más detalles aquí](../cognitive-services/text-analytics/concepts/text-offsets.md).
 
-## <a name="error-cases"></a>Casos de error
-Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.
+## <a name="warning-cases"></a>Casos de advertencia
+Si el código de idioma del documento no se admite, se devuelve una advertencia y no se extrae ninguna entidad.
 
 ## <a name="see-also"></a>Consulte también
 

@@ -3,12 +3,12 @@ title: Modelo de datos de registros de Azure Monitor
 description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020956"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500995"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -18,7 +18,8 @@ Use el modelo de datos de Log Analytics para crear alertas personalizadas desde 
 
 > [!NOTE]
 >
-> Este modelo de datos hace referencia al modo Azure Diagnostics para el envío de eventos de diagnóstico a Log Analytics (LA). Para obtener información sobre el modelo de datos para el nuevo modo específico del recurso, puede consultar el siguiente artículo: [Modelo de datos para eventos de diagnóstico de Azure Backup](./backup-azure-reports-data-model.md)
+> * Este modelo de datos hace referencia al modo Azure Diagnostics para el envío de eventos de diagnóstico a Log Analytics (LA). Para obtener información sobre el modelo de datos para el nuevo modo específico del recurso, puede consultar el siguiente artículo: [Modelo de datos para eventos de diagnóstico de Azure Backup](./backup-azure-reports-data-model.md)
+> * Para crear vistas de informes personalizadas, se recomienda usar las [funciones del sistema en registros de Azure Monitor](backup-reports-system-functions.md) en lugar de trabajar con las tablas sin formato que se enumeran a continuación.
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modelo de datos de Azure Backup
 
@@ -48,7 +49,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta. |
 | OperationName |Texto |Nombre de la operación actual, por ejemplo, Alerta |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta (fue ProtectedServerUniqueId_s en V1)|
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -80,7 +81,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este elemento de copia de seguridad. |
 | OperationName |Texto |Nombre de la operación, por ejemplo, BackupItem |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Recurso |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
+| Resource |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recurso para el que se recopilan datos, por ejemplo, el identificador de recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para los datos que se recopilan |
@@ -462,7 +463,7 @@ A continuación se muestran algunos ejemplos que le ayudarán a escribir consult
 
 ## <a name="v1-schema-vs-v2-schema"></a>Esquema v1 frente a esquema V2
 
-Anteriormente, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se enviaban a una tabla de Azure Diagnostics en un esquema denominado ***esquema V1***. Posteriormente, se agregaron nuevas columnas para admitir otros escenarios y cargas de trabajo, y los datos de diagnóstico se insertaron en un nuevo esquema denominado ***esquema V2***.  
+Anteriormente, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de Azure VM se enviaban a una tabla de Azure Diagnostics en un esquema denominado ***esquema V1** _. Posteriormente, se agregaron nuevas columnas para admitir otros escenarios y cargas de trabajo y los datos de diagnóstico se insertaron en un nuevo esquema denominado _*_esquema V2_**.  
 
 Por motivos de compatibilidad con versiones anteriores, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se envían actualmente a la tabla de Azure Diagnostics en el esquema V1 y V2 (con el esquema v1 ahora en una ruta de degradación). Puede identificar qué registros de Log Analytics son del esquema V1 filtrando los registros para SchemaVersion_s=="v1" en las consultas de registro.
 
@@ -495,4 +496,4 @@ Dado que el esquema V1 está en proceso de degradación, se recomienda usar solo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de revisar el modelo de datos, puede comenzar a [crear consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) en los registros de Azure Monitor para elaborar su propio panel.
+Después de revisar el modelo de datos, puede comenzar a [crear consultas personalizadas](../azure-monitor/visualize/tutorial-logs-dashboards.md) en los registros de Azure Monitor para elaborar su propio panel.

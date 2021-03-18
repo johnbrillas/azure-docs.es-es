@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043021"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487124"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultas de Azure Cognitive Search
 
@@ -24,10 +24,11 @@ En Cognitive Search, una consulta es una especificación completa de una operaci
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ Entre los parámetros que se han utilizado durante la ejecución de la consulta 
 
 + **`queryType`** establece el analizador, que es el [analizador de consultas sencillas predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador de consultas completas de Lucene](search-query-lucene-examples.md) usado en construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
 
++ **`searchMode`** especifica si las coincidencias se basan en todos los criterios ("all) o en cualquier criterio ("any") de la expresión. El valor predeterminado es any.
+
 + **`search`** proporciona los criterios de coincidencia, normalmente términos completos o frases, con o sin operadores. Cualquier campo que tenga el atributo *que permite búsquedas* en el esquema de índice es un candidato para este parámetro.
 
-+ **`searchFields`** restringe la ejecución de consultas a campos utilizables en búsquedas.
++ **`searchFields`** restringe la ejecución de consultas a campos utilizables en búsquedas. Durante el desarrollo, resulta útil usar la misma lista de campos para la selección y la búsqueda. En caso contrario, una coincidencia podría basarse en valores de campo que no se pueden ver en los resultados, lo que crea incertidumbre sobre el motivo por el que se devolvió el documento.
 
 Parámetros que se usan para dar forma a la respuesta:
 

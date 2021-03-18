@@ -1,6 +1,6 @@
 ---
 title: Ventana de mantenimiento
-description: Aprenda a configurar la ventana de mantenimiento de Azure SQL Database y SQL Managed Instance.
+description: Aprenda a configurar la ventana de mantenimiento de Azure SQL Database y Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -9,52 +9,57 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/02/2021
-ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: b658fa9f2df6e8a88df89f9e8ccc1cf6b68cec39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692817"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426066"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-La característica de ventana de mantenimiento permite configurar las programaciones de ventanas de mantenimiento predecibles de [Azure SQL Database](sql-database-paas-overview.md) y [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
+La característica de ventana de mantenimiento le permite configurar la programación de mantenimiento para los recursos de [Azure SQL Database](sql-database-paas-overview.md) y [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) que hacen que los eventos de mantenimiento impactantes sean predecibles y menos disruptivos para la carga de trabajo. 
 
-Para más información sobre los eventos de mantenimiento, consulte [Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL](planned-maintenance.md).
+> [!Note]
+> La característica de ventana de mantenimiento no protege de los eventos no planeados, como los errores de hardware, que pueden provocar interrupciones de conexión breves.
 
 ## <a name="overview"></a>Información general
 
-Azure ejecuta periódicamente actualizaciones de mantenimiento planeadas en los recursos de Azure SQL Database y SQL Managed Instance. Suelen incluirse actualizaciones del hardware o el software subyacente, como el sistema operativo y el motor de SQL. Durante una actualización de mantenimiento, los recursos están completamente disponibles y accesibles, pero algunas de las actualizaciones de mantenimiento requieren una conmutación por error, ya que Azure deja las instancias sin conexión durante un breve período de tiempo para ejecutar las actualizaciones de mantenimiento (ocho segundos de promedio).  Las actualizaciones de mantenimiento planeadas se producen una vez cada 35 días de promedio, lo que significa que el cliente puede esperar aproximadamente un evento de mantenimiento planeado al mes por instancia de Azure SQL Database o SQL Managed Instance, y solo durante las franjas de tiempo de la ventana de mantenimiento seleccionadas por el cliente.   
+Azure realiza periódicamente el [mantenimiento planeado](planned-maintenance.md) de los recursos de SQL Database y SQL Managed Instance. Durante el evento de mantenimiento de Azure SQL, las bases de datos están totalmente disponibles, pero pueden estar sujetas a conmutaciones por error breves dentro de los SLA de disponibilidad respectivos para [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) y [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), ya que en algunos casos es necesario volver a configurar los recursos.
 
-La ventana de mantenimiento se ha concebido para cargas de trabajo empresariales que no son resistentes a incidencias de conectividad intermitente que pueden producirse como resultado de los eventos de mantenimiento planeados.
+La ventana de mantenimiento está pensada para cargas de trabajo de producción que no son resistentes a las conmutaciones por error de base de datos o de instancia y no pueden absorber interrupciones de conexión breves causadas por eventos de mantenimiento planeado. Al elegir una ventana de mantenimiento preferida, puede minimizar el impacto del mantenimiento planeado, ya que se producirá fuera del horario comercial de máxima actividad. Las cargas de trabajo resistentes y las cargas de trabajo que no son de producción pueden depender de la directiva de mantenimiento predeterminada de Azure SQL.
 
-La ventana de mantenimiento se puede configurar mediante Azure Portal, PowerShell, la CLI o la API de Azure. Se puede configurar durante la creación, o bien para instancias existentes de Azure SQL Database y SQL Managed Instance.
+La ventana de mantenimiento se puede configurar en la creación o para los recursos de Azure SQL existentes. Se puede configurar mediante Azure Portal, PowerShell, la CLI o la API de Azure.
+
+> [!Important]
+> La configuración de la ventana de mantenimiento es una operación asincrónica de larga duración, similar a la modificación del nivel de servicio del recurso de Azure SQL. El recurso está disponible durante la operación, excepto una breve conmutación por error que se produce al final de la operación y que normalmente dura hasta 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la conmutación por error, debe realizar la operación fuera de las horas punta.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Ganar en previsibilidad con la ventana de mantenimiento
 
-De forma predeterminada, las instancias de Azure SQL Database y SQL Managed Instance se actualizan solo entre las 17:00 y las 8:00 (hora local) diariamente, para evitar interrupciones durante el horario comercial con mayor actividad. La hora local viene determinada por la [región de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que hospeda el recurso. Para ajustar aún más el horario de las actualizaciones de mantenimiento de su base de datos, elija entre otras dos franjas de tiempo de la ventana de mantenimiento:
+De forma predeterminada, la directiva de mantenimiento de Azure SQL bloquea las actualizaciones impactantes durante el período de **8.00 a 17.00, hora local, todos los días** para evitar interrupciones durante el horario comercial habitual de máxima actividad. La hora local viene determinada por la ubicación de la [región de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que hospeda el recurso y puede observar el horario de verano según la definición de la zona horaria local. 
 
-* Ventana **predeterminada**: de 17:00 a 8:00 (hora local) de lunes a domingo. 
+Para ajustar aún más el horario de las actualizaciones de mantenimiento a sus recursos de Azure SQL. Para ello, elija entre otras dos franjas de tiempo de la ventana de mantenimiento:
+ 
 * Ventana de día de la semana: de 22:00 a 6:00 (hora local) de lunes a jueves.
 * Ventana de fin de semana: de 22:00 a 6:00 (hora local) de viernes a domingo.
 
-Una vez seleccionada la ventana de mantenimiento, las actualizaciones de mantenimiento planeadas solo se producirán durante la ventana que haya elegido.   
+Una vez seleccionada la ventana de mantenimiento y completada la configuración del servicio, el mantenimiento planeado solo se producirá durante la ventana que haya elegido.   
 
-> [!Note]
-> Además de las actualizaciones de mantenimiento planeadas, en circunstancias excepciones los eventos de mantenimiento no planeados pueden dar lugar a la falta de disponibilidad. 
+> [!Important]
+> En circunstancias muy poco habituales en las que cualquier aplazamiento de acción podría tener un impacto grave, como aplicar una revisión de seguridad crítica, es posible que la ventana de mantenimiento configurada se invalide temporalmente. 
 
 ### <a name="cost-and-eligibility"></a>Costo y elegibilidad
 
-La elección de una ventana de mantenimiento no tiene coste alguno para los siguientes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) de suscripción: pago por uso, proveedor de soluciones en la nube (CSP), Microsoft Enterprise o Contrato de cliente de Microsoft.
+La configuración y el uso de una ventana de mantenimiento no tiene ningún costo para todos los [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) elegibles: pago por uso, proveedor de soluciones en la nube (CSP), Contrato Enterprise o Contrato de cliente de Microsoft.
 
 > [!Note]
-> Una oferta de Azure es el tipo de la suscripción a Azure que tiene. Algunos ejemplos de ofertas de Azure son una suscripción con [tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure bajo licencia Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/) y [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/). Cada uno de los planes u ofertas tienen diferentes términos y ventajas. La oferta o el plan se muestra en la información general de la suscripción. Para obtener más información sobre cómo cambiar su suscripción a una oferta distinta, consulte [Cambio de la suscripción de Azure a una oferta distinta](/azure/cost-management-billing/manage/switch-azure-offer).
+> Una oferta de Azure es el tipo de la suscripción a Azure que tiene. Algunos ejemplos de ofertas de Azure son una suscripción con [tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/) y [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/). Cada uno de los planes u ofertas tienen diferentes términos y ventajas. La oferta o el plan se muestra en la información general de la suscripción. Para obtener más información sobre cómo cambiar su suscripción a una oferta distinta, consulte [Cambio de la suscripción de Azure a una oferta distinta](/azure/cost-management-billing/manage/switch-azure-offer).
 
 ## <a name="advance-notifications"></a>Notificaciones anticipadas
 
-Las notificaciones de mantenimiento se pueden configurar para avisar a los clientes sobre los próximos eventos de mantenimiento planeados con 24 horas de antelación, en el momento del mantenimiento y cuando la ventana de mantenimiento termina. Para más información, consulte [Notificaciones anticipadas](advance-notifications.md).
+Las notificaciones de mantenimiento se pueden configurar para que le avisen de los próximos eventos de mantenimiento planeado con 24 horas de antelación, en el momento del mantenimiento y cuando se complete la ventana de mantenimiento. Para más información, consulte [Notificaciones anticipadas](advance-notifications.md).
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -62,6 +67,7 @@ Las notificaciones de mantenimiento se pueden configurar para avisar a los clien
 
 La elección de una ventana de mantenimiento que no sea la predeterminada está disponible para todos los objetivos de nivel de servicio, **excepto por**:
 * Hiperescala 
+* Grupos de instancias
 * Núcleo virtual Gen4 heredado
 * Básico, S0 y S1 
 * DC, Fsv2, serie M
@@ -93,12 +99,31 @@ Para aprovechar al máximo la ventaja de las ventanas de mantenimiento, asegúre
 
 * En Azure SQL Database, cualquier conexión que use la directiva de conexión de proxy podría verse afectada por la ventana de mantenimiento elegida y por una ventana de mantenimiento del nodo de puerta de enlace. Sin embargo, las conexiones de cliente que usan la directiva de conexión de redireccionamiento recomendada no se ven afectadas por la conmutación por error de mantenimiento del nodo de puerta de enlace. 
 
-* En Azure SQL Managed Instance, los nodos de puerta de enlace se encuentran [en el clúster virtual](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) y tienen la misma ventana de mantenimiento que la instancia administrada, por lo que el uso de la directiva de conexión de proxy no expone potencialmente las conexiones a una ventana de mantenimiento adicional.
+* En Azure SQL Managed Instance, los nodos de puerta de enlace se hospedan [en el clúster virtual](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) y tienen la misma ventana de mantenimiento que la instancia administrada, pero aún se recomienda usar la directiva de conexión de redireccionamiento para minimizar el número de interrupciones durante el evento de mantenimiento.
 
-Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Database consulte la [directiva de conexión de Azure SQL Database](../database/connectivity-architecture.md#connection-policy). 
+Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Database consulte la [directiva de conexión de Azure SQL Database](../database/connectivity-architecture.md#connection-policy). 
 
-Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte los [tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
+Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte los [tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
 
+## <a name="considerations-for-azure-sql-managed-instance"></a>Consideraciones sobre Azure SQL Managed Instance
+
+Azure SQL Managed Instance está formado por componentes de servicio hospedados en un conjunto dedicado de máquinas virtuales aisladas que se ejecutan dentro de la subred de la red virtual del cliente. Estas máquinas virtuales forman [clústeres virtuales](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) que pueden hospedar varias instancias administradas. La ventana de mantenimiento configurada en instancias de una subred puede influir en el número de clústeres virtuales dentro de la subred y en la distribución de instancias entre clústeres virtuales. Esto puede requerir la consideración de algunos efectos.
+
+### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configuración de la ventana de mantenimiento es una operación de larga duración 
+Todas las instancias hospedadas en un clúster virtual comparten la ventana de mantenimiento. De forma predeterminada, todas las instancias administradas se hospedan en el clúster virtual con la ventana de mantenimiento predeterminada. Especificar otra ventana de mantenimiento para la instancia administrada durante su creación o después significa que debe colocarse en un clúster virtual con la ventana de mantenimiento correspondiente. Si no hay ningún clúster virtual en la subred, primero se debe crear uno para acomodar la instancia. Para acomodar una instancia adicional en el clúster virtual existente, es posible que se deba cambiar el tamaño del clúster. Ambas operaciones contribuyen a la duración de la configuración de la ventana de mantenimiento para una instancia administrada.
+La duración esperada de la configuración de la ventana de mantenimiento en una instancia administrada se puede calcular mediante la [duración estimada de las operaciones de administración de instancias](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+
+> [!Important]
+> Se produce una breve conmutación por error al final de la operación de mantenimiento, que suele durar un máximo de 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la conmutación por error, debe programar la operación fuera de las horas punta.
+
+### <a name="ip-address-space-requirements"></a>Requisitos de espacio de direcciones IP
+Cada nuevo clúster virtual de la subred requiere direcciones IP adicionales según la [asignación de la dirección IP del clúster virtual](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). El cambio de la ventana de mantenimiento de la instancia administrada existente también requiere una [capacidad de IP adicional temporal](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios), como en el escenario de escalado de núcleos virtuales para el nivel de servicio correspondiente.
+
+### <a name="ip-address-change"></a>Cambio de direcciones IP
+La configuración y el cambio de la ventana de mantenimiento provoca un cambio de la dirección IP de la instancia, dentro del intervalo de direcciones IP de la subred.
+
+> [!Important]
+>  Asegúrese de que el grupo de seguridad de red y las reglas de firewall no bloquearán el tráfico de datos después de cambiar la dirección IP. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -109,8 +134,9 @@ Para obtener más información sobre la directiva de conexión de cliente en Azu
 
 * [P+F sobre la ventana de mantenimiento](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
-* [Instancia administrada de SQL](../managed-instance/sql-managed-instance-paas-overview.md)
-* [Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL](planned-maintenance.md)
+* [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
+* [Planeación de eventos de mantenimiento de Azure en Azure SQL Database y Azure SQL Managed Instance](planned-maintenance.md)
+
 
 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954284"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555642"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -142,28 +142,28 @@ Tenga en cuenta lo siguiente:
 
 _**Tabla 1: diccionario de términos de datos**_
 
-| Nombre de la columna | Nombre del atributo | Definición |
-| ------------ | ------------- | ------------- |
-| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. |
-| DateAcquired | Date Acquired (Fecha de adquisición) | Primera fecha en que el cliente adquirió cualquier oferta publicada por usted. |
-| DateLost | Date Lost (Fecha de pérdida) | Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente. |
-| Nombre del proveedor | Nombre del proveedor | Nombre del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. |
-| Correo electrónico del proveedor | Correo electrónico del proveedor | Dirección de correo electrónico del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. |
-| Nombre | Customer First Name (Nombre del cliente) | Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
-| Apellidos | Customer Last Name (Apellidos del cliente) | Apellidos proporcionados por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
-| Email | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
-| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
-| Ciudad del cliente | Ciudad del cliente | Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
-| Customer Postal Code (Código postal del cliente) | Customer Postal Code (Código postal del cliente) | Código postal proporcionado por el cliente. El código podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente. |
-| Cultura de comunicación del cliente | Customer Communication Language (Idioma de comunicación del cliente) | Idioma preferido por el cliente para la comunicación. |
-| Región del país del cliente | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. |
-| AzureLicenseType | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como _canal_. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> |
-| PromotionalCustomers | Participación de contacto promocional | El valor le permitirá saber si el cliente ha optado de manera proactiva por el contacto promocional de los anunciantes. En este momento, no presentamos la opción a los clientes, por lo que hemos indicado "No" de forma general. Una vez implementada esta característica, comenzaremos a actualizarla en consecuencia. |
-| CustomerState | Customer State (Estado del cliente) | Estado de residencia proporcionado por el cliente. El estado podría ser diferente del estado proporcionado en la suscripción a Azure del cliente. |
-| CommerceRootCustomer | Cliente raíz comercial | Un identificador de cuenta de facturación se puede asociar a varios identificadores de cliente.<br>Una combinación de un identificador de cuenta de facturación y un identificador de cliente se puede asociar a varias suscripciones a marketplace comercial.<br>El cliente raíz comercial indica el nombre del cliente de la suscripción. |
-| Customer Id | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. |
-| Id. de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. |
-||||
+| Nombre de la columna en la<br>interfaz de usuario | Nombre del atributo | Definición | Nombre de la columna en informes<br>de acceso mediante programación |
+| ------------ | ------------- | ------------- | ------------- |
+| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. | MarketplaceSubscriptionId |
+| DateAcquired | Date Acquired (Fecha de adquisición) | Primera fecha en que el cliente adquirió cualquier oferta publicada por usted. | DateAcquired |
+| DateLost | Date Lost (Fecha de pérdida) | Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente. | DateLost |
+| Nombre del proveedor | Nombre del proveedor | Nombre del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. | ProviderName |
+| Correo electrónico del proveedor | Correo electrónico del proveedor | Dirección de correo electrónico del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. | ProviderEmail |
+| Nombre | Customer First Name (Nombre del cliente) | Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. | Nombre |
+| Apellidos | Customer Last Name (Apellidos del cliente) | Apellidos proporcionados por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. | Apellidos |
+| Correo electrónico | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. | Correo electrónico |
+| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. | CustomerCompany Name |
+| Ciudad del cliente | Ciudad del cliente | Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente. | Ciudad del cliente |
+| Customer Postal Code (Código postal del cliente) | Customer Postal Code (Código postal del cliente) | Código postal proporcionado por el cliente. El código podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente. | CustomerPostal Code |
+| Cultura de comunicación del cliente | Customer Communication Language (Idioma de comunicación del cliente) | Idioma preferido por el cliente para la comunicación. | Cultura de comunicación del cliente |
+| Región del país del cliente | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. | Región del país del cliente |
+| AzureLicenseType | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como _canal_. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> | AzureLicenseType |
+| PromotionalCustomers | Participación de contacto promocional | El valor le permitirá saber si el cliente ha optado de manera proactiva por el contacto promocional de los anunciantes. En este momento, no presentamos la opción a los clientes, por lo que hemos indicado "No" de forma general. Una vez implementada esta característica, comenzaremos a actualizarla en consecuencia. | PromotionalCustomers |
+| CustomerState | Customer State (Estado del cliente) | Estado de residencia proporcionado por el cliente. El estado podría ser diferente del estado proporcionado en la suscripción a Azure del cliente. | CustomerState |
+| CommerceRootCustomer | Cliente raíz comercial | Un identificador de cuenta de facturación se puede asociar a varios identificadores de cliente.<br>Una combinación de un identificador de cuenta de facturación y un identificador de cliente se puede asociar a varias suscripciones a marketplace comercial.<br>El cliente raíz comercial indica el nombre del cliente de la suscripción. | CommerceRootCustomer |
+| Customer ID | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. | CustomerId |
+| Identificador de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. | BillingAccountId |
+|||||
 
 ### <a name="customers-page-filters"></a>Filtros de la página de clientes
 

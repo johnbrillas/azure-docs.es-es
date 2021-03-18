@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526245"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518055"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
 - Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md) para configurar una aplicación de Facebook. Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
+
+> [!TIP]
+> En este artículo se explica cómo configurar el inquilino manualmente. Puede automatizar todo el proceso con este artículo. La automatización implementará el [paquete de inicio SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) de Azure AD B2C, que proporcionará los recorridos de registro e inicio de sesión, restablecimiento de contraseña y edición de perfil. Para automatizar el tutorial siguiente, visite la [aplicación de configuración de IEF](https://aka.ms/iefsetup) y siga las instrucciones.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 

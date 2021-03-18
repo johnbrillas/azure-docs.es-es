@@ -1,23 +1,18 @@
 ---
 title: Uso de la licencia de Microsoft Defender para punto de conexión incluida con Azure Security Center
 description: Obtenga información acerca de Microsoft Defender para punto de conexión e implemente esta solución desde Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526976"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453774"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -41,12 +36,12 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 | Aspecto                          | Detalles                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de la versión:                  | Disponible con carácter general                                                                                                                                                                                                                                                                                      |
-| Precios:                        | Requiere [Azure Defender para servidores](security-center-pricing.md).                                                                                                                                                                                                                                             |
-| Plataformas compatibles:            | Máquinas de Azure que ejecutan Windows.<br>Máquinas de Azure Arc que ejecutan Windows.|
-| Versiones compatibles de Windows:  |  • Security Center admite la detección en los sistemas operativos Windows Server 2019, 2016, 2012 R2 y 2008 R2 SP1.<br> • La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC.<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.md) (antes Enterprise for Virtual Desktops (EVD)<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)|
+| Precios:                        | Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).                                                                                                                                                                                                                                             |
+| Plataformas compatibles:            |  • Máquinas de Azure que ejecutan Windows.<br> • Máquinas de Azure Arc que ejecutan Windows.|
+| Versiones compatibles de Windows:  |  • **Disponibilidad general (GA):** detección en Windows Server 2016, 2012 R2 y 2008 R2 SP1<br> • **Versión preliminar:** detección en Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) y [Sesión múltiple de Windows 10 Enterprise](../virtual-desktop/windows-10-multisession-faq.md) [anteriormente Enterprise para escritorios virtuales (EVD)]|
 | Sistemas operativos no admitidos:  |  • Windows 10 (excepto EVD o WVD)<br> • Linux|
 | Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**|
-| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos<br>![No](./media/icons/no-icon.png) Clientes de GCC que ejecutan cargas de trabajo en nubes de Azure globales                                                        |
+| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Características de Microsoft Defender para punto de conexión en Security Center
@@ -76,10 +71,14 @@ Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licen
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitar la integración de Microsoft Defender para punto de conexión
 
-1. Habilite **Azure Defender para los servidores**. Consulte los [Precios de Azure Security Center](security-center-pricing.md#enable-azure-defender).
+1. Compruebe que el equipo cumple los requisitos necesarios para Defender para punto de conexión:
 
-    > [!NOTE]
-    > Para proteger las máquinas habilitadas para Azure Arc, siga las instrucciones de [Inicio rápido: Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+    - Para **todas las versiones de Windows**:
+        - Configure las opciones de red descritas en [Configurar el proxy de dispositivo y la configuración de conectividad a Internet](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
+        - Si va a implementar Defender para punto de conexión en máquinas locales, conéctelo a Azure Arc como se explica en [Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+    - Además, en el caso de las **máquinas con Windows Server 2019**, compruebe que están ejecutando un agente válido y que tienen la extensión MicrosoftMonitoringAgent.
+
+1. Habilite **Azure Defender para los servidores**. Consulte [Inicio rápido: Habilitación de Azure Defender](enable-azure-defender.md).
 
 1. Si ya ha obtenido una licencia e implementado Microsoft defender para punto de conexión en sus servidores, quítelo mediante el procedimiento descrito en la [Retirada de servidores de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. En el menú de Security Center, seleccione **Precios y configuración**.
@@ -94,7 +93,7 @@ Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licen
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Acceso al portal de Microsoft Defender para punto de conexión
 
-1. Asegúrese de que la cuenta de usuario tenga los permisos necesarios. [Más información](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Asegúrese de que la cuenta de usuario tenga los permisos necesarios. Obtenga más información en [Asignar acceso de usuario al Centro de seguridad de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 1. Compruebe si tiene un proxy o firewall que esté bloqueando el tráfico anónimo. El sensor de Defender para punto de conexión se conecta desde el contexto del sistema, por lo que se debe permitir el tráfico anónimo. Para garantizar un acceso sin obstáculos al portal de Defender para punto de conexión, siga las instrucciones de [Habilitar el acceso a las direcciones URL de servicio en el servidor proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 

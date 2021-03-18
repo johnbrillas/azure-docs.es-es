@@ -3,12 +3,12 @@ title: Glosario de Azure Backup
 description: En este artículo se definen los términos útiles para su uso con Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723921"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502032"
 ---
 # <a name="azure-backup-glossary"></a>Glosario de Azure Backup
 
@@ -299,6 +299,18 @@ realiza una copia de seguridad de los archivos del sistema operativo. Esta copia
 ## <a name="tenant"></a>Inquilino
 
 Un inquilino es la representación de una organización. Se trata de una instancia dedicada de Azure AD que una organización o el desarrollador de la aplicación reciben cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365.
+
+## <a name="tier"></a>Nivel
+
+Actualmente, Azure Backup admite los siguientes niveles de almacenamiento de copias de seguridad:
+
+### <a name="snapshot-tier"></a>Nivel de instantánea
+
+(Término específico de carga de trabajo) En la primera fase de la copia de seguridad de máquinas virtuales, la instantánea que se toma se almacena junto con el disco. Esta forma de almacenamiento se denomina nivel de instantánea. Las restauraciones de nivel de instantánea son más rápidas (que la restauración desde un almacén) porque eliminan el tiempo de espera para que las instantáneas se copien desde el almacén antes de desencadenar la operación de restauración.
+
+### <a name="vault-standard-tier"></a>Nivel de almacén estándar
+
+Los datos de copia de seguridad de todas las cargas de trabajo que admite Azure Backup se guardan en almacenes con almacenamiento de copia de seguridad, un conjunto de escalado automático de cuentas de almacenamiento que administra Azure Backup. El nivel de almacén estándar es una capa de almacenamiento en línea que permite almacenar una copia aislada de los datos de copia de seguridad en un inquilino administrado por Microsoft, con lo que se crea una capa adicional de protección. En las cargas de trabajo en las que se admite el nivel de instantánea, hay una copia de los datos de copia de seguridad tanto en el nivel de instantánea como en el nivel de almacén estándar. El nivel de almacén estándar garantiza que los datos de copia de seguridad estén disponibles incluso si se elimina o se pone en peligro el origen de datos del que se realiza la copia de seguridad.
 
 ## <a name="unmanaged-disk"></a>Disco no administrado
 

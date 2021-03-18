@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388279"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448343"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C
 
@@ -28,6 +28,7 @@ ms.locfileid: "85388279"
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el filtro **Directorio y suscripción** del menú superior y seleccione el directorio que contiene el inquilino.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
+1. Escriba un **nombre**. Por ejemplo, escriba *Contoso*.
 
 ## <a name="configure-the-identity-provider"></a>Configurar el proveedor de identidades
 
@@ -71,3 +72,16 @@ Una vez que el proveedor de identidades personalizado devuelve un token de id. a
 * **Nombre propio**: especifique la notificación que proporciona el *nombre* del usuario.
 * **Apellido**: especifique la notificación que proporciona el *apellido* del usuario.
 * **Correo electrónico**: especifique la notificación que proporciona la *dirección de correo electrónico* del usuario.
+
+## <a name="add-the-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades a un flujo de usuario 
+
+1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
+1. Haga clic en el flujo de usuario al que quiere agregar el proveedor de identidades. 
+1. En **Proveedores de identidades sociales**, seleccione el proveedor de identidades que ha agregado. Por ejemplo, *Contoso*.
+1. Seleccione **Guardar**.
+1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
+1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione el botón **Ejecutar flujo de usuario**.
+1. En la página de registro o de inicio de sesión, seleccione el proveedor de identidades en el que desea iniciar sesión. Por ejemplo, *Contoso*.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.

@@ -3,21 +3,22 @@ title: Creación de una plantilla de Azure Image Builder, versión preliminar
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678262"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519714"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
-Azure Image Builder utiliza un archivo .json para trasladar la información al servicio Image Builder. En este artículo analizaremos las secciones del archivo json, para que pueda compilar su propio archivo. Para ver ejemplos de archivos .json completos, consulte el [GitHub de Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Azure Image Builder utiliza un archivo .json para trasladar la información al servicio Image Builder. En este artículo analizaremos las secciones del archivo json, para que pueda compilar su propio archivo. Para ver ejemplos de archivos .json completos, consulte el [GitHub de Azure Image Builder](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 Este es el formato de plantilla básico:
 
@@ -142,7 +143,7 @@ Para obtener más información sobre la implementación de esta característica,
 
 ## <a name="properties-source"></a>Propiedades: origen
 
-La sección `source` contiene información acerca de la imagen de origen que usará Image Builder. Image Builder actualmente solo admite de forma nativa la creación de imágenes de Hyper-V de la generación 1 (Gen1) en el servicio Shared Image Gallery (SIG) de Azure o en una imagen administrada. Si quiere crear imágenes Gen2, debe usar una imagen de origen Gen2 y distribuirla a VHD. Después, tendrá que crear una imagen administrada a partir del disco duro virtual e insertarla en SIG como imagen Gen2.
+La sección `source` contiene información acerca de la imagen de origen que usará Image Builder. Image Builder actualmente solo admite de forma nativa la creación de imágenes de Hyper-V de la generación 1 (Gen1) en el servicio Shared Image Gallery (SIG) de Azure o en una imagen administrada. Si quiere crear imágenes de Gen2, debe usar una imagen de origen de Gen2 y distribuirla a VHD. Después, tendrá que crear una imagen administrada a partir del disco duro virtual e insertarla en SIG como imagen Gen2.
 
 La API requiere un "SourceType" que define el origen de la compilación de imagen. Actualmente hay tres tipos:
 - PlatformImage: indicado para los casos en que la imagen de origen es una imagen de Marketplace.
@@ -248,7 +249,7 @@ Al usar `customize`:
 - Si se produce un error en un personalizador, todo el componente de personalización producirá un error e informará de un error.
 - Es muy recomendable que pruebe exhaustivamente el script antes de usarlo en una plantilla. Será más fácil depurar el script en su propia máquina virtual.
 - No incluya información confidencial en los scripts. 
-- Las ubicaciones de los scripts deben estar accesibles públicamente, a menos que esté usando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- Las ubicaciones de los scripts deben estar accesibles públicamente, a menos que esté usando [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
 
 ```json
         "customize": [
@@ -308,11 +309,28 @@ Propiedades de personalización:
 - **sha256Checksum**: valor de la suma de comprobación sha256 del archivo, se genera de forma local y, a continuación, Image Builder realizará la suma de comprobación y la validación.
     * Para generar el valor de sha256Checksum, mediante un terminal en Mac o Linux ejecute `sha256sum <fileName>`
 
-
-Para que los comandos se ejecuten con privilegios de superusuario, deben tener el prefijo `sudo`.
-
 > [!NOTE]
 > Los comandos alineados se almacenan como parte de la definición de la plantilla de imagen; puede verlos al volcar la definición de la imagen y también son visibles para el soporte técnico de Microsoft en el caso de una situación de soporte técnico para la solución de problemas. Si tiene comandos o valores confidenciales, se recomienda moverlos a scripts y usar una identidad de usuario para autenticarse en Azure Storage.
+
+#### <a name="super-user-privileges"></a>Privilegios de superusuario
+Para que los comandos se ejecuten con privilegios de superusuario, deben tener el prefijo `sudo`. Puede agregarlos en scripts o usarlos en comandos en línea, por ejemplo:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Ejemplo de un script mediante sudo al que puede hacer referencia mediante scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Personalizador de reinicio de Windows 
 El personalizador de reinicio le permite reiniciar una máquina virtual de Windows y esperar a que vuelva a conectarse, lo que le permite instalar software que requiere un reinicio.  
@@ -373,7 +391,7 @@ Propiedades de personalización:
 - **validExitCodes**: opcional, códigos válidos que pueden devolverse desde el comando de script o alineado; esto evitará que se informe de un error del comando de script o alineado.
 - **runElevated**: opcional, booleano, admite la ejecución de comandos y scripts con permisos elevados.
 - **sha256Checksum**: valor de la suma de comprobación sha256 del archivo, se genera de forma local y, a continuación, Image Builder realizará la suma de comprobación y la validación.
-    * Para generar el valor de sha256Checksum, con PowerShell en Windows utilice [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * Para generar el valor de sha256Checksum, con PowerShell en Windows utilice [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
 
 ### <a name="file-customizer"></a>Personalizador de archivos
@@ -397,6 +415,10 @@ SO compatible: Linux y Windows
 Propiedades del personalizador de archivos:
 
 - **sourceUri**: un punto de conexión de almacenamiento accesible, puede tratarse de GitHub o Azure Storage. Solo puede descargar un archivo, no un directorio completo. Si necesita descargar un directorio, utilice un archivo comprimido y, a continuación, descomprímalo mediante los personalizadores de Shell o PowerShell. 
+
+> [!NOTE]
+> Si sourceUri es una cuenta de Azure Storage, independientemente de si el blob está marcado como público, deberá conceder los permisos de identidad de usuario administrado para el acceso de lectura en el blob. Consulte este [ejemplo](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) para establecer los permisos de almacenamiento.
+
 - **destination**: es la ruta de acceso completa y el nombre de archivo de destino. Todas las rutas de acceso y los subdirectorios a los que se hace referencia deben existir; use los personalizadores de Shell o PowerShell para establecerlos con antelación. Puede usar los personalizadores de script para crear la ruta de acceso. 
 
 Los directorios de Windows y las rutas de acceso de Linux lo admiten, aunque hay algunas diferencias: 
@@ -408,8 +430,6 @@ Si se produce un error al intentar descargar el archivo o colocarlo en un direct
 
 > [!NOTE]
 > el personalizador de archivos solo es adecuado para descargas de archivos pequeños, inferiores a 20 MB. Para descargas de archivos más grandes, use un script o un comando insertado, el código de uso para descargar archivos, como `wget` o `curl` de Linux, o `Invoke-WebRequest` de Windows.
-
-Los archivos del personalizador de archivos se pueden descargar desde Azure Storage mediante [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="windows-update-customizer"></a>Personalizador de Windows Update
 Este personalizador se basa en el [aprovisionador de Windows Update de la comunidad](https://packer.io/docs/provisioners/community-supported.html) para Packer, que es un proyecto de código abierto que mantiene la comunidad de Packer. Microsoft comprueba y valida el aprovisionamiento con el servicio Image Builder, y permite investigar problemas con él, así como trabajar para resolver problemas, pero Microsoft no admite oficialmente el proyecto de código abierto. Para obtener documentación detallada y ayuda con el aprovisionamiento de Windows Update, vea el repositorio del proyecto.
@@ -436,7 +456,7 @@ Propiedades de personalización:
 - **updateLimit**: (opcional) define el número de actualizaciones que se pueden instalar, el valor predeterminado es 1000.
  
 > [!NOTE]
-> Se puede producir un error en el personalizador de Windows Update si hay algún reinicio de Windows pendiente, o bien si hay instalaciones de aplicaciones que todavía se están ejecutando. Normalmente, verá este error en el archivo customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Le recomendamos encarecidamente que considere la posibilidad de agregar un reinicio de Windows o permitir el tiempo suficiente para completar las instalaciones mediante los comandos [sleep] o wait (https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) en los comandos o scripts insertados antes de ejecutar Windows Update.
+> Se puede producir un error en el personalizador de Windows Update si hay algún reinicio de Windows pendiente, o bien si hay instalaciones de aplicaciones que todavía se están ejecutando. Normalmente, verá este error en el archivo customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Le recomendamos encarecidamente que considere la posibilidad de agregar un reinicio de Windows o permitir a las aplicaciones el tiempo suficiente para completar sus instalaciones mediante los comandos [sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) o wait en los comandos o scripts insertados antes de ejecutar Windows Update.
 
 ### <a name="generalize"></a>Generalize 
 De forma predeterminada, Azure Image Builder también ejecutará código de "desaprovisionamiento" al final de cada fase de personalización de la imagen con el fin de "generalizar" la imagen. La generalización es un proceso en el que la imagen se configura para que pueda volver a usarse para crear varias máquinas virtuales. Para las máquinas virtuales de Windows, Azure Image Builder utiliza Sysprep. Para Linux, Azure Image Builder ejecuta "waagent-deprovision". 
@@ -677,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Encontrará archivos .json de ejemplo para diferentes escenarios en el [GitHub de Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
+Encontrará archivos .json de ejemplo para diferentes escenarios en el [GitHub de Azure Image Builder](https://github.com/azure/azvmimagebuilder).

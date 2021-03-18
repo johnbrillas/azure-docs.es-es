@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881425"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552038"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files proporciona métricas de rendimiento del volumen. También pu
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>¿Cuál es el impacto en el rendimiento de Kerberos en NFSv4.1?
 
-Consulte [Impacto en el rendimiento de Kerberos en NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) para obtener información sobre las opciones de seguridad de NFSv4.1, los vectores de rendimiento que se hayan probado y el impacto esperado en el rendimiento. 
+Consulte [Impacto en el rendimiento de Kerberos en los volúmenes de NFSv4.1](performance-impact-kerberos.md) para obtener información sobre las opciones de seguridad de NFSv4.1, los vectores de rendimiento que se hayan probado y el impacto esperado en el rendimiento. 
 
 ## <a name="nfs-faqs"></a>Preguntas más frecuentes sobre NFS
 
@@ -147,6 +147,16 @@ Asegúrese de que `CaseSensitiveLookup` está habilitado en el cliente de Window
 2. Monte el volumen en el servidor de Windows.   
     Ejemplo:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>¿Cómo admite Azure NetApp Files el bloqueo de archivos de NFSv4.1? 
+
+En el caso de los clientes de NFSv4.1, Azure NetApp Files admite el mecanismo de bloqueo de archivos de NFSv4.1 que mantiene el estado de todos los bloqueos de archivos en un modelo basado en concesión. 
+
+Por RFC 3530, Azure NetApp Files define un período de concesión único para todos los estados de un cliente NFS. Si el cliente no renueva su concesión dentro del período definido, el servidor liberará todos los estados asociados a la concesión del cliente.  
+
+Por ejemplo, si un cliente que monta un volumen deja de responder o se bloquea más allá de los tiempos de espera, se liberarán los bloqueos. El cliente puede renovar su concesión de forma explícita o implícita realizando operaciones como leer un archivo.   
+
+Un período de gracia define un período de procesamiento especial en el que los clientes pueden intentar reclamar su estado de bloqueo durante una recuperación del servidor. El tiempo de espera predeterminado para las concesiones es de 30 segundos con un período de gracia de 45 segundos. Transcurrido ese tiempo, se liberará la concesión del cliente.   
 
 ## <a name="smb-faqs"></a>Preguntas más frecuentes de SMB
 

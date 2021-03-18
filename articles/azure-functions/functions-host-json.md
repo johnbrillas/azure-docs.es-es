@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 545b02ee8496c9530b263227d4138441f27f0cf9
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441710"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608825"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -253,7 +253,7 @@ Las opciones de configuración se puede encontrar en los [enlaces para Durable F
 
 ## <a name="eventhub"></a>eventHub
 
-Las opciones de configuración se pueden encontrar en [desencadenadores y enlaces del centro de eventos](functions-bindings-event-hubs-trigger.md#host-json). 
+Las opciones de configuración se pueden encontrar en [desencadenadores y enlaces del centro de eventos](functions-bindings-event-hubs.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 

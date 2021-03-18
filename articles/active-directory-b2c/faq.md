@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660291"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517997"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -82,7 +82,10 @@ La firma de correo electrónico contiene el nombre del inquilino de Azure AD B2C
 1. Cambie el campo **Nombre**.
 1. Haga clic en **Guardar** en la parte superior de la página.
 
-En estos momentos no se puede cambiar el valor del campo De del correo electrónico.
+Actualmente no se puede cambiar el campo "De:" del correo electrónico.
+
+> [!TIP]
+> Con la [directiva personalizada](custom-policy-overview.md) de Azure AD B2C, puede personalizar el correo electrónico que Azure AD B2C envía a los usuarios, incluido el campo "De:" del correo electrónico. La verificación del correo electrónico personalizado requiere el uso de un proveedor de correo electrónico de terceros, como [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md) o [SparkPost](https://sparkpost.com).
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 
@@ -142,13 +145,13 @@ Puede usar la nueva experiencia **Registros de aplicaciones** unificada o nuestr
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
+1. Elimine todos los **proveedores de identidades** del inquilino de Azure AD B2C.
 1. Seleccione **Registros de aplicaciones** y luego seleccione la pestaña **Todas las aplicaciones**.
 1. Elimine todas las aplicaciones que ha registrado.
 1. Elimine **b2c-extensions-app**.
 1. En **Administrar**, seleccione **Usuarios**.
 1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **Sí** cuando se le pida confirmación.
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
-1. En **Administrar**, seleccione **Configuración del usuario**.
 1. En **Administrar**, seleccione **Propiedades**.
 1. En **Administración del acceso para los recursos de Azure**, seleccione **Sí** y luego **Guardar**.
 1. Cierre la sesión de Azure Portal y vuelva a iniciar sesión para actualizar el acceso.

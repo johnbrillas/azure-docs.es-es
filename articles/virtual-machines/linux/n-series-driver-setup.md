@@ -1,19 +1,21 @@
 ---
 title: Instalación de controladores de GPU de la serie N de Azure para Linux
 description: Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Linux en Azure
-services: virtual-machines-linux
+services: virtual-machines
 author: vikancha-MSFT
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subervice: vm-sizes-gpu
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: 22c7a70379649876de4af88080543438e58998a6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: c4c6bee6d3f9e423d83458ad48d213fe65223514
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746652"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551767"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -29,7 +31,6 @@ Para conocer las especificaciones de máquina virtual de la serie N, las capacid
 
 Estos son los pasos para instalar controladores CUDA desde el kit de herramientas de NVIDIA CUDA en máquinas virtuales de la serie N. 
 
-
 Los desarrolladores de C y C++, si lo desean, pueden instalar el kit de herramientas completo para crear aplicaciones aceleradas por GPU. Para obtener más información, consulte la [guía de instalación de CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 Para instalar los controladores de CUDA, realice una conexión SSH a cada máquina virtual. Para comprobar que el sistema dispone de una GPU compatible con CUDA, ejecute el siguiente comando:
@@ -41,29 +42,31 @@ Verá un resultado similar al siguiente ejemplo (mostrando una tarjeta NVIDIA Te
 
 ![Resultado del comando de Ispci](./media/n-series-driver-setup/lspci.png)
 
+lspci enumera los dispositivos PCIe de la máquina virtual, incluidas GPU y la NIC de InfiniBand, si los hay. Si lspci no se devuelve correctamente, puede que tenga que instalar LIS en CentOS/RHEL (instrucciones a continuación).
 Luego, ejecute los comandos de instalación específicos de su distribución.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Descargue e instale los controladores de CUDA del sitio web de NVIDIA. Por ejemplo, para Ubuntu 16.04 LTS:
+1. Descargue e instale los controladores de CUDA del sitio web de NVIDIA. 
+    > [!NOTE]
+   >  En el ejemplo siguiente se muestra la ruta de acceso del paquete CUDA para Ubuntu 16.04. Reemplace la ruta de acceso específica de la versión que tiene previsto usar. 
+   >  
+   >  Visite el [Centro de descarga de NVIDIA] (https://developer.download.nvidia.com/compute/cuda/repos/) ) para obtener la ruta de acceso completa específica de cada versión. 
+   > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
-
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo apt-get update
-
    sudo apt-get install cuda-drivers
-
    ```
 
    La instalación puede tardar varios minutos.
+ 
 
 2. Para instalar (opcional) el kit de herramientas CUDA completo, escriba:
 
@@ -79,11 +82,8 @@ Se recomienda actualizar periódicamente los controladores CUDA después de la i
 
 ```bash
 sudo apt-get update
-
 sudo apt-get upgrade -y
-
 sudo apt-get dist-upgrade -y
-
 sudo apt-get install cuda-drivers
 
 sudo reboot
@@ -95,42 +95,33 @@ sudo reboot
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
-  
-   sudo reboot
-
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
-
-Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
-
-Please note that LIS is applicable to Red Hat Enterprise Linux, CentOS, and the Oracle Linux Red Hat Compatible Kernel 5.2-5.11, 6.0-6.10, and 7.0-7.7. Please refer to the [Linux Integration Services documentation] (https://www.microsoft.com/en-us/download/details.aspx?id=55106) for more details. 
-
-Skip this step if you are not using the Kernel versions listed above.
-
-   ```bash
-   wget https://aka.ms/lis
- 
-   tar xvzf lis
- 
-   cd LISISO
- 
-   sudo ./install.sh
- 
    sudo reboot
    ```
- 
+
+2. Instale la versión más reciente de [Linux Integration Services para Hyper-V y Azure](https://www.microsoft.com/download/details.aspx?id=55106). Para confirmar si se requiere LIS, compruebe los resultados de lspci. Si todos los dispositivos de GPU aparecen como se esperaba (y documentaba anteriormente), no es necesario instalar LIS.
+
+   Tenga en cuenta que LIS es aplicable a Red Hat Enterprise Linux, CentOS y el kernel compatible de Red Hat de Oracle Linux 5.2-5.11, 6.0-6.10 y 7.0-7.7. Consulte la [documentación de Linux Integration Services] ( https://www.microsoft.com/en-us/download/details.aspx?id=55106) ) para obtener más información. 
+   Omita este paso si tiene previsto usar CentOS/RHEL 7.8 (o versiones posteriores), pues ya no se necesita LIS en estas versiones.
+
+      ```bash
+      wget https://aka.ms/lis
+      tar xvzf lis
+      cd LISISO
+
+      sudo ./install.sh
+      sudo reboot
+      ```
+
 3. Vuelva a conectarse a la VM y continúe con la instalación con los siguientes comandos:
 
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
    sudo yum install dkms
-
+   
    CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-
    wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo yum install cuda-drivers
@@ -143,6 +134,9 @@ Skip this step if you are not using the Kernel versions listed above.
    ```bash
    sudo yum install cuda
    ```
+   > [!NOTE]
+   >  Si ve un mensaje de error relacionado con paquetes que faltan como vulkan-filesystem, puede que tenga que editar /etc/yum.repos.d/rh-cloud, buscar optional-rpms y establecer enabled en 1
+   >  
 
 5. Reinicie la máquina virtual y continúe para comprobar la instalación.
 
@@ -197,20 +191,15 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
 
    ```bash
    sudo apt-get update
-
    sudo apt-get upgrade -y
-
    sudo apt-get dist-upgrade -y
-
    sudo apt-get install build-essential ubuntu-desktop -y
-   
    sudo apt-get install linux-azure -y
    ```
 3. Deshabilite el controlador de kernel Nouveau que es incompatible con el controlador NVIDIA. (Utilice solo el controlador NVIDIA en VM NV o NVv2). Para ello, cree un archivo en `/etc/modprobe.d` llamado `nouveau.conf` con el siguiente contenido:
 
    ```
    blacklist nouveau
-
    blacklist lbm-nouveau
    ```
 
@@ -225,9 +214,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
-
    chmod +x NVIDIA-Linux-x86_64-grid.run
-
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
@@ -260,13 +247,9 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
  
    ```bash  
    sudo yum update
- 
    sudo yum install kernel-devel
- 
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
- 
    sudo yum install dkms
-   
    sudo yum install hyperv-daemons
    ```
 
@@ -274,26 +257,22 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
 
    ```
    blacklist nouveau
-
    blacklist lbm-nouveau
    ```
- 
-3. Reinicie la máquina virtual, vuelva a conectarse e instale la versión más reciente de [Linux Integration Services para Hyper-V y Azure](https://www.microsoft.com/download/details.aspx?id=55106). Para confirmar si se requiere LIS, compruebe los resultados de lspci. Si todos los dispositivos de GPU aparecen como se esperaba, no es necesario instalar LIS. 
 
-Si usa CentOS/RHEL 7.8 y versiones posteriores, omita este paso.
- 
-   ```bash
-   wget https://aka.ms/lis
+3. Reinicie la máquina virtual, vuelva a conectarse e instale la versión más reciente de [Linux Integration Services para Hyper-V y Azure](https://www.microsoft.com/download/details.aspx?id=55106). Para confirmar si se requiere LIS, compruebe los resultados de lspci. Si todos los dispositivos de GPU aparecen como se esperaba (y documentaba anteriormente), no es necesario instalar LIS. 
 
-   tar xvzf lis
+   Omita este paso si tiene previsto usar CentOS/RHEL 7.8 (o versiones posteriores), pues ya no se necesita LIS en estas versiones.
 
-   cd LISISO
+      ```bash
+      wget https://aka.ms/lis
+      tar xvzf lis
+      cd LISISO
 
-   sudo ./install.sh
+      sudo ./install.sh
+      sudo reboot
 
-   sudo reboot
-
-   ```
+      ```
  
 4. Vuelva a conectarse a la máquina virtual y ejecute el comando `lspci`. Compruebe que la tarjeta o tarjetas NVIDIA M60 son visibles como dispositivos PCI.
  
@@ -301,7 +280,6 @@ Si usa CentOS/RHEL 7.8 y versiones posteriores, omita este paso.
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
-
    chmod +x NVIDIA-Linux-x86_64-grid.run
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
@@ -381,7 +359,7 @@ A continuación, cree una entrada para el script actualizado en `/etc/rc.d/rc3.d
 
 * Puede establecer el modo de persistencia mediante `nvidia-smi` para que la salida del comando sea más rápida cuando necesita consultar tarjetas. Para establecer el modo de persistencia, ejecute `nvidia-smi -pm 1`. Tenga en cuenta que, si se reinicia la máquina virtual, la configuración del modo desaparece. Siempre puede crear un script de la configuración de modo para ejecutarla al inicio.
 * Si ha actualizado los controladores CUDA de NVIDIA a la versión más reciente y observa que la conectividad RDMA ya no funciona, [reinstale los controladores RDMA](#rdma-network-connectivity) para restablecer la conectividad. 
-* Si no se admite una determinada versión del sistema operativo CentOS/RHEL para LIS, se produce el error de versión de kernel no compatible. Comunique este error junto con las versiones del sistema operativo y del kernel.
+* Durante la instalación de LIS, si no se admite una determinada versión del sistema operativo CentOS/RHEL (o kernel) para LIS, se produce el error de versión de kernel no compatible. Comunique este error junto con las versiones del sistema operativo y del kernel.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

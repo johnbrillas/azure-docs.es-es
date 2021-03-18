@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712460"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489844"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -473,6 +473,23 @@ La aplicación lógica está preparada para recibir mensajes del sistema SAP.
 > [!NOTE]
 > El desencadenador de SAP no es un desencadenador de sondeo, sino un desencadenador basado en webhook. Si usa la puerta de enlace de datos, el desencadenador se llama desde la puerta de enlace de datos solo cuando existe un mensaje, por lo que no es necesario realizar ningún sondeo.
 
+Si recibe un error **500 Puerta de enlace no válida** con un mensaje similar al **servicio "sapgw00" desconocido**, reemplace el nombre del servicio de puerta de enlace en la configuración de la conexión de API y el desencadenador por su número de puerto. En el siguiente error de ejemplo, `sapgw00` debe reemplazarse por un número de puerto real, por ejemplo, `3300`. 
+
+```json
+"body": {
+   "error": {
+      "code": 500,
+      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+      "clientRequestId": "00000000-0000-0000-0000-000000000000",
+      "message": "BadGateway",
+      "innerError": {
+         "error": {
+            "code": "UnhandledException",
+            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+         }
+      }
+```
+
 #### <a name="parameters"></a>Parámetros
 
 Junto con entradas de cadena y número simples, el conector de SAP acepta estos parámetros de tabla (entradas `Type=ITAB`):
@@ -616,6 +633,14 @@ Para enviar IDoc desde SAP a la aplicación lógica, necesita la siguiente confi
     * En **RFC Destination** (Destino RFC), escriba un nombre.
     
     * En la pestaña **Technical Settings** (Configuración técnica), en **Activation Type** (Tipo de activación), seleccione **Registered Server Program** (Programa de servidor registrado). En **Program ID** (Id. de programa), escriba un valor. En SAP, el desencadenador de la aplicación lógica se registrará con este identificador.
+
+    > [!IMPORTANT]
+    > El **identificador de programa** de SAP distingue mayúsculas de minúsculas. Asegúrese de que usa de forma coherente el mismo formato de mayúsculas y minúsculas para el **identificador de programa** al configurar la aplicación lógica y el servidor SAP. De lo contrario, podría recibir los siguientes errores en el monitor tRFC (T-Code SM58) al intentar enviar un IDoc a SAP:
+    >
+    > * **No se encontró la función IDOC_INBOUND_ASYNCHRONOUS.**
+    > * **No se admite el cliente RFC que no sea ABAP (tipo de socio).**
+    >
+    > Para más información de SAP, consulte las notas siguientes (inicio de sesión necesario) <https://launchpad.support.sap.com/#/notes/2399329> y <https://launchpad.support.sap.com/#/notes/353597>.
     
     * En la pestaña **Unicode**, para **Communication Type with Target System** (Tipo de comunicación con sistema de destino), seleccione **Unicode**.
 
@@ -727,11 +752,27 @@ Puede configurar SAP para que [envíe IDoc en paquetes](https://help.sap.com/vie
 
 Este es un ejemplo que muestra cómo extraer IDoc individuales de un paquete mediante la [función `xpath()`](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Antes de empezar, necesita una aplicación lógica con un desencadenador de SAP. Si aún no tiene esta aplicación lógica, siga los pasos anteriores de este tema para configurar una [aplicación lógica con un desencadenador de SAP](#receive-message-from-sap).
+1. Antes de empezar, necesita una aplicación lógica con un desencadenador de SAP. Si aún no tiene esta aplicación lógica, siga los pasos anteriores de este tema para [configurar una aplicación lógica con un desencadenador de SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > El **identificador de programa** de SAP distingue mayúsculas de minúsculas. Asegúrese de que usa de forma coherente el mismo formato de mayúsculas y minúsculas para el **identificador de programa** al configurar la aplicación lógica y el servidor SAP. De lo contrario, podría recibir los siguientes errores en el monitor tRFC (T-Code SM58) al intentar enviar un IDoc a SAP:
+    >
+    > * **No se encontró la función IDOC_INBOUND_ASYNCHRONOUS.**
+    > * **No se admite el cliente RFC que no sea ABAP (tipo de socio).**
+    >
+    > Para más información de SAP, consulte las notas siguientes (inicio de sesión necesario) <https://launchpad.support.sap.com/#/notes/2399329> y <https://launchpad.support.sap.com/#/notes/353597>.
 
    Por ejemplo:
 
    ![Agregar disparador SAP a la aplicación lógica](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Agregue una acción de respuesta a la aplicación lógica](/azure/connectors/connectors-native-reqres#add-a-response-action) para responder inmediatamente con el estado de la solicitud de SAP. Se recomienda agregar esta acción inmediatamente después del desencadenador para liberar el canal de comunicación con el servidor SAP. Elija uno de los siguientes códigos de estado (`statusCode`) para usarlo en la acción de respuesta:
+
+    * **202 Aceptado**, lo que significa que la solicitud se ha aceptado para el procesamiento, pero el procesamiento aún no se ha completado.
+
+    * **204 Sin contenido**, lo que significa que el servidor ha realizado correctamente la solicitud y no hay contenido adicional para enviar en el cuerpo de la carga de respuesta. 
+
+    * **200 - CORRECTO**. Este código de estado siempre contiene una carga útil, aunque el servidor genere un cuerpo de carga de longitud cero. 
 
 1. Obtenga el espacio de nombres raíz de IDoc XML que la aplicación lógica recibe de SAP. Para extraer este espacio de nombres del documento XML, agregue un paso que cree una variable de cadena local y almacene dicho espacio de nombres mediante una expresión `xpath()`:
 
@@ -1296,11 +1337,18 @@ Si experimenta un problema con IDoc duplicados que se envían a SAP desde la apl
 
 ## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
-Estos son los problemas y limitaciones actualmente conocidos para el conector de SAP (que no sea ISE) administrado:
+Estos son los problemas y limitaciones actualmente conocidos para el conector de SAP (que no sea ISE) administrado: 
 
-* El desencadenador SAP no admite clústeres de puerta de enlace de datos. En algunos casos de conmutación por error, el nodo de puerta de enlace de datos que se comunica con el sistema SAP puede diferir del nodo activo, lo que produce un comportamiento inesperado. En los escenarios de envío, se admiten clústeres de puerta de enlace de datos.
+* En general, el desencadenador de SAP no admite los clústeres de puerta de enlace de datos. En algunos casos de conmutación por error, el nodo de puerta de enlace de datos que se comunica con el sistema SAP puede diferir del nodo activo, lo que produce un comportamiento inesperado.
+
+  * En los escenarios de envío, se admiten clústeres de puerta de enlace de datos en modo de conmutación por error. 
+
+  * Los clústeres de puerta de enlace de datos en modo de equilibrio de carga no se admiten con las acciones de SAP con estado. Estas acciones incluyen la **creación de una sesión con estado**, la **confirmación de una transacción BAPI**, la **reversión de transacción BAPI**, el **cierre de la sesión con estado** y todas las acciones que especifican un valor de **identificador de sesión**. Las comunicaciones con estado deben permanecer en el mismo nodo de clúster de puerta de enlace de datos. 
+
+  * En el caso de las acciones de SAP con estado, use la puerta de enlace de datos en modo no clúster o en un clúster configurado solo para la conmutación por error.
 
 * El conector SAP no admite actualmente las cadenas de enrutador SAP. La puerta de enlace de datos local debe existir en la misma LAN que el sistema SAP al que quiere conectarse.
+
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

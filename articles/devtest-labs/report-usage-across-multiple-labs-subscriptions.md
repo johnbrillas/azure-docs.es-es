@@ -3,12 +3,12 @@ title: Uso de Azure DevTest Labs en varios laboratorios y suscripciones
 description: Aprenda a notificar el uso de Azure DevTest Labs en varios laboratorios y suscripciones.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789945"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452652"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones
 
@@ -25,7 +25,7 @@ En esta sección se describe cómo exportar el uso de recursos para un único la
 Antes de poder exportar el uso de recursos de DevTest Labs, tiene que configurar una cuenta de Azure Storage para permitir que se almacenen los distintos archivos que contienen los datos de uso. Hay dos formas habituales de ejecutar la exportación de datos:
 
 * [API REST de DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
-* El módulo [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) de Az.Resource de PowerShell con la acción `exportResourceUsage`, el identificador del recurso de laboratorio y los parámetros necesarios. 
+* El módulo [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) de Az.Resource de PowerShell con la acción `exportResourceUsage`, el identificador del recurso de laboratorio y los parámetros necesarios. 
 
     El artículo [Exportación o eliminación de datos personales](personal-data-delete-export.md) incluye un script de PowerShell de ejemplo con información detallada sobre los datos que se exportan. 
 
@@ -65,7 +65,7 @@ El almacenamiento a largo plazo se puede usar para realizar cualquier manipulaci
 * crear agrupaciones complejas
 * agregar los datos.
 
-Algunas soluciones de almacenamiento habituales son: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) y [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). La elección de la solución de almacenamiento a largo plazo que elija dependerá de las preferencias. Puede considerar la posibilidad de elegir la herramienta en función de lo que ofrece en cuanto a la disponibilidad de interacción al visualizar los datos.
+Algunas soluciones de almacenamiento comunes son [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/) y [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). La elección de la solución de almacenamiento a largo plazo que elija dependerá de las preferencias. Puede considerar la posibilidad de elegir la herramienta en función de lo que ofrece en cuanto a la disponibilidad de interacción al visualizar los datos.
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualización de datos y recopilación de información
 

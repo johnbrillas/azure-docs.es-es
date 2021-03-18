@@ -3,18 +3,18 @@ title: Compartir imágenes de máquina virtual con Galerías compartidas
 description: Aprenda a usar galerías de imágenes compartidas para compartir imágenes de máquinas virtuales Linux en su organización.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730329"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551069"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -24,7 +24,7 @@ Shared Image Gallery es un servicio que ayuda a crear la estructura y la organiz
 - Control de versiones y agrupación de las imágenes para facilitar la administración.
 - Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones donde esté disponible Availability Zones. ZRS ofrece mejor resistencia a errores de zona.
 - Se admite Premium Storage (Premium_LRS).
-- Imágenes compartidas entre suscripciones e, incluso, entre inquilinos de Active Directory (AD) mediante RBAC.
+- Uso compartido entre suscripciones e, incluso entre inquilinos de Active Directory (AD), mediante Azure RBAC.
 - Escalado de las implementaciones con réplicas de imagen en cada región.
 
 Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
@@ -104,7 +104,7 @@ Las máquinas virtuales especializadas no han pasado por un proceso para quitar 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Todas las regiones públicas pueden ser regiones de destino, pero para replicar en Centro de Australia y Centro de Australia 2 debe tener la suscripción incluida en la lista de permitidos. Para solicitar que se agregue una suscripción a la lista de permitidos, vaya a: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas las regiones públicas pueden ser regiones de destino, pero para replicar en Centro de Australia y Centro de Australia 2 debe tener la suscripción incluida en la lista de permitidos. Para solicitar que se agregue una suscripción a la lista de permitidos, vaya a: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>Límites 
 
@@ -146,14 +146,14 @@ Las regiones donde puede replicarse la versión de una imagen compartida se pued
 
 ## <a name="access"></a>Acceso
 
-Dado que la galería de imágenes compartidas, la definición de la imagen y la versión de la imagen son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Con RBAC puede compartir estos recursos con otros usuarios, entidades de servicio y grupos. Incluso se puede compartir el acceso a personas ajenas al inquilino en el que se crearon. Cuando el usuario tiene acceso a la versión de las imágenes compartidas, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
+Dado que la galería de imágenes compartidas, la definición de la imagen y la versión de la imagen son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Con Azure RBAC puede compartir estos recursos con otros usuarios, entidades de servicio y grupos. Incluso se puede compartir el acceso a personas ajenas al inquilino en el que se crearon. Cuando el usuario tiene acceso a la versión de las imágenes compartidas, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
 
 | Compartido con el usuario     | Galería de imágenes compartidas | Definición de imágenes | Versión de la imagen |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
 | Definición de imágenes     | No                   | Sí          | Sí                  |
 
-Se recomienda el uso compartido en el nivel de la galería para una mejor experiencia. No se recomienda compartir las versiones individuales de la imagen. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC](../role-based-access-control/role-assignments-portal.md).
+Se recomienda el uso compartido en el nivel de la galería para una mejor experiencia. No se recomienda compartir las versiones individuales de la imagen. Para obtener más información sobre Azure RBAC, consulte [Asignación de roles de Azure](../role-based-access-control/role-assignments-portal.md).
 
 Las imágenes también se pueden compartir, a escala, incluso entre inquilinos mediante un registro de aplicación de varios inquilinos. Para obtener más información sobre cómo compartir imágenes entre los inquilinos, consulte "Compartir imágenes de máquina virtual de la galería en inquilinos de Azure" usando la [CLI de Azure](./linux/share-images-across-tenants.md) o [PowerShell](./windows/share-images-across-tenants.md).
 
@@ -325,4 +325,3 @@ Además, puede publicar y etiquetar la pregunta con `azure-virtual-machines-imag
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo implementar imágenes compartidas mediante la [CLI de Azure](shared-images-cli.md) y [PowerShell](shared-images-powershell.md).
-

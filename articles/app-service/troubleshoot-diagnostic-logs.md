@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586270"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452261"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -116,7 +116,7 @@ En el código de la aplicación, se usan las funciones de registro habituales pa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- De forma predeterminada, ASP.NET Core usa el proveedor de registro [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging/).
+- De forma predeterminada, ASP.NET Core usa el proveedor de registro [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging/). Para más información sobre el registro del SDK de SDK, consulte [Introducción al SDK de Azure WebJobs](/azure/app-service/webjobs-sdk-get-started#enable-console-logging).
 
 ## <a name="stream-logs"></a>Transmisión de registros
 
@@ -134,19 +134,17 @@ Para transmitir registros, en [Azure Portal](https://portal.azure.com), vaya a l
 
 Para transmitir registros en directo en [Cloud Shell](../cloud-shell/overview.md), use el siguiente comando:
 
+> [!IMPORTANT]
+> Es posible que este comando no funcione con aplicaciones web hospedadas en un plan de App Service de Linux.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo:
+Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Provider**. Por ejemplo:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>En el terminal local
