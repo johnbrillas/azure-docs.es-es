@@ -1,6 +1,6 @@
 ---
 title: Planeamiento de una implementación de Azure File Sync |Microsoft Docs
-description: Planee sus implementaciones con Azure File Sync, que es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server.
+description: Planee sus implementaciones con Azure File Sync, que es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219483"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564227"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -22,7 +22,7 @@ ms.locfileid: "99219483"
         [![Entrevista y demostración al presentar Azure File Sync: haga clic para reproducir.](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Azure File Sync es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server. 
+        Azure File Sync es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server. 
         
         En este artículo se explican los conceptos y características de Azure File Sync. Una vez que esté familiarizado con Azure File Sync, considere la posibilidad de seguir la [guía de implementación de Azure File Sync](storage-sync-files-deployment-guide.md) para probar este servicio.        
     :::column-end:::
@@ -52,16 +52,19 @@ Para poder crear un grupo de sincronización en un servicio de sincronización d
 Un grupo de sincronización contiene un punto de conexión en la nube, o un recurso compartido de archivos de Azure, y al menos un punto de conexión de servidor. El objeto de punto de conexión de servidor contiene los valores que configuran la funcionalidad de **nube por niveles**, que proporciona la funcionalidad de almacenamiento en caché de Azure File Sync. Para realizar la sincronización con un recurso compartido de archivos de Azure, la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure debe estar en la misma región de Azure que el servicio de sincronización de almacenamiento.
 
 > [!Important]  
-> Puede realizar cambios en cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
+> Puede realizar cambios en el espacio de nombres de cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
 
-### <a name="management-guidance"></a>Guía de administración
-Al implementar Azure File Sync, se recomienda:
+### <a name="consider-the-count-of-storage-sync-services-needed"></a>Tener en cuenta el recuento de servicios de sincronización de almacenamiento necesarios
+En una sección anterior se describe el recurso principal que se va a configurar para Azure File Sync: un *servicio de sincronización de almacenamiento*. Windows Server solo se puede registrar en un servicio de sincronización de almacenamiento. Por lo tanto, a menudo es mejor implementar solo un servicio de sincronización de almacenamiento y registrar todos los servidores. 
 
-- Implementar recursos compartidos de archivos de Azure 1:1 con recursos compartidos de archivos de Windows. El objeto de punto de conexión del servidor proporciona gran cantidad de flexibilidad en la configuración de la topología de sincronización en el lado servidor de la relación de sincronización. Para simplificar la administración, haga coincidir la ruta de acceso del punto de conexión del servidor con la ruta de acceso del recurso compartido de archivos de Windows. 
+Solo debe crear varios servicios de sincronización de almacenamiento si tiene:
+* distintos conjuntos de servidores que nunca deben intercambiar datos. En este caso, debe diseñar el sistema para excluir determinados conjuntos de servidores que se van a sincronizar con un recurso compartido de archivos de Azure que ya está en uso como punto de conexión en la nube en un grupo de sincronización de un servicio de sincronización de almacenamiento diferente. Otra forma de ver esto es que los servidores de Windows Server registrados en un servicio de sincronización de almacenamiento distinto no se pueden sincronizar con el mismo recurso compartido de archivos de Azure.
+* necesidad de tener más grupos de sincronización o servidores registrados de los que un único servicio de sincronización de almacenamiento puede admitir. Para más información, revise los [Objetivos de escalabilidad de Azure File Sync](storage-files-scale-targets.md#azure-file-sync-scale-targets).
 
-- Use el menor número posible de servicios de sincronización de almacenamiento. Esto simplificará la administración cuando tenga grupos de sincronización que contengan varios puntos de conexión de servidor, ya que un servidor con Windows Server no se puede registrar en varios servicios de sincronización de almacenamiento a la vez. 
+## <a name="plan-for-balanced-sync-topologies"></a>Plan para topologías de sincronización equilibrada
+Antes de implementar los recursos, es importante planear lo que va a sincronizar en un servidor local, con el recurso compartido de archivos de Azure. La realización de un plan le ayudará a determinar el número de cuentas de almacenamiento, recursos compartidos de archivos de Azure y recursos de sincronización que necesitará. Estas consideraciones siguen siendo pertinentes, incluso si los datos no residen actualmente en Windows Server o en el servidor que quiere usar a largo plazo. La [sección de migración](#migration) puede ayudar a determinar las rutas de migración adecuadas para su situación.
 
-- Prestar atención a las limitaciones de IOPS de la cuenta de almacenamiento al implementar recursos compartidos de archivos de Azure. Lo ideal sería asignar recursos compartidos de archivos 1:1 a cuentas de almacenamiento; sin embargo, quizás no sea posible debido a diversos límites y restricciones, tanto de su organización como de Azure. Cuando no sea posible tener un solo recurso compartido de archivos implementado en una cuenta de almacenamiento, tenga en cuenta qué recursos compartidos estarán muy activos y cuales estarán menos activos, con el fin de asegurarse de que los recursos compartidos de archivos más activos no se colocan en la misma cuenta de almacenamiento.
+[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
 ## <a name="windows-file-server-considerations"></a>Consideraciones sobre el servidor de archivos de Windows
 Para habilitar la funcionalidad de sincronización en Windows Server, es preciso instalar el agente de Azure File Sync, que se puede descargar. Este agente proporciona dos componentes principales: `FileSyncSvc.exe`, el servicio de Windows en segundo plano responsable de supervisar los cambios en los puntos de conexión del servidor e iniciar sesiones de sincronización, y `StorageSync.sys`, un filtro del sistema de archivos que permite la organización de la nube por niveles y una rápida recuperación ante desastres.  
@@ -203,7 +206,7 @@ Azure File Sync no admite la desduplicación de datos y la nube por niveles en e
 - Si habilita la desduplicación de datos en un volumen después de haber habilitado la nube por niveles, el trabajo inicial de optimización por desduplicación optimiza los archivos del volumen que no están aún en niveles, y tendrá la siguiente repercusión en la nube por niveles:
     - La directiva de espacio disponible seguirá colocando los archivos en niveles según el espacio libre en el volumen mediante el uso del mapa térmico.
     - La directiva de fecha omitirá la organización en niveles de los archivos, que podrían haber sido en otra situación aptos para niveles, ya que el trabajo de optimización por desduplicación tiene acceso a los archivos.
-- Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
+- Para los trabajos de optimización por desduplicación en curso, el valor de desduplicación de datos [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume), retrasará la nube por niveles con directiva de fecha, si el archivo no está colocado ya en un nivel. 
     - Ejemplo: Si el valor MinimumFileAgeDays es de siete días y la directiva de fecha de nube por niveles es de 30 días, la directiva de fecha colocará los archivos en niveles pasados 37 días.
     - Nota: Una vez que Azure File Sync haya colocado un archivo en un nivel, el trabajo de optimización por desduplicación omitirá el archivo.
 - Si un servidor que ejecuta Windows Server 2012 R2 y que tiene instalado el agente de Azure File Sync se actualiza a Windows Server 2016 o Windows Server 2019, es necesario realizar los pasos siguientes para que se pueda admitir en el mismo volumen la desduplicación de datos y la nube por niveles:  
@@ -239,6 +242,16 @@ Si en un punto de conexión de un servidor están habilitados los niveles en la 
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Otras soluciones de administración de almacenamiento jerárquico (HSM)
 No deben utilizarse otras soluciones HSM deben utilizarse con Azure File Sync.
+
+## <a name="performance-and-scalability"></a>Escalabilidad y rendimiento
+
+Dado que el agente de Azure File Sync se ejecuta en una máquina con Windows Server que se conecta a los recursos compartidos de archivos de Azure, el rendimiento de sincronización efectivo depende de una serie de factores de su infraestructura: Windows Server y la configuración del disco subyacente, el ancho de banda de la red entre el servidor y Azure Storage, el tamaño del archivo, el tamaño total del conjunto de datos y la actividad en el conjunto de datos. Dado que Azure File Sync funciona en el nivel de archivos, las características de rendimiento de una solución basada en Azure File Sync se mide mejor en el número de objetos (archivos y directorios) que se procesan por segundo.
+
+Los cambios realizados en el recurso compartido de archivos de Azure mediante Azure Portal o SMB no se detectan y replican de forma inmediata como cambios en el punto de conexión del servidor. Azure Files aún no dispone de registros en diario o notificaciones, por lo que no hay manera de iniciar automáticamente una sesión de sincronización cuando se cambian los archivos. En Windows Server, Azure File Sync usa el [registro en diario de USN de Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automáticamente una sesión de sincronización cuando cambian los archivos.
+
+Para detectar cambios en el recurso compartido de archivos de Azure, Azure File Sync tiene un trabajo programado que se denomina trabajo de detección de cambios. Un trabajo de detección de cambios enumera todos los archivos del recurso compartido de archivos y, a continuación, los compara con la versión de sincronización correspondiente. Cuando el trabajo de detección de cambios determina qué archivos han cambiado, Azure File Sync inicia una sesión de sincronización. El trabajo de detección de cambios se inicia cada 24 horas. Dado que el trabajo de detección de cambios enumera todos los archivos del recurso compartido de archivos de Azure, la detección de cambios tarda más en los espacios de nombres más largos que los espacios de nombres más cortos. En el caso de los espacios de nombres largos, es posible que sea necesario determinar más de una vez cada 24 horas qué archivos han cambiado.
+
+Para obtener más información, consulte [Métricas de rendimiento de Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics) y [Objetivos de escalabilidad de Azure File Sync](storage-files-scale-targets.md#azure-file-sync-scale-targets).
 
 ## <a name="identity"></a>Identidad
 Azure File Sync funciona con su identidad basada en AD estándar sin ninguna configuración especial más allá de configurar la sincronización. Cuando se usa Azure File Sync, la expectativa general es que la mayor parte de los accesos atraviesen los servidores de almacenamiento en caché de Azure File Sync, en lugar del recurso compartido de archivos de Azure. Dado que los puntos de conexión del servidor se encuentran en Windows Server y que Windows Server ha admitido listas de control de acceso de estilo AD y Windows durante mucho tiempo, lo único que se necesita es asegurarse de que los servidores de archivos de Windows registrados en el servicio de sincronización de almacenamiento están unidos a un dominio. Azure File Sync almacenará las listas de control de acceso en los archivos del recurso compartido de archivos de Azure y los replicará en todos los puntos de conexión del servidor.
@@ -320,15 +333,9 @@ Para solicitar acceso a estas regiones, siga el proceso de [este documento](http
 > Tanto el almacenamiento con redundancia geográfica como el almacenamiento con redundancia de zona geográfica tienen la capacidad de realizar la conmutación por error manual en la región secundaria. Se recomienda no hacerlo si no se produce un desastre al usar Azure File Sync debido a la mayor probabilidad de pérdida de datos. En caso de desastre en el que desee iniciar una conmutación por error manual del almacenamiento, necesitará abrir un caso de soporte técnico con Microsoft para reanudar la sincronización de Azure File Sync con el punto de conexión secundario.
 
 ## <a name="migration"></a>Migración
-Si tiene un servidor de archivos de Windows existente, Azure File Sync se puede instalar directamente en su lugar, sin necesidad de trasladar los datos a un nuevo servidor. Si planea migrar a un nuevo servidor de archivos de Windows como parte de la adopción de Azure File Sync, hay varios enfoques posibles para trasladar los datos:
+Si tiene un servidor de archivos de Windows 2012R2 o de una versión posterior, Azure File Sync se puede instalar directamente en su lugar, sin necesidad de trasladar los datos a un nuevo servidor. Si planea migrar a un nuevo servidor de archivos de Windows como parte de la adopción de Azure File Sync, o si los datos se encuentran actualmente en el almacenamiento conectado a la red (NAS), existen varios enfoques posibles de migración para usar Azure File Sync con estos datos. El método de migración que debe elegir depende de dónde residan los datos actualmente. 
 
-- Cree puntos de conexión del servidor tanto para su recurso compartido de archivos antiguo como para su recurso compartido de archivos nuevo, y deje que Azure File Sync sincronice los datos entre los puntos de conexión del servidor. La ventaja de este enfoque es que facilita considerablemente la sobresuscripción del almacenamiento en su nuevo servidor de archivos, ya que Azure File Sync es compatible con la nube por niveles. Cuando esté listo, puede migrar los usuarios finales al recurso compartido de archivos del servidor nuevo y quitar el punto de conexión del servidor del recurso compartido de archivos anterior.
-
-- Cree un punto de conexión de servidor solo en el servidor de archivos nuevo y copie ahí los datos del recurso compartido de archivos anterior mediante `robocopy`. En función de la topología de los recursos compartidos de archivos del servidor nuevo (el número de recursos compartidos que tiene en cada volumen, el nivel de ocupación de cada volumen, etc.), es posible que necesite aprovisionar temporalmente más almacenamiento, ya que se espera que la operación `robocopy` del anterior servidor al nuevo servidor del centro de datos local se complete a mayor velocidad de la que Azure File Sync va a mover los datos a Azure.
-
-También se puede usar Data Box para migrar datos a una implementación de Azure File Sync. La mayor parte del tiempo, si los clientes desean usar Data Box para ingerir datos, lo hacen porque creen que aumentará la velocidad de su implementación o porque ayudará en aquellos escenarios en los que el ancho de banda está restringido. Aunque es cierto que usar Data Box para ingerir datos en la implementación de Azure File Sync reducirá el uso del ancho de banda, es probable que sea más rápido en la mayor parte de los escenarios para perseguir una carga de datos en línea mediante uno de los métodos ya descritos. Para más información sobre el uso de Data Box para ingerir datos en su implementación de Azure File Sync, consulte [Migración de datos a Azure File Sync con Azure Data Box](storage-sync-offline-data-transfer.md).
-
-Un error común que cometen los clientes al migrar datos a su nueva implementación de Azure File Sync es copiar los datos directamente en el recurso compartido de archivos de Azure, en lugar de en sus servidores de archivos de Windows. Aunque Azure File Sync identificará todos los archivos nuevos del recurso compartido de archivos de Azure y los sincronizará con sus recursos compartidos de archivos de Windows, por lo general la operación es más lenta que la carga de datos mediante el servidor de archivos de Windows. Al usar las herramientas de copia de Azure, como AzCopy, es importante usar la versión más reciente. Eche un vistazo a la [tabla de herramientas de copia de archivos](storage-files-migration-overview.md#file-copy-tools) para obtener información general sobre las herramientas de copia de Azure, lo que le permitirá asegurarse de que puede copiar todos los metadatos importantes de un archivo, como marcas de tiempo y listas de control de acceso.
+Consulte el artículo [Información general sobre la migración de recursos compartidos de archivos de Azure File Sync y Azure](storage-files-migration-overview.md), donde puede encontrar instrucciones detalladas para su escenario.
 
 ## <a name="antivirus"></a>Antivirus
 Dado que lo que hace un antivirus es examinar los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos por niveles, lo que da lugar a cargos elevados de salida. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente). 
@@ -342,6 +349,9 @@ Las soluciones de antivirus internas de Microsoft, Windows Defender y System Cen
 Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
 
 Si prefiere usar una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga deshabilitada la nube por niveles. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
+
+> [!WARNING]
+> El modificador /B de Robocopy no es compatible con Azure File Sync. El uso del modificador /B de Robocopy con un punto de conexión del servidor de Azure File Sync como origen puede provocar daños en los archivos.
 
 > [!Note]  
 > La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.

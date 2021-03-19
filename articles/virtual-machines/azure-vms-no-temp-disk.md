@@ -4,15 +4,16 @@ description: En este artículo se proporcionan respuestas a las preguntas más f
 author: brbell
 ms.service: virtual-machines
 ms.topic: conceptual
+ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 30587fac7d7be37d7595a78502b7999adee9a30f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665317"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565468"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamaños de máquina virtual de Azure sin disco temporal local 
 En este artículo se proporcionan respuestas a las preguntas frecuentes sobre los tamaños de máquina virtual de Azure que no tienen disco temporal local (por ejemplo, sin disco temporal local). Para más información sobre estos tamaños de máquina virtual, consulte [Especificaciones para las series Dv4 y Dsv4 (cargas de trabajo de uso general)](dv4-dsv4-series.md) o [Especificaciones para las series Ev4 y Esv4 (cargas de trabajo optimizadas para memoria)](ev4-esv4-series.md).
@@ -40,8 +41,22 @@ No. Las únicas combinaciones permitidas para el cambio de tamaño son:
 1. Máquina virtual (con disco temporal local)-> máquina virtual (con disco temporal local) y 
 2. Máquina virtual (sin disco temporal local)-> máquina virtual (sin disco temporal local). 
 
+Si le interesa una solución alternativa, consulte la siguiente pregunta.
+
 > [!NOTE]
 > Si una imagen depende del disco de recursos o si existe un archivo de paginación o un archivo de intercambio en el disco temporal local, las imágenes sin disco no funcionarán; en su lugar, use la alternativa "con disco". 
+
+## <a name="how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk"></a>¿Cómo puedo migrar de un tamaño de máquina virtual que tiene un disco temporal local a un tamaño de máquina virtual sin disco temporal local?  
+Para realizar la migración, siga estos pasos: 
+
+1. Conéctese a la máquina virtual que tenga un disco temporal local (por ejemplo, una unidad D:) como administrador local.
+2. Siga las instrucciones de la sección "Mover temporalmente pagefile.sys a la unidad C" de [Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows](./windows/change-drive-letter.md) para mover el archivo de paginación del disco temporal local (unidad D:) a la unidad C:.
+
+   > [!NOTE]
+   > Siga las instrucciones de la sección "Mover temporalmente el archivo pagefile.sys a la unidad C" de Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows para mover el archivo de paginación del disco temporal local (unidad D:) a la unidad C:. **La desviación de los pasos descritos dará lugar al mensaje de error: "No se puede cambiar el tamaño de la VM porque el cambio del tamaño de la VM de disco de recursos a disco que no es de recursos y viceversa no se permite.**
+
+3. Para realizar una instantánea de la máquina virtual, siga los pasos descritos en [Creación de una instantánea mediante el portal o la CLI de Azure](./linux/snapshot-copy-managed-disk.md). 
+4. Use la instantánea para crear una nueva máquina virtual sin disco (por ejemplo, de las series Dv4, Dsv4, Ev4, Esv4) siguiendo los pasos descritos en [Creación de una máquina virtual a partir de una instantánea con la CLI](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>¿Estos tamaños de máquina virtual admiten sistemas operativos (SO) Linux y Windows?
 Sí.

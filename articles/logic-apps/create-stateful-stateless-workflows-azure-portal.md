@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736378"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563971"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creación de flujos de trabajo con estado y sin estado en Azure Portal con la versión preliminar de Azure Logic Apps
 
@@ -236,7 +236,33 @@ Antes de poder agregar un desencadenador a un flujo de trabajo en blanco, asegú
 
 1. No olvide guardar su trabajo. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-A continuación, para probar el flujo de trabajo, desencadene manualmente una ejecución.
+1. Si el entorno tiene requisitos de red estrictos o firewalls que limitan el tráfico, debe permitir la configuración de los permisos de las conexiones de desencadenador o acción que existan en el flujo de trabajo para buscar el nombre de dominio completo. 
+
+   En caso contrario, para probar el flujo de trabajo, [desencadene manualmente una ejecución](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Búsqueda de nombres de dominio para el acceso al firewall
+
+Antes de implementar el flujo de trabajo de la aplicación lógica en Azure Portal, si su entorno tiene estrictos requisitos de red o firewalls que limitan el tráfico, debe configurar los permisos de red o del firewall para las conexiones de desencadenador o acción que existan en la aplicación lógica.
+
+Para buscar los nombres de dominio completos (FQDN) de estas conexiones, siga estos pasos:
+
+1. En el menú de la aplicación lógica, en **Flujos de trabajo**, seleccione **Conexiones**. En la pestaña **Conexiones de API**, seleccione el nombre del recurso de la conexión, por ejemplo:
+
+   ![Captura de pantalla que muestra el menú de Azure Portal y la aplicación lógica con el nombre de recurso de conexión "Conexiones" y "offic365" seleccionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Expanda el explorador lo suficientemente para que cuando aparezca la **Vista JSON** en la esquina superior derecha del explorador, seleccione **Vista JSON**.
+
+   ![Captura de pantalla que muestra Azure Portal y el panel de conexión de API con la opción "Vista JSON" seleccionada.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Busque, copie y guarde el valor de la propiedad `connectionRuntimeUrl` en un lugar seguro para que pueda configurar el firewall con esta información.
+
+   ![Captura de pantalla que muestra el valor de la propiedad "connectionRuntimeUrl" seleccionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. En cada conexión, repita los pasos pertinentes.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Desencadenador del flujo de trabajo
 
