@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 994fdf3f929f1f64ab4a064d7f2bd24c19322629
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678889"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485426"
 ---
 # <a name="azure-route-server-preview-faq"></a>Preguntas frecuentes sobre Azure Route Server (versión preliminar)
 
@@ -70,7 +70,7 @@ Azure Route Server tiene los límites siguientes (por implementación).
 | Número de rutas que puede anunciar cada emparejamiento de BGP a Azure Route Server | 200 |
 | Número de rutas que puede anunciar Azure Route Server a ExpressRoute o a la puerta de enlace de VPN | 200 |
 
-Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
+Si la NVA anuncia más rutas que el límite, se eliminará la sesión BGP. Si esto sucede en la puerta de enlace y en el servidor de enrutamiento de Azure, perderá la conectividad de la red local a Azure. Para más información, consulte [Diagnóstico de problemas de enrutamiento en una máquina virtual](../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
