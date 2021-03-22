@@ -4,14 +4,14 @@ description: En este tutorial se describe la exposición de un servicio WCF RES
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710794"
 ---
-# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
 
 En este tutorial se describe cómo crear un servicio y una aplicación cliente de WCF Relay mediante Azure Relay. Para ver un tutorial parecido donde se usa [Mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -33,7 +33,7 @@ En este tutorial, hará lo siguiente:
 > * Implementar el cliente de WCF.
 > * Ejecución de las aplicaciones
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
@@ -185,7 +185,7 @@ El archivo de configuración es similar a un archivo de configuración de WCF. I
 1. Dentro de las etiquetas `<system.serviceModel>`, agregue un elemento `<services>`. Puede definir varias aplicaciones de retransmisión en un único archivo de configuración. Sin embargo, este tutorial solo define una.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -513,7 +513,7 @@ En este paso, creará un archivo *App.config* para una aplicación cliente bási
 1. En el elemento `system.serviceModel`, agregue un elemento `<client>`.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -730,7 +730,7 @@ namespace Microsoft.ServiceBus.Samples
 
     ![Páginas de propiedades del proyecto][5]
 
-1. Seleccione **Dependencias del proyecto**. En **Proyectos**, seleccione **EchoClient**. En **Depende de:** , asegúrese de que **EchoService** está seleccionado.
+1. Seleccione **Dependencias del proyecto**. En **Proyectos**, seleccione **EchoClient**. En **Depende de:**, asegúrese de que **EchoService** está seleccionado.
 
     ![Dependencias del proyecto][6]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796064"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101297"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitación de Security Center en todas las suscripciones de un grupo de administración
 
@@ -60,7 +60,7 @@ Hay varias formas de modificar la definición de Azure Policy:
     La definición suministrada, puede definir *cualquiera* de los valores de "precio" siguientes como compatibles. Esto significa que una suscripción establecida como "estándar" o "gratis" es compatible.
 
     > [!TIP]
-    > Cuando se habilita un plan de Azure Defender, se describe como que se encuentra en el valor "Estándar". Cuando se deshabilita es "Gratis". [Más información sobre los planes de Azure Defender](security-center-pricing.md).
+    > Cuando se habilita un plan de Azure Defender, se describe en una definición de directiva con el valor "Estándar". Cuando se deshabilita es "Gratis". Para más información acerca de las diferencias entre estos planes, consulte [Azure Security Center gratuito frente a Azure Defender habilitado](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Hay varias formas de modificar la definición de Azure Policy:
 Ahora que ha incorporado todo un grupo de administración, habilite las protecciones avanzadas de Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitación de Azure Defender](enable-azure-defender.md)

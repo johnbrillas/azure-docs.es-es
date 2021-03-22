@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561111"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050348"
 ---
 # <a name="view-azure-reservations"></a>Visualización de reservas de Azure
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo ver las reservas de Azure en Azure Portal. La
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Quiénes pueden administrar una reservas de manera predeterminada
 
-De forma predeterminada, los siguientes usuarios son los que pueden ver y administrar reservas:
+De forma predeterminada, estos son los usuarios que pueden ver y administrar reservas:
 
 - Tanto la persona que compra una reserva como el administrador de cuenta de la suscripción de facturación que se ha usado para comprar la reserva se agregan al pedido de reserva.
 - Administradores de facturación del Contrato Enterprise y del Contrato de cliente de Microsoft.
@@ -47,8 +47,15 @@ Para que otras personas puedan administrar las reservas, tiene dos opciones:
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>De qué forma ven o administran las reservas los administradores de facturación
 
-1. Vaya a **Azure Cost Management + Billing** y, después, en el lado izquierdo de la página, seleccione **Transacciones de reserva**.
-2. Si tiene los permisos de facturación necesarios, puede ver y administrar las reservas. Si no ve ninguna reserva, asegúrese de que ha iniciado sesión mediante el inquilino de Azure AD en el que se crearon las reservas.
+Si tiene acceso a las reservas o a los pedidos de reserva con el acceso de Azure RBAC, es posible que vea solo un subconjunto de transacciones de reserva, o incluso ninguna, al ir a Reservas. Utilice los pasos siguientes para ver y administrar todas las reservas y transacciones de reserva.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Cost Management + Billing**.
+    - Los administradores de EA pueden seleccionar **Ámbitos de facturación** en el menú de la izquierda y, después, seleccionar uno de los ámbitos de la lista.
+    - Los propietarios de un perfil de facturación de Contrato de cliente de Microsoft, deben seleccionar **Perfiles de facturación** en el menú de la izquierda. En la lista de perfiles de facturación, seleccione uno.
+1. En el menú de la izquierda, seleccione **Transacciones de reserva**. Se muestra la lista de transacciones de reserva.
+1. En la parte superior de la página aparece el siguiente banner: *Now billing administrators can manage reservations. Click here to manage reservations.* (Ahora los administradores de facturación pueden administrar reservas. Haga clic aquí para administrar las reservas) Seleccione el banner.
+1. Se muestra la lista completa de reservas de su perfil de facturación o inscripción de EA.
+1. Si desea tomar posesión de una reserva, selecciónela. Luego, en la página de configuración de permisos, seleccione **Conceder acceso**. Se le concede acceso de propietario tanto a la reserva como al pedido de reserva.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Visualización de la reserva y el uso en Azure Portal
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 21f07ed76ef0b900a723677acc2bf576649fe861
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 532c46c50d0b422946af649801e43904b4b6ed7d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702018"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096877"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introducción a Azure Defender para SQL
 
@@ -26,7 +26,7 @@ Azure Defender para SQL incluye dos planes de Azure Defender que amplían el [pa
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|**Azure Defender para servidores de base de datos de Azure SQL**: disponible con carácter general (GA)<br>**Azure Defender para servidores SQL Server en máquinas**: disponible con carácter general (GA) |
-|Precios:|Los dos planes que forman **Azure Defender para SQL** se facturan como se muestra en [la página de precios](security-center-pricing.md).|
+|Precios:|Los dos planes que forman **Azure Defender para SQL** se facturan como se muestra en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
 |Versiones de SQL protegidas:|[SQL en máquinas virtuales de Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Servidores SQL Server habilitados para Azure Arc](/sql/sql-server/azure-arc/overview)<br>Servidores SQL Server locales en máquinas Windows sin Azure Arc<br>[Bases de datos únicas](../azure-sql/database/single-database-overview.md) y [grupos elásticos](../azure-sql/database/elastic-pool-overview.md) de Azure SQL<br>[Instancia administrada de Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Grupo de SQL dedicado de Azure Synapse Analytics (anteriormente SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov (**parcial**: subconjunto de alertas y evaluación de vulnerabilidades en servidores SQL. No hay disponible protección contra amenazas de comportamiento).|
 |||

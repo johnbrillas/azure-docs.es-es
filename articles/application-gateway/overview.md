@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 52bc2a20be0d7113583b7f23cc569dbb9503d364
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 4344cd38d9a58eec27c6202e81b8ef678a510681
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397253"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176015"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -26,9 +26,14 @@ Application Gateway puede tomar decisiones de enrutamiento basadas en atributos 
 Este tipo de enrutamiento se conoce como equilibrio de carga de capa de aplicación (OSI capa 7). Azure Application Gateway puede hacer enrutamiento basado en dirección URL y mucho más.
 
 >[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si necesita un equilibrio de carga de la capa 4 de alto rendimiento y baja latencia, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) Si busca el equilibrio de carga de DNS global, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
->
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. 
+> * Si busca un enrutamiento global basado en DNS y **no** tiene requisitos de finalización con el protocolo de seguridad de la capa de transporte (TLS) ("descarga SSL"), de procesamiento de niveles de aplicación o por solicitud HTTP/HTTPS, revise [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
+> * Si necesita optimizar el enrutamiento global del tráfico web y optimizar el rendimiento y la confiabilidad de los usuarios finales de nivel superior mediante una conmutación por error global rápida, consulte [Front Door](../frontdoor/front-door-overview.md).
+> * Para realizar el equilibrio de carga de capa de red, revise [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Sus escenarios pueden beneficiarse de extremo a extremo de la combinación de estas soluciones según sea necesario.
 > Si desea ver una comparación de las distintas opciones de equilibrio de carga de Azure, consulte [Información general sobre las opciones de equilibrio de carga en Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+
 
 ## <a name="features"></a>Características
 

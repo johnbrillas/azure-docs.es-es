@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574488"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100413"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
@@ -49,7 +49,7 @@ La puntuación de seguridad se basa en el número de recomendaciones de Security
 |Recomendación|Descripción y directiva relacionada|severity|¿Está habilitada la corrección rápida? ([Más información](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
 |**Se debe restringir el acceso a App Services**|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.<br>(Directiva relacionada [versión preliminar]: Se debe restringir el acceso a App Services).|Alto|N|App Service|
-|**Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS**|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.<br>(Directiva relacionada: Se deben proteger las reglas de NSG para las aplicaciones web en IaaS).|Alto|N|Máquina virtual|
+|**Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS**|Se ha protegido el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.<br>(Directiva relacionada: Se deben proteger las reglas de NSG para las aplicaciones web en IaaS).|Alto|N|Máquina virtual|
 |**Las directivas de seguridad de pod deben definirse para reducir el vector de ataque mediante la eliminación de privilegios de aplicación innecesarios (versión preliminar)**|Defina las directivas de seguridad de pod para reducir el vector de ataque mediante la eliminación de privilegios de aplicación innecesarios. Se recomienda configurar las directivas de seguridad de pod para que los pods solo puedan obtener acceso a los recursos a los que se les permita el acceso.<br>(Directiva relacionada [versión preliminar]: Las directivas de seguridad de pod deben definirse en los servicios de Kubernetes).|Media|N|Recursos de proceso (contenedores)|
 |**Instalación de Azure Security Center para el módulo de seguridad de IoT para obtener más visibilidad en los dispositivos de IoT**|Instale Azure Security Center para el módulo de seguridad de IoT con el fin de obtener una mayor visibilidad en los dispositivos de IoT.|Bajo|N|Dispositivo IoT|
 
@@ -57,5 +57,5 @@ La puntuación de seguridad se basa en el número de recomendaciones de Security
 
 Para obtener más información sobre las recomendaciones, consulte:
 
-- [Recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md)
-- [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
+- [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)
+- [Examen de las recomendaciones de seguridad](security-center-recommendations.md)

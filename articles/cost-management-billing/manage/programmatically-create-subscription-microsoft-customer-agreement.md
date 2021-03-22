@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2b0eaef7940b84dbd1e1325b5ae3bfb7b65dcef6
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 61a658cc9654a93b4c92fda6cc1f38cd2e77dafa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200570"
+ms.locfileid: "102216095"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes
 
@@ -70,17 +70,54 @@ La respuesta de la API muestra las cuentas de facturación a las que tiene acces
 
 Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
-<!--
-### [PowerShell](#tab/azure-powershell-getBillingAccounts)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingAccounts)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```azurepowershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingAccount
+```
+Obtendrá una lista de todas las cuentas de facturación a las que tenga acceso. 
 
-<!--
-### [Azure CLI](#tab/azure-cli-getBillingAccounts)
+```json
+Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+DisplayName   : Contoso
+AccountStatus : Active
+AccountType   : Enterprise
+AgreementType : MicrosoftCustomerAgreement
+HasReadAccess : True
+```
+Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-getBillingAccounts)
+```azurecli
+> az billing account list
+```
+Obtendrá una lista de todas las cuentas de facturación a las que tenga acceso. 
+
+```json
+[
+  {
+    "accountStatus": "Active",
+    "accountType": "Enterprise",
+    "agreementType": "MicrosoftCustomerAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": null,
+    "enrollmentDetails": null,
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "soldTo": null,
+    "type": "Microsoft.Billing/billingAccounts"
+  }
+]
+```
+
+Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
 ---
 
@@ -88,7 +125,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 Los cargos de la suscripción aparecerán en una sección de una factura del perfil de facturación. Use la siguiente API para obtener la lista de secciones de perfiles de facturación y de factura en los que tiene permiso para crear suscripciones de Azure.
 
-En primer lugar, obtenga la lista de perfiles de facturación en la cuenta de facturación a la que tiene acceso.
+En primer lugar, obtenga la lista de perfiles de facturación en la cuenta de facturación a la que tiene acceso (use el valor de `name` que obtuvo en el paso anterior).
 
 ### <a name="rest"></a>[REST](#tab/rest-getBillingProfiles)
 ```json
@@ -171,17 +208,119 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 
 Use la propiedad `id` para identificar la sección de factura para la que desea crear suscripciones. Copie toda la cadena. Por ejemplo, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-<!--
-### [PowerShell](#tab/azure-powershell-getBillingProfiles)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-getBillingProfiles)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```
 
-<!--
-### [Azure CLI](#tab/azure-cli-getBillingProfiles)
+Obtendrá la lista de perfiles de facturación de esta cuenta como parte de la respuesta.
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```json
+Name              : AW4F-xxxx-xxx-xxx
+DisplayName       : Contoso Billing Profile
+Currency          : USD
+InvoiceDay        : 5
+InvoiceEmailOptIn : True
+SpendingLimit     : Off
+Status            : Active
+EnabledAzurePlans : {0002, 0001}
+HasReadAccess     : True
+BillTo            :
+CompanyName       : Contoso
+AddressLine1      : One Microsoft Way
+AddressLine2      : 
+City              : Redmond
+Region            : WA
+Country           : US
+PostalCode        : 98052
+```
+
+Anote el valor de `name` del perfil de facturación de la respuesta anterior. A continuación se indican los pasos necesarios para obtener la sección de facturas a la que tiene acceso en este perfil de facturación. Necesitará el valor de `name` de la cuenta de facturación y el perfil de facturación.
+
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
+```
+
+Obtendrá la sección de facturas en la respuesta.
+
+```json
+Name        : SH3V-xxxx-xxx-xxx
+DisplayName : Development
+```
+
+El valor de `name` anterior es el nombre de la sección de facturas que necesita para crear una suscripción en ella. Construya el ámbito de facturación con el formato "/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>". En este ejemplo, tendrá el valor `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-getBillingProfiles)
+
+```azurecli-interactive
+> az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
+```
+Esta API devolverá la lista de perfiles de facturación y las secciones de facturas de la cuenta de facturación proporcionada.
+
+```json
+[
+  {
+    "billTo": {
+      "addressLine1": "One Microsoft Way",
+      "addressLine2": "",
+      "addressLine3": null,
+      "city": "Redmond",
+      "companyName": "Contoso",
+      "country": "US",
+      "district": null,
+      "email": null,
+      "firstName": null,
+      "lastName": null,
+      "phoneNumber": null,
+      "postalCode": "98052",
+      "region": "WA"
+    },
+    "billingRelationshipType": "Direct",
+    "currency": "USD",
+    "displayName": "Contoso Billing Profile",
+    "enabledAzurePlans": [
+      {
+        "skuDescription": "Microsoft Azure Plan for DevTest",
+        "skuId": "0002"
+      },
+      {
+        "skuDescription": "Microsoft Azure Plan",
+        "skuId": "0001"
+      }
+    ],
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+    "indirectRelationshipInfo": null,
+    "invoiceDay": 5,
+    "invoiceEmailOptIn": true,
+    "invoiceSections": {
+      "hasMoreResults": false,
+      "value": [
+        {
+          "displayName": "Field_Led_Test_Ace",
+          "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+          "labels": null,
+          "name": "SH3V-xxxx-xxx-xxx",
+          "state": "Active",
+          "systemId": "SH3V-xxxx-xxx-xxx",
+          "targetCloud": null,
+          "type": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+        }
+      ]
+    },
+    "name": "AW4F-xxxx-xxx-xxx",
+    "poNumber": null,
+    "spendingLimit": "Off",
+    "status": "Warned",
+    "statusReasonCode": "PastDue",
+    "systemId": "AW4F-xxxx-xxx-xxx",
+    "targetClouds": [],
+    "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+  }
+]
+```
+Use la propiedad id de la sección de facturas para identificar la sección de facturas para la que desea crear suscripciones. Copie toda la cadena. Por ejemplo, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
 
 ---
 

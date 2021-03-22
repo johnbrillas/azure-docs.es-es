@@ -7,26 +7,27 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704810"
 ---
 # <a name="claim-sets"></a>Conjuntos de notificaciones
 
 Las notificaciones generadas en el proceso de atestación de enclaves mediante Microsoft Azure Attestation se pueden dividir en las siguientes categorías:
 
-- **Notificaciones entrantes**: las notificaciones generadas por Microsoft Azure Attestation después de analizar la evidencia de atestación; las pueden usar los autores de directivas para definir las reglas de autorización en una directiva personalizada.
+- **Notificaciones entrantes**: las notificaciones que genera Microsoft Azure Attestation después de analizar la evidencia de atestación; lo pueden usar los creadores de directivas para definir las reglas de autorización en una directiva personalizada.
 
-- **Notificaciones salientes**: notificaciones generadas por Azure Attestation; contiene todas las notificaciones que terminan en el token de atestación.
+- **Notificaciones salientes**: las notificaciones que genera Azure Attestation; contiene todas las notificaciones que terminan en el token de atestación.
 
-- **Notificaciones de propiedad**: notificaciones creadas como salida por Azure Attestation. Contiene todas las notificaciones que representan las propiedades del token de atestación, como la codificación del informe, la duración de la validez del informe, etc.
+- **Notificaciones de propiedad**: notificaciones que Azure Attestation crea como salida. Contiene todas las notificaciones que representan las propiedades del token de atestación, como la codificación del informe, la duración de la validez del informe, etc.
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Notificaciones entrantes comunes en todos los tipos de atestación
 
-Las siguientes notificaciones se generan en Azure Attestation y se pueden usar para definir reglas de autorización en una directiva personalizada:
+Las siguientes notificaciones las genera Azure Attestation y los creadores de directivas las pueden usar para definir reglas de autorización en una directiva personalizada para todos los tipos de atestaciones.
+
 - **x-ms-ver**: versión de esquema de JWT (se espera que sea "1.0").
 - **x-ms-attestation-type**: valor de cadena que representa el tipo de atestación. 
 - **x-ms-policy-hash**: hash de la directiva de evaluación de Azure Attestation calculada como BASE64URL (SHA256 (UTF8 (BASE64URL (UTF8 (texto de directiva))))
@@ -44,7 +45,9 @@ policy_signer | x-ms-policy-signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Notificaciones salientes comunes en todos los tipos de atestación
 
-Las siguientes notificaciones se definen en [JWT de IETF](https://tools.ietf.org/html/rfc7519) y se usan en Azure Attestation en el objeto de respuesta:
+El servicio incluye las notificaciones siguientes en el token de atestación de todos los tipos de atestación del servicio.
+
+Origen: talo como lo define el [JWT de IETF](https://tools.ietf.org/html/rfc7519)
 
 - **Notificación "jti" (identificador de JWT)** :
 - **Notificación "iss" (emisor)** :
@@ -52,10 +55,12 @@ Las siguientes notificaciones se definen en [JWT de IETF](https://tools.ietf.org
 - **Notificación "exp" (fecha de expiración)** :
 - **Notificación "nbf" (no antes de)** :
 
-Las siguientes notificaciones se definen en [EAT de IETF](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) y se usan en Azure Attestation en el objeto de respuesta:
+Origen: tal como lo define el [EAT de IETF](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **"Notificación de nonce" (nonce)**
 
-Las notificaciones siguientes se generan de forma predeterminada en función de las notificaciones entrantes.
+Las notificaciones siguientes se incluyen en el token de atestación de forma predeterminada en función de las notificaciones entrantes:
+
 - **x-ms-ver**: versión de esquema de JWT (se espera que sea "1.0").
 - **x-ms-attestation-type**: valor de cadena que representa el tipo de atestación. 
 - **x-ms-policy-hash**: valor de cadena que contiene el hash SHA256 del texto de la directiva calculado por BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texto de directiva)))).
@@ -65,7 +70,8 @@ Las notificaciones siguientes se generan de forma predeterminada en función de 
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Notificaciones entrantes específicas de la atestación de SGX
 
-Las siguientes notificaciones se generan en el servicio para la atestación de SGX y se pueden usar para definir reglas de autorización en una directiva personalizada:
+Las siguientes notificaciones las genera Azure Attestation y los creadores de directivas las pueden usar para definir reglas de autorización en una directiva personalizada para la atestación SGX.
+
 - **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene habilitada la depuración o no
 - **x-ms-sgx-product-id**
 - **sgx-mrsigner**: valor hexadecimal codificado del campo "mrsigner" de la oferta.
@@ -74,7 +80,8 @@ Las siguientes notificaciones se generan en el servicio para la atestación de S
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Notificaciones salientes específicas de la atestación de SGX
 
-Las siguientes notificaciones se generan en el servicio y se incluyen en el objeto de respuesta para la atestación de SGX:
+El servicio genera las siguientes notificaciones y las incluyen en el token de atestación para la atestación de SGX.
+
 - **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene habilitada la depuración o no
 - **x-ms-sgx-product-id**
 - **sgx-mrsigner**: valor hexadecimal codificado del campo "mrsigner" de la oferta.
@@ -126,8 +133,8 @@ Notificaciones emitidas por Azure Attestation para la atestación de TPM. La dis
 Las notificaciones que emite Azure Attestation para la atestación de VBS se suman a las disponibles para la atestación de TPM. La disponibilidad de las notificaciones depende de la evidencia proporcionada para la atestación.
 
 - **enclaveAuthorId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de autor del enclave; es decir, el identificador de autor del módulo principal del enclave.
-- **enclaveImageId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de imagen del enclave, es decir, el identificador de imagen del módulo principal del enclave.
-- **enclaveOwnerId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de propietario del enclave.
+- **enclaveImageId**: valor de cadena que contiene el valor codificado en Base64Url del identificador de imagen del enclave, es decir, el identificador de imagen del módulo principal del enclave.
+- **enclaveOwnerId**: valor de cadena que contiene el valor codificado en Base64Url del identificador de propietario del enclave.
 - **enclaveFamilyId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de familia del enclave; es decir, el identificador de familia del módulo principal del enclave.
 - **enclaveSvn**:  valor entero que contiene el número de versión de seguridad del módulo principal del enclave.
 - **enclavePlatformSvn**:  valor entero que contiene el número de versión de seguridad de la plataforma que hospeda el enclave.
@@ -136,13 +143,13 @@ Las notificaciones que emite Azure Attestation para la atestación de VBS se sum
 ### <a name="outgoing-claims-specific-to-tpm-and-vbs-attestation"></a>Notificaciones salientes específicas de la atestación de TPM y de VBS
 
 - **cnf (confirmación)** : esta notificación se usa para identificar la clave de la prueba de posesión. La notificación de confirmación, tal como se define en RFC 7800, contiene la parte pública de la clave del enclave atestado que se representa como un objeto de clave web JSON (JWK) (RFC 7517).
-- **rp_data (datos de usuario de confianza)** : datos de usuario de confianza, si los hay, especificados en la solicitud, que utiliza este usuario como nonce para garantizar que el informe está actualizado. rp_data solo se agrega si hay rp_data
+- **rp_data (datos de usuario de confianza)**: datos de usuario de confianza, si los hay, especificados en la solicitud, que utiliza este usuario como nonce para garantizar que el informe está actualizado. rp_data solo se agrega si hay rp_data
 
 ### <a name="property-claims"></a>Notificaciones de propiedad
 
 - **report_validity_in_minutes**: notificación de entero que indica cuánto tiempo es válido el token.
-  - **Valor predeterminado (tiempo)** : un día, expresado en minutos.
-  - **Valor máximo (tiempo)** : un año, expresado en minutos.
+  - **Valor predeterminado (tiempo)**: un día, expresado en minutos.
+  - **Valor máximo (tiempo)**: un año, expresado en minutos.
 - **omit_x5c**: notificación booleana que indica si Azure Attestation debe omitir el certificado usado para proporcionar la autenticidad de la prueba de servicio. Si es True, se agrega x5t al token de atestación. Si es False (valor predeterminado), se agregar x5c al token de atestación.
 
 ## <a name="next-steps"></a>Pasos siguientes

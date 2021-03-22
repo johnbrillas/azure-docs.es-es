@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de un servicio en la nube (soporte extendido): SDK'
-description: Implementación de un servicio en la nube (soporte extendido) mediante Azure SDK
+title: 'Implementación de Cloud Services (soporte extendido): SDK'
+description: Implementación de Cloud Services (soporte extendido) con Azure SDK
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,25 +8,25 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf8d2696732c2947ce86b9509720898fd63c1e16
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98886972"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123044"
 ---
-# <a name="deploy-a-cloud-services-extended-support-using-sdk"></a>Implementación de un servicio en la nube (soporte extendido) con SDK
+# <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementación de Cloud Services (soporte extendido) con Azure SDK
 
-En este artículo se muestra cómo usar [Azure SDK](https://azure.microsoft.com/downloads/) para implementar Cloud Services (soporte extendido) con varios roles (WebRole y WorkerRole) y la extensión de escritorio remoto. 
+En este artículo se muestra cómo usar [Azure SDK](https://azure.microsoft.com/downloads/) para implementar una instancia de Cloud Services (soporte extendido) con varios roles (rol web y rol de trabajo) y la extensión de escritorio remoto. Cloud Services (soporte extendido) es un modelo de implementación de Azure Cloud Services basado en Azure Resource Manager.
 
 > [!IMPORTANT]
-> Cloud Services (soporte extendido) se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cloud Services (soporte extendido) está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de comenzar
 
 Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido) y cree recursos asociados.
 
-## <a name="deploy-a-cloud-services-extended-support"></a>Implementación de Cloud Services (soporte extendido)
+## <a name="deploy-cloud-services-extended-support"></a>Implementación de Cloud Services (soporte extendido)
 1. Instale el [paquete NuGet de Azure Compute SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) e inicialice el cliente con un mecanismo de autenticación estándar.
 
     ```csharp
@@ -73,7 +73,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-3. Cree una cuenta de almacenamiento y un contenedor que se usará para almacenar el paquete de servicios en la nube (.cspkg) y los archivos de configuración de servicio (.cscfg). Instale el [paquete NuGet de Azure Storage](https://www.nuget.org/packages/Azure.Storage.Common/). Este paso es opcional si se usa una cuenta de almacenamiento existente. El nombre de la cuenta de almacenamiento debe ser único.
+3. Cree una cuenta de almacenamiento y un contenedor en el que va a almacenar el paquete de servicio (.cspkg) y los archivos de configuración del servicio (.cscfg). Instale el [paquete NuGet de Azure Storage](https://www.nuget.org/packages/Azure.Storage.Common/). Este paso es opcional si se usa una cuenta de almacenamiento existente. El nombre de la cuenta de almacenamiento debe ser único.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -109,7 +109,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-4. Cargue el archivo del paquete de servicios en la nube (.cspkg) en la cuenta de almacenamiento. La URL del paquete puede ser un URI de firma de acceso compartido (SAS) de cualquier cuenta de almacenamiento.
+4. Cargue el archivo del paquete de servicio (.cspkg) en la cuenta de almacenamiento. La dirección URL del paquete puede ser un identificador URI de firma de acceso compartido (SAS) de cualquier cuenta de almacenamiento.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -122,7 +122,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-5. Cargue la configuración de servicio en la nube (. cscfg) en la cuenta de almacenamiento. La configuración del servicio que se especifique puede tener formato de dirección URL o XML de cadena.
+5. Cargue el archivo de configuración del servicio (.cscfg) en la cuenta de almacenamiento. Especifique la configuración del servicio como una cadena XML o con formato de dirección URL.
 
     ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
@@ -156,7 +156,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Cree una dirección IP pública y, si lo desea, establezca la propiedad de la etiqueta DNS de la dirección IP pública. Si usa una dirección IP estática, el archivo de configuración de servicio tiene que hacer referencia a ella como IP reservada.
+7. Cree una dirección IP pública y, si lo desea, establezca la propiedad de la etiqueta DNS de la dirección IP pública. Si usa una dirección IP estática, el archivo de configuración del servicio tiene que hacer referencia a ella como una dirección IP reservada.
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +171,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Cree el objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga creado por la plataforma.
+8. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga creado por la plataforma.
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
@@ -206,32 +206,32 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     
     ```
 
-9. Crear un almacén de claves. Este almacén de claves se usará para almacenar los certificados asociados a los roles del servicio en la nube (soporte extendido). El almacén de claves debe estar vinculado a la misma región y suscripción que el servicio en la nube y tener un nombre único. Para más información, consulte [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+9. Cree un almacén de claves. Este almacén de claves se usará para almacenar los certificados asociados a los roles de Cloud Services (soporte extendido). El almacén de claves debe estar ubicado en la misma región y suscripción que la instancia de Cloud Services (soporte extendido), y debe tener un nombre único. Para más información, consulte [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
     ```
 
-10. Actualice la directiva de acceso de Key Vault y conceda permisos de certificados a la cuenta de usuario.
+10. Actualice la directiva de acceso del almacén de claves y conceda permisos de certificados a la cuenta de usuario.
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg'      -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
     ```
 
-    Como alternativa, establezca la directiva de acceso mediante ObjectId, que puede obtener al ejecutar Get-AzADUser.
+    Como alternativa, establezca la directiva de acceso mediante el identificador de objeto (puede ejecutar `Get-AzADUser` para obtenerlo).
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -     ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates          create,get,list,delete
     ```
 
-11. En este ejemplo, agregaremos un certificado autofirmado a un almacén de claves. La huella digital del certificado se debe agregar en el archivo de configuración de servicio en la nube (. cscfg) para implementarse en roles de servicio en la nube.
+11. En este ejemplo, agregaremos un certificado autofirmado a un almacén de claves. Es necesario agregar la huella digital del certificado en el archivo de configuración del servicio (.cscfg) para su implementación en los roles de Cloud Services (soporte extendido).
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -       SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -      CertificatePolicy $Policy
     ```
 
-12. Cree un objeto de perfil de SO. El perfil de SO especifica los certificados que están asociados a roles de servicio en la nube. Se trata del mismo certificado creado en el paso anterior.
+12. Cree un objeto de perfil de SO. El perfil de SO especifica los certificados asociados a los roles de Cloud Services (soporte extendido). Aquí, es el mismo certificado que hemos creado en el paso anterior.
 
     ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -247,7 +247,9 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
            };
     ```
 
-13. Cree un objeto de perfil de rol. El perfil de rol define las propiedades específicas de SKU de roles, como el nombre, la capacidad y el nivel. En este ejemplo, se han definido dos roles: frontendRole y backendRole. La información del perfil de rol debe coincidir con la configuración de rol definida en el archivo de configuración (cscfg) y el archivo de definición de servicio (csdef).
+13. Cree un objeto de perfil de rol. El perfil de rol define las propiedades específicas del rol de una SKU, como el nombre, la capacidad y el nivel. 
+
+    En este ejemplo se definen dos roles: ContosoFrontend y ContosoBackend. La información del perfil de rol debe coincidir con la configuración de rol definida en el archivo de configuración del servicio (cscfg) y el archivo de definición del servicio (.csdef).
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -281,7 +283,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
                     }
     ```
 
-14. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, se agregará la extensión RDP.
+14. (Opcional) Cree un objeto de perfil de extensión que desee agregar a la instancia de Cloud Services (soporte extendido). En este ejemplo se agrega la extensión RDP.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -313,7 +315,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
         };
     ```
 
-15. Cree la implementación de servicio en la nube.
+15. Cree la implementación de la instancia de Cloud Services (soporte extendido).
 
     ```csharp
     CloudService cloudService = new CloudService
@@ -322,7 +324,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
                 {
                     RoleProfile = cloudServiceRoleProfile
                     Configuration = < Add Cscfg xml content here>,
-                    // ConfigurationUrl = <Add you configuration URL here>,
+                    // ConfigurationUrl = <Add your configuration URL here>,
                     PackageUrl = <Add cspkg SAS url here>,
                     ExtensionProfile = cloudServiceExtensionProfile,
                     OsProfile= cloudServiceOsProfile,
@@ -336,6 +338,6 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
-- Implemente un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
-- Visite el [repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Consulte [Repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support).

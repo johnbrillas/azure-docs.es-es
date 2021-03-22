@@ -4,15 +4,15 @@ description: Implementación de Azure Spring Cloud en una red virtual (inserció
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880611"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031810"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
@@ -50,7 +50,7 @@ La red virtual en la que se implementa la instancia de Azure Spring Cloud debe c
     * Y otra para las aplicaciones de microservicios de Spring Boot.
     * Hay una relación uno a uno entre estas subredes y una instancia de Azure Spring Cloud. Use una nueva subred para cada instancia de servicio que implemente. Cada subred solo puede incluir una única instancia de servicio.
 * **Espacio de direcciones**: CIDR bloquea hasta */28* tanto para la subred del entorno de ejecución del servicio como para la subred de aplicaciones de microservicios de Spring Boot.
-* **Tabla de rutas**: las subredes no deben tener asociada una tabla de rutas existente.
+* **Tabla de rutas**: de forma predeterminada, las subredes no necesitan las tablas de rutas existentes asociadas. Puede [traer su propia tabla de rutas](#bring-your-own-route-table).
 
 Los procedimientos siguientes describen la configuración de la red virtual para que contenga la instancia de Azure Spring Cloud.
 
@@ -64,7 +64,7 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
     |Configuración          |Value                                             |
     |-----------------|--------------------------------------------------|
-    |Suscripción     |Seleccione su suscripción.                         |
+    |Subscription     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |
     |Nombre             |Escriba **azure-spring-cloud-vnet**.                 |
     |Location         |Seleccione **Este de EE. UU**.                               |
@@ -179,6 +179,26 @@ En esta tabla se muestra el número máximo de instancias de aplicación que adm
 En las subredes, Azure reserva cinco direcciones IP y Azure Spring Cloud requiere al menos cuatro direcciones. Se requieren al menos nueve direcciones IP, por lo que /29 y /30 no son operativos.
 
 En el caso de una subred del runtime del servicio, el tamaño mínimo es /28. Este tamaño no tiene ninguna relación con el número de instancias de la aplicación.
+
+## <a name="bring-your-own-route-table"></a>Traer su propia tabla de rutas
+
+Azure Spring Cloud admite el uso de las subredes y las tablas de rutas existentes.
+
+Si las subredes personalizadas no contienen tablas de rutas, Azure Spring Cloud las crea para cada una de las subredes y les agrega reglas a lo largo del ciclo de vida de la instancia. Si las subredes personalizadas contienen tablas de rutas, Azure Spring Cloud confirma las tablas de rutas existentes durante las operaciones de instancia y agrega o actualiza las reglas correspondientes a las operaciones.
+
+> [!Warning] 
+> Se pueden agregar y actualizar reglas personalizadas en las tablas de rutas personalizadas. Sin embargo, Azure Spring Cloud agrega reglas y estas no se deben actualizar ni quitar. Las reglas como 0.0.0.0/0 deben existir siempre en una tabla de rutas dada y asignarse al destino de la puerta de enlace de Internet, como una NVA u otra puerta de enlace de salida. Tenga cuidado al actualizar las reglas cuando solo se modifiquen las reglas personalizadas.
+
+
+### <a name="route-table-requirements"></a>Requisitos de la tabla de rutas
+
+Las tablas de rutas a las que está asociada la red virtual personalizada deben cumplir los siguientes requisitos:
+
+* Puede asociar las tablas de rutas de Azure a la red virtual solo cuando cree una instancia de servicio de Azure Spring Cloud. Una vez que se ha creado Azure Spring Cloud, no puede cambiar y usar otra tabla de rutas.
+* Tanto la subred de aplicación de microservicio como la subred de tiempo de ejecución del servicio deben asociarse a distintas tablas de rutas o a ninguna de ellas.
+* Los permisos se deben asignar antes de la creación de la instancia. Asegúrese de conceder permisos de *propietario de Azure Spring Cloud* a las tablas de rutas.
+* El recurso de la tabla de rutas asociado no se puede actualizar después de crear el clúster. Aunque no se puede actualizar el recurso de la tabla de rutas, se pueden modificar las reglas personalizadas en la tabla de rutas.
+* No se puede reutilizar una tabla de rutas con varios clústeres debido al posible conflicto entre reglas de enrutamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

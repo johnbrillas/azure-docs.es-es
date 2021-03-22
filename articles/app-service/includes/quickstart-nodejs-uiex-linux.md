@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6c580f7d6bc03f298621b1a33fcb9f3f461e802
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747794"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109142"
 ---
 <!-- default for linux -->
 
@@ -67,10 +67,14 @@ ms.locfileid: "101747794"
 
 1. Una vez finalizada la implementación, seleccione **Browse Website** (Examinar sitio web) en el mensaje para ver la aplicación web recién implementada.
 
-<br>
+<br/>
 <details>
-<summary>Solución de problemas</summary>
+<summary><strong>Solución de problemas</strong></summary>
+
+Si no pudo completar estos pasos, compruebe lo siguiente:
+
 * Asegúrese de que la aplicación escuche en el puerto proporcionado por la variable de entorno PORT: `process.env.PORT`.
+
 * Si ve el error **“No tiene permiso para ver este directorio o esta página”** , puede que la aplicación no se haya iniciado correctamente. Revise la salida del registro para identificar y corregir el error. 
 
 </details>
@@ -80,7 +84,7 @@ ms.locfileid: "101747794"
 [Notificar un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

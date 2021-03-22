@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690500"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050450"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Términos en la factura del contrato de cliente de Microsoft
 
 Este artículo se aplica a una cuenta de facturación de Azure de un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 La factura proporciona un resumen de los gastos e instrucciones de pago. Se encuentra disponible en Portable Document Format (.pdf) desde [Azure Portal](https://portal.azure.com/) o puede enviarse por correo electrónico. Para más información, consulte [Visualización y descarga de la factura de Microsoft Azure](download-azure-invoice.md).
+
+Vea este vídeo con [información sobre la factura del Contrato de cliente de Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) para conocer los detalles de la factura y analizar los cargos que contiene.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Período de facturación
 
@@ -44,7 +48,7 @@ El **Resumen de factura** se encuentra en la parte superior de la primera págin
 | Pedido de compra number |Un número de pedido de compra opcional asignado por usted para el seguimiento |
 | Número de factura |Un número de factura único generado por Microsoft usado para fines de seguimiento |
 | Fecha de la factura |Fecha en la que se generó la factura, normalmente entre 5 y 12 días después del final del ciclo de facturación. Puede consultar la fecha de la factura en las propiedades del perfil de facturación.|
-| Términos de pago |Forma de pago de su factura de Microsoft. *30 días naturales* significa que se paga en el plazo de 30 días desde la fecha de la factura. |
+| Condiciones de pago |Forma de pago de su factura de Microsoft. *30 días naturales* significa que se paga en el plazo de 30 días desde la fecha de la factura. |
 
 ### <a name="billing-summary"></a>Resumen de facturación
 

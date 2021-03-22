@@ -8,18 +8,22 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffc5c8ea647d4cadd2d151eb880c794ac5f4ebd4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002479"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121446"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Framework
 
 En este inicio rápido incorporará Azure Redis Cache en una aplicación .NET Framework para acceder a una caché dedicada y segura, a la que se puede acceder desde cualquier aplicación de Azure. Concretamente, usará el cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con código C# en una aplicación de consola de .NET.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="skip-to-the-code-on-github"></a>Ir al código en GitHub
+
+Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure Cache for Redis en .NET Framework](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) en GitHub.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)

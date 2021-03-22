@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203269"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091484"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
@@ -21,11 +21,11 @@ Para proporcionar una única factura combinada que incluya los servicios adminis
 
 Esta característica solo está disponible para los asociados de factura directa de CSP certificados como [MSP expertos de Azure](https://partner.microsoft.com/membership/azure-expert-msp). Está sujeta a las directivas y a la gobernanza de Microsoft, y puede requerir la revisión y aprobación en el caso de determinados clientes.
 
-Para solicitar la propiedad de la facturación, debe tener el rol **Administrador global**  o **Agentes de administrador** . Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
+Para solicitar la propiedad de la facturación, debe tener el rol **Administrador global**  o **Agentes de administrador**. Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
 
 Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agreement. Estas cuentas se crean para que los proveedores de soluciones en la nube (CSP) administren la facturación de sus clientes en la nueva experiencia comercial. La nueva experiencia solo está disponible para asociados que tengan al menos un cliente que haya aceptado un Contrato de cliente de Microsoft (MCA) y que tenga un plan de Azure. [Compruebe si tiene acceso a un contrato Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Establezca la [relación de revendedor](/partner-center/request-a-relationship-with-a-customer) con el cliente. Consulte [Introducción a la autorización regional de CSP](/partner-center/regional-authorization-overview) para asegurarse de que el cliente y el inquilino del asociado estén dentro de las mismas regiones autorizadas.
 1. [Confirme que el cliente haya aceptado el contrato de cliente de Microsoft](/partner-center/confirm-customer-agreement).
@@ -34,28 +34,28 @@ Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agre
 ## <a name="request-billing-ownership"></a>Solicitud de propiedad de la facturación
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con las credenciales del agente de administrador de CSP en el inquilino de CSP.
-1. Busque **Administración de costos + facturación** .  
+1. Busque **Administración de costos + facturación**.  
     ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing para solicitar la propiedad de la facturación.](./media/mpa-request-ownership/search-cmb.png)
 1. Seleccione **Clientes** en la parte izquierda y, a continuación, un cliente de la lista.  
     [![Captura de pantalla que muestra la selección de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar una nueva solicitud** .  
+1. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar una nueva solicitud**.  
     [![Captura de pantalla que muestra la selección de solicitudes de transferencia](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Escriba la dirección de correo electrónico del usuario en la organización del cliente que va a aceptar la solicitud de transferencia. El usuario debe ser propietario de la cuenta en un Contrato Enterprise. Seleccione **Enviar solicitud de transferencia** .  
+1. Escriba la dirección de correo electrónico del usuario en la organización del cliente que va a aceptar la solicitud de transferencia. El usuario debe ser propietario de la cuenta en un Contrato Enterprise. Seleccione **Enviar solicitud de transferencia**.  
     [![Captura de pantalla que muestra el envío de una solicitud de transferencia](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. El usuario recibe un correo electrónico con instrucciones para revisar la solicitud de transferencia.  
     ![Captura de pantalla que muestra un correo electrónico de solicitud de transferencia](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones.  
-    [![Captura de pantalla que muestra la revisión de la solicitud de transferencia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) El usuario puede seleccionar la cuenta de facturación desde la que desea transferir productos de Azure. Una vez seleccionada, se muestran los productos que se pueden transferir. **Nota:** las suscripciones deshabilitadas no se pueden transferir y se mostrarán en la lista de productos de Azure que no se pueden transferir, si procede. Una vez seleccionados los productos de Azure que se van a transferir, seleccione **Validar** .
+    [![Captura de pantalla que muestra la revisión de la solicitud de transferencia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) El usuario puede seleccionar la cuenta de facturación desde la que desea transferir productos de Azure. Una vez seleccionada, se muestran los productos que se pueden transferir. **Nota:** las suscripciones deshabilitadas no se pueden transferir y se mostrarán en la lista de productos de Azure que no se pueden transferir, si procede. Una vez seleccionados los productos de Azure que se van a transferir, seleccione **Validar**.
 1. El área **Transfer Validation Result** (Resultado de validación de transferencia) mostrará el impacto de los productos de Azure que se van a transferir. Estos son los posibles estados:
-    * **Superado** : se ha superado la validación de este producto de Azure y se puede transferir.
-    * **Advertencia** : hay una advertencia para el producto de Azure seleccionado. Aunque el producto se puede transferir, el usuario debe tener en cuenta que esto tendrá consecuencias, por si desea realizar acciones encaminadas a reducirlas. Por ejemplo, la suscripción de Azure que se va a transferir se beneficia de una instancia reservada de máquina virtual. Después de la transferencia, dicha suscripción dejará de recibir esa ventaja. Para maximizar el ahorro, asegúrese de que la instancia reservada de máquina virtual esté asociada a otra suscripción que puede usar sus ventajas. En su lugar, el usuario también puede elegir volver a la página de selección y anular la selección de esta suscripción de Azure.
-    * **Error** : el producto de Azure seleccionado no se puede transferir debido a un error. El usuario tendrá que volver a la página de selección y anular la selección de este producto para transferir los restantes productos de Azure seleccionados.  
+    * **Superado**: se ha superado la validación de este producto de Azure y se puede transferir.
+    * **Advertencia**: hay una advertencia para el producto de Azure seleccionado. Aunque el producto se puede transferir, el usuario debe tener en cuenta que esto tendrá consecuencias, por si desea realizar acciones encaminadas a reducirlas. Por ejemplo, la suscripción de Azure que se va a transferir se beneficia de una instancia reservada de máquina virtual. Después de la transferencia, dicha suscripción dejará de recibir esa ventaja. Para maximizar el ahorro, asegúrese de que la instancia reservada de máquina virtual esté asociada a otra suscripción que puede usar sus ventajas. En su lugar, el usuario también puede elegir volver a la página de selección y anular la selección de esta suscripción de Azure.
+    * **Error**: el producto de Azure seleccionado no se puede transferir debido a un error. El usuario tendrá que volver a la página de selección y anular la selección de este producto para transferir los restantes productos de Azure seleccionados.  
     ![Captura de pantalla que muestra la experiencia de validación](./media/mpa-request-ownership/validate-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>Comprobación del estado de una solicitud de transferencia
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Busque **Administración de costos + facturación** .  
+1. Busque **Administración de costos + facturación**.  
     ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing para solicitar el estado de transferencia.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Seleccione **Clientes** en el lado izquierdo.  
     [![Captura de pantalla que muestra la selección de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -67,11 +67,11 @@ Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agre
    |Fecha de solicitud|La fecha en la que se envió la solicitud de transferencia.|
    |Recipient|La dirección de correo electrónico del usuario que envió la solicitud para transferir la propiedad de la facturación|
    |Fecha de expiración|La fecha en que expira la solicitud|
-   |Estado|El estado de la solicitud de transferencia|
+   |Status|El estado de la solicitud de transferencia|
 
     La solicitud de transferencia puede tener uno de los siguientes estados:
 
-   |Estado|Definición|
+   |Status|Definición|
    |---------|---------|
    |En curso|El usuario no ha aceptado la solicitud de transferencia.|
    |Processing|El usuario aprueba la solicitud de transferencia. La facturación de las suscripciones seleccionadas por el usuario está en proceso de transferencia a su cuenta.|
@@ -174,4 +174,4 @@ Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Se le transfiere la propiedad de la facturación de las suscripciones a Azure. Realice un seguimiento de los cargos de estas suscripciones en [Azure Portal](https://portal.azure.com).
-* Trabaje con el cliente para obtener acceso a las suscripciones a Azure transferidas. [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+* Trabaje con el cliente para obtener acceso a las suscripciones a Azure transferidas. [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).

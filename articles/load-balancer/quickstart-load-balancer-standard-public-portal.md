@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 634f09c7862f6e3e2f147094503f5a574476ef91
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511848"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034394"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales
 
@@ -49,26 +49,29 @@ En esta sección, va a crear un equilibrador de carga que equilibra la carga de 
 
 Cuando se crea una instancia pública de Load Balancer, también se debe crear una nueva dirección IP pública que se configura como front-end (llamada **LoadBalancerFrontend** de forma predeterminada) para dicha instancia.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-
-2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
+1. Seleccione **Crear un recurso**. 
+2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+3. En la página **Equilibrador de carga**, seleccione **Crear**.
+4. En la página **Crear equilibrador de carga**, especifique o seleccione la siguiente información: 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear** y escriba **CreatePubLBQS-rg** en el cuadro de texto.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
-    | Region         | Seleccione **Oeste de Europa**.                                        |
+    | Region         | Seleccione **(Europa) Oeste de Europa**.                                        |
     | Tipo          | Seleccione **Público**.                                        |
-    | SKU           | Seleccione **Estándar**. |
+    | SKU           | Deje el valor predeterminado **Estándar**. |
+    | Nivel          | En **Regional**, deje el valor predeterminado. |
     | Dirección IP pública | Seleccione **Crear nuevo**. Si tiene una dirección IP pública que le gustaría usar, seleccione **Utilizar existente**. |
     | Nombre de la dirección IP pública | Escriba **myPublicIP** en el cuadro de texto.|
     | Zona de disponibilidad | Seleccione **Con redundancia de zona** para crear un equilibrador de carga resistente. Para crear una instancia de Load Balancer de zona, seleccione una zona específica entre 1, 2 o 3. |
     | Adición de una dirección IPv6 pública | así que seleccione **No**. </br> Para más información sobre las direcciones IPv6 y el equilibrador de carga, consulte [¿Qué es IPv6 para Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
+    | Preferencia de enrutamiento | Deje el valor predeterminado **Microsoft Network**. </br> Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../virtual-network/routing-preference-overview.md) |
 
-3. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
+5. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
 
-4. En la pestaña **Revisar + crear**, seleccione **Crear**.   
+6. En la pestaña **Revisar + crear**, seleccione **Crear**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Creación de un equilibrador de carga estándar" border="true":::
  
@@ -334,9 +337,10 @@ En esta sección, va a crear un equilibrador de carga que equilibra la carga de 
 
 Cuando se crea una instancia pública de Load Balancer, también se debe crear una nueva dirección IP pública que se configura como front-end (llamada **LoadBalancerFrontend** de forma predeterminada) para dicha instancia.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-
-2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
+1. Seleccione **Crear un recurso**. 
+2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+3. En la página **Equilibrador de carga**, seleccione **Crear**.
+4. En la página **Crear equilibrador de carga**, especifique o seleccione la siguiente información: 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
@@ -351,9 +355,9 @@ Cuando se crea una instancia pública de Load Balancer, también se debe crear u
     | Asignación | Seleccione **Dinámica**. |
     | Adición de una dirección IPv6 pública | así que seleccione **No**. </br> Para más información sobre las direcciones IPv6 y el equilibrador de carga, consulte [¿Qué es IPv6 para Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
 
-3. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
+5. Acepte los valores predeterminados en los demás valores y seleccione **Revisar y crear**.
 
-4. En la pestaña **Revisar + crear**, seleccione **Crear**.   
+6. En la pestaña **Revisar + crear**, seleccione **Crear**.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Creación de una instancia de Load Balancer Básico" border="true":::
 

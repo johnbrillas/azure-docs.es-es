@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 42c425963f0915004c4cd33c45429bf785baa5bc
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9d54aca572d55b6107e756d50c4b2c02cae094cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741487"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migración de RDS PostgreSQL a Azure DB for PostgreSQL en línea mediante DMS
 
@@ -53,11 +53,11 @@ Para completar este tutorial, necesita:
 
 * Cree una instancia de [Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) o [Hiperescala (Citus) de Azure Database for PostgreSQL](../postgresql/quickstart-create-hyperscale-portal.md). Consulte esta [sección](../postgresql/quickstart-create-server-database-portal.md#connect-to-the-server-with-psql) del documento para obtener detalles sobre cómo conectarse al servidor PostgreSQL mediante pgAdmin.
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
-* Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloqueen los siguientes puertos de comunicación de salida a Azure Database Migration Service: 443, 53, 9354, 445 y 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloquean el puerto de salida 443 de ServiceTag para ServiceBus, Storage y AzureMonitor. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurar su [Firewall de Windows para acceder al motor de base de datos](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra el Firewall de Windows para permitir que Azure Database Migration Service tenga acceso al servidor PostgreSQL de origen que, de manera predeterminada, es el puerto TCP 5432.
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
-* Cree una [regla de firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) en el nivel de servidor para que Azure Database for PostgreSQL permita a Azure Database Migration Service tener acceso a las bases de datos de destino. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
+* Cree una [regla de firewall](../postgresql/concepts-firewall-rules.md) en el nivel de servidor para que Azure Database for PostgreSQL permita a Azure Database Migration Service tener acceso a las bases de datos de destino. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>Configuración de AWS RDS PostgreSQL para la replicación
 

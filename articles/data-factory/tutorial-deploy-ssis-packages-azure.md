@@ -4,15 +4,15 @@ description: Aprenda a aprovisionar Integration Runtime de Azure SSIS en Azure D
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740416"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Aprovisionamiento de Azure-SSIS Integration Runtime en Azure Data Factory
 
@@ -149,6 +149,12 @@ Si activa la casilla, realice los pasos siguientes para traer su propio servidor
    1. En **Admin Username** (Nombre de usuario del administrador), escriba el nombre de usuario de autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
 
    1. En **Admin Password** (Contraseña del administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
+
+   1. Active la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar par de Azure-SSIS Integration Runtime en espera dual) para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con el grupo de conmutación por error de Azure SQL Database/Managed Instance para lograr continuidad empresarial y recuperación ante desastres.
+   
+      Si activa la casilla, escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario en el cuadro de texto **Dual standby pair name** (Nombre de par en espera dual). Debe escribir el mismo nombre de par al crear sus instancias de Azure-SSIS IR principal y secundaria.
+
+      Para más información, consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR)](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB. Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720144"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Uso de Creator (versión preliminar) para crear mapas de interiores
 
@@ -116,6 +116,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
     >[!IMPORTANT]
     > Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a los servicios de Creator](how-to-manage-creator.md#access-to-creator-services).
+    > Si recibe un error con el código `"RequiresCreatorResource"`, asegúrese de que ha [aprovisionado un recurso de Azure Maps Creator](how-to-manage-creator.md) en su cuenta de Azure Maps.
 
 3. Haga clic en el botón **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta y busque la clave **Location** (Ubicación). Copie el valor de la clave **Location** (Ubicación), que es `status URL` en la solicitud de conversión. Dicha clave se usará en el paso siguiente.
 
@@ -314,7 +315,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione los siguientes estilos para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
+3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione los siguientes estilos de JSON sin formato para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
 
     ```json
     {

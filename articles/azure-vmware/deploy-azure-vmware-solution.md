@@ -4,12 +4,12 @@ description: Aprenda a usar la información recopilada en la fase de planeación
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652741"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703869"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
@@ -62,7 +62,14 @@ En este ejemplo, la red 10.74.72.0/22 que se agregó durante la implementación,
 
 Inicie sesión en el jumpbox que creó en el paso anterior. Una vez que haya iniciado sesión, abra un explorador web, vaya a vCenter y NSX-T Manager e inicie sesión.  
 
-Puede identificar las direcciones IP y las credenciales de la consola de NSX-T Manager y vCenter en Azure Portal.  A continuación, seleccione la nube privada y, en la vista **Información general**, seleccione **Identidad > Predeterminada**. 
+Puede identificar las direcciones IP y las credenciales de la consola de NSX-T Manager y vCenter en Azure Portal.  Seleccione una nube privada y, después, **Administrar** > **Identidad**.
+
+>[!TIP]
+>Seleccione **Generar una contraseña nueva** para generar las nuevas contraseñas de vCenter y NSX-T.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Mostrar las direcciones URL y las credenciales del administrador de NSX y vCenter de la nube privada" border="true":::.
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Creación de un segmento de red en Azure VMware Solution
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1ece1fbd75c975f549cb9096149c2a2d562dec6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b81f80af69b47152f7111066070e173bb1ede5f4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107573"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093949"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Cosmos DB 
 
@@ -36,11 +36,11 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > * Obtener un token de acceso y su uso para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md). 
 - Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
+- Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Asignación de roles de Azure para administrar el acceso a los recursos de una suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
 - Para ejecutar los scripts de ejemplo, tiene dos opciones:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** en la esquina superior derecha de los bloques de código.
     - Ejecute scripts localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, a continuación, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login). Use una cuenta asociada a la suscripción de Azure en la que desea crear recursos.

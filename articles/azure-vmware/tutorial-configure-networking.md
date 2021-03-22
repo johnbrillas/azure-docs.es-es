@@ -2,17 +2,17 @@
 title: 'Tutorial: Configuración de redes para la nube privada de VMware en Azure'
 description: Aprenda a crear y configurar las redes necesarias para implementar una nube privada en Azure.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/13/2021
+ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578364"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494379"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configuración de redes para la nube privada de VMware en Azure
 
-Una nube privada de Azure VMware Solution requiere una instancia de Azure Virtual Network. Dado que Azure VMware Solution no admite la instancia de vCenter local, se necesitan pasos adicionales para la integración con el entorno local. La configuración de un circuito ExpressRoute y una puerta de enlace de red virtual también son necesarias.
+Una nube privada de Azure VMware Solution requiere una instancia de Azure Virtual Network. Dado que Azure VMware Solution no admite la instancia de vCenter local, se necesitan pasos adicionales para la integración con el entorno local. También es necesario configurar un circuito de ExpressRoute y una puerta de enlace de red virtual.
 
 En este tutorial, aprenderá a:
 
@@ -37,7 +37,7 @@ Una red virtual creada en una [nube privada de Azure VMware Solution](tutorial-c
 
 1. En la página **Crear red virtual**, escriba los detalles de la red virtual.
 
-1. En la pestaña **Aspectos básicos**, escriba un nombre para la red virtual, seleccione la región adecuada y seleccione **Siguiente: Direcciones IP**.
+1. En la pestaña **Aspectos básicos**, escriba el nombre de la red virtual, seleccione la región adecuada y haga clic en **Siguiente: Direcciones IP**.
 
 1. En la pestaña **Direcciones IP**, en **Espacio de direcciones IPv4**, escriba el espacio de direcciones que creó en el tutorial anterior.
 
@@ -64,7 +64,7 @@ Una vez creada una red virtual, creará una puerta de enlace de red virtual.
 
 1. En la pestaña Aspectos básicos de la página **Crear puerta de enlace de red virtual**, proporcione valores para los campos y seleccione **Revisar y crear**. 
 
-   | Campo | Value |
+   | Campo | Valor |
    | --- | --- |
    | **Suscripción** | Valor rellenado previamente con la suscripción a la que pertenece el grupo de recursos. |
    | **Grupos de recursos** | Valor rellenado previamente para el grupo de recursos actual. El valor debe ser el grupo de recursos que creó en una prueba anterior. |
@@ -72,11 +72,11 @@ Una vez creada una red virtual, creará una puerta de enlace de red virtual.
    | **Región** | Seleccione la ubicación geográfica de la puerta de enlace de red virtual. |
    | **Tipo de puerta de enlace** | seleccione **ExpressRoute**. |
    | **SKU** | Deje el valor predeterminado: **standard**. |
-   | **Red virtual** | Seleccione la red virtual que ha creado antes. Si no ve la red virtual, asegúrese de que la región de la puerta de enlace coincide con la región de la red virtual. |
+   | **Red virtual** | Seleccione la red virtual que ha creado antes. Si no ve la red virtual, asegúrese de que la región de la puerta de enlace se corresponde con la región de la red virtual. |
    | **Intervalo de direcciones de subred de puerta de enlace** | Este valor se rellena cuando se selecciona la red virtual. No cambie el valor predeterminado. |
    | **Dirección IP pública** | Seleccione **Crear nuevo**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Seleccionar Revisar y crear." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Proporcione valores para los campos y, a continuación, seleccione Revisar y crear." border="true":::
 
 1. Compruebe que los detalles son correctos y seleccione **Crear** para iniciar la implementación de la puerta de enlace de red virtual. 
 1. Una vez finalizada la implementación, vaya a la siguiente sección para conectar ExpressRoute a la puerta de enlace de red virtual que contiene la nube privada de Azure VMware Solution.
@@ -90,15 +90,15 @@ Ahora que ha implementado una puerta de enlace de red virtual, deberá agregar u
 
 ## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>Buscar las direcciones URL para el administrador de NSX y vCenter
 
-Para iniciar sesión en vCenter y el administrador de NSX, necesitará las direcciones URL para el cliente web de vCenter y el sitio del administrador de NSX-T. 
+Para iniciar sesión en el administrador de NSX y en vCenter, necesitará las direcciones URL del cliente web de vCenter y del sitio del administrador de NSX-T. 
 
 Vaya a la nube privada de Azure VMware Solution y, en **Manage** (Administrar), seleccione **Identity** (Identidad) y encontrará la información necesaria.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Seleccionar Revisar y crear." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Instantánea de las credenciales de vCenter y NSX-T junto con las direcciones URL del cliente web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una red virtual

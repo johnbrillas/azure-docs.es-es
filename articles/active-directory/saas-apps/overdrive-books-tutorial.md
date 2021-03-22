@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 745a82300cbbc87070a117cd8dd094236821aee7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625404"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integración de Azure Active Directory con Overdrive
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Overdrive con Azure Active Directory (Az
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Overdrive con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -37,9 +37,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Overdrive admite SSO iniciado por **SP**
+* Overdrive admite SSO iniciado por **SP**.
 
-* Overdrive admite el aprovisionamiento de usuarios **Just-In-Time**
+* Overdrive admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="add-overdrive-from-the-gallery"></a>Incorporación de Overdrive desde la galería
 
@@ -65,7 +65,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Overdrive,
     1. **[Creación de un usuario de prueba de Overdrive](#create-overdrive-test-user)** , para tener un usuario equivalente a B.Simon en Overdrive que esté vinculado a la representación de usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -121,7 +121,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-overdrive-sso"></a>Configuración del inicio de sesión único de Overdrive
+## <a name="configure-overdrive-sso"></a>Configuración del inicio de sesión único de Overdrive
 
 Para configurar el inicio de sesión único en **Overdrive**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Overdrive](https://help.overdrive.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -133,7 +133,7 @@ En esta sección, se crea un usuario llamado a Britta Simon en Overdrive. Overdr
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de OverDrive que proporcione OverDrive para aprovisionar cuentas de usuario de Azure AD.
 >
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
@@ -141,8 +141,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de Overdrive y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Overdrive en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de Overdrive. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Overdrive en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de Overdrive. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se haya configurado Overdrive, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez que se haya configurado Overdrive, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

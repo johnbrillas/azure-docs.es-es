@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562359"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715469"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure Portal
 
@@ -68,7 +68,7 @@ En esta sección, creará una red virtual y una subred.
     | Grupo de recursos   | Seleccione **CreateIntLBQS-rg** |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
-    | Region           | Seleccione **Oeste de Europa**. |
+    | Region           | Seleccione **(Europa) Oeste de Europa**. |
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
@@ -106,16 +106,17 @@ En esta sección, creará una red virtual y una subred.
 
 ## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-
-2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
+1. Seleccione **Crear un recurso**. 
+2. En el cuadro de búsqueda, escriba **Equilibrador de carga**. Seleccione **Equilibrador de carga** en los resultados de la búsqueda.
+3. En la página **Equilibrador de carga**, seleccione **Crear**.
+4. En la página **Crear equilibrador de carga**, especifique o seleccione la siguiente información: 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione el grupo de recursos **CreateIntLBQS-rg**, que ha creado en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
-    | Region         | Seleccione **Oeste de Europa**.                                        |
+    | Region         | Seleccione **(Europa) Oeste de Europa**.                                        |
     | Tipo          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Estándar**. |
     | Virtual network | Seleccione **myVNet**, que creó en el paso anterior. |
@@ -228,7 +229,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Grupo de recursos | Seleccione **CreateIntLBQS-rg** |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
-    | Region | Seleccione **Oeste de Europa**. |
+    | Region | Seleccione **(Europa) Oeste de Europa**. |
     | Opciones de disponibilidad | Seleccione **Zonas de disponibilidad**. |
     | Zona de disponibilidad | Seleccione **1**. |
     | Imagen | Seleccione **Windows Server 2019 Datacenter**. |
@@ -303,7 +304,7 @@ En esta sección, creará una red virtual y una subred.
     | Grupo de recursos   | Seleccione **CreateIntLBQS-rg** |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
-    | Region           | Seleccione **Oeste de Europa**. |
+    | Region           | Seleccione **(Europa) Oeste de Europa**. |
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
@@ -350,7 +351,7 @@ En esta sección, creará una red virtual y una subred.
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione el grupo de recursos **CreateIntLBQS-rg**, que ha creado en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
-    | Region         | Seleccione **Oeste de Europa**.                                        |
+    | Region         | Seleccione **(Europa) Oeste de Europa**.                                        |
     | Tipo          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Básica**. |
     | Virtual network | Seleccione **myVNet**, que creó en el paso anterior. |

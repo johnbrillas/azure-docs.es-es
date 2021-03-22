@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 545359cd68c18fea8bf1369a57226d024489f293
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258938"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091302"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migración/actualización de una instancia de Azure DB para PostgreSQL: servidor único en línea que usa DMS a través de Azure Portal
 
@@ -54,7 +54,7 @@ Para completar este tutorial, necesita:
 * [Cree un servidor de Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) o [cree un servidor de Azure Database for PostgreSQL: Hiperescala (Citus)](../postgresql/quickstart-create-hyperscale-portal.md) como servidor de bases de datos de destino al que migrar los datos.
 * Cree una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager. Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
 
-* Asegúrese de que las reglas del grupo de seguridad de red (NSG) de la red virtual no bloqueen los siguientes puertos de comunicación de salida a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Asegúrese de que las reglas del grupo de seguridad de red (NSG) para la red virtual no bloquean el puerto de salida 443 de ServiceTag para ServiceBus, Storage y AzureMonitor. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Cree una [regla de firewall](../azure-sql/database/firewall-configure.md) en el nivel de servidor para que el origen de Azure Database for PostgreSQL permita a Azure Database Migration Service acceder a las bases de datos de origen. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
 * Cree una [regla de firewall](../azure-sql/database/firewall-configure.md) en el nivel de servidor para que el destino de Azure Database for PostgreSQL permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
 * [Habilite la replicación lógica](../postgresql/concepts-logical.md) en el origen de Azure DB for PostgreSQL. 

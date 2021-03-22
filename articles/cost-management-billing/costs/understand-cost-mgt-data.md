@@ -3,18 +3,18 @@ title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 01/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 568f3d811876073dc899204cb8ca4d1753d9cfd0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964157"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499308"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -31,6 +31,7 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 | **Categoría**  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** | **Datos disponibles desde** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Mayo de 2014<sup>1</sup> |
+| **Azure Government** | Pago por uso de Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2 de octubre de 2018<sup>2</sup> |
 | **Contrato Enterprise (EA)** | Desarrollo/pruebas - Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Mayo de 2014<sup>1</sup> |
 | **Contrato Enterprise (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mayo de 2014<sup>1</sup> |
 | **Contrato de cliente de Microsoft** | Plan de Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
@@ -51,7 +52,7 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 
 _<sup>**1**</sup> Para los datos antes de mayo de 2014, visite [Azure Enterprise Portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> Para los datos antes del 2 de octubre de 2018, visite el [Centro de cuentas de Azure](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup> Para los datos antes del 2 de octubre de 2018, visite el [Centro de cuentas de Azure](https://account.azure.com/subscriptions) para cuentas globales y el [Centro de cuentas de Azure Government](https://account.windowsazure.us/subscriptions) para cuentas de Azure Government._
 
 _<sup>**3**</sup> Los contratos de cliente de Microsoft comenzaron en marzo de 2019 y no tienen ningún dato histórico antes de este punto._
 
@@ -62,7 +63,6 @@ Las siguientes ofertas todavía no se admiten:
 | Category  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
 | **Azure Alemania** | Pago por uso de Azure Germany | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Pago por uso de Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Proveedor de soluciones en la nube (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Alemania en CSP para Microsoft Cloud Alemania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -130,6 +130,7 @@ Si no ve una etiqueta específica en Cost Management, podría plantearse las sig
     - Data Factory
     - Databricks
     - Equilibradores de carga
+    - Instancias de proceso del área de trabajo de Machine Learning
     - Network Watcher
     - Notification Hubs
     - Azure Service Bus
@@ -161,7 +162,7 @@ Una vez que los datos de uso y costos están disponibles en Administración de c
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa las API de Cost Management, o bien Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a evaluar y, consecuentemente, cambien hasta que se cierre la factura.
+Si usa las API de Cost Management, Power BI o Azure Portal para recuperar los datos, es posible que los cargos del período de facturación actual se vuelvan a valorar. Los cargos pueden cambiar hasta que se cierre la factura.
 
 ## <a name="cost-rounding"></a>Redondeo de los costos
 
@@ -175,7 +176,7 @@ Los costos que se muestran en Cost Management se redondean. Los costos devueltos
 
 ## <a name="historical-data-might-not-match-invoice"></a>Los datos históricos pueden no coincidir con la factura
 
-Es posible que los datos históricos de las ofertas basadas en crédito y pagadas por adelantado no coincidan con la factura. Algunas ofertas de pago por uso, MSDN y Visual Studio para Azure pueden tener créditos de Azure y pagos por adelantado aplicados en la factura. Sin embargo, los datos históricos que se muestran en Cost Management se basan solo en los cargos de consumo calculados. Los datos históricos de Cost Management no incluyen pagos ni créditos. Por tanto, es posible que los datos históricos que se muestran para estas ofertas no coincidan exactamente con la factura.
+Es posible que los datos históricos de las ofertas basadas en crédito y pagadas por adelantado no coincidan con la factura. Algunas ofertas de pago por uso, MSDN y Visual Studio para Azure pueden tener créditos de Azure y pagos por adelantado aplicados en la factura. Los datos históricos que se muestran en Cost Management se basan solo en los cargos de consumo estimados. Los datos históricos de Cost Management no incluyen pagos ni créditos. Es posible que los datos históricos que se muestran para las siguientes ofertas no coincidan exactamente con la factura.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure bajo licencia Open (MS-AZR-0111P)

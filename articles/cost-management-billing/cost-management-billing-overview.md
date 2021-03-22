@@ -4,17 +4,17 @@ description: Use las características de Azure Cost Management y facturación pa
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051100"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050549"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>¿Qué es Azure Cost Management y facturación?
 
@@ -33,6 +33,8 @@ Con los productos y servicios de Azure, solo paga por lo que usa. A medida que c
 
 Para obtener más información sobre cómo abordar la administración de costos como organización, eche un vistazo al artículo [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) (Procedimientos recomendados de Azure Cost Management).
 
+![Diagrama del proceso de optimización de facturación de Cost Management + Billing.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Descripción de la facturación de Azure
 
 Las características de facturación de Azure se usan para revisar los costos facturados y administrar el acceso a la información de facturación. En las grandes organizaciones, los equipos de adquisiciones y finanzas son los que normalmente realizan las tareas de facturación.
@@ -48,32 +50,6 @@ Azure Portal admite actualmente los siguientes tipos de cuentas de facturación:
 - **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este Contrato Enterprise (EA) para utilizar Azure.
 
 - **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una cuenta con tarifas de pago por uso o actualizar su [cuenta gratuita de Azure](./manage/create-free-services.md), también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Ámbitos para las cuentas de facturación
-Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde se administran los datos de facturación, los pagos, las facturas y se realiza la administración de cuentas generales.
-
-#### <a name="microsoft-online-services-program"></a>Microsoft Online Services Program
-
-|Ámbito  |Definición  |
-|---------|---------|
-|Cuenta de facturación     | Representa a un propietario único (administrador de cuenta) para una o varias suscripciones de Azure. Un administrador de cuenta está autorizado para llevar a cabo varias tareas de facturación, como crear suscripciones, ver facturas o cambiar la facturación de las suscripciones.  |
-|Suscripción     |  Representa una agrupación de los recursos de Azure. Se genera una factura en el ámbito de la suscripción. Tiene sus propios métodos de pago que se usan para pagar esta factura.|
-
-#### <a name="enterprise-agreement"></a>Contrato Enterprise
-
-|Ámbito  |Definición  |
-|---------|---------|
-|Cuenta de facturación    | Representa una inscripción de Contrato Enterprise. La factura se genera en el ámbito de la cuenta de facturación. Se estructura mediante el uso de cuentas de inscripción y departamentos.  |
-|department     |  Agrupación opcional de las cuentas de inscripción.      |
-|Cuenta de inscripción     |  Representa al propietario de una cuenta única. Las suscripciones de Azure se crean en el ámbito de las cuentas de inscripción.  |
-
-#### <a name="microsoft-customer-agreement"></a>Contrato de cliente de Microsoft
-
-|Ámbito  |Tareas  |
-|---------|---------|
-|Cuenta de facturación     |   Representa un contrato de cliente para varios productos y servicios de Microsoft. La cuenta de facturación se estructura mediante el uso de perfiles de facturación y las secciones de la factura.   |
-|Perfil de facturación     |  Representa una factura y sus métodos de pago. La factura se genera en este ámbito. El perfil de facturación puede tener varias secciones de factura.      |
-|Sección de factura     |   Representa un grupo de costos en una factura. Las suscripciones y otras compras están asociadas al ámbito de las secciones de facturas.    |
 
 ## <a name="understand-azure-cost-management"></a>Descripción de Azure Cost Management
 

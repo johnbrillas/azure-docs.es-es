@@ -2,13 +2,13 @@
 title: Clústeres administrados de Service Fabric (versión preliminar)
 description: Los clústeres administrados de Service Fabric son una evolución del modelo de recursos de clúster de Azure Service Fabric que agiliza la implementación y la administración de clústeres.
 ms.topic: overview
-ms.date: 09/28/2020
-ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.date: 02/15/2021
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410402"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041236"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Clústeres administrados de Service Fabric (versión preliminar)
 
@@ -62,21 +62,26 @@ Los clústeres administrados de Service Fabric están disponibles en las SKU de 
 | Adición o eliminación de tipos de nodos | No | Sí |
 | Redundancia de zona | No | Sí |
 
-## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Hoja de ruta de características de un clúster administrado de Service Fabric
-Como se trata de una versión preliminar anticipada de los clústeres administrados de Service Fabric, hay algunas lagunas que se deben tener en cuenta. Estas características estarán disponibles en futuras versiones. 
+## <a name="whats-new-for-service-fabric-managed-clusters"></a>Novedades de los clústeres administrados de Service Fabric
 
-* Publicación de aplicaciones en clústeres directamente desde Visual Studio
-* Identidades administradas 
-* Implementaciones de la aplicación de ARM 
-* Zonas de disponibilidad 
-* Proxy inverso 
-* Ajuste de escala automático 
-* Actualización de reglas de grupo de seguridad de red 
-* Actualizaciones automáticas del sistema operativo
+Las últimas características de la versión preliminar de los clústeres administrados de Service Fabric permiten lo siguiente:
+
+* [Implementación de aplicaciones con plantillas de ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Actualizaciones automáticas del sistema operativo](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Cifrado de disco](how-to-enable-managed-cluster-disk-encryption.md)
+* [Aplicación de reglas de NSG](how-to-managed-cluster-networking.md)
+
+Entre las características que se van a agregar en las próximas versiones están:
+
+* Implementación de aplicaciones con Visual Studio
+* Compatibilidad con identidades administradas
+* Zonas de disponibilidad
+* Proxy inverso
+* Escalado automático
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con los clústeres administrados de Service Fabric, pruebe el inicio rápido:
+Para empezar a utilizar los clústeres administrados de Service Fabric, pruebe el manual de inicio rápido:
 
 > [!div class="nextstepaction"]
 > [Creación de un clúster administrado de Service Fabric (versión preliminar)](quickstart-managed-cluster-template.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559340"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650871"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>¿Qué es el control de acceso basado en rol de Azure (RBAC)?
 
@@ -86,7 +86,7 @@ Para más información, consulte [Pasos para asignar roles de Azure](role-assign
 
 ## <a name="multiple-role-assignments"></a>Asignaciones de varios roles
 
-Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen? Azure RBAC es un modelo de suma, por lo que los permisos efectivos son la suma de sus asignaciones de rol. Considere el ejemplo siguiente, donde a un usuario se le concede el rol Colaborador en el ámbito de la suscripción y el rol Lector en un grupo de recursos. La suma de los permisos de Colaborador y los permisos de Lector es realmente el rol Colaborador del grupo de recursos. Por consiguiente, en este caso, la asignación del rol Lector no tiene ningún impacto.
+Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen? Azure RBAC es un modelo de suma, por lo que los permisos efectivos son la suma de sus asignaciones de rol. Considere el ejemplo siguiente, donde a un usuario se le concede el rol Colaborador en el ámbito de la suscripción y el rol Lector en un grupo de recursos. La suma de los permisos de Colaborador y los de Lector es realmente el rol Colaborador de la suscripción. Por consiguiente, en este caso, la asignación del rol Lector no tiene ningún impacto.
 
 ![Asignaciones de varios roles](./media/overview/rbac-multiple-roles.png)
 

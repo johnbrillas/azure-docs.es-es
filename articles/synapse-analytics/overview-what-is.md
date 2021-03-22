@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917100"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031623"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>¿Qué es Azure Synapse Analytics?
 
@@ -64,13 +64,13 @@ Azure Synapse proporciona a las empresas una única forma de administrar los rec
 * Control de acceso específico en los datos y el código
 * Un solo panel para supervisar los recursos, el uso y los usuarios en SQL y Spark
 
-### <a name="synapse-studio"></a>Synapse Studio
+### <a name="unified-experience"></a>Experiencia unificada
 
-**Synapse Studio** es la experiencia web-nativa que relaciona todo con los ingenieros de datos, lo que les permite realizar todas las tareas necesarias para crear una solución completa.
+**Synapse Studio** es la experiencia del usuario que relaciona todo para los ingenieros de datos. Con ella, los ingenieros de datos pueden realizar todas las tareas necesarias para crear una solución de análisis completa.
 
-* Creación de una solución de análisis de un extremo a otro en un solo lugar: ingesta, exploración, preparación, orquestación, visualización
-* Productividad líder del sector para ingenieros de datos que escriben código SQL o Spark: creación, depuración y optimización del rendimiento
-* Integración con procesos de CI/CD empresariales
+* Reúne todas las tareas clave de un ingeniero de datos en un solo lugar: ingerir, explorar, preparar, orquestar y visualizar
+* Ofrece un nivel de productividad destacado al escribir código SQL o Spark: creación, depuración y optimización del rendimiento
+* Permite la integración con procesos de CI/CD empresariales
 
 ## <a name="engage-with-the-synapse-engineering-team"></a>Contacto con el equipo de ingeniería de Synapse
 

@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696496"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648091"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de NetSuite para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en NetSuite OneWorld y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en NetSuite.
 
 > [!WARNING]
-> Esta integración del aprovisionamiento dejará de funcionar en febrero de 2020 debido a un cambio en las API de NetSuite que usa Microsoft para aprovisionar a los usuarios en NetSuite. Como consecuencia, pronto se eliminará la funcionalidad de aprovisionamiento de la aplicación NetSuite de la galería de aplicaciones empresariales de Azure Active Directory. La funcionalidad de inicio de sesión único de la aplicación permanecerá intacta. Microsoft trabaja con NetSuite para crear una integración de aprovisionamiento modernizada, pero actualmente no hay fecha estimada del momento en que se completará.
+> Esta integración del aprovisionamiento dejará de funcionar con el lanzamiento de la actualización de Spring 2021 de NetSuite debido a un cambio en las API de NetSuite que usa Microsoft para aprovisionar a los usuarios en NetSuite.  Esta actualización llegará a los clientes de NetSuite entre febrero y abril de 2021. Como consecuencia, pronto se eliminará la funcionalidad de aprovisionamiento de la aplicación NetSuite de la galería de aplicaciones empresariales de Azure Active Directory. La funcionalidad de inicio de sesión único de la aplicación permanecerá intacta. Microsoft trabaja con NetSuite para crear una integración de aprovisionamiento modernizada, pero actualmente no hay fecha estimada del momento en que se completará.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

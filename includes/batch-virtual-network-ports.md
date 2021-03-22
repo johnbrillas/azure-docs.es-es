@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750894"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
 * La red virtual debe estar en la misma región y suscripción que la cuenta de Batch que se utiliza para crear el grupo.
-
-* El grupo que usa la red virtual puede tener 4096 nodos como máximo.
 
 * La subred especificada para el grupo debe tener suficientes direcciones IP sin asignar para acoger el número de VM destinadas al grupo; esto es, la suma de las propiedades `targetDedicatedNodes` y `targetLowPriorityNodes` del grupo. Si la subred no tiene suficientes direcciones IP sin asignar, el grupo asigna parcialmente los nodos de proceso y se produce un error de cambio de tamaño.
 
@@ -67,23 +65,29 @@ No es preciso que especifique grupos de seguridad de red en el nivel de subred d
 
 Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo si necesita permitir el acceso remoto a los nodos de ejecución del grupo desde orígenes externos. Si requiere que las tareas con varias instancias sean compatibles con ciertos runtimes de MPI, es posible que necesite habilitar las reglas del puerto 22 en Linux. Para que se puedan usar los nodos de ejecución del grupo no es obligatorio permitir el tráfico en estos puertos.
 
+> [!WARNING]
+> Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Por lo tanto, se recomienda encarecidamente usar la etiqueta de servicio `BatchNodeManagement` (o una variante regional) para las reglas de NSG que se indican en las tablas siguientes. Evite rellenar las reglas de NSG con direcciones IP específicas del servicio Batch.
+
 **Reglas de seguridad de entrada**
 
 | Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destination | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/network-security-groups-overview.md#service-tags) (si se usa una variante regional, en la misma región que la cuenta de Batch) | * | Any | 29876-29877 | TCP | Allow |
+| N/D | [Etiqueta de servicio](../articles/virtual-network/network-security-groups-overview.md#service-tags) `BatchNodeManagement` (si usa una variante regional, en la misma región que su cuenta de Batch) | * | Any | 29876-29877 | TCP | Allow |
 | Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
-
-> [!WARNING]
-> Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Por lo tanto, se recomienda encarecidamente usar la etiqueta de servicio `BatchNodeManagement` (o la variante regional) para las reglas de NSG. Evite rellenar las reglas de NSG con direcciones IP específicas del servicio Batch.
 
 **Reglas de seguridad de salida**
 
 | Source | Puertos de origen | Destination | Etiqueta de servicio de destino | Puertos de destino | Protocolo | Acción |
 | --- | --- | --- | --- | --- | --- | --- |
 | Any | * | [Etiqueta de servicio](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (si se usa una variante regional, en la misma región que la cuenta de Batch) | 443 | TCP | Allow |
+| Any | * | [Etiqueta de servicio](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (si se usa una variante regional, en la misma región que la cuenta de Batch) | 443 | TCP | Allow |
+
+La salida a `BatchNodeManagement` es necesaria para ponerse en contacto con el servicio Batch desde los nodos de ejecución como para las tareas del Administrador de trabajos.
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Grupos de la configuración de servicios en la nube
+
+> [!WARNING]
+> Los grupos de configuración del servicio en la nube están en desuso. En su lugar, use los grupos de configuración de máquina virtual.
 
 **Redes virtuales admitidas**: solo redes virtuales clásicas
 

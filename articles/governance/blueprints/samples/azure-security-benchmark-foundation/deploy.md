@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
 description: Pasos de implementación para el ejemplo de plano técnico de Azure Security Benchmark Foundation, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740688"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
 
@@ -92,6 +92,9 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - **Nombre de Network Watcher**: nombre del recurso de Network Watcher.
      - **Network Watcher resource group name** (Nombre del grupo de recursos de Network Watcher): nombre del grupo de recursos de Network Watcher.
      - **Enable DDoS protection** (Habilitar protección contra DDoS): especifique "true" o "false" para indicar si la protección contra DDoS está habilitada o no en la red virtual.
+     
+    > [!NOTE] 
+    > Si Network Watcher ya está habilitado, se recomienda usar el grupo de recursos de Network Watcher existente. También debe proporcionar la ubicación del grupo de recursos de Network Watcher existente para el parámetro de artefacto **Ubicación del grupo de recursos de Network Watcher**.
 
    - Parámetros de artefacto
 
@@ -132,8 +135,14 @@ En la tabla siguiente se proporciona una lista de los parámetros del plano téc
 |Plantilla de radio de Azure Virtual Network|Plantilla de Resource Manager|Subnet address names (Nombres de direcciones de subred) (opcional)|Matriz de nombres de subred que se va a implementar en la red virtual de radios; por ejemplo, "subnet1", "subnet2".|
 |Plantilla de radio de Azure Virtual Network|Plantilla de Resource Manager|Subnet address prefixes (Prefijos de direcciones de subred) (opcional)|Matriz de prefijos de direcciones IP para las subredes opcionales de la red virtual de radios; por ejemplo, "10.0.7.0/24", "10.0.8.0/24"|
 |Plantilla de radio de Azure Virtual Network|Plantilla de Resource Manager|Deploy spoke (Implementar radio)|Escriba "true" o "false" para especificar si la asignación implementa los componentes de radio de la arquitectura|
-|Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher location (Ubicación de Network Watcher)|Si Network Watcher ya está habilitado, este valor de parámetro **debe** coincidir con la ubicación del grupo de recursos de Network Watcher existente.|
-|Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher resource group location (Ubicación del grupo de recursos de Network Watcher)|Si Network Watcher ya está habilitado, este valor de parámetro **debe** coincidir con el nombre del grupo de recursos de Network Watcher existente.|
+|Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher location (Ubicación de Network Watcher)|Ubicación para el recurso de Network Watcher|
+|Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher resource group location (Ubicación del grupo de recursos de Network Watcher)|Si Network Watcher ya está habilitado, este valor de parámetro **debe** coincidir con la ubicación del grupo de recursos de Network Watcher existente.|
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si aparece el error `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.`, compruebe que el parámetro de plano técnico **Nombre de grupo de recursos de Network Watcher** especifica el nombre del grupo de recursos de Network Watcher existente y que el parámetro de artefacto **Ubicación de grupo de recursos de Network Watcher Network** especifica la ubicación del grupo de recursos de Network Watcher existente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

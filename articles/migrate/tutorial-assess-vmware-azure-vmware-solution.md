@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566795"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718835"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Evaluación de máquinas virtuales de VMware para la migración a AVS
 
@@ -50,6 +50,9 @@ Decida si desea ejecutar una valoración usando criterios de ajuste de tamaño e
 **Tal cual en el entorno local** | Valore en función de los datos o los metadatos de configuración de la máquina.  | El tamaño de nodo recomendado en AVS se basa en el tamaño de la máquina virtual local, junto con la configuración especificada en la evaluación para el tipo de nodo, el tipo de almacenamiento y la configuración de la tolerancia a errores.
 **Basada en el rendimiento** | Valore en función de los datos de rendimiento dinámico recopilados. | El tamaño de nodo recomendado en AVS se basa en los datos de uso de CPU y memoria, junto con los valores que se especifican en la evaluación para el tipo de nodo, el tipo de almacenamiento y la configuración de la tolerancia a errores.
 
+> [!NOTE]
+> La evaluación de Azure VMware Solution (AVS) solo se puede crear para máquinas virtuales con VMware.
+
 ## <a name="run-an-assessment"></a>Ejecución de una evaluación
 
 Las evaluaciones se realizan como se indica a continuación:
@@ -60,7 +63,7 @@ Las evaluaciones se realizan como se indica a continuación:
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-1. En **Evaluar los servidores** > **Tipo de evaluación**, seleccione **Azure VMware Solution (AVS) (versión preliminar)** .
+1. En **Evaluar los servidores** > **Tipo de evaluación**, seleccione **Azure VMware Solution (AVS)** .
 
 1. En **Origen de detección**:
 
@@ -76,14 +79,14 @@ Las evaluaciones se realizan como se indica a continuación:
 
     - En **Ubicación de destino**, especifique la región de Azure a la que desee migrar.
        - Las recomendaciones de tamaño y costo se basan en la ubicación que especifique.
-       - Actualmente, puede evaluar cuatro regiones (Este de Australia, Este de EE. UU., Europa Occidental y Oeste de EE. UU.)
    - El **tipo de almacenamiento** tiene como valor predeterminado **vSAN**. Es el predeterminado para una nube privada de AVS.
    - Las **instancias reservadas** no se admiten actualmente para los nodos AVS.
 1. En **Tamaño de VM**:
     - El **tipo de nodo** tiene como valor predeterminado **AV36**. Azure Migrate recomienda el tipo de nodos necesarios para migrar las máquinas virtuales a AVS.
     - En **FTT setting, RAID level** (Configuración de FTT, nivel de RAID), seleccione la combinación de tolerancia a errores y RAID.  La opción de FTT seleccionada junto con el requisito de disco de la máquina virtual local determinará el almacenamiento de vSAN total que se requiere en AVS.
     - En **CPU Oversubscription** (Suscripción excesiva de CPU), especifique la proporción de núcleos virtuales asociados a un núcleo físico en el nodo AVS. Tenga en cuenta que una suscripción excesiva de vCPU mayor que 4:1 puede producir una degradación del rendimiento, pero se puede usar para cargas de trabajo del tipo del servidor web.
-
+    - En **Memory overcommit factor** (Factor de asignación excesiva de memoria), especifique la relación de asignación excesiva de memoria en el clúster. Un valor de 1 representa el 100 % del uso de memoria; 0,5 el 50 % y 2 sería usar el 200 % de la memoria disponible. Solo puede agregar valores del 0,5 al 10 con hasta una posición decimal.
+    - En **Dedupe and compression factor** (Eliminar duplicados y factor de compresión), especifique la eliminación de duplicados y el factor de compresión previstos para las cargas de trabajo. El valor real se puede obtener del vSAN local o de la configuración de almacenamiento, y puede variar en función de la carga de trabajo. Un valor de 3 significaría el triple, por lo que para un disco de 300 GB solo se utilizarían 100 GB de almacenamiento. Un valor de 1 significa que no hay eliminación de duplicados ni compresión. Solo puede agregar valores del 1 al 10 con hasta una posición decimal.
 1. En **Tamaño del nodo**: 
     - En **Criterio de tamaño**, seleccione si desea basar la evaluación en metadatos estáticos o en datos basados en el rendimiento. Si utiliza datos de rendimiento:
         - En **Historial de rendimiento**, indique la duración de los datos en los que desee basar la valoración.
@@ -108,7 +111,7 @@ Las evaluaciones se realizan como se indica a continuación:
 
 1. En **Select machines to assess** >  (Seleccionar máquinas que evaluar) **Nombre de la evaluación**, especifique un nombre para la evaluación. 
  
-1. En **Seleccionar o crear un grupo**, elija **Crear nuevo** y especifique un nombre de grupo. 
+1. En **Seleccionar o crear un grupo**, seleccione **Crear nuevo** y especifique un nombre de grupo. 
     
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Adición de máquinas virtuales a un grupo":::
  
@@ -127,7 +130,6 @@ Una evaluación de AVS describe:
 - Número de nodos de AVS: número estimado de nodos de AVS necesarios para ejecutar las máquinas virtuales.
 - Uso en los nodos de AVS: uso previsto de CPU, memoria y almacenamiento en todos los nodos.
     - El uso incluye la factorización inicial de las siguientes sobrecargas de administración del clúster, como vCenter Server, NSX Manager (grande) y NSX Edge; si HCX está implementado, también las de HCX Manager y el dispositivo IX que consume ~ 44 CPU virtuales (11 CPU), 75 GB de RAM y 722 GB de almacenamiento antes de la compresión y la desduplicación. 
-    - Actualmente, la utilización de la memoria está establecida en un 100 % y la desduplicación y la compresión en 1,5. En próximas versiones será una entrada definida por el usuario, lo que permitirá al usuario ajustar el tamaño necesario.
 - Estimación del costo mensual: los costos mensuales estimados de todos los nodos de Azure VMware Solution (AVS) que ejecutan las máquinas virtuales locales.
 
 ## <a name="view-an-assessment"></a>Visualización de una evaluación
@@ -155,7 +157,7 @@ Para ver una evaluación:
 
 3. Revise la herramienta sugerida.
 
-    - VMware HCX o Enterprise: En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMWare es la herramienta de migración sugerida para migrar su carga de trabajo en el entorno local a la nube privada de Azure VMware Solution (AVS). Obtenga más información en.
+    - VMware HCX o Enterprise En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). Obtenga más información en.
     - Desconocido: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware.
 4. Haga clic en un estado de Preparación para AVS. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.
 
@@ -167,7 +169,7 @@ El resumen de evaluación muestra el costo estimado de almacenamiento y proceso 
 
     - Las estimaciones de los costos se basan en el número de nodos de AVS necesarios teniendo en cuenta los requisitos de recursos de todas las máquinas virtuales en total.
     - Como los precios de AVS son por nodo, el costo total no tiene costo de proceso ni distribución de costos de almacenamiento.
-    - La estimación de costos es para ejecutar las máquinas virtuales locales en AVS. Azure Migrate Server Assessment no tiene en cuenta los costos de PaaS o SaaS.
+    - La estimación de costos es para ejecutar las máquinas virtuales locales en AVS. La evaluación de AVS no tiene en cuenta los costos de PaaS o SaaS.
 
 2. Revise las estimaciones de almacenamiento mensuales. Esta vista muestra los costos de almacenamiento agregados del grupo evaluado, divididos por los diferentes tipos de discos de almacenamiento. 
 3. Puede explorar en profundidad para ver los detalles de costo de máquinas virtuales específicas.

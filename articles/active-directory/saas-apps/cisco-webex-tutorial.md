@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/21/2019
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a4e3a4a6049b48fa70e5352680bdc7342676c0b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: fca2e9d92752ee47cd68093bc7f763a1ec291cd3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670289"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex Meetings
 
@@ -26,7 +26,6 @@ En este tutorial, aprenderá a integrar Cisco Webex Meetings con Azure Active 
 * Permitir que los usuarios inicien sesión automáticamente en Cisco Webex Meetings con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -42,91 +41,84 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Cisco Webex Meetings admite el inicio de sesión único iniciado por **SP e IDP**
+* Cisco Webex Meetings admite el inicio de sesión único iniciado por **SP e IDP**.
 
-* Cisco Webex Meetings admite el aprovisionamiento de usuarios **Just-In-Time**
+* Cisco Webex Meetings admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-cisco-webex-meetings-from-the-gallery"></a>Adición de Cisco Webex Meetings desde la galería
 
 Para configurar la integración de Cisco Webex Meetings en Azure AD, será preciso que agregue Cisco Webex Meetings desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Cisco Webex Meetings** en el cuadro de búsqueda.
 1. Seleccione **Cisco Webex Meetings** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cisco-webex-meetings"></a>Configuración y prueba del inicio de sesión único de Azure AD para Cisco Webex Meetings
+## <a name="configure-and-test-azure-ad-sso-for-cisco-webex-meetings"></a>Configuración y prueba del inicio de sesión único de Azure AD para Cisco Webex Meetings
 
 Configure y pruebe el inicio de sesión único de Azure AD con Cisco Webex Meetings utilizando un usuario de prueba llamado **B. Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Cisco Webex Meetings.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Cisco Webex Meetings, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Cisco Webex Meetings, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-2. **[Configuración del inicio de sesión único de Cisco Webex Meetings](#configure-cisco-webex-meetings-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación del usuario de prueba de Cisco Webex Meetings](#create-cisco-webex-meetings-test-user)**, para tener un homólogo de B. Simon en Cisco Webex Meetings vinculado a la representación del usuario en Azure AD.
-3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+   1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+   1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+   
+1. **[Configuración del inicio de sesión único de Cisco Webex Meetings](#configure-cisco-webex-meetings-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
+   * **[Creación del usuario de prueba de Cisco Webex Meetings](#create-cisco-webex-meetings-test-user)**, para tener un homólogo de B. Simon en Cisco Webex Meetings vinculado a la representación del usuario en Azure AD.
+    
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Cisco Webex Meetings**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Cisco Webex Meetings**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, puede configurar la aplicación en modo iniciado por **IDP** mediante la carga del archivo de **metadatos del proveedor de servicios** de la siguiente manera:
-
-    a. Haga clic en **Cargar el archivo de metadatos**.
-
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
-
-    c. Cuando el archivo de metadatos del proveedor de servicios se haya cargado correctamente, los valores **Identificador** y **URL de respuesta** se rellenarán automáticamente en la sección **Configuración básica de SAML**.
-
-    >[!Note]
-    >Obtendrá el archivo de metadatos del proveedor de servicios en la sección **Configuración del inicio de sesión único de Cisco Webex Meetings**, que se explica más adelante en este tutorial. 
+   1. Haga clic en **Cargar el archivo de metadatos**.
+   1. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+   1. Cuando el archivo de metadatos del proveedor de servicios se haya cargado correctamente, los valores **Identificador** y **URL de respuesta** se rellenarán automáticamente en la sección **Configuración básica de SAML**.
+   
+      > [!Note]
+      > Obtendrá el archivo de metadatos del proveedor de servicios en la sección **Configuración del inicio de sesión único de Cisco Webex Meetings**, que se explica más adelante en este tutorial. 
 
 1. Si desea configurar la aplicación en modo iniciado por **SP**, realice los siguientes pasos:  
+   1. En la sección **Configuración básica de SAML**, haga clic en el icono de edición o con forma de lápiz.
 
-    a. En la sección **Configuración básica de SAML**, haga clic en el icono de edición o con forma de lápiz.
+      ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón: `https://<customername>.my.webex.com`
 
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón: `https://<customername>.my.webex.com`
+1. La aplicación Cisco Webex Meetings espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-5. La aplicación Cisco Webex Meetings espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
+   ![imagen](common/edit-attribute.png)
 
-    ![imagen](common/edit-attribute.png)
+1. Además de lo anterior, la aplicación Cisco Webex Meetings espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, haga lo siguiente para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
 
-6. Además de lo anterior, la aplicación Cisco Webex Meetings espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, haga lo siguiente para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
+   | Nombre | Atributo de origen|
+   | ---------------|  --------- |
+   |   firstname    | user.givenname |
+   |   lastname    | user.surname |
+   |   email       | user.mail |
+   |   uid    | user.mail |
 
-    | Nombre | Atributo de origen|
-    | ---------------|  --------- |
-    |   firstname    | user.givenname |
-    |   lastname    | user.surname |
-    |   email       | user.mail |
-    |   uid    | user.mail |
+   1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+   1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+   1. Deje **Espacio de nombres** en blanco.
+   1. Seleccione **Atributo** como origen.
+   1. En la lista **Atributo de origen**, seleccione el valor de atributo que se muestra para esa fila en la lista desplegable.
+   1. Haga clic en **Save**(Guardar).
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+   ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-    c. Deje **Espacio de nombres** en blanco.
+1. En la sección **Set up Cisco Webex Meetings** (Configurar Cisco Webex Meetings), copie las direcciones URL que necesite.
 
-    d. Seleccione **Atributo** como origen.
-
-    e. En la lista **Atributo de origen**, seleccione el valor de atributo que se muestra para esa fila en la lista desplegable.
-
-    f. Haga clic en **Save**(Guardar).
-
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
-
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
-
-6. En la sección **Set up Cisco Webex Meetings** (Configurar Cisco Webex Meetings), copie las direcciones URL que necesite.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+   ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -135,10 +127,10 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
-    1. En el campo **Nombre**, escriba `B.Simon`.  
-    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-    1. Haga clic en **Crear**.
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -147,46 +139,41 @@ En esta sección, va a permitir que B. Simon acceda a Cisco Webex Meetings medi
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Cisco Webex Meetings**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-cisco-webex-meetings-sso"></a>Configuración del inicio de sesión único de Cisco Webex Meetings
 
-1. Vaya a la dirección URL `https://<customername>.webex.com/admin` con sus credenciales de administración.
+1. Inicie sesión en Cisco Webex Meetings con sus credenciales de administrador.
+1. Vaya a **Common Site Setting** (Configuración del sitio común) y a **SSO Configuration** (Configuración de inicio de sesión único).
 
-2. Vaya a **Common Site Setting** (Configuración del sitio común) y a **SSO Configuration** (Configuración de inicio de sesión único).
+   ![Captura de pantalla que muestra la página de administración de Cisco WebEx con la configuración de sitio común y la configuración de S S O seleccionada.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
-    ![Captura de pantalla que muestra la página de administración de Cisco WebEx con la configuración de sitio común y la configuración de S S O seleccionada.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+1. En la página **Webex Administration** (Administración de Webwex), siga estos pasos:
 
-3. En la página **Webex Administration** (Administración de Webwex), siga estos pasos:
+   ![Captura de pantalla que muestra la página de administración de Webex con la información que se describe en este paso.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
-    ![Captura de pantalla que muestra la página de administración de Webex con la información que se describe en este paso.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+   1. Seleccione **SAML 2.0** como **Federation Protocol** (Protocolo de Federación).
+   1. Haga clic en el enlace **Import SAML Metadata** (Importar metadatos de SAML) para cargar el archivo de metadatos que descargó de Azure Portal.
+   1. Seleccione **SSO Profile** (Perfil de SSO) como **IDP initiated** (Iniciado por IdP) y haga clic en el botón **Export** (Exportar) para descargar el archivo de metadatos del proveedor de servicios y cárguelo en la sección **Configuración básica de SAML** de Azure Portal.
+   1. En el cuadro de texto **AuthContextClassRef**, escriba uno de los siguientes valores:
+      * `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
+      * `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`
+    
+      Para habilitar MFA mediante Azure AD, escriba los dos valores de la siguiente manera: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
-    a. Seleccione **SAML 2.0** como **Federation Protocol** (Protocolo de Federación).
+   1. Seleccione **Auto Account Creation** (Creación de cuenta automática).
+   
+      > [!NOTE]
+      > Para habilitar el aprovisionamiento de usuarios **Just-In-Time**, debe seleccionar **Auto Account Creation** (Creación de cuenta automática). Además, es necesario pasar atributos de token de SAML en la respuesta SAML.
 
-    b. Haga clic en el enlace **Import SAML Metadata** (Importar metadatos de SAML) para cargar el archivo de metadatos que descargó de Azure Portal.
+   1. Haga clic en **Save**(Guardar).
 
-    c. Haga clic en el botón **Export** (Exportar) para descargar el archivo de metadatos del proveedor de servicios y cárguelo en la sección **Configuración básica de SAML** de Azure Portal.
-
-    d. En el cuadro de texto **AuthContextClassRef**, escriba `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` y, si desea habilitar la autenticación multifactor con Azure AD, escriba los dos valores, como `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`.
-
-    e. Seleccione **Auto Account Creation** (Creación de cuenta automática).
-
-    >[!NOTE]
-    >Para habilitar el aprovisionamiento de usuarios **Just-In-Time**, debe seleccionar **Auto Account Creation** (Creación de cuenta automática). Además, es necesario pasar atributos de token de SAML en la respuesta SAML.
-
-    f. Haga clic en **Save**(Guardar).
-
-    >[!NOTE]
-    >Esta configuración es solo para los clientes que usan el UserID de Webex en formato de correo electrónico.
+      > [!NOTE]
+      > Esta configuración es solo para los clientes que usan el UserID de Webex en formato de correo electrónico.
+      > 
+      > Para más información sobre cómo configurar Cisco Webex meetings, consulte la página [Documentación de WebEx](https://help.webex.com/WBX000022701/How-Do-I-Configure-Microsoft-Azure-Active-Directory-Integration-with-Cisco-Webex-Through-Site-Administration#:~:text=In%20the%20Azure%20portal%2C%20select,in%20the%20Add%20Assignment%20dialog).
 
 ### <a name="create-cisco-webex-meetings-test-user"></a>Creación del usuario de prueba de Cisco Webex Meetings
 
@@ -194,16 +181,21 @@ El objetivo de esta sección es crear un usuario llamado B. Simon en Cisco Webe
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Cisco Webex Meetings en el panel de acceso, debería iniciar sesión automáticamente en la versión de Cisco Webex Meetings para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Cisco Webex Meetings, donde podrá comenzar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Acceda directamente a la dirección URL de inicio de sesión de Cisco Webex Meetings y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Cisco Webex Meetings para la que configuró el inicio de sesión único.
 
-- [Pruebe ServiceNow con Azure AD](https://aad.portal.azure.com)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Cisco Webex Meetings en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Cisco Webex Meetings para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Cisco Webex Meetings, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

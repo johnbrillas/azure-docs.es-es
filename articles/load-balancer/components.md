@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739838"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
@@ -131,6 +131,7 @@ Los equilibradores de carga básicos no admiten reglas de salida.
 - No se generará el flujo saliente de una máquina virtual del back-end a un front-end de un equilibrador de carga interno.
 - Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-end y sus instancias de back-end deben estar ubicados en la misma red virtual.  
 - No se admite el reenvío de fragmentos IP en reglas de equilibrio de carga. No se admite la fragmentación IP de paquetes UDP y TCP en reglas de equilibrio de carga. Las reglas de equilibrio de carga de los puertos de alta disponibilidad se pueden usar para reenviar fragmentos de IP existentes. Para más información, consulte [Información general sobre los puertos de alta disponibilidad](load-balancer-ha-ports-overview.md).
+- Solo puede tener una instancia pública de Load Balancer y una instancia interna de Load Balancer por conjunto de disponibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

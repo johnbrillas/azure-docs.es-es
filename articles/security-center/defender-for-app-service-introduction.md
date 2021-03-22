@@ -7,31 +7,43 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2a3253d1ed8b0814fc20b3256a0f98d3aa0949f6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec4ac5d355266a46b33d89fd25c2665493773f5d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393316"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100821"
 ---
-# <a name="introduction-to-azure-defender-for-app-service"></a>Introducción a Azure Defender para App Service
+# <a name="protect-your-web-apps-and-apis"></a>Protección de las API y las aplicaciones web
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Security Center está integrado de forma nativa con App Service, lo que elimina la necesidad de implementación e incorporación; la integración es transparente.
+
+Para proteger el plan de Azure App Service con Azure Defender para App Service, necesitará lo siguiente:
+
+- Un plan de App Service admitido asociado a máquinas dedicadas. Los planes admitidos se enumeran en [Disponibilidad](#availability).
+
+- Azure Defender habilitado en la suscripción, tal como se describe en [Inicio rápido: Habilitación de Azure Defender](enable-azure-defender.md).
+
+    > [!TIP]
+    > Opcionalmente, puede habilitar planes individuales en Azure Defender (como Azure Defender para App Service).
+
+## <a name="availability"></a>Disponibilidad
+
+| Aspecto                       | Detalles                                                                                                                                                                                        |
+|------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de la versión:               | Disponibilidad general (GA)                                                                                                                                                                      |
+| Precios:                     | [Azure Defender para App Service](azure-defender.md) se factura como se indica en [Precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).<br>La facturación se realiza en función de las instancias de proceso totales en todos los planes.       |
+| Planes de App Service admitidos: | Se admiten [todos los planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) excepto [Azure Functions en el plan de consumo](../azure-functions/functions-scale.md). |
+| Nubes:                      | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                     |
+|                              |                                                                                                                                                                                                |
+
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>¿Cuáles son las ventajas de Azure Defender para App Service?
 
 Azure App Service es una plataforma totalmente administrada para crear y hospedar aplicaciones web y API. Al ser totalmente administrada, no hay que preocuparse por la infraestructura. Proporciona administración, supervisión y conclusiones operativas para satisfacer requisitos de seguridad, cumplimiento normativo y rendimiento de nivel empresarial. Para más información, consulte [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 **Azure Defender para App Service** usa la escala de la nube para identificar ataques dirigidos a aplicaciones que se ejecutan mediante App Service. Los atacantes sondean las aplicaciones web para buscar y aprovechar los puntos débiles. Antes de enrutarse a entornos específicos, las solicitudes para las aplicaciones que se ejecutan en Azure atraviesan varias puertas de enlace donde se las inspecciona y registra. A continuación, estos datos se usan para identificar vulnerabilidades y atacantes, así como para aprender nuevos patrones que se usarán más adelante.
-
-
-## <a name="availability"></a>Disponibilidad
-
-| Aspecto                       | Detalles                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Estado de la versión:               | Disponibilidad general (GA)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Precios:                     | [Azure Defender para App Service](azure-defender.md) se factura como se muestra en la [página de precios](security-center-pricing.md).<br>La facturación se realiza en función de las instancias de proceso totales en todos los planes.|
-| Planes de App Service admitidos: | Se admiten todos los planes de App Service (con una excepción, que puede ver a continuación). [Más información sobre los planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).<br>No se admite Azure Functions en el plan de consumo. [Más información sobre las opciones de hospedaje de Azure Functions](../azure-functions/functions-scale.md).                                                                                                                                                                                                                                                                   |
-| Nubes:                      | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)                                                                                                                                                                                                                                                                                                                                                                                 |
-|                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>¿Cuáles son las ventajas de Azure Defender para App Service?
 
 Al habilitar Azure Defender para App Service, se beneficia inmediatamente de los siguientes servicios que ofrece este plan de Azure Defender:
 
@@ -77,19 +89,6 @@ Para obtener una lista completa de las alertas de Azure App Service, consulte la
 > [!NOTE]
 > Es posible que Defender no desencadene alertas de DNS pendientes si el dominio personalizado no apunta directamente a un recurso de App Service o si Defender no ha supervisado el tráfico a su sitio web desde que se habilitó la protección contra DNS pendiente (porque no habrá registros que ayuden a identificar el dominio personalizado).
 
-## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Procedimientos para proteger las API y las aplicaciones web de Azure App Service
-
-Para proteger el plan de Azure App Service con Azure Defender para App Service:
-
-1. Asegúrese de que tiene un plan de App Service compatible asociado a máquinas dedicadas. Los planes admitidos se enumeran anteriormente en [Disponibilidad](#availability).
-
-2. Habilite **Azure Defender** en su suscripción como se describe en el artículo [Precios de Azure Security Center](security-center-pricing.md).
-
-    Opcionalmente, puede habilitar planes individuales en Azure Defender (como Azure Defender para App Service).
-
-    Security Center está integrado de forma nativa con App Service, lo que elimina la necesidad de implementación e incorporación; la integración es transparente.
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha obtenido información sobre Azure Defender para App Service. 
@@ -100,4 +99,4 @@ Para obtener material relacionado, consulte los siguientes artículos:
 - Para obtener una lista de las alertas de Azure Defender para App Service, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureappserv).
 - Para más información sobre los planes de App Service, consulte [Planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitación de Azure Defender](enable-azure-defender.md)

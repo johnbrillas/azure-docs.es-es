@@ -8,23 +8,23 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 2ae7b28d5e9e7a520ee8cbd090b6681d5ad7015a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422763"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095993"
 ---
 # <a name="about-keys"></a>Acerca de las claves
 
-Azure Key Vault proporciona dos tipos de recursos para almacenar y administrar claves criptográficas:
+Azure Key Vault proporciona dos tipos de recursos para almacenar y administrar claves criptográficas. Los almacenes admiten claves protegidas por software y protegidas con HSM (módulo de seguridad de hardware). Los HSM administrados solo admiten claves protegidas con HSM. 
 
 |Tipo de recurso|Métodos de protección de claves|URL base del punto de conexión del plano de datos|
 |--|--|--|
 | **Almacenes** | Protegidas mediante software<br/><br/>y<br/><br/>Protegidas con HSM (con SKU Premium)</li></ul> | https://{vault-name}.vault.azure.net |
-| **Grupos de HSM administrados** | Protegidas con HSM | https://{hsm-name}.managedhsm.azure.net |
+| **HSM administrados** | Protegidas con HSM | https://{hsm-name}.managedhsm.azure.net |
 ||||
 
 - **Almacenes**: los almacenes proporcionan una solución de administración de claves de bajo costo, fácil de implementar, multiinquilino, resistente a zona (donde esté disponible) y que resulta adecuada para la mayoría de los escenarios de aplicaciones en la nube.
@@ -45,7 +45,7 @@ Las especificaciones de JWK/JWA base también se han ampliado para habilitar los
 Las claves protegidas con HSM (también conocidas como claves HSM) se procesan en un HSM (módulo de seguridad de hardware) y siempre permanecen dentro del límite de la protección del mismo. 
 
 - Los almacenes usan HSM validados con **FIPS 140-2 nivel 2** para proteger las claves HSM en la infraestructura de back-end del HSM compartido. 
-- Los grupos de HSM administrados usan módulos HSM validados con **FIPS 140-2 nivel 3** para proteger las claves. Cada grupo de HSM es una instancia aislada de un solo inquilino con su propio [dominio de seguridad](../managed-hsm/security-domain.md) que proporciona un aislamiento criptográfico completo de todos los demás grupos de HSM que comparten la misma infraestructura de hardware.
+- HSM administrado usa módulos HSM validados con **FIPS 140-2 nivel 3** para proteger las claves. Cada grupo de HSM es una instancia aislada de un solo inquilino con su propio [dominio de seguridad](../managed-hsm/security-domain.md) que proporciona un aislamiento criptográfico completo de todos los demás HSM que comparten la misma infraestructura de hardware.
 
 Estas claves están protegidas en grupos de HSM de un solo inquilino. Puede importar una clave RSA, EC y simétrica de forma temporal o mediante la exportación desde un dispositivo HSM compatible. También puede generar claves en los grupos de HSM. Al importar claves de HSM mediante el método descrito en la [especificación Bring Your Own Key](../keys/byok-specification.md), se permite el transporte seguro del material de la clave a los grupos de HSM administrados. 
 
@@ -53,26 +53,37 @@ Para más información acerca de los límites geográficos, consulte [Centro de 
 
 ## <a name="key-types-and-protection-methods"></a>Tipos de clave y métodos de protección
 
-Key Vault admite claves RSA, EC y simétricas. 
+Key Vault admite claves RSA y EC. HSM administrado admite claves RSA, EC y simétricas. 
 
 ### <a name="hsm-protected-keys"></a>Claves protegidas con HSM
 
-|Tipo de clave|Almacenes (solo SKU Premium)|Grupos de HSM administrados|
-|--|--|--|--|
-**EC-HSM**: clave de curva elíptica|HSM validados con FIPS 140-2 nivel 2|HSM validados con FIPS 140-2 nivel 3
-**RSA-HSM**: Clave RSA|HSM validados con FIPS 140-2 nivel 2|HSM validados con FIPS 140-2 nivel 3
-**oct-HSM**: Simétrica|No compatible|HSM validados con FIPS 140-2 nivel 3
-||||
+|Tipo de clave|Almacenes (solo SKU Premium)|HSM administrados|
+|--|--|--|
+|**EC-HSM**: clave de curva elíptica | Compatible | Compatible|
+|**RSA-HSM**: Clave RSA|Compatible|Compatible|
+|**oct-HSM**: clave simétrica|No compatible|Compatible|
+|||
 
 ### <a name="software-protected-keys"></a>Claves protegidas con software
 
-|Tipo de clave|Almacenes|Grupos de HSM administrados|
-|--|--|--|--|
-**RSA**: clave RSA "protegida con software"|FIPS 140-2 nivel 1|No compatible
-**EC**: clave de curva elíptica "protegida con software"|FIPS 140-2 nivel 1|No compatible
-||||
+|Tipo de clave|Almacenes|HSM administrados|
+|--|--|--|
+**RSA**: clave RSA "protegida con software"|Compatible|No compatible
+**EC**: clave de curva elíptica "protegida con software"|Compatible|No compatible
+|||
 
-Consulte [Tipos de claves, algoritmos y operaciones](about-keys-details.md) para obtener más información sobre cada tipo de clave, algoritmos, operaciones, atributos y etiquetas.
+### <a name="compliance"></a>Cumplimiento normativo
+
+|Tipo de clave y destino|Cumplimiento normativo|
+|---|---|
+|Claves protegidas por software en almacenes (SKU Premium y Estándar) | FIPS 140-2 nivel 1|
+|Claves protegidas con HSM en almacenes (SKU Premium)| FIPS 140-2 nivel 2|
+|Claves protegidas con HSM en HSM administrado|FIPS 140-2 nivel 3|
+|||
+
+
+
+Consulte [Tipos de claves, algoritmos y operaciones](about-keys-details.md) para más información sobre cada tipo de clave, algoritmos, operaciones, atributos y etiquetas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Acerca de Key Vault](../general/overview.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908fb1ac869ec2b22085af2e07ced6ff64229308
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cd28ee509dc76ea0b2aca9264c591a7176ae2661
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592490"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093806"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Data Lake Store
 
@@ -32,11 +32,11 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 > * Conceder a una máquina virtual acceso a Azure Data Lake Store
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para acceder a Azure Data Lake Store
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Conocimientos sobre identidades administradas. Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md). 
 - Una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
-- Para realizar la creación de los recursos necesarios y los pasos de administración de roles, debe tener permisos de "Propietario" en el ámbito adecuado (la suscripción o el grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
+- Para realizar la creación de los recursos necesarios y los pasos de administración de roles, debe tener permisos de "Propietario" en el ámbito adecuado (la suscripción o el grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Asignación de roles de Azure para administrar el acceso a los recursos de una suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
 - También necesita una máquina virtual Windows que tenga habilitadas las identidades administradas asignadas por el sistema.
   - Si necesita crear una máquina virtual para este tutorial, puede seguir el artículo titulado [Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
@@ -69,7 +69,7 @@ En Data Lake Store, cree una nueva carpeta y conceda a la identidad asignada por
 
 La identidad administrada asignada por el sistema de la máquina virtual puede realizar ahora todas las operaciones en los archivos de la carpeta que ha creado.  Para más información sobre cómo administrar el acceso a Data Lake Store, lea este artículo sobre el [control de acceso en Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
-## <a name="access-data"></a>Acceder a datos
+## <a name="access-data"></a>Acceso a los datos
 
 Azure Data Lake Store admite de forma nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos con la característica Managed Identities for Azure Resources.  Para autenticarse en el sistema de archivos de Data Lake Store, se envía un token de acceso emitido por Azure AD al punto de conexión del sistema de archivos de Data Lake Store, en un encabezado de autorización con el formato "Bearer <ACCESS_TOKEN_VALUE>".  Para más información sobre la compatibilidad de Data Lake Store con la autenticación de Azure AD, lea [Autenticación con Data Lake Store mediante Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 

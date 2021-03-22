@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: mvc
-ms.openlocfilehash: 1505366d9a91eac596b21804f93abb8245a84605
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 009244322b7c6625523bf46382a170577593f4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590009"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718376"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -104,9 +104,7 @@ Para empezar con el tráfico de entrada, consulte [Enrutamiento de aplicación H
 
 Kubernetes tiene un ecosistema completo de herramientas de desarrollo y administración que funcionan sin problemas con AKS. Estas herramientas incluyen Helm y la extensión Kubernetes para Visual Studio Code. Estas herramientas funcionan perfectamente con AKS.  
 
-Además, Azure proporciona varias herramientas que ayudan a simplificar Kubernetes, como Azure Dev Spaces y DevOps Starter.  
-
-Azure Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. Con una configuración mínima, puede ejecutar y depurar contenedores directamente en AKS. Para empezar, consulte [Azure Dev Spaces][azure-dev-spaces].
+Además, Azure proporciona varias herramientas, como DevOps Starter, que ayudan a simplificar Kubernetes.  
 
 DevOps Starter ofrece una solución sencilla para llevar a Azure el código y los repositorios de Git existentes. DevOps Starter hace lo siguiente de forma automática:
 * Crea recursos de Azure (como AKS), 
@@ -157,7 +155,7 @@ Más información sobre la implementación y administración de AKS con el inici
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: ./view-control-plane-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac

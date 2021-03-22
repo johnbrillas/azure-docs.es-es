@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ea57a623546df99408d488da4522411f55ab0dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023231"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094358"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights Gen1
 
@@ -36,7 +36,7 @@ Este tutorial le guía a través del proceso de creación de un entorno de Azure
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Revisión del vídeo
 

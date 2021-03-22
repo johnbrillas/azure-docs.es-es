@@ -7,16 +7,20 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: de7bdc22b4bfdf9ef5865b1b601b32672eb868d1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 04b582b5ef31e61039c5513ea2a4aa60f1c638e7
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165134"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121344"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>Inicio rápido: Uso de Azure Cache for Redis con Go
 
 En este artículo, aprenderá a compilar una API REST en Go que almacenará y recuperará la información de usuario respaldada por una estructura de datos [HASH](https://redis.io/topics/data-types-intro#redis-hashes) en [Azure Cache for Redis](./cache-overview.md). 
+
+## <a name="skip-to-the-code-on-github"></a>Ir al código en GitHub
+
+Si quiere pasar directamente al código, consulte [Inicio rápido: Uso de Azure Cache for Redis con Go](https://github.com/Azure-Samples/azure-redis-cache-go-quickstart/) en GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647445"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175437"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -40,7 +40,8 @@ Siga estos pasos para crear el registro de la aplicación:
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino donde desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
-1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación verían este nombre. Puede cambiarlo posteriormente.
+1. Escriba un **Nombre** para mostrar para la aplicación. Los usuarios de la aplicación pueden ver el nombre para mostrar cuando usan la aplicación, por ejemplo, durante el inicio de sesión.
+    Puede cambiar el nombre para mostrar en cualquier momento y varios registros de aplicaciones pueden compartir el mismo nombre. El identificador de la aplicación (cliente) generado automáticamente del registro de la aplicación, y no su nombre para mostrar, identifica de forma única la aplicación en la plataforma de identidades.
 1. Especifique qué personas pueden usar la aplicación. A veces, se conoce a estas personas como *público de inicio de sesión*.
 
     | Tipos de cuenta admitidos | Descripción |

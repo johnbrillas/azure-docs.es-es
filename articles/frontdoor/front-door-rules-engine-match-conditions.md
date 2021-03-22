@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569766"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035881"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure Front Door
 
@@ -142,7 +142,7 @@ Operator | URL de la solicitud | Transformación de mayúsculas y minúsculas
 
 #### <a name="key-information"></a>Información importante
 
-- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo, *https://www.\<yourdomain\>.com*.
+- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo: `https://www.<yourdomain\>.com`.
 
 ## <a name="request-file-extension"></a>Solicitar extensión de archivo
 
@@ -181,6 +181,10 @@ Identifica las solicitudes que incluyen la ruta de acceso especificada en la dir
 Operator | Value | Transformación de caso
 ---------|-------|---------------
 [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Minúsculas, mayúsculas, recortar, quitar espacio en blanco, codificación de URL, descodificación de URL
+
+#### <a name="key-information"></a>Información importante
+
+- Cuando use esta condición de regla, tenga en cuenta que las coincidencias se buscan a partir del primer símbolo `/` de la ruta de acceso. Por ejemplo: `https://www.<yourdomain>.com/folder/page` comenzaría a buscar coincidencias de `folder/page`.
 
 ## <a name="standard-operator-list"></a>Lista de operadores estándar
 

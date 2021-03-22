@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 63b393f519ad29baa05fef046ee1e8ba9e5330d8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701173"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750054"
 ---
 Para publicar el proyecto en una aplicación de funciones en Azure, haga clic con el botón derecho en el proyecto en el *Explorador de soluciones* y elija **Publicar**.
 
@@ -19,15 +19,13 @@ Para publicar el proyecto en una aplicación de funciones en Azure, haga clic co
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Captura de pantalla de Visual Studio que muestra el menú de la solución de la selección con el botón derecho. La publicación se resalta en el menú.":::
 
-En la página *Publicar* que aparece a continuación, deje el destino predeterminado **Azure** y presione *Siguiente*. 
+En la página *Publicar* que aparece a continuación, deje la selección de destino predeterminada de **Azure** y seleccione *Siguiente*. 
 
-Para seleccionar un destino concreto, elija **Azure Function App (Windows)** y presione *Siguiente*.
+Para seleccionar un destino concreto, elija **Azure Function App (Windows)** y seleccione *Siguiente*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Captura de pantalla de Visual Studio: cuadro de diálogo Publicar una función de Azure. Azure Function App (Windows) está seleccionado en la página Destino específico.":::
 
-En la página *Functions instance* (Instancia de Functions), elija su suscripción. Se rellenará un cuadro con los *grupos de recursos* de la suscripción.
-
-Seleccione el grupo de recursos de la instancia y haga clic en *+* para crear una nueva función de Azure.
+En la página *Functions instance* (Instancia de Functions), elija su suscripción. Después, seleccione el icono *+* para crear una función de Azure.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Captura de pantalla de Visual Studio: cuadro de diálogo Publicar una función de Azure. El botón + para crear una nueva función aparece resaltado en la página Functions instance (Instancia de Functions).":::
 
@@ -37,13 +35,13 @@ En la ventana *Function App (Windows) - Create new* [Aplicación de funciones (W
 * Asegúrese de que el valor del campo **Resource group** (Grupos de recursos) coincida con el grupo de recursos que desea utilizar.
 * En **Plan type** (Tipo de plan), deje *Consumption* (Consumo).
 * En el campo **Location** (Ubicación), elija la ubicación del grupo de recursos.
-* Cree un recurso de **Azure Storage** mediante el vínculo *New...* (Nuevo...). Establezca la ubicación que coincida con la del grupo de recursos, use los restantes valores predeterminados y pulse "Ok" (Aceptar).
+* Cree un recurso de **Azure Storage** mediante el vínculo *New...* (Nuevo...). Establezca la ubicación que coincida con la del grupo de recursos, use los restantes valores predeterminados y seleccione "Ok" (Aceptar).
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Captura de pantalla de Visual Studio: cuadro de diálogo Publicar una función de Azure. Se están rellenando los detalles de una nueva aplicación de funciones, incluidos el nombre, suscripción, grupo de recursos, tipo de plan, ubicación e instancia de Azure Storage.":::
 
 Seleccione **Crear**.
 
-Debería volver a la página *Functions instance* (Instancia de Functions), donde la nueva aplicación de funciones ya se ve debajo del grupo de recursos. Pulse *Finish* (Finalizar).
+Después de una breve espera mientras se crea App Service, el cuadro de diálogo debe volver a la página *Functions instance* (Instancia de Functions), con la nueva aplicación de funciones que aparece en el área **Function Apps** (Aplicaciones de funciones) anidada debajo del grupo de recursos. Seleccione *Finalizar*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicar una función de Azure en Visual Studio: instancia de Functions (después de la aplicación de funciones)":::
 
@@ -59,4 +57,6 @@ En el panel *Publish* (Publicar) que se abre en la ventana principal de Visual 
 >
 > siga las indicaciones para actualizar a la versión más reciente del entorno de ejecución de Azure Functions. Este problema puede producirse si utiliza una versión anterior de Visual Studio.
 
-Para que la aplicación de funciones pueda acceder a Azure Digital Twins, debe tener una identidad administrada por el sistema y disponer de permisos para acceder a la instancia de Azure Digital Twins. Va a realizar esa configuración a continuación.
+La aplicación de funciones ya está publicada en Azure. 
+
+Para que la aplicación de funciones pueda acceder a Azure Digital Twins, deberá tener una identidad administrada por el sistema con permisos para acceder a la instancia de Azure Digital Twins. Va a realizar esa configuración a continuación.

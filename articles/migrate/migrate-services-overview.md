@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389542"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040607"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -37,7 +37,7 @@ El centro de Azure Migrate incluye estas herramientas:
 --- | --- | ---
 **Azure Migrate: Server Assessment** | Evalúe servidores. | Detecte y evalúe máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V y servidores físicos para preparar la migración a Azure.
 **Azure Migrate: Server Migration** | Migre servidores. | Migre máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V, servidores físicos, otras máquinas virtualizadas y máquinas virtuales de nube pública a Azure.
-**Data Migration Assistant** | Evalúe las bases de datos de SQL Server para la migración a Azure SQL Database, Instancia administrada de Azure SQL o máquinas virtuales de Azure que ejecutan SQL Server. | Data Migration Assistant ayuda a identificar posibles problemas que bloquean la migración. Identifica características no admitidas, nuevas características que puede aprovechar después de la migración y la ruta de acceso correcta para la migración de la base de datos. [Más información](/sql/dma/dma-overview?view=sql-server-2017).
+**Data Migration Assistant** | Evalúe las bases de datos de SQL Server para la migración a Azure SQL Database, Instancia administrada de Azure SQL o máquinas virtuales de Azure que ejecutan SQL Server. | Data Migration Assistant ayuda a identificar posibles problemas que bloquean la migración. Identifica características no admitidas, nuevas características que puede aprovechar después de la migración y la ruta de acceso correcta para la migración de la base de datos. [Más información](/sql/dma/dma-overview).
 **Azure Database Migration Service** | Migre bases de datos locales a máquinas virtuales de Azure en las que se ejecutan SQL Server, Azure SQL Database o instancias administradas de SQL. | [Más información](../dms/dms-overview.md) sobre Database Migration Service.
 **Movere** | Evalúe servidores. | [Más información](#movere) acerca de Movere.
 **Migration Assistant para aplicaciones web** | Evalúe aplicaciones web locales y mígrelas a Azure. |  Use Azure App Service Migration Assistant para evaluar sitios web locales para la migración a Azure App Service.<br/><br/> Use Migration Assistant para migrar aplicaciones web de .NET y PHP a Azure. [Más información](https://appmigration.microsoft.com/) sobre Azure App Service Migration Assistant.
@@ -78,6 +78,9 @@ Server Assessment usa un [dispositivo de Azure Migrate](migrate-appliance.md) li
 - El dispositivo detecta las máquinas locales. También envía continuamente los metadatos y los datos de rendimiento de las máquinas a Azure Migrate.
 - La detección del dispositivo es sin agente. No se instala nada en las máquinas detectadas.
 - Después de la detección del dispositivo, puede recopilar las máquinas detectadas en grupos y ejecutar evaluaciones de cada uno de ellos.
+
+> [!Note]
+> La herramienta de detección y evaluación de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://go.microsoft.com/fwlink/?linkid=2155668) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Herramienta Server Migration
 

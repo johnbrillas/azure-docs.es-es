@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411759"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102944"
 ---
 | Resource | Límite |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411759"
 | Longitud del nombre de la cookie del firewall de aplicaciones web | 256 |
 | Tamaño del cuerpo de la solicitud HTTP del firewall de aplicaciones web inspeccionado | 128 KB |
 | Longitud del cuerpo de respuesta personalizada del firewall de aplicaciones web | 2 KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Límites de los servicios Azure Front Door Estándar/Premium (versión preliminar)
+
+***  ***500** perfiles Estándar y Premium totales por suscripción (máximo).*
+
+| Resource | Límite de SKU Estándar | Límite de SKU Premium |
+| --- | --- | --- |
+| Número máximo de puntos de conexión por perfil  | 10 | 25 |
+| Número máximo de dominios personalizados por perfil | 100 | 200 |
+| Número máximo de grupos de origen por perfil | 100 | 200 |
+| Número máximo de secretos por perfil | 100 | 200 |
+| Número máximo de directivas de seguridad por perfil | 100 | 200 |
+| Número máximo de conjuntos de reglas por perfil | 100 | 200 |
+| Número máximo de reglas por conjunto de reglas | 100 | 100 |
+| Número máximo de orígenes por grupo de origen | 50 | 50 |
+| Número máximo de rutas por punto de conexión | 100 | 200 |
+| Condiciones de coincidencia del firewall de aplicaciones web por regla personalizada | 10 | 10 |
+| Intervalos de direcciones IP del firewall de aplicaciones web por condición de coincidencia | 600 | 600 |
+| Valores de coincidencia de la cadena del firewall de aplicaciones web por condición de coincidencia | 10 | 10 |
+| Longitud del valor de coincidencia de la cadena del firewall de aplicaciones web | 256 | 256 |
+| Longitud del nombre del parámetro del cuerpo POST del firewall de aplicaciones web | 256 | 256 |
+| Longitud del nombre del encabezado HTTP del firewall de aplicaciones web | 256 | 256 |
+| Longitud del nombre de la cookie del firewall de aplicaciones web | 256 | 256|
+| Tamaño del cuerpo de la solicitud HTTP del firewall de aplicaciones web inspeccionado | 128 KB | 128 KB |
+| Longitud del cuerpo de respuesta personalizada del firewall de aplicaciones web | 2 KB | 2 KB |
 
 ### <a name="timeout-values"></a>Valores de tiempo de expiración
 #### <a name="client-to-front-door"></a>Cliente para Front Door

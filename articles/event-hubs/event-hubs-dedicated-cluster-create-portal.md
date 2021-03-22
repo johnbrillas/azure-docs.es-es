@@ -3,17 +3,17 @@ title: Creación de un clúster dedicado de Event Hubs mediante Azure Portal
 description: En este inicio rápido, aprenderá a crear un clúster de Azure Event Hubs mediante Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 2759d1e25519b69311c369f3f58239cc0889a9a7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ff4ee1f098407ba8b3cd2727410bdfc842db89a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927772"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040097"
 ---
-# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Event Hubs dedicado mediante Azure Portal 
+# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Event Hubs dedicado en Azure Portal 
 Los clústeres de Event Hubs ofrecen implementaciones de inquilino único para los clientes con las necesidades de streaming más exigentes. Esta oferta tiene un Acuerdo de Nivel de Servicio garantizado del 99,99 % y solo está disponible en nuestro plan de tarifa dedicado. Un [clúster de Event Hubs](event-hubs-dedicated-overview.md) puede incorporar millones de eventos por segundo con capacidad garantizada y una latencia inferior a un segundo. Los espacios de nombres y centros de eventos creados en un clúster incluyen todas las características de la oferta estándar y mucho más, pero sin límites de entrada. La oferta dedicada también incluye la popular característica [Event Hubs Capture](event-hubs-capture-overview.md) sin costo adicional, que permite transferir por lotes secuencias de datos a [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) o [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) y registrarlas ahí automáticamente.
 
-Los clústeres dedicados se aprovisionan y se facturan por **unidades de capacidad (CU)** , una cantidad de recursos de CPU y memoria asignada previamente. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. En este inicio rápido, le guiaremos por la creación de un clúster de Event Hubs de 1 unidad de capacidad (CU) mediante Azure Portal.
+Los clústeres dedicados se aprovisionan y se facturan por **unidades de capacidad (CU)**, una cantidad de recursos de CPU y memoria asignada previamente. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. En este inicio rápido, le guiaremos por la creación de un clúster de Event Hubs de 1 unidad de capacidad (CU) mediante Azure Portal.
 
 > [!NOTE]
 > Esta experiencia de autoservicio está disponible actualmente en versión preliminar en [Azure Portal](https://aka.ms/eventhubsclusterquickstart). Si tiene alguna pregunta sobre la oferta dedicada, póngase en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com).
@@ -30,7 +30,10 @@ Para completar esta guía de inicio rápido, asegúrese de que tiene:
 ## <a name="create-an-event-hubs-dedicated-cluster"></a>Creación de un clúster dedicado de Event Hubs
 Un clúster de Event Hubs proporciona un único contenedor de ámbito en el que puede crear uno o varios espacios de nombres. En esta fase de versión preliminar de la experiencia de autoservicio del portal, puede crear clústeres de 1 CU en determinadas regiones. Si necesita un clúster mayor de 1 CU, puede enviar una solicitud de soporte técnico de Azure para escalar verticalmente el clúster después de crearlo.
 
-Para crear un clúster en el grupo de recursos mediante Azure Portal, haga lo siguiente:
+> [!IMPORTANT]
+> Cuando cree un clúster, no podrá eliminarlo durante al menos 4 horas. Por lo tanto, se le cobrará un mínimo de 4 horas de uso del clúster. Para más información sobre los precios, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Para crear un clúster en el grupo de recursos con Azure Portal, haga lo siguiente:
 
 1. Siga [este vínculo](https://aka.ms/eventhubsclusterquickstart) para crear un clúster en Azure Portal. Por otro lado, seleccione **Todos los servicios** desde el panel de navegación izquierdo, escriba "Clústeres de Event Hubs" en la barra de búsqueda y seleccione "Clústeres de Event Hubs" en la lista de resultados.
 2. En la página **Crear clúster**, configure lo siguiente:
@@ -55,7 +58,7 @@ Para crear un clúster en el grupo de recursos mediante Azure Portal, haga lo si
 1. Para crear un espacio de nombres dentro de un clúster, en la página **Clúster de Event Hubs** del clúster, seleccione **+ Espacio de nombres** en el menú superior.
 
     ![Página Administración del clúster: botón Agregar espacio de nombres](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
-2. En la página de creación de un espacio de nombres, siga los pasos siguientes:
+2. En la página **Crear un espacio de nombres**, siga estos pasos:
     1. Escriba **nombre para el espacio de nombres**.  El sistema comprueba si el nombre está disponible.
     2. El espacio de nombres hereda las propiedades siguientes:
         1. Id. de suscripción
@@ -70,7 +73,7 @@ Para crear un clúster en el grupo de recursos mediante Azure Portal, haga lo si
 
 ## <a name="submit-a-support-request"></a>Enviar una solicitud de soporte técnico.
 
-Si quiere cambiar el tamaño del clúster después de crearlo o si su región preferida no está disponible, envíe una solicitud de soporte técnico mediante estos pasos:
+Si una vez creado el clúster desea cambiar su tamaño o si la región deseada no está disponible, envíe una solicitud de soporte técnico siguiendo estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico** en el menú izquierdo.
 2. Seleccione **+ Nueva solicitud de soporte técnico** en el menú de soporte técnico.
@@ -89,9 +92,12 @@ Si quiere cambiar el tamaño del clúster después de crearlo o si su región pr
 
  ## <a name="delete-a-dedicated-cluster"></a>Eliminación de un clúster dedicado
  
-1. Para eliminar el clúster, seleccione **Eliminar** en el menú superior. Tenga en cuenta que, tras la creación del clúster, se le facturará un mínimo de cuatro horas de uso. 
-2. Aparecerá un mensaje para confirmar su voluntad de eliminar el clúster.
-3. Escriba el **nombre del clúster** y seleccione **Eliminar** para eliminar el clúster.
+1. Para eliminar el clúster, seleccione **Eliminar** en el menú superior. 
+
+    > [!IMPORTANT]
+    > Cuando cree un clúster, no podrá eliminarlo durante al menos 4 horas. Por lo tanto, se le cobrará un mínimo de 4 horas de uso del clúster. Para más información sobre los precios, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).     
+1. Aparecerá un mensaje para confirmar su voluntad de eliminar el clúster.
+1. Escriba el **nombre del clúster** y seleccione **Eliminar** para eliminar el clúster.
 
     ![Página Eliminar clúster](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a7e02955d7784feb57d7e9ccc7e337b6a939380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651559"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184498"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Kendis - Azure AD Integration
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Kendis - Azure AD Integration con Azure
 * Permitir que los usuarios inicien sesión automáticamente en Kendis - Azure AD Integration con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -123,13 +123,21 @@ En esta sección, va a permitir que B.Simon acceda a Kendis - Azure AD Integrat
 
 ## <a name="configure-kendis-azure-ad-integration-sso"></a>Configuración del inicio de sesión único de Kendis - Azure AD Integration
 
-1. En otra ventana del explorador web, inicie sesión en su sitio de la empresa de Kendis - Azure AD Integration como administrador.
+1. Para automatizar la configuración en la integración de Kendis y Azure AD, debe instalar la **extensión del navegador de inicio de sesión seguro de Aplicaciones**; para ello, haga clic en **Instalar la extensión**.
 
-1. Vaya a **Configuración > Configuraciones de SAML**.
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar la integración de Kendis y Azure AD** para ir a la aplicación de integración de Kendis y Azure AD. Desde allí, proporcione las credenciales de administrador para iniciar sesión en la integración de Kendis y Azure AD. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si desea configurar la integración de Kendis y Azure AD manualmente, en otra ventana del explorador Web, inicie sesión en el sitio de la compañía de la integración de Kendis y Azure AD como administrador.
+
+4. Vaya a **Configuración > Configuraciones de SAML**.
 
     ![Configuración en Configuraciones de SAML](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. Haga clic en el botón **Editar** en la parte inferior de la página y realice los pasos siguientes.
+5. Haga clic en el botón **Editar** en la parte inferior de la página y realice los pasos siguientes.
 
     ![Configuraciones de SAML](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 

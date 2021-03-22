@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1574149e0587701323cb9ae5ae0c5cfeaccf47c7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897432"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096414"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -40,7 +40,7 @@ El administrador de cuenta puede conceder a otros usuarios acceso a la informaci
 
 Estos roles tienen acceso a la información de facturación en [Azure Portal](https://portal.azure.com/). Los usuarios que tienen asignados estos roles también pueden usar las [API de facturación](consumption-api-overview.md#usage-details-api) para obtener detalles de uso y facturas mediante programación.
 
-Para asignar roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para asignar roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ** Si es cliente de EA, un propietario de la cuenta puede asignar el rol anterior a otros usuarios de su equipo. Pero para que estos usuarios puedan ver la información de facturación, el administrador de Enterprise debe permitir la visualización de cargos del PC en Enterprise Portal.
 
@@ -105,7 +105,7 @@ La característica Lector de facturación está en versión preliminar y aún no
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Los usuarios de otros roles, como Propietario o Colaborador, pueden tener acceso no solo a la información de facturación, sino también a los servicios de Azure. Para administrar estos roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+- Los usuarios de otros roles, como Propietario o Colaborador, pueden tener acceso no solo a la información de facturación, sino también a los servicios de Azure. Para administrar estos roles, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 - Para más información acerca de los roles, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.

@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Nueva asignación de directivas con Python'
 description: En este inicio rápido, se usa Python para crear una asignación de Azure Policy e identificar los recursos no compatibles.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742354"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Inicio rápido: Creación de una asignación de directiva para identificar los recursos no compatibles mediante Python
 
@@ -40,7 +40,7 @@ Para permitir que Python funcione con Azure Policy, se debe agregar la bibliotec
    az login
    ```
 
-1. En el entorno de Python que elija, instale las bibliotecas necesarias para Azure Resource Graph:
+1. En el entorno de Python que elija, instale las bibliotecas necesarias para Azure Policy:
 
    ```bash
    # Add the Python library for Python

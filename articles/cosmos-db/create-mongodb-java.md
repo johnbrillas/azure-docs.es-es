@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Compilación de una aplicación web mediante Azure Cosmos DB API para Mongo DB y el SDK de Java'
+title: 'Inicio rápido: compilación de una aplicación web mediante Azure Cosmos DB API para Mongo DB y el SDK de Java'
 description: Aprenda a compilar un ejemplo de código de Java que se puede usar para conectarse a la API para MongoDB de Azure Cosmos DB y realizar consultas.
 author: markjbrown
 ms.author: mjbrown
@@ -9,21 +9,21 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 8a8fa9e15630aea3fb92571fd88a0ce01d3c9211
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f91cf5103fa8bf324fe372d2f12736a426fe8aed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349119"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656540"
 ---
-# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de consola con Java y la API MongoDB en Azure Cosmos DB
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de consola con Java y MongoDB API en Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  

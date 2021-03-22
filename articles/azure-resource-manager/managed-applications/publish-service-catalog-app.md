@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650653"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093643"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Inicio rápido: Creación y publicación de una definición de aplicación administrada
 
@@ -401,7 +401,7 @@ Puede comprobar que los archivos de definición de aplicación se guardan en la 
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Asegurarse de que los usuarios pueden ver la definición
 
-Tiene acceso a la definición de la aplicación administrada, pero desea asegurarse de que otros usuarios de su organización puedan acceder a ella. Concédales al menos el rol de lector en la definición. Puede haber heredado este nivel de acceso de la suscripción o del grupo de recursos. Para comprobar quién tiene acceso a la definición y agregar usuarios o grupos, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Tiene acceso a la definición de la aplicación administrada, pero desea asegurarse de que otros usuarios de su organización puedan acceder a ella. Concédales al menos el rol de lector en la definición. Puede haber heredado este nivel de acceso de la suscripción o del grupo de recursos. Para comprobar quién tiene acceso a la definición y agregar usuarios o grupos, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

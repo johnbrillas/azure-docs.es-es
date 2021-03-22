@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c3142fd41830487453a3cc980a87cdca72cf7213
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367204"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094129"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -66,7 +66,7 @@ Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito d
 
 Si ha aceptado la propiedad de facturación de una suscripción de Azure, se recomienda que revise los pasos siguientes:
 
-1. Revise y actualice el administrador del servicio, los coadministradores y las asignación de roles de Azure. Para más información, consulte [Adición o cambio de los administradores de la suscripción de Azure](add-change-subscription-administrator.md) y [Adición o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+1. Revise y actualice el administrador del servicio, los coadministradores y las asignación de roles de Azure. Para más información, consulte [Adición o cambio de los administradores de la suscripción de Azure](add-change-subscription-administrator.md) y [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 1. Actualice las credenciales asociadas a los servicios de esta suscripción:
    1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-create.md).
@@ -126,4 +126,4 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise y actualice el administrador del servicio, los coadministradores y las asignación de roles de Azure. Para más información, consulte [Adición o cambio de los administradores de la suscripción de Azure](add-change-subscription-administrator.md) y [Adición o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+- Revise y actualice el administrador del servicio, los coadministradores y las asignación de roles de Azure. Para más información, consulte [Adición o cambio de los administradores de la suscripción de Azure](add-change-subscription-administrator.md) y [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).

@@ -6,17 +6,17 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: c44d00a5b23bff5e00864b44a396bcedfe5ea668
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724972"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este tutorial se utiliza la interfaz de usuario (UI) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
 
@@ -41,7 +41,7 @@ Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuit
 ### <a name="azure-roles"></a>Roles de Azure
 Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe tener un rol *Colaborador* o *Propietario* asignado o ser *administrador* de la suscripción de Azure.
 
-Para ver los permisos que tiene en la suscripción, vaya a Azure Portal. En la esquina superior derecha, seleccione su nombre de usuario y luego seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Para ver los permisos que tiene en la suscripción, vaya a Azure Portal. En la esquina superior derecha, seleccione su nombre de usuario y luego seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para obtener instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
 En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen*. La canalización de la factoría de datos que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.

@@ -4,12 +4,12 @@ description: En este tutorial, se usará un servidor de modelos de IA proporcion
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955722"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702222"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel 
 
@@ -88,11 +88,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
 1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
 
-    * ***c2d-console-app.csproj** _: archivo del proyecto de Visual Studio Code.
-    _ ***operations.json** _: lista de las operaciones que desea que ejecute el programa.
-    _ ***Program.cs** _: código del programa de ejemplo. Este código:
+    * ***c2d-console-app.csproj***: el archivo de proyecto de Visual Studio Code.
+    * ***operations.json***: una lista de las operaciones que desea que ejecute el programa.
+    * ***Program.cs***: el código del programa de ejemplo. Este código:
 
-        _ Carga la configuración de la aplicación.
+        * Carga la configuración de la aplicación.
         * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md).
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
         * Invoca los métodos directos para limpiar los recursos.
@@ -117,7 +117,7 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
     ![Generación de un manifiesto de implementación de IoT Edge](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
 
-    El archivo de manifiesto *deployment.yolov3.amd64.json* se crea en la carpeta *src/edge/config*.
+    El archivo de manifiesto *deployment.openvino.amd64.json* se crea en la carpeta *src/edge/config*.
 
 1. Si ha completado el inicio rápido [Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md), omita este paso. 
 

@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cbe4942b63389faab00861438a0149b68c0e89c0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968067"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177315"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo de un módulo IoT Edge con Java para dispositivos Linux
 
@@ -56,7 +56,7 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 Para desarrollar un módulo de IoT Edge en Java, instale los siguientes requisitos previos adicionales en la máquina de desarrollo: 
 
 * [Paquete de extensiones de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) para Visual Studio Code.
-* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) y [establecer la `JAVA_HOME`variable de entorno](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support) y [ establecer la variable de entorno `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]

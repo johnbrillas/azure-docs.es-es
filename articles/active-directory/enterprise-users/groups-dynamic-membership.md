@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 02/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860820"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174536"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -279,6 +279,14 @@ En la expresión siguiente se seleccionan todos los usuarios que tengan algún p
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
+#### <a name="example-3"></a>Ejemplo 3
+
+La expresión siguiente selecciona todos los usuarios que no tienen ningún plan de servicio asignado:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+```
+
 ### <a name="using-the-underscore-_-syntax"></a>Con la sintaxis de guión bajo (\_)
 
 La sintaxis de guión bajo (\_) coincide con las apariciones de un valor específico en una de las propiedades de la colección de cadenas multivalor para agregar usuarios o dispositivos a un grupo dinámico. Se usa con los operadores -any u -all.
@@ -378,8 +386,8 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  DisplayName | Cualquier valor de cadena |(device.displayName -eq "Rob iPhone")
- deviceOSType | Cualquier valor de cadena | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | Cualquier valor de cadena | (device.deviceOSVersion -eq "9.1")
+ deviceOSType | Cualquier valor de cadena | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
+ deviceOSVersion | Cualquier valor de cadena | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
  deviceCategory | un nombre de la categoría de dispositivo válido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Cualquier valor de cadena | (device.deviceModel -eq "iPad Air")

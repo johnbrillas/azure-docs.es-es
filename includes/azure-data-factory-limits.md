@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680689"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109375"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -56,9 +56,9 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | Grupo de regiones | Regions |
 | -------- | ------ |
-| Grupo de regiones 1 | Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 |
-| Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de la India, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU.., Sudeste de Asia, Centro-oeste de EE. UU. |
-| Grupo de regiones 3 | Centro de Canadá, Este de Asia, Centro de Francia, Centro de Corea del Sur, Sur de Reino Unido |
+| Grupo de regiones 1 | Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 |
+| Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de la India, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU., Sudeste de Asia, Centro-oeste de EE. UU. |
+| Grupo de regiones 3 | Otras regiones |
 
 <sup>3</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Data Factory está diseñado para escalarse a fin de manejar petabytes de datos.
 

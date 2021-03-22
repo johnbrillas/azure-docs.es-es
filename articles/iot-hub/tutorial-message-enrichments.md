@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624062"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199788"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub
 
@@ -31,18 +31,18 @@ Estas son las tareas que tendrá que llevar a cabo para completar este tutorial:
 
 **Uso del enriquecimiento de mensajes de IoT Hub**
 > [!div class="checklist"]
-> * Primer método: Cree recursos y configure el enrutamiento de mensajes mediante la CLI de Azure. Configure el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
-> * Segundo método: Cree recursos y configure el enrutamiento de mensajes y el enriquecimiento de mensajes mediante una plantilla de Resource Manager. 
+> * Primer método: cree recursos y configure el enrutamiento de mensajes mediante la CLI de Azure. Configure el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
+> * Segundo método: cree recursos y configure el enrutamiento de mensajes y el enriquecimiento de mensajes mediante una plantilla de Resource Manager. 
 > * Ejecute una aplicación que simule un dispositivo IoT que envía mensajes al centro.
 > * Vea los resultados y verifique que el enriquecimiento de mensajes funcione según lo previsto.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - Instale [Visual Studio](https://www.visualstudio.com/).
 
-- Asegúrese de que el puerto 8883 está abierto en el firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -62,9 +62,9 @@ Además de crear los recursos necesarios, el script de la CLI de Azure también 
 > Todos los mensajes se enrutan a ambos puntos de conexión, pero solo se enriquecerán los mensajes que pasen al punto de conexión con el enriquecimiento de mensajes configurado.
 >
 
-Puede usar el siguiente script o abrir el script en la carpeta /resources del repositorio descargado. El script sigue los pasos a continuación:
+Puede usar el siguiente script o abrir el script en la carpeta /resources del repositorio descargado. Este script lleva a cabo los pasos siguientes:
 
-* Cree un Centro de IoT.
+* Crear un Centro de IoT.
 * Cree una cuenta de almacenamiento.
 * Creación de dos contenedores en la cuenta de almacenamiento. Un contenedor es para los mensajes enriquecidos, y otro para los mensajes que no están enriquecidos.
 * Configuración del enrutamiento para las dos cuentas de almacenamiento diferentes:
@@ -386,7 +386,7 @@ Para quitar todos los recursos que creó en este tutorial, elimine el grupo de r
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Uso de la CLI de Azure para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Recuerde que `$resourceGroup` se estableció en **ContosoResourcesMsgEn** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group#az-group-delete). Recuerde que `$resourceGroup` se estableció en **ContosoResourcesMsgEn** al principio de este tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -399,8 +399,8 @@ En este tutorial, ha configurado y probado la adición del enriquecimiento de me
 **Uso del enriquecimiento de mensajes de IoT Hub**
 
 > [!div class="checklist"]
-> * Primer método: Cree recursos y configure el enrutamiento de mensajes mediante la CLI de Azure. Configure el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
-> * Segundo método: Cree recursos y configure el enrutamiento de mensajes y el enriquecimiento de mensajes mediante una plantilla de Azure Resource Manager.
+> * Primer método: cree recursos y configure el enrutamiento de mensajes mediante la CLI de Azure. Configure el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
+> * Segundo método: cree recursos y configure el enrutamiento de mensajes y el enriquecimiento de mensajes mediante una plantilla de Azure Resource Manager.
 > * Ejecute una aplicación que simule un dispositivo IoT que envía mensajes al centro.
 > * Vea los resultados y verifique que el enriquecimiento de mensajes funcione según lo previsto.
 

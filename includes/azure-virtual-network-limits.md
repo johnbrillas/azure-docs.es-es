@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734096"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -24,7 +24,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Resource | Límite | 
 | --- | --- |
 | Redes virtuales |1,000 |
-| Subredes por red virtual |3000 |
+| Subredes por red virtual |3,000 |
 | Emparejamientos de redes virtuales por red virtual |500 |
 | [Puertas de enlace de red virtual (puertas de enlace VPN) por red virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
 | [Puertas de enlace de red virtual (puertas de enlace ExpressRoute) por red virtual](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
@@ -39,7 +39,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Grupos de seguridad de red |5\.000 |
 | Reglas de NSG por NSG |1,000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |4\.000 |
-| Grupos de seguridad de aplicaciones |3000 |
+| Grupos de seguridad de aplicaciones |3,000 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |20 |
 | Configuraciones de IP por grupo de seguridad de aplicaciones |4\.000 |
 | Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |100 |
@@ -69,7 +69,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Resource                                | Límite         |
 |-----------------------------------------|-------------------------------|
 | Equilibradores de carga                          | 1,000                         |
-| Reglas por recurso                      | 1500                         |
+| Reglas (Load Balancer + NAT de entrada) por recurso                      | 1500                         |
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                           |
 | Configuraciones de direcciones IP de front-end              | 600                           |
 | Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
@@ -87,10 +87,12 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Equilibradores de carga                          | 1,000                        |
 | Reglas por recurso                      | 250                          |
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                          |
-| Configuraciones de direcciones IP de front-end              | 200                          |
+| Configuraciones de direcciones IP de front-end <sup>2<sup>  | 200                          |
 | Tamaño de grupo de back-end                       | 300 configuraciones de IP, un solo conjunto de disponibilidad |
 | Conjuntos de disponibilidad por Load Balancer     | 1                            |
 | Instancias de Load Balancer por máquina virtual                   | 2 (1 público y 1 interno)  |
+
+<sup>2</sup> El límite de un único recurso discreto en un grupo de back-end (máquina virtual independiente, conjunto de disponibilidad o grupo de selección de escalado de máquinas virtuales) es tener hasta 250 configuraciones de IP de front-end en una instancia de Load Balancer pública básica y una instancia de Load Balancer interna básica.
 
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 

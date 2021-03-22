@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100719"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176644"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -68,9 +68,9 @@ A continuación se muestra un diagrama detallado de los componentes y las ventaj
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>Preguntas más frecuentes sobre el análisis de imágenes de Azure Container Registry
 
 ### <a name="how-does-security-center-scan-an-image"></a>¿De qué forma analiza Security Center las imágenes?
-La imagen se extrae del registro. Luego, se ejecuta en un espacio aislado con el escáner de Qualys, que extrae una lista de puntos vulnerables conocidos.
+Security Center extrae la imagen del registro y la ejecuta en un espacio aislado con el detector de Qualys. El detector extrae una lista de vulnerabilidades conocidas.
 
-Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Security Center reduce las alertas informativas no deseadas.
+Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Security Center reduce las posibles alertas informativas no deseadas.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>¿Se pueden obtener los resultados del examen mediante la API REST?
 Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Asimismo, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un análisis específico.
@@ -78,7 +78,7 @@ Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>¿Qué tipos de registros se analizan? ¿Qué tipos se facturan?
 Para ver los tipos de registros de contenedor que admite Azure Defender para registros de contenedor, consulte [Disponibilidad](#availability).
 
-Si conecta registros no compatibles con su suscripción de Azure, no se examinarán y no se le facturarán.
+Si conecta registros no admitidos a su suscripción de Azure, Azure Defender no los examinará y no se facturarán.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>¿Puedo personalizar los resultados del detector de vulnerabilidades?
 Sí. Si tiene una necesidad organizativa de omitir un resultado, en lugar de corregirlo, tiene la opción de deshabilitarlo. Los resultados deshabilitados no afectan a la puntuación de seguridad ni generan ruido no deseado.

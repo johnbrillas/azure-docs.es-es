@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 373d144b4df818a075f0088e9cbf31cb5027e747
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724887"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central
 
@@ -61,6 +61,9 @@ Para crear una plantilla de dispositivo a partir de un manifiesto de IoT Edge:
 
 :::image type="content" source="media/tutorial-add-edge-as-leaf-device/imported-manifest.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
+> [!TIP]
+> Este manifiesto de implementación se extrae de un repositorio de Azure Container Registry que no requiere credenciales para conectarse. Si desea usar imágenes de módulo de un repositorio privado, establezca las credenciales del registro de contenedor en el manifiesto.
+
 ### <a name="add-telemetry-to-manifest"></a>Adición de telemetría al manifiesto
 
 Un manifiesto de IoT Edge no define la telemetría que envía un módulo. Debe agregar las definiciones de telemetría a la plantilla de dispositivo en IoT Central. El módulo **SimulatedTemperatureSensor** envía mensajes de telemetría que tienen un aspecto similar al del siguiente código JSON:
@@ -99,7 +102,7 @@ Para agregar las definiciones de telemetría a la plantilla de dispositivo:
 
 La interfaz **Administrar** ahora incluye los tipos de telemetría **machine**, **ambient** y **timeCreated**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interfaz con los tipos de telemetría machine y ambient":::
 
 ### <a name="add-views-to-template"></a>Adición de vistas a la plantilla
 
@@ -115,7 +118,7 @@ La plantilla de dispositivo todavía no tiene una vista que permita al operador 
 
 1. Seleccione **Guardar** para guardar la vista **View IoT Edge device telemetry**.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Plantilla de dispositivo con vista de telemetría":::
 
 ### <a name="publish-the-template"></a>Publicación de la plantilla
 
@@ -123,7 +126,7 @@ Antes de poder agregar un dispositivo que use la plantilla **Environmental Senso
 
 Vaya a la plantilla **Environmental Sensor Edge Device** y seleccione **Publicar**. En el panel **Publicar esta plantilla de dispositivo en la aplicación**, seleccione **Publicar** para publicar la plantilla:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicación de la plantilla de dispositivo":::
 
 ## <a name="add-iot-edge-device"></a>Adición de un dispositivo IoT Edge
 
@@ -135,7 +138,7 @@ Ahora que ha publicado la plantilla **Environmental Sensor Edge Device**, puede 
 
 Ahora tiene un nuevo dispositivo con el estado de **Registrado**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Nuevo dispositivo registrado":::
 
 ### <a name="get-the-device-credentials"></a>Obtención de las credenciales del dispositivo
 
@@ -181,7 +184,7 @@ En la página **Implementación personalizada**:
 
 1. Revise sus opciones y luego seleccione **Crear**:
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Crear una VM de IoT Edge":::
 
 La implementación tarda un par de minutos en completarse. Una vez finalizada la implementación, vaya al grupo de recursos **central-edge-rg** en Azure Portal.
 
@@ -269,15 +272,15 @@ Para configurar IoT Edge en la VM para que use DPS para registrarse y conectarse
 
 El dispositivo IoT Edge simulado ahora está en ejecución en la máquina virtual. En la aplicación de IoT Central, el estado del dispositivo ahora es de **Aprovisionado** en la página **Dispositivos**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Dispositivo IoT Edge aprovisionado":::
 
 Puede ver los datos de telemetría del dispositivo en la página **Ver datos de telemetría del dispositivo IoT Edge**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetría del dispositivo":::
 
 En la página **Módulos** se muestra el estado de los módulos IoT Edge en el dispositivo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Estado de los módulos del dispositivo":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

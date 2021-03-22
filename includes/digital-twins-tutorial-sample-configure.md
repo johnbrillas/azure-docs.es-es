@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023279"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036185"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
@@ -22,7 +22,7 @@ Una vez que esté dentro de la carpeta, vaya a _AdtSampleApp_. Abra _**AdtE2ESam
 
 En Visual Studio, seleccione el archivo _SampleClientApp > **appsettings.json**_ para abrirlo en la ventana de edición. Este servirá como archivo JSON predefinido con las variables de configuración necesarias para ejecutar el proyecto.
 
-En el cuerpo del archivo, cambie el valor de `instanceUrl` a la dirección URL del *nombre de host* de la instancia de Azure Digital Twins (con *https://* al principio, como se muestra a continuación).
+En el cuerpo del archivo, cambie el valor de `instanceUrl` por la *dirección URL del nombre de host* de Azure Digital Twins (anexando **_https://_** delante del *nombre de host*, tal y como se muestra a continuación).
 
 ```json
 {
@@ -32,7 +32,7 @@ En el cuerpo del archivo, cambie el valor de `instanceUrl` a la dirección URL d
 
 Guarde y cierre el archivo. 
 
-Después, configure el archivo *appsettings.json* para que se copie al directorio de salida cuando compile *SampleClientApp*. Para ello, seleccione el archivo *appsettings.json* con el botón derecho y elija *Propiedades.* . En el inspector *Propiedades*, cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior*.
+Después, configure el archivo *appsettings.json* para que se copie al directorio de salida cuando compile *SampleClientApp*. Para ello, seleccione el archivo *appsettings.json* con el botón derecho y elija **Propiedades.** . En el inspector de **Propiedades**, busque la propiedad *Copiar en el directorio de resultados*. Cambie el valor a **Copiar si es posterior** si tiene otro valor.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con appsettings.json resaltado y el panel Propiedades con la propiedad Copiar en el directorio de salida establecida en Copiar si es posterior" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

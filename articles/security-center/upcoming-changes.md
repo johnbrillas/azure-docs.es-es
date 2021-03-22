@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555148"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051623"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -31,13 +31,47 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ## <a name="planned-changes"></a>Cambios planeados
 
+- [Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
+- [Dos recomendaciones heredadas ya no escribirán datos directamente en el registro de actividad de Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Desuso de 11 alertas de Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
+
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)
+
+**Fecha estimada del cambio:** abril de 2021
+
+Azure Security Center protege las cargas de trabajo de Azure, Amazon Web Services (AWS) y Google Cloud Platform (GCP).
+
+Las recomendaciones que provienen de AWS Security Hub han estado en versión preliminar desde que se introdujeron los conectores en la nube. Las recomendaciones marcadas como **Versión preliminar** no se incluyen en los cálculos de la puntuación segura, sino que deben corregirse siempre que sea posible, de modo que cuando el período de versión preliminar finalice, contribuyan a la puntuación.
+
+Con este cambio, dos conjuntos de recomendaciones de AWS pasarán a disponibilidad general:
+
+- [Controles de PCI DSS de Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Controles del banco de pruebas de CIS AWS Foundations de Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Cuando se encuentren en versión de disponibilidad general y las evaluaciones se ejecuten en los recursos de AWS, los resultados afectarán a la puntuación segura combinada para todos los recursos de nube híbrida y multinube. 
+
+
+
+### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Dos recomendaciones heredadas dejarán de escribir datos directamente en el registro de actividad de Azure 
+
+**Fecha estimada del cambio:** marzo de 2021
+
+Security Center pasa los datos de casi todas las recomendaciones de seguridad a Azure Advisor que, a su vez, los escribe en el [registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
+
+En caso de dos recomendaciones, los datos se escriben simultáneamente directamente en el registro de actividad de Azure. Con este cambio, Security Center dejará de escribir datos para estas recomendaciones de seguridad heredadas directamente en el registro de actividad. En su lugar, exportaremos los datos a Azure Advisor como hacemos las restantes recomendaciones. 
+
+Las dos recomendaciones heredadas son:
+- Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas
+- Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
+
+Si ha accedido a la información de estas dos recomendaciones en la categoría "Recomendación de tipo TaskDiscovery" del registro de actividad, ya no estará disponible.
+
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso 
 
-**Fecha estimada del cambio:** Febrero de 2021
+**Fecha estimada del cambio:** marzo de 2021
 
 Las dos recomendaciones siguientes están programadas para dejar de usarse en febrero de 2021:
 
@@ -53,7 +87,7 @@ Más información sobre estas recomendaciones en la [página de referencia de la
 
 **Fecha estimada del cambio:** Segundo trimestre de 2021
 
-La recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse** del control de seguridad **Aplicación de la clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado, el identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
+La recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse** del control de seguridad **Aplicación de la clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como consecuencia, el identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ### <a name="deprecation-of-11-azure-defender-alerts"></a>Desuso de 11 alertas de Azure Defender

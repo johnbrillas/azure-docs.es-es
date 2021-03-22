@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740790"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -59,7 +59,7 @@ Cuando usa un certificado administrado por Azure Front Door, la característica 
 
 Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de **Front Door** .
+1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de **Front Door**.
 
 2. En la lista de hosts de front-end, seleccione el dominio personalizado donde desea habilitar HTTPS para que contenga el dominio personalizado.
 
@@ -84,7 +84,7 @@ Puede usar su propio certificado para habilitar la característica HTTPS. Este p
 > [!WARNING]
 > Azure Front Door actualmente solo admite cuentas de Key Vault en la misma suscripción que la configuración de Front Door. Si elige un almacén de claves en una suscripción diferente que la de Front Door, obtendrá un error.
 
-2. Certificados de Azure Key Vault: si ya tiene un certificado, puede cargarlo directamente en la cuenta de Azure Key Vault o puede crear uno nuevo directamente mediante Azure Key Vault a partir de una de las entidades de certificación asociadas con la que se integra Azure Key Vault. Cargue el certificado como un objeto de **certificado** en lugar de como un **secreto** .
+2. Certificados de Azure Key Vault: si ya tiene un certificado, puede cargarlo directamente en la cuenta de Azure Key Vault o puede crear uno nuevo directamente mediante Azure Key Vault a partir de una de las entidades de certificación asociadas con la que se integra Azure Key Vault. Cargue el certificado como un objeto de **certificado** en lugar de como un **secreto**.
 
 > [!NOTE]
 > Para su propio certificado TLS/SSL, Front Door no admite certificados con algoritmos de criptografía de EC.
@@ -108,13 +108,13 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
 
 1. En su cuenta de almacén de claves, en Settings (Configuración), seleccione **Access policies** (Directivas de acceso) y, luego, seleccione **Add new** (Agregar nueva) para crear una nueva directiva.
 
-2. En **Select principal** (Seleccionar entidad de seguridad), busque **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** y elija **Microsoft.Azure.Frontdoor** . Haga clic en **Seleccionar** .
+2. En **Select principal** (Seleccionar entidad de seguridad), busque **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** y elija **Microsoft.Azure.Frontdoor**. Haga clic en **Seleccionar**.
 
-3. En **Permisos de secretos** , seleccione **Obtener** para permitir que Front Door recupere el certificado.
+3. En **Permisos de secretos**, seleccione **Obtener** para permitir que Front Door recupere el certificado.
 
-4. En **Permisos de certificado** , seleccione **Obtener** para permitir que Front Door recupere el certificado.
+4. En **Permisos de certificado**, seleccione **Obtener** para permitir que Front Door recupere el certificado.
 
-5. Seleccione **Aceptar** . 
+5. Seleccione **Aceptar**. 
 
     Azure Front Door puede acceder ahora a este almacén de claves y a los certificados que se almacenan en él.
  
@@ -124,7 +124,7 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
 
 2. En la lista de dominios personalizados, seleccione el dominio personalizado para el que desea habilitar HTTPS.
 
-    Aparece la página **Dominio personalizado** .
+    Aparece la página **Dominio personalizado**.
 
 3. En el tipo de administración de certificados, seleccione **Use my own certificate** (Usar mi propio certificado). 
 
@@ -133,12 +133,7 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
     Azure Front Door muestra la siguiente información: 
     - Las cuentas del almacén de claves de su identificador de suscripción. 
     - Los certificados (secretos) en el almacén de claves seleccionado. 
-    - Las versiones de certificado disponibles. 
-
-> [!NOTE]
-> Dejar la versión del certificado en blanco podría provocar lo siguiente:
-> - Se seleccionará la versión más reciente del certificado.
-> - Rotación automática de los certificados a la versión más reciente, cuando esté disponible una versión más reciente del certificado en el almacén de claves.
+    - Las versiones de certificado disponibles.
  
 5. Si usa su propio certificado, no se requiere la validación del dominio. Continúe con [Esperar a la propagación](#wait-for-propagation).
 
@@ -252,7 +247,7 @@ En los pasos anteriores, habilitó el protocolo HTTPS en su dominio personalizad
 
 ### <a name="disable-the-https-feature"></a>Deshabilitación de la característica HTTPS 
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la configuración de **Azure Front Door** .
+1. En [Azure Portal](https://portal.azure.com), vaya a la configuración de **Azure Front Door**.
 
 2. En la lista de hosts de front-end, haga clic en el dominio personalizado en el que desea deshabilitar HTTPS.
 
@@ -278,9 +273,9 @@ En este tutorial, ha aprendido a:
 
 * Cargar un certificado en Key Vault.
 * Validar un dominio.
-* Habilitar HTTPS para el dominio personalizado.
+* Habilitar HTTPS para un dominio personalizado.
 
-Para obtener información sobre cómo configurar una directiva de filtrado geográfico para Front Door, continúe con el siguiente tutorial.
+Para aprender a configurar una directiva de filtrado geográfico para Azure Front Door, vaya al siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Configuración de una directiva de filtrado geográfico](front-door-geo-filtering.md)

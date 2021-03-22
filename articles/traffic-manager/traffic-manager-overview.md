@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624916"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182169"
 ---
 # <a name="what-is-traffic-manager"></a>¿Qué es el Administrador de tráfico?
 Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS. Este servicio permite distribuir el tráfico a las aplicaciones orientadas al público en las regiones globales de Azure. Traffic Manager también proporciona puntos de conexión públicos con alta disponibilidad y rápida capacidad de respuesta.
@@ -24,8 +24,12 @@ Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS. Est
 Traffic Manager usa DNS para dirigir las solicitudes del cliente al punto de conexión de servicio adecuado en función de un método de enrutamiento del tráfico. Traffic Manager también proporciona supervisión de estado de todos los puntos de conexión. El punto de conexión de puede ser cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Traffic Manager proporciona una serie de [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) y [opciones de supervisión del punto de conexión](traffic-manager-monitoring.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
 
 >[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si desea finalización con el protocolo de seguridad de la capa de transporte (TLS) ("descarga SSL") procesamiento de niveles de aplicación por solicitud HTTP/HTTPS, revise [Application Gateway](../application-gateway/overview.md). Si desea conseguir equilibrio de carga en la región, consulte [Load Balancer](../load-balancer/load-balancer-overview.md). Sus escenarios integrales pueden beneficiarse de la combinación de estas soluciones según sea necesario.
->
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. 
+> * Si quiere equilibrar la carga entre los servidores de una región en la capa de aplicación, consulte [Application Gateway](../application-gateway/overview.md).
+> * Si necesita optimizar el enrutamiento global del tráfico web y optimizar el rendimiento y la confiabilidad de los usuarios finales de nivel superior mediante una conmutación por error global rápida, consulte [Front Door](../frontdoor/front-door-overview.md).
+> * Para realizar el equilibrio de carga de capa de red, revise [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Sus escenarios pueden beneficiarse de extremo a extremo de la combinación de estas soluciones según sea necesario.
 > Si desea ver una comparación de las distintas opciones de equilibrio de carga de Azure, consulte [Información general sobre las opciones de equilibrio de carga en Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Traffic Manager ofrece las siguientes características:

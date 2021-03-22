@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693344"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677831"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutorial: Navegación por la página principal de Azure Purview (versión preliminar) y búsqueda de un recurso
 
@@ -45,7 +45,7 @@ Los pasos siguientes le guiarán por la página principal de Azure Purview.
 
 1. Vaya al recurso de Azure Purview en Azure Portal y seleccione **Abrir Purview Studio**. Se le dirigirá automáticamente a la página principal de Purview Studio.
 
-   En la parte superior de la página principal se muestra el nombre del catálogo y un conjunto de análisis del catálogo. Se incluyen el número de usuarios, los recursos de datos y los términos del glosario. En el resumen, puede ver que hay más de 200 recursos en total y 113 términos de glosario. Este número se actualiza a medida que su organización examina y agrega más términos a Azure Purview.
+   En la parte superior de la página principal se muestra el nombre del catálogo y un conjunto de análisis del catálogo. Se incluyen el número de orígenes, los recursos de datos y los términos del glosario. En el resumen, puede ver que hay más de 200 recursos en total y 113 términos de glosario. Este número se actualiza a medida que su organización examina y agrega más términos a Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Captura de pantalla que muestra la página principal de Azure Purview.":::
 

@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601467"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036000"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
-Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante cambio. Puede intercambiar una reserva por otra del mismo tipo. Por ejemplo, puede intercambiar una reserva de máquina virtual para adquirir otra reserva para cualquier otro tamaño de VM o región. Del mismo modo, se puede cambiar una reserva de base de datos PaaS de SQL para adquirir otra reserva de cualquier tipo o región de base de datos PaaS de SQL. También puede reembolsar las reservas, pero la suma total de todos los compromisos de reserva cancelados en el ámbito de facturación (por ejemplo, Contrato Enterprise, Contrato de cliente de Microsoft y Contrato de partner de Microsoft) no puede superar 50 000 USD en un período acumulado de 12 meses. La capacidad reservada de Azure Databricks, la solución de VMware de Azure por reserva de CloudSimple, la reserva de Azure Red Hat Open Shift, los planes de Red Hat y los planes de SUSE Linux no son aptos para devoluciones.
+Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante cambio. Puede intercambiar una reserva por otra del mismo tipo. Por ejemplo, puede intercambiar entre sí varias reservas de proceso a la vez, como Azure Dedicated Host, Azure VMware Solution y Azure Virtual Machines. En otras palabras, los productos de reserva pueden intercambiarse entre sí si son el mismo tipo de reserva. Por poner otro ejemplo, también puede intercambiar varios tipos de reserva de bases de datos SQL, como instancias administradas y grupos elásticos, entre sí.
+
+Sin embargo, no puede intercambiar reservas que sean diferentes. Por ejemplo, no puede intercambiar una reserva de Cosmos DB para una base de datos SQL.
+
+También puede cambiar una reserva para comprar otra de un tipo similar en otra región. Por ejemplo, puede cambiar una reserva que se encuentre en la región Oeste de EE. UU. 2 por otra que se encuentre en Oeste de Europa.
+
+Al intercambiar una reserva, puede modificar la duración de un año a tres años.
+
+También puede reembolsar las reservas, pero la suma total de todos los compromisos de reserva cancelados en el ámbito de facturación (por ejemplo, Contrato Enterprise, Contrato de cliente de Microsoft y Contrato de partner de Microsoft) no puede superar 50 000 USD en un período acumulado de 12 meses.
+
+La capacidad reservada de Azure Databricks, la solución de VMware de Azure por reserva de CloudSimple, la reserva de Azure Red Hat Open Shift, los planes de Red Hat y los planes de SUSE Linux no son aptos para devoluciones.
 
 El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Otros tipos de suscripción de US Government, como Pago por uso y Proveedor de soluciones en la nube, sí se admiten.
 
@@ -37,9 +47,26 @@ Cualquier reserva se puede cambiar desde [Azure Portal](https://portal.azure.com
 
 Para obtener el reembolso de una reserva, vaya a **Detalles de la reserva** y haga clic en **Reembolso**.
 
+## <a name="exchange-multiple-reservations"></a>Intercambio de varias reservas
+
+Puede devolver varios tipos similares de reservas en una única operación.
+
+Para cambiar una reserva, el nuevo importe de compra debe ser mayor que el importe que se va a reembolsar. Si el nuevo importe de compra es inferior al importe del reembolso, se producirá un error. Si ve este error, reduzca la cantidad que desea devolver o aumente la cantidad de compra.
+
+1. Inicie sesión en Azure Portal y vaya a **Reservas**.
+1. En la lista de reservas, seleccione el cuadro de cada una de las reservas que desee intercambiar.
+1. En la parte superior de la página, seleccione **Cambiar**.
+1. Si es necesario, revise la cantidad que se va a devolver en cada reserva.
+1. Si selecciona una opción que rellena automáticamente la cantidad de devolución, puede elegir **Refund all** (Reembolsar todo) para rellenar la lista con la cantidad total que tiene de cada reserva o puede elegir **Optimize for utilization (7-day)** (Optimizar para uso [7 días]) si desea rellenar la lista con una cantidad que optimice el uso en función de los últimos siete días. Seleccione **Apply** (Aplicar).
+1. En la parte inferior de la página, seleccione **Siguiente: Comprar**.
+1. En la pestaña de compra, seleccione los productos disponibles con los que desee realizar el intercambio. Puede seleccionar varios productos de diferentes tipos.
+1. En el panel Seleccione el producto que quiere comprar, elija los productos que desee y haga clic en **Agregar al carro** y en **Cerrar**.
+1. Cuando termine, seleccione **Siguiente: Revisar**.
+1. Revise las reservas que quiere devolver y las que quiere comprar y seleccione **Confirmar intercambio**.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Intercambio de almacenamiento no premium por almacenamiento premium
 
-Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y seleccione **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción. 
+Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y seleccione **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción.
 
 ## <a name="how-transactions-are-processed"></a>Procesamiento de las transacciones
 

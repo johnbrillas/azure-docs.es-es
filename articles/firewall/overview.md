@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/16/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548003"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615574"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -55,7 +55,8 @@ Azure Firewall presenta los siguientes problemas conocidos:
 
 |Problema  |Descripción  |Mitigación  |
 |---------|---------|---------|
-Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](../load-balancer/load-balancer-overview.md). Se están examinando opciones para admitir este escenario en una versión futura.|
+|Si actualiza una regla de una dirección IP a un grupo de direcciones IP, o viceversa, desde el portal, ambos tipos se guardan, pero en el portal solo se muestra uno de ellos.|Este problema se produce con las reglas clásicas.<br><br>Si se usa el portal para actualizar un tipo de origen de regla NAT de una dirección IP a un grupo de direcciones IP, o viceversa, ambos tipos se guardan en el back-end, pero solo se muestra el que acaba de actualizarse.<br><br>El mismo problema se produce cuando el tipo de destino de regla Red o Aplicación se actualiza de una dirección IP a un grupo de IP, o viceversa.|Está previsto que en marzo de 2021 se realice una revisión del portal.<br><br>Entretanto, use Azure PowerShell, la CLI de Azure o la API para modificar cualquier regla de una dirección IP a un grupo de direcciones IP, o viceversa.|
+|Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](../load-balancer/load-balancer-overview.md). Se están examinando opciones para admitir este escenario en una versión futura.|
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y la CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y la CLI.|
 |Las etiquetas FQDN requieren que se establezca una combinación protocolo: puerto|Las reglas de aplicaciones con las etiquetas FQDN requieren la definición de puerto: protocolo.|Puede usar **https** como valor de puerto: protocolo. Estamos trabajando para que este campo sea opcional cuando se usen etiquetas FQDN.|
 |No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|La compatibilidad con esta funcionalidad está en nuestro mapa de ruta. Para mover un firewall a otro un grupo de recursos o suscripción, debe eliminar la instancia actual y volver a crearla en el nuevo grupo de recursos o suscripción.|
@@ -84,6 +85,6 @@ ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Inicio rápido: Creación de una instancia de Azure Firewall y una directiva de firewall: plantilla de Azure Resource Manager](../firewall-manager/quick-firewall-policy.md)
+- [Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager](deploy-template.md)
 - [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md)
-- [Implementación de Azure Firewall mediante una plantilla](deploy-template.md)
-- [Creación de un entorno de prueba de Azure Firewall](scripts/sample-create-firewall-test.md)
