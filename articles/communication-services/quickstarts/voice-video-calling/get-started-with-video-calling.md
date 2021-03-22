@@ -4,19 +4,23 @@ titleSuffix: An Azure Communication Services quickstart
 description: En esta guía de inicio rápido, aprenderá a agregar funcionalidades de llamada de vídeo a la aplicación con Azure Communication Services.
 author: xumo-95
 ms.author: mikben
-ms.date: 07/24/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 00721a5c7763663a17b1e67cf0ac3ae59fd9448a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204532"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487877"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Inicio rápido: Adición de llamadas de vídeo 1:1 a la aplicación (JavaScript)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="download-code"></a>Descarga de código
+
+Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
+
+## <a name="prerequisites"></a>Requisitos previos
 - Obtenga una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Versiones Active LTS y Maintenance LTS de [Node.js](https://nodejs.org/en/) (8.11.1 y 10.14.1)
 - Cree un recurso activo de Communication Services. [Cree un recurso de Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
@@ -323,7 +327,7 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 Para hacer una llamada de vídeo saliente 1:1, proporcione un identificador de usuario en el campo de texto y haga clic en el botón para iniciar llamada. 
 
 ## <a name="sample-code"></a>Código de ejemplo
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling).
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si quiere limpiar y quitar una suscripción a Communication Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él. Obtenga más información sobre la [limpieza de recursos](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).

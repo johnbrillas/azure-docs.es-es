@@ -3,19 +3,19 @@ title: 'Inicio rápido: unión a una reunión de Teams desde una aplicación par
 description: En este tutorial, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas telefónicas de Azure Communication Services para Android
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be68b8336861891c6704702379892460fd3b7400
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660080"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488023"
 ---
 En este inicio rápido, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas de Azure Communication Services para Android.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una [aplicación de llamadas de Communication Services para Android](../getting-started-with-calling.md) operativa.
 - Una [implementación de Teams](/deployoffice/teams-install).

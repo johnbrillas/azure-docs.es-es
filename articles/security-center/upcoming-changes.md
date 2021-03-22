@@ -1,23 +1,18 @@
 ---
 title: Próximos cambios importantes en Azure Security Center
 description: Próximos cambios en Azure Security Center que debe tener en cuenta y para los que puede que necesite un plan
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49141f7f11c0e8ead090459238e15b56f57b990b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051623"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633723"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -32,7 +27,6 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 ## <a name="planned-changes"></a>Cambios planeados
 
 - [Las recomendaciones de AWS se lanzarán para disponibilidad general (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
-- [Dos recomendaciones heredadas ya no escribirán datos directamente en el registro de actividad de Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Desuso de 11 alertas de Azure Defender](#deprecation-of-11-azure-defender-alerts)
@@ -53,21 +47,6 @@ Con este cambio, dos conjuntos de recomendaciones de AWS pasarán a disponibilid
 
 Cuando se encuentren en versión de disponibilidad general y las evaluaciones se ejecuten en los recursos de AWS, los resultados afectarán a la puntuación segura combinada para todos los recursos de nube híbrida y multinube. 
 
-
-
-### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Dos recomendaciones heredadas dejarán de escribir datos directamente en el registro de actividad de Azure 
-
-**Fecha estimada del cambio:** marzo de 2021
-
-Security Center pasa los datos de casi todas las recomendaciones de seguridad a Azure Advisor que, a su vez, los escribe en el [registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
-
-En caso de dos recomendaciones, los datos se escriben simultáneamente directamente en el registro de actividad de Azure. Con este cambio, Security Center dejará de escribir datos para estas recomendaciones de seguridad heredadas directamente en el registro de actividad. En su lugar, exportaremos los datos a Azure Advisor como hacemos las restantes recomendaciones. 
-
-Las dos recomendaciones heredadas son:
-- Los problemas de estado de protección de puntos de conexión se deben resolver en las máquinas
-- Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
-
-Si ha accedido a la información de estas dos recomendaciones en la categoría "Recomendación de tipo TaskDiscovery" del registro de actividad, ya no estará disponible.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso 
 

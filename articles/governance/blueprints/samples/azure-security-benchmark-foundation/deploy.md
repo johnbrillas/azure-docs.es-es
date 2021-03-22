@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
 description: Pasos de implementación para el ejemplo de plano técnico de Azure Security Benchmark Foundation, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 02/18/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740688"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232620"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Azure Security Benchmark Foundation
 
@@ -138,7 +138,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del plano téc
 |Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher location (Ubicación de Network Watcher)|Ubicación para el recurso de Network Watcher|
 |Plantilla de Azure Network Watcher|Plantilla de Resource Manager|Network Watcher resource group location (Ubicación del grupo de recursos de Network Watcher)|Si Network Watcher ya está habilitado, este valor de parámetro **debe** coincidir con la ubicación del grupo de recursos de Network Watcher existente.|
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Si aparece el error `The resource group 'NetworkWatcherRG' failed to deploy due to the
 following error: Invalid resource group location '{location}'. The Resource group already exists in

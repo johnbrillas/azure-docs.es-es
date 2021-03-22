@@ -2,15 +2,15 @@
 title: 'Tutorial: Uso de un archivo de parámetros para implementar un archivo de Bicep de Azure Resource Manager'
 description: Use archivos de parámetros que contengan los valores que se usarán para implementar el archivo de Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 233bab26d659fef2da9a9f5a7080d4b3ecbce7d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca3a73cde9549bfcdfd47bc4f1955904fac69d1c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743019"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632363"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-azure-resource-manager-bicep-file"></a>Tutorial: Uso de un archivo de parámetros para implementar un archivo de Bicep de Azure Resource Manager
 
@@ -22,7 +22,7 @@ En este tutorial, aprenderá a usar [archivos de parámetros](parameter-files.md
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre etiquetas](bicep-tutorial-add-tags.md).
 
-Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte el apartado relativo a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
+Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte la sección relativa a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## <a name="review-bicep-file"></a>Examen de un archivo de Bicep
 

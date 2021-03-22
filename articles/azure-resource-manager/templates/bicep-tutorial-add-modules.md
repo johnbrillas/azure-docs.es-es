@@ -2,15 +2,15 @@
 title: 'Tutorial: Incorporación de variables a un archivo de Bicep de Azure Resource Manager'
 description: Use módulos para encapsular los detalles complejos de la declaración de recursos sin procesar.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dfbf96f608a0cdf086f8b9eb5b8f1fc72932a772
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6efd9c230df49c83adc17361082af85b0ef9edc5
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743025"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633145"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Tutorial: Incorporación de módulos a un archivo de Bicep de Azure Resource Manager
 
