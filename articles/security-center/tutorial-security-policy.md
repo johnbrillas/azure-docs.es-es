@@ -1,44 +1,32 @@
 ---
 title: Trabajo con directivas de seguridad | Microsoft Docs
 description: En este artículo se describe cómo trabajar con directivas de seguridad en Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986630"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101331"
 ---
 # <a name="manage-security-policies"></a>Administrar directivas de seguridad
 
 En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. 
 
-## <a name="introduction-to-security-policies"></a>Introducción a las directivas de seguridad
+## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
 
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo y le ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de empresa.
+Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
 
-Azure Security Center realiza sus recomendaciones de seguridad en función de las directivas elegidas. Las directivas de Security Center se basan en las iniciativas de directiva creadas en Azure Policy. Puede configurarlas en [Azure Policy](../governance/policy/overview.md), que también le permite establecer directivas en grupos de administración y entre varias suscripciones.
+Security Center usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
 
-Security Center le ofrece las siguientes opciones para trabajar con directivas de seguridad:
-
-* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa denominada "Prueba comparativa de la seguridad de Azure" se asigna automáticamente a todas las suscripciones registradas de Security Center. Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](./policy-reference.md) para comprender las opciones disponibles.
-
-* **Agregue sus propias directivas personalizadas**: si quiere personalizar las iniciativas de seguridad que se aplican a su suscripción, puede hacerlo en Security Center. A continuación, recibirá recomendaciones si las máquinas no siguen las directivas que creó. Para obtener instrucciones sobre la creación y asignación de directivas personalizadas, consulte [Uso de las directivas de seguridad personalizadas](custom-security-policies.md).
-
-* **Agregar directivas de cumplimiento normativo**: el panel de cumplimiento normativo de Security Center muestra el estado de todas las evaluaciones del entorno, en el contexto de una normativa o estándar determinado (por ejemplo, Azure CIS, NIST SP 800-53 R4 o SWIFT CSP CSCF-v2020). Para obtener más información, consulte [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
-
+- **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
+- **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
 
 ## <a name="manage-your-security-policies"></a>Administración de las directivas de seguridad
 
@@ -59,14 +47,13 @@ Para ver las directivas de seguridad de Security Center:
     > [!NOTE]
     > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
 
-
 1. Elija entre las opciones disponibles en esta página:
 
-    1. Para usar directivas del sector, seleccione **Agregar más estándares**. Para obtener más información, consulte [Actualizar a los paquetes de cumplimiento dinámicos](update-regulatory-compliance-packages.md).
+    1. Para usar estándares del sector, seleccione **Agregar más estándares**. Para más información, consulte [Personalización del conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 
-    1. Para asignar y administrar iniciativas personalizadas, seleccione **Agregar iniciativas personalizadas**. Para obtener más información, consulte [Usar directivas de seguridad personalizadas](custom-security-policies.md).
+    1. Para asignar y administrar iniciativas personalizadas, seleccione **Agregar iniciativas personalizadas**. Para obtener más información, consulte [Uso de iniciativas y directivas de seguridad personalizadas](custom-security-policies.md).
 
-    1. Para ver y editar la directiva predeterminada, seleccione **Ver directivas vigentes** y continúe tal como se describe a continuación. 
+    1. Para ver y editar la iniciativa predeterminada, seleccione **Ver directiva efectiva** y continúe tal como se describe a continuación. 
 
         :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Pantalla Directiva efectiva":::
 
@@ -80,16 +67,6 @@ Para ver las directivas de seguridad de Security Center:
 
        > [!NOTE]
        > Cuando vea directivas asignadas, puede ver varias asignaciones y cómo se configura cada asignación individualmente.
-
-
-## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
-
-Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
-
-Security Center usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
-
-- **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
-- **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
 
 
 ## <a name="disable-security-policies-and-disable-recommendations"></a>Deshabilitar las directivas de seguridad y recomendaciones
@@ -129,7 +106,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 ## <a name="next-steps"></a>Pasos siguientes
 En esta página se explicaron las directivas de seguridad. Para obtener información relacionada, consulte las páginas siguientes:
 
-- [Obtenga información sobre cómo establecer directivas con PowerShell](../governance/policy/assign-policy-powershell.md) -. 
-- [Obtenga información sobre cómo editar una directiva de seguridad en Azure Policy](../governance/policy/tutorials/create-and-manage.md) -. 
+- [Obtenga información sobre cómo establecer directivas con PowerShell](../governance/policy/assign-policy-powershell.md).
+- [Obtenga información sobre cómo editar una directiva de seguridad en Azure Policy](../governance/policy/tutorials/create-and-manage.md).
 - [Obtenga información sobre cómo establecer una directiva en varias suscripciones o grupos de administración con Azure Policy](../governance/policy/overview.md).
 - [Obtenga información sobre cómo habilitar Security Center en todas las suscripciones de un grupo de administración](onboard-management-group.md).

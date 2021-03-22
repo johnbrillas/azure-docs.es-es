@@ -1,15 +1,14 @@
 ---
 title: Asociados que se integran con Azure Monitor
 description: Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos.
-ms.subservice: ''
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 5f97097d21beab12c5f58161751a1bc340fa6cf7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100603193"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101025"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -101,6 +100,8 @@ Con la nueva integración entre Azure y Datadog, las organizaciones ahora pueden
 -   Obtener una facturación unificada para el servicio Datadog mediante la facturación de suscripciones de Azure.
 
 Suscríbase a la [versión preliminar pública](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) de la nueva integración de Datadog con Azure.  La versión preliminar pública estará disponible en Azure Marketplace a partir de octubre de 2020.
+
+Suscríbase a la versión preliminar de "Integración de Datadog con Azure" disponible en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
 Si todavía usa la anterior integración configurada manualmente, consulte la [documentación del sitio web de DataDog](https://docs.datadoghq.com/integrations/azure/).
 
@@ -290,8 +291,7 @@ Con Site24x7 Azure Monitoring, podrá hacer lo siguiente:
 * Supervisar su completa ecosfera de Microsoft, incluidas las aplicaciones de SQL, Exchange, Active Directory, Office 365, IIS e Hyper-V.
 * Integrar sin problemas con servicios de terceros, como Microsoft Teams, PagerDuty, Zapier, etc.
 
-[Documentación de Site24X7](https://www.site24x7.com/)
-
+[Documentación de Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## <a name="solarwinds"></a>SolarWinds
 

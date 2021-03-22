@@ -1,15 +1,16 @@
 ---
 title: Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897265"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101110"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 
@@ -31,34 +32,6 @@ Opción | Modelo de servicio | Caso de uso común
 Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado. Las plantillas de solución se proporcionan sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifica la formación, administración y regulación de las redes de cadena de bloques del consorcio. Use Azure Blockchain Service para soluciones que requieran PaaS, la administración del consorcio o la privacidad de contratos y transacciones.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure que le ayudan a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de una aplicación de cadena de bloques. Azure Blockchain Workbench se proporciona sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitectura del consorcio de Hyperledger Fabric
-
-Para compilar la red de Hyperledger Fabric en Azure, debe implementar el servicio de ordenación y la organización con nodos del mismo nivel. Con la plantilla de la solución de Hyperledger Fabric en Azure Kubernetes Service, puede crear nodos de ordenación o nodos del mismo nivel. Debe implementar la plantilla para cada nodo que quiera crear.
-
-Los componentes fundamentales que se crean como parte de la implementación de la plantilla son:
-
-- **Nodos solicitantes**: un nodo responsable del orden de las transacciones en el libro de contabilidad. Junto con otros nodos, los nodos ordenados forman el servicio de ordenación de la red de Hyperledger Fabric.
-
-- **Nodos del mismo nivel**: un nodo que hospeda principalmente libros de contabilidad y contratos inteligentes, que son elementos fundamentales de la red.
-
-- **Fabric CA**: la entidad de certificación (CA) para Hyperledger Fabric. Fabric CA permite inicializar e iniciar un proceso de servidor que hospeda la entidad de certificación. Permite administrar identidades y certificados. Cada clúster de AKS implementado como parte de la plantilla tendrá un pod de Fabric CA de forma predeterminada.
-
-- **CouchDB o LevelDB**: bases de datos de estado global para los nodos del mismo nivel. LevelDB es la base de datos de estado predeterminada incrustada en el nodo del mismo nivel. Almacena los datos del código de cadena como pares clave/valor simples y admite solo consultas de clave, intervalo de claves y clave compuesta. CouchDB es una base de datos de estado alternativa opcional que admite consultas enriquecidas cuando los valores de los datos del código de cadena se modelan como JSON.
-
-La plantilla de la implementación pone en marcha varios recursos de Azure en su suscripción. Los recursos de Azure implementados son:
-
-- **Clúster de AKS**: clúster de Azure Kubernetes Service que se configura según los parámetros de entrada proporcionados por el cliente. El clúster de AKS tiene varios pods configurados para ejecutar los componentes de red de Hyperledger Fabric. Los pods creados son:
-
-  - **Herramientas de Fabric**: herramientas que son responsables de la configuración de los componentes de Hyperledger Fabric.
-  - **Pods solicitantes/del mismo nivel**: Los nodos de la red de Hyperledger Fabric.
-  - **Proxy**: un pod de proxy de NGNIX a través del cual las aplicaciones cliente pueden comunicarse con el clúster de AKS.
-  - **Fabric CA**: El pod que ejecuta la entidad Fabric CA.
-- **PostgreSQL**: instancia de base de datos que mantiene las identidades de Fabric CA.
-
-- **Almacén de claves**: instancia del servicio Azure Key Vault que se implementa para guardar las credenciales de Fabric CA y los certificados raíz proporcionados por el cliente. El almacén se usa en caso de reintento de implementación de plantilla para controlar la mecánica de la plantilla.
-- **Disco administrado**: instancia del servicio Azure Managed Disks que proporciona un almacén persistente para el libro de contabilidad y para la base de datos de estado global del nodo del mismo nivel.
-- **Dirección IP pública**: punto de conexión del clúster de AKS implementado para comunicarse con el clúster.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Implementación de la organización solicitante y del mismo nivel
 
@@ -85,10 +58,10 @@ Para empezar a trabajar con la implementación de componentes de red de Hyperled
     - **Nombre de la organización**: escriba el nombre de la organización de Hyperledger Fabric, que es necesario para varias operaciones del plano de datos. El nombre de la organización debe ser único en cada implementación.
     - **Componente de red de Fabric**: elija **Ordering service** (Servicio de ordenación) o **Peer nodes** (Nodos del mismo nivel), en función del componente de red de la cadena de bloques que quiera configurar.
     - **Número de nodos**: los siguientes son los dos tipos de nodos:
-        - **Ordering service** (Servicio de ordenación): seleccione el número de nodos para proporcionar tolerancia a errores a la red. El número de nodos de orden admitidos es 3, 5 y 7.
-        - **Nodos del mismo nivel**: puede elegir entre 1 y 10 nodos, según sus necesidades.
-    - **Base de datos de estado mundial del nodo del mismo nivel**: elija entre LevelDB y CoucbDB. Este campo se muestra cuando elige **Peer nodes** (Nodos del mismo nivel) en el menú desplegable **Fabric network component** (Componente de la red de Fabric).
-    - **Fabric CA username** (Nombre de usuario de Fabric CA): escriba el nombre de usuario que se usa para la autenticación de Fabric CA.
+        - **Servicio de pedidos**: nodos responsables del orden de las transacciones en el libro de contabilidad. seleccione el número de nodos para proporcionar tolerancia a errores a la red. El número de nodos de orden admitidos es 3, 5 y 7.
+        - **Nodos del mismo nivel**: nodos que hospedan libros de contabilidad y contratos inteligentes. puede elegir entre 1 y 10 nodos, según sus necesidades.
+    - **Base de datos de estado global del nodo del mismo nivel**: bases de datos de estado global para los nodos del mismo nivel. LevelDB es la base de datos de estado predeterminada incrustada en el nodo del mismo nivel. Almacena los datos del código de cadena como pares clave/valor simples y admite solo consultas de clave, intervalo de claves y clave compuesta. CouchDB es una base de datos de estado alternativa opcional que admite consultas enriquecidas cuando los valores de los datos del código de cadena se modelan como JSON. Este campo se muestra cuando elige **Peer nodes** (Nodos del mismo nivel) en el menú desplegable **Fabric network component** (Componente de la red de Fabric).
+    - **Nombre de usuario de Fabric CA**: la entidad de certificación de Fabric permite inicializar e iniciar un proceso de servidor que hospeda la entidad de certificación. Permite administrar identidades y certificados. Cada clúster de AKS implementado como parte de la plantilla tendrá un pod de Fabric CA de forma predeterminada. escriba el nombre de usuario que se usa para la autenticación de Fabric CA.
     - **Contraseña de Fabric CA**: Escriba la contraseña para la autenticación de Fabric CA.
     - **Confirmar contraseña**: Confirme la contraseña de Fabric CA.
     - **Certificados**: si quiere usar sus propios certificados raíz para inicializar Fabric CA, elija la opción **Upload root certificate for Fabric CA** (Cargar certificado raíz para Fabric CA). De lo contrario, Fabric CA crea certificados autofirmados de forma predeterminada.
@@ -96,11 +69,21 @@ Para empezar a trabajar con la implementación de componentes de red de Hyperled
     - **Clave privada de certificado raíz**: Cargue la clave privada del certificado raíz. Si tiene un certificado .pem, que tiene una clave pública y privada combinada, cárguela aquí también.
 
 
-6. Seleccione la pestaña **AKS cluster Settings** (Configuración del clúster de AKS) para definir la configuración del clúster de Azure Kubernetes Service, que es la infraestructura subyacente en la que se van a configurar los componentes de la red de Hyperledger Fabric.
+6. Seleccione la pestaña **Configuración del clúster de AKS** para definir la configuración del clúster de Azure Kubernetes Service. El clúster de AKS tiene varios pods configurados para ejecutar los componentes de red de Hyperledger Fabric. Los recursos de Azure implementados son:
+
+    - **Herramientas de Fabric**: herramientas que son responsables de la configuración de los componentes de Hyperledger Fabric.
+    - **Pods solicitantes/del mismo nivel**: Los nodos de la red de Hyperledger Fabric.
+    - **Proxy**: un pod de proxy de NGNIX a través del cual las aplicaciones cliente pueden comunicarse con el clúster de AKS.
+    - **Fabric CA**: El pod que ejecuta la entidad Fabric CA.
+    - **PostgreSQL**: instancia de base de datos que mantiene las identidades de Fabric CA.
+    - **Almacén de claves**: instancia del servicio Azure Key Vault que se implementa para guardar las credenciales de Fabric CA y los certificados raíz proporcionados por el cliente. El almacén se usa en caso de reintento de implementación de plantilla para controlar la mecánica de la plantilla.
+    - **Disco administrado**: instancia del servicio Azure Managed Disks que proporciona un almacén persistente para el libro de contabilidad y para la base de datos de estado global del nodo del mismo nivel.
+    - **Dirección IP pública**: punto de conexión del clúster de AKS implementado para comunicarse con el clúster.
+
+    Escriba la siguiente información: 
 
     ![Captura de pantalla que muestra la pestaña de configuración del clúster AKS.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Escriba la siguiente información:
     - **Nombre del clúster de Kubernetes**: cambie el nombre del clúster de AKS, si es necesario. Este campo se rellena previamente según el prefijo de recurso proporcionado.
     - **Versión de Kubernetes**: elija la versión de Kubernetes que se implementará en el clúster. En función de la región seleccionada en la pestaña **Datos básicos**, las versiones admitidas disponibles pueden cambiar.
     - **Prefijo de DNS**: escriba un prefijo del nombre del Sistema de nombres de dominio (DNS) para el clúster de AKS. Usará DNS para conectarse a la API de Kubernetes al administrar los contenedores después de crear el clúster.
