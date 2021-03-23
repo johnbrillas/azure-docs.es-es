@@ -8,14 +8,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9b06a9d1065fe27a7ac38d45c2a0aaba635b40eb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 877b488fc888b4ced8165c19bcd5c51b5f982745
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044857"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492513"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Versiones de Azure IoT Edge y notas de la versión
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge es un producto creado a partir del proyecto de IoT Edge de código abierto hospedado en GitHub. Todas las versiones nuevas están disponibles en el [proyecto de Azure IoT Edge](https://github.com/Azure/azure-iotedge). Las contribuciones y los informes de errores se pueden realizar en el [proyecto de IoT Edge de código abierto](https://github.com/Azure/iotedge).
 

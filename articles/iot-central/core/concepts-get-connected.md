@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032643"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015462"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -178,7 +178,7 @@ Este enfoque es útil cuando está experimentando con IoT Central o probado disp
 
 ## <a name="associate-a-device-with-a-device-template"></a>Asociación de un dispositivo a una plantilla de dispositivo
 
-IoT Central asocia automáticamente un dispositivo a una plantilla de dispositivo cuando el dispositivo se conecta. Un dispositivo envía un [identificador de modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) cuando se conecta. IoT Central usa el identificador de modelo para identificar la plantilla de dispositivo para ese modelo de dispositivo específico. El proceso de detección funciona de la siguiente manera:
+IoT Central asocia automáticamente un dispositivo a una plantilla de dispositivo cuando el dispositivo se conecta. Un dispositivo envía un [identificador de modelo](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) cuando se conecta. IoT Central usa el identificador de modelo para identificar la plantilla de dispositivo para ese modelo de dispositivo específico. El proceso de detección funciona de la siguiente manera:
 
 1. Si la plantilla de dispositivo ya está publicada en la aplicación IoT Central, el dispositivo se le asocia.
 1. Si la plantilla de dispositivo todavía no está publicada en la aplicación IoT Central, esta busca el modelo del dispositivo en el [repositorio de modelos público](https://github.com/Azure/iot-plugandplay-models). Si IoT Central encuentra el modelo, lo utiliza para generar una plantilla de dispositivo básica.
