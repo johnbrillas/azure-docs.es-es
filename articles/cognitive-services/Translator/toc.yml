@@ -147,7 +147,7 @@
     - name: Referencia
       items:
         - name: API REST de traducción de documentos
-          href: /rest/api/cognitiveservices/translator/translation
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Recursos de Translator
   items:
     - name: Opciones de ayuda y soporte técnico
