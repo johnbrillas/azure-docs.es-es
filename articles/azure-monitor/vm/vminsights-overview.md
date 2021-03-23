@@ -1,23 +1,22 @@
 ---
 title: ¿Qué es VM Insights?
 description: Información general de VM Insights, que supervisa el estado y el rendimiento de las VM de Azure, y detecta y asigna automáticamente los componentes de aplicación y sus dependencias.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 967ff9672f55af3e9c5d2e7c3c3dbc7d2ff6cb3c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707377"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046421"
 ---
 # <a name="overview-of-vm-insights"></a>Información general de VM Insights
 
 VM Insights supervisa el rendimiento y el estado de las máquinas virtuales y los conjuntos de escalado de máquinas virtuales, incluidos los procesos en ejecución y las dependencias de otros recursos. Puede ayudar a ofrecer de forma eficaz un rendimiento predecible y disponibilidad de las aplicaciones vitales mediante la identificación de cuellos de botella de rendimiento y problemas de red, así como ayudar a comprender si un problema está relacionado con otras dependencias.
 
-VM Insights admite los sistemas operativos Windows y Linux en lo siguiente:
+VM Insights admite los sistemas operativos Windows y Linux en las máquinas siguientes:
 
 - Azure Virtual Machines
 - Conjuntos de escalado de máquinas virtuales de Azure

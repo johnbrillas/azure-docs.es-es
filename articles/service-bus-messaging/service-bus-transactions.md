@@ -2,14 +2,14 @@
 title: Introducción al procesamiento de transacciones en Azure Service Bus
 description: En este artículo se ofrece información general sobre el procesamiento de transacciones y la característica de envío a través de Azure Service Bus.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684798"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183750"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
@@ -42,6 +42,8 @@ La disposición del mensaje (completar, abandonar, correo devuelto, aplazar), se
 Para permitir la entrega transaccional de datos de una cola o un tema a un procesador y luego a otra cola u otro tema, Service Bus admite *transferencias*. En las operaciones de transferencia, en primer lugar un remitente envía un mensaje a una *cola o un tema de transferencia*, que lo mueve inmediatamente a la cola o el tema de destino deseado usando la misma implementación de transferencias sólida que la funcionalidad de reenvío automático en la que se basa. El mensaje nunca se confirma en el registro del tema o la cola de transferencia de forma que se vuelve visible para los consumidores de dicho tema o cola.
 
 La eficacia de esta funcionalidad transaccional se hace evidente cuando el propio tema o la cola de transferencia es el origen de los mensajes de entrada del remitente. En otras palabras, Service Bus puede transferir el mensaje a la cola o el tema de destino "mediante" la cola o el tema de transferencia y al mismo tiempo realizar una operación completa (o de aplazamiento o correo devuelto) en el mensaje de entrada, todo en una operación atómica. 
+
+Si necesita recibir de una suscripción a un tema y, a continuación, enviar a una cola o un tema en la misma transacción, la entidad de transferencia debe ser un tema. En este escenario, inicie el ámbito de la transacción en el tema, reciba desde la suscripción en el ámbito de la transacción y envíe a través del tema de transferencia a una cola o a un destino de tema. 
 
 ### <a name="see-it-in-code"></a>Verlo en el código
 

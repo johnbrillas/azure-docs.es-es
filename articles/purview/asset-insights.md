@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575353"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183087"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Información detallada de recursos en los datos de Azure Purview
 
@@ -40,7 +40,7 @@ Para más información, consulte [Administración de orígenes de datos en Azure
 En Azure Purview, puede registrar y examinar los tipos de origen. Una vez completado el examen, puede ver la distribución de recursos en la sección de información detallada de recursos, que le indica el estado de los datos en función de la clasificación y los conjuntos de recursos. También indica si hay algún cambio en el tamaño de los datos.
 
 > [!NOTE]
-> Después de haber examinado los tipos de origen, la información detallada de recursos tarda hasta una hora en reflejar los nuevos recursos.
+> Después de haber examinado los tipos de origen, la información detallada de recursos tarda entre tres y ocho horas en reflejar los nuevos recursos. El retraso puede deberse a un tráfico elevado en la región de implementación o al tamaño de la carga de trabajo. Para obtener más información, póngase en contacto con el equipo de soporte técnico de campo.
 
 1. Vaya al recurso de Azure Purview en Azure Portal.
 
@@ -94,7 +94,7 @@ El siguiente par de gráficos de la información detallada de recursos muestra u
 
 1. Seleccione la ruta de acceso para ver la lista de recursos.
 
-El segundo gráfico de los tipos de origen basados en archivos es **_Files not associated with a resource set_** (Archivos no asociados con un conjunto de recursos). Si espera que todos los archivos se acumulen en un conjunto de recursos, este gráfico puede ayudarle a entender qué recursos no se han acumulado. Los recursos que faltan pueden indicar un patrón de archivo incorrecto en la carpeta. Siga los mismos pasos que en otros gráficos para ver más detalles sobre los archivos.
+El segundo gráfico de los tipos de origen basados en archivos es ***Files not associated with a resource set*** (Archivos no asociados con un conjunto de recursos). Si espera que todos los archivos se acumulen en un conjunto de recursos, este gráfico puede ayudarle a entender qué recursos no se han acumulado. Los recursos que faltan pueden indicar un patrón de archivo incorrecto en la carpeta. Siga los mismos pasos que en otros gráficos para ver más detalles sobre los archivos.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Visualización de recursos basados en archivos":::  
 

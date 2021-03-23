@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241614"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030620"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Información sobre cómo solucionar errores de runtime de U-SQL debido a cambios en el runtime
 
@@ -55,7 +55,7 @@ Hay dos incidencias posibles de versión de runtime que se pueden encontrar:
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-* La referencia al archivo Newtonsoft.json, versión 12.0.3 o posterior, en un script USQL provocará el siguiente error de compilación:
+1. La referencia al archivo Newtonsoft.json, versión 12.0.3 o posterior, en un script USQL provocará el siguiente error de compilación:
 
     *"Es probable que los trabajos que se ejecutan en la cuenta de Data Lake Analytics funcionen con lentitud o no se completen. Un problema inesperado nos impide restaurar automáticamente esta funcionalidad en la cuenta de Azure Data Lake Analytics, pero nos hemos puesto en contacto con los ingenieros de Azure Data Lake para que lo investiguen".*  
 
@@ -65,6 +65,10 @@ Hay dos incidencias posibles de versión de runtime que se pueden encontrar:
     `...`
 
     **Solución**: Use el archivo Newtonsoft.json v12.0.2 o inferior.
+2. Los clientes pueden ver archivos y carpetas temporales en su almacén. Se generan como parte de la ejecución normal del trabajo, pero normalmente se eliminan antes de que los clientes los vean. En determinadas circunstancias, que son aleatorias y poco frecuentes, pueden permanecer visibles durante un período de tiempo. Con el tiempo se eliminan y nunca se cuentan como parte del almacenamiento del usuario, ni generan ningún tipo de cargos. En función de la lógica del trabajo de los clientes, podrían causar problemas. Por ejemplo, si el trabajo enumera todos los archivos de la carpeta y, a continuación, compara las listas de archivos, podría producirse un error debido a la presencia de archivos temporales inesperados. Del mismo modo, si un trabajo de bajada enumera todos los archivos de una carpeta determinada para su posterior procesamiento, también puede enumerar los archivos temporales.  
+
+    **Solución**: se identifica una corrección en tiempo de ejecución donde los archivos temporales se almacenarán en una carpeta temporal de nivel de cuenta en vez de en la carpeta de salida actual. Los archivos temporales se escribirán en esta nueva carpeta temporal y se eliminarán al final de la ejecución del trabajo.  
+    Dado que esta corrección controla los datos del cliente, es muy importante que se valide correctamente en MSFT antes de su lanzamiento. Se espera que esta corrección esté disponible como tiempo de ejecución beta a mitades del año 2021 y como tiempo de ejecución predeterminado en la segunda mitad del año 2021. 
 
 
 ## <a name="see-also"></a>Consulte también

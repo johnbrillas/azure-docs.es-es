@@ -8,14 +8,16 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391990"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200882"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 En un escenario de puerta de enlace transparente, los dispositivos de bajada (también denominados dispositivos de hoja o secundarios) necesitan identidades en IoT Hub como cualquier otro dispositivo. Este artículo le guía a través de las opciones para autenticar un dispositivo de bajada en IoT Hub y, después, se muestra cómo declarar la conexión de puerta de enlace.
 
@@ -35,7 +37,7 @@ Siga los pasos de [Configuración de un dispositivo IoT Edge para que actúe com
 
 Si usa la autenticación X.509, se generarán certificados para el dispositivo de bajada. Tenga disponible el mismo certificado de entidad de certificación raíz y el script de generación de certificados que usó para el artículo de puerta de enlace transparente para usarlo de nuevo.
 
-Este artículo hace referencia al *nombre de host de la puerta de enlace* en varios puntos. Este nombre se declara en el parámetro **hostname** del archivo config.yaml del dispositivo de puerta de enlace IoT Edge. Se hace referencia a él en la cadena de conexión del dispositivo de bajada. El nombre de host de la puerta de enlace debe poderse resolverse en una dirección IP, ya sea mediante DNS o una entrada del archivo de hosts en el dispositivo de bajada.
+Este artículo hace referencia al *nombre de host de la puerta de enlace* en varios puntos. Este nombre se declara en el parámetro **hostname** del archivo de configuración del dispositivo de puerta de enlace IoT Edge. Se hace referencia a él en la cadena de conexión del dispositivo de bajada. El nombre de host de la puerta de enlace debe poderse resolverse en una dirección IP, ya sea mediante DNS o una entrada del archivo de hosts en el dispositivo de bajada.
 
 ## <a name="register-device-with-iot-hub"></a>Registro del dispositivo con IoT Hub
 
@@ -192,7 +194,7 @@ Las cadenas de conexión de los dispositivos de bajada necesitan los componentes
 * El método de autenticación, si es una clave simétrica o certificados X.509.
   * Si el uso de la autenticación de clave simétrica proporciona la clave principal o secundaria: `SharedAccessKey={key}`
   * Si el uso de la autenticación de certificado X.509 proporciona una marca: `x509=true`
-* El dispositivo de puerta de enlace a través del que se conecta el dispositivo. Proporcione el valor **hostname** (nombre de host) del archivo config.yaml del dispositivo de puerta de enlace de IoT Edge: `GatewayHostName={gateway hostname}`
+* El dispositivo de puerta de enlace a través del que se conecta el dispositivo. Proporcione el valor de **hostname** del archivo de configuración del dispositivo de puerta de enlace de IoT Edge: `GatewayHostName={gateway hostname}`
 
 Con todos los elementos, una cadena de conexión completa tiene este aspecto:
 

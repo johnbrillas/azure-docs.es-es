@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828094"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037258"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -32,6 +33,17 @@ Las aptitudes integradas se encuadran en estas categorías:
 Las aptitudes integradas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) y [Text Analytics](../cognitive-services/text-analytics/overview.md). Puede adjuntar un recurso de Cognitive Services si desea aprovechar estos recursos durante el procesamiento de contenido.
 
 Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que forman parte de la composición de un documento en un índice en el que se pueden realizar búsquedas en Azure Cognitive Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite.  
+
+## <a name="feature-availability"></a>Disponibilidad de características
+
+El enriquecimiento con IA está disponible en las regiones en las que Azure Cognitive Services también está disponible.  Puede comprobar la disponibilidad actual del enriquecimiento con IA en la página [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=search).  El enriquecimiento con IA está disponible en todas las regiones admitidas excepto:
+
++ Sudeste de Australia
++ Norte de China 2
++ Este de Noruega
++ Centro-oeste de Alemania
+
+Si el servicio de búsqueda se encuentra en una de estas regiones, no puede crear y usar el conjunto de aptitudes, pero el resto de la funcionalidad del servicio de búsqueda está disponible y es totalmente compatible.
 
 ## <a name="when-to-use-ai-enrichment"></a>Cuándo usar el enriquecimiento con IA
 

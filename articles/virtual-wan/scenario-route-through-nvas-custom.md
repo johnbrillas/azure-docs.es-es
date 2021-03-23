@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8916fbc7c2a0b9789dcc73697324cee370f1fc1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704912"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036900"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Escenario: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 
@@ -176,7 +176,7 @@ Para configurar el enrutamiento mediante la NVA, tenga en cuenta los pasos sigui
    >
    > * Los usuarios del portal deben habilitar la propagación a la ruta predeterminada en las conexiones (VPN/ER/P2S/VNet) para que la ruta 0.0.0.0/0 surta efecto.
    > * Los usuarios de PS/CLI/REST deben establecer la marca "enableinternetsecurity" en true para que la ruta 0.0.0.0/0 surta efecto.
-   >
+   > * La Conexión de Virtual Network no es compatible con la dirección IP de próximo salto "múltiple o única" para la aplicación virtual de red "igual" en una VNet de radio "si" una de las rutas con IP de próximo salto se indica como dirección IP pública o 0.0.0.0/0 (Internet)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

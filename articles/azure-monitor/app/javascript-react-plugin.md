@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593639"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199346"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Complemento React para el SDK de JavaScript de Application Insights
 
@@ -161,7 +161,11 @@ Funcionará como el componente de orden superior, pero responderá a los eventos
 
 ### `useTrackEvent`
 
-El enlace `useTrackEvent` se usa para realizar el seguimiento de cualquier evento personalizado que una aplicación pueda necesitar para realizar el seguimiento, como un clic de botón u otra llamada API. Adopta dos argumentos, el primero es la instancia de Application Insights (que se puede obtener del enlace `useAppInsightsContext`) y un nombre para el evento.
+El enlace `useTrackEvent` se usa para realizar el seguimiento de cualquier evento personalizado que una aplicación pueda necesitar para realizar el seguimiento, como un clic de botón u otra llamada API. Cuenta con cuatro argumentos:
+-   La instancia de Application Insights (que se puede obtener del enlace `useAppInsightsContext`).
+-   El nombre para el evento.
+-   El objeto de datos de evento que encapsula los cambios de los que se va a realizar el seguimiento.
+-   La marca skipFirstRun (opcional) para omitir la llamada a `trackEvent` en la inicialización. El valor predeterminado está establecido en `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";

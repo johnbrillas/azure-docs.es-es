@@ -3,12 +3,12 @@ title: Expiración de mensajes de Azure Service Bus
 description: En este artículo se explica la expiración y período de vida de los mensajes de Azure Service Bus. Después de una fecha límite de este tipo, ya no se entrega el mensaje.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698372"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042834"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 La carga de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
@@ -21,7 +21,7 @@ Tras el instante **expires-at-utc**, los mensajes se vuelven inteligibles para l
 
 Mientras el mensaje está bajo bloqueo, la aplicación puede estar en posesión de un mensaje que ha expirado. Es decisión del implementador que la aplicación esté dispuesta a seguir adelante con el procesamiento o elija abandonar el mensaje.
 
-Se recomienda establecer el valor de **time-to-live** de un mensaje en horas o días. Si lo establece en un valor bajo de segundos o milisegundos, el mensaje puede expirar antes de que los consumidores tengan la oportunidad de utilizarlo. 
+Un valor de TTL extremadamente bajo del orden de milisegundos o segundos puede hacer que los mensajes expiren antes de que las aplicaciones receptoras lo reciban. Considere la posibilidad de usar el valor de TTL más alto que funcione para su aplicación.
 
 ## <a name="entity-level-expiration"></a>Expiración de nivel de entidad
 Todos los mensajes enviados a una cola o un tema están sujetos a una expiración predeterminada que se establece en el nivel de entidad. También se puede establecer en el portal durante la creación y ajustarse más adelante. La expiración predeterminada se usa con todos los mensajes enviados a la entidad donde time-to-live no se establece explícitamente. La expiración predeterminada también funciona como un límite superior para el valor time-to-live. Los mensajes que tienen una expiración de time-to-live más larga respecto al valor predeterminado se ajustan de forma silenciosa al valor time-to-live del mensaje antes de ponerse en cola.

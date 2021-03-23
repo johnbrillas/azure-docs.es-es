@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741781"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183665"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -74,6 +74,9 @@ La **Configuración de máquina virtual** especifica que el grupo está formado 
 El [agente de nodo del servicio Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) es un programa que se ejecuta en cada nodo del grupo y proporciona la interfaz de comandos y control entre el nodo y el servicio Batch. Hay diferentes implementaciones del agente de nodo, conocidas como SKU, para distintos sistemas operativos. Cuando crea un grupo basado en la configuración de máquina virtual, debe especificar no solo el tamaño de los nodos y el origen de las imágenes utilizadas para crearlos, sino también la **referencia de la imagen de máquina virtual** y la **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md). También puede asociar uno o más discos de datos vacíos a las máquinas virtuales del grupo creadas con imágenes de Marketplace, o bien incluir discos de datos en imágenes personalizadas usadas para crear las máquinas virtuales. Al incluir discos de datos, deberá montar y dar formato a los discos desde una máquina virtual para usarlos.
 
 ### <a name="cloud-services-configuration"></a>Configuración de Cloud Services
+
+> [!WARNING]
+> Los grupos de configuración del servicio en la nube están en desuso. En su lugar, use los grupos de configuración de máquina virtual.
 
 La **Configuración de Cloud Services** especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona solo nodos de proceso de Windows.
 

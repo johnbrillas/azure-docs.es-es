@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503957"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183818"
 ---
 # <a name="use-purview-studio"></a>Uso de Purview Studio
 
@@ -38,7 +38,7 @@ En este artículo se proporciona información general sobre algunas de las carac
 
 En la lista siguiente se resumen las principales características de la **página principal**. Cada número de la lista corresponde a un número resaltado en la captura de pantalla anterior.
 
-1. Nombre descriptivo del catálogo. Puede establecer el nombre del catálogo en **Management Center** > **Account information* (Centro de administración > *Información de la cuenta).
+1. Nombre descriptivo del catálogo. Puede establecer el nombre del catálogo en **Management Center** > **Account information** (Centro de administración > Información de la cuenta).
 
 2. El análisis de catálogo muestra el número de:
     - Usuarios, grupos y aplicaciones

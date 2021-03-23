@@ -2,13 +2,13 @@
 title: 'Azure Service Bus: actualización automática de las unidades de mensajería'
 description: En este artículo se muestra cómo puede actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720603"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177962"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus 
 Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Consulte [Información general sobre el escalado automático en Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para más información sobre la característica de escalado automático de Azure Monitor. 
@@ -136,8 +136,14 @@ En la sección anterior se muestra cómo agregar una condición predeterminada a
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Escalar a un número específico de unidades de mensajería: repetir días específicas":::
 
-> [!IMPORTANT]
-> Para más información sobre cómo funciona la configuración del escalado automático, especialmente cómo se elige un perfil o condición y se evalúan varias reglas, consulte [Información acerca de la configuración de escalado automático](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    Para más información sobre cómo funciona la configuración del escalado automático, especialmente cómo se elige un perfil o condición y se evalúan varias reglas, consulte [Información acerca de la configuración de escalado automático](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - Las métricas que revise para tomar decisiones sobre el escalado automático pueden haber sido creadas de 5 a 10 minutos antes. Cuando se trabaja con cargas de trabajo de picos, se recomienda tener una duración más corta para escalar verticalmente y más larga para reducir verticalmente (más de 10 minutos) y asegurarse de que hay suficientes unidades de mensajería para procesar las cargas de trabajo de picos. 
+    > 
+    > - Si surgen errores debido a la falta de capacidad (no hay unidades de mensajería disponibles), genere una incidencia de soporte técnico con nosotros.  
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información acerca de las unidades de mensajería, consulte la [mensajería Prémium](service-bus-premium-messaging.md)

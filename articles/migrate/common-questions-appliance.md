@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753882"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043072"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -36,21 +36,20 @@ Aquí encontrará más información sobre el dispositivo Azure Migrate:
 
 ## <a name="how-can-i-deploy-the-appliance"></a>¿Cómo se puede implementar el dispositivo?
 
-El dispositivo se puede implementar así:
+Para implementar el dispositivo se pueden usar un par de métodos:
 
-- Mediante el uso de una plantilla para la detección de máquinas virtuales de VMware (archivo .OVA) y máquinas virtuales de Hyper-V (archivo .VHD) para crear una nueva máquina virtual que hospede el dispositivo.
-- Si no quiere usar una plantilla, puede implementar el dispositivo en una máquina virtual o física existente para detectar las máquinas virtuales de VMware o de Hyper-V mediante un script de instalador de PowerShell, disponible para su descarga en un archivo ZIP desde el portal.
-- En el caso de los servidores físicos o virtuales del entorno local o en cualquier nube, siempre se implementa el dispositivo mediante un script en un servidor existente.
-- Para Azure Government, los tres dispositivos solo se pueden implementar mediante el script de instalador de PowerShell.
+- El dispositivo se puede implementar mediante una plantilla para servidores que se ejecutan en los entornos de VMware o Hyper-V ([plantilla OVA en el caso de VMware](how-to-set-up-appliance-vmware.md) o [VHD en el de Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- Si no quiere usar una plantilla, puede implementar el dispositivo para los entornos de VMware o Hyper-V mediante un [script de PowerShell](deploy-appliance-script.md).
+- En Azure Government, el dispositivo se debe implementar mediante un script del instalador de PowerShell. Consulte los pasos de la implementación [aquí](deploy-appliance-script-government.md).
+- En el caso de los servidores físicos o virtualizados locales o de cualquier otra nube, el dispositivo siempre se implementa mediante un script del instalador de PowerShell. Consulte los pasos de la implementación [aquí](how-to-set-up-appliance-physical.md).
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>¿Cómo se conecta el dispositivo a Azure?
 
 El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute. 
 
 - Asegúrese de que el dispositivo se puede conectar a estas [direcciones URL de Azure](./migrate-appliance.md#url-access). 
-- Puede usar ExpressRoute con emparejamiento de Microsoft.  El emparejamiento público está en desuso y no está disponible para nuevos circuitos de ExpressRoute.
+- Puede usar ExpressRoute con emparejamiento de Microsoft. El emparejamiento público está en desuso y no está disponible para nuevos circuitos de ExpressRoute.
 - El emparejamiento privado solo no se admite.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>¿Afecta el análisis del dispositivo al rendimiento?
@@ -109,7 +108,7 @@ No. Hay una asignación unívoca entre un [dispositivo Azure Migrate](migrate-ap
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>¿Puede un proyecto Azure Migrate tener varios dispositivos?
 
-Un proyecto puede tener varios dispositivos conectados. Sin embargo, un dispositivo solo se puede asociar a un proyecto. 
+Un proyecto puede tener varios dispositivos registrados. Sin embargo, un dispositivo solo puede registrarse en un solo proyecto.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>¿El dispositivo de Azure Migrate o el dispositivo de replicación puede conectarse al mismo vCenter?
 
@@ -135,7 +134,7 @@ Además, no puede volver a usar una clave de proyecto de Azure Migrate existente
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>¿Se puede configurar el dispositivo en una máquina virtual de Azure?
 
-No. Actualmente, esta opción no es compatible. 
+No. Actualmente, esta opción no es compatible.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>¿Se puede detectar en un host ESXi?
 
@@ -150,6 +149,19 @@ Estas actualizaciones automáticas solo actualizan los agentes del dispositivo y
 ## <a name="can-i-check-agent-health"></a>¿Puedo comprobar el estado del agente?
 
 Sí. En el portal, vaya a la página **Agent Health** de Azure Migrate: Server Assessment o Azure Migrate: Herramienta de migración del servidor. Allí puede comprobar el estado de la conexión de los agentes de detección y valoración del dispositivo con Azure.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>¿Puedo agregar varias credenciales de servidor en el dispositivo de VMware?
+
+Sí, ahora se admiten varias credenciales de servidor para realizar el inventario de software (detección de aplicaciones instaladas), el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server. [Obtenga más información](tutorial-discover-vmware.md#provide-server-credentials) sobre cómo proporcionar las credenciales en el administrador de configuración del dispositivo.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>¿Qué tipo de credenciales de servidor puedo agregar en el dispositivo de VMware?
+Puede proporcionar credenciales de autenticación de dominio, Windows (no de dominio), Linux (no de dominio) o SQL Server en el administrador de configuración del dispositivo. [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo administrarlas.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>¿Qué tipo de propiedades de conexión de SQL Server es compatible con Azure Migrate para la detección de SQL?
+Azure Migrate cifrará la comunicación entre el dispositivo de Azure Migrate y las instancias de origen de SQL Server (con la propiedad Cifrar conexión establecida en TRUE). Estas conexiones se cifran con [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (establecido en TRUE); la capa de transporte usará SSL para cifrar el canal y evitar la cadena de certificados para validar la confianza. El servidor del dispositivo se debe configurar para [confiar en la entidad de certificación raíz del certificado](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Si no se ha aprovisionado ningún certificado en el servidor cuando se inicia, SQL Server genera un certificado autofirmado que se usa para cifrar los paquetes de inicio de sesión. [Más información](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

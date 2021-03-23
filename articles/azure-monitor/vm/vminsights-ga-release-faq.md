@@ -1,17 +1,16 @@
 ---
 title: Preguntas frecuentes de VM Insights (GA) | Microsoft Docs
 description: VM Insights es una solución de Azure que combina la supervisión de rendimiento y de mantenimiento del sistema operativo de la VM de Azure, así como la detección automática de las dependencias y los componentes de aplicación con otros recursos, y asigna la comunicación entre ellos. En este artículo se responde a preguntas habituales sobre la versión disponible de forma general.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710760"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031889"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre la disponibilidad general (GA) de VM Insights
 En estas Preguntas más frecuentes acerca de la disponibilidad general se describen los cambios realizados en el cuarto trimestre de 2019 y el primer trimestre de 2020, a medida que los preparábamos para disponibilidad general.
@@ -20,15 +19,15 @@ En estas Preguntas más frecuentes acerca de la disponibilidad general se descri
 Publicamos una versión nueva de VM Insights en enero de 2020 antes de nuestro anuncio sobre la disponibilidad general. Los clientes que habiliten VM Insights recibirán la nueva versión de disponibilidad general, mientras que a los clientes existentes que usan VM Insights desde el cuarto trimestre de 2019 y versiones anteriores se les solicitará que realicen la actualización. En estas preguntas frecuentes se ofrece una guía para realizar una actualización a gran escala si tiene implementaciones de gran tamaño en varias áreas de trabajo.
 
 
-Con esta actualización, los datos de rendimiento de Azure Monitor para VM se almacenan en la misma tabla *InsightsMetrics* que [Container Insights](../containers/container-insights-overview.md), lo que facilita la consulta de los dos conjuntos de datos. Además, puede almacenar conjuntos de datos más diversos que no podíamos almacenar en la tabla utilizada anteriormente. 
+Con esta actualización, los datos de rendimiento de Azure Insights se almacenan en la misma tabla *InsightsMetrics* que [Container Insights](../containers/container-insights-overview.md), lo que facilita la consulta de los dos conjuntos de datos. Además, puede almacenar conjuntos de datos más diversos que no podíamos almacenar en la tabla utilizada anteriormente. 
 
 Ahora nuestras vistas de rendimiento usan los datos que almacenamos en la tabla *InsightsMetrics*.  Si aún no ha llevado a cabo la actualización para usar la solución de VMInsights más reciente en el área de trabajo, los gráficos ya no mostrarán información.  Puede actualizar desde nuestra página **Get Started** como se describe a continuación.
 
 
 ## <a name="what-is-changing"></a>¿Qué está cambiando?
-Se ha lanzado una nueva solución, llamada VMInsights, que incluye funcionalidades adicionales para la recopilación de datos, junto con una nueva ubicación para almacenar estos datos en el área de trabajo de Log Analytics. 
+Se ha lanzado una nueva solución, llamada VMInsights, que incluye más funcionalidades para la recopilación de datos, junto con una nueva ubicación para almacenar estos datos en el área de trabajo de Log Analytics. 
 
-En el pasado, se habilitó la solución ServiceMap en el área de trabajo y se configuraron contadores de rendimiento en el área de trabajo de Log Analytics para enviar los datos a la tabla *Perf*. Esta nueva solución envía los datos a una tabla llamada *InsightsMetrics*, que también se usa en Container Insights. El esquema de esta tabla nos permite almacenar métricas adicionales y conjuntos de datos de servicio que no son compatibles con el formato de la tabla *Perf*.
+En el pasado, se habilitó la solución ServiceMap en el área de trabajo y se configuraron contadores de rendimiento en el área de trabajo de Log Analytics para enviar los datos a la tabla *Perf*. Esta nueva solución envía los datos a una tabla llamada *InsightsMetrics*, que también se usa en Container Insights. El esquema de esta tabla nos permite almacenar más métricas y conjuntos de datos de servicio que no son compatibles con el formato de tabla *Perf*.
 
 Se han actualizado los gráficos de rendimiento para usar los datos que almacenamos en la tabla *InsightsMetrics*. Puede actualizar para usar la tabla *InsightsMetrics* desde nuestra página **Comenzar** como se describe a continuación.
 
@@ -58,7 +57,7 @@ Si ha creado [alertas del registro](../alerts/alerts-unified-log.md) que consult
 
 Actualizaremos tanto este documento con preguntas frecuentes como nuestra documentación para incluir reglas de alertas de búsqueda de registros de ejemplo para los conjuntos de datos que recopilamos.
 
-## <a name="how-will-this-affect-my-bill"></a>¿Cómo afectará esto a la factura?
+## <a name="how-will-this-change-affect-my-bill"></a>¿Cómo afectará este cambio a mi factura?
 
 La facturación todavía se basa en los datos ingeridos y retenidos en el área de trabajo de Log Analytics.
 
@@ -108,7 +107,7 @@ Como cliente existente, puede seguir usando la característica Health en las má
 
 ## <a name="i-use-vm-health-now-with-one-environment-and-would-like-to-deploy-it-to-a-new-one"></a>Ahora utilizo la característica Health de la máquina virtual con un entorno y desearía implementarla en uno nuevo.
 
-Los clientes existentes que usan la característica Health y desean usarla para una nueva puesta en servicio, póngase en contacto con nosotros en vminsights@microsoft.com para solicitar instrucciones.
+Los clientes existentes que usan la característica Health y quieren usarla para un nuevo lanzamiento, pueden ponerse en contacto con nosotros en vminsights@microsoft.com para solicitar instrucciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

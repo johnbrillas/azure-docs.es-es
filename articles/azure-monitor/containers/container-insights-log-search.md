@@ -2,13 +2,13 @@
 title: Procedimiento para consultar registros desde Container Insights | Microsoft Docs
 description: Container Insights recopila datos de registro y métricas, y en este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: c2b7331255e1109f27f89a84d66e25eb07a20569
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711117"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201386"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>Procedimiento para consultar registros desde Container Insights
 
@@ -25,10 +25,11 @@ En la tabla siguiente se proporcionan detalles de los registros recopilados por 
 | Inventario de nodo de contenedor | API de Kube | `ContainerNodeInventory`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Inventario de pods en un clúster de Kubernetes | API de Kube | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus,  ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
 | Inventario de la parte de nodos de un clúster de Kubernetes | API de Kube | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
+|Inventario de volúmenes persistentes en un clúster de Kubernetes |API de Kube |`KubePVInventory` | TimeGenerated, PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, ClusterId, ClusterName, _ResourceId, SourceSystem |
 | Eventos de Kubernetes | API de Kube | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message, SourceSystem | 
 | Servicios en el clúster de Kubernetes | API de Kube | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | Perf &#124; donde ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Métricas de rendimiento de la parte de contenedores del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | Perf &#124; donde ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | `Perf \| where ObjectName == "K8SNode"` | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de rendimiento de la parte de contenedores del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | `Perf \| where ObjectName == "K8SContainer"` | CounterName &#40;cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Métricas personalizadas ||`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags<sup>1</sup>, TimeGenerated, Type, Va, _ResourceId | 
 
 <sup>1</sup> La propiedad *Tags* representa [varias dimensiones](../essentials/data-platform-metrics.md#multi-dimensional-metrics) para la métrica correspondiente. Para más información sobre las métricas recopiladas y almacenadas en la tabla `InsightsMetrics` y una descripción de las propiedades de registro, consulte [Información general de InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
@@ -37,24 +38,68 @@ En la tabla siguiente se proporcionan detalles de los registros recopilados por 
 
 Los registros de Azure Monitor pueden ayudarle a buscar tendencias, diagnosticar cuellos de botellas, realizar previsiones o correlacionar datos, que pueden servirle para determinar si la configuración actual del clúster funciona óptimamente. Las búsquedas de registros predefinidas se proporcionan para que comience a usarlas inmediatamente o para que las personalice con el fin de devolver la información de la forma deseada.
 
-Puede realizar un análisis interactivo de los datos en el área de trabajo mediante la selección de la opción **Ver registros de eventos de Kubernetes** o **Ver registros del contenedor** en el panel de vista previa de la lista desplegable **Ver en Analytics**. La página **Búsqueda de registros** aparece a la derecha de la página de Azure Portal en que se encontraba.
+Puede analizar interactivamente los datos del área de trabajo mediante la selección de la opción **Ver registros de eventos de Kubernetes** o **Ver registros del contenedor** en el panel de vista previa de la lista desplegable **Ver en Analytics**. La página **Búsqueda de registros** aparece a la derecha de la página de Azure Portal en que se encontraba.
 
 ![Análisis de los datos en Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)
 
-Los registros de contenedor generador que se reenvían al área de trabajo son STDOUT y STDERR. Dado que Azure Monitor supervisa Kubernetes administrado por Azure (AKS), el sistema de Kubernetes no se recopila hoy debido al gran volumen de datos generados. 
+Los registros de contenedor generador que se reenvían al área de trabajo son STDOUT y STDERR. Dado que Azure Monitor supervisa Kubernetes administrado por Azure (AKS), no se recopila el sistema de Kubernetes debido al gran volumen de datos generados. 
 
 ### <a name="example-log-search-queries"></a>Ejemplos de consultas de búsqueda de registros
 
 A menudo resulta útil crear consultas que comiencen con un ejemplo o dos y luego modificarlas para ajustarlas a sus requisitos. Para ayudarle a crear consultas más avanzadas, puede experimentar con las siguientes consultas de ejemplo:
 
-| Consultar | Descripción | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Se muestra toda la información del ciclo de vida de un contenedor| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventos de Kubernetes|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Inventario de imágenes | 
-| **Seleccione la opción de visualización del gráfico de líneas**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU de contenedor | 
-| **Seleccione la opción de visualización del gráfico de líneas**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria de contenedor |
-| InsightsMetrics<br> &#124; where Name == "requests_count"<br> &#124; summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)<br> &#124; sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated <br> &#124; render barchart  | Solicitudes por minuto con métricas personalizadas |
+### <a name="list-all-of-a-containers-lifecycle-information"></a>Se muestra toda la información del ciclo de vida de un contenedor
+
+```kusto
+ContainerInventory
+| project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime
+| render table
+```
+
+### <a name="kubernetes-events"></a>Eventos de Kubernetes
+
+``` kusto
+KubeEvents_CL
+| where not(isempty(Namespace_s))
+| sort by TimeGenerated desc
+| render table
+```
+### <a name="image-inventory"></a>Inventario de imágenes
+
+``` kusto
+ContainerImageInventory
+| summarize AggregatedValue = count() by Image, ImageTag, Running
+```
+
+### <a name="container-cpu"></a>CPU de contenedor
+
+**Selección de la opción de visualización de gráfico de líneas**
+
+``` kusto
+Perf
+| where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" 
+| summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName 
+```
+
+### <a name="container-memory"></a>Memoria de contenedor
+
+**Selección de la opción de visualización de gráfico de líneas**
+
+```kusto
+Perf
+| where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes"
+| summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName
+```
+
+### <a name="requests-per-minute-with-custom-metrics"></a>Solicitudes por minuto con métricas personalizadas
+
+```kusto
+InsightsMetrics
+| where Name == "requests_count"
+| summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)
+| sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated
+| render barchart 
+```
 
 ## <a name="query-prometheus-metrics-data"></a>Consulta de los datos de las métricas de Prometheus
 

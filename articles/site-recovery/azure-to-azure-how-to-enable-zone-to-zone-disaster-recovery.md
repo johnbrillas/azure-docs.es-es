@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beba8e1d8126818f142e4873d551ed077af869d2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584845"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035244"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Habilitación de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo replicar, conmutar por error y conmutar por 
 
 >[!NOTE]
 >
->- Actualmente, la compatibilidad con la recuperación ante desastres de zona a zona se limita a nueve regiones: Sudeste Asiático, Japón Oriental, Este de Australia, Sur de Reino Unido, Oeste de Europa, Norte de Europa, Centro de EE. UU., Este de EE. UU. y Oeste de EE. UU. 2.  
+>- Actualmente, la compatibilidad con la recuperación ante desastres de zona a zona se limita a las siguientes regiones: Sudeste Asiático, Japón Oriental, Este de Australia, Sur de Reino Unido, Oeste de Europa, Norte de Europa, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2 y Oeste de EE. UU. 2.  
 >- Site Recovery no mueve ni almacena los datos de los clientes fuera de la región en la que se ha implementado cuando el cliente usa la recuperación ante desastres de zona a zona. Los clientes pueden seleccionar un almacén de Recovery Services de otra región si así lo deciden. El almacén de Recovery Services contiene metadatos, pero ningún dato real de los clientes.
 
 El servicio Site Recovery contribuye a la estrategia de continuidad empresarial y recuperación ante desastres al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Es la opción recomendada de recuperación ante desastres para mantener sus aplicaciones en funcionamiento si hay interrupciones regionales.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762926"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031708"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
@@ -238,10 +238,10 @@ Tenga en cuenta que debe tener asignado el rol **Colaborador** de Azure Resource
 
 En la tabla siguiente se resumen los valores que se deben usar para el identificador de directiva y los identificadores de regla en el archivo JSON en cada escenario.
 
-| Al crear el archivo JSON para esta cuenta... | Establezca el identificador de la directiva y los identificadores de regla en este valor... |
-|-|-|
-| Cuenta de destino | Valor de cadena *predeterminado*. Azure Storage creará el identificador de la directiva y los identificadores de regla automáticamente. |
-| Cuenta de origen | Los valores del identificador de la directiva y los identificadores de regla devueltos al descargar la directiva definidos en la cuenta de destino como un archivo JSON. |
+| Al crear el archivo JSON para esta cuenta... | Establezca el id. de la directiva en este valor | Establezca los id. de regla en este valor |
+|-|-|-|
+| Cuenta de destino | Valor de cadena *predeterminado*. Azure Storage creará el id. de directiva automáticamente. | Una cadena vacía. Azure Storage creará los valores de id. de regla automáticamente. |
+| Cuenta de origen | Los valores de id. de directiva devueltos al descargar la directiva definida en la cuenta de destino como un archivo JSON. | Los valores de los id. de regla devueltos al descargar la directiva definida en la cuenta de destino como un archivo JSON. |
 
 En el ejemplo siguiente se define una directiva de replicación en la cuenta de destino con una única regla que coincide con el prefijo *b* y se establece el tiempo de creación mínimo para los blobs que se van a replicar. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 
@@ -253,7 +253,7 @@ En el ejemplo siguiente se define una directiva de replicación en la cuenta de 
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ En el ejemplo siguiente se define una directiva de replicación en la cuenta de 
 
 Para configurar la replicación de objetos en la cuenta de destino con un archivo JSON en Azure Portal, siga estos pasos:
 
-1. Cree un archivo JSON local que defina la directiva de replicación en la cuenta de destino. Establezca el campo **policyId** en **predeterminado** para que Azure Storage defina el identificador de la directiva.
+1. Cree un archivo JSON local que defina la directiva de replicación en la cuenta de destino. Establezca el campo **policyId** en *predeterminado* para que Azure Storage defina el identificador de la directiva.
 
     Una manera sencilla de crear un archivo JSON que define una directiva de replicación es crear primero una directiva de replicación de prueba entre dos cuentas de almacenamiento en Azure Portal. Después, puede descargar las reglas de replicación y modificar el archivo JSON según sea necesario.
 

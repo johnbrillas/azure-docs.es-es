@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480690"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035108"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad
 
@@ -110,19 +110,19 @@ Las solicitudes de lectura se pueden redirigir a almacenamiento secundario si ha
 
 * **SecondaryThenPrimary**
 
-Cuando se establece **LocationMode** en **PrimaryThenSecondary** , si la solicitud de lectura inicial para el punto de conexión principal genera un error que se puede reintentar, el cliente presenta automáticamente otra solicitud de lectura al punto de conexión secundario. Si el error es por agotamiento del tiempo de espera del servidor, el cliente tendrá que esperar a que el tiempo de espera expire antes de recibir un error con posibilidad de reintento del servicio.
+Cuando se establece **LocationMode** en **PrimaryThenSecondary**, si la solicitud de lectura inicial para el punto de conexión principal genera un error que se puede reintentar, el cliente presenta automáticamente otra solicitud de lectura al punto de conexión secundario. Si el error es por agotamiento del tiempo de espera del servidor, el cliente tendrá que esperar a que el tiempo de espera expire antes de recibir un error con posibilidad de reintento del servicio.
 
 Básicamente, se deben tener en cuenta dos escenarios al decidir cómo responder a un error con posibilidad de reintento:
 
 * Se trata de un problema aislado y las solicitudes posteriores al punto de conexión principal no devolverán un error con posibilidad de reintento. Un ejemplo de cuándo puede ocurrir esto es un error de red transitorio.
 
-    En este escenario, no hay ninguna reducción notable del rendimiento por tener **LocationMode** establecido en **PrimaryThenSecondary** , ya que esto solo sucede en raras ocasiones.
+    En este escenario, no hay ninguna reducción notable del rendimiento por tener **LocationMode** establecido en **PrimaryThenSecondary**, ya que esto solo sucede en raras ocasiones.
 
 * Se trata de un problema con al menos uno de los servicios de almacenamiento en la región principal y es probable que todas las solicitudes posteriores a ese servicio en la región principal devuelvan errores con posibilidad de reintento durante un tiempo. Un ejemplo se da si la región principal es totalmente inaccesible.
 
     En este escenario, el rendimiento se ve afectado porque todas las solicitudes de lectura intentarán en primer lugar el punto de conexión principal, esperarán a que el tiempo de espera expire y después cambiarán al punto de conexión secundario.
 
-Para estos escenarios, debe reconocer que existe un problema continuado con el punto de conexión principal y enviar todas las solicitudes de lectura directamente al punto de conexión secundario; para ello, establezca la propiedad **LocationMode** en **SecondaryOnly** . En este momento, también debería cambiar la aplicación para que se ejecute en modo de solo lectura. Este enfoque se conoce como el [patrón de disyuntor](/azure/architecture/patterns/circuit-breaker).
+Para estos escenarios, debe reconocer que existe un problema continuado con el punto de conexión principal y enviar todas las solicitudes de lectura directamente al punto de conexión secundario; para ello, establezca la propiedad **LocationMode** en **SecondaryOnly**. En este momento, también debería cambiar la aplicación para que se ejecute en modo de solo lectura. Este enfoque se conoce como el [patrón de disyuntor](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Solicitudes de actualización
 
@@ -148,6 +148,12 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
 
 * Agregue un controlador para el evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) en el objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
 
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
             ...
     };
     ```
+    ---
 
 * En el método [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
+
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
         return info;
     }
     ```
+    ---
 
 * El tercer enfoque consiste en implementar un componente de supervisión personalizado en la aplicación que haga ping continuamente al punto de conexión de almacenamiento principal con solicitudes de lectura ficticias (por ejemplo, la lectura de un blob pequeño) para determinar su estado. Esto consumiría recursos, pero no en cantidades notables. Cuando se detecte un problema que alcance el umbral, se llevar a cabo el cambio a **SecondaryOnly** y al modo de solo lectura.
 
@@ -193,9 +207,9 @@ Para el tercer escenario, cuando vuelva a hacer ping correctamente al punto de c
 
 ## <a name="handling-eventually-consistent-data"></a>Control de datos con coherencia final
 
-El almacenamiento con redundancia geográfica funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan *coherencia final* . Esto significa que todas las transacciones en la región primaria terminarán por aparecer en la región secundaria, aunque puede darse un retraso antes de que aparezcan y no hay ninguna garantía de que las transacciones lleguen a la región secundaria en el mismo orden en que se aplicaron originalmente en la región primaria. Si las transacciones llegan desordenadas a la región secundaria, *podría* considerar que los datos en la región secundaria se encuentran en un estado incoherente hasta que el servicio se ponga al día.
+El almacenamiento con redundancia geográfica funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan *coherencia final*. Esto significa que todas las transacciones en la región primaria terminarán por aparecer en la región secundaria, aunque puede darse un retraso antes de que aparezcan y no hay ninguna garantía de que las transacciones lleguen a la región secundaria en el mismo orden en que se aplicaron originalmente en la región primaria. Si las transacciones llegan desordenadas a la región secundaria, *podría* considerar que los datos en la región secundaria se encuentran en un estado incoherente hasta que el servicio se ponga al día.
 
-En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actualizar los detalles de un empleado para convertirlo en miembro del rol de *administrador* . Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
+En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actualizar los detalles de un empleado para convertirlo en miembro del rol de *administrador*. Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
 
 | **Time** | **Transacción**                                            | **Replicación**                       | **Hora de última sincronización** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
@@ -205,11 +219,11 @@ En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actual
 | T3       | Transacción C:<br> Actualizar <br>administrator<br>entidad rol administrador en región<br>primary |                    | T1                 | Transacción C escrita en región primaria,<br> aún sin replicar.  |
 | *T4*     |                                                       | Transacción C <br>replicada en<br> región secundaria | T1         | Transacción C replicada en región secundaria.<br>LastSyncTime no actualizado porque <br>la transacción B está aún sin replicar.|
 | *T5*     | Leer entidades <br>desde región secundaria                           |                                  | T1                 | Obtiene el valor obsoleto de la entidad <br> empleado porque la transacción B aún <br> no se ha replicado. Obtiene el valor nuevo para la<br> entidad rol de administrador porque C<br> se ha replicado. La hora de la última sincronización aún no se ha<br> actualizado porque la transacción B<br> no se ha replicado. Puede ver que la<br>entidad rol de administrador es incoherente <br>porque la fecha y hora de la entidad son posteriores a <br>Hora de última sincronización. |
-| *T6*     |                                                      | Transacción B<br> replicada en<br> región secundaria | T6                 | *T6* : todas las transacciones hasta la C <br>se han replicado, Hora de última sincronización<br> se ha actualizado. |
+| *T6*     |                                                      | Transacción B<br> replicada en<br> región secundaria | T6                 | *T6*: todas las transacciones hasta la C <br>se han replicado, Hora de última sincronización<br> se ha actualizado. |
 
 En este ejemplo, suponga que el cliente pasa a leer desde la región secundaria en T5. Puede leer correctamente la entidad **rol administrador** en este momento, pero la entidad contiene un valor para el recuento de administradores que no es coherente con el número de entidades **empleado** que están marcadas como administradores en la región secundaria en este momento. El cliente podría mostrar simplemente este valor y correr el riesgo de que sea información incoherente. O bien, el cliente podría intentar determinar que el **rol administrador** se encuentra en un estado potencialmente incoherente porque las actualizaciones se han producido desordenadas y después informar al usuario sobre este hecho.
 
-Para reconocer que tiene datos potencialmente incoherentes, el cliente puede usar el valor de *Hora de última sincronización* , que puede obtener en cualquier momento al consultar un servicio de almacenamiento. Esto indica la hora en que los datos de la región secundaria fueron coherentes por última vez y cuándo aplicó el servicio todas las transacciones hasta ese momento. En el ejemplo mostrado antes, una vez que el servicio inserta la entidad **empleado** en la región secundaria, la hora de la última sincronización se establece en *T1* . Permanece en *T1* hasta que el servicio actualiza la entidad **empleado** en la región secundaria cuando se establece en *T6* . Si el cliente recupera la última hora de sincronización cuando lee la entidad en *T5* , puede compararla con la marca de tiempo en la entidad. Si la marca de tiempo en la entidad es posterior a la hora de la última sincronización, la entidad se encuentra en un estado potencialmente incoherente, por lo que podrá llevar a cabo la acción adecuada para su aplicación. Para usar este campo, es necesario saber cuándo se completó la última actualización en la región primaria.
+Para reconocer que tiene datos potencialmente incoherentes, el cliente puede usar el valor de *Hora de última sincronización*, que puede obtener en cualquier momento al consultar un servicio de almacenamiento. Esto indica la hora en que los datos de la región secundaria fueron coherentes por última vez y cuándo aplicó el servicio todas las transacciones hasta ese momento. En el ejemplo mostrado antes, una vez que el servicio inserta la entidad **empleado** en la región secundaria, la hora de la última sincronización se establece en *T1*. Permanece en *T1* hasta que el servicio actualiza la entidad **empleado** en la región secundaria cuando se establece en *T6*. Si el cliente recupera la última hora de sincronización cuando lee la entidad en *T5*, puede compararla con la marca de tiempo en la entidad. Si la marca de tiempo en la entidad es posterior a la hora de la última sincronización, la entidad se encuentra en un estado potencialmente incoherente, por lo que podrá llevar a cabo la acción adecuada para su aplicación. Para usar este campo, es necesario saber cuándo se completó la última actualización en la región primaria.
 
 Para aprender a consultar la hora de la última sincronización, vea [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
 
@@ -218,6 +232,13 @@ Para aprender a consultar la hora de la última sincronización, vea [Comprobaci
 Es importante comprobar que la aplicación se comporte según lo esperado cuando encuentre errores con posibilidad de reintento. Por ejemplo, debe probar que la aplicación cambie a la región secundaria y al modo de solo lectura cuando se detecte un problema y que cambie de vuelta a la región primaria cuando vuelva a estar disponible. Para ello, necesita una manera de simular errores con posibilidad de reintento y controlar la frecuencia con que se producen.
 
 Puede usar [Fiddler](https://www.telerik.com/fiddler) para interceptar y modificar respuestas HTTP en un script. Este script puede identificar las respuestas que proceden de su punto de conexión principal y cambiar el código de estado HTTP para que la biblioteca del cliente de almacenamiento lo reconozca como error con posibilidad de reintento. Este fragmento de código muestra un ejemplo sencillo de un script de Fiddler que intercepta respuestas a solicitudes de lectura para la tabla **employeedata** y devuelve un estado 502:
+
+
+# <a name="java-v12"></a>[Java v12](#tab/current)
+
+Actualmente, estamos trabajando para crear fragmentos de código que reflejen la versión 12.x de las bibliotecas cliente de Azure Storage. Para más información, consulte el [anuncio de las bibliotecas cliente de Azure Storage v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[Java v11](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

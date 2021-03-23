@@ -3,14 +3,14 @@ title: Seguridad de datos de Azure Automation
 description: En este artículo aprenderá cómo Azure Automation protege su privacidad y los datos.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581118"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050824"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
@@ -41,7 +41,7 @@ Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de L
 
 ## <a name="data-retention"></a>Retención de datos
 
-Cuando elimina un recurso en Azure Automation, se conserva durante un número de días para fines de auditoría antes de su eliminación permanente. Durante este tiempo, no es posible ver ni usar el recurso. Esta directiva también se aplica a los recursos que pertenecen a una cuenta de Automation eliminada.
+Cuando elimina un recurso en Azure Automation, se conserva durante un número de días para fines de auditoría antes de su eliminación permanente. Durante este tiempo, no es posible ver ni usar el recurso. Esta directiva también se aplica a los recursos que pertenecen a una cuenta de Automation eliminada. La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar. Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede [reenviar los datos de trabajos de Azure Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 La tabla siguiente resume la directiva de retención para distintos recursos.
 
@@ -54,9 +54,9 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 | Módulos |Un módulo se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el módulo. |
 | Configuraciones de nodo y archivos MOF |La configuración de nodo anterior se elimina de forma permanente 30 días después de que se genere una nueva configuración. |
 | Informes de nodo |Un informe de nodo se elimina de forma permanente 90 días después de que se genere un nuevo informe para ese nodo. |
-| Runbooks |Un runbook se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso. |
+| Runbooks |Un runbook se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso<sup>1</sup>. |
 
-La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar. Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede [reenviar los datos de trabajos de Azure Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup>El runbook se puede recuperar en un período de 30 días mediante la presentación de un incidente de Soporte técnico de Azure en el soporte técnico de Microsoft Azure. Vaya al [sitio de Soporte técnico de Azure](/support/options) y seleccione **Submit a support request** (Enviar una solicitud de soporte técnico).
 
 ## <a name="data-backup"></a>Copia de seguridad de datos
 

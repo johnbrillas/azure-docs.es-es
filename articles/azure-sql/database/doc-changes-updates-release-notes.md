@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703774"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042511"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,14 +89,14 @@ Las características siguientes están habilitadas en el modelo de implementaci�
   - Compatibilidad con <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 y SharePoint 2019 </a> y <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Creación de una instancia administrada con la <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">intercalación a nivel de instancia</a> y la <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">zona horaria</a> que elija.
   - Las instancias administradas están protegidas por el [firewall integrado](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configuración de SQL Managed Instance para que usen [puntos de conexión públicos](../managed-instance/public-endpoint-configure.md), la conexión de [invalidación de proxy](connectivity-architecture.md#connection-policy) para obtener un mejor rendimiento de red, <a href="https://aka.ms/four-cores-sql-mi-update">cuatro núcleos virtuales en la generación de hardware de gen5</a> o <a href="/azure/azure-sql/database/automated-backups-overview">configuración de la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. La [retención de copias de seguridad a largo plazo](long-term-retention-overview.md#sql-managed-instance-support) (hasta 10 años) se encuentra actualmente en versión preliminar pública limitada.  
+  - Configuración de SQL Managed Instance para que usen [puntos de conexión públicos](../managed-instance/public-endpoint-configure.md), la conexión de [invalidación de proxy](connectivity-architecture.md#connection-policy) para obtener un mejor rendimiento de red, <a href="https://aka.ms/four-cores-sql-mi-update">cuatro núcleos virtuales en la generación de hardware de gen5</a> o <a href="/azure/azure-sql/database/automated-backups-overview">configuración de la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. La [retención de copias de seguridad a largo plazo](long-term-retention-overview.md) (hasta 10 años) se encuentra actualmente en versión preliminar pública.  
   - Las nuevas funcionalidades permiten <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar geográficamente la base de datos en otro centro de datos mediante PowerShell</a>, [cambiar el nombre de la base de datos](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) y [eliminar un clúster virtual](../managed-instance/virtual-cluster-delete.md).
   - El nuevo [rol de colaborador de instancia](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) integrado permite el cumplimiento de la separación de los derechos (SoD) con los principios de seguridad y el cumplimiento de los estándares de la empresa.
   - SQL Managed Instance está disponible en las siguientes regiones de Azure Government de disponibilidad general (US Gov Texas y US Gov Arizona) y en Norte de China 2 y Este de China 2. También está disponible en las siguientes regiones públicas: Centro de Australia, Centro de Australia 2, Sur de Brasil, Sur de Francia, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica, Oeste de Sudáfrica.
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
 |[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679965"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044194"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
 
@@ -26,17 +26,17 @@ Cuando se visualizan muchos puntos de datos en el mapa, los puntos pueden superp
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitar la agrupación en clústeres en un origen de datos
 
-Habilite la agrupación en clústeres en la clase `DataSource` estableciendo la opción `cluster` en true. Establezca `ClusterRadius` para seleccionar puntos cercanos y combinarlos en un clúster. El valor de `ClusterRadius` está expresado en píxeles. Utilice `clusterMaxZoom` para especificar el nivel de zoom en el que se va a deshabilitar la lógica de agrupación en clústeres. Este es un ejemplo de cómo habilitar la agrupación en clústeres en un origen de datos.
+Habilite la agrupación en clústeres en la clase `DataSource` estableciendo la opción `cluster` en true. Establezca `clusterRadius` para seleccionar puntos cercanos y combinarlos en un clúster. El valor de `clusterRadius` está expresado en píxeles. Use `clusterMaxZoom` para especificar el nivel de zoom en el que se debe deshabilitar la lógica de agrupación en clústeres. Este es un ejemplo de cómo habilitar la agrupación en clústeres en un origen de datos.
 
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
     //Tell the data source to cluster point data.
     cluster: true,
-
+    
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
-
+    
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15
@@ -46,7 +46,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > Si dos puntos de datos están muy próximos en la superficie, es posible que nunca se separen, con independencia de lo mucho que el usuario acerque el mapa. Para solucionarlo, puede establecer la opción `clusterMaxZoom` para que la lógica de agrupación en clústeres se deshabilite y se muestren todos los elementos.
 
-Estos son algunos otros métodos que la clase `DataSource` proporciona para la agrupación en clústeres:
+La clase `DataSource` también proporciona los siguientes métodos relacionados con la agrupación en clústeres.
 
 | Método | Tipo de valor devuelto | Descripción |
 |--------|-------------|-------------|

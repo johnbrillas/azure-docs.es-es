@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 08/31/2020
-ms.openlocfilehash: fb9439bc37fcecf1cb5299a09916ebe21c5bc1cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/04/2021
+ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393826"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197911"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -21,7 +21,7 @@ Los parámetros globales son constantes en una factoría de datos que una canali
 
 ## <a name="creating-global-parameters"></a>Creación de parámetros globales
 
-Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección *Administrar*. Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
+Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección **Administrar**. Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
 
 ![Captura de pantalla en la que se resalta el botón Nuevo que ha seleccionado para crear los parámetros globales.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -46,7 +46,10 @@ Hay dos maneras de integrar los parámetros globales en la solución de integrac
 * Incluir los parámetros globales en la plantilla de Resource Manager
 * Implementar los parámetros globales mediante un script de PowerShell
 
-Para la mayoría de los casos de uso, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integrará de forma nativa con la solución descrita en la [documentación sobre CI/CD](continuous-integration-deployment.md). Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el centro de administración.
+Para la mayoría de los casos de uso, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integrará de forma nativa con la solución descrita en la [documentación sobre CI/CD](continuous-integration-deployment.md). Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el **centro de administración**.
+
+> [!NOTE]
+> La configuración de **inclusión en la plantilla de ARM** solo está disponible en el modo git. Actualmente está deshabilitada en el modo activo o el modo de Data Factory.
 
 ![Inclusión en la plantilla de Resource Manager](media/author-global-parameters/include-arm-template.png)
 

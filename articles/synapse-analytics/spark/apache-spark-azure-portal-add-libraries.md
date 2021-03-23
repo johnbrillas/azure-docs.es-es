@@ -1,5 +1,5 @@
 ---
-title: Administración de bibliotecas
+title: Administración de paquetes
 description: Obtenga información sobre cómo agregar y administrar bibliotecas que usa Apache Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: midesa
@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 955d7f8c2d2ce5ea126d4cce67b0e4e55152ac72
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695097"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176423"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. 
@@ -38,17 +38,18 @@ A la hora de desarrollar aplicaciones o modelos personalizados, su equipo puede 
 En Azure Synapse, los paquetes de área de trabajo pueden ser archivos JAR o wheel personalizados o privados. Puede cargar estos paquetes en su área de trabajo y después asignarlos a un grupo de Spark específico. Una vez asignados, estos paquetes de área de trabajo se instalan automáticamente en todas las sesiones del grupo de Spark.
 
 Para obtener más información sobre cómo administrar bibliotecas de área de trabajo, visite las siguientes guías paso a paso:
-- [Paquetes de área de trabajo de Python:](./apache-spark-manage-python-packages.md#Install-wheel-files) cargue archivos wheel de Python como paquetes de área de trabajo y, después, agregue estos paquetes a grupos de Apache Spark sin servidor específicos.
-- [Paquetes de área de trabajo de Scala/Java:](./apache-spark-manage-scala-packages.md#Workspace-packages) cargue archivos JAR de Scala y Java como paquetes de área de trabajo y, después, agregue estos paquetes a grupos de Apache Spark sin servidor específicos.
 
-## <a name="pool-management"></a>Administración de grupos
+- [Paquetes de área de trabajo de Python:](./apache-spark-manage-python-packages.md#install-wheel-files) cargue archivos wheel de Python como paquetes de área de trabajo y, después, agregue estos paquetes a grupos de Apache Spark sin servidor específicos.
+- [Paquetes de área de trabajo de Scala/Java:](./apache-spark-manage-scala-packages.md#workspace-packages) cargue archivos JAR de Scala y Java como paquetes de área de trabajo y, después, agregue estos paquetes a grupos de Apache Spark sin servidor específicos.
+
+## <a name="pool-packages"></a>Paquetes de grupo
 En algunos casos, es posible que quiera estandarizar el conjunto de paquetes que se usan en un grupo específico de Apache Spark. Esta estandarización puede ser útil si varias personas de su equipo instalan normalmente los mismos paquetes. 
 
 Con las funcionalidades de administración de grupos de Azure Synapse Analytics, puede configurar el conjunto predeterminado de bibliotecas que le gustaría instalar en un grupo específico de Apache Spark sin servidor. Estas bibliotecas se instalan sobre el [entorno de ejecución base](./apache-spark-version-support.md). 
 
 Actualmente, la administración de grupos solo es compatible con Python. En Python, los grupos de Synapse Spark usan Conda para instalar y administrar las dependencias de paquetes de Python. A la hora de especificar las bibliotecas de nivel de grupo, ahora puede proporcionar un archivo requirements.txt o un archivo environment.yml. Este archivo de configuración del entorno se usa cada vez que se crea una instancia de Spark desde ese grupo de Spark. 
 
-Para obtener más información sobre estas funcionalidades, consulta la documentación sobre la [administración de grupos de Python](./apache-spark-manage-python-packages.md#Pool-libraries).
+Para obtener más información sobre estas funcionalidades, consulta la documentación sobre la [administración de grupos de Python](./apache-spark-manage-python-packages.md#pool-libraries).
 
 > [!IMPORTANT]
 > - Si el paquete que va a instalar es de gran tamaño o tarda mucho tiempo en instalarse, afectará al tiempo de inicio de la instancia de Spark.
@@ -60,9 +61,14 @@ A menudo, al realizar análisis de datos interactivos o aprendizaje automático,
 
 Los paquetes de ámbito de sesión permiten a los usuarios definir las dependencias de paquetes al inicio de la sesión. Cuando se instala un paquete de ámbito de sesión, solo la sesión actual tiene acceso a los paquetes especificados. Como resultado, estos paquetes de ámbito de sesión no afectarán a otras sesiones u otros trabajos que usen el mismo grupo de Apache Spark. Además, las bibliotecas se instalan sobre el entorno de ejecución base y los paquetes de nivel de grupo. 
 
+Estos paquetes se agregan automáticamente al entorno de Python. Los paquetes no deben mencionarse en el archivo *requirements.txt*.
+
+Tenga en cuenta que este método actualmente solo admite archivos `*.whl`. No agregue archivos `*.tar.gz` al contenedor.
+
 Para obtener más información sobre cómo administrar paquetes de ámbito de sesión, consulte las siguientes guías paso a paso:
-- [Paquetes de sesión de Python (versión preliminar):](./apache-spark-manage-python-packages.md#Session-scoped-libraries-(preview)) al inicio de una sesión, proporcione un archivo *environment.yml* de Conda para instalar paquetes de Python adicionales desde repositorios populares. 
-- [Paquetes de sesión de Scala/Java:](./apache-spark-manage-scala-packages.md#Workspace-packages) al inicio de la sesión, proporcione una lista de los archivos JAR que se van a instalar mediante ```%%configure```.
+
+- [Paquetes de sesión de Python (versión preliminar):](./apache-spark-manage-python-packages.md) al inicio de una sesión, proporcione un archivo *environment.yml* de Conda para instalar paquetes de Python adicionales desde repositorios populares. 
+- [Paquetes de sesión de Scala/Java:](./apache-spark-manage-scala-packages.md) al inicio de la sesión, proporcione una lista de los archivos JAR que se van a instalar mediante `%%configure`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Visualización de las bibliotecas predeterminadas: [Compatibilidad de las versiones de Azure Spark](apache-spark-version-support.md)

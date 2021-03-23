@@ -2,13 +2,13 @@
 title: Filtrado de eventos para Azure Event Grid
 description: Se describe cómo filtrar eventos al crear una suscripción de Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/26/2021
-ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721963"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197782"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -58,13 +58,27 @@ Para filtrar por valores en los campos de datos y especificar el operador de com
 * valores: el valor o los valores que se compararán con la clave.
 
 ## <a name="key"></a>Clave
-Clave es el campo de datos de evento que se usa para filtrar. Puede ser un número, un valor booleano, una cadena o una matriz. Para los eventos del **esquema de Event Grid**, utilice los valores siguientes para la clave: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion` o datos de evento (como `data.key1`).
+Clave es el campo de datos de evento que se usa para filtrar. Puede ser uno de los siguientes tipos:
+
+- Number
+- Boolean
+- String
+- Matriz. Debe establecer la propiedad `enableAdvancedFilteringOnArrays` en true para usar esta característica. Actualmente, en Azure Portal no se puede habilitar esta característica. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+Para los eventos del **esquema de Event Grid**, utilice los valores siguientes para la clave: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion` o datos de evento (como `data.key1`).
 
 Para los eventos del **esquema de Cloud Events**, utilice los valores siguientes para la clave: `eventid`, `source`, `eventtype`, `eventtypeversion` o datos de evento (como `data.key1`).
 
-Para el **esquema de entrada personalizado**, use los campos de datos de evento (como `data.key1`).
-
-Para acceder a los campos de la sección de datos, use la notación `.` (punto). Por ejemplo, `data.sitename`, `data.appEventTypeDetail.action` para acceder a `sitename` o `action` para el siguiente evento de ejemplo.
+Para el **esquema de entrada personalizado**, use los campos de datos de evento (como `data.key1`). Para acceder a los campos de la sección de datos, use la notación `.` (punto). Por ejemplo, `data.sitename`, `data.appEventTypeDetail.action` para acceder a `sitename` o `action` para el siguiente evento de ejemplo.
 
 ```json
     "data": {
@@ -80,10 +94,8 @@ Para acceder a los campos de la sección de datos, use la notación `.` (punto).
     },
 ```
 
-
 ## <a name="values"></a>Valores
 Los valores pueden ser: número, cadena, booleano o matriz.
-
 
 ## <a name="operators"></a>Operadores
 
@@ -104,7 +116,7 @@ El operador NumberIn se evalúa en true si el valor de la **clave** es uno de lo
 ```
 
 
-Si la clave es una matriz, todos los valores de la matriz se comprueban con la matriz de valores de filtro. Este es el pseudocódigo con la clave: `[v1, v2, v3]` y el filtro: `[a, b, c]`. Los valores de clave con tipos de datos que no coinciden con el tipo de datos del filtro se ignoran.
+Si la clave es una matriz, todos los valores de la matriz se comprueban con la matriz de valores de filtro. Este es el pseudocódigo con la clave `[v1, v2, v3]` y el filtro `[a, b, c]`. Los valores de clave con tipos de datos que no coinciden con el tipo de datos del filtro se ignoran.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -127,7 +139,7 @@ El operador NumberNotIn se evalúa en true si el valor de la **clave** **no** es
 }]
 ```
 
-Si la clave es una matriz, todos los valores de la matriz se comprueban con la matriz de valores de filtro. Este es el pseudocódigo con la clave: `[v1, v2, v3]` y el filtro: `[a, b, c]`. Los valores de clave con tipos de datos que no coinciden con el tipo de datos del filtro se ignoran.
+Si la clave es una matriz, todos los valores de la matriz se comprueban con la matriz de valores de filtro. Este es el pseudocódigo con la clave `[v1, v2, v3]` y el filtro `[a, b, c]`. Los valores de clave con tipos de datos que no coinciden con el tipo de datos del filtro se ignoran.
 
 ```
 FOR_EACH filter IN (a, b, c)

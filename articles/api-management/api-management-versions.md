@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547203"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040386"
 ---
 # <a name="versions-in-azure-api-management"></a>Versiones de Azure API Management
 
@@ -42,7 +42,7 @@ Cuando se usa el esquema de control de versiones de ruta de acceso, el identific
 
 Por ejemplo, `https://apis.contoso.com/products/v1` y `https://apis.contoso.com/products/v2` podrían hacer referencia a la misma API `products`, pero a las versiones `v1` y `v2` respectivamente.
 
-El formato de una dirección URL de solicitud de API cuando se usa el control de versiones basado en encabezados es: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
+El formato de una dirección URL de solicitud de API cuando se usa el control de versiones basado en rutas de acceso es: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}`.
 
 ### <a name="header-based-versioning"></a>Control de versiones basado en encabezados
 

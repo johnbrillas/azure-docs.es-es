@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437038"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046132"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -214,7 +214,7 @@ La salida de este comando puede ser larga, incluida la información sobre todos 
 
 Si el dispositivo de hoja tiene una conexión intermitente con su dispositivo de puerta de enlace, intente seguir estos pasos para resolverlo.
 
-1. ¿El nombre de host de la puerta de enlace en la cadena de conexión es el mismo que el valor de nombre de host en el archivo config.yaml de IoT Edge del dispositivo de puerta de enlace?
+1. ¿El nombre de host de la puerta de enlace en la cadena de conexión es el mismo que el valor de hostname en el archivo de configuración de IoT Edge del dispositivo de puerta de enlace?
 2. ¿Se puede resolver el nombre de host de la puerta de enlace en una dirección IP? Puede resolver conexiones intermitentes mediante el uso de DNS o bien mediante la incorporación de una entrada de archivo de host en el dispositivo de hoja.
 3. ¿Están abiertos los puertos de comunicación en el firewall? Debe ser posible la comunicación basada en el protocolo usado (MQTTS:8883/AMQPS:5671/HTTPS:433) entre el dispositivo de bajada y el dispositivo IoT Edge transparente.
 

@@ -1,17 +1,16 @@
 ---
 title: Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics en Azure Monitor
 description: Se describe cómo configurar la recopilación de registros de eventos de Windows mediante Azure Monitor y se incluyen detalles de los registros que crean.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719872"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036609"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](../agents/agent-data-sources.md) más comunes para los agentes de Log Analytics en máquinas virtuales Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -22,13 +21,13 @@ Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que co
 ![Eventos de Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configuración de registros de eventos de Windows
-Configure los registros de eventos de Windows en el [menú Datos en Configuración avanzada](../agents/agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics.
+Configure los registros de eventos en el [menú de configuración de agentes](../agents/agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics.
 
 Azure Monitor solo recopila eventos de los registros de eventos de Windows que se especifican en la configuración.  Para agregar un registro nuevo, escriba el nombre y haga clic en **+** .  Para cada registro, solo se recopilan los eventos con los niveles de gravedad seleccionados.  Compruebe las gravedades del registro determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar eventos.
 
 A medida que escribe el nombre de un registro de eventos, Azure Monitor da sugerencias de nombres comunes de este tipo de registros. Aun cuando el registro que desea agregar no aparezca en la lista, puede incluirlo escribiendo su nombre completo. Encontrará el nombre completo del registro en el Visor de eventos. En el Visor de eventos, abra la página *Propiedades* del registro y copie la cadena del campo *Nombre completo*.
 
-![Configurar eventos de Windows](media/data-sources-windows-events/configure.png)
+[![Configurar eventos de Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Los eventos críticos del registro de eventos de Windows tendrán una gravedad de "error" en los registros de Azure Monitor.

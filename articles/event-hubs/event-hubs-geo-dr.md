@@ -3,12 +3,12 @@ title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Do
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390681"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042375"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -44,11 +44,7 @@ Los siguientes términos se utilizan en este artículo:
 -  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
 
 -  *Espacio de nombres principal o secundario*: los espacio de nombres que corresponden al alias. El espacio de nombres principal está "activo" y recibe mensajes (puede ser un espacio de nombres existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias.
-
-    > [!IMPORTANT]
-    > La característica de recuperación ante desastres geográfica requiere que la suscripción y el grupo de recursos sean los mismos para los espacios de nombres principal y secundario. 
 -  *Metadatos*: entidades como centros de eventos y grupos de consumidores; y sus propiedades del servicio que están asociadas con el espacio de nombres. Solo las entidades y sus valores se replican automáticamente. No se replican los mensajes ni los eventos. 
-
 -  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
 
 ## <a name="supported-namespace-pairs"></a>Pares de espacios de nombres admitidos
@@ -75,13 +71,13 @@ La siguiente sección contiene información general del proceso de conmutación 
 En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. 
 
 1. Cree el espacio de nombres principal.
-1. Cree el espacio de nombres secundario en la suscripción y el grupo de recursos que tiene el espacio de nombres principal, pero en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
+1. Cree el espacio de nombres secundario en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
 1. En Azure Portal, vaya al espacio de nombres principal.
 1. Seleccione **Recuperación geográfica** en el menú de la izquierda e **Iniciar el emparejamiento** en la barra de herramientas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicio del emparejamiento desde el espacio de nombres principal":::    
-1. En la página **Iniciar el emparejamiento**, realice estos pasos:
-    1. Seleccione un espacio de nombres secundario existente o cree uno en la suscripción y el grupo de recursos que tiene el espacio de nombres principal. En este ejemplo, se ha seleccionado un espacio de nombres existente.  
+1. En la página **Iniciar el emparejamiento**, siga estos pasos:
+    1. Seleccione un espacio de nombres secundario existente o cree uno en otra región. En este ejemplo, se ha seleccionado un espacio de nombres existente.  
     1. En **Alias**, escriba un alias para el emparejamiento de recuperación ante desastres con localización geográfica. 
     1. Seleccione **Crear**. 
 

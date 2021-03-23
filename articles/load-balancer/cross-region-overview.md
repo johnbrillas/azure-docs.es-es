@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946259"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176729"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -28,14 +28,14 @@ Azure Standard Load Balancer admite el equilibrio de carga entre regiones que ha
 
 * Tráfico entrante que se origina desde varias regiones.
 * [Conmutación por error global instantánea](#regional-redundancy) a la siguiente implementación regional óptima.
-* Distribución de la carga entre regiones en la región de Azure más cercana con [latencia ultra](#ultra-low-latency).
+* Distribución de la carga entre regiones a la región de Azure más cercana con [latencia ultrabaja](#ultra-low-latency).
 * Capacidad de [escalar verticalmente o reducir verticalmente](#ability-to-scale-updown-behind-a-single-endpoint) detrás de un solo punto de conexión.
 * [Dirección IP estática](#static-ip)
 * [Conservación de la dirección IP de cliente](#client-ip-preservation)
 * [Compilación en la solución del equilibrador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sin curva de aprendizaje
 
 > [!IMPORTANT]
-> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y se puede implementar en el portal. Inicie sesión en **https://preview.portal.azure.com** para ver e implementar la característica. </br> </br>
+> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El equilibrio de carga entre regiones ofrece las mismas ventajas de alto rendimiento y baja latencia que la instancia de Standard Load Balancer regional. 
@@ -79,7 +79,7 @@ Para más información, consulte [Configurar el modo de distribución para Azure
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidad de escalar verticalmente o reducir verticalmente detrás de un solo punto de conexión
 
-Cuando exponga el punto de conexión global de un equilibrador de carga entre regiones a los clientes, puede agregar o quitar implementaciones regionales detrás del punto de conexión global sin impacto en los clientes. 
+Cuando expone el punto de conexión global de un equilibrador de carga entre regiones a los clientes, puede agregar o quitar implementaciones regionales detrás del punto de conexión global sin que se produzca ninguna interrupción. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ El grupo de back-end del equilibrador de carga entre regiones contiene uno o var
 
 Agregue las implementaciones del equilibrador de carga existentes a un equilibrador de carga entre regiones para una implementación entre regiones altamente disponible.
 
-La **región principal** es aquella en la que se implementa el equilibrador de carga entre regiones. Esta región no afecta al modo en que se enrutará el tráfico. Si una región principal deja de funcionar, no afectará al flujo de tráfico.
+La **región principal** es aquella en la que se implementa el equilibrador de carga entre regiones. Esta región no afecta al modo en que se enrutará el tráfico. Si una región principal deja de funcionar, el flujo de tráfico no se ve afectado.
 
 ### <a name="home-regions"></a>Regiones principales
 * Este de EE. UU. 2
@@ -137,13 +137,13 @@ El equilibrador de carga entre regiones enruta el tráfico al equilibrador de ca
 
 * Las configuraciones de direcciones IP de front-end entre regiones son solo públicas. Actualmente no se admite un front-end interno.
 
-* No se puede agregar un equilibrador de carga interno o privado al grupo de back-end del equilibrador de carga entre regiones 
+* No se puede agregar un equilibrador de carga interno o privado al grupo de back-end del equilibrador de carga entre regiones. 
 
 * Las configuraciones de direcciones IP de front-end IPv6 entre regiones no se admiten. 
 
 * Un sondeo de estado no se puede configurar actualmente. Un sondeo de estado predeterminado recopila de forma automática información de disponibilidad sobre el equilibrador de carga regional cada 20 segundos. 
 
-* Azure Kubernetes Service (AKS) no se puede integrar actualmente con Load Balancer entre regiones. Se debe esperar una pérdida de conectividad al configurar una instancia de Load Balancer entre regiones delante de una instancia de Load Balancer pública implementada con AKS.
+* Actualmente no existe integración con Azure Kubernetes Service (AKS). Se produce una pérdida de conectividad al implementar un equilibrador de carga entre regiones con el equilibrador de carga estándar cuando hay un clúster de AKS implementado en el back-end.
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 El equilibrador de carga entre regiones comparte el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) de la instancia de Standard Load Balancer.

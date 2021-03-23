@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379121"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174366"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -68,7 +68,7 @@ La característica **directiva de instantánea** está actualmente en la versió
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-También puede usar los comandos de la [CLI de Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro. 
+También puede usar los comandos de la [CLI de Azure](/cli/azure/feature) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Creación de una directiva de instantánea 
 
@@ -257,6 +257,9 @@ Puede encontrar la opción Revertir volumen en el menú Instantáneas de un volu
 ## <a name="delete-snapshots"></a>Eliminar instantáneas  
 
 Puede eliminar las instantáneas que ya no necesita conservar. 
+
+> [!IMPORTANT]
+> La operación de eliminación de instantáneas no se puede deshacer. No se puede recuperar una instantánea eliminada. 
 
 1. Vaya al menú **Instantáneas** de un volumen. Haga clic con el botón derecho en la instantánea que desea eliminar. Seleccione **Eliminar**.
 

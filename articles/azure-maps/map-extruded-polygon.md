@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890775"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044092"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adición de una capa de extrusión de polígonos al mapa
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar la capa de extrusión de polígono para 
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Uso de una capa de extrusión de polígono
 
-Conecte la [capa de extrusión de polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un origen de datos. Luego, cárguelo en el mapa. La capa de extrusión de polígono representa las áreas de las características `Polygon` y `MultiPolygon` como formas extruidas. Las propiedades `height` y `base` de la capa de extrusión de polígono definen la distancia base desde el suelo y la altura de la forma extruida en **metros** . En el código siguiente se muestra cómo crear un polígono, agregarlo a un origen de datos y representarlo con la clase de la capa de extrusión de polígono.
+Conecte la [capa de extrusión de polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a un origen de datos. Luego, cárguelo en el mapa. La capa de extrusión de polígono representa las áreas de las características `Polygon` y `MultiPolygon` como formas extruidas. Las propiedades `height` y `base` de la capa de extrusión de polígono definen la distancia base desde el suelo y la altura de la forma extruida en **metros**. En el código siguiente se muestra cómo crear un polígono, agregarlo a un origen de datos y representarlo con la clase de la capa de extrusión de polígono.
 
 > [!Note]
 > El valor `base` definido en la capa de extrusión de polígono debe ser menor o igual al de `height`.
@@ -31,7 +31,6 @@ Conecte la [capa de extrusión de polígono](/javascript/api/azure-maps-control/
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Polígono extruido" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Polígono extruido</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.</iframe>
-
 
 ## <a name="add-data-driven-polygons"></a>Incorporación de polígonos controlados por datos
 
@@ -45,7 +44,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Mapa de corop
 
 ## <a name="add-a-circle-to-the-map"></a>Adición de un círculo al mapa
 
-Azure Maps usa una versión extendida del esquema GeoJSON que proporciona una definición para círculos como se indica [aquí](./extend-geojson.md#circle). Se puede representar un círculo en el mapa mediante la creación de una característica `point` que tiene una propiedad `subType` con un valor de `Circle` y una propiedad `Radius` numerada que representa el radio en **metros** . Por ejemplo:
+Azure Maps usa una versión extendida del esquema GeoJSON que proporciona una definición para círculos como se indica [aquí](./extend-geojson.md#circle). Se puede representar un círculo en el mapa mediante la creación de una característica `point` que tiene una propiedad `subType` con un valor de `Circle` y una propiedad `Radius` numerada que representa el radio en **metros**. Por ejemplo:
 
 ```javascript
 {

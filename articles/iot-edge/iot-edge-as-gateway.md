@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec0bf6330b7b2268db84d86dc5a0d141fc24ce74
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371112"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040658"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -95,7 +95,7 @@ En los dispositivos IoT de nivel inferior, use el parámetro **gatewayHostname**
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-En los dispositivos IoT Edge de nivel inferior, use el parámetro **parent_hostname** en el archivo config.yaml para apuntar al dispositivo primario.
+En los dispositivos IoT Edge de nivel inferior, use el parámetro **parent_hostname** en el archivo de configuración para apuntar al dispositivo primario.
 ::: moniker-end
 
 #### <a name="secure-connection"></a>Conexión segura

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071277"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051198"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -77,7 +77,7 @@ Azure AD dispone de un conjunto de roles de administrador integrados para conced
 - Administrador de aplicaciones: los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Este rol también proporciona la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 - Administrador de aplicaciones en la nube: los usuarios con este rol tienen los mismos permisos que el rol de administrador de la aplicación, excluida la capacidad de administrar el proxy de aplicación. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-Para más información y para ver la descripción de esos roles, consulte [Roles disponibles](permissions-reference.md#available-roles).
+Para más información y para ver la descripción de esos roles, consulte [Roles integrados de Azure AD](permissions-reference.md).
 
 Siga las instrucciones de la guía paso a paso [Asignación de roles a usuarios con Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) para asignar los roles Administrador de aplicaciones o Administrador de aplicaciones en la nube.
 

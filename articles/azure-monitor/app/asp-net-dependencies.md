@@ -4,12 +4,12 @@ description: Supervise las llamadas de dependencia de su aplicación web o local
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652010"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045299"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -88,6 +88,9 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 Para las páginas web, el SDK de JavaScript de Application Insights recopila automáticamente las llamadas AJAX como dependencias.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Seguimiento de SQL avanzado para obtener la consulta SQL completa
+
+> [!NOTE]
+> Azure Functions requiere una configuración independiente para habilitar la recopilación de texto de SQL, consulte la [configuración de la supervisión de Azure Functions](../../azure-functions/configure-monitoring.md) para obtener más información.
 
 Para las llamadas SQL, el nombre del servidor y la base de datos siempre se recopilan y almacenan como el nombre de la `DependencyTelemetry` recopilada. Hay un campo adicional denominado "data", que puede contener el texto completo de la consulta SQL.
 

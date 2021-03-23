@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720620"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051436"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -24,7 +24,8 @@ La Caja de seguridad del cliente de Microsoft Azure proporciona una interfaz par
 
 Este artículo se describe cómo habilitar Caja de seguridad del cliente y cómo se inician, siguen y almacenan las solicitudes de Caja de seguridad del cliente para revisiones y auditorías posteriores.
 
-<a id='supported-services-and-scenarios-in-preview'>## Servicios y escenarios admitidos (Disponibilidad general)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>Servicios y escenarios admitidos (Disponibilidad general)
 
 Ahora los servicios siguientes están disponibles con carácter general para Caja de seguridad del cliente:
 

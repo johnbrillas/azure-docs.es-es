@@ -3,12 +3,12 @@ title: Planeamiento de una implementación a escala de servidores habilitados pa
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc para simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
 ms.date: 02/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd02e7c0b4d65efde13fbc428a15d60adab174d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692916"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032235"
 ---
 # <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planeamiento de una implementación a escala de servidores habilitados para Azure Arc
 
@@ -27,7 +27,7 @@ Para que la implementación se lleve a cabo sin problemas, el plan debe incluir 
 
 El propósito de este artículo es asegurarse de que está preparado para una implementación correcta de servidores habilitados para Azure Arc en varios servidores físicos o máquinas virtuales de producción en su entorno.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Las máquinas ejecutan un [sistema operativo compatible](agent-overview.md#supported-operating-systems) para el agente de Connected Machine.
 * Los equipos tienen conectividad desde la red local u otro entorno de nube a recursos de Azure, ya sea directamente o a través de un servidor proxy.
@@ -71,7 +71,7 @@ A continuación, completamos la base establecida en la fase 1 preparando la imp
 
 |Tarea |Detail |Duration |
 |-----|-------|---------|
-| Descarga del script de instalación predefinido | Revise y personalice el script de instalación predefinido para la implementación a escala del agente de Connected Machine para admitir los requisitos de implementación automatizada.<br><br> Ejemplos de recursos de incorporación a escala:<br><br> * [Script de implementación básica a escala](servers/onboard-service-principal.md)<br><br> * [VM de Windows Server de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)<br><br> * [VM de Linux de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)<br><br> * [Instancias EC2 de AWS de incorporación a escala mediante Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)<br><br> * [Implementación a escala con comunicación remota de PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (solo Windows)| Uno o varios días en función de los requisitos, los procesos de la organización (por ejemplo, administración de versiones y de cambios) y el método de automatización que se usan. |
+| Descarga del script de instalación predefinido | Revise y personalice el script de instalación predefinido para la implementación a escala del agente de Connected Machine para admitir los requisitos de implementación automatizada.<br><br> Ejemplos de recursos de incorporación a escala:<br><br> <ul><li> [Script de implementación básica a escala](onboard-service-principal.md)</ul></li> <ul><li>[Máquinas virtuales de Windows Server de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Máquinas virtuales de Linux de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Instancias EC2 de AWS de incorporación a escala mediante Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implementación a escala con comunicación remota de PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (solo Windows)</ul></li>| Uno o varios días en función de los requisitos, los procesos de la organización (por ejemplo, administración de versiones y de cambios) y el método de automatización que se usan. |
 | [Creación de una entidad de servicio](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Cree una entidad de servicio para conectar máquinas de forma no interactiva mediante Azure PowerShell o desde el portal.| Una hora |
 | Implementación del agente de Connected Machine en los equipos y servidores de destino |Use la herramienta de automatización para implementar los scripts en los servidores y conectarlos a Azure.| Uno o varios días según el plan de lanzamiento y si sigue una implementación por fases. |
 
@@ -83,7 +83,7 @@ En la fase 3, los administradores o ingenieros de sistemas permiten la automati
 |-----|-------|---------|
 |Creación de una alerta de Resource Health |Si un servidor deja de enviar latidos a Azure durante más de 15 minutos, puede significar que está sin conexión, que la conexión de red se ha bloqueado o que el agente no se está ejecutando. Desarrolle un plan sobre cómo responderá a estos incidentes y cómo los investigará, así como sobre el uso de [alertas de Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) para recibir notificaciones cuando se inicien.<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recurso** = **Servidores habilitados para Azure Arc**<br> **Estado de recurso actual** = **No disponible**<br> **Estado de recurso previo** = **No disponible** | Una hora |
 |Creación de una alerta de Azure Advisor | Para obtener la mejor experiencia y las correcciones de seguridad y errores más recientes, recomendamos mantener actualizado el agente de los servidores habilitados para Azure Arc. Los agentes no actualizados se identificarán con una [alerta de Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recomendación** = **Actualización a la versión más reciente del agente de Azure Connected Machine** | Una hora |
-|[Asignación de las directivas de Azure](../../governance/policy/assign-policy-portal.md) al ámbito de la suscripción o del grupo de recursos |Asigne la directiva **Habilitar Azure Monitor para VM** y otras que satisfagan sus necesidades al ámbito de suscripción o grupo de recursos, para asegurarse de que todos los servidores habilitados para Arc estén configurados automáticamente para la supervisión con Azure Monitor para VM.| Varía |
+|[Asignación de las directivas de Azure](../../governance/policy/assign-policy-portal.md) al ámbito de la suscripción o del grupo de recursos |Asigne la [directiva](../../azure-monitor/vm/vminsights-enable-policy.md) **Habilitar Azure Monitor para VM** (y otras que satisfagan sus necesidades) al ámbito de suscripción o grupo de recursos. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Azure Monitor para VM en el entorno.| Varía |
 |[Habilitación de Update Management para los servidores habilitados para Arc](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales de Windows y Linux registradas con servidores habilitados para Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Pasos siguientes

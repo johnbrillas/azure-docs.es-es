@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692962"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039332"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Publicación de cuadernos en la galería de cuadernos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Los cuadernos de Jupyter Notebook integrados en Azure Cosmos DB se integran directamente en las cuentas de Azure Cosmos DB en Azure Portal. Con estos cuadernos puede analizar y visualizar los datos desde Azure Portal. Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en [29 regiones](#supported-regions). Para usar cuadernos, [cree una cuenta de Cosmos](#create-a-new-cosmos-account) o [habilite los notebooks de una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
+Los cuadernos de Jupyter Notebook integrados en Azure Cosmos DB se integran directamente en las cuentas de Azure Cosmos DB en Azure Portal. Con estos cuadernos puede analizar y visualizar los datos desde Azure Portal. Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en [muchas regiones](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Para usar cuadernos, [cree una cuenta de Cosmos](create-cosmosdb-resources-portal.md) o [habilite los notebooks de una cuenta existente](enable-notebooks.md) en una de estas regiones.
 
 El entorno de Notebook de Azure Portal tiene algunas muestras publicadas por el equipo de Azure Cosmos DB. También tiene una galería pública en la que puede publicar y compartir sus propios cuadernos. Una vez que un cuaderno se publica en la galería, está disponible para que todos los usuarios de Azure Cosmos DB puedan verlo y usarlo. En este artículo va a aprender a usar cuadernos de la galería pública y a publicar su cuaderno en ella.
 
@@ -53,7 +53,7 @@ Siga estos pasos para publicar un cuaderno:
 
    También puede buscar la opción **Publicar en la galería** si selecciona el botón **...** situado junto al nombre del cuaderno:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Selección de un cuaderno para publicarlo en la galería.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Otro enfoque para elegir un cuaderno para publicarlo en la galería.":::
 
 1. Rellene el formulario **Publicar en la galería** con los detalles siguientes:
 
@@ -61,11 +61,10 @@ Siga estos pasos para publicar un cuaderno:
    * **Descripción:** breve descripción de lo que hace el cuaderno.
    * **Etiquetas:** las etiquetas son opcionales y se usan para filtrar los resultados cuando se busca por una palabra clave.
    * **Imagen de portada:** imagen que se usa en la portada cuando se publica el cuaderno. Puede elegir una de las siguientes opciones:
-
-     * **Imagen personalizada:** puede cargar una imagen del equipo. Elija un archivo de imagen con una relación de aspecto 256x144.
-     * **URL:** proporcione una dirección URL de acceso público en la que se encuentre la imagen.
-     * **Obtener captura de pantalla:** se realiza automáticamente una captura de pantalla del cuaderno abierto y se carga en la versión preliminar.
-     * **Use first display output** (Usar primera salida de pantalla): salida de la primera celda con una salida de pantalla. Las celdas que solo muestran texto Markdown no cuentan como salida de pantalla.
+   * **Imagen personalizada:** puede cargar una imagen del equipo. Elija un archivo de imagen con una relación de aspecto 256x144.
+   * **URL:** proporcione una dirección URL de acceso público en la que se encuentre la imagen.
+   * **Obtener captura de pantalla:** se realiza automáticamente una captura de pantalla del cuaderno abierto y se carga en la versión preliminar.
+   * **Use first display output** (Usar primera salida de pantalla): salida de la primera celda con una salida de pantalla. Las celdas que solo muestran texto Markdown no cuentan como salida de pantalla.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Formulario Publicar en la galería.":::
 

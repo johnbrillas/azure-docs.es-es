@@ -4,21 +4,23 @@ description: Obtenga más información sobre cómo llevar su solución Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7850763abe2ef40aea4ab3b97187d50f7060fa18
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388777"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489762"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Cuando esté listo para llevar su solución IoT Edge desde el desarrollo hasta la producción, asegúrese de que está configurada para un rendimiento continuo.
 
@@ -38,14 +40,19 @@ Los dispositivos IoT Edge pueden ser cualquier cosa, desde un dispositivo Raspbe
 
 ### <a name="install-production-certificates"></a>Instalar certificados de producción
 
-Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción. En el caso de los escenarios de producción, debe proporcionar su propio certificado de CA de dispositivo, ya sea de una entidad de certificación autofirmada o adquirido de una entidad de certificación comercial.
+Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo de configuración. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo de configuración. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción. En el caso de los escenarios de producción, debe proporcionar su propio certificado de CA de dispositivo, ya sea de una entidad de certificación autofirmada o adquirido de una entidad de certificación comercial.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
 
 > [!NOTE]
 > Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
 
+:::moniker-end
+
 Para comprender el rol del certificado de entidad de certificación del dispositivo, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a él desde el archivo config.yaml, consulte [Administración de certificados en un dispositivo IoT Edge](how-to-manage-device-certificates.md).
+Para más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacerles referencia desde el archivo de configuración, consulte [Administración de certificados en un dispositivo IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Disponer de un plan de administración de dispositivos
 
@@ -54,10 +61,10 @@ Antes de poner cualquier dispositivo en producción, debe saber cómo va a admin
 * Firmware del dispositivo
 * Bibliotecas de sistema operativo
 * Motor de contenedor, como Moby
-* Demonio de IoT Edge
+* IoT Edge
 * Certificados de entidad de certificación
 
-Para obtener más información, vea [Actualización del entorno de ejecución de IoT Edge](how-to-update-iot-edge.md). Los métodos actuales para actualizar el demonio de IoT Edge requieren acceso físico o SSH al dispositivo IoT Edge. Si tiene muchos dispositivos que actualizar, considere la posibilidad de agregar los pasos de actualización a un script o de utilizar una herramienta de automatización como Ansible.
+Para obtener más información, vea [Actualización del entorno de ejecución de IoT Edge](how-to-update-iot-edge.md). Los métodos actuales para actualizar IoT Edge requieren el acceso físico o SSH al dispositivo IoT Edge. Si tiene muchos dispositivos que actualizar, considere la posibilidad de agregar los pasos de actualización a un script o de utilizar una herramienta de automatización como Ansible.
 
 ### <a name="use-moby-as-the-container-engine"></a>Utilizar Moby como motor de contenedor
 
@@ -74,7 +81,7 @@ Los dos módulos del entorno de ejecución tienen la variable de entorno **Upstr
 * MQTTWS
 * AMQPWS
 
-Configure la variable UpstreamProtocol para el agente de IoT Edge en el archivo config.yaml del propio dispositivo. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, puede que necesite configurar el agente de IoT Edge para que utilice AMQP sobre WebSocket (AMQPWS) para establecer la conexión inicial con IoT Hub.
+Configure la variable UpstreamProtocol para el agente de IoT Edge en el archivo de configuración del propio dispositivo. Por ejemplo, si el dispositivo IoT Edge está detrás de un servidor proxy que bloquea los puertos AMQP, puede que necesite configurar el agente de IoT Edge para que utilice AMQP sobre WebSocket (AMQPWS) para establecer la conexión inicial con IoT Hub.
 
 Una vez que el dispositivo IoT Edge se conecte, asegúrese de continuar con la configuración de la variable UpstreamProtocol para ambos módulos del entorno de ejecución en futuras implementaciones. Un ejemplo de este proceso se muestra en [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md).
 
@@ -203,7 +210,7 @@ Después, asegúrese de actualizar las referencias de imagen en el archivo deplo
 
 ### <a name="review-outboundinbound-configuration"></a>Revisar configuración de entrada y salida
 
-Los canales de comunicación entre Azure IoT Hub e IoT Edge siempre están configurados para que sean la salida. Para la mayoría de los escenarios de IoT Edge, solo se necesitan tres conexiones. El motor de contenedor necesita conectarse con el registro (o registros) de contenedor que contiene las imágenes del módulo. El entorno de ejecución de Azure IoT Edge necesita conectarse con IoT Hub para recuperar la información de configuración del dispositivo y para enviar mensajes y telemetría. Y si utiliza el aprovisionamiento automático, el demonio de IoT Edge necesita conectarse al servicio de aprovisionamiento de dispositivos. Para más información, consulte [Reglas de configuración de puertos y firewall](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+Los canales de comunicación entre Azure IoT Hub e IoT Edge siempre están configurados para que sean la salida. Para la mayoría de los escenarios de IoT Edge, solo se necesitan tres conexiones. El motor de contenedor necesita conectarse con el registro (o registros) de contenedor que contiene las imágenes del módulo. El entorno de ejecución de Azure IoT Edge necesita conectarse con IoT Hub para recuperar la información de configuración del dispositivo y para enviar mensajes y telemetría. Y si utiliza el aprovisionamiento automático, IoT Edge debe conectarse al servicio de aprovisionamiento de dispositivos. Para más información, consulte [Reglas de configuración de puertos y firewall](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Permitir conexiones desde dispositivos IoT Edge
 
@@ -211,7 +218,7 @@ Si la configuración de red requiere agregar en la lista de permitidos las conex
 
 * El **agente de IoT Edge** abre una conexión AMQP/MQTT persistente con IoT Hub, posiblemente a través de WebSockets.
 * El **centro de IoT Edge** abre una única conexión AMQP persistente o varias conexiones MQTT con IoT Hub, posiblemente a través de WebSockets.
-* El **demonio de IoT Edge** realiza las llamadas HTTPS intermitentes a IoT Hub.
+* El **servicio IoT Edge** realiza las llamadas HTTPS intermitentes a IoT Hub.
 
 En los tres casos, el nombre DNS coincidiría con el patrón \*.azure-devices.net.
 
@@ -248,7 +255,28 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
 
-En Linux, el demonio de IoT Edge utiliza journals como controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-IoTEdgeLog` para consultar los registros del demonio. Los módulos de IoT Edge utilizan el controlador JSON para el registro, que es el valor predeterminado.  
+En Linux, el demonio de IoT Edge utiliza journals como controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio.
+
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+
+A partir de la versión 1.2, IoT Edge se basa en varios demonios. Aunque los registros de cada demonio se pueden consultar individualmente con `journalctl`, los comandos `iotedge system` proporcionan una manera cómoda de consultar los registros combinados.
+
+* Comando `iotedge` consolidado:
+
+  ```bash
+  sudo iotedge system logs
+  ```
+
+* Comando `journalctl` equivalente:
+
+  ```bash
+  journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
+  ```
+
+:::moniker-end
+
+En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-IoTEdgeLog` para consultar los registros del demonio. Los módulos de IoT Edge utilizan el controlador JSON para el registro, que es el valor predeterminado.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog

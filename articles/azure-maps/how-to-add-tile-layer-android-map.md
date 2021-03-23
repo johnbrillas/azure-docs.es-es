@@ -3,17 +3,18 @@ title: Adición de una capa de mosaico a mapas de Android | Microsoft Azure Maps
 description: Aprenda a agregar una capa de mosaico a un mapa. Vea un ejemplo en el que se usa Android SDK de Azure Maps para agregar una superposición de radar meteorológico a un mapa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679286"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047509"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Adición de una capa de mosaico a un mapa (Android SDK)
 
@@ -36,6 +37,7 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 * `{quadkey}`: identificador quadkey de mosaico basado en la convención de nomenclatura del sistema de mosaico de Bing Maps.
 * `{bbox-epsg-3857}`: una cadena de un cuadro delimitador con el formato `{west},{south},{east},{north}` en el sistema de referencia espacial EPSG 3857.
 * `{subdomain}`: Marcador de posición para los valores del subdominio, si se especifica el valor de subdominio.
+* `azmapsdomain.invalid`: un marcador de posición para alinear el dominio y la autenticación de las solicitudes de mosaico con los mismos valores utilizados por el mapa. Úselo al llamar a un servicio de mosaico hospedado por Azure Maps.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -44,6 +46,8 @@ Para completar el proceso en este artículo, debe instalar [Android SDK de Azure
 ## <a name="add-a-tile-layer-to-the-map"></a>Incorporación de una capa de mosaico a un mapa
 
 En este ejemplo se muestra cómo crear una capa de mosaico que señale a un conjunto de mosaicos. En este ejemplo se usa el sistema de mosaicos de "zoom, x e y". El origen de esta capa de mosaico es el [proyecto OpenSeaMap](https://openseamap.org/index.php), que contiene cartas náuticas financiadas por la comunidad. A menudo, al ver las capas del mosaico, es conveniente poder ver claramente las etiquetas de las ciudades en el mapa. Este comportamiento se puede conseguir si se inserta la capa de mosaico debajo de las capas de etiqueta del mapa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 En la captura de pantalla siguiente se muestra el código anterior que muestra una capa de mosaico de información náutica en un mapa con un estilo de escala de grises oscuro.
 
 ![Mapa de Android en el que se muestra la capa de mosaico](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el siguiente artículo para obtener más información sobre las formas de establecer estilos de mapa
+Consulte el siguiente artículo para obtener más información sobre las formas de superponer imágenes en un mapa.
 
 > [!div class="nextstepaction"]
-> [Cambio del estilo del mapa](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Adición de un mapa térmico](map-add-heat-map-layer-android.md)
+> [Capa de imagen](map-add-image-layer-android.md)

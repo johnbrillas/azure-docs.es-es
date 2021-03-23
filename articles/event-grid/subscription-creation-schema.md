@@ -3,12 +3,12 @@ title: Esquema de suscripción de Azure Event Grid
 description: En este artículo se describen las propiedades de suscripción a un evento con Azure Event Grid. Esquema de suscripción de Event Grid.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119079"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199958"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de suscripción de Event Grid
 
@@ -25,7 +25,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de longitud y solo puede contener los siguientes caracteres: a-z, A-z, 0-9, y "-". En el artículo se describen las propiedades y el esquema del cuerpo de la solicitud.
- 
+ 
 ## <a name="event-subscription-properties"></a>Propiedades de la suscripción de eventos
 
 | Propiedad | Tipo | Descripción |
@@ -48,6 +48,7 @@ El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de lo
 | subjectBeginsWith | string | Un filtro de coincidencia de prefijo en el campo de asunto del mensaje del evento. El valor predeterminado o una cadena vacía coincide con todos los tipos de evento. | 
 | subjectEndsWith | string | Un filtro de coincidencia de sufijo en el campo de asunto del mensaje del evento. El valor predeterminado o una cadena vacía coincide con todos los tipos de evento. |
 | isSubjectCaseSensitive | string | Controla la coincidencia que distingue mayúsculas de minúsculas en los filtros. |
+| enableAdvancedFilteringOnArrays | boolean | Habilita el uso de matrices para claves en el filtrado avanzado. Para obtener más información, consulte [Filtrado avanzado](event-filtering.md#advanced-filtering). |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de suscripción de ejemplo

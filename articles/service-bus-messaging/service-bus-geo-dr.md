@@ -3,12 +3,12 @@ title: Recuperación ante desastres con localización geográfica de Azure Servi
 description: Procedimientos para usar regiones geográficas para realizar conmutaciones por error y recuperaciones ante desastres en Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384345"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035401"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -47,11 +47,7 @@ Los siguientes términos se utilizan en este artículo:
 -  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. El uso de un alias garantiza que la cadena de conexión permanecerá sin modificación cuando se desencadene la conmutación por error.
 
 -  *Espacio de nombres principal o secundario*: los espacio de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
-
-    > [!IMPORTANT]
-    > La característica de recuperación ante desastres geográfica requiere que la suscripción y el grupo de recursos sean los mismos para los espacios de nombres principal y secundario.
 -  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociadas con el espacio de nombres. Solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican.
-
 -  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
 
 ## <a name="setup"></a>Configurar
@@ -63,13 +59,13 @@ En la siguiente sección se ofrece información general sobre la configuración 
 En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. 
 
 1. Cree el espacio de nombres principal.
-1. Cree tanto el espacio de nombres secundario en la suscripción como el grupo de recursos que tiene el espacio de nombres principal, pero este en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
+1. Cree el espacio de nombres secundario en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
 1. En Azure Portal, vaya al espacio de nombres principal.
 1. Seleccione **Recuperación geográfica** en el menú de la izquierda e **Iniciar el emparejamiento** en la barra de herramientas. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicio del emparejamiento desde el espacio de nombres principal":::    
 1. En la página **Iniciar el emparejamiento**, siga estos pasos:
-    1. Seleccione un espacio de nombres secundario existente o créelo en la suscripción y en el grupo de recursos que tiene el espacio de nombres principal. En este ejemplo, se utiliza un espacio de nombres existente como espacio de nombres secundario.  
+    1. Seleccione un espacio de nombres secundario existente o cree uno en otra región. En este ejemplo, se utiliza un espacio de nombres existente como espacio de nombres secundario.  
     1. En **Alias**, escriba un alias para el emparejamiento de recuperación ante desastres geográfica. 
     1. Seleccione **Crear**. 
 
@@ -164,7 +160,7 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
 La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure. Service Bus administra tres copias del almacén de mensajería (una principal y dos secundarias). Service Bus mantiene las tres copias sincronizadas para operaciones de datos y administración. Si se produce un error en la copia principal, una de las copias secundarias se promueve a principal sin tiempo de inactividad perceptible. Si las aplicaciones experimentan desconexiones transitorias de Service Bus, la lógica de reintento en el SDK volverá a establecer la conexión con Service Bus automáticamente. 
 
-Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (mensajes) se replican en los centros de datos de la zona de disponibilidad. 
+Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (mensajes) se replican entre centros de datos en la zona de disponibilidad. 
 
 > [!NOTE]
 > La compatibilidad de Availability Zones con Azure Service Bus Premium solo está disponible en aquellas [regiones de Azure](../availability-zones/az-region.md) en las que hay zonas de disponibilidad.

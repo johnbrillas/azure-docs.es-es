@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724836"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039111"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas más frecuentes
 
@@ -55,7 +55,7 @@ A. Para cinco discos de 8 TB cada uno (7 TB de capacidad usable), la capacidad
 A.  Para ver dónde están disponibles actualmente las instancias de Data Box Disk, vaya a [Disponibilidad en regiones](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. ¿En qué regiones puedo almacenar datos con los discos de Data Box?
-A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
+A. Data Box Disk se admite en todas las regiones de EE. UU., Canadá, Europa, Reino Unido, Australia, Singapur, India, China, Hong Kong, Japón, Corea y Sudáfrica. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>Q. ¿Cómo puedo importar datos de origen presentes en mi ubicación de un país o región a una región de Azure en un país diferente?
 A. Data Box Disk es compatible con la ingesta de datos solo dentro del mismo país o región de destino y no cruzará ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos Data Box Disk se pueden enviar desde y hasta cualquier país o región de la UE.
@@ -189,7 +189,7 @@ A.  Para acelerar el proceso de copia:
 - Utilice varias sesiones.
 - En lugar de realizar la copia a través de un recurso compartido de red (en el que puede tener la limitación de la velocidad de la red), asegúrese de que los datos se encuentran localmente en el equipo al que se conectan los discos.
 - Asegúrese de que usa USB 3.0 o una versión posterior durante todo el proceso de copia. Descargue la herramienta [`USBView`](/windows-hardware/drivers/debugger/usbview) y úsela para identificar los controladores y dispositivos USB conectados al equipo.
-- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la herramienta [`Bluestop` `FIO` ](https://ci.appveyor.com/project/axboe/fio)y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
+- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta `Bluestop` `FIO`](https://ci.appveyor.com/project/axboe/fio) y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. ¿Cómo acelerar los datos si los datos de origen tienen archivos pequeños (de KB o pocos MB)?
 A.  Para acelerar el proceso de copia:
@@ -199,7 +199,7 @@ A.  Para acelerar el proceso de copia:
 - Copie los archivos en el disco de la máquina virtual.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. ¿Se pueden usar varias cuentas de almacenamiento con los discos de Data Box?
-A.  No. Actualmente, los discos de Data Box solo admiten una cuenta de almacenamiento, general o clásica. Se admiten blobs frecuentes y esporádicos. En la actualidad, solo se admiten las cuentas de almacenamiento de Estados Unidos, Oeste de Europa y Norte de Europa en la nube pública de Azure.
+A.  No. Actualmente, los discos de Data Box solo admiten una cuenta de almacenamiento, general o clásica. Se admiten blobs frecuentes y esporádicos.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. ¿Qué contiene el conjunto de herramientas disponible para mis datos con Data Box Disk?
 A. El conjunto de herramientas disponible con Data Box Disk contiene tres herramientas:

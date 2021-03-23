@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: b139e2f14379e0cd52ca72c347d49bcb4512c473
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 03/03/2021
+ms.openlocfilehash: 474545b7c5eca64b558e5fe26e23e6800b0cab96
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542087"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037173"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versiones principales de PostgreSQL admitidas en Azure Database for PostgreSQL: Servidor flexible
 
@@ -22,11 +22,11 @@ Azure Database for PostgreSQL: Servidor flexible actualmente admite las versione
 
 ## <a name="postgresql-version-12"></a>PostgreSQL, versión 12
 
-La versión secundaria actual es la 12.4. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 12.5. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL, versión 11
 
-La versión secundaria actual es la 11.9. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
+La versión secundaria actual es la 11.10. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL, versión 10 y anteriores
 

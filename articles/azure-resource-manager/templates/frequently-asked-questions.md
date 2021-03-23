@@ -2,15 +2,15 @@
 title: Preguntas más frecuentes sobre las plantillas de Resource Manager
 description: Preguntas frecuentes sobre las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561909"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036147"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -88,7 +88,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **He oído que se está trabajando en un nuevo lenguaje de plantilla. ¿Dónde puedo encontrar más información al respecto?**
 
-  Para obtener una versión preliminar del nuevo lenguaje, consulte el [repositorio del proyecto Bicep](https://github.com/Azure/bicep). Para mantenerse informado sobre el nuevo lenguaje, [regístrese para recibir notificaciones](https://aka.ms/armLangUpdates).
+  Para obtener información sobre el nuevo lenguaje, consulte [¿Qué es Bicep (versión preliminar)?](bicep-overview.md).
 
 * **¿Hay un plan que admita la creación de plantillas en YAML?**
 
@@ -100,7 +100,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Ofrecerán una herramienta para que pueda convertir mis plantillas JSON al nuevo lenguaje de plantilla?**
 
-  Sí.
+  Sí. Consulte [Descompilación de JSON a Bicep](compare-template-syntax.md#decompile-json-to-bicep).
 
 ## <a name="template-specs"></a>Especificaciones de plantilla
 

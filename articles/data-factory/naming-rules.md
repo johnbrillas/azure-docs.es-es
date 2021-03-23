@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: f0d14760ce3e6403c9b6fe8cc7a2100aeb3f39a6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372916"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034411"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
 
@@ -27,6 +27,8 @@ La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de
 | Integration Runtime |Es único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>El nombre de Integration Runtime solo puede contener letras, números y el carácter de guion (-).</li><li>El primer y el último caracteres deben ser una letra o un número. Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número.</li><li>No se permiten guiones consecutivos en el nombre del entorno de ejecución de integración. </li></ul> |
 | Transformaciones de flujos de datos | Es único en un flujo de datos. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Los nombres de transformación de flujo de datos solo pueden contener letras y números.</li><li>El primer carácter debe ser una letra. </li></ul> |
 | Grupo de recursos |Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas. | Para más información, consulte [Reglas y restricciones de nomenclatura de Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
+| Parámetros y variables de canalización  |Debe ser único en la canalización. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>La comprobación de la validación de los nombres de parámetros y variables se limita a la exclusividad debido a la compatibilidad con versiones anteriores.</li><li>Cuando se usan parámetros o variables para hacer referencia a nombres de entidad, por ejemplo, servicio vinculado, se aplican las reglas de nomenclatura de la entidad.</li><li>Un procedimiento recomendado es seguir las reglas de nomenclatura de transformación de flujo de datos para asignar nombres a los parámetros y variables de la canalización.</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Aprenda a crear factorías de datos siguiendo las instrucciones paso a paso del artículo [Inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-powershell.md). 

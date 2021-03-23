@@ -1,34 +1,34 @@
 ---
-title: Ver datos en directo (versión preliminar) con Container Insights | Microsoft Docs
+title: Visualización de datos en directo con Container Insights | Microsoft Docs
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Container Insights.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711236"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203205"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
-Container Insights incluye la característica de datos en directo (versión preliminar), que es una característica de diagnóstico avanzada que le permite el acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderror), eventos y métricas de pods. Expone acceso directo a `kubectl logs -c`, eventos `kubectl get` y `kubectl top pods`. En este panel se muestra los registros, los eventos y las métricas generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
+Container Insights incluye la característica de datos en directo, una característica de diagnóstico avanzada que le permite el acceso directo a los registros de contenedor (stdout/stderror), eventos y métricas de pod de Azure Kubernetes Service (AKS). Expone acceso directo a `kubectl logs -c`, eventos `kubectl get` y `kubectl top pods`. En este panel se muestra los registros, los eventos y las métricas generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
 
 En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.
 
-Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
+Puede obtener ayuda para configurar o solucionar problemas de la característica de datos en directo en la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## <a name="view-deployment-live-logs-preview"></a>Visualización de registros en vivo de implementación (versión preliminar)
-Use el procedimiento siguiente para ver los registros en vivo de las implementaciones que forman parte de los clústeres de AKS que no se supervisan con Container Insights. Si el clúster usa Container Insights, use el procedimiento siguiente para ver los datos en directo de los nodos, los controladores, los contenedores y las implementaciones.
+## <a name="view-aks-resource-live-logs"></a>Visualización de los registros en vivo de recursos de AKS
+Use el siguiente procedimiento para ver los registros en vivo de pods, implementaciones y conjuntos de réplicas con o sin Container Insights en la vista de recursos de AKS.
 
 1. En el Azure Portal, vaya al grupo de recursos de clúster de AKS y elija el recurso de AKS.
 
 2. Seleccione **Cargas de trabajo** en la sección **Kubernetes resources** (Recursos de Kubernetes) del menú.
 
-3. Seleccione una implementación en la pestaña **Implementaciones**.
+3. Seleccione un pod, implementación, conjunto de réplicas en la pestaña correspondiente.
 
-4. Seleccione **Live Logs (preview)** (Registros en vivo [versión preliminar]) en el menú de la implementación.
+4. Seleccione **Registros en vivo** en el menú del recurso.
 
 5. Seleccione un pod para iniciar la recopilación de los datos en directo.
 
@@ -44,12 +44,12 @@ Puede ver los datos de registro en tiempo real cuando se generan con el motor de
 
 3. Elija la pestaña **Nodos**, **Controladores** o **Contenedores**.
 
-4. Elija un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo (vista preliminar)** . Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
+4. Seleccione un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
     >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
 
-Después de autenticarse correctamente, el panel de consola de datos en directo (vista preliminar) aparecerá debajo de la cuadrícula de datos de rendimiento, donde puede ver los datos de registro en un flujo continuo. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
+Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento y podrá ver los datos de registro en un flujo continuo. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
 
 ![Node properties pane view data option](./media/container-insights-livedata-overview/node-properties-pane.png)
 
@@ -57,20 +57,20 @@ El título del panel muestra el nombre del pod con el que se agrupa el contenedo
 
 ## <a name="view-events"></a>Ver eventos
 
-Puede ver los datos de eventos en tiempo real a medida que los genera el motor de contenedor desde **Nodos**, **Controladores**, **Contenedores** e **Implementaciones (vista preliminar)** cuando un contenedor, pod, nodo, ReplicaSet, DaemonSet, Job, CronJob o implementación está seleccionado. Para ver los eventos, haga lo siguiente.
+Puede ver los datos de eventos en tiempo real a medida que los genera el motor de contenedor desde **Nodos**, **Controladores**, **Contenedores** e **Implementaciones** cuando un contenedor, pod, nodo, ReplicaSet, DaemonSet, trabajo, CronJob o implementación está seleccionado. Para ver los eventos, haga lo siguiente.
 
 1. En el Azure Portal, vaya al grupo de recursos de clúster de AKS y elija el recurso de AKS.
 
 2. En el panel del clúster de AKS, en **Supervisión** a la izquierda, elija **Insights**.
 
-3. Elija la pestaña **Nodos**, **Controladores**, **Contenedores** o **Implementaciones (versión preliminar)** .
+3. Seleccione la pestaña **Nodos**, **Controladores**, **Contenedores** o **Implementaciones**.
 
-4. Elija un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo (vista preliminar)** . Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
+4. Seleccione un objeto de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, seleccione la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
     >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
 
-Después de autenticarse correctamente, el panel de consola de datos en directo (vista preliminar) aparecerá debajo de la cuadrícula de datos de rendimiento. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
+Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento. Si el indicador de estado de captura muestra una marca de verificación verde, que se encuentra en el extremo derecho del panel, significa que pueden recuperar los datos y comienzan a transmitirse a la consola.
 
 Si el objeto que seleccionó era un contenedor, elija la opción **Eventos** en el panel. Si ha seleccionado un nodo, pod o controlador, la visualización de eventos se selecciona automáticamente.
 
@@ -92,12 +92,12 @@ Puede ver los datos de la métrica en tiempo real cuando se generan con el motor
 
 3. Elija la pestaña **Nodos** o **Controladores**.
 
-4. Elija un objeto **pod** de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, elija la opción **Ver datos en directo (vista preliminar)** . Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
+4. Seleccione un objeto **pod** de la cuadrícula de rendimiento y, en el panel de propiedades que se encuentra en el lado derecho, elija la opción **Ver datos en directo**. Si el clúster de AKS se configura con inicio de sesión único mediante Azure AD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.
 
     >[!NOTE]
     >Al ver los datos desde el área de trabajo de Log Analytics seleccionando la opción **Vista en Analytics** en el panel Propiedades, los resultados de la búsqueda de registros podrían mostrar **nodos**, **conjuntos de demonio** **conjuntos de réplicas**, **trabajos**, **trabajos de Cron**, **pods** y **contenedores** que ya no existen. También se producirá un error al intentar buscar registros de un contenedor que no está disponible en `kubectl`. Revise la característica [Vista en Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para más información sobre cómo ver registros históricos, eventos y métricas.
 
-Después de autenticarse correctamente, el panel de consola de datos en directo (vista preliminar) aparecerá debajo de la cuadrícula de datos de rendimiento. Los datos de métricas se recuperan y comienzan a transmitirse a la consola para su presentación en los dos gráficos. El título del panel muestra el nombre del pod con el que se agrupa el contenedor.
+Después de autenticarse correctamente, el panel de consola de datos en directo aparecerá debajo de la cuadrícula de datos de rendimiento. Los datos de métricas se recuperan y comienzan a transmitirse a la consola para su presentación en los dos gráficos. El título del panel muestra el nombre del pod con el que se agrupa el contenedor.
 
 ![Ver ejemplo de métricas pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)
 
@@ -105,7 +105,7 @@ Después de autenticarse correctamente, el panel de consola de datos en directo 
 En las secciones siguientes se describe la funcionalidad que puede usar en las diferentes vistas de datos en directo.
 
 ### <a name="search"></a>Search
-La característica de datos en directo (versión preliminar) incluye la funcionalidad de búsqueda. En el campo **Búsqueda**, puede filtrar los resultados escribiendo una palabra clave o término, los resultados coincidentes se resaltan para permitir una revisión rápida. Durante la visualización de eventos, puede limitar además los resultados mediante la cápsula **Filtro** que se encuentra a la derecha de la barra de búsqueda. Dependiendo de qué recurso haya seleccionado, la cápsula muestra un pod, un espacio de nombres o un clúster para elegir.
+La característica de datos en directo incluye la funcionalidad de búsqueda. En el campo **Búsqueda**, puede filtrar los resultados escribiendo una palabra clave o término, los resultados coincidentes se resaltan para permitir una revisión rápida. Durante la visualización de eventos, puede limitar además los resultados mediante la cápsula **Filtro** que se encuentra a la derecha de la barra de búsqueda. Dependiendo de qué recurso haya seleccionado, la cápsula muestra un pod, un espacio de nombres o un clúster para elegir.
 
 ![Ejemplo de filtro del panel de la consola de datos en directo](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -125,7 +125,7 @@ Para suspender el desplazamiento automático y controlar el comportamiento del p
 >Se recomienda suspender o pausar el desplazamiento automático solo durante un breve período de tiempo mientras se soluciona un problema. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster.
 
 >[!IMPORTANT]
->Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo (vista preliminar) se consulta dentro de los límites de uso de memoria razonables.
+>Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo se consulta dentro de los límites de uso de memoria razonables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

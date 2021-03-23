@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727964"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175879"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -91,7 +91,7 @@ Esto se debe a que en la fábrica de destino hay un entorno de ejecución de int
 
 #### <a name="issue"></a>Incidencia
 
-Al intentar publicar cambios en una instancia de Data Factory, recibe el mensaje de error siguiente:
+Al intentar publicar cambios en una instancia de Data Factory, aparece el mensaje de error siguiente:
 
 `
 "error": {
@@ -168,7 +168,7 @@ Se ha mejorado el proceso de CI/CD. La característica **Publicación automatiza
 
 #### <a name="issue"></a>Problema
 
-No se puede implementar porque se alcanzó el límite de tamaño total de la plantilla de 4 MB de Azure Resource Manager. Necesita una solución para implementar después de rebasar el límite. 
+No se puede implementar porque se alcanzó el límite de tamaño total de 4 MB de la plantilla de Azure Resource Manager. Necesita una solución para implementar después de rebasar el límite. 
 
 #### <a name="cause"></a>Causa
 
@@ -190,7 +190,7 @@ No ha configurado OAuth para ADF. La dirección URL está mal configurada.
 
 ##### <a name="resolution"></a>Solución
 
-Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente porque el servicio ADF probará primero https://hostname/api/v3/search/repositories?q=user%3<customer credential>... y generará un error. A continuación, probará https://hostname/api/v3/orgs/<vaorg>/<repo> y la operación se realizará correctamente. 
+Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente. Por ejemplo, ADF probará primero *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* y se producirá un error. A continuación, probará *https://hostname/api/v3/orgs/<org>/<repo>...* y la operación se realizará correctamente. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Recuperación de una factoría de datos eliminada
 
@@ -203,7 +203,8 @@ Es posible recuperar la instancia de Data Factory solo si el cliente tiene confi
 
 Si no hay ningún control de código fuente, no es posible recuperar una instancia de Data Factory eliminada del back-end porque, una vez que el servicio recibe el comando deleted, se elimina la instancia y no se almacena ninguna copia de seguridad.
 
-#### <a name="resoloution"></a>Resolución
+#### <a name="resolution"></a>Solución
+
 Para recuperar la instancia de Data Factory eliminada que tiene el control de código fuente, consulte los pasos siguientes:
 
  * Cree una nueva instancia de Azure Data Factory.

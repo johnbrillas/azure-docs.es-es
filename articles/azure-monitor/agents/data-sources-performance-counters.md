@@ -1,17 +1,16 @@
 ---
 title: Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics en Azure Monitor
 description: Azure Monitor recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711559"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036798"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -22,7 +21,7 @@ Los contadores de rendimiento de Windows y Linux ofrecen información acerca del
 ![Contadores de rendimiento](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
-Configure los contadores de rendimiento en el [menú Datos en Configuración avanzada](../agents/agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics.
+Configure los contadores de rendimiento en el [menú de configuración de agentes](../agents/agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics.
 
 La primera vez que se configuran los contadores de rendimiento de Windows o Linux para un área de trabajo nueva, se proporciona la opción de crear rápidamente varios contadores comunes.  Se muestran todos con una casilla junto a cada uno.  Asegúrese de que están marcados todos los contadores que desea crear inicialmente y, luego, haga clic en **Add the selected performance counters**(Agregar los contadores de rendimiento seleccionados).
 
@@ -36,28 +35,28 @@ Para los contadores de rendimiento de Windows, puede elegir una instancia espec�
 
 ### <a name="windows-performance-counters"></a>Contadores de rendimiento de Windows
 
-![Configuración de contadores de rendimiento de Windows](media/data-sources-performance-counters/configure-windows.png)
+[![Configuración de contadores de rendimiento de Windows](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows para recopilar. Tenga en cuenta que no se admiten los contadores de rendimiento de Windows V2.
 
-1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*.  
+1. Haga clic en **Add performance counter** (Agregar contador de rendimiento).
+2. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*.  
 
     Cuando se recopilan contadores de rendimiento de SQL Server de instancias con nombre, todos los contadores de instancias con nombre comienzan por *MSSQL$* y van seguidos del nombre de la instancia.  Por ejemplo, para recopilar el contador Frecuencia de aciertos de caché de registro para todas las bases de datos desde el objeto de rendimiento de base de datos para la instancia de SQL con nombre INST2, especifique `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista.
-3. Cuando se agrega un contador, se usa el valor predeterminado de 10 segundos en **Intervalo de ejemplo**.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
-4. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
+4. Cuando se agrega un contador, se usa el valor predeterminado de 10 segundos en **Intervalo de ejemplo**.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
+5. Cuando haya terminado de agregar contadores, haga clic en el botón **Aplicar** en la parte superior de la pantalla para guardar la configuración.
 
 ### <a name="linux-performance-counters"></a>Contadores de rendimiento de Linux
 
-![Configuración de contadores de rendimiento de Linux](media/data-sources-performance-counters/configure-linux-1.png)
+[![Configuración de contadores de rendimiento de Linux](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Siga este procedimiento para agregar un nuevo contador de rendimiento de Linux para recopilar.
 
+1. Haga clic en **Add performance counter** (Agregar contador de rendimiento).
 1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  
-1. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista de contadores del objeto.
 1. Todos los contadores de un objeto usan el mismo valor en **Intervalo de ejemplo**.  El valor predeterminado es 10 segundos.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
-1. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
+1. Cuando haya terminado de agregar contadores, haga clic en el botón **Aplicar** en la parte superior de la pantalla para guardar la configuración.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuración de contadores de rendimiento de Linux en el archivo de configuración
 En lugar de configurar los contadores de rendimiento de Linux mediante Azure Portal, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento para recopilar se controlan mediante la configuración en **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.

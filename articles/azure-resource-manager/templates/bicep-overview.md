@@ -2,21 +2,19 @@
 title: Lenguaje Bicep para plantillas de Azure Resource Manager
 description: Describe el lenguaje Bicep para implementar la infraestructura en Azure a través de plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744057"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036391"
 ---
 # <a name="what-is-bicep-preview"></a>¿Qué es Bicep (versión preliminar)?
 
-Bicep es un lenguaje para implementar mediante declaración los recursos de Azure. Simplifica la experiencia de creación al proporcionar una sintaxis concisa y una mejor compatibilidad con la modularidad y la reutilización de código. Bicep es un lenguaje específico de dominio (DSL), lo que significa que está diseñado para un escenario o dominio en particular. Bicep no está pensado como lenguaje general de programación para escribir aplicaciones.
+Bicep es un lenguaje para implementar mediante declaración los recursos de Azure. Simplifica la experiencia de creación al proporcionar una sintaxis concisa y una mejor compatibilidad con la reutilización de código. Bicep es un lenguaje específico de dominio (DSL), lo que significa que está diseñado para un escenario o dominio en particular. Bicep no está pensado como lenguaje general de programación para escribir aplicaciones.
 
-Bicep es una abstracción transparente en plantillas de Azure Resource Manager (plantillas de ARM). Cada archivo de Bicep se compila en una plantilla de ARM estándar. Los tipos de recursos, las versiones de API y las propiedades que son válidos en una plantilla de ARM son válidos en un archivo de Bicep.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+En el pasado, desarrolló plantillas de Azure Resource Manager (plantillas de ARM) con JSON. La sintaxis JSON para crear una plantilla puede ser detallada y requerir expresiones complicadas. Bicep mejora esa experiencia sin perder ninguna de las funcionalidades de la plantilla JSON. Se trata de una abstracción transparente en JSON para las plantillas de ARM. Cada archivo de Bicep se compila en una plantilla de ARM estándar. Los tipos de recursos, las versiones de API y las propiedades que son válidos en una plantilla de ARM son válidos en un archivo de Bicep.
 
 ## <a name="get-started"></a>Introducción
 
@@ -30,7 +28,26 @@ Si tiene una plantilla de ARM existente que le gustaría convertir a Bicep, cons
 
 ## <a name="bicep-improvements"></a>Mejoras de Bicep
 
-Bicep ofrece una sintaxis más sencilla y concisa en comparación con el JSON equivalente. No se usan expresiones `[...]`. En su lugar, se llama directamente a las funciones, se obtienen valores de parámetros y variables, y se hace referencia a los recursos. Para ver una comparación completa de la sintaxis, consulte [Comparación de JSON y Bicep para plantillas](compare-template-syntax.md).
+Bicep ofrece una sintaxis más sencilla y concisa en comparación con el JSON equivalente. No se usan expresiones `[...]`. En su lugar, se llama directamente a las funciones y se obtienen los valores de los parámetros y las variables. Se asigna un nombre simbólico a cada recurso implementado, lo que facilita la referencia a ese recurso en la plantilla.
+
+Por ejemplo, el siguiente JSON devuelve un valor de salida de una propiedad de recurso.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+La expresión de salida equivalente en Bicep es más fácil de escribir. En el ejemplo siguiente se devuelve la misma propiedad con el nombre simbólico **publicIP** para un recurso que está definido en la plantilla:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Para ver una comparación completa de la sintaxis, consulte [Comparación de JSON y Bicep para plantillas](compare-template-syntax.md).
 
 Bicep administra automáticamente las dependencias entre los recursos. Puede evitar configurar `dependsOn` cuando el nombre simbólico de un recurso se use en otra declaración de recursos.
 

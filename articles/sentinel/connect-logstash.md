@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299639"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035435"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
 > [!IMPORTANT]
 > La ingesta de datos mediante el complemento de salida de Logstash se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con el nuevo complemento de salida de Azure Sentinel para el **motor de recopilación de datos de Logstash**, ahora puede enviar cualquier tipo de registro que quiera a través de Logstash directamente a su área de trabajo de Log Analytics en Azure Sentinel. Los registros se enviarán a una tabla personalizada que definirá mediante el complemento de salida.
+Con el complemento de salida de Azure Sentinel para el **motor de recopilación de datos de Logstash**, ahora puede enviar cualquier tipo de registro que quiera a través de Logstash directamente a su área de trabajo de Log Analytics en Azure Sentinel. Los registros se enviarán a una tabla personalizada que definirá mediante el complemento de salida.
 
 Para obtener más información sobre cómo trabajar con el motor de recopilación de datos de Logstash, consulte la página de [introducción a Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -49,7 +49,7 @@ El motor de Logstash consta de tres componentes:
 El complemento de salida de Azure Sentinel para Logstash envía datos con formato JSON al área de trabajo de Log Analytics, mediante la API REST de recopilación de datos HTTP de Log Analytics. Los datos se ingieren en los registros personalizados.
 
 - Más información sobre la [API REST de Log Analytics](/rest/api/loganalytics/create-request).
-- Más información sobre los [registros personalizados](../azure-monitor/platform/data-sources-custom-logs.md).
+- Más información sobre los [registros personalizados](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Implementación del complemento de salida de Azure Sentinel en Logstash
 
@@ -57,7 +57,7 @@ El complemento de salida de Azure Sentinel para Logstash envía datos con format
 
 El complemento de salida de Azure Sentinel está disponible en la colección de Logstash.
 
-- Siga las instrucciones que aparecen en el documento de Logstash sobre cómo [usar los complementos](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar el complemento **_[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_*.
+- Siga las instrucciones que aparecen en el documento de Logstash sobre cómo [usar los complementos](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar el complemento ***[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)***.
    
 - Si el sistema de Logstash no tiene acceso a Internet, siga las instrucciones del documento de Logstash sobre [administración de complementos sin conexión](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) para preparar y usar un paquete de complementos sin conexión. Para ello, hay que compilar otro sistema de Logstash con acceso a Internet.
 
@@ -67,7 +67,7 @@ Use la información del documento [Estructura de un archivo de configuración](h
 
 | Nombre del campo | Tipo de datos | Descripción |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo. _ |
+| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo. * |
 | `workspace_key` | string | Escriba el GUID de la clave principal del área de trabajo. * |
 | `custom_log_table_name` | string | Establezca el nombre de la tabla en la que se van a ingerir los registros. Solo se puede configurar un nombre de tabla por complemento de salida. La tabla de registros aparecerá en Azure Sentinel en **Registros**, en **Tablas**, categoría **Registros personalizados**, con un sufijo `_CL`. |
 | `endpoint` | string | Campo opcional. De forma predeterminada, es el punto de conexión de Log Analytics. Utilice este campo para establecer un punto de conexión alternativo. |
@@ -76,8 +76,10 @@ Use la información del documento [Estructura de un archivo de configuración](h
 | `plugin_flush_interval` | number | Campo opcional. Establézcalo para definir el intervalo máximo (en segundos) entre las transmisiones de mensajes a Log Analytics. El valor predeterminado es 5. |
     | `amount_resizing` | boolean | True o false. Habilite o deshabilite el mecanismo de escalabilidad automática, que ajusta el tamaño del búfer de mensajes en función del volumen de datos de registro recibidos. |
 | `max_items` | number | Campo opcional. Solo se aplica si `amount_resizing` se establece en "false". Úselo para establecer un límite en el tamaño del búfer de mensajes (en registros). El valor predeterminado es 2000.  |
+| `azure_resource_id` | string | Campo opcional. Define el id. del recurso de Azure donde residen los datos. <br>El valor del id. de recurso es especialmente útil si usa [RBAC de contexto de recursos](resource-context-rbac.md) para proporcionar acceso únicamente a datos específicos. |
+| | | |
 
-\* Puede encontrar el identificador y la clave principal del área de trabajo en el recurso del área de trabajo, en **Agents management** (Administración de agentes).
+*  Puede encontrar el identificador y la clave principal del área de trabajo en el recurso del área de trabajo, en **Agents management** (Administración de agentes).
 
 #### <a name="sample-configurations"></a>Configuraciones de ejemplo
 

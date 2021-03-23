@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386857"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174978"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -225,6 +225,9 @@ Si el tipo de autenticación se establece en `ApiKeyHeader`, el elemento **Crypt
 | --------- | -------- | ----------- |
 | Nombre del encabezado HTTP, como `x-functions-key` o `x-api-key`. | Sí | Clave que se usa para la autenticación. |
 
+> [!NOTE]
+> En estos momentos, Azure AD B2C solo admite un encabezado HTTP para la autenticación. Si la llamada de RESTful requiere varios encabezados, como un identificador de cliente y un secreto de cliente, necesitará redirigir la solicitud mediante proxy de alguna manera.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -290,4 +293,3 @@ Consulte los siguientes artículos para obtener ejemplos del uso de un perfil t�
 - [Tutorial: Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](custom-policy-rest-api-claims-validation.md)
 - [Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Protección de los servicios de la API de REST](secure-rest-api.md)
-

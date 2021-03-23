@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584517"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175114"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -71,9 +71,9 @@ La sesión de la aplicación puede ser una sesión basada en cookies almacenada 
 
 Puede configurar el comportamiento de la sesión de Azure AD B2C, entre otras cosas:
 
-- **Duración de la sesión de la aplicación web (minutos)** : cantidad de tiempo durante la que la cookie de la sesión de Azure AD B2C está almacenada en el explorador del usuario después de una autenticación correcta. Puede establecer la duración de la sesión en un valor entre 15 y 720 minutos.
+- **Duración de la sesión de la aplicación web (minutos)** : cantidad de tiempo durante la que la cookie de la sesión de Azure AD B2C está almacenada en el explorador del usuario después de una autenticación correcta. Puede establecer la duración de la sesión en 24 horas como máximo.
 
-- **Tiempo de espera de la sesión de la aplicación web**: indica cómo se extiende una sesión, ya sea mediante el valor de duración de la sesión o mediante la configuración Mantener mi sesión iniciada.
+- **Tiempo de espera de la sesión de la aplicación web**: indica cómo se amplía una sesión, ya sea mediante el valor de duración de la sesión o mediante la configuración de mantenimiento de la sesión iniciada.
   - **Rolling** (acumulado): indica que la sesión se extiende cada vez que el usuario realiza una autenticación basada en cookies (predeterminado).
   - **Absolute** (absoluto): indica que el usuario está obligado a autenticarse de nuevo tras el período especificado.
 
@@ -82,9 +82,7 @@ Puede configurar el comportamiento de la sesión de Azure AD B2C, entre otras c
   - **Aplicación**: este valor permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, puede usar esta opción si quiere que el usuario inicie sesión en Contoso Pharmacy, independientemente de si ya inició sesión en Contoso Groceries.
   - **Directiva**: este valor permite mantener una sesión de usuario exclusivamente para un flujo de usuario, independientemente de las aplicaciones que lo usen. Por ejemplo, si el usuario ya ha iniciado sesión y ha realizado un paso de autenticación multifactor (MFA), se le puede dar acceso a zonas de mayor seguridad en varias aplicaciones mientras no expire la sesión asociada al flujo de usuario.
   - **Deshabilitado**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva.
-::: zone pivot="b2c-custom-policy"
-- **Mantener mi sesión iniciada**: amplía la duración de la sesión mediante el uso de una cookie persistente. La sesión permanece activa cuando el usuario cierra y vuelve a abrir el explorador. La sesión se revoca solo cuando un usuario cierra sesión. La característica Mantener mi sesión iniciada solo se aplica al inicio de sesión con cuentas locales. Esta característica tiene prioridad sobre la duración de la sesión. Si está habilitada y el usuario la selecciona, dicha característica indicará cuándo expira la sesión. 
-::: zone-end
+- **Mantener la sesión iniciada**: amplía la duración de la sesión mediante el uso de una cookie persistente. Si esta característica está habilitada y el usuario la selecciona, la sesión permanece activa incluso después de que el usuario cierre y vuelva a abrir el explorador. La sesión solo se revoca cuando el usuario cierra la sesión. Mantener la sesión iniciada solo se aplica en el inicio de sesión con cuentas locales. Esta característica tiene prioridad sobre la duración de la sesión.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agrega
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Habilitación de Mantener la sesión iniciada (KMSI)
 
-Puede habilitar la funcionalidad Mantener la sesión iniciada para los usuarios y las aplicaciones nativas que tienen cuentas locales en el directorio de Azure Active Directory B2C (Azure AD B2C). Esta característica concede acceso a los usuarios que vuelven a la aplicación sin pedirles que escriban de nuevo el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
+Puede habilitar la característica para mantener la sesión iniciada para los usuarios de las aplicaciones web y nativas que tienen cuentas locales en el directorio de Azure AD B2C. Cuando se habilita la característica, los usuarios pueden optar por mantener la sesión iniciada de forma que siga activa después de que cierren el explorador. Así, al volver a abrir el explorador no se les pedirá que escriban de nuevo el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
 
 ![Ejemplo de página de inicio de sesión de registro que muestra la casilla Mantener la sesión iniciada](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+Esta característica se puede configurar en el nivel de flujo cada usuario. Antes de habilitarla para los flujos de usuario, tenga en cuenta los siguientes aspectos:
+
+- Esta característica solo se admite en las versiones **recomendadas** de los flujos de usuario de registro e inicio de sesión, inicio de sesión y edición de perfiles. Si actualmente tiene versiones **estándar** o **preliminares heredadas - v2** de estos flujos de usuario y desea habilitar esta característica, deberá crear versiones nuevas, **recomendadas**, de estos flujos de usuario.
+- La característica Mantener la sesión iniciada no es compatible con los flujos de usuario de restablecimiento de contraseña ni de registro.
+- Si quiere habilitar esta característica para todas las aplicaciones de su inquilino, se recomienda que la habilite para todos los flujos de usuario del inquilino. Dado que se pueden presentar varias directivas a los usuarios durante una sesión, es posible que se encuentren con alguna que no tenga habilitada esta característica, lo que eliminaría su cookie de la sesión.
+- La opción Mantener la sesión iniciada no se debe habilitar en los equipos públicos.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Configuración de la característica Mantener la sesión iniciada para un flujo de usuario
+
+Para habilitar la característica Mantener la sesión iniciada para el flujo de usuario, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro  **Directorio y suscripción**  del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
+3. Elija  **Todos los servicios**  en la esquina superior izquierda de Azure Portal, y busque y seleccione  **Azure AD B2C**.
+4. Seleccione  **Flujos de usuario (directivas)** .
+5. Abra el flujo de usuario que creó anteriormente.
+6. Seleccione  **Propiedades**.
+
+7. En  **Comportamiento de la sesión**, seleccione **Habilitar la opción de mantener la sesión iniciada**. Junto a **Mantener la sesión iniciada (días)** , escriba un valor entre 1 y 90 para especificar el número de días que una sesión puede permanecer abierta.
+
+
+   ![Habilitar la opción de mantener la sesión iniciada](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Los usuarios no deben habilitar esta opción en equipos públicos.
 
@@ -165,7 +194,7 @@ Para agregar la casilla KMSI a la página de registro e inicio de sesión, estab
 
 ### <a name="configure-a-relying-party-file"></a>Configuración de un archivo de usuario de confianza
 
-Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado.
+Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado. El parámetro keepAliveInDays permite configurar el tiempo que debe persistir la cookie de sesión de la opción para mantener la sesión iniciada. Por ejemplo, si establece el valor en 30, la cookie de sesión se conservará durante 30 días. El intervalo para el valor es de 1 a 90 días.
 
 1. Abra el archivo de la directiva personalizada. Por ejemplo, *SignUpOrSignin.xml*.
 1. Si aún no existe, agregue un nodo secundario `<UserJourneyBehaviors>` al nodo `<RelyingParty>`. Tiene que estar situado inmediatamente después de `<DefaultUserJourney ReferenceId="User journey Id" />`, por ejemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
@@ -222,7 +251,7 @@ Después de una solicitud de cierre de sesión, Azure AD B2C hará lo siguient
 3. Tratar de cerrar la sesión de los proveedores de identidades federados:
    - OpenID Connect: si el punto de conexión de configuración conocido del proveedor de identidades especifica una ubicación `end_session_endpoint`.
    - OAuth2: si los [metadatos del proveedor de identidades](oauth2-technical-profile.md#metadata) contienen la ubicación `end_session_endpoint`.
-   - SAML: si los [metadatos del proveedor de identidades](saml-identity-provider-technical-profile.md#metadata) contienen la ubicación `SingleLogoutService`.
+   - SAML: si los [metadatos del proveedor de identidades](identity-provider-generic-saml.md) contienen la ubicación `SingleLogoutService`.
 4. También puede cerrar la sesión de otras aplicaciones. Para obtener más información, consulte la sección [Cierre de sesión único](#single-sign-out).
 
 > [!NOTE]

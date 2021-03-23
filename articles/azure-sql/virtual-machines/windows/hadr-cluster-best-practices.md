@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358816"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201777"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -76,9 +76,7 @@ Para empezar, consulte [Configuración de un testigo en la nube](/windows-server
 
 ### <a name="file-share-witness"></a>Testigo de recurso compartido de archivos
 
-Se trata de un recurso compartido de archivos SMB que se suele configurar en un servidor de archivos que ejecuta Windows Server. Este testigo mantiene la información de la agrupación en clústeres en un archivo witness.log, pero no almacena una copia de la base de datos del clúster. En Azure, puede configurar un [recurso compartido de archivos de Azure](../../../storage/files/storage-how-to-create-file-share.md) para usarlo como testigo de recurso compartido de archivos o en una máquina virtual independiente.
-
-Si va a usar un recurso compartido de archivos de Azure, puede montarlo con el mismo proceso que usó para el [recurso compartido de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Se trata de un recurso compartido de archivos SMB que se suele configurar en un servidor de archivos que ejecuta Windows Server. Este testigo mantiene la información de la agrupación en clústeres en un archivo witness.log, pero no almacena una copia de la base de datos del clúster. En Azure, puede configurar un recurso compartido de archivos en una máquina virtual independiente.
 
 Para empezar, consulte [Configuración de un testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988376"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202764"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview 
 
@@ -91,24 +91,50 @@ Para crear una regla de clasificación personalizada:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Agregar una nueva regla de clasificación" border="true":::
 
-5. Se abre el cuadro de diálogo **New classification rule** (Nueva regla de clasificación). Rellene la información de configuración para la nueva regla.
+5. Se abre el cuadro de diálogo **New classification rule** (Nueva regla de clasificación). Rellene los campos y decida si va a crear una **regla de expresión regular** o una **regla de diccionario**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Crear una nueva regla de clasificación" border="true":::
+    |Campo     |Descripción  |
+    |---------|---------|
+    |Nombre   |    Necesario. El máximo es de 100 caracteres.    |
+    |Descripción      |Opcional. El máximo es de 256 caracteres.    |
+    |Nombre de clasificación    | Obligatorio. Seleccione el nombre de la clasificación en la lista desplegable para indicar al escáner que lo aplique si se encuentra una coincidencia.        |
+    |State   |  Obligatorio. Las opciones están habilitadas o deshabilitadas. "Habilitado" es el valor predeterminado.    |
 
-|Campo     |Descripción  |
-|---------|---------|
-|Nombre   |    Necesario. El máximo es de 100 caracteres.    |
-|Descripción      |Opcional. El máximo es de 256 caracteres.    |
-|Nombre de clasificación    | Obligatorio. Seleccione el nombre de la clasificación en la lista desplegable para indicar al escáner que lo aplique si se encuentra una coincidencia.        |
-|State   |  Obligatorio. Las opciones están habilitadas o deshabilitadas. "Habilitado" es el valor predeterminado.    |
-|Patrón de datos    |Opcional. Expresión regular que representa los datos que se almacenan en el campo de datos. El límite es muy amplio. En el ejemplo anterior, los patrones de datos prueban un id. de empleado que es literalmente la palabra `Employee{GUID}`.  |
-|Patrón de columna    |Opcional. Expresión regular que representa los nombres de columna que quiere buscar. El límite es muy amplio.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Crear una nueva regla de clasificación" border="true":::
 
-En el **Patrón de datos**, hay dos opciones:
+### <a name="creating-a-regular-expression-rule"></a>Creación de una regla de expresión regular
 
-- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. El valor sugerido es 8. Este valor se puede ajustar manualmente en un rango de 2 a 32. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
+1. Si crea una regla de expresión regular, verá la pantalla siguiente. Si lo desea, puede cargar un archivo que se usará para **generar sugerencias de patrones de regex** para la regla.
 
-- **Umbral de coincidencia mínimo**: Puede usar esta opción para establecer el porcentaje mínimo de coincidencias de valores de datos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor sugerido es el 60 %. Debe tener cuidado con esta configuración. Si reduce el nivel por debajo del 60 %, podría introducir clasificaciones de falsos positivos en el catálogo. Si especifica varios patrones de datos, esta configuración se deshabilitará y el valor se fijará en el 60 %.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Creación de nueva regla de regex" border="true":::
+
+1. Si decide generar una sugerencia de patrón de regex, después de cargar un archivo, seleccione una de las sugerencias de patrón y haga clic en **Add to Patterns** (Agregar a patrones) para usar los datos y columnas del patrón sugerido. Puede retocar los patrones sugeridos o también puede escribir sus propios patrones sin cargar un archivo.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generación del patrón sugerido" border="true":::
+
+    |Campo     |Descripción  |
+    |---------|---------|
+    |Patrón de datos    |Opcional. Expresión regular que representa los datos que se almacenan en el campo de datos. El límite es muy amplio. En el ejemplo anterior, los patrones de datos prueban un id. de empleado que es literalmente la palabra `Employee{GUID}`.  |
+    |Patrón de columna    |Opcional. Expresión regular que representa los nombres de columna que quiere buscar. El límite es muy amplio.          |
+
+1. En **Patrón de datos**, hay dos umbrales que se pueden establecer:
+
+    - **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. El valor sugerido es 8. Este valor se puede ajustar manualmente en un rango de 2 a 32. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
+
+    - **Umbral de coincidencia mínimo**: puede usar esta opción para establecer el porcentaje mínimo de coincidencias de valores de datos únicos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor sugerido es el 60 %. Debe tener cuidado con esta configuración. Si reduce el nivel por debajo del 60 %, podría introducir clasificaciones de falsos positivos en el catálogo. Si especifica varios patrones de datos, esta configuración se deshabilitará y el valor se fijará en el 60 %.
+
+1. Ahora puede comprobar la regla y **crearla**.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Comprobación de la regla antes de crearla" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>Creación de una regla de diccionario
+
+1.  Si crea una regla de diccionario, verá la siguiente pantalla. Cargue un archivo que contenga todos los valores posibles para la clasificación que va a crear en una sola columna.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Creación de regla de diccionario" border="true":::
+
+1.  Una vez generado el diccionario, puede ajustar la coincidencia de valores únicos y los umbrales de coincidencia mínimos, y enviar la regla.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Creación de regla de diccionario" border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

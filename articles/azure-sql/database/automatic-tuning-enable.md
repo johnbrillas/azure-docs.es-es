@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042528"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Azure SQL Database administra automáticamente los servicios de datos que supervisan constantemente las consultas, e identifica la acción que puede realizar para mejorar el rendimiento de la carga de trabajo. Puede revisar las recomendaciones y aplicarlas manualmente o dejar que Azure SQL Database aplique automáticamente acciones correctoras, lo que se conoce como **modo de ajuste automático**.
 
@@ -111,11 +110,26 @@ Si establece la opción de ajuste individual en ACTIVADO, invalidará todas las 
 
 Para obtener más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
+## <a name="troubleshooting"></a>Solución de problemas
 
-El ajuste automático supervisa todas las acciones que realiza en la base de datos y, en algunos casos, determina que no funciona correctamente en la base de datos. En esta situación, el sistema deshabilitará la opción de ajuste. En la mayoría de los casos, esto sucede porque el Almacén de consultas no está habilitado o se encuentra en estado de solo lectura en una base de datos específica.
+### <a name="automated-recommendation-management-is-disabled"></a>La administración automatizada de recomendaciones está deshabilitada
 
-## <a name="permissions"></a>Permisos
+En el caso de los mensajes de error de que se ha deshabilitado la administración automatizada de recomendaciones, o simplemente de que se ha deshabilitado por el sistema, las causas más comunes son:
+- El Almacén de consultas no está habilitado o
+- El Almacén de consultas está en modo de solo lectura para una base de datos especificada, o
+- El Almacén de consultas dejó de ejecutarse porque usaba el espacio de almacenamiento asignado.
+
+Se pueden tener en cuenta los siguientes pasos para corregir este problema:
+- Limpie el Almacén de consultas o modifique el período de retención de datos a "auto" mediante T-SQL. Consulte cómo [configurar la directiva de captura y retención recomendadas para el Almacén de consultas](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Use SQL Server Management Studio (SSMS) y siga estos pasos:
+  - Conéctese a Azure SQL Database.
+  - Haga clic con el botón secundario en la base de datos.
+  - Vaya a Propiedades y haga clic en Almacén de consultas.
+  - Cambie el modo de operación a lectura y escritura.
+  - Cambie el modo de captura del almacén a automático.
+  - Cambie el modo de limpieza basada en el tamaño a automático.
+
+### <a name="permissions"></a>Permisos
 
 Dado que el ajuste automático es una característica de Azure, para poder utilizarla, necesitará emplear los roles integrados en Azure. Usar solo la autenticación de SQL no será suficiente para usar la característica de Azure Portal.
 
@@ -123,7 +137,7 @@ Para usar el ajuste automático, el permiso mínimo necesario que se debe conced
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configuración de notificaciones por correo electrónico para el ajuste automático
 
-Consulte la guía [Notificaciones por correo electrónico para el ajuste automático](automatic-tuning-email-notifications-configure.md).
+Para recibir notificaciones automatizadas por correo electrónico sobre las recomendaciones realizadas por el ajuste automático, consulte la guía sobre [notificaciones por correo electrónico del ajuste automático](automatic-tuning-email-notifications-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

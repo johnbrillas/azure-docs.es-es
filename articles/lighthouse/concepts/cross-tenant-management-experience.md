@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 02/08/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699256"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177926"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -67,6 +67,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 [Azure Backup](../../backup/index.yml):
 
 - Realice una copia de seguridad de los datos de clientes y restáurelos [desde cargas de trabajo locales, máquinas virtuales de Azure, recursos compartidos de archivos de Azure y mucho más](../..//backup/backup-overview.md#what-can-i-back-up).
+- Consulte datos de todos los recursos de cliente delegados en el [Centro de copia de seguridad](../../backup/backup-center-overview.md).
 - Use el [Explorador de copia de seguridad](../../backup/monitor-azure-backup-with-backup-explorer.md) para ayudar a ver la información operativa de los elementos de copia de seguridad (incluidos los recursos de Azure que todavía no están configurados para la copia de seguridad) y la información de supervisión (trabajos y alertas) de las suscripciones delegadas. El Explorador de Backup solo está disponible actualmente para los datos de máquinas virtuales de Azure.
 - Use [informes de copia de seguridad](../../backup/configure-reports.md) a través de suscripciones delegadas para realizar un seguimiento de tendencias históricas, analizar el consumo de almacenamiento de copia de seguridad y auditar copias de seguridad y restauraciones.
 
@@ -113,9 +114,11 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 [Azure Policy](../../governance/policy/index.yml):
 
 - Creación y edición de definiciones de directivas en una suscripción delegada
+- Implemente definiciones y asignaciones de directivas en varios inquilinos.
 - Asignación de definiciones de directivas definidas por el cliente en suscripciones delegadas
 - Los clientes ven las directivas creadas por el proveedor de servicios junto con las directivas que hayan creado ellos mismos.
 - Puede [corregir deployIfNotExists o modificar asignaciones en el inquilino administrado](../how-to/deploy-policy-remediation.md)
+- Tenga en cuenta que actualmente no se admite la visualización de detalles de cumplimiento de recursos no compatibles en inquilinos de clientes.
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml)
 

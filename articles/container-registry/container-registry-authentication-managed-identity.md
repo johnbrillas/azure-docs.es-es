@@ -3,12 +3,12 @@ title: Autenticación con una identidad administrada
 description: Proporcione acceso a las imágenes en el registro de contenedor privado mediante una identidad de Azure administrada que haya asignado el usuario o el sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987753"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041474"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
 
@@ -107,13 +107,13 @@ Salga de la sesión SSH.
 
 ### <a name="create-an-identity"></a>Creación de una identidad
 
-Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identit#az-identity-create). Puede usar el mismo grupo de recursos que usó anteriormente para crear el registro de contenedor o la máquina virtual, o usar uno diferente.
+Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity#az_identity_create). Puede usar el mismo grupo de recursos que usó anteriormente para crear el registro de contenedor o la máquina virtual, o usar uno diferente.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-Para configurar la identidad en los pasos siguientes, use el comando [az identity show][az-identity-show] para almacenar en variables los identificadores de la entidad de servicio y del recurso de la identidad.
+Para configurar la identidad en los pasos siguientes, use el comando [az identity show][az_identity_show] para almacenar en variables los id. de recurso y de entidad de servicio de la entidad.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

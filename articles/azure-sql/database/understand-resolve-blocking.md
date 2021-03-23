@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 2/24/2021
-ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691440"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034904"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Descripción y resolución de problemas de bloqueo en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -238,7 +238,7 @@ Consulte el documento en el que se explica cómo usar el [Asistente para nueva s
 
 ## <a name="identify-and-resolve-common-blocking-scenarios"></a>Identificación y resolución de escenarios de bloqueo comunes
 
-Al examinar la información anterior, puede determinar la causa de la mayoría de los problemas de bloqueo. En el resto de este artículo se explica cómo usar esta información para identificar y resolver algunos escenarios de bloqueo comunes. En este tema se da por sentado que ha usado los scripts de bloqueo (a los que se hace referencia anteriormente) para capturar información sobre los SPID de bloqueo y que ha capturado la actividad de la aplicación mediante una sesión de XEvent.
+Mediante el examen de la información anterior, puede determinar la causa de la mayoría de los problemas de bloqueo. En el resto de este artículo se explica cómo usar esta información para identificar y resolver algunos escenarios de bloqueo comunes. En este tema se da por sentado que ha usado los scripts de bloqueo (a los que se hace referencia anteriormente) para capturar información sobre los SPID de bloqueo y que ha capturado la actividad de la aplicación mediante una sesión de XEvent.
 
 ## <a name="analyze-blocking-data"></a>Análisis de datos de bloqueo 
 
@@ -334,7 +334,7 @@ Las columnas `wait_type`, `open_transaction_count` y `status` hacen referencia a
 | 5 | NULL | \>0 | revertir | Sí. | Puede aparecer una señal de atención en la sesión de eventos extendidos para este SPID, que indica que se agotó el tiempo de espera de una consulta o que se ha cancelado, o simplemente que se emitió una instrucción de reversión. |  
 | 6 | NULL | \>0 | en espera | Con el tiempo. Cuando Windows NT determina que la sesión ya no está activa, se interrumpe la conexión a Azure SQL Database. | El valor de `last_request_start_time` en sys.dm_exec_sessions es muy anterior a la hora actual. |
 
-Los siguientes escenarios explicarán estos escenarios. 
+## <a name="detailed-blocking-scenarios"></a>Escenarios de bloqueo detallados
 
 1.  Bloqueo causado por una consulta en ejecución normal con un tiempo de ejecución largo
 
@@ -366,7 +366,7 @@ Los siguientes escenarios explicarán estos escenarios.
 
     La salida de la segunda consulta indica que el nivel de anidamiento de la transacción es uno. Todos los bloqueos adquiridos en la transacción se conservarán hasta que la transacción se confirme o se revierta. Si las aplicaciones abren y confirman transacciones explícitamente, un error de comunicación u otro tipo podría dejar la sesión y su transacción en estado abierto. 
 
-    Use el script anterior basado en sys.dm_tran_active_transactions para identificar las transacciones que actualmente están pendientes de confirmación.
+    Use el script descrito anteriormente en este artículo basado en sys.dm_tran_active_transactions para identificar las transacciones actualmente no confirmadas en la instancia.
 
     **Soluciones**:
 
@@ -377,6 +377,7 @@ Los siguientes escenarios explicarán estos escenarios.
             *    En el controlador de errores de la aplicación cliente, ejecute `IF @@TRANCOUNT > 0 ROLLBACK TRAN` después de cualquier error, incluso si la aplicación cliente no considera que una transacción esté abierta. Debe comprobar las transacciones abiertas, ya que un procedimiento almacenado llamado durante el lote podría haber iniciado una transacción sin el conocimiento de la aplicación cliente. Ciertas condiciones, como cancelar la consulta, impiden que el procedimiento se ejecute después de la instrucción actual, de modo que incluso si el procedimiento tiene lógica para comprobar si `IF @@ERROR <> 0` y anular la transacción, este código de reversión no se ejecutará en estos casos.  
             *    Si se usa la agrupación de conexiones en una aplicación que abre la conexión y ejecuta un número pequeño de consultas antes de devolver la conexión al grupo, como una aplicación basada en web, deshabilitar temporalmente la agrupación de conexiones puede ayudar a mitigar el problema hasta que se modifique la aplicación cliente para controlar los errores de manera adecuada. Al deshabilitar la agrupación de conexiones, la liberación de la conexión provocará una desconexión física de Azure SQL Database, lo dará lugar a que el servidor revierta las transacciones abiertas.  
             *    Use `SET XACT_ABORT ON` para la conexión, o en cualquier procedimiento almacenado que inicie transacciones y que no realicen una limpieza después de un error. En caso de que se produzca un error en tiempo de ejecución, este valor anulará cualquier transacción abierta y devolverá el control al cliente. Para obtener más información, consulte [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
+
     > [!NOTE]
     > La conexión no se restablece hasta que se vuelve a usar desde el grupo de conexiones, por lo que es posible que un usuario pueda abrir una transacción y, después, liberar la conexión en el grupo de conexiones, pero puede que no se vuelva a usar durante varios segundos, durante los que la transacción permanecerá abierta. Si no se reutiliza la conexión, la transacción se anulará cuando se agote el tiempo de espera de la conexión y se quite del grupo de conexiones. Por lo tanto, resulta un método óptimo para que la aplicación cliente anule las transacciones en el controlador de errores o use `SET XACT_ABORT ON` para evitar este posible retraso.
 
@@ -385,14 +386,14 @@ Los siguientes escenarios explicarán estos escenarios.
 
 1.  Bloqueo causado por un SPID cuya aplicación cliente correspondiente no recuperó todas las filas de resultados hasta finalizar
 
-    Después de enviar una consulta al servidor, todas las aplicaciones deben recuperar inmediatamente todas las filas de resultados hasta su finalización. Si una aplicación no recupera todas las filas de resultados, se pueden quedar bloqueos en las tablas que impiden el acceso a otros usuarios. Si usa una aplicación que envía de manera transparente instrucciones SQL al servidor, la aplicación debe capturar todas las filas de resultados. De lo contrario (y si no se puede configurar para ello), es posible que no pueda resolver el problema de bloqueo. Para evitar este problema, puede restringir las aplicaciones con un comportamiento deficiente a una base de datos de informes o de ayuda para la toma de decisiones.
+    Después de enviar una consulta al servidor, todas las aplicaciones deben recuperar inmediatamente todas las filas de resultados hasta su finalización. Si una aplicación no recupera todas las filas de resultados, se pueden quedar bloqueos en las tablas que impiden el acceso a otros usuarios. Si usa una aplicación que envía de manera transparente instrucciones SQL al servidor, la aplicación debe capturar todas las filas de resultados. De lo contrario (y si no se puede configurar para ello), es posible que no pueda resolver el problema de bloqueo. Para evitar este problema, puede restringir las aplicaciones con un comportamiento deficiente a una base de datos de informes o de ayuda para la toma de decisiones, independiente de la base de datos OLTP.
     
     > [!NOTE]
     > Consulte la [guía de lógica de reintento](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) para las aplicaciones que se conectan a Azure SQL Database. 
     
     **Solución:** se debe volver a escribir la aplicación para que recupere todas las filas de resultados hasta su finalización. Esto no descarta el uso de [OFFSET y FETCH en la cláusula ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) de una consulta para realizar la paginación del servidor.
 
-1.  Bloqueo causado por un SPID que está en estado de reversión
+1.  Bloqueo causado por una sesión que está en estado de reversión
 
     Se revertirá una consulta de modificación de datos que se haya terminado con una instrucción KILL o que se haya cancelado fuera de una transacción definida por el usuario. Esto también puede producirse como efecto secundario de la desconexión de una sesión de red del cliente, o cuando se selecciona una solicitud como elemento afectado del interbloqueo. A menudo, esto se puede identificar al observar la salida de sys.dm_exec_requests, que puede indicar el **comando** ROLLBACK y la **columna percent_complete** puede mostrar el progreso. 
 

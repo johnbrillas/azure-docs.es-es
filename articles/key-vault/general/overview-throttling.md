@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289670"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175760"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
 
@@ -24,7 +24,7 @@ Las limitaciones varían según el escenario. Por ejemplo, si está realizando u
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>¿Cómo maneja Key Vaults sus límites?
 
-Los límites de servicio en Key Vault sirven para evitar el uso incorrecto de los recursos y garantizar la calidad de servicio para todos los clientes de Key Vault. Cuando se supera un umbral de servicio, Key Vault limita las solicitudes sucesivas de ese cliente durante un período de tiempo, devuelve un código de estado HTTP 429 (Demasiadas solicitudes) y la solicitud produce un error. Las solicitudes con error que devuelven un código 429 cuentan para la limitación cuyo seguimiento realiza Key Vault. 
+Los límites de servicio en Key Vault sirven para evitar el uso incorrecto de los recursos y garantizar la calidad de servicio para todos los clientes de Key Vault. Cuando se supera un umbral de servicio, Key Vault limita las solicitudes sucesivas de ese cliente durante un período de tiempo, devuelve un código de estado HTTP 429 (Demasiadas solicitudes) y la solicitud produce un error. Las solicitudes con error que devuelven un código 429 no cuentan para la limitación cuyo seguimiento realiza Key Vault. 
 
 Key Vault se diseñó originalmente para almacenar y recuperar los secretos en el momento de la implementación.  El mundo ha evolucionado y Key Vault se utiliza en tiempo de ejecución para almacenar y recuperar secretos y, a menudo, las aplicaciones y los servicios buscan el uso de Key Vault como una base de datos.  Los límites actuales no admiten altas tasas de rendimiento.
 
@@ -47,8 +47,8 @@ Si observa que lo anterior todavía no satisface sus necesidades, rellene la tab
 
 Si se aprueba la capacidad adicional, tenga en cuenta lo siguiente como resultado del aumento de capacidad:
 1. Cambia el modelo de coherencia de datos. Una vez que un almacén se encuentra en la lista de permitidos con capacidad de rendimiento adicional, la garantía de coherencia de datos del servicio Key Vault cambia (es necesario para satisfacer un mayor volumen de RPS, ya que el servicio Azure Storage subyacente no lo alcanza).  En resumen:
-  1. **Sin inclusión en la lista de permitidos** : El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) inmediatamente en llamadas posteriores (por ejemplo, SecretGet o KeySign).
-  1. **Con inclusión en la lista de permitidos** : El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) en 60 segundos en llamadas posteriores (por ejemplo, SecretGet o KeySign).
+  1. **Sin inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) inmediatamente en llamadas posteriores (por ejemplo, SecretGet o KeySign).
+  1. **Con inclusión en la lista de permitidos**: El servicio Key Vault reflejará los resultados de una operación de escritura (por ejemplo, SecretSet o CreateKey) en 60 segundos en llamadas posteriores (por ejemplo, SecretGet o KeySign).
 1. El código de cliente debe respetar la directiva de retroceso para los reintentos de errores 429. El código de cliente que llama al servicio Key Vault no debe reintentar inmediatamente las solicitudes a Key Vault cuando recibe un código de respuesta 429.  La guía de limitación de Azure Key Vault publicada aquí recomienda aplicar el retroceso exponencial al recibir un código de respuesta HTTP 429.
 
 Si tiene un caso empresarial válido para limitaciones superiores, póngase en contacto con nosotros.

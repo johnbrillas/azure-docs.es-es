@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704436"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040250"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Actualización del SDK de Java de Application Insights 2.x
 
@@ -219,11 +219,24 @@ Una vez más, si para algunas aplicaciones prefiere la vista agregada de la expe
 
 Anteriormente en el SDK 2.x, el nombre de la operación de la telemetría de solicitudes también se estableció en la telemetría de dependencias.
 Java 3.0 de Application Insights ya no rellena el nombre de la operación en la telemetría de dependencias.
-Si desea ver el nombre de la operación para la solicitud que es el elemento primario de la telemetría de dependencias, puede escribir una consulta de registros (Kusto) para crear una unión desde la tabla de dependencias a la tabla de solicitudes.
+Si quiere ver el nombre de la operación para la solicitud que es el elemento primario de la telemetría de dependencias, puede escribir una consulta de registros (Kusto) para crear una unión desde la tabla de dependencias a la tabla de solicitudes, por ejemplo.
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>Elementos appender de registro de SDK 2.x
 
-El agente 3.0 [recopila de forma automática el registro](./java-standalone-config#auto-collected-logging) sin necesidad de configurar ningún elemento appender de registro.
+El agente 3.0 [recopila de forma automática el registro](./java-standalone-config.md#auto-collected-logging) sin necesidad de configurar ningún elemento appender de registro.
 Si usa elementos appender de registro de SDK 2.x, los puede quitar, ya que el agente 3.0 los suprimirá de todos modos.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>Spring Boot Starter de SDX 2.x

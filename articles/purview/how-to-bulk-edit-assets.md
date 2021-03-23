@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693771"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049496"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Edición en masa de recursos para etiquetar términos de glosario
 
@@ -65,13 +65,13 @@ En este artículo se describe cómo etiquetar varios términos de glosario en un
 
 7. Repita los pasos anteriores para clasificaciones, propietarios y expertos.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Captura de pantalla de la eliminación de términos.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Captura de pantalla de las clasificaciones y los contactos.":::
 
 8. Cuando haya terminado, seleccione **Close** (Cerrar) o **Remove all and close** (Quitar todo y cerrar) para cerrar la hoja de edición en masa. La primera opción no quitará los recursos seleccionados, mientras que la segunda quitará todos los recursos seleccionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Captura de pantalla de la opción Close (Cerrar).":::
 
    > [!Important]
-   > El número recomendado de recursos para la edición en masa es de 15. Si selecciona más de 25, pueden producirse problemas de rendimiento.
+   > El número recomendado de recursos para la edición en masa es de 25. Si selecciona más de 25, pueden producirse problemas de rendimiento.
    > El cuadro **View Selected** (Ver selección) solo estará visible si hay al menos un recurso seleccionado.
 
 

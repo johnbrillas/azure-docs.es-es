@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891166"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048144"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adición de una capa de línea al mapa
 
@@ -66,7 +66,7 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visualizació
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adición de un degradado de trazo a una línea
 
-Puede aplicar un color de trazo único a la línea. También puede rellenar la línea con un degradado de colores para mostrar la transición de un segmento al siguiente. Por ejemplo, los degradados de línea pueden utilizarse para representar cambios en el tiempo y en la distancia, o bien diferentes temperaturas a lo largo de una línea de objetos conectada. Para poder aplicar esta característica a una línea, el origen de datos debe tener la opción `lineMetrics` establecida en true; de este modo, se puede pasar una expresión de degradado a la opción `strokeColor` de la línea. La expresión de degradado del trazo tiene que hacer referencia a la expresión de datos `['line-progress']` que expone las métricas de línea calculadas a la expresión.
+Puede aplicar un color de trazo único a la línea. También puede rellenar la línea con un degradado de colores para mostrar la transición de un segmento al siguiente. Por ejemplo, los degradados de línea pueden utilizarse para representar cambios en el tiempo y en la distancia, o bien diferentes temperaturas a lo largo de una línea de objetos conectada. Para poder aplicar esta característica a una línea, el origen de datos debe tener la opción `lineMetrics` establecida en `true`; de este modo, se puede pasar una expresión de degradado a la opción `strokeColor` de la línea. La expresión de degradado del trazo tiene que hacer referencia a la expresión de datos `['line-progress']` que expone las métricas de línea calculadas a la expresión.
 
 <br/>
 

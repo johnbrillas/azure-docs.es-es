@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980525"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031640"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
 La restauración a un momento dado proporciona protección contra eliminaciones accidentales o daños, ya que le permite restaurar los datos de blobs en bloques a un estado anterior. Asimismo, la restauración a un momento dado resulta útil en escenarios en los que un usuario o una aplicación eliminan datos accidentalmente o donde un error de la aplicación daña los datos. La restauración a un momento dado también permite habilitar escenarios de prueba que requieran revertir un conjunto de datos a un estado conocido antes de ejecutar otras pruebas.
 
-La restauración a un momento dado solo se admite en las cuentas de almacenamiento (V2) de uso general. Solo se pueden restaurar los datos de los niveles de almacenamiento de acceso frecuente y esporádico con la restauración a un momento dado.
+La restauración a un momento dado solo se admite para las cuentas de almacenamiento de uso general v2 en el nivel de rendimiento estándar. Solo se pueden restaurar los datos de los niveles de almacenamiento de acceso frecuente y esporádico con la restauración a un momento dado.
 
 Para aprender a habilitar la restauración a un momento dado para una cuenta de almacenamiento, consulte el artículo sobre la [realización de una restauración a un momento dado en los datos de un blob en bloques](point-in-time-restore-manage.md).
 

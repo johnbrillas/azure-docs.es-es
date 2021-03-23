@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692929"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034546"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gobernanza de las cuentas de servicio de Azure AD
 
@@ -51,13 +51,13 @@ Se recomiendan los siguientes procedimientos para los privilegios de la cuenta d
 
 **Permisos**
 
-* No asigne roles integrados a las cuentas de servicio. En su lugar, use el [modelo de concesión de permisos OAuth2 para Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0).
+* No asigne roles integrados a las cuentas de servicio. En su lugar, use el [modelo de concesión de permisos OAuth2 para Microsoft Graph](/graph/api/resources/oauth2permissiongrant).
 
 * Si a la entidad de servicio se le debe asignar un rol con privilegios, considere la posibilidad de asignar un [rol personalizado](https://docs.microsoft.com/azure/active-directory/roles/custom-create) con privilegios específicos y necesarios en un modo tiempo limitado.
 
 * No incluya cuentas de servicio como miembros de un grupo con permisos elevados. 
 
-* [Use PowerShell para enumerar los miembros de roles con privilegios](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0), como   
+* [Use PowerShell para enumerar los miembros de roles con privilegios](/powershell/module/azuread/get-azureaddirectoryrolemember), como   
 ‎`Get-AzureADDirectoryRoleMember`, y filtre por el tipo de objeto "entidad de servicio".
 
    o bien, use  
@@ -117,11 +117,11 @@ Le recomendamos que exporte los registros de inicio de sesión de Azure AD y lo
 
 Revise periódicamente los permisos concedidos y los ámbitos a los que tienen acceso las cuentas de servicio para ver si se pueden reducir.
 
-* Use [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) para [compilar la automatización con el fin de comprobar y documentar](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) los ámbitos para los que se concede el consentimiento a una cuenta de servicio.
+* Use [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) para [compilar la automatización con el fin de comprobar y documentar](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) los ámbitos para los que se concede el consentimiento a una cuenta de servicio.
 
 * Use PowerShell para [revisar las credenciales de las entidades de servicio existentes](https://github.com/AzureAD/AzureADAssessment) y comprobar su validez.
 
-* No establezca las credenciales de la entidad de servicio en "No caducar nunca".
+* No establezca las credenciales de la entidad de servicio en "No expira nunca".
 
 * Use certificados o credenciales almacenados en Azure KeyVault siempre que sea posible.
 
@@ -172,7 +172,7 @@ Establezca un proceso de revisión para asegurarse de que las cuentas de servici
 
 **Los procesos de desaprovisionamiento deben incluir las siguientes tareas.**
 
-1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) y el acceso a los recursos de la cuenta de servicio.
+1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) y el acceso a los recursos de la cuenta de servicio.
 
    * Si la cuenta aún está activa, determine cómo se está usando antes de realizar los pasos siguientes.
  

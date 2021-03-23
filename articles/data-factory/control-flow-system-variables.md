@@ -7,19 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385292"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201233"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables del sistema compatibles con Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se describen las variables del sistema compatibles con Azure Data Factory. Puede usar estas variables en las expresiones a la hora de definir entidades de Data Factory.
 
 ## <a name="pipeline-scope"></a>Ámbito de canalización
+
 Se puede hacer referencia a estas variables del sistema en cualquier JSON de la canalización.
 
 | Nombre de la variable | Descripción |
@@ -36,6 +38,7 @@ Se puede hacer referencia a estas variables del sistema en cualquier JSON de la 
 >Las variables del sistema de fecha y hora relacionadas con el desencadenador (en los ámbitos de la canalización y el desencadenador) devuelven las fechas locales en formato ISO 8601; por ejemplo, `2017-06-01T22:20:00.4061448Z`.
 
 ## <a name="schedule-trigger-scope"></a>Ámbito del desencadenador de programación
+
 Se puede hacer referencia a estas variables del sistema en cualquier parte del JSON de desencadenador para los desencadenadores de tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nombre de la variable | Descripción |
@@ -44,6 +47,7 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del J
 | @trigger().startTime |Hora a la que **realmente** se activó el desencadenador para invocar la ejecución de la canalización. Este valor puede diferir ligeramente de la hora programada del desencadenador. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Ámbito de desencadenador periódico
+
 Se puede hacer referencia a estas variables del sistema en cualquier parte del JSON del desencadenador para los desencadenadores de tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nombre de la variable | Descripción |
@@ -53,7 +57,8 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del J
 | @trigger().scheduledTime |Hora a la que se programó el desencadenador para invocar la ejecución de la canalización. |
 | @trigger().startTime |Hora a la que **realmente** se activó el desencadenador para invocar la ejecución de la canalización. Este valor puede diferir ligeramente de la hora programada del desencadenador. |
 
-## <a name="event-based-trigger-scope"></a>Ámbito de desencadenador basado en eventos
+## <a name="storage-event-trigger-scope"></a>Ámbito de desencadenador de eventos de almacenamiento
+
 Se puede hacer referencia a estas variables del sistema en cualquier parte del JSON de desencadenador para los desencadenadores de tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Nombre de la variable | Descripción |
@@ -63,4 +68,6 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del J
 | @trigger().startTime |Hora a la que se activó el desencadenador para invocar la ejecución de la canalización. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre cómo se usan estas variables en las expresiones, vea [Expression language & functions](control-flow-expression-language-functions.md) (Lenguaje de expresión y funciones).
+
+* Para información sobre cómo se usan estas variables en las expresiones, vea [Expression language & functions](control-flow-expression-language-functions.md) (Lenguaje de expresión y funciones).
+* Para usar variables del sistema de ámbito de desencadenador en la canalización, consulte [Referencia de metadatos de desencadenador en canalización](how-to-use-trigger-parameterization.md).

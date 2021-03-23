@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582346"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179143"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor para Azure Data Explorer (versión preliminar)
 
@@ -103,10 +103,10 @@ La pestaña **Key Metrics** (Métricas clave) muestra una vista unificada de alg
 
 La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los comandos y las consultas del clúster. En esta página, puede:
  
- - Ver qué usuarios y aplicaciones envían la mayoría de las consultas o consumen la mayor parte de la CPU y la memoria (para que pueda saber qué usuarios envían las consultas más pesadas que va a procesar el clúster).
- - Identificar los usuarios y aplicaciones principales por consultas con error.
- - Identificar los cambios recientes en el número de consultas, en comparación con la media diaria histórica (en los últimos 16 días), por usuario y aplicación.
- - Identificar las tendencias y los picos en el número de consultas y el consumo de memoria y CPU por usuario, aplicación y tipo de comando.
+ - Ver qué grupos de cargas de trabajo, usuarios y aplicaciones envían la mayoría de las consultas o consumen la mayor parte de la CPU y la memoria (para que pueda saber qué cargas de trabajo envían las consultas más pesadas que va a procesar el clúster).
+ - Identificar los grupos de cargas de trabajo, usuarios y aplicaciones principales por consultas con error.
+ - Identificar los cambios recientes en el número de consultas, en comparación con la media diaria histórica (en los últimos 16 días), por grupo de cargas de trabajo, usuario y aplicación.
+ - Identificar las tendencias y los picos en el número de consultas y el consumo de memoria y CPU por grupo de cargas de trabajo, usuario, aplicación y tipo de comando.
 
 [![Captura de pantalla de la vista de operaciones con gráficos de anillos de las principales aplicaciones por recuento de comandos y consultas, principales entidades de seguridad por recuento de comandos y consultas y comandos principales por tipos de comandos](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

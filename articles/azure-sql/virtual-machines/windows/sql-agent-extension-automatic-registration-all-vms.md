@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042431"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,10 +30,10 @@ Registro de la VM con SQL Server con la [extensión Agente de IaaS de SQL](sql-
 
 Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con la extensión en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios.
 
-Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión Agente de IaaS de SQL en modo ligero. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. 
+Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. 
 
 > [!IMPORTANT]
-> La extensión del Agente de IaaS de SQL recopila datos con el fin de ofrecer a los clientes ventajas opcionales al usar SQL Server en Azure Virtual Machines. Microsoft no usará estos datos para auditorías de licencias sin el consentimiento previo del cliente. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
+> La extensión del Agente de IaaS de SQL recopila datos con el fin de ofrecer a los clientes ventajas opcionales al usar SQL Server en Azure Virtual Machines. Microsoft no usará estos datos para auditorías de licencias sin el consentimiento previo del cliente. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

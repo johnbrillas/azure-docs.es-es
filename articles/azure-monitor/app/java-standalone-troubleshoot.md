@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas del agente de
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737064"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199618"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guía de solución de problemas: Application Insights de Azure Monitor para Java
 
@@ -45,7 +45,7 @@ Los registros solo se capturan si cumple primero el umbral configurado de las pl
 
 La mejor manera de saber si una instrucción de registro determinada cumple el umbral configurado de las plataformas de registro es confirmar que se muestra en el registro de aplicaciones normal (por ejemplo, archivo o consola).
 
-Tenga en cuenta también que, si se pasa una excepción al registrador, el mensaje de registro (y la excepción) se mostrarán en Azure Portal en la tabla `exceptions`, en lugar de la tabla `traces`.
+Tenga en cuenta también que, si se pasa un objeto de excepción al registrador, el mensaje de registro (y los detalles del objeto de excepción) se mostrarán en Azure Portal en la tabla `exceptions`, en lugar de la tabla `traces`.
 
 Para obtener más información, consulte la [configuración de registro de recopilación automática](./java-standalone-config.md#auto-collected-logging).
 

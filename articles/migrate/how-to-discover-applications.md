@@ -1,86 +1,84 @@
 ---
 title: Detección de aplicaciones en servidores locales con Azure Migrate
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
-author: vineetvikram
-ms.author: vivikram
+author: vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752012"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048087"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
+# <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Detección de aplicaciones instaladas, roles y características (inventario de software) e instancias y bases de datos de SQL Server
 
-En este artículo se describe cómo detectar aplicaciones, roles y características en servidores locales mediante Azure Migrate: evaluación del servidor.
+En este artículo se describe cómo detectar las aplicaciones, roles y características instalados (inventario de software) y las instancias y bases de datos de SQL Server en servidores que se ejecutan en el entorno de VMware, mediante la herramienta Azure Migrate: evaluación de servidores.
 
-La detección del inventario de aplicaciones, roles y características que se ejecutan en las máquinas locales ayuda a identificar y adaptar una ruta de migración a Azure a sus cargas de trabajo. La detección de aplicaciones usa el dispositivo de Azure Migrate para realizar la acción junto con las credenciales de invitado de la máquina virtual. La detección de aplicaciones es sin agente. No se instala nada en las máquinas virtuales.
+La realización del inventario de software ayuda a identificar y adaptar una ruta de migración a Azure para las cargas de trabajo. El inventario de software usa el dispositivo de Azure Migrate para realizar la detección, con las credenciales de servidor. Se realiza totalmente sin agente: no hay agentes instalados en los servidores para recopilar los datos.
 
 > [!NOTE]
-> La detección de aplicaciones está actualmente en versión preliminar solo para máquinas virtuales de VMware y solo se limita a la detección. Todavía no se ofrece la evaluación basada en aplicaciones. 
-
+> El inventario de software se encuentra actualmente en versión preliminar para los servidores que se ejecutan en el entorno de VMware únicamente y se limita a la detección. Actualmente no ofrecemos la evaluación basada en aplicaciones.<br/> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- Asegúrese de que ha:
-    - [Creado](./create-manage-projects.md) un proyecto de Azure Migrate.
-    - [Agregado](how-to-assess.md) la herramienta de Azure Migrate: evaluación del servidor a un proyecto.
-- Revise [la compatibilidad y los requisitos de la detección de aplicaciones](migrate-support-matrix-vmware.md#vmware-requirements).
-- Asegúrese de que las máquinas virtuales en las que se ejecuta la detección de aplicaciones tengan instalada la versión de PowerShell 2.0 o posterior y de que estén instaladas las herramientas de VMware (posterior a 10.2.0).
-- Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
+- Asegúrese de que ha [creado un proyecto de Azure Migrate](./create-manage-projects.md) con la herramienta Azure Migrate: evaluación de servidores agregada.
+- Revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el inventario de software.
+- Revise los [requisitos del dispositivo](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) antes de configurarlo.
+- Revise los [requisitos de detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) antes de iniciar el inventario de software en los servidores.
 
-
-## <a name="deploy-the-azure-migrate-appliance"></a>Implementación del dispositivo de Azure Migrate
+## <a name="deploy-and-configure-the-azure-migrate-appliance"></a>Implementación y configuración del dispositivo de Azure Migrate
 
 1. [Revise](migrate-appliance.md#appliance---vmware) los requisitos para implementar el dispositivo de Azure Migrate.
 2. Revise las direcciones URL de Azure a las que el dispositivo necesitará acceder en las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 3. [Revise los datos](migrate-appliance.md#collected-data---vmware) que la aplicación recopila durante la detección y valoración.
 4. [Tenga en cuenta](migrate-support-matrix-vmware.md#port-access-requirements) los requisitos de acceso a puertos del dispositivo.
-5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla de OVA en VMware para crear el dispositivo como una VM de VMware. Configure el dispositivo y, a continuación, regístrelo con Azure Migrate.
-6. Mientras implementa el dispositivo, especifique lo siguiente para iniciar la detección continua:
-    - El nombre de la instancia de vCenter Server que quiere conectar.
-    - Las credenciales que ha creado para que el dispositivo se conecte a vCenter Server.
-    - Las credenciales de la cuenta que ha creado para que el dispositivo se conecte a las VM de Windows o Linux.
-
-Después de implementar el dispositivo y proporcionar las credenciales, el dispositivo inicia la detección continua de los metadatos de la VM y los datos de rendimiento, junto con la detección de aplicaciones, características y roles.  La duración de la detección de aplicaciones depende del número de VM que tenga. Normalmente, la detección de aplicaciones tarda una hora para 500 VM.
+5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server. Después de implementar el dispositivo, debe registrarlo en el proyecto de Azure Migrate y configurarlo para iniciar la detección.
+6. Al configurar el dispositivo, debe especificar lo siguiente en el administrador de configuración del dispositivo:
+    - Los detalles de la instancia de vCenter Server a la que se quiere conectar.
+    - Las credenciales de vCenter Server en el ámbito para detectar los servidores del entorno de VMware.
+    - Las credenciales del servidor, que pueden ser credenciales de dominio, Windows (no de dominio) o Linux (no de dominio). [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo administrarlas.
 
 ## <a name="verify-permissions"></a>Comprobar los permisos
 
-Has [creado una cuenta de vCenter Server de solo lectura](./tutorial-discover-vmware.md#prepare-vmware) para detección y valoración. La cuenta de solo lectura necesita privilegios habilitados para  > **las operaciones de invitado** de **Virtual Machines**, con el fin de interactuar con la máquina virtual para la detección de aplicaciones.
+- Debe [crear una cuenta de vCenter Server de solo lectura](./tutorial-discover-vmware.md#prepare-vmware) para la detección y evaluación. La cuenta de solo lectura necesita tener habilitados los privilegios para **Virtual Machines** > **Guest Operations** (Operaciones de invitado), con el fin de interactuar con los servidores para realizar el inventario de software.
+- Puede agregar varias credenciales de dominio y no de dominio (Windows o Linux) en el administrador de configuración del dispositivo para la detección de aplicaciones. Necesita una cuenta de usuario invitado para servidores de Windows y una cuenta de usuario normal (acceso no sudo) para todos los servidores Linux. [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo controlarlas.
 
-### <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
+### <a name="add-credentials-and-initiate-discovery"></a>Adición de credenciales e inicio de la detección
 
-Agregue la cuenta de usuario como se indica a continuación:
+1. Abra el administrador de configuración del dispositivo, complete las comprobaciones de requisitos previos y el registro del dispositivo.
+2. Navegue hasta el panel **Administrar credenciales y orígenes de detección**.
+1.  En **Step 1: Provide vCenter Server credentials** (Paso 1: Proporcionar las credenciales de vCenter Server), haga clic en **Agregar credenciales** para proporcionar las credenciales de la cuenta de vCenter Server que el dispositivo usará para detectar los servidores que se ejecutan en vCenter Server.
+1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique **Dirección IP/FQDN** de la instancia de vCenter Server. :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 del administrador de configuración del dispositivo para los detalles de vCenter Server":::
+1. En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), haga clic en **Agregar credenciales** para proporcionar varias credenciales de servidor a fin de iniciar el inventario de software.
+1. Haga clic en **Iniciar detección** para iniciar la detección de vCenter Server.
 
-1. Abra la aplicación de administración del dispositivo. 
-2. Navegue hasta el panel **Provide vCenter details** (Proporcionar detalles de vCenter).
-3. En **Detectar aplicaciones y dependencias en VM**, haga clic en **Agregar credenciales**.
-3. Elija el **Sistema operativo**, proporcione un nombre descriptivo para la cuenta y especifique los valores de **Nombre de usuario**/**Contraseña**.
-6. Haga clic en **Save**(Guardar).
-7. Haga clic en **Guardar e iniciar la detección**.
-
-    ![Adición de una cuenta de usuario de VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
-
+ Una vez completada la detección de vCenter Server, el dispositivo inicia la detección de las aplicaciones instaladas, roles y características (inventario de software). Todo depende del número de servidores que se detecten. En el caso de 500 servidores, el inventario de detección tarda aproximadamente una hora en aparecer en el portal de Azure Migrate.
 
 ## <a name="review-and-export-the-inventory"></a>Revisión y exportación del inventario
 
-Una vez finalizada la detección, si ha proporcionado las credenciales para la detección de aplicaciones, puede revisar y exportar el inventario de aplicaciones en Azure Portal.
+Una vez completado el inventario de software, puede revisarlo y exportarlo a Azure Portal.
 
 1. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el recuento que se muestra para abrir la página **Servidores detectados**.
 
     > [!NOTE]
-    > En esta fase también tiene la opción de configurar el análisis de dependencias para las máquinas detectadas, a fin de poder visualizar las dependencias entre las máquinas que quiere evaluar. [Obtener más información](concepts-dependency-visualization.md) sobre el análisis de dependencias.
+    > En esta fase también puede habilitar el análisis de dependencias de los servidores detectados, para poder visualizar las dependencias entre los servidores que quiere evaluar. [Obtener más información](concepts-dependency-visualization.md) sobre el análisis de dependencias.
 
-2. En **Aplicaciones detectadas**, haga clic en el recuento mostrado.
-3. En **Inventario de aplicaciones**, puede revisar las aplicaciones, los roles y las características que se han detectado.
+2. En la columna **Aplicaciones detectadas**, haga clic en el recuento mostrado para revisar las aplicaciones, los roles y las características detectados.
 4. Para exportar el inventario, en **Servidores detectados**, haga clic en **Exportar el inventario de las aplicaciones**.
 
-El inventario de la aplicación se exporta y descarga en formato de Excel. En la hoja **Inventario de aplicaciones** se muestran todas las aplicaciones detectadas en todas las máquinas.
+El inventario de aplicaciones se exporta y descarga en formato de Excel. En la hoja **Inventario de aplicaciones** se muestran todas las aplicaciones detectadas en todos los servidores.
+
+## <a name="discover-sql-server-instances-and-databases"></a>Detección de instancias y bases de datos de SQL Server
+
+- La detección de aplicaciones también identifica las instancias de SQL Server que se ejecutan en el entorno de VMware.
+- Si no ha proporcionado las credenciales de autenticación de Windows o SQL Server en el administrador de configuración del dispositivo, agregue las credenciales para que el dispositivo pueda usarlas para conectarse a las instancias de SQL Server correspondientes.
+
+Una vez conectado, el dispositivo recopila datos de configuración y rendimiento de las instancias y de las bases de datos de SQL Server. Los datos de configuración de SQL Server se actualizan una vez cada 24 horas y los datos de rendimiento se capturan cada 30 segundos. Por lo tanto, cualquier cambio en las propiedades de la instancia y bases de datos de SQL Server, como el estado de la base de datos, el nivel de compatibilidad, etc. puede tardar hasta 24 horas en actualizarse en el portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cree una valoración](how-to-create-assessment.md) para los servidores detectados.
-- Evalúe instancias de bases de datos de SQL Server con [Azure Migrate: valoración de la base de datos](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- [Evaluación de instancias de SQL Server](./tutorial-assess-sql.md) para la migración a Azure SQL.

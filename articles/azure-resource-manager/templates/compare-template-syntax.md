@@ -1,14 +1,14 @@
 ---
-title: Conversión de plantillas de Azure Resource Manager entre JSON y Bicep
-description: Se comparan las plantillas de Azure Resource Manager desarrolladas con JSON y Bicep.
+title: Comparación de la sintaxis de las plantillas de Azure Resource Manager en JSON y Bicep
+description: Compara las plantillas de Azure Resource Manager desarrolladas con JSON y Bicep, y muestra cómo realizar la conversión entre los dos lenguajes.
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 9388ed50f13d6885d0a0668b61a9141dae375244
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 29c2b9948957ebc10a26f22f0fe3daf383dfe5ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743579"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036221"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Comparación de JSON y Bicep para plantillas
 
@@ -18,40 +18,21 @@ En este artículo se compara la sintaxis de Bicep con la sintaxis de JSON para l
 
 Si está familiarizado con el uso de JSON para desarrollar plantillas de ARM, use la siguiente tabla para obtener información sobre los equivalentes de sintaxis para Bicep.
 
-| Escenario | Plantilla ARM | Bicep |
+| Escenario | Bicep | JSON |
 | -------- | ------------ | ----- |
-| Crear una expresión | `"[func()]"` | `func()` |
-| Obtener un valor de parámetro | `[parameters('exampleParameter'))]` | `exampleParameter` |
-| Obtener un valor de variable | `[variables('exampleVar'))]` | `exampleVar` |
-| Concatenación de cadenas | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
-| Establecer una propiedad de recurso | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
-| Devolver el operador lógico AND | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
-| Obtener el id. de recurso en la plantilla | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
-| Obtener la propiedad del recurso en la plantilla | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
-| Establecer un valor condicionalmente | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
-| Dividir una solución en varios archivos | Usar plantillas vinculadas | Usar módulos |
-| Establecer el ámbito de destino de la implementación | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
-| Establecer la dependencias | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | Puede confiar en la detección automática de dependencias o establecer manualmente las dependencias con `dependsOn: [ stg ]`. |
-
-Para declarar el tipo y la versión de un recurso, use el siguiente código en Bicep:
-
-```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
-En lugar de la sintaxis equivalente en JSON:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
-    ...
-  }
-]
-```
+| Crear una expresión | `func()` | `"[func()]"` |
+| Obtener un valor de parámetro | `exampleParameter` | `[parameters('exampleParameter'))]` |
+| Obtener un valor de variable | `exampleVar` | `[variables('exampleVar'))]` |
+| Concatenación de cadenas | `'${namePrefix}-vm'` | `[concat(parameters('namePrefix'), '-vm')]` |
+| Establecer una propiedad de recurso | `sku: '2016-Datacenter'` | `"sku": "2016-Datacenter",` |
+| Devolver el operador lógico AND | `isMonday && isNovember` | `[and(parameter('isMonday'), parameter('isNovember'))]` |
+| Obtener el id. de recurso en la plantilla | `nic1.id` | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` |
+| Obtener la propiedad del recurso en la plantilla | `diagsAccount.properties.primaryEndpoints.blob` | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` |
+| Establecer un valor condicionalmente | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` |
+| Dividir una solución en varios archivos | Usar módulos | Usar plantillas vinculadas |
+| Establecer el ámbito de destino de la implementación | `targetScope = 'subscription'` | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` |
+| Establecer la dependencias | Puede confiar en la detección automática de dependencias o establecer manualmente las dependencias con `dependsOn: [ stg ]`. | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` |
+| Declaración de recursos | `resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {...}` | `"resources": [ { "type": "Microsoft.Compute/virtualMachines", "apiVersion": "2020-06-01", ... } ]` |
 
 ## <a name="recommendations"></a>Recomendaciones
 
@@ -63,10 +44,7 @@ En lugar de la sintaxis equivalente en JSON:
 
 La CLI de Bicep incluye un comando para descompilar cualquier plantilla de ARM existente en un archivo Bicep. Para descompilar un archivo JSON, use: `bicep decompile "path/to/file.json"`.
 
-Este comando proporciona un punto inicial para la creación de Bicep, pero el comando no funciona para todas las plantillas. Es posible que se produzca un error en el comando o que deba corregir los problemas después de la descompilación. Actualmente, el comando tiene las siguientes limitaciones:
-
-* Las plantillas que usan bucles de copia no se pueden descompilar.
-* Las plantillas anidadas solo se pueden descompilar si usan el ámbito de evaluación de expresión "inner" (interno).
+Este comando proporciona un punto inicial para la creación de Bicep, pero el comando no funciona para todas las plantillas. Es posible que se produzca un error en el comando o que deba corregir los problemas después de la descompilación. Actualmente, las plantillas anidadas solo se pueden descompilar si usan el ámbito de evaluación de expresión "inner" (interno).
 
 Puede exportar la plantilla para un grupo de recursos y, a continuación, pasarla directamente al comando de descompilación de Bicep. En el ejemplo siguiente se muestra cómo descompilar una plantilla exportada.
 
@@ -100,4 +78,4 @@ La CLI de Bicep también incluye un comando para convertir Bicep en JSON. Para c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre el proyecto de Bicep, consulte el [Proyecto de Bicep](https://github.com/Azure/bicep).
+Para obtener información sobre Bicep, consulte el [Tutorial de Bicep](./bicep-tutorial-create-first-bicep.md).

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560506"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203732"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,39 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="march-2021"></a>Marzo de 2021
+
+Ahora dispone de análisis de audio en un nuevo conjunto de características de audio con un precio diferente. El nuevo valor preestablecido modo básico de análisis **Basic Audio** (Audio básico) ofrece una opción de bajo costo que solo extrae transcripciones de voz, traducción y formato de los títulos y subtítulos de salida. Con el valor preestablecido **Basic Audio** (Audio básico) aparecerán dos medidores independientes en la factura, incluida una línea para la transcripción y una línea independiente para el formato de títulos y subtítulos. Para más información sobre los precios, consulte la página [Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
+
+El conjunto recién agregado está disponible al indexar o volver a indexar el archivo; para ello, elija el valor preestablecido **Opción avanzada** -> **Basic Audio** (Audio básico) en el cuadro desplegable **Indexación de audio y vídeo**.
+
+## <a name="february-2021"></a>Febrero de 2021
+
+### <a name="multiple-account-owners"></a>Varios propietarios de cuentas 
+
+Se ha agregado a Video Indexer el rol de propietario de la cuenta. Puede agregar, cambiar y quitar usuarios, así como cambiar su rol. Para más información sobre cómo compartir una cuenta, consulte [Invitar a usuarios](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Detección de eventos de audio (versión preliminar pública)
+
+> [!NOTE]
+> Esta característica solo está disponible en cuentas de evaluación gratuita. 
+
+Ahora Video Indexer detecta los siguientes efectos de audio en los segmentos que no son de voz del contenido: disparo de un arma, rotura de un cristal, alarma, sirena, explosión, ladridos, gritos, risas, reacciones de una multitud (júbilo, aplausos y abucheos) y silencio. 
+
+La característica de efectos de audio recién agregada está disponible al indexar el archivo si elige el valor preestablecido **Opción avanzada** -> **Advanced audio** (Audio avanzado), en Indexación de audio y vídeo. La indexación estándar solo incluirá el **silencio** y la **reacción de una multitud**. 
+
+El tipo de evento de **aplausos** que se incluyó en el modelo de efectos de audio anterior, ahora se extrae como parte del tipo de evento de **reacción de una multitud**.
+
+Cuando elige ver la **información** del vídeo en el sitio web de [Video Indexer](https://www.videoindexer.ai/), en la página se muestran los efectos de audio.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Detección de eventos de audio":::
+
+### <a name="named-entities-enhancement"></a>Mejoras en entidades con nombre  
+
+La lista que se extrae de personas y ubicaciones se ha ampliado y actualizado en general. 
+
+Además, el modelo ahora incluye personas y ubicaciones del contexto que no son famosas, como "Samuel" o "Casa" en el vídeo. 
 
 ## <a name="january-2021"></a>Enero de 2021
 

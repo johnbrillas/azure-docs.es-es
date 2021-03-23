@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/18/2021
+ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388539"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462923"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -50,7 +50,7 @@ Estos son los límites de ejecución de una única aplicación lógica:
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Duración de la ejecución | 90 días | 366 días | Para calcular la duración de la ejecución se usa la hora de inicio de una ejecución y el límite especificado en la configuración del flujo de trabajo, [**Retención del historial de ejecución en días**](#change-duration) en esa hora de inicio. <p><p>Para cambiar el límite predeterminado,vea [Cambio de la retención y el historial de ejecución en el almacenamiento](#change-duration). |
-| Retención del historial de ejecución en el almacenamiento | 90 días | 366 días | Cuando la duración de una ejecución supera el límite de retención del historial de ejecución actual, la ejecución se quita del historial de ejecución en el almacenamiento. Tanto si se completa la ejecución como si se agota el tiempo de espera, la retención del historial de ejecución siempre se calcula mediante la hora de inicio de la ejecución y el límite actual especificado en la configuración del flujo de trabajo [**Retención del historial de ejecución en días**](#change-retention). Con independencia del límite anterior, el actual siempre se usa para calcular la retención. <p><p>Para cambiar el límite predeterminado y obtener más información,vea [Cambio de la retención de la duración y el historial de ejecución en el almacenamiento](#change-retention). En cambio, para aumentar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos. |
+| Retención del historial de ejecución en el almacenamiento | 90 días | 366 días | Cuando la duración de una ejecución supera el límite de retención del historial de ejecución actual, la ejecución se quita del historial de ejecución en el almacenamiento. Tanto si se completa la ejecución como si se agota el tiempo de espera, la retención del historial de ejecución siempre se calcula mediante la hora de inicio de la ejecución y el límite actual especificado en la configuración del flujo de trabajo [**Retención del historial de ejecución en días**](#change-retention). Con independencia del límite anterior, el actual siempre se usa para calcular la retención. <p><p>Para cambiar el límite predeterminado y obtener más información,vea [Cambio de la retención de la duración y el historial de ejecución en el almacenamiento](#change-retention). En cambio, para aumentar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para obtener ayuda con sus requisitos. |
 | Intervalo de periodicidad mínima | 1 segundo | 1 segundo ||
 | Intervalo de periodicidad máxima | 500 días | 500 días ||
 |||||
@@ -139,7 +139,7 @@ Estos son los límites de una definición de aplicación lógica:
 
 | Nombre | Límite | Notas |
 | ---- | ----- | ----- |
-| Acción: Ejecuciones por cada 5 minutos | 100 000 es el límite predeterminado, pero 300 000 es el límite máximo. | Para elevar el límite predeterminado al máximo en la aplicación lógica, consulte [Ejecución en modo de alto rendimiento](#run-high-throughput-mode), que se encuentra en versión preliminar. También, puede [distribuir la carga de trabajo entre varias aplicaciones lógicas](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling). |
+| Acción: Ejecuciones por intervalo continuo de 5 minutos | - 100 000 ejecuciones (valor predeterminado) <p><p>- 300 000 ejecuciones (máximo en modo de rendimiento alto)  | Para elevar el límite predeterminado al límite máximo en la aplicación lógica, consulte [Ejecución en modo de alto rendimiento](#run-high-throughput-mode), que se encuentra en versión preliminar. También, puede [distribuir la carga de trabajo entre varias aplicaciones lógicas](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling). |
 | Acción: Llamadas salientes simultáneas | Aproximadamente 2500 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
 | Punto de conexión en tiempo de ejecución: Llamadas entrantes simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
 | Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos  | 60 000 | Este límite se aplica a las llamadas que obtienen las entradas y salidas sin procesar del historial de ejecución de una aplicación lógica. Puede distribuir la carga de trabajo entre varias aplicaciones, según sea necesario. |
@@ -151,7 +151,7 @@ Estos son los límites de una definición de aplicación lógica:
 
 #### <a name="run-in-high-throughput-mode"></a>Ejecutar en modo de alto rendimiento
 
-Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar el límite predeterminado al máximo en la aplicación lógica, puede habilitar el modo de alto rendimiento, que se encuentra en versión preliminar. También, puede [distribuir la carga de trabajo entre varias aplicaciones lógicas](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling).
+Para una única definición de aplicación lógica, el número de acciones que se ejecutan cada cinco minutos tiene un [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar el límite predeterminado al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) en la aplicación lógica, que es el triple del límite predeterminado, puede habilitar el modo de alto rendimiento, que se encuentra en versión preliminar. También, puede [distribuir la carga de trabajo entre varias aplicaciones lógicas](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling).
 
 1. En Azure Portal, en el menú de la aplicación lógica, seleccione **Configuración** y, luego, **Configuración del flujo de trabajo**.
 
@@ -203,8 +203,8 @@ Para más información sobre la definición de recurso de la aplicación lógica
 
   | Nombre | Límite | Notas |
   |------|-------|-------|
-  | Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente | |
-  | Límite de ejecución de unidad de escalado | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Cada unidad de escalado puede proporcionar aproximadamente 2000 ejecuciones de acciones adicionales por minuto, que equivale aproximadamente a 80 millones de ejecuciones de acciones más al mes | |
+  | Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente |
+  | Límite de ejecución de unidad de escalado | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Cada unidad de escalado puede proporcionar aproximadamente 2000 ejecuciones de acciones adicionales por minuto, que equivale aproximadamente a 80 millones de ejecuciones de acciones más al mes |
   | Unidades de escalado máximas que puede agregar | 10 | |
   ||||
 
@@ -244,11 +244,11 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 #### <a name="character-limits"></a>Límites de caracteres
 
-| Nombre | Notas |
-|------|-------|
+| Nombre | Límite | Notas |
+|------|-------|-------|
 | Límite de evaluación de expresiones | 131 072 caracteres. | Las expresiones `@concat()`, `@base64()` y `@string()` no pueden superar este límite. |
-| Límite de caracteres de dirección URL de solicitud | 16 384 caracteres |
-|||
+| Límite de caracteres de dirección URL de solicitud | 16 384 caracteres | |
+||||
 
 <a name="retry-policy-limits"></a>
 
@@ -325,7 +325,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 > [!NOTE]
 > Use el nivel Gratis solo en escenarios de exploración, no en escenarios de producción. Este nivel restringe el uso y el rendimiento, y no tiene ningún acuerdo de nivel de servicio (SLA).
 
-| Artefacto | Gratuito | Básica | Estándar |
+| Artefacto | Gratuito | Básico | Estándar |
 |----------|------|-------|----------|
 | Acuerdos comerciales de EDI | 10 | 1 | 1,000 |
 | Socios comerciales de EDI | 25 | 2 | 1,000 |
@@ -351,7 +351,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 
 ### <a name="throughput-limits"></a>Límites de rendimiento
 
-| Punto de conexión en tiempo de ejecución | Gratuito | Básica | Estándar | Notas |
+| Punto de conexión en tiempo de ejecución | Gratuito | Básico | Estándar | Notas |
 |------------------|------|-------|----------|-------|
 | Llamadas de lectura cada 5 minutos | 3,000 | 30,000 | 60 000 | Este límite se aplica a las llamadas que obtienen las entradas y salidas sin procesar del historial de ejecución de una aplicación lógica. Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
 | Invocación de llamadas cada 5 minutos | 3,000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
@@ -444,6 +444,7 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 | Este de Australia | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sudeste de Australia | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Sur de Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Sur de Brasil | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
 | Centro de Canadá | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Este de Canadá | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Centro de la India | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -510,6 +511,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 | Este de Australia | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Sudeste de Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
 | Sur de Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
+| Sur de Brasil | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
 | Centro de Canadá | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Este de Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | Centro de la India | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |

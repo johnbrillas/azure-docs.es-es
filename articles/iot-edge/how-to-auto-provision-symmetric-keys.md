@@ -5,25 +5,25 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 4/3/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bfb61a5434089fffab9d8ceb9c7b0fbca528cac5
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 73d1d873df58c672e9db6b9e4e17ed58e1a6397e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430618"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046200"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica
 
 Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml), igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
-En este artículo se muestra cómo crear una inscripción individual de Device Provisioning Service mediante la atestación de clave simétrica en un dispositivo IoT Edge con los pasos siguientes:
+En este artículo se muestra cómo crear una inscripción individual o de grupo del servicio de aprovisionamiento de dispositivos mediante la atestación de clave simétrica en un dispositivo IoT Edge con los pasos siguientes:
 
 * Cree una instancia de IoT Hub Device Provisioning Service (DPS).
-* Cree una inscripción individual para el dispositivo.
+* Cree una inscripción para el dispositivo.
 * Instale el entorno de ejecución de IoT Edge y conéctese a IoT Hub.
 
 La atestación de clave simétrica es un enfoque sencillo para autenticar un dispositivo con una instancia del servicio Device Provisioning. Este método de atestación representa una experiencia de "Hola mundo" para los desarrolladores que no estén familiarizados con el aprovisionamiento de dispositivos, o no tengan estrictos requisitos de seguridad. La atestación de dispositivo mediante un [TPM](../iot-dps/concepts-tpm-attestation.md) o [certificado X.509](../iot-dps/concepts-x509-attestation.md) es más segura y se debe usar cuando los requisitos de seguridad son más estrictos.
@@ -72,8 +72,8 @@ Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado i
 
    1. Seleccione **Verdadero** para declarar que la inscripción es para un dispositivo IoT Edge. En el caso de una inscripción de grupo, todos los dispositivos deben ser dispositivos IoT Edge, o bien ninguno puede serlo.
 
-   > [!TIP]
-   > En la CLI de Azure, puede crear una [inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment) o un [grupo de inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) y usar la marca **habilitado para Edge** para especificar que un dispositivo o un grupo de dispositivos son un dispositivo IoT Edge.
+      > [!TIP]
+      > En la CLI de Azure, puede crear una [inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment) o un [grupo de inscripción](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) y usar la marca **habilitado para Edge** para especificar que un dispositivo o un grupo de dispositivos son un dispositivo IoT Edge.
 
    1. Acepte el valor predeterminado de la directiva de asignación de Device Provisioning Service para **la forma de asignar dispositivos a los centros**, o bien elija otro valor que sea específico de esta inscripción.
 
@@ -169,10 +169,12 @@ Tenga lista la siguiente información:
 * La **clave principal** que copió de la inscripción de DPS
 
 > [!TIP]
-> Para las inscripciones de grupo, necesita la clave [derivada](#derive-a-device-key) de cada dispositivo en lugar de la clave de inscripción de DPS.
+> En el caso de las inscripciones de grupo, necesita la [clave derivada](#derive-a-device-key) de cada dispositivo en lugar de la clave principal de inscripción de DPS.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. Abra el archivo de configuración en el dispositivo IoT Edge.
 
    ```bash
@@ -197,15 +199,66 @@ Tenga lista la siguiente información:
    #  dynamic_reprovisioning: false
    ```
 
-   También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
-
 1. Actualice los valores de `scope_id`, `registration_id` y `symmetric_key` con la información de DPS y del dispositivo.
+
+1. También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
 
 1. Reinicie el entorno de ejecución de IoT Edge para que aplique todos los cambios de configuración realizados en el dispositivo.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Cree un archivo de configuración para el dispositivo basándose en un archivo de plantilla que se proporciona como parte de la instalación de IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Abra el archivo de configuración en el dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Busque la sección **Provisioning** (Aprovisionamiento) del archivo. Quite las marcas de comentario de las líneas del aprovisionamiento a DPS de clave simétrica y asegúrese de que cualquier otra línea de aprovisionamiento esté comentada.
+
+   ```toml
+   # DPS provisioning with symmetric key
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "symmetric_key"
+   registration_id = "<REGISTRATION_ID>"
+
+   symmetric_key = "<PRIMARY_KEY OR DERIVED_KEY>"
+   ```
+
+1. Actualice los valores de `id_scope`, `registration_id` y `symmetric_key` con la información de DPS y del dispositivo.
+
+   El parámetro de clave simétrica puede aceptar un valor de una clave insertada, un URI de archivo o un URI de PKCS#11. Quite la marca de comentario de una sola línea de clave simétrica, en función del formato que esté usando.
+
+   Si usa cualquier URI de PKCS#11, busque la sección **PKCS#11** en el archivo de configuración y proporcione información sobre la configuración de PKCS#11.
+
+1. Guarde y cierre el archivo config.toml.
+
+1. Aplique los cambios de configuración que ha realizado a IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
@@ -228,6 +281,9 @@ Si el entorno de ejecución se inició correctamente, puede ir a IoT Hub y empez
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Compruebe el estado del servicio IoT Edge.
 
 ```cmd/sh
@@ -245,6 +301,31 @@ Enumere los módulos en ejecución.
 ```cmd/sh
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Compruebe el estado del servicio IoT Edge.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+Examine los registros del servicio.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+Enumere los módulos en ejecución.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
 
 ### <a name="windows-device"></a>Dispositivo Windows
 

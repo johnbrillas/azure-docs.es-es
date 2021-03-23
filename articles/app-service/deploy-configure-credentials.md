@@ -5,17 +5,20 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560418"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052354"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 Para proteger la implementación de aplicaciones desde un equipo local, [Azure App Service](./overview.md) admite dos tipos de credenciales para la [implementación de Git local](deploy-local-git.md) y la [implementación de FTP/S](deploy-ftp.md). Estas credenciales no son las mismas que las de su suscripción a Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+
+> [!NOTE]
+> La página **Centro de desarrollo (clásico)** en Azure Portal, que es la experiencia de implementación anterior, quedará en desuso en marzo de 2021. Este cambio no afectará a ninguna configuración de implementación existente en la aplicación y puede continuar con la administración de la implementación de aplicaciones en la página **Centro de implementación**.
 
 ## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configuración de credenciales de ámbito de usuario
 

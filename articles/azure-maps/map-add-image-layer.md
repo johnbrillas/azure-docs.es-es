@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892951"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047492"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
@@ -70,6 +70,9 @@ En el código se usa la función `getCoordinatesFromEdges` estática de la clase
 
 <iframe height='500' scrolling='no' title='Superposición de suelo KML como capa de imagen' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>Superposición de suelo KML como capa de imagen</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Use las funciones `getPixels` y `getPositions` de la clase de capa de imagen para la conversión entre las coordenadas geográficas de la capa de imagen posicionada y las coordenadas de píxeles de la imagen local.
 
 ## <a name="customize-an-image-layer"></a>Personalización de una capa de imagen
 

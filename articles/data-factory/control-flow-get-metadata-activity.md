@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710233"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178548"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
@@ -83,8 +83,14 @@ Puede especificar los siguientes tipos de metadatos en la lista de campos de la 
 | columnCount | Número de columnas en el archivo o la tabla relacional. |
 | exists| Si un archivo, carpeta o tabla existe. Si se especifica `exists` en la lista de campos de obtención de metadatos, la actividad no producirá un error, aunque el archivo, la carpeta o la tabla no existan. En su lugar, se devuelve `exists: false` en la salida. |
 
->[!TIP]
->Si desea validar que existe un archivo, una carpeta o una tabla, especifique `exists` en la lista de campos de la actividad de obtención de metadatos. A continuación, puede comprobar el resultado `exists: true/false` en la salida de la actividad. Si `exists` no se especifica en la lista de campos, se producirá un error en la actividad de obtención de metadatos si no se encuentra el objeto.
+> [!TIP]
+> Si desea validar que existe un archivo, una carpeta o una tabla, especifique `exists` en la lista de campos de la actividad de obtención de metadatos. A continuación, puede comprobar el resultado `exists: true/false` en la salida de la actividad. Si `exists` no se especifica en la lista de campos, se producirá un error en la actividad de obtención de metadatos si no se encuentra el objeto.
+
+> [!NOTE]
+> Si obtiene metadatos de almacenes de archivos y configura `modifiedDatetimeStart` o `modifiedDatetimeEnd`, el elemento `childItems` de la salida solo incluye los archivos de la ruta especificada que tengan una hora de última modificación que se encuentre dentro del intervalo especificado. No se incluyen los elementos de las subcarpetas.
+
+> [!NOTE]
+> Para que la lista de campos de **estructura** proporcione la estructura de datos real de los conjuntos de datos con formato de texto delimitado y Excel, debe habilitar la propiedad `First Row as Header`, que solo es compatible con estos orígenes de datos.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -160,7 +166,7 @@ Actualmente, la actividad de obtención de metadatos puede capturar los siguient
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 fieldList | Los tipos de información de metadatos necesarios. Para más información sobre los metadatos admitidos, consulte la sección [Opciones de metadatos](#metadata-options) de este artículo. | Sí 
-dataset | Conjunto de datos de referencia cuyos metadatos debe recuperar la actividad de obtención de metadatos. Consulte la sección[Capacidades](#capabilities) para obtener información sobre los conectores admitidos. Consulte los temas específicos del conector para obtener información detallada sobre la sintaxis del conjunto de datos. | Sí
+dataset | Conjunto de datos de referencia cuyos metadatos debe recuperar la actividad de obtención de metadatos. Consulte la sección[Capacidades](#supported-capabilities) para obtener información sobre los conectores admitidos. Consulte los temas específicos del conector para obtener información detallada sobre la sintaxis del conjunto de datos. | Sí
 formatSettings | Se aplica cuando se usa el tipo de formato dataset. | No
 storeSettings | Se aplica cuando se usa el tipo de formato dataset. | No
 

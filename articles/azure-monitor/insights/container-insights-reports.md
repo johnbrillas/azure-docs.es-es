@@ -2,19 +2,19 @@
 title: Informes en Container Insights
 description: Se describen los informes disponibles para analizar los datos recopilados por Container Insights.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704283"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032806"
 ---
 # <a name="reports-in-container-insights"></a>Informes en Container Insights
 Los informes de Container Insights son [libros de Azure](../visualize/workbooks-overview.md) recomendados listos para usar. En este artículo se describen los diferentes informes que están disponibles y cómo acceder a ellos.
 
 ## <a name="viewing-reports"></a>Visualización de informes
-En el menú **Azure Monitor** de Azure Portal, seleccione **Contenedores**. Seleccione **Información detallada** en la sección **Supervisión**, elija un clúster determinado y, luego, seleccione la página **Informes (versión preliminar)** . 
+En el menú **Azure Monitor** de Azure Portal, seleccione **Contenedores**. Seleccione **Información detallada** en la sección **Supervisión**, elija un clúster determinado y, luego, seleccione la página **Informes**. 
 
 [![Página Informes](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

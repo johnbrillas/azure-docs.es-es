@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034598"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario con Azure Active Directory
 
@@ -33,15 +33,15 @@ Como administrador, puede restablecer la contraseña de un usuario si se olvida 
 
 ## <a name="to-reset-a-password"></a>Para restablecer una contraseña
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios o administrador de contraseñas. Para más información acerca de los roles disponibles, consulte [Asignación de roles de administrador en Azure Active Directory](../roles/permissions-reference.md#available-roles)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios o administrador de contraseñas. Para obtener más información sobre los roles disponibles, consulte [Roles integrados de Azure AD](../roles/permissions-reference.md).
 
-2. Seleccione **Azure Active Directory** , seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios que necesitan del restablecimiento y haga clic en **Restablecer contraseña**.
+2. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios que necesitan del restablecimiento y haga clic en **Restablecer contraseña**.
 
     Se muestra la página **Alain Charon - Perfil** con la opción **Restablecer contraseña**.
 
     ![Página de perfil del usuario, con la opción Restablecer contraseña resaltada](media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
-3. En la página **Restablecer contraseña** , seleccione **Restablecer contraseña**.
+3. En la página **Restablecer contraseña**, seleccione **Restablecer contraseña**.
 
     > [!Note]
     > Al usar Azure Active Directory, una contraseña temporal se genera automáticamente para el usuario. En cambio cuando se usa Active Directory local, se crea la contraseña del usuario.
@@ -50,6 +50,10 @@ Como administrador, puede restablecer la contraseña de un usuario si se olvida 
 
     >[!Note]
     >La contraseña temporal nunca expira. La próxima vez que el usuario inicie sesión, la contraseña seguirá funcionando, sin importar cuánto tiempo haya transcurrido desde que se generó la contraseña temporal.
+
+> [!IMPORTANT]
+> Si un administrador no puede restablecer la contraseña del usuario y en los registros de eventos de la aplicación en el servidor de Azure AD Connect aparece el código de error hr=80231367, revise los atributos del usuario en Active Directory.  Si el atributo **AdminCount** está establecido en 1, impedirá que un administrador restablezca la contraseña del usuario.  El atributo **AdminCount** debe establecerse en 0 para que los administradores puedan restablecer la contraseña del usuario.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

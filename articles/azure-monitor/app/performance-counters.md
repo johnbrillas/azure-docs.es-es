@@ -4,12 +4,12 @@ description: Supervise los contadores de rendimiento de .NET, tanto del sistema 
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583896"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031368"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -21,7 +21,7 @@ El panel Métricas muestra el conjunto predeterminado de contadores de rendimien
 
 ![Contadores de rendimiento notificados en Application Insights](./media/performance-counters/performance-counters.png)
 
-Los contadores predeterminados actuales que se configuran para la recopilación para aplicaciones web de ASP.NET/ASP.NET Core son los siguientes:
+Los contadores predeterminados actuales que se configuran para la recopilación para que se recopilen para aplicaciones web de ASP.NET son los siguientes:
 - % de Proceso\\Tiempo de procesador
 - % de Proceso\\Tiempo de procesador normalizado
 - Memoria\\Bytes disponibles
@@ -31,6 +31,14 @@ Los contadores predeterminados actuales que se configuran para la recopilación 
 - Proceso\\Bytes privados
 - Proceso\\Bytes de datos de E/S por segundo
 - Aplicaciones ASP.NET\\Solicitudes en la cola de aplicaciones
+- Procesador(_Total)\\% de tiempo del procesador
+
+Los contadores predeterminados actuales que se configuran para la recopilación para aplicaciones web de ASP.NET son los siguientes:
+- % de Proceso\\Tiempo de procesador
+- % de Proceso\\Tiempo de procesador normalizado
+- Memoria\\Bytes disponibles
+- Proceso\\Bytes privados
+- Proceso\\Bytes de datos de E/S por segundo
 - Procesador(_Total)\\% de tiempo del procesador
 
 ## <a name="add-counters"></a>Adición de contadores

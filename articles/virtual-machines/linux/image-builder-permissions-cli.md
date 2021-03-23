@@ -3,21 +3,25 @@ title: Configuración de permisos del servicio Azure Image Builder mediante la C
 description: Configure los requisitos para el servicio Azure VM Image Builder, incluidos los permisos y privilegios mediante la CLI de Azure.
 author: cynthn
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: f9b60af2c9fe16f834ce3098266c03afe2b99667
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695437"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201488"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configuración de permisos del servicio Azure Image Builder mediante la CLI de Azure
 
-El servicio Azure Image Builder requiere la configuración de permisos y privilegios antes de generar una imagen. En las secciones siguientes se detalla cómo configurar posibles escenarios mediante la CLI de Azure.
+Al registrarse para el (AIB), se concede al servicio AIB permiso para crear, administrar y eliminar un grupo de recursos de almacenamiento provisional (IT_ *) y tener derechos para agregarle recursos, que son necesarios para la compilación de la imagen. Esto se realiza mediante un nombre de entidad de seguridad de servicio (SPN) AIB que se pone a disposición de la suscripción durante un registro correcto.
+
+Para permitir que Azure VM Image Builder distribuya imágenes a las imágenes administradas o a Shared Image Gallery, debe crear una identidad asignada por el usuario de Azure que tenga permisos para leer y escribir imágenes. Si va a acceder a Azure Storage, necesitará permisos para leer contenedores privados y públicos.
+
+Debe configurar los permisos y los privilegios antes de crear una imagen. En las secciones siguientes se detalla cómo configurar posibles escenarios mediante la CLI de Azure.
 
 > [!IMPORTANT]
 > Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.

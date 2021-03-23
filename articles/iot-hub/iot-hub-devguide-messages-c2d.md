@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844461"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199499"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envío de mensajes de la nube al dispositivo desde un centro de IoT
 
@@ -63,7 +63,7 @@ Cada mensaje de nube a dispositivo tiene una fecha de expiración. Este tiempo s
 * La propiedad **ExpiryTimeUtc** del servicio
 * El centro de IoT, con el valor predeterminado de *Período de vida* especificado como propiedad del centro de IoT
 
-Consulte [Opciones de configuración de nube a dispositivo](#cloud-to-device-configuration-options).
+Consulte [Opciones de configuración de la nube al dispositivo](#cloud-to-device-configuration-options).
 
 Una forma habitual de aprovechar la expiración de los mensajes y evitar enviarlos a dispositivos desconectados consiste en establecer valores cortos de *Período de vida*. Así se consigue el mismo resultado que al mantener el estado de la conexión de los dispositivos, con la diferencia de que la primera opción resulta más eficiente. Cuando solicita confirmación de mensajes, el centro de IoT notifica qué dispositivos cumplen las siguientes condiciones:
 
@@ -76,14 +76,14 @@ Cuando envía un mensaje de la nube al dispositivo, el servicio puede solicitar 
 
 | Valor de la propiedad Ack | Comportamiento |
 | ------------ | -------- |
-| None     | El centro de IoT no genera un mensaje de comentarios (comportamiento predeterminado). |
+| ninguno     | El centro de IoT no genera un mensaje de comentarios (comportamiento predeterminado). |
 | positiva | El centro de IoT genera un mensaje de comentarios si el mensaje de la nube al dispositivo alcanza el estado *Completado*. |
-| negative | El centro de IoT genera un mensaje de comentarios si el mensaje de la nube al dispositivo alcanza el estado *En cola de mensajes fallidos*. |
+| negativa | El centro de IoT genera un mensaje de comentarios si el mensaje de la nube al dispositivo alcanza el estado *En cola de mensajes fallidos*. |
 | full     | El centro de IoT genera un mensaje de comentarios en cualquiera de los casos. |
 
 Si el valor de **Ack** es *full* y no recibe un mensaje de comentarios, significa que este ha expirado. El servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, lo que permite el tiempo suficiente para poner de nuevo en funcionamiento el servicio en caso de error.
 
-Como se explica en [Puntos de conexión](iot-hub-devguide-endpoints.md), el centro de IoT envía los comentarios a través de un punto de conexión accesible desde el servicio ( */messages/servicebound/feedback*) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
+Como se explica en [Puntos de conexión](iot-hub-devguide-endpoints.md), el centro de IoT envía los comentarios a través de un punto de conexión accesible desde el servicio (*/messages/servicebound/feedback*) en forma de mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de la nube al dispositivo. Siempre que sea posible, los comentarios de mensajes se agrupan en un único mensaje, con el formato siguiente:
 
 | Propiedad     | Descripción |
 | ------------ | ----------- |
@@ -97,7 +97,7 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Marca de tiempo que indica cuándo se produjo el resultado del mensaje (por ejemplo, el centro recibió el mensaje de comentarios o el mensaje original expiró) |
 | OriginalMessageId  | *MessageId* del mensaje de nube a dispositivo con el que está relacionada esta información de comentarios |
-| StatusCode         | Cadena necesaria que se usa en los mensajes de comentarios que genera el centro de IoT: <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purged* |
+| StatusCode         | Cadena necesaria que se usa en los mensajes de comentarios que genera el centro de IoT: <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rechazada* <br/> *Purged* |
 | Descripción        | Valores de cadena para *StatusCode* |
 | deviceId           | *DeviceId* del dispositivo de destino del mensaje de nube a dispositivo con el que está relacionado este elemento de comentarios |
 | DeviceGenerationId | *DeviceGenerationId* del dispositivo de destino del mensaje de la nube al dispositivo con el que está relacionado este elemento de comentarios |
@@ -135,19 +135,19 @@ Cada centro de IoT expone las siguientes opciones de configuración para la mens
 
 | Propiedad                  | Descripción | Intervalo y valor predeterminado |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | TTL predeterminado para los mensajes de la nube al dispositivo | Intervalo ISO_8601 hasta 2 días (mínimo 1 minuto); valor predeterminado: 1 hora |
+| defaultTtlAsIso8601       | TTL predeterminado para los mensajes de la nube al dispositivo | Intervalo ISO_8601 hasta 2 días (mínimo 1 minuto); valor predeterminado: 1 hora |
 | maxDeliveryCount          | Número máximo de entregas para las colas de nube a dispositivo por dispositivo | De 1 a 100; valor predeterminado: 10 |
-| feedback.ttlAsIso8601     | Retención de mensajes de comentarios del límite de servicio | Intervalo ISO_8601 hasta 2 días (mínimo 1 minuto); valor predeterminado: 1 hora |
+| feedback.ttlAsIso8601     | Retención de mensajes de comentarios del límite de servicio | Intervalo ISO_8601 hasta 2 días (mínimo 1 minuto); valor predeterminado: 1 hora |
 | feedback.maxDeliveryCount | Número máximo de entregas para la cola de comentarios | De 1 a 100; valor predeterminado: 10 |
-| feedback.lockDurationAsIso8601 | Número máximo de entregas para la cola de comentarios | Intervalo ISO_8601 de 5 a 300 segundos (mínimo 5 segundos); predeterminado: 60 segundos. |
+| feedback.lockDurationAsIso8601 | Número máximo de entregas para la cola de comentarios | Intervalo ISO_8601 de 5 a 300 segundos (mínimo 5 segundos); valor predeterminado: 60 segundos |
 
 Puede establecer las opciones de configuración de una de las siguientes maneras:
 
-* **Portal de Azure**: en **Configuración** en su instancia de IoT Hub, seleccione **Puntos de conexión integrados** y expanda **Mensajería de la nube al dispositivo**. (Actualmente no es posible configurar las propiedades **feedback.maxDeliveryCount** y **feedback.lockDurationAsIso8601** en Azure Portal).
+* **Azure Portal**: en **Configuración** en su instancia de IoT Hub, seleccione **Puntos de conexión integrados** y expanda **Mensajería de la nube al dispositivo**. (Actualmente no es posible configurar las propiedades **feedback.maxDeliveryCount** y **feedback.lockDurationAsIso8601** en Azure Portal).
 
     ![Establecimiento de opciones de configuración para la mensajería de nube a dispositivo en el portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **CLI de Azure**: use el comando [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update):
+* **CLI de Azure**: use el comando [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update):
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

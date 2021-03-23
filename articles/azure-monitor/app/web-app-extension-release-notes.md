@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539727"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042613"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notas de la versión para la extensión de Azure Web Apps para Application Insights
 
@@ -27,6 +27,24 @@ Este artículo contiene las notas de la versión para la extensión de Azure Web
     - Desinstale las extensiones de sitio privado, puesto que ya no se admiten.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="2838"></a>2.8.38
+
+- Extensión JAVA: se ha actualizado a [Java Agent 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) desde 2.5.1.
+- Extensión Node.js: se ha actualizado el SDK de AI a [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) desde 1.8.7.
+- .NET Core: se han quitado las versiones que no son compatibles (2.0, 2.2, 3.0). Las versiones compatibles son 2.1 y 3.1.
+
+### <a name="2837"></a>2.8.37
+
+- Extensión AppSvc de Windows: ha hecho que .Net Core funcione con cualquier versión de System.Diagnostics.DiagnosticSource.dll.
+
+### <a name="2836"></a>2.8.36
+
+- Extensión AppSvc de Windows: se ha habilitado la interoperabilidad con el SDK de AI en .NET Core.
+
+### <a name="2835"></a>2.8.35
+
+- Extensión AppSvc de Windows: se ha agregado compatibilidad con .NET Core 3.1.
 
 ### <a name="2833"></a>2.8.33
 
