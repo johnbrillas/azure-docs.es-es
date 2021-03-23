@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842342"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193612"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creación de una o varias revisiones de acceso
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842342"
 
     - **Usuarios seleccionados**: use esta opción cuando no sepa quién necesita acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
     - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles.
-    - **(Preview) Manager** (Administrador [versión preliminar]): use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar el administrador (versión preliminar), también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio.
+    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio.
 
 ### <a name="upon-completion-settings"></a>Configuración de finalización
 

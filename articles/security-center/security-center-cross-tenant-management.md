@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922908"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099495"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -51,8 +51,4 @@ Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 - **Administrar las características de protección en la nube avanzada y mucho más**: administre los distintos servicios de protección contra amenazas, como el [acceso a VM Just-in-Time (JIT)](security-center-just-in-time.md), la [protección de red adaptable](security-center-adaptive-network-hardening.md), los [controles de aplicaciones adaptables](security-center-adaptive-application.md), etc.
  
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se explica cómo funciona la administración entre inquilinos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
-
-* [Refuerce su seguridad con Azure Security Center](security-center-monitoring.md): descubra cómo supervisar el estado de sus recursos de Azure.
-* [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Obtenga información acerca de Azure Lighthouse en escenarios empresariales](../lighthouse/concepts/enterprise.md): conozca cómo Azure Lighthouse puede simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.
+En este artículo se explica cómo funciona la administración entre inquilinos en Security Center. Para saber cómo puede simplificar Azure Lighthouse la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD, consulte [Azure Lighthouse en escenarios empresariales](../lighthouse/concepts/enterprise.md).

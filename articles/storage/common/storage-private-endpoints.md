@@ -3,19 +3,19 @@ title: Usar puntos de conexión privados
 titleSuffix: Azure Storage
 description: Información general de los puntos de conexión privados para el acceso seguro a las cuentas de almacenamiento de redes virtuales.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: santoshc
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4ee0b71b63735d8417c11cba8d2a551c8da8b47f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564295"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601481"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -55,7 +55,9 @@ Puede proteger la cuenta de almacenamiento para que acepte solo las conexiones q
 
 Al crear un punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta. 
 
-Necesita un punto de conexión privado independiente para cada recurso de almacenamiento al que necesite acceder, concretamente, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md). Si crea un punto de conexión privado para el recurso de almacenamiento de Data Lake Storage Gen2, también debe crear uno para el recurso de Blob Storage. Esto se debe a que las operaciones que tienen como destino el punto de conexión de Data Lake Storage Gen2 se pueden redirigir al punto de conexión del blob. Al crear un punto de conexión privado para ambos recursos, se asegura de que las operaciones se pueden completar correctamente.
+Necesita un punto de conexión privado independiente para cada recurso de almacenamiento al que necesite acceder, concretamente, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md). En el punto de conexión privado, estos servicios de almacenamiento se definen como el **recurso secundario de destino** de la cuenta de almacenamiento asociada. 
+
+Si crea un punto de conexión privado para el recurso de almacenamiento de Data Lake Storage Gen2, también debe crear uno para el recurso de Blob Storage. Esto se debe a que las operaciones que tienen como destino el punto de conexión de Data Lake Storage Gen2 se pueden redirigir al punto de conexión del blob. Al crear un punto de conexión privado para ambos recursos, se asegura de que las operaciones se pueden completar correctamente.
 
 > [!TIP]
 > Cree un punto de conexión privado independiente para la instancia secundaria del servicio de almacenamiento para mejorar el rendimiento de lectura en las cuentas de almacenamiento con redundancia geográfica con acceso de lectura.
@@ -111,16 +113,16 @@ Si va a usar un servidor DNS personalizado en la red, los clientes deben ser cap
 > [!TIP]
 > Cuando use un servidor DNS personalizado o local, debe configurarlo para resolver el nombre de la cuenta de almacenamiento del subdominio `privatelink` en la dirección IP del punto de conexión privado. Para ello, puede delegar el subdominio `privatelink` en la zona DNS privada de la red virtual, o bien configurar la zona DNS en el servidor DNS y agregar los registros A de DNS.
 
-Los nombres de zona DNS recomendados para los puntos de conexión privados de los servicios de almacenamiento son:
+Los nombres de zona DNS recomendados para los puntos de conexión privados para los servicios de almacenamiento y los recursos secundarios de destino del punto de conexión asociados son:
 
-| Servicio de Storage        | Nombre de zona                            |
-| :--------------------- | :----------------------------------- |
-| Blob service           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| File service           | `privatelink.file.core.windows.net`  |
-| Queue service          | `privatelink.queue.core.windows.net` |
-| Table service          | `privatelink.table.core.windows.net` |
-| Static Websites        | `privatelink.web.core.windows.net`   |
+| Servicio de Storage        | Recurso secundario de destino | Nombre de zona                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Blob service           | blob                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | DFS                 | `privatelink.dfs.core.windows.net`   |
+| File service           | archivo                | `privatelink.file.core.windows.net`  |
+| Queue service          | cola               | `privatelink.queue.core.windows.net` |
+| Table service          | mesa               | `privatelink.table.core.windows.net` |
+| Static Websites        | web                 | `privatelink.web.core.windows.net`   |
 
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 
@@ -144,6 +146,12 @@ Esta restricción es el resultado de los cambios de DNS realizados cuando la cue
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reglas de grupo de seguridad de red para subredes con puntos de conexión privados
 
 Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/network-security-groups-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado no se aplican al punto de conexión privado. Solo se aplican a otros puntos de conexión (por ejemplo: controladores de interfaz de red). Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Copia de blobs entre cuentas de almacenamiento
+
+Puede copiar blobs entre cuentas de almacenamiento mediante puntos de conexión privados solo si usa la API REST de Azure o las herramientas que usan la API REST. Entre estas herramientas se incluyen AzCopy, explorador de Storage, Azure PowerShell, CLI de Azure y los SDK de Azure Blob Storage. 
+
+Solo se admiten los puntos de conexión privados que tienen como destino el recurso de almacenamiento de blobs. Todavía no se admiten los puntos de conexión privados que tienen como destino Data Lake Storage Gen2 o el recurso File. Además, todavía no se admite la copia entre cuentas de almacenamiento mediante el protocolo Network File System (NFS). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

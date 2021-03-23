@@ -2,16 +2,16 @@
 title: 'Tutorial: Adición de etiquetas a recursos en un archivo de Bicep de Azure Resource Manager'
 description: Agregue etiquetas a los recursos que implemente en los archivos de Bicep. Las etiquetas permiten organizar los recursos de manera lógica.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743013"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632618"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Tutorial: Adición de etiquetas en archivos de Bicep de Azure Resource Manager
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a agregar etiquetas a archivos de Bicep. Las [etiqu
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las plantillas de inicio rápido](bicep-tutorial-quickstart-template.md).
 
-Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte el apartado relativo a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
+Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte la sección relativa a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## <a name="review-bicep-file"></a>Examen de un archivo de Bicep
 
@@ -37,7 +37,7 @@ Después de implementar estos recursos, es posible que tenga que realizar un seg
 
 Etiquete los recursos para agregar valores que le ayuden a identificar su uso. Por ejemplo, puede agregar etiquetas que muestren el entorno y el proyecto. Podría agregar etiquetas que identificaran un centro de costos o el equipo que posee el recurso. Agregue valores que tengan sentido para su organización.
 
-En el ejemplo siguiente se resaltan los cambios en el archivo de Bicep. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
+En el siguiente ejemplo se muestran los cambios realizados en el archivo de Bicep. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755906"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175395"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -55,7 +55,7 @@ Puede ver este token de ejemplo de la versión v2.0 en [jwt.ms](https://jwt.ms/#
 |-----|--------|-------------|
 |`typ` | Cadena: siempre "JWT" | Indica que se trata de un token JWT.|
 |`alg` | String | Indica el algoritmo que se usó para firmar el token. Ejemplo: "RS256" |
-|`kid` | String | Huella digital de la clave pública utilizada para firmar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
+|`kid` | String | Huella digital de la clave pública utilizada para verificar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
 |`x5t` | String | Es igual (en uso y valor) a `kid`. Sin embargo, esta es una notificación heredada emitida solo en los `id_tokens` de la versión 1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga

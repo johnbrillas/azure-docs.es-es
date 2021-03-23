@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525151"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033527"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **Condicional (recomendado)** .
    > [!NOTE]
    >
-   > - Si selecciona **Condicional (recomendado)** , también tendrá que [agregar una directiva de acceso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
+   > - Si selecciona **Conditional (Recommended)** [Condicional (recomendado)], también tendrá que [agregar acceso condicional a los flujos de usuarios](conditional-access-user-flow.md) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
    > - La autenticación multifactor (MFA) está deshabilitada de forma predeterminada para los flujos de registro de usuarios. Puede habilitar MFA en los flujos de usuario con el registro telefónico, pero como el número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
 
 1. Seleccione **Guardar**. MFA ahora está habilitado para este flujo de usuario.

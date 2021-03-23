@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546268"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095602"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -51,7 +51,7 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 Para configurar las recomendaciones, instale el **complemento de Azure Policy para Kubernetes**. 
 
-- Puede implementar automáticamente este complemento, tal y como se explica en [Habilitar el aprovisionamiento automático de extensiones](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Cuando el aprovisionamiento automático del complemento esté establecido en "activado", la extensión se habilitará de forma predeterminada en todos los clústeres existentes y futuros (que cumplan los requisitos de instalación del complemento).
+- También puede implementar automáticamente este complemento tal y como se explica en [Habilitación del aprovisionamiento automático de agentes y extensiones de Log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Cuando el aprovisionamiento automático del complemento esté establecido en "activado", la extensión se habilitará de forma predeterminada en todos los clústeres existentes y futuros (que cumplan los requisitos de instalación del complemento).
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Uso de la herramienta de aprovisionamiento automático de Security Center para instalar el complemento de directiva para Kubernetes":::
 

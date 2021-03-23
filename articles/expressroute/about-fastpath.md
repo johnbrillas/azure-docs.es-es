@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: ba23319c35aed1d09da652e6f84b60e5f8e9495e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740892"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124115"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca de FastPath de ExpressRoute
 
@@ -34,7 +34,7 @@ Para configurar FastPath, la puerta de enlace de red virtual debe ser una de las
 * ErGw3AZ
 
 > [!IMPORTANT]
-> Si tiene previsto usar FastPath con el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar ErGw3AZ en **SKU**.
+> Si tiene previsto usar FastPath con el emparejamiento privado basado en IPv6 a través de ExpressRoute, asegúrese de seleccionar ErGw3AZ en **SKU**. Tenga en cuenta que solo está disponible para los circuitos que usan ExpressRoute Direct.
 > 
 >
 

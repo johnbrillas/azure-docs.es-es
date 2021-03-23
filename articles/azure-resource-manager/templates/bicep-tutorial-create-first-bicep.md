@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación e implementación de archivos Bicep de Azure Resource Manager'
 description: Cree su primer archivo Bicep para implementar recursos de Azure. En este tutorial, conocerá la sintaxis de los archivos Bicep y aprenderá a implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036356"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632584"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Creación e implementación del primer archivo Bicep de Azure Resource Manager
 
@@ -76,7 +76,7 @@ Perfecto. Ya tenemos todo para empezar a conocer Bicep.
     La declaración del recurso tiene cuatro componentes:
 
     - **resource** (recurso): palabra clave.
-    - **symbolic name** (stg) [nombre simbólico]: el nombre simbólico es un identificador que hace referencia al recurso en el archivo Bicep. No es cuál será el nombre del recurso cuando se implemente. El nombre del recurso se define mediante la propiedad **name**.  Vea el cuarto componente de esta lista. Para facilitar el seguimiento de los tutoriales, el nombre simbólico que se utiliza en esta serie para el recurso de la cuenta de almacenamiento es **stg**.
+    - **symbolic name** (stg) [nombre simbólico]: el nombre simbólico es un identificador que hace referencia al recurso en el archivo Bicep. No es cuál será el nombre del recurso cuando se implemente. El nombre del recurso se define mediante la propiedad **name**.  Vea el cuarto componente de esta lista. Para facilitar el seguimiento de los tutoriales, el nombre simbólico que se utiliza en esta serie para el recurso de la cuenta de almacenamiento es **stg**. Para ver cómo usar el nombre simbólico para obtener una lista completa de las propiedades del objeto, consulte [Agregar salidas](./bicep-tutorial-add-outputs.md).
     - **tipo de recurso** (Microsoft.Storage/storageAccounts@2019-06-01): se compone del proveedor de recursos (Microsoft.Storage), el tipo de recurso (storageAccounts) y apiVersion (2019-06-01). Cada proveedor de recursos publica sus propias versiones de API, por lo que este valor es específico del tipo. Puede encontrar más tipos y valores apiVersion para varios recursos de Azure en la [referencia de plantillas de ARM](/azure/templates/).
     - **properties** [propiedades] (todo lo que está dentro = {...}): son las propiedades específicas que le gustaría especificar para este tipo de recurso. Son exactamente las mismas propiedades que están disponibles en una plantilla de ARM. Cada recurso tiene una propiedad `name`. La mayoría de los recursos también tienen una propiedad `location`, que establece la región donde se implementa el recurso. Las demás propiedades varían según el tipo de recurso y la versión de API. Es importante comprender la relación entre la versión de API y las propiedades disponibles, así que lo analizaremos con más detalle.
 

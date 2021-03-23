@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695893"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098713"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Administración de paquetes de Scala y Java para Apache Spark en Azure Synapse Analytics
 
@@ -37,13 +37,10 @@ Los paquetes de área de trabajo pueden ser archivos JAR personalizados o privad
 
 Para agregar paquetes de área de trabajo:
 1. Vaya a la pestaña **Administrar** > **Paquetes de área de trabajo**.
-2. Cargue sus archivos Wheel mediante el selector de archivos.
-3. Una vez cargados en el área de trabajo de Azure Synapse, puede agregar estos archivos Wheel a un grupo de Apache Spark específico.
+2. Cargue sus archivos jar mediante el selector de archivos.
+3. Una vez cargados en el área de trabajo de Azure Synapse, puede agregar estos archivos jar a un grupo de Apache Spark específico.
 
 ![Captura de pantalla en la que se resaltan los paquetes de área de trabajo.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualización de paquetes de área de trabajo")
-
-> [!IMPORTANT]
-> La instalación de paquetes de área de trabajo no se admite todavía en áreas de trabajo protegidas de la filtración de datos.
 
 ## <a name="pool-libraries"></a>Bibliotecas de grupos
 Una vez que haya identificado los paquetes de Scala y Java que le gustaría usar para la aplicación Spark, puede instalarlos en un grupo de Spark. Las bibliotecas de nivel de grupo están disponibles para todos los cuadernos y todos los trabajos que se ejecutan en el grupo.

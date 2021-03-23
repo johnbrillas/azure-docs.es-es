@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b58119ccc1551d12dfc9b09f76f6980618ba6221
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556308"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036255"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -91,9 +91,15 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Existen tres formas de hacerlo. Si tiene un Contrato Enterprise (EA), puede aprovisionar una de las [imágenes de máquina virtual que admita licencias](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), lo que también se conoce como "traiga su propia licencia" (BYOL). Si tiene [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), puede habilitar la [Ventaja híbrida de Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) en una imagen de pago por uso existente. También puede copiar los medios de instalación de SQL Server en una máquina virtual de Windows Server y, luego, instalar SQL Server en la máquina virtual. Asegúrese de registrar la máquina virtual con SQL Server con la [extensión](sql-agent-extension-manually-register-single-vm.md) para usar características como la administración de portal, las copias de seguridad automáticas y la aplicación automatizada de revisiones. 
 
+
+1. **¿Necesita un cliente licencias de acceso de cliente (CAL) de SQL Server para conectarse a una imagen de pago por uso de SQL Server que se ejecuta en Azure Virtual Machines?**
+
+   No. Los clientes necesitan licencias CAL cuando usan "traiga su propia licencia" y mueven su servidor SA o máquina virtual CAL de SQL Server a máquinas virtuales de Azure. 
+
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
    Sí. Puede cambiar fácilmente una imagen de la galería de pago por uso a traiga su propia licencia (BYOL) habilitando la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL Server en Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). Actualmente, este recurso solo está disponible para los clientes de la nube pública y la nube de Azure Government.
+
 
 1. **¿El cambio de modelos de licencia requerirá un tiempo de inactividad para SQL Server?**
 
@@ -238,6 +244,95 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 1. **¿Las transacciones distribuidas con MSDTC se admiten en las VM con SQL Server?**
    
     Sí. El DTC local es compatible con SQL Server 2016 SP2 y versiones posteriores. Sin embargo, las aplicaciones deben probarse cuando se utilicen los grupos de disponibilidad Always On, ya que las transacciones en proceso durante una conmutación por error producirán un error y se deberán intentar de nuevo. El DTC en clúster está disponible a partir de Windows Server 2019. 
+
+## <a name="sql-server-iaas-agent-extension"></a>Extensión Agente de IaaS de SQL Server
+
+1. **¿Debo registrar mi máquina virtual con SQL Server aprovisionada a partir de una imagen de SQL Server en Azure Marketplace?**
+
+   No. Microsoft registra automáticamente las máquinas virtuales aprovisionadas a partir de imágenes de SQL Server en Azure Marketplace. El registro con la extensión solo es necesario si la máquina virtual *no* se aprovisionó a partir de las imágenes de SQL Server en Azure Marketplace y SQL Server se instaló automáticamente.
+
+1. **¿Está disponible la extensión del Agente de IaaS de SQL para todos los clientes?** 
+
+   Sí. Los clientes deben registrar sus máquinas virtuales con SQL Server con la extensión si no usaron una imagen de SQL Server de Azure Marketplace y, en su lugar, se instaló automáticamente SQL Server o si usan su propio VHD personalizado. Las máquinas virtuales que poseen todo tipo de suscripciones (directa, Contrato Enterprise y proveedor de soluciones en la nube) se pueden registrar con la extensión del Agente de IaaS de SQL.
+
+1. **¿Cuál es el modo de administración predeterminado al registrarse con la extensión del Agente de IaaS de SQL?**
+
+   El modo de administración predeterminado al registrarse con la extensión del Agente de IaaS de SQL es *ligero*. Si no se establece la propiedad de administración de SQL Server al registrarse con la extensión, se establecerá el modo de administración ligero y el servicio SQL Server no se reiniciará. Se recomienda registrar la máquina virtual con la extensión del Agente de IaaS de SQL primero en modo ligero y, posteriormente, actualizar al modo completo durante una ventana de mantenimiento. Del mismo modo, la administración predeterminada también es ligera cuando se usa la [característica de registro automático](sql-agent-extension-automatic-registration-all-vms.md).
+
+1. **¿Cuáles son los requisitos previos para registrarse con la extensión del Agente de IaaS de SQL?**
+
+   No existe ningún requisito previo para registrarse con la extensión del Agente de IaaS de SQL aparte de tener instalado SQL Server en la máquina virtual. Tenga en cuenta que si la extensión del Agente de IaaS de SQL se instala en modo completo, el servicio SQL Server se reiniciará, por lo que se recomienda hacerlo durante una ventana de mantenimiento.
+
+1. **¿Al registrarse con la extensión del Agente de IaaS de SQL se instala un agente en mi máquina virtual?**
+
+   Sí, al registrarse con la extensión del Agente de IaaS de SQL en modo de administración completa se instala un agente en la máquina virtual. No si se realiza el registro en modo ligero o NoAgent. 
+
+   Al registrarse con la extensión del Agente de IaaS de SQL en modo ligero, solo se copian los *archivos binarios* de la extensión en la máquina virtual, no se instala el agente. Estos archivos binarios se utilizan posteriormente para instalar el agente cuando el modo de administración se actualiza a completo.
+
+
+1. **¿Al registrarse con la extensión del Agente de IaaS de SQL se reinicia SQL Server en la máquina virtual?**
+
+   Depende del modo especificado durante el registro. Si se especifica el modo ligero o NoAgent, el servicio SQL Server no se reiniciará. Sin embargo, si se especifica el modo de administración como completo, el servicio SQL Server se reiniciará. La característica de registro automático registra las VM con SQL Server en modo ligero, a menos que la versión de Windows Server sea 2008, en cuyo caso la VM con SQL Server se registrará en el modo NoAgent. 
+
+1. **¿Cuál es la diferencia entre los modos de administración ligero y NoAgent al registrarse con la extensión del Agente de IaaS de SQL?** 
+
+   El modo de administración NoAgent es el único modo de administración disponible para SQL Server 2008 y SQL Server 2008 R2 en Windows Server 2008. En todas las versiones posteriores de Windows Server, los dos modos de administración disponibles son ligero y completo. 
+
+   El modo NoAgent requiere que el cliente establezca las propiedades de la versión y edición de SQL Server. El modo ligero consulta a la máquina virtual para encontrar la versión y la edición de la instancia de SQL Server.
+
+1. **¿Puedo registrarme con la extensión del Agente de IaaS de SQL sin especificar el tipo de licencia de SQL Server?**
+
+   No. El tipo de licencia de SQL Server no es una propiedad opcional cuando se registra con la extensión del Agente de IaaS de SQL. Al registrarse con la extensión del Agente de IaaS de SQL en todos los modos de administración (NoAgent, ligero y completo), tiene que establecer el tipo de licencia de SQL Server como pago por uso o Ventaja híbrida de Azure. Si tiene instalada alguna de las versiones gratuitas de SQL Server, como Developer o Evaluation Edition, debe registrarse con las licencias de pago por uso. Ventaja híbrida de Azure solo está disponible para las versiones de pago de SQL Server, como Enterprise y Standard Edition.
+
+1. **¿Se puede actualizar la extensión de IaaS de SQL Server del modo NoAgent al modo completo?**
+
+   No. La actualización del modo de administración a completo o ligero no está disponible para el modo NoAgent. Se trata de una limitación técnica de Windows Server 2008. Tendrá que actualizar primero el sistema operativo a Windows Server 2008 R2 o posterior y, a continuación, podrá actualizar al modo de administración completa. 
+
+1. **¿Se puede actualizar la extensión IaaS de SQL Server del modo ligero al modo completo?**
+
+   Sí. La actualización del modo de administración de ligero a completo se admite a través de Azure PowerShell o Azure Portal. Esto desencadenará un reinicio del servicio SQL Server.
+
+1. **¿Se puede cambiar la extensión de IaaS de SQL Server del modo completo a los modos inferiores de administración NoAgent o ligero?**
+
+   No. No se admite cambiar a una versión inferior del modo de administración de la extensión IaaS de SQL Server. El modo de administración no se puede cambiar a una versión inferior, del modo completo al modo ligero o NoAgent, ni del modo ligero al modo NoAgent. 
+
+   Para cambiar el modo de administración de completo a otro, [anule el registro](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) de la VM con SQL Server de la extensión del Agente de IaaS de SQL. Para ello, quite el _recurso_ de la máquina virtual con SQL y vuelva a registrarla con esta extensión en otro modo de administración.
+
+1. **¿Puedo registrarme con la extensión del Agente de IaaS de SQL desde Azure Portal?**
+
+   No. El registro con la extensión del Agente de IaaS de SQL no está disponible en Azure Portal. El registro con la extensión del Agente de IaaS de SQL solo se admite con la CLI de Azure o Azure PowerShell. 
+
+1. **¿Puedo registrar una máquina virtual con la extensión del Agente de IaaS de SQL antes de instalar SQL Server?**
+
+   No. Una máquina virtual debe tener al menos una instancia de SQL Server (Motor de base de datos) para registrarse correctamente con la extensión del Agente de IaaS de SQL. Si no hay ninguna instancia de SQL Server en la máquina virtual, el nuevo recurso Microsoft.SqlVirtualMachine tendrá un estado de error.
+
+1. **¿Puedo registrar una máquina virtual con la extensión del Agente de IaaS de SQL si hay varias instancias de SQL Server?**
+
+   Sí, siempre que haya una instancia predeterminada en la VM. La extensión del Agente de IaaS de SQL solo registrará una instancia de SQL Server (Motor de base de datos). En caso de varias instancias, registrará la instancia de SQL Server predeterminada.
+
+1. **¿Se puede registrar una instancia de clúster de conmutación por error de SQL Server con la extensión del Agente de IaaS de SQL?**
+
+   Sí. Las instancias de clúster de conmutación por error de SQL Server en una máquina virtual de Azure se pueden registrar con la extensión del Agente de IaaS de SQL en modo ligero. Sin embargo, las instancias de clúster de conmutación por error de SQL Server no se pueden actualizar al modo de administración completa.
+
+1. **¿Puedo registrar mi máquina virtual con la extensión del Agente de IaaS de SQL si hay configurado un grupo de disponibilidad AlwaysOn?**
+
+   Sí. No hay ninguna restricción por registrar una instancia de SQL Server de una máquina virtual de Azure con la extensión del Agente de IaaS de SQL si participa en una configuración de grupo de disponibilidad AlwaysOn.
+
+1. **¿Cuál es el costo por registrarse con la extensión del Agente de IaaS de SQL o por actualizar al modo de administración completa?**
+
+   Ninguno. No hay ninguna tarifa asociada al registro con la extensión del Agente de IaaS de SQL ni al uso de ninguno de los tres modos de administración. La administración de la VM con SQL Server con la extensión es completamente gratuita. 
+
+1. **¿Como afecta el uso de los distintos modos de administración al rendimiento?**
+
+   El uso de los modos de manejabilidad *NoAgent* y *ligero* no tiene ningún impacto en el rendimiento. Si se usa el modo de manejabilidad *completa* desde dos servicios instalados en el sistema operativo, el impacto es mínimo. Estos se pueden supervisar mediante el administrador de tareas y se muestran en la consola de Servicios de Windows integrada. 
+
+   Los dos nombres de servicio son:
+   - `SqlIaaSExtensionQuery` (nombre para mostrar - `Microsoft SQL Server IaaS Query Service`)
+   - `SQLIaaSExtension` (nombre para mostrar - `Microsoft SQL Server IaaS Agent`)
+
+1. **¿Cómo se quita la extensión?**
+
+   Para quitar la extensión, [anule el registro](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) de la VM con SQL Server de ella. 
 
 ## <a name="resources"></a>Recursos
 

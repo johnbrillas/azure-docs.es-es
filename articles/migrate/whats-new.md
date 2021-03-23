@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043055"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614639"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
@@ -21,6 +21,8 @@ ms.locfileid: "102043055"
 ## <a name="update-march-2021"></a>Actualización (marzo de 2021)
 - Compatibilidad para proporcionar varias credenciales de servidor en un dispositivo de Azure Migrate y detectar las aplicaciones instaladas (inventario de software), realizar análisis de dependencias sin agente y detectar instancias y bases de datos de SQL Server en el entorno de VMware. [Más información](tutorial-discover-vmware.md#provide-server-credentials)
 - La herramienta de detección y evaluación de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. [Más información](concepts-azure-sql-assessment-calculation.md)<br/>Para probar esta característica, use [este vínculo](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Consulte los tutoriales sobre [detección](tutorial-discover-vmware.md) y [evaluación](tutorial-assess-sql.md) para comenzar.
+- La migración de VMware sin agente ahora admite una replicación simultánea de 500 máquinas virtuales por vCenter.
+- Azure Migrate ahora instala automáticamente el agente de máquina virtual de Azure en las máquinas virtuales de VMware al migrarlas a Azure mediante el método sin agente de la migración de VMware.
 
 ## <a name="update-january-2021"></a>Actualización (enero de 2021)
 -  Azure Migrate: Server Migration ahora permite migrar máquinas virtuales de VMware, servidores físicos y máquinas virtuales de otras nubes a máquinas virtuales de Azure con discos con cifrado del lado servidor con claves administradas por el cliente (CMK).

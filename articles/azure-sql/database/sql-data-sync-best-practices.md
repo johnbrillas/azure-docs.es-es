@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791450"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180248"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedimientos recomendados de Azure SQL Data Sync 
 
@@ -41,16 +41,20 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Cuentas de base de datos con los mínimos privilegios requeridos
 
--   **Para la configuración de la sincronización** . Crear/modificar tabla, modificar base de datos, crear procedimiento, seleccionar/modificar esquema, crear el tipo definido por el usuario.
+-   **Para la configuración de la sincronización**. Crear/modificar tabla, modificar base de datos, crear procedimiento, seleccionar/modificar esquema, crear el tipo definido por el usuario.
 
--   **Para la sincronización en curso** . Seleccionar/insertar/actualizar/eliminar en tablas seleccionadas para la sincronización y en tablas de seguimiento y metadatos de la sincronización, ejecutar un permiso en procedimientos almacenados creados por el servicio, ejecutar un permiso en tipos de tablas definidas por el usuario.
+-   **Para la sincronización en curso**. Seleccionar/insertar/actualizar/eliminar en tablas seleccionadas para la sincronización y en tablas de seguimiento y metadatos de la sincronización, ejecutar un permiso en procedimientos almacenados creados por el servicio, ejecutar un permiso en tipos de tablas definidas por el usuario.
 
--   **Para el desaprovisionamiento** . Modificar en tablas que formen parte de la sincronización, seleccionar/eliminar en tablas de metadatos de la sincronización, controlar en tablas de seguimiento de la sincronización, procedimientos almacenados y tipos definidos por el usuario.
+-   **Para el desaprovisionamiento**. Modificar en tablas que formen parte de la sincronización, seleccionar/eliminar en tablas de metadatos de la sincronización, controlar en tablas de seguimiento de la sincronización, procedimientos almacenados y tipos definidos por el usuario.
 
 Azure SQL Database solo admite un único conjunto de credenciales. Para realizar estas tareas dentro de esta restricción, tenga en cuenta las siguientes opciones:
 
 -   Cambie las credenciales para las distintas fases (por ejemplo, utilice *credencial1* para la configuración y *credencial2* para la sincronización en curso).  
 -   Cambie el permiso de las credenciales (es decir, cambie el permiso una vez configurada la sincronización).
+
+### <a name="auditing"></a>Auditoría
+
+Se recomienda habilitar la auditoría en el nivel de las bases de datos en los grupos de sincronización. 
 
 ## <a name="setup"></a>Configurar
 
@@ -168,7 +172,7 @@ Supervise el estado del grupo de sincronización y la base de datos con regulari
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
 
-Un grupo de sincronización o una base de datos de un grupo de sincronización pueden llegar a estar obsoletos. Cuando el estado de un grupo de sincronización es **obsoleto** , deja de funcionar. Cuando el estado de la base de datos es **obsoleto** , se pueden perder datos. Es mejor evitar esta situación en lugar de intentar recuperarse de este error.
+Un grupo de sincronización o una base de datos de un grupo de sincronización pueden llegar a estar obsoletos. Cuando el estado de un grupo de sincronización es **obsoleto**, deja de funcionar. Cuando el estado de la base de datos es **obsoleto**, se pueden perder datos. Es mejor evitar esta situación en lugar de intentar recuperarse de este error.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitar bases de datos obsoletas
 
