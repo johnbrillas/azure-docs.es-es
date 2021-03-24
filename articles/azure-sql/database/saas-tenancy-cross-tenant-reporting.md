@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 18a02b81e459217ccca53d48a08e35a706b071b0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793269"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Notificación entre inquilinos mediante consultas distribuidas.
@@ -59,18 +59,18 @@ Los scripts y el código fuente de la aplicación SaaS de base de datos multiinq
 
 Para ejecutar consultas en un conjunto de datos más interesante, ejecute el generador de entradas para crear datos de ventas de entradas.
 
-1. En *PowerShell ISE* , abra el script ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* y establezca el valor siguiente:
+1. En *PowerShell ISE*, abra el script ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* y establezca el valor siguiente:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues** (comprar entradas para eventos de todas las ubicaciones).
-2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc* , de modo que espere a que el generador de entradas finalice.
+2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc*, de modo que espere a que el generador de entradas finalice.
 
 ## <a name="explore-the-global-views"></a>Exploración de las vistas globales
 
 En la aplicación Wingtip Tickets SaaS Database Per Tenant, cada inquilino tiene una base de datos. Por lo tanto, los datos de las tablas de base de datos se limita a la perspectiva de un solo inquilino. Sin embargo, al consultar en todas las bases de datos, es importante que la consulta elástica pueda tratar los datos como si formaran parte de una sola base de datos lógica compartida por el inquilino. 
 
-Para simular este patrón, se agrega un conjunto de vistas "globales" a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events* . Análogamente, las vistas *VenueTicketPurchases* y *VenueTickets* agregan una columna *VenueId* calculada proyectada desde sus respectivas tablas. Estas vistas las utiliza la consulta elástica para usar consultas en paralelo e insertarlas en la base de datos remota de inquilinos cuando hay una columna *VenueId* presente. Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino.
+Para simular este patrón, se agrega un conjunto de vistas "globales" a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events*. Análogamente, las vistas *VenueTicketPurchases* y *VenueTickets* agregan una columna *VenueId* calculada proyectada desde sus respectivas tablas. Estas vistas las utiliza la consulta elástica para usar consultas en paralelo e insertarlas en la base de datos remota de inquilinos cuando hay una columna *VenueId* presente. Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino.
 
 1. Abra SSMS y [conéctese al servidor tenants1-&lt;USUARIO&gt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
-1. Expanda **Bases de datos** , haga clic con el botón derecho en _contosoconcerthall_ y seleccione **Nueva consulta** .
+1. Expanda **Bases de datos**, haga clic con el botón derecho en _contosoconcerthall_ y seleccione **Nueva consulta**.
 1. Ejecute las siguientes consultas para explorar la diferencia entre las tablas de inquilino único y las vistas globales:
 
    ```T-SQL
@@ -89,26 +89,26 @@ Para simular este patrón, se agrega un conjunto de vistas "globales" a la base 
 
 En estas vistas, el identificador *VenueId* se ha calculado como un valor hash del nombre de Venue, pero se puede usar cualquier estrategia para introducir un valor único. Esta estrategia es similar a cómo se calcula la clave de inquilino para usarse en el catálogo.
 
-Para examinar la definición de la vista *Venues* :
+Para examinar la definición de la vista *Venues*:
 
-1. En **Explorador de objetos** , expanda **contosoconcerthall** > **Vistas** :
+1. En **Explorador de objetos**, expanda **contosoconcerthall** > **Vistas**:
 
    ![En la captura de pantalla se muestra el contenido del nodo Vistas, incluidos cuatro tipos de dbo Venue.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
-2. Haga clic con el botón derecho en **dbo.Venues** .
-3. Seleccione **Incluir vista como** > **CREATE To** > **Nueva ventana del Editor de consultas** .
+2. Haga clic con el botón derecho en **dbo.Venues**.
+3. Seleccione **Incluir vista como** > **CREATE To** > **Nueva ventana del Editor de consultas**.
 
-Incluya en el script cualquiera de las otras vistas *Venue* para ver cómo agregan el identificador *VenueId* .
+Incluya en el script cualquiera de las otras vistas *Venue* para ver cómo agregan el identificador *VenueId*.
 
 ## <a name="deploy-the-database-used-for-distributed-queries"></a>Implementación de la base de datos usada para las consultas distribuidas
 
-En este ejercicio se implementa la base de datos _adhocreporting_ . Esta es la base de datos principal que contendrá el esquema utilizado para realizar consultas en todas las bases de datos de inquilino. La base de datos se implementa en el servidor de catálogo existente, que es el utilizado para todas las bases de datos relacionadas con la administración en la aplicación de ejemplo.
+En este ejercicio se implementa la base de datos _adhocreporting_. Esta es la base de datos principal que contendrá el esquema utilizado para realizar consultas en todas las bases de datos de inquilino. La base de datos se implementa en el servidor de catálogo existente, que es el utilizado para todas las bases de datos relacionadas con la administración en la aplicación de ejemplo.
 
-1. En *PowerShell ISE* , abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* . 
+1. En *PowerShell ISE*, abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Establezca **$DemoScenario = 2** , _Deploy Ad-hoc reporting database_ .
+1. Establezca **$DemoScenario = 2**, _Deploy Ad-hoc reporting database_.
 
-1. Presione **F5** para ejecutar el script y crear la base de datos *adhocreporting* .
+1. Presione **F5** para ejecutar el script y crear la base de datos *adhocreporting*.
 
 En la siguiente sección, se agrega el esquema a la base de datos de modo que se pueda usar para ejecutar consultas distribuidas.
 
@@ -116,7 +116,7 @@ En la siguiente sección, se agrega el esquema a la base de datos de modo que se
 
 En este ejercicio se agrega el esquema (el origen de datos externo y las definiciones de tabla externas) a la base de datos _adhocreporting_ que permite realizar consultas en todas las bases de datos de inquilino.
 
-1. Abra SQL Server Management Studio y conéctese a la base de datos de notificaciones ad hoc que creó en el paso anterior. El nombre de la base de datos será *adhocreporting* .
+1. Abra SQL Server Management Studio y conéctese a la base de datos de notificaciones ad hoc que creó en el paso anterior. El nombre de la base de datos será *adhocreporting*.
 2. Abra ...\Learning Modules\Operational Analytics\Adhoc Reporting\ _Initialize-AdhocReportingDB.sql_ en SSMS.
 3. Revise el script SQL y tenga en cuenta lo siguiente:
 
@@ -138,7 +138,7 @@ En este ejercicio se agrega el esquema (el origen de datos externo y las definic
 
    Si incluye tablas de referencia de esta manera, asegúrese de actualizar el esquema de tabla y los datos cada vez que actualice las bases de datos de inquilino.
 
-4. Presione **F5** para ejecutar el script e inicializar la base de datos *adhocreporting* . 
+4. Presione **F5** para ejecutar el script e inicializar la base de datos *adhocreporting*. 
 
 Ahora puede ejecutar consultas distribuidas y recopilar información de todos los inquilinos.
 
@@ -151,9 +151,9 @@ Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de pla
 Es importante tener en cuenta que, si configura **DISTRIBUTION = SHARDED(VenueId)** al definir el origen de datos externo, se mejora el rendimiento de muchos escenarios. Dado que cada identificador *VenueId* se asigna a una base de datos individual, el filtrado se lleva a cabo fácilmente de forma remota y devuelve solo los datos necesarios.
 
 1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* en SSMS.
-2. Asegúrese de que está conectado a la base de datos **adhocreporting** .
-3. Seleccione el menú **Consulta** y haga clic en **Incluir plan de ejecución real** .
-4. Resalte la consulta *Which venues are currently registered?* (¿Qué ubicaciones están registradas actualmente?) y presione **F5** .
+2. Asegúrese de que está conectado a la base de datos **adhocreporting**.
+3. Seleccione el menú **Consulta** y haga clic en **Incluir plan de ejecución real**.
+4. Resalte la consulta *Which venues are currently registered?* (¿Qué ubicaciones están registradas actualmente?) y presione **F5**.
 
    La consulta devuelve la lista de ubicaciones completa e ilustra lo rápido y fácil que es realizar consultas en todos los inquilinos y devolver los datos de cada uno.
 
@@ -161,15 +161,15 @@ Es importante tener en cuenta que, si configura **DISTRIBUTION = SHARDED(VenueId
 
    ![SELECT * FROM dbo.Venues](./media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
-5. Seleccione la siguiente consulta y presione **F5** .
+5. Seleccione la siguiente consulta y presione **F5**.
 
-   Esta consulta combina datos de las bases de datos de inquilino y de la tabla local *VenueTypes* (local porque es una tabla de la base de datos *adhocreporting* ).
+   Esta consulta combina datos de las bases de datos de inquilino y de la tabla local *VenueTypes* (local porque es una tabla de la base de datos *adhocreporting*).
 
    Inspeccione el plan y observe que la mayoría del costo se corresponde con la consulta remota. Cada base de datos de inquilino devuelve su información sobre la ubicación y realiza una combinación local con la tabla local *VenueTypes* para mostrar el nombre descriptivo.
 
    ![Combinación de datos remotos y locales](./media/saas-tenancy-cross-tenant-reporting/query2-plan.png)
 
-6. Ahora seleccione la consulta *On which day were the most tickets sold?* (¿Qué día se vendieron más entradas?) y presione **F5** .
+6. Ahora seleccione la consulta *On which day were the most tickets sold?* (¿Qué día se vendieron más entradas?) y presione **F5**.
 
    Esta consulta hace una combinación y una agregación un poco más complejas. La mayor parte del procesamiento se produce de forma remota.  Solo se devuelven filas individuales, que contienen el recuento diario de la venta de entradas de cada lugar, a la base de datos principal.
 

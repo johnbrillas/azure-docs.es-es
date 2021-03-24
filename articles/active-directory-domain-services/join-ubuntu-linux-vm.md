@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619494"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual Ubuntu Linux a un dominio administrado de Azure Active Directory Domain Services
@@ -47,10 +47,10 @@ Si necesita crear una máquina virtual Ubuntu Linux o desea crear una máquina v
 * [CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Al crear la máquina virtual, preste atención a la configuración de la red virtual para asegurarse de que la máquina virtual puede comunicarse con el dominio administrado:
+Al crear la VM, preste atención a la configuración de la red virtual para asegurarse de que la VM puede comunicarse con el dominio administrado:
 
 * Implemente la máquina virtual en la misma red virtual, o en otra emparejada, en la que haya habilitado Azure AD Domain Services.
-* Implemente la máquina virtual en una subred diferente a la de al dominio administrado de Azure AD Domain Services.
+* Implemente la VM en una subred diferente a la del dominio administrado de Azure AD Domain Services.
 
 Una vez implementada la máquina virtual, siga los pasos para conectarse a la máquina virtual mediante SSH.
 
@@ -131,7 +131,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual y NTP
    Si el comando `realm discover` no se encuentra en el dominio administrado, repase los siguientes pasos de solución de problemas:
 
     * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aaddscontoso.com` para ver si se devuelve una respuesta positiva.
-    * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado está disponible.
+    * Compruebe que la VM se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado.
 
 1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que forme parte del dominio administrado. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
@@ -253,7 +253,7 @@ Para conceder privilegios administrativos a los miembros del grupo *Administrado
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Inicio de sesión en la máquina virtual mediante una cuenta de dominio
 
-Para comprobar que la máquina virtual se ha unido correctamente al dominio administrado, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
+Para comprobar que la VM se ha unido correctamente al dominio administrado, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
 
 1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@aaddscontoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *ubuntu.aaddscontoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
 
@@ -285,7 +285,7 @@ Para comprobar que la máquina virtual se ha unido correctamente al dominio admi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene problemas para conectar la máquina virtual al dominio administrado o al iniciar sesión con una cuenta de dominio, consulte [Solución de problemas de unión al dominio](join-windows-vm.md#troubleshoot-domain-join-issues).
+Si tiene problemas para conectar la VM al dominio administrado o al iniciar sesión con una cuenta de dominio, consulte [Solución de problemas de unión al dominio](join-windows-vm.md#troubleshoot-domain-join-issues).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

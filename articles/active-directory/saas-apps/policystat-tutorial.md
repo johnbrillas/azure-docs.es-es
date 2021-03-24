@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
@@ -66,7 +66,7 @@ Para configurar la integración de PolicyStat en Azure AD, es preciso agregar Po
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **PolicyStat** , seleccione **PolicyStat** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **PolicyStat**, seleccione **PolicyStat** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![PolicyStat en la lista de resultados](common/search-new-app.png)
 
@@ -89,30 +89,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **PolicyStat** , seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **PolicyStat**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de PolicyStat](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.policystat.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.policystat.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de PolicyStat](http://www.policystat.com/support/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -120,7 +120,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     ![Captura de pantalla que muestra el cuadro de diálogo "User Attributes" (Atributos de usuario) con el icono "Edit" (Editar) seleccionado.](common/edit-attribute.png)
 
-6. Además de lo anterior, la aplicación PolicyStat espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario** , realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
+6. Además de lo anterior, la aplicación PolicyStat espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
     | Nombre | Atributo de origen |
     |------------------- | -------------------- |
@@ -132,17 +132,17 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     ![Captura de pantalla que muestra el cuadro de diálogo "Manage user claims" (Administrar las reclamaciones del usuario) con los cuadros de texto "Name" (Nombre) y "Transformation" (Transformación) y "Parameter" (Parámetro) resaltados y el botón "Save" (Guardar) seleccionado.](./media/policystat-tutorial/attribute01.png)
 
-    b. En el cuadro de texto **Nombre** , escriba el nombre que se muestra para la fila.
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
     c. Deje **Espacio de nombres** en blanco.
 
     d. Seleccione **Transformación** como origen.
 
-    e. En la lista **Transformación** , escriba el valor de atributo que se muestra para esa fila.
+    e. En la lista **Transformación**, escriba el valor de atributo que se muestra para esa fila.
     
-    f. En la lista **Parámetro 1** , escriba el valor de atributo que se muestra para esa fila.
+    f. En la lista **Parámetro 1**, escriba el valor de atributo que se muestra para esa fila.
 
-    g. Haga clic en **Save** (Guardar).
+    g. Haga clic en **Save**(Guardar).
 
 7. En la sección **Set up PolicyStat** (Configurar PolicyStat), copie las direcciones URL adecuada según sus necesidades.
 
@@ -162,7 +162,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
    
     ![Menú Administrador](./media/policystat-tutorial/ic808633.png "Menú Administrador")
 
-3. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP** , realice los pasos siguientes:
+3. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP**, realice los pasos siguientes:
    
     ![Captura de pantalla que muestra la acción "Your I D P Metadata" (Metadatos del I D P) seleccionada.](./media/policystat-tutorial/ic808636.png "Configuración de inicio de sesión único")
    
@@ -170,9 +170,9 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     b. Haga clic en **Guardar cambios**.
 
-4. Haga clic en **Configurar atributos** y, en la sección **Configurar atributos** , realice los pasos siguientes:
+4. Haga clic en **Configurar atributos** y, en la sección **Configurar atributos**, realice los pasos siguientes:
    
-    a. En el cuadro de texto **Atributo de nombre de usuario** , escriba **uid**.
+    a. En el cuadro de texto **Atributo de nombre de usuario**, escriba **uid**.
 
     b. En el cuadro de texto **First Name Attribute** (Atributo Nombre), escriba el nombre de atributo de notificación Nombre de Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
@@ -182,7 +182,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     e. Haga clic en **Guardar cambios**.
 
-5. En la sección **Configuración** , seleccione **Habilitar la integración de inicio de sesión único**.
+5. En la sección **Configuración**, seleccione **Habilitar la integración de inicio de sesión único**.
    
     ![Configuración de inicio de sesión único](./media/policystat-tutorial/ic808634.png "Configuración de inicio de sesión único")
 
@@ -191,7 +191,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
 En esta sección, concederá acceso a su propia cuenta a PolicyStat para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **PolicyStat**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **PolicyStat**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -207,11 +207,11 @@ En esta sección, concederá acceso a su propia cuenta a PolicyStat para que use
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione su cuenta en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione su cuenta en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-policystat-test-user"></a>Creación de un usuario de prueba de PolicyStat
 

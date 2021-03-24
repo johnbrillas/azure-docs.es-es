@@ -4,16 +4,16 @@ description: Los clientes que necesiten asistencia pueden usar Azure Portal para
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745594"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652401"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
-Azure le permite crear y administrar solicitudes de soporte técnico, también conocidas como incidencias de soporte técnico. Puede crear y administrar las solicitudes en [Azure Portal](https://portal.azure.com), tal y como se describe en este artículo. También puede crear y administrar solicitudes mediante programación, con la [API REST de incidencia de soporte técnico de Azure](/rest/api/support).
+Azure le permite crear y administrar solicitudes de soporte técnico, también conocidas como incidencias de soporte técnico. Puede crear y administrar las solicitudes en [Azure Portal](https://portal.azure.com), tal y como se describe en este artículo. También puede crear y administrar solicitudes mediante programación con la [API REST de incidencia de soporte técnico de Azure](/rest/api/support) o con la [CLI de Azure](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > La dirección URL de Azure Portal es específica de la nube de Azure donde está implementada la organización.

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo usar un script para deshabilitar l
 ms.topic: sample
 ms.date: 02/02/2020
 ms.openlocfilehash: 172a7bd19ffd07ca7900a457c447362343e5f185
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84121288"
 ---
 # <a name="disable-soft-delete-for-file-shares-in-a-storage-account"></a>Deshabilitación de la eliminación temporal para recursos compartidos de archivos en una cuenta de almacenamiento

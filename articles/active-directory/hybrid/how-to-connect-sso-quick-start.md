@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762248"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644789"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -161,10 +161,10 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
     ![Captura de pantalla que muestra las opciones "Registro" y "Elemento del registro" seleccionadas.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Escriba los siguientes valores en los campos apropiados y haga clic en **Aceptar**.
-   - **Ruta de acceso de la clave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
-   - _*Nombre de valor**: **_https_*_
-   - _*Tipo de valor**: **_REG_DWORD_*_
-   - _*Información del valor**: **_00000001_*_
+   - **Ruta de acceso de la clave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_**
+   - **Nombre de valor**: **_https_**
+   - **Tipo de valor**: **_REG_DWORD_**
+   - **Información del valor**: **_00000001_**
  
      ![Captura de pantalla que muestra la ventana "Nuevas propiedades de Registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usuario debe agregar manualmente la dirección URL de Azure AD a su configuración de Firefox mediante estos pasos:
 1. Ejecute Firefox y escriba `about:config` en la barra de direcciones. Descarte las notificaciones que vea.
-2. Busque la preferencia _ *network.negotiate-auth.trusted-uris**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
+2. Busque la preferencia **network.negotiate-auth.trusted-URI**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
 3. Haga clic con el botón derecho y seleccione **Modificar**.
 4. Escriba `https://autologon.microsoftazuread-sso.com` en el campo.
 5. Seleccione **Aceptar** y después vuelva a abrir el explorador.
@@ -205,7 +205,7 @@ El uso de las extensiones de directiva de grupo de Active Directory de terceros 
 
 #### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
-La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada. En el caso de la versión siguiente de Microsoft Edge basado en Chromium, no funciona en modo InPrivate e Invitado por diseño.
+La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge (heredados). Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada. El inicio de sesión único de conexión directa admite la versión siguiente de Microsoft Edge basada en Chromium y funciona en modo InPrivate e Invitado por diseño.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 
@@ -216,10 +216,10 @@ Para probar la característica con un usuario específico, asegúrese de que se 
   - Ha [implantado la característica](#step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 
 Para probar el escenario en el que el usuario escribe solo su nombre de usuario, pero no la contraseña:
-   - Inicie sesión en `https://myapps.microsoft.com/` es una sesión de explorador privada nueva.
+   - Inicie sesión en https://myapps.microsoft.com/. Asegúrese de borrar la memoria caché del explorador o de usar una nueva sesión privada del explorador con cualquiera de los exploradores admitidos en modo privado.
 
 Para probar el escenario en el que el usuario no tiene que escribir ni su nombre de usuario ni su contraseña, realice alguno de estos pasos: 
-   - Inicie sesión en `https://myapps.microsoft.com/contoso.onmicrosoft.com` es una sesión de explorador privada nueva. Reemplace *contoso* con el nombre de su inquilino.
+   - Inicie sesión en `https://myapps.microsoft.com/contoso.onmicrosoft.com`. Asegúrese de borrar la memoria caché del explorador o de usar una nueva sesión privada del explorador con cualquiera de los exploradores admitidos en modo privado. Reemplace *contoso* con el nombre de su inquilino.
    - Inicie sesión en `https://myapps.microsoft.com/contoso.com` es una sesión de explorador privada nueva. Reemplace *contoso.com* con un dominio comprobado (no un dominio federado) en el inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves

@@ -1,26 +1,26 @@
 ---
-title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
-description: Introducción a un ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
-ms.date: 01/27/2021
+title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0
+description: Introducción a un ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918423"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197801"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0
 
-El ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark proporciona directrices de protección de gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudan a evaluar recomendaciones específicas de CIS Microsoft Azure Foundations Benchmark. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba implementar las recomendaciones de CIS Microsoft Azure Foundations Benchmark.
+El ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0 proporciona directrices de protección de gobernanza mediante [Azure Policy](../../policy/overview.md) que le ayudan a evaluar recomendaciones específicas de CIS Microsoft Azure Foundations Benchmark. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para cualquier arquitectura implementada de Azure que deba aplicar las recomendaciones de CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 ## <a name="recommendation-mapping"></a>Asignación de recomendaciones
 
-La [asignación de recomendaciones de Azure Policy](../../policy/samples/cis-azure-1-1-0.md) proporciona detalles sobre las definiciones de directiva incluidas en este plano técnico y cómo se asignan estas definiciones de directiva a los **dominios de cumplimiento** y los **controles** en CIS Microsoft Azure Foundations Benchmark v1.1.0. Cuando se asignan a una arquitectura, Azure Policy evalúa los recursos para detectar posibles incumplimientos de las definiciones de directiva asignadas. Para más información, consulte [Azure Policy](../../policy/overview.md).
+La [asignación de recomendaciones de Azure Policy](../../policy/samples/cis-azure-1-1-0.md) proporciona detalles sobre las definiciones de directiva incluidas en este plano técnico y cómo se asignan estas definiciones de directiva a las **recomendaciones** en CIS Microsoft Azure Foundations Benchmark v1.1.0. Cuando se asignan a una arquitectura, Azure Policy evalúa los recursos para detectar posibles incumplimientos de las definiciones de directiva asignadas. Para más información, consulte [Azure Policy](../../policy/overview.md).
 
 ## <a name="deploy"></a>Implementación
 
-Para implementar el ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark de Azure Blueprints, debe realizar los pasos siguientes:
+Para implementar el ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark v1.1.0 de Azure Blueprints, debe realizar los pasos siguientes:
 
 > [!div class="checklist"]
 > - Crear un plano técnico a partir del ejemplo
@@ -50,7 +50,7 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 ### <a name="publish-the-sample-copy"></a>Publicación de la copia del ejemplo
 
-La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla de la alineación con las recomendaciones de CIS Microsoft Azure Foundations Benchmark.
+La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla de la alineación con las recomendaciones de CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
@@ -101,8 +101,8 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementar las extensiones de VM admitidas específicas.|Asignación de directiva|Lista de regiones en las que se debe habilitar Network Watcher|Lista de regiones separadas por punto y coma. Para ver una lista completa de regiones, use Get-AzLocation. Por ejemplo: eastus; eastus2|
-|Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementar las extensiones de VM admitidas específicas.|Asignación de directiva|Lista de extensiones de máquina virtual aprobadas para usarse|Lista de extensiones separadas por punto y coma. Para ver una lista completa de extensiones de máquina virtual, use Get-AzVMExtensionImage. Por ejemplo: AzureDiskEncryption; IaaSAntimalware|
+|Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark v1.1.0 e implementar las extensiones de máquina virtual admitidas específicas|Asignación de directiva|Lista de regiones en las que se debe habilitar Network Watcher|Lista de regiones separadas por punto y coma. Para ver una lista completa de regiones, use Get-AzLocation. Por ejemplo: eastus; eastus2|
+|Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark v1.1.0 e implementar las extensiones de máquina virtual admitidas específicas|Asignación de directiva|Lista de extensiones de máquina virtual aprobadas para usarse|Lista de extensiones separadas por punto y coma. Para ver una lista completa de extensiones de máquina virtual, use Get-AzVMExtensionImage. Por ejemplo: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

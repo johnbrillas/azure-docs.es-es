@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439547"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634713"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparación de las líneas de base mediante la supervisión de la integridad de los archivos (FIM)
 
@@ -62,23 +62,22 @@ Las líneas de base de FIM comienzan identificando las características de un es
 > [!NOTE]
 > Para obtener más información sobre la configuración del registro compatible con las distintas versiones del sistema operativo, consulte la [hoja de cálculo de referencia de configuración de directiva de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Para configurar FIM para supervisar las líneas de base del registro:*
+Para configurar FIM para supervisar las líneas de base del registro:
 
-1. En la ventana **Agregar Registro de Windows para el seguimiento de cambios**, en el cuadro de texto **Clave del Registro de Windows**, escriba la clave del Registro.
+1. En la ventana **Agregar Registro de Windows para el seguimiento de cambios**, en el cuadro de texto **Clave del Registro de Windows**, escriba la siguiente clave del Registro.
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Habilitación de FIM en un registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Habilitación de FIM en un registro":::
 
 ## <a name="track-changes-to-windows-files"></a>Seguimiento de cambios en los archivos de Windows
 
 1. En la ventana **Agregar Registro de Windows para el seguimiento de cambios**, en el cuadro de texto **Indicar ruta de acceso**, especifique la carpeta que contiene los archivos de los que quiere hacer un seguimiento. En el ejemplo de la siguiente ilustración, **Contoso Web App** reside en la unidad D:\ dentro de la estructura de carpetas **ContosWebApp**.  
 1. Cree una entrada de archivo de Windows personalizada especificando un nombre de la clase de configuración, habilitando la recursión y especificando la carpeta principal con un sufijo de carácter comodín (*).
 
-    ![Habilitación de FIM en un archivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Habilitación de FIM en un archivo":::
 
 ## <a name="retrieve-change-data"></a>Recuperación de datos modificados
 

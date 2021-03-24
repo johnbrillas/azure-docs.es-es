@@ -9,10 +9,10 @@ ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554979"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutorial: Conexión a un servidor SQL de Azure mediante un punto de conexión privado de Azure: Azure Portal
@@ -97,7 +97,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -118,7 +118,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -150,7 +150,7 @@ En esta sección, va a crear un servidor de SQL en Azure.
 
 6. En **Nuevo servidor**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre del servidor  | Escriba **mysqlserver**. Si el nombre ya existe, cree uno único.|
     | Inicio de sesión de administrador de servidor | Escriba el nombre de administrador que prefiera. |
@@ -172,7 +172,7 @@ En esta sección, va a crear un servidor de SQL en Azure.
 
 11. En **Crear un punto de conexión privado**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **CreateSQLEndpointTutorial**. |

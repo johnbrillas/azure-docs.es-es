@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790413"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Procedimiento para migrar una base de datos de SQLite a Azure SQL Database sin servidor
@@ -53,13 +53,13 @@ Una vez que haya realizado los pasos que aparecen a continuación, la base de da
     - Inicie ADF (Creación y supervisión desde el servicio en Azure Portal).
     - Haga clic en la pestaña "Creación" (lápiz azul) de la izquierda.
     - Haga clic en "Conexiones" (en la parte inferior izquierda) y después en "Entornos de ejecución de integración".
-    - Agregue un nuevo entorno de ejecución de integración autohospedado, asígnele un nombre y seleccione la *Opción 2* .
+    - Agregue un nuevo entorno de ejecución de integración autohospedado, asígnele un nombre y seleccione la *Opción 2*.
 
 5. Cree un nuevo servicio vinculado para la base de datos de SQLite de origen en Data Factory.
 
     ![Captura de pantalla que muestra la hoja de servicios vinculados vacía en Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. En **Conexiones** , debajo de **Servicio vinculado** , haga clic en **Nuevo** .
+6. En **Conexiones**, debajo de **Servicio vinculado**, haga clic en **Nuevo**.
 
 7. Busque y seleccione el conector "ODBC".
 

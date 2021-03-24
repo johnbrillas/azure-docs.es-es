@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 71de0573f252cab7f2b479212551562de2b1d1c2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutorial: Integración de Azure Active Directory con Seismic
@@ -55,7 +55,7 @@ Para configurar la integración de Seismic en Azure AD, deberá agregar Seismic 
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería** , escriba **Seismic** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería**, escriba **Seismic** en el cuadro de búsqueda.
 1. Seleccione **Seismic** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
@@ -76,26 +76,26 @@ Para configurar y probar el inicio de sesión único de Azure AD con Seismic, es
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Seismic** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Seismic**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Seismic](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com`
     
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice el valor con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com) para obtener estos valores. También puede cargar los **metadatos del proveedor de servicios** para que se rellene automáticamente el valor del identificador. Para más información sobre los **metadatos del proveedor de servicios** , póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com).
+    > Estos valores no son reales. Actualice el valor con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com) para obtener estos valores. También puede cargar los **metadatos del proveedor de servicios** para que se rellene automáticamente el valor del identificador. Para más información sobre los **metadatos del proveedor de servicios**, póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com).
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -107,11 +107,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
 
@@ -125,17 +125,17 @@ En esta sección, va a permitir que B.Simon acceda a Seismic mediante el inicio 
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-seismic-sso"></a>Configuración del inicio de sesión único de Seismic
 
-Para configurar el inicio de sesión único en **Seismic** , es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Seismic](mailto:support@seismic.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Seismic**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Seismic](mailto:support@seismic.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-seismic-test-user"></a>Creación del usuario de prueba de Seismic
 

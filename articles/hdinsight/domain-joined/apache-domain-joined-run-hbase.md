@@ -4,12 +4,12 @@ description: 'Tutorial: Aprenda cómo se configura las directivas de Apache Rang
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933720"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867005"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package
 
@@ -86,7 +86,7 @@ Puede usar SSH para conectarse a los clústeres de HBase y, después, usar el [s
     scan 'Customers'
     ```
 
-    ![Salida del shell de HBase de HDInsight Hadoop](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Salida del shell de HBase de HDInsight Hadoop" border="true":::
 
 ## <a name="create-ranger-policies"></a>Creación de directivas de Ranger
 
@@ -94,11 +94,11 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
 
 1. Abra la **Interfaz de usuario administrador de Ranger**. Haga clic en **\<ClusterName>_hbase** en **HBase**.
 
-   ![Interfaz de usuario de Apache Ranger de HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="Interfaz de usuario de Apache Ranger de HDInsight" border="true":::
 
 2. La pantalla **List of Policies** (Lista de directivas) mostrará todas las directivas de Ranger creadas para este clúster. Puede aparecer una directiva configurada previamente. Haga clic en **Add New Policy** (Agregar nueva directiva).
 
-    ![Lista de directivas de Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Lista de directivas de Apache Ranger HBase" border="true":::
 
 3. En la página **Create Policy** (Crear directiva), escriba los siguientes valores:
 
@@ -117,7 +117,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
    * `*` indica ninguna o más repeticiones de caracteres.
    * `?` indica cualquier carácter individual.
 
-   ![Crear directiva de Apache Ranger, ventas](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Crear directiva de Apache Ranger, ventas" border="true":::
 
    >[!NOTE]
    >Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
@@ -136,7 +136,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
    |Seleccionar usuario  | marketing_user1 |
    |Permisos  | Lectura |
 
-   ![Crear directiva de Apache Ranger, marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Crear directiva de Apache Ranger, marketing" border="true":::  
 
 6. Haga clic en **Agregar** para guardar la directiva.
 
@@ -226,7 +226,7 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
 
 1. Vea los eventos de acceso de auditoría desde la interfaz de usuario de Ranger.
 
-   ![Auditoría de directivas de la interfaz de usuario de Ranger de HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Auditoría de directivas de la interfaz de usuario de Ranger de HDInsight" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

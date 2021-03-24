@@ -1,32 +1,34 @@
 ---
-title: SDK de Python para Azure Data Lake Storage Gen2 para archivos y ACL
-description: Use Python para administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS).
+title: Uso de Python para administrar datos en Azure Data Lake Storage Gen2
+description: Use Python para administrar directorios y archivos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico.
 author: normesta
 ms.service: storage
-ms.date: 01/22/2021
+ms.date: 02/17/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 5036930c7bb49578582fbc1b347b11518579b53e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a143c0aa19241b532cabff95fe6bf85679e4007c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740625"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652299"
 ---
-# <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
+# <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios y archivos en Azure Data Lake Storage Gen2
 
-En este artículo se muestra cómo usar Python para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS). 
+En este artículo se explica cómo usar Python para crear y administrar directorios y archivos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico.
+
+Para obtener información sobre cómo obtener, establecer y actualizar las listas de control de acceso (ACL) de directorios y archivos, consulte [Uso de Python para administrar listas de control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md).
 
 [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-> [!div class="checklist"]
-> * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-> * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](../common/storage-account-create.md) instrucciones para crear uno.
+- Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+
+- Una cuenta de almacenamiento que tenga habilitado un espacio de nombres jerárquico. Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
@@ -56,12 +58,12 @@ Es la manera más sencilla de conectarse a una cuenta.
 En este ejemplo se crea una instancia de **DataLakeServiceClient** con una clave de cuenta.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithKey":::
- 
+
 - Reemplace el valor de marcador de posición `storage_account_name` por el nombre de la cuenta de almacenamiento.
 
 - Reemplace el valor de marcador de posición `storage_account_key` por la clave de acceso de la cuenta de almacenamiento.
 
-### <a name="connect-by-using-azure-active-directory-ad"></a>Conexión con Azure Active Directory (AD)
+### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Conexión con Azure Active Directory (Azure AD)
 
 Puede usar la [biblioteca cliente de identidad de Azure para Python](https://pypi.org/project/azure-identity/) para autenticar la aplicación con Azure AD.
 
@@ -104,7 +106,7 @@ En este ejemplo se elimina un directorio denominado `my-directory`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DeleteDirectory":::
 
-## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio 
+## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
 En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase **DataLakeFileClient**. Cargue un archivo llamando al método **DataLakeFileClient.append_data**. Asegúrese de completar la carga llamando al método **DataLakeFileClient.flush_data**.
 
@@ -135,46 +137,11 @@ En este ejemplo se imprime la ruta de acceso de cada uno de los subdirectorios y
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_ListFilesInDirectory":::
 
-## <a name="manage-access-control-lists-acls"></a>Administración de listas de control de acceso (ACL)
-
-Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos.
-
-> [!NOTE]
-> Si usa Azure Active Directory (Azure AD) para autorizar el acceso, asegúrese de que la entidad de seguridad tenga asignado el [rol Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-### <a name="manage-directory-acls"></a>Administración de ACL de directorios
-
-Obtenga la lista de control de acceso (ACL) de un directorio llamando al método **DataLakeDirectoryClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeDirectoryClient.set_access_control**.
-
-> [!NOTE]
-> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-En este ejemplo se obtiene y después se establece la ACL de un directorio denominado `my-directory`. La cadena `rwxr-xrw-` concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_ACLDirectory":::
-
-También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, llame al método **FileSystemClient._get_root_directory_client**.
-
-### <a name="manage-file-permissions"></a>Administración de permisos de archivo
-
-Obtenga la lista de control de acceso (ACL) de un archivo llamando al método **DataLakeFileClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeFileClient.set_access_control**.
-
-> [!NOTE]
-> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-En este ejemplo se obtiene y después se establece la ACL de un archivo denominado `my-file.txt`. La cadena `rwxr-xrw-` concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_FileACL":::
-
-### <a name="set-an-acl-recursively"></a>Establecimiento de una ACL de forma recursiva
-
-Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
-
 ## <a name="see-also"></a>Consulte también
 
-* [Documentación de referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
-* [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/)
-* [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
-* [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Problemas conocidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
+- [Documentación de referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
+- [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/)
+- [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+- [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+- [Problemas conocidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)

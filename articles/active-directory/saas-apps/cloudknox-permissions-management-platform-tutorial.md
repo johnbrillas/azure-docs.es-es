@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
 ms.openlocfilehash: 8c1b45d78d4fb61d239fef178cbcb9fa6efd9539
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645695"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudknox-permissions-management-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con la plataforma de administración de permisos de CloudKnox
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar la plataforma de administración de perm
 * Permitir que los usuarios inicien sesión automáticamente en la plataforma de administración de permiso de CloudKnox con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 

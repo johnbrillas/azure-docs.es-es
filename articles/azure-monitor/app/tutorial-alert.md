@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 04/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 6b8cc951301ec315f758478eda1c0736882e66f2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100598156"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Supervise el estado de la aplicación y envíe alertas con Azure Application Insights.
@@ -24,7 +24,7 @@ Aprenderá a:
 > * Crear una prueba de disponibilidad para comprobar continuamente la respuesta de la aplicación
 > * Enviar un correo electrónico a los administradores cuando se produzca un problema
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -34,7 +34,7 @@ Cree un [recurso de Application Insights](../app/create-new-resource.md).
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-availability-test"></a>Creación de una prueba de disponibilidad
+## <a name="create-availability-test"></a>Creación de prueba de disponibilidad
 
 Las pruebas de disponibilidad en Application Insights le permiten probar automáticamente la aplicación desde diferentes ubicaciones de todo el mundo.   En este tutorial, realizará una prueba de una dirección URL para asegurarse de que la aplicación web está disponible.  También puede crear un tutorial completo para probar su funcionamiento detallado. 
 
@@ -73,5 +73,5 @@ Las pruebas de disponibilidad en Application Insights le permiten probar automá
 Ahora que ha aprendido cómo alertar sobre problemas, continúe con el siguiente tutorial para aprender a analizar el modo en que los usuarios interactúan con la aplicación.
 
 > [!div class="nextstepaction"]
-> [Entender a los usuarios](./tutorial-users.md)
+> [Descripción de usuarios](./tutorial-users.md)
 

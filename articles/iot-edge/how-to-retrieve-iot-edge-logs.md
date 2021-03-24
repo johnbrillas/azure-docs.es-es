@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719022"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200696"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Recupere los registros de las implementaciones de IoT Edge sin necesidad de acceso físico o SSH al dispositivo mediante el uso de los métodos directos que se incluyen en el módulo del Agente de IoT Edge. Los métodos directos se implementan en el dispositivo y, a continuación, se pueden invocar desde la nube. El agente de IoT Edge incluye métodos directos que le ayudan a supervisar y administrar los dispositivos IoT Edge de forma remota. Los métodos directos descritos en este artículo están disponibles con carácter general con la versión 1.0.10.
 
@@ -35,7 +37,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 
 `{Timestamp}` debe tener el formato `yyyy-MM-dd hh:mm:ss.fff zzz` y `{Log Level}` debe seguir la tabla siguiente, que deriva sus niveles de gravedad del [código de gravedad del estándar Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Value | Severity |
+| Valor | Severity |
 |-|-|
 | 0 | Emergencia |
 | 1 | Alerta |
@@ -44,7 +46,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 | 4 | Advertencia |
 | 5 | Aviso |
 | 6 | Informativo |
-| 7 | Depurar |
+| 7 | Depuración |
 
 La [Clase de registrador de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) actúa como implementación canónica.
 

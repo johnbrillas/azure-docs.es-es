@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 7106ba0a9f2a95b96968cba28c327a6cc9b99610
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integración de Azure Active Directory con Shuccho Navi
@@ -30,7 +30,7 @@ La integración de Shuccho Navi con Azure AD proporciona las siguientes ventajas
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Shuccho Navi, se necesitan los siguientes elementos:
 
@@ -47,13 +47,13 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Shuccho Navi en Azure AD, será preciso que agregue Shuccho Navi desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Shuccho Navi desde la galería, siga los pasos a continuación:**
+**Para agregar Shuccho Navi desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,22 +61,22 @@ Para configurar la integración de Shuccho Navi en Azure AD, será preciso que a
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Shuccho Navi** , seleccione **Shuccho Navi** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Shuccho Navi**, seleccione **Shuccho Navi** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Shuccho Navi en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Shuccho Navi utilizando una usuaria de prueba llamada **Britta Simon** .
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Shuccho Navi utilizando una usuaria de prueba llamada **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Shuccho Navi.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Shuccho Navi, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Shuccho Navi](#configure-shuccho-navi-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Shuccho Navi](#configure-shuccho-navi-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Shuccho Navi](#create-shuccho-navi-test-user)** : para tener un homólogo de Britta Simon en Shuccho Navi que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Shuccho Navi](#create-shuccho-navi-test-user)**: para tener un homólogo de Britta Simon en Shuccho Navi que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -85,28 +85,28 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Shuccho Navi, siga estos pasos:
 
-1. En la página de integración de la aplicación [Shuccho Navi](https://portal.azure.com/) de **Azure Portal** , haga clic en **Inicio de sesión único** .
+1. En la página de integración de la aplicación [Shuccho Navi](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Shuccho Navi](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -122,13 +122,13 @@ Para configurar el inicio de sesión único de Azure AD con Shuccho Navi, siga e
 
 ### <a name="configure-shuccho-navi-single-sign-on"></a>Configuración del el inicio de sesión único en Shuccho Navi
 
-Para configurar el inicio de sesión único en **Shuccho Navi** , es preciso enviar el **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Shuccho Navi**, es preciso enviar el **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -140,40 +140,40 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension** .  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Shuccho Navi.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Shuccho Navi** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Shuccho Navi**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Shuccho Navi** .
+2. En la lista de aplicaciones, seleccione **Shuccho Navi**.
 
     ![Vínculo a Shuccho Navi en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-shuccho-navi-test-user"></a>Creación de un usuario de prueba en Shuccho Navi
 

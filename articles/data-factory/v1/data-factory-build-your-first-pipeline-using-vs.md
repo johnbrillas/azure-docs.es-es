@@ -3,17 +3,17 @@ title: Compilación de la primera factoría de datos (Visual Studio)
 description: En este tutorial, creará un de ejemplo de canalización de Azure Data Factory mediante Visual Studio.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 2ae8e24b10a6661f5a18f3d04e243232436b2911
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7431dcbdcd94b74482786625a052bc5abc31c164
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377455"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783173"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -61,7 +61,7 @@ Estos son los pasos que debe realizar en este tutorial:
 3. Debe tener lo siguiente instalado en el equipo:
    * Visual Studio 2013 o Visual Studio 2015.
    * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-   * Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
+   * Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
 
 Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
 

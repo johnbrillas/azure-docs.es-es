@@ -3,12 +3,12 @@ title: Sintaxis de acciones de SQL de regla de suscripción de Azure Service Bus
 description: En este artículo se ofrece una referencia para la sintaxis de acciones de reglas SQL. Las acciones se escriben con una sintaxis basada en lenguaje SQL que se realiza en un mensaje.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742696"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652843"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxis de acciones de SQL de regla de suscripción
 
@@ -199,7 +199,8 @@ La función `newid()` devuelve un elemento `System.Guid` generado por el método
   
 La función `property(name)` devuelve el valor de la propiedad a la que hace referencia `name`. El valor `name` puede ser cualquier expresión válida que devuelve un valor de cadena.  
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Ejemplos
+Para obtener ejemplos, consulte [Ejemplos de filtros de Service Bus](service-bus-filter-examples.md).
   
 ## <a name="considerations"></a>Consideraciones
 

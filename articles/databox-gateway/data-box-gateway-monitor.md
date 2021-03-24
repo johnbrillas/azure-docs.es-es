@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: ed05f3d60f8ba4fbb06327136c7a117ae1d1d2db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96581130"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Supervisión de Azure Data Box Gateway
@@ -41,7 +41,7 @@ En esta sección se describen las métricas de supervisión sobre el dispositivo
 
 * Métricas de capacidad. Las métricas de capacidad están relacionadas con la capacidad del dispositivo.
 
-* Métricas de transacciones. Las métricas de transacción están relacionadas con las operaciones de lectura y de escritura en Azure Storage.
+* Métricas de transacción. Las métricas de transacción están relacionadas con las operaciones de lectura y de escritura en Azure Storage.
 
 En la tabla siguiente se muestra una lista completa de las métricas:
 

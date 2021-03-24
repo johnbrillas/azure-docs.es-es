@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 967a7d9a78b5edd0c4e5b60545520baef635b340
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5dc4e38eb0e29cc9fa272f6e740fcc7d1dbfe44a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377500"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619255"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
@@ -573,4 +573,5 @@ Al hacer clic en el botón **Lector inmersivo**, verá que se inicia dicha herra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../../reference.md)
+> [!div class="nextstepaction"]
+> [Crear un recurso y configurar AAD](../../how-to-create-immersive-reader.md)

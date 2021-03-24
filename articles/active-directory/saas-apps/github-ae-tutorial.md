@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221061"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196873"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub AE
 
@@ -101,9 +101,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Haga clic en **Seleccionar grupos** y busque el **grupo** en el que desee incluir esta notificación, donde sus miembros deben ser administradores de GHAE.
 
-1. Seleccione **Atributo** para **Origen** y escriba **true** para **Valor**. 
+1. Seleccione **Atributo** para **Origen** y escriba **true** (sin comillas) para **Valor**. 
 
-10. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
     ![administración de notificaciones](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificateBase64.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
 1. En la sección **Set up GitHub AE** (Configurar GitHub AE), copie las direcciones URL que necesite.
 

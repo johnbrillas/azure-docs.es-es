@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800155"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderación con listas de imágenes personalizadas en la consola de API
@@ -95,7 +95,7 @@ Después de realizar cambios en una lista de imágenes, debe actualizar su índi
 
    ![Cuadro de contenido de la respuesta de la consola Image Lists - Create (Listas de imágenes: crear) que muestra el identificador de lista](images/try-terms-list-create-2.png)
  
-8. A continuación, agregue imágenes a MyList. En el menú de la izquierda, seleccione **Imagen**y, a continuación, seleccione **Agregar imagen**.
+8. A continuación, agregue imágenes a MyList. En el menú de la izquierda, seleccione **Imagen** y, a continuación, seleccione **Agregar imagen**.
 
    Se abre la página **Image - Add Image** (Imagen: agregar imagen). 
 

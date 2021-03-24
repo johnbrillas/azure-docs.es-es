@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664408"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232382"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Introducción a Device Update para IoT Hub (versión preliminar)
 
@@ -23,10 +23,11 @@ Para sacar el máximo partido de la transformación digital habilitada para IoT,
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Compatibilidad con una amplia gama de dispositivos de IoT
 
-Device Update para IoT Hub se ha diseñado para ofrecer no solo una implementación de actualizaciones optimizada, sino también operaciones simplificadas mediante la integración con [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Esta integración facilita la adopción de Device Update en cualquier solución existente. Proporciona una solución hospedada en la nube para conectar prácticamente cualquier dispositivo. Device Update es compatible con una amplio conjunto de sistemas operativos de IoT, entre los que se incluyen Linux y [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo en tiempo real), y se puede ampliar a través de código abierto. 
+
+Device Update para IoT Hub se ha diseñado para ofrecer no solo una implementación de actualizaciones optimizada, sino también operaciones simplificadas mediante la integración con [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Esta integración facilita la adopción de Device Update en cualquier solución existente. Proporciona una solución hospedada en la nube para conectar prácticamente cualquier dispositivo. Device Update es compatible con una amplio conjunto de sistemas operativos de IoT, entre los que se incluyen Linux y [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operativo en tiempo real), y se puede ampliar a través de código abierto. Estamos desarrollando de forma conjunta Device Update para las ofertas de IoT Hub con nuestros asociados del sector de los semiconductores, entre los que se incluyen STMicroelectronics, NXP, Renesas y Microchip. Consulte los [ejemplos](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de paneles clave de evaluación de semiconductores que incluyen las guías introductorias para aprender a configurar, crear e implementar las actualizaciones inalámbricas en dispositivos de clase MCU. 
 
 Se proporcionan un archivo binario del simulador de Device Update Agent e imágenes Yocto de referencia de Raspberry Pi.
-Device Update para IoT Hub también admite la actualización de dispositivos de Azure IoT Edge. Se proporciona Device Update Agent para la plataforma Ubuntu Server 18.04 (amd64). Device Update para IoT Hub también proporciona código de código abierto si no se ejecuta una de las plataformas anteriores, lo que permite portar el agente a la distribución que se ejecuta.
+Device Update para IoT Hub también admite la actualización de dispositivos de Azure IoT Edge. Se proporciona Device Update Agent para la plataforma Ubuntu Server 18.04 (amd64). Device Update para IoT Hub también proporciona código de código abierto si no se ejecuta una de las plataformas anteriores, También puede portar el agente a la distribución que se ejecuta.
 
 Device Update funciona con IoT Plug and Play (PnP) y puede administrar cualquier dispositivo compatible con las interfaces PnP necesarias. Para más información, consulte [Device Update para IoT Hub e IoT Plug and Play](device-update-plug-and-play.md).
 
@@ -79,7 +80,7 @@ Cuando se recibe un comando de actualización en un dispositivo, se ejecutará l
 
 ### <a name="importing"></a>Importación
 
-La importación es la capacidad de importar cualquier actualización en Device Update. La actualización del dispositivo admite la implementación de una sola actualización por dispositivo, lo que hace que sea idóneo para las actualizaciones de imagen completa que actualizan toda una partición de sistema operativo a la vez, o un manifiesto APT que describe todos los paquetes que se desean actualizar en el dispositivo. Para importar actualizaciones en Device Update, lo primero que se debe hacer es crear un manifiesto de importación que describa la actualización y, después, cargar los archivos de actualización y el manifiesto de importación en una ubicación a la que se pueda acceder desde Internet. Después, se puede usar Azure Portal o la API REST de importación de Device Update para iniciar el proceso asincrónico de importación de la actualización. Device Update carga los archivos, los procesa y los pone a disposición de los dispositivos de IoT para su distribución.
+La importación es el modo en que las actualizaciones se ingieren en Device Update para que se puedan implementar en los dispositivos. La actualización del dispositivo admite la implementación de una sola actualización por dispositivo, lo que hace que sea idóneo para las actualizaciones de imagen completa que actualizan toda una partición de sistema operativo a la vez, o un manifiesto APT que describe todos los paquetes que se desean actualizar en el dispositivo. Para importar actualizaciones en Device Update, lo primero que se debe hacer es crear un manifiesto de importación que describa la actualización y, después, cargar los archivos de actualización y el manifiesto de importación en una ubicación a la que se pueda acceder desde Internet. Después, se puede usar Azure Portal o la [API REST de importación de Device Update](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para iniciar el proceso asincrónico de importación de la actualización. Device Update carga los archivos, los procesa y los pone a disposición de los dispositivos de IoT para su distribución.
 
 En caso de que el contenido sea confidencial, proteja la descarga mediante una firma de acceso compartido (SAS), como una SAS ad hoc para Azure Blob Storage. [Más información acerca de las SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 

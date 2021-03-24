@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 68e961336d7e86f9983fea49044137894ab0f985
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integración de Azure Active Directory con Yodeck
@@ -61,7 +61,7 @@ Para configurar la integración de Yodeck en Azure AD, debe agregar Yodeck desde
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Yodeck** , seleccione **Yodeck** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Yodeck**, seleccione **Yodeck** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Yodeck en la lista de resultados](common/search-new-app.png)
 
@@ -85,37 +85,37 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Yodeck, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Yodeck** , seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Yodeck**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , realice el siguiente paso:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice el siguiente paso:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Yodeck](common/idp-identifier.png)
 
-    En el cuadro de texto **Identificador** , escriba una dirección URL: `https://app.yodeck.com/api/v1/account/metadata/`
+    En el cuadro de texto **Identificador**, escriba una dirección URL: `https://app.yodeck.com/api/v1/account/metadata/`
 
-5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Captura de pantalla que muestra la sección Configuración básica de SAML con el vínculo Cargar el archivo de metadatos.](common/both-preintegrated-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL: `https://app.yodeck.com/login`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.yodeck.com/login`
 
-6. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configuración del inicio de sesión único de Yodeck
 
-1. Para automatizar la configuración en **Yodeck** , debe instalar la **extensión del explorador de inicio de sesión seguro Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+1. Para automatizar la configuración en **Yodeck**, debe instalar la **extensión del explorador de inicio de sesión seguro Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
     ![Captura de pantalla que muestra el botón de instalación de la extensión.](./media/target-process-tutorial/install_extension.png)
 
@@ -137,17 +137,17 @@ Para configurar el inicio de sesión único de Azure AD con Yodeck, realice los 
 
     a. Seleccione **Importar desde URL**.
 
-    b. En el cuadro de texto **URL** , pegue el valor **Dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal y haga clic en **Importar**.
+    b. En el cuadro de texto **URL**, pegue el valor **Dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal y haga clic en **Importar**.
     
-    c. Después de importar **Dirección URL de metadatos de federación de aplicación** , los campos restantes se rellenan automáticamente.
+    c. Después de importar **Dirección URL de metadatos de federación de aplicación**, los campos restantes se rellenan automáticamente.
 
-    d. Haga clic en **Save** (Guardar).
+    d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -159,9 +159,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección se habilita a Britta Simon para que use el inicio de sesión único de Azure al concederle acceso a Yodeck.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Yodeck**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Yodeck**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -187,11 +187,11 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-yodeck-test-user"></a>Creación de un usuario de prueba de Yodeck
 
@@ -209,19 +209,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Yodeck, tienen que
 
     ![Captura de pantalla que muestra el botón de usuarios.](./media/yodeck-tutorial/user2.png)
 
-4. En la página de diálogo **Detalles del usuario** , lleve a cabo los pasos siguientes:
+4. En la página de diálogo **Detalles del usuario**, lleve a cabo los pasos siguientes:
 
     ![Captura de pantalla que muestra la pestaña Detalles del usuario, desde donde puede realizar estos pasos.](./media/yodeck-tutorial/user3.png)
 
-    a. En el cuadro de texto **Nombre** , escriba el nombre del usuario, en este caso, **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, **Britta**.
 
-    b. En el cuadro de texto **Apellidos** , escriba los apellidos del usuario, en este caso, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba los apellidos del usuario, en este caso, **Simon**.
 
-    c. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario, por ejemplo, brittasimon@contoso.com.
+    c. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, brittasimon@contoso.com.
 
     d. Seleccione la opción **Permisos de cuenta** adecuada según los requisitos de la organización.
     
-    e. Haga clic en **Save** (Guardar).
+    e. Haga clic en **Save**(Guardar).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

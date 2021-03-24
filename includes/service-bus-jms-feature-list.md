@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798144"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652617"
 ---
 En la tabla siguiente se enumeran las características de Java Message Service (JMS) que Azure Service Bus admite actualmente. También se muestran las características que no son compatibles.
 
@@ -34,4 +34,5 @@ En la tabla siguiente se enumeran las características de Java Message Service (
 | Selectores de mensajes | dependen del consumidor creado | **Compatible** |
 | Retraso de la entrega (mensajes programados) | <ul> <li> JMSProducer.setDeliveryDelay( long deliveryDelay) </li> </ul>|**Compatible**|
 | Mensaje creado |<ul> <li> JMSContext.createMessage() </li> <li> JMSContext.createBytesMessage() </li> <li> JMSContext.createMapMessage() </li> <li> JMSContext.createObjectMessage( Serializable object) </li> <li> JMSContext.createStreamMessage() </li> <li> JMSContext.createTextMessage() </li> <li> JMSContext.createTextMessage( String text) </li> </ul>| **Compatible** |
+| Transacciones entre entidades |<ul> <li> Connection.createSession(true, Session.SESSION_TRANSACTED) </li> </ul> | **Compatible** |
 | Distributed transactions || No compatibles |

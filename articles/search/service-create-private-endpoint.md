@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100545537"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
@@ -46,7 +46,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción.|
+    | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Region | Seleccione la región que quiera. |
@@ -65,7 +65,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
     | URL | Escriba un nombre único. |
@@ -85,7 +85,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
 
     | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | Location | Seleccione **Oeste de EE. UU.**|
     | Nombre | Escriba *myPrivateEndpoint*.  |
@@ -119,7 +119,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
