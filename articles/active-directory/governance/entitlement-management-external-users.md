@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746667"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176797"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
@@ -84,7 +84,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 - Permitir a los invitados invitar a otros invitados a su directorio significa que las invitaciones se pueden producir fuera de la administración de derechos. Se recomienda establecer la opción **Los invitados pueden invitar** en **No** para permitir solo invitaciones controladas correctamente.
 - Si usa la lista de elementos permitidos de B2B, debe asegurarse de que todos los dominios con los que desee asociarse mediante la administración de derechos se agreguen a la lista. Como alternativa, si usa la lista de denegación de elementos de B2B, debe asegurarse de que el dominio con el que desee asociar no se agregue a la lista.
 - Si crea una directiva de administración de derechos para **Todos los usuarios** (todas las organizaciones conectadas + cualquier usuario externo nuevo) y un usuario no pertenece a una organización conectada del directorio, se creará automáticamente una organización conectada para ellos cuando soliciten el paquete. Todas las opciones de configuración de la lista de permitidos o denegados de B2B tendrán prioridad. Por lo tanto, asegúrese de incluir en la lista de elementos permitidos los dominios que desea incluir en esta directiva si usa uno y excluirlos de la lista de elementos denegados si usa este tipo de lista.
-- Si desea crear una directiva de administración de derechos que incluya **todos los usuarios** (todas las organizaciones conectadas y cualquier usuario externo nuevo), primero debe habilitar la autenticación de código de acceso de un solo uso de correo electrónico para su directorio. Para obtener más información, consulte [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)](../external-identities/one-time-passcode.md).
+- Si desea crear una directiva de administración de derechos que incluya **todos los usuarios** (todas las organizaciones conectadas y cualquier usuario externo nuevo), primero debe habilitar la autenticación de código de acceso de un solo uso de correo electrónico para su directorio. Para más información, consulte [Autenticación con código de acceso de un solo uso por correo electrónico](../external-identities/one-time-passcode.md).
 - Para obtener más información sobre la configuración de colaboración externa de Azure AD B2B, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../external-identities/delegate-invitations.md).
 
     ![Comprobación de la configuración de colaboración externa de Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)

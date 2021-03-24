@@ -11,15 +11,15 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 5c0b661f80bf7100215b25a66e5b5337af01ba75
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 20caefe74a7c047fb8690bb1d9e6f4eb9da7e9b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583415"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635202"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>Exportación de secretos y certificados de aplicaciones empresariales
-Este ejemplo de script de PowerShell exporta todos los secretos y certificados de las aplicaciones empresariales especificadas del directorio a un archivo CSV.
+Este ejemplo de script de PowerShell exporta todos los secretos, certificados y propietarios de las aplicaciones empresariales especificadas del directorio a un archivo CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,12 +32,13 @@ El ejemplo requiere el [módulo Azure AD V2 de PowerShell para Graph](/powershe
 ## <a name="script-explanation"></a>Explicación del script
 
 El comando "Add-Member" es responsable de la creación de las columnas en el archivo CSV.
-En el caso de que prefiera que la exportación no sea interactiva, puede modificar la variable "$Path" directamente en PowerShell con la ruta de acceso del archivo CSV.
+En el caso de que prefiera que la exportación sea no interactiva, puede modificar la variable "$Path" directamente en PowerShell mediante una ruta de acceso del archivo CSV.
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Recupera una aplicación del directorio. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Recupera los propietarios de una aplicación del directorio. |
+| [Get-AzureADServicePrincipal](/powershell/module/azuread/Get-azureADServicePrincipal?view=azureadps-2.0&preserve-view=true) | Recupera una aplicación empresarial del directorio. |
+| [Get-AzureADServicePrincipalOwner](/powershell/module/azuread/Get-AzureADServicePrincipalOwner?view=azureadps-2.0&preserve-view=true) | Recupera los propietarios de una aplicación empresarial del directorio. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

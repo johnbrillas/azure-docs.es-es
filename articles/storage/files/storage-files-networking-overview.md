@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563342"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601940"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
@@ -25,6 +25,15 @@ Este artículo se centra en cómo configurar las funciones de red cuando el caso
 La configuración de red de los recursos compartidos de archivos de Azure se realiza en la cuenta de Azure Storage. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de almacenamiento exponen varias configuraciones que le ayudan a proteger el acceso de red a los recursos compartidos de archivos: puntos de conexión de red, configuración de firewall de la cuenta de almacenamiento y cifrado en tránsito. 
 
 Se recomienda leer [Planeamiento de una implementación de Azure Files](storage-files-planning.md) antes de pasar a esta guía conceptual.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Este vídeo es una guía y demostración sobre cómo exponer de forma segura recursos compartidos de archivos de Azure directamente para las aplicaciones y trabajadores de la información en cinco sencillos pasos. En las secciones siguientes se proporcionan vínculos y contexto adicional de la documentación a la que se hace referencia en el vídeo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Acceso a los recursos compartidos de archivos de Azure
 Cuando se implementa un recurso compartido de archivos de Azure en una cuenta de almacenamiento, este es accesible inmediatamente mediante el punto de conexión público de la cuenta de almacenamiento. Esto significa que las solicitudes autenticadas, como las solicitudes autorizadas por la identidad de inicio de sesión de un usuario, pueden originarse de forma segura dentro o fuera de Azure. 
@@ -147,7 +156,7 @@ Para más información sobre cómo configurar el firewall de la cuenta de almace
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 
 > [!IMPORTANT]
-> En esta sección se tratan los detalles del cifrado en tránsito para recursos compartidos de SMB. Para más información sobre el cifrado en tránsito con recursos compartidos de NFS, consulte [Seguridad](storage-files-compare-protocols.md#security).
+> En esta sección se tratan los detalles del cifrado en tránsito para recursos compartidos SMB. Para más información sobre el cifrado en tránsito con recursos compartidos NFS, consulte [Seguridad](storage-files-compare-protocols.md#security).
 
 De forma predeterminada, todas las cuentas de Azure Storage tienen habilitado el cifrado en tránsito. Esto significa que al montar un recurso compartido de archivos a través de SMB o acceder a él a través del protocolo de FileREST (por ejemplo, a través de Azure Portal, la CLI o PowerShell, o los SDK de Azure), Azure Files solo permitirá la conexión si se realiza con una versión posterior a SMB 3.0 con cifrado o HTTPS. Los clientes que no admiten SMB 3.0, o los clientes que admiten SMB 3.0, pero no al cifrado SMB no podrán montar el recurso compartido de archivos de Azure si está habilitado el cifrado en tránsito. Para obtener más información sobre qué sistemas operativos admiten SMB 3.0 con cifrado, consulte nuestra documentación detallada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) y [Linux](storage-how-to-use-files-linux.md). Todas las versiones actuales de PowerShell, la CLI y los SDK admiten HTTPS.  
 

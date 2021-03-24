@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752652"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174587"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
@@ -34,6 +34,7 @@ La Plataforma de identidad de Microsoft admite la [concesión de credenciales de
 > * Las cuentas sin contraseña no pueden iniciar sesión a través de ROPC. En este escenario, se recomienda usar en su lugar un flujo distinto para la aplicación.
 > * Si los usuarios deben usar la [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sesión en la aplicación, se les bloqueará.
 > * ROPC no se admite en escenarios de [federación de identidades híbridas](../hybrid/whatis-fed.md) (por ejemplo, Azure AD y ADFS que se usan para autenticar cuentas locales). Si los usuarios se redirigen a página completa a proveedores de identidades locales, Azure AD no puede probar el nombre de usuario y la contraseña en el proveedor de identidades. Sin embargo, la [autenticación de paso a través](../hybrid/how-to-connect-pta.md) se admite con ROPC.
+> * Una excepción a un escenario de federación de identidades híbrida sería la siguiente: la directiva de detección del dominio principal con el valor de AllowCloudPasswordValidation establecido en TRUE permitirá que el flujo de ROPC funcione para los usuarios federados cuando la contraseña local se sincronice con la nube. Para más información, consulte [Habilitación de la autenticación de ROPC directa de los usuarios federados para aplicaciones heredadas](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 

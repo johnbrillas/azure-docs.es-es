@@ -1,17 +1,23 @@
 ---
-author: rothja
+author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 04/21/2020
-ms.author: jroth
-ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 03/09/2021
+ms.author: ambapat
+ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027049"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010970"
 ---
-### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
+El servicio Azure Key Vault admite dos tipos de recursos: almacenes y HSM administrados. En las dos secciones siguientes se describen los límites de servicio para cada uno de ellos, respectivamente.
+
+### <a name="resource-type-vault"></a>Tipo de recurso: almacén
+
+En esta sección se describen los límites de servicio para el tipo de recurso `vaults`.
+
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
 |Tipo de clave|Clave HSM<br>Clave CREATE|Clave HSM<br>Las restantes transacciones|Clave de software<br>Clave CREATE|Clave de software<br>Las restantes transacciones|
 |:---|---:|---:|---:|---:|
@@ -22,6 +28,7 @@ ms.locfileid: "96027049"
 |ECC P-384|5|1,000|10|2\.000|
 |ECC P-521|5|1,000|10|2\.000|
 |ECC SECP256K1|5|1,000|10|2\.000|
+||||||
 
 > [!NOTE]
 > En la tabla anterior, vemos que para las claves de software de 2048 bits RSA, se permiten 2000 transacciones GET cada 10 segundos. Para las claves HSM de 2048 bits RSA, se permiten 1000 transacciones GET cada 10 segundos.
@@ -34,7 +41,7 @@ ms.locfileid: "96027049"
 > - 125 transacciones GET de clave HSM de 4096 bits RSA
 > - 124 transacciones GET de clave HSM de 4096 bits y 8 transacciones GET de clave HSM de 2048 bits RSA
 
-### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:
 
 | Tipo de transacciones | N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup> |
 | --- | --- |
@@ -44,12 +51,93 @@ Vea la [Guía de las limitaciones de Azure Key Vault](../articles/key-vault/gene
 
 <sup>1</sup> Un límite global para la suscripción para todos los tipos de transacciones es cinco veces el límite del almacén de claves. Por ejemplo, en las otras transacciones HSM por suscripción, el límite es de 5000 transacciones en 10 segundos por suscripción.
 
-### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
+#### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
 
 > [!NOTE]
 > El número de almacenes de claves con puntos de conexión privados habilitados por suscripción es un límite ajustable. El límite que se muestra a continuación es el límite predeterminado. Si desea solicitar un aumento del límite para su servicio, envíe un correo electrónico a akv-privatelink@microsoft.com. Estas solicitudes se aprobarán caso por caso.
 
 | Recurso | Límite |
-| -------- | ----- |
+| -------- | -----:|
 | Puntos de conexión privados por almacén de claves | 64 |
 | Almacenes de claves con puntos de conexión privados por suscripción | 400 |
+
+### <a name="resource-type-managed-hsm-preview"></a>Tipo de recurso: HSM administrado (versión preliminar)
+
+En esta sección se describen los límites de servicio para el tipo de recurso `managed HSM`.
+
+#### <a name="object-limits"></a>Límites de objetos
+
+|Elemento|Límites|
+|----|------:|
+Número de instancias de HSM por suscripción por región|1 (durante la versión preliminar)
+Número de claves por grupo de HSM|5000
+Número de versiones por clave|100
+Número de definiciones de roles personalizados por HSM|50
+Número de asignaciones de roles en el ámbito de HSM|50
+Número de asignación de roles en cada ámbito de clave individual|10
+|||
+
+#### <a name="transaction-limits-for-administrative-operations-number-of-operations-per-second-per-hsm-instance"></a>Límites de transacciones para operaciones administrativas (número de operaciones por segundo por instancia de HSM)
+|Operación |Número de operaciones por segundo.|
+|----|------:|
+Todas las operaciones de RBAC<br/>(incluye todas las operaciones CRUD para las definiciones de roles y las asignaciones de roles)|5
+Copia de seguridad/restauración completa de HSM<br/>(solo se admite una operación simultánea de copia de seguridad o restauración por instancia de HSM)|1
+
+#### <a name="transaction-limits-for-cryptographic-operations-number-of-operations-per-second-per-hsm-instance"></a>Límites de transacciones para operaciones criptográficas (número de operaciones por segundo por instancia de HSM)
+
+- Cada instancia de HSM administrada constituye tres particiones de HSM con equilibrio de carga. Los límites de rendimiento son una función de la capacidad de hardware subyacente que se asigna a cada partición. Las tablas siguientes muestran el rendimiento máximo con al menos una partición disponible. El rendimiento real puede ser hasta tres veces superior si están disponibles las tres particiones.
+- Los límites de rendimiento indicados suponen que se utiliza una sola clave para lograr el máximo rendimiento. Por ejemplo, si se usa una única clave RSA-2048, el rendimiento máximo será de 1100 operaciones de firma. Si utilizan 1100 claves diferentes con una transacción por segundo, no podrán lograr el mismo rendimiento.
+
+##### <a name="rsa-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operaciones de clave RSA (número de operaciones por segundo por instancia HSM)
+
+|Operación|2048 bits|3072 bits|4096 bits|
+|--|--:|--:|--:|
+Crear clave|1| 1| 1
+Eliminación de clave (eliminación temporal)|10|10|10 
+Purgado de clave|10|10|10 
+Copia de seguridad de clave|10|10|10 
+Restauración de clave|10|10|10 
+Obtención de información clave|1100|1100|1100
+Cifrado|10000|10000|6000
+Descifrado|1100|360|160
+Encapsulado|10000|10000|6000
+Desencapsulado|1100|360|160
+Firma|1100|360|160
+Comprobar|10000|10000|6000
+|||||
+
+##### <a name="ec-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operaciones de clave EC (número de operaciones por segundo por instancia de HSM)
+
+En esta tabla se describe el número de operaciones por segundo para cada tipo de curva.
+
+|Operación|P-256|P-256K|P-384|P-521|
+|---|---:|---:|---:|---:|
+Crear clave| 1| 1| 1| 1
+Eliminación de clave (eliminación temporal)|10|10|10|10
+Purgado de clave|10|10|10|10
+Copia de seguridad de clave|10|10|10|10
+Restauración de clave|10|10|10|10
+Obtención de información clave|1100|1100|1100|1100
+Firma|260|260|165|56
+Comprobar|130|130|82|28
+||||||
+
+
+##### <a name="aes-key-operations-number-of-operations-per-second-per-hsm-instance"></a>Operaciones de clave AES (número de operaciones por segundo por instancia de HSM)
+- Las operaciones de cifrado y descifrado suponen un tamaño de paquete de 4 KB.
+- Los límites de rendimiento para cifrar y descifrar se aplican a los algoritmos AES-CBC y AES-GCM.
+- Los límites de rendimiento para encapsular y desencapsular se aplican al algoritmo AES-KW.
+
+|Operación|128 bits|192 bits|256 bits|
+|--|--:|--:|--:|
+Crear clave|1| 1| 1
+Eliminación de clave (eliminación temporal)|10|10|10
+Purgado de clave|10|10|10
+Copia de seguridad de clave|10|10|10
+Restauración de clave|10|10|10
+Obtención de información clave|1100|1100|1100
+Cifrado|8000|8000 |8000 
+Descifrado|8000|8000|8000
+Encapsulado|9000|9000|9000
+Desencapsulado|9000|9000|9000
+

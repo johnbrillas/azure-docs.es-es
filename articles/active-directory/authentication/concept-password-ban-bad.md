@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743894"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652027"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminación de contraseñas incorrectas mediante Protección con contraseña de Azure Active Directory
 
@@ -174,7 +174,7 @@ Considere el ejemplo siguiente:
 El siguiente paso consiste en identificar todas las instancias de contraseñas prohibidas en la nueva contraseña normalizada del usuario. Se asignan puntos según los siguientes criterios:
 
 1. A cada contraseña prohibida que se encuentre en la contraseña de un usuario se le concede un punto.
-1. Cada carácter único restante recibe un punto.
+1. A cada carácter restante que no forma parte de una contraseña prohibida se le concede un punto.
 1. Una contraseña debe tener al menos cinco (5) puntos para que se acepte.
 
 En los dos escenarios de ejemplo siguientes, Contoso usa Protección con contraseñas de Azure AD y tiene "contoso" en la lista personalizada de contraseñas prohibidas. Supongamos también que "blank" está en la lista global.

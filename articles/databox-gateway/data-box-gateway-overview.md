@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786646"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563596"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>¿Qué es Azure Data Box Gateway?
 
@@ -52,7 +52,7 @@ Data Box Gateway tiene las siguientes funcionalidades:
 |Capacidad |Descripción  |
 |---------|---------|
 |Velocidad     | Transferencia de datos y ancho de banda totalmente automatizados y altamente optimizados.|
-|Protocolos soportados     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).|
+|Protocolos admitidos     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).|
 |Acceso a datos     | Cuando los datos enviados por el dispositivo están en la nube, se pueden modificar mediante el acceso directo a las API de nube.|
 |Acceso rápido     | Memoria caché local en el dispositivo para agilizar el acceso a los archivos usados más recientemente.|
 |Carga sin conexión     | El modo sin conexión es compatible con escenarios de carga sin conexión.|
@@ -87,7 +87,7 @@ La solución Data Box Gateway consta de un recurso Data Box Gateway, un disposit
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-El dispositivo físico de Data Box Gateway, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
+El dispositivo de Data Box Gateway, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad de recursos**: para obtener una lista de todas las regiones en que está disponible el recurso de Azure Data Box Gateway, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](../azure-government/documentation-government-welcome.md).
 

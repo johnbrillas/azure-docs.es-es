@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693165"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094008"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -237,7 +237,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Incorporación o eliminación de asignaciones de roles de Azure para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Referencias**              | [Asignación de roles de Azure para administrar el acceso a los recursos de suscripción de Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Pasos** | El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso para Azure. Con Azure RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar su trabajo.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restricción del acceso de cliente a operaciones de clúster mediante RBAC de Service Fabric

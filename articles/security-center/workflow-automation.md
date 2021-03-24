@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6268ff6cfb3d3e856edcd8f84af930d52f4cf9d3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550326"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096180"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatización de respuestas a desencadenadores de Security Center
 
@@ -113,6 +113,7 @@ Para implementar estas directivas:
     |---------|---------|---------|
     |Automatización de flujos de trabajo para alertas de seguridad|[Implementar la automatización del flujo de trabajo para las alertas de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
     |Automatización de flujos de trabajo para recomendaciones de seguridad|[Implementar la automatización del área de trabajo para las recomendaciones de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |Automatización del flujo de trabajo para cambios de cumplimiento normativo|[Implementación de la automatización del flujo de trabajo para el cumplimiento normativo de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
     ||||
 
     > [!TIP]
@@ -155,7 +156,7 @@ Obtenga más información sobre [continuidad empresarial y recuperación ante de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha obtenido información sobre cómo crear aplicaciones lógicas, automatizar su ejecución en Security Center y ejecutarlas manualmente. 
+En este artículo, ha obtenido información sobre cómo crear aplicaciones lógicas, automatizar su ejecución en Security Center y ejecutarlas manualmente.
 
 Para obtener material relacionado, consulte: 
 

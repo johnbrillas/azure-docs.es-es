@@ -3,18 +3,20 @@ title: 'Inicio rápido: Creación de un clúster de Azure Kubernetes Service (AK
 description: Aprenda a crear rápidamente un clúster de Kubernetes con una plantilla de Azure Resource Manager y a implementar una aplicación en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: quickstart
-ms.date: 01/13/2021
+ms.date: 03/15/2021
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: f17e42915968f52aee8bd106b5cadd26457998ff
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: e88c56f050f2f6d1183eef23a844f5eaf1f671c2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501330"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492972"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante una plantilla de ARM
 
-Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este inicio rápido implementará un clúster de AKS con una plantilla de Azure Resource Manager (plantilla de ARM). En el clúster se ejecuta una aplicación de varios contenedores que incluye un front-end web y una instancia de Redis.
+Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este inicio rápido realizará lo siguiente:
+* Implementación de un clúster de AKS mediante una plantilla de Azure Resource Manager. 
+* Ejecución de una aplicación de varios contenedores con un servidor front-end web y una instancia de Redis en el clúster. 
 
 ![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -36,15 +38,15 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 
-Para acceder a los nodos de AKS, conéctese mediante un par de claves SSH. Use el comando `ssh-keygen` para generar archivos de clave pública y privada SSH. De forma predeterminada, estos archivos se crean en el directorio *~/.ssh*. Si existe un par de claves SSH con el mismo nombre en la ubicación escogida, estos archivos se sobrescriben.
+Para acceder a los nodos de AKS, se conectará mediante un par de claves SSH (pública y privada), que se genera mediante el comando `ssh-keygen`. De forma predeterminada, estos archivos se crean en el directorio *~/.ssh*. La ejecución del comando `ssh-keygen` sobrescribirá cualquier par de claves SSH con el mismo nombre que ya exista en la ubicación especificada.
 
-Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
+1. Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
 
-El siguiente comando crea un par de claves SSH utilizando el cifrado RSA y una longitud en bits de 2048:
+1. Ejecute el comando `ssh-keygen`. El siguiente comando crea un par de claves SSH con ayuda del cifrado RSA y una longitud en bits de 2048:
 
-```console
-ssh-keygen -t rsa -b 2048
-```
+    ```console
+    ssh-keygen -t rsa -b 2048
+    ```
 
 Para más información sobre cómo crear claves SSH, consulte el artículo sobre [Creación y administración de claves SSH para la autenticación en Azure][ssh-keys].
 
@@ -58,7 +60,7 @@ Para más ejemplos de AKS, consulte el sitio de [plantillas de inicio rápido de
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla.
+1. Seleccione el botón siguiente para iniciar sesión en Azure y abrir una plantilla.
 
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
@@ -84,141 +86,153 @@ El clúster de AKS tarda unos minutos en crearse. Espere a que el clúster se im
 
 ### <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
-Para administrar un clúster de Kubernetes, usará [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. Para instalar `kubectl` localmente, use el comando [az aks install-cli][az-aks-install-cli]:
+Para administrar un clúster de Kubernetes, use [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. Si usa Azure Cloud Shell, `kubectl` ya está instalado. 
 
-```azurecli
-az aks install-cli
-```
+1. Instale `kubectl` localmente mediante el comando [az aks install-cli][az-aks-install-cli]:
 
-Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
+    ```azurecli
+    az aks install-cli
+    ```
 
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
+2. Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas.
 
-Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
+    ```azurecli-interactive
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
 
-```console
-kubectl get nodes
-```
+3. Compruebe la conexión al clúster con el comando [kubectl get][kubectl-get]. Este comando devuelve una lista de los nodos del clúster.
 
-La salida del siguiente ejemplo muestra los nodos creados en los pasos anteriores. Asegúrese de que el estado de los nodos sea *Listo*:
+    ```console
+    kubectl get nodes
+    ```
 
-```output
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
-aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
-aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
-```
+    La salida muestra los nodos creados en los pasos anteriores. Asegúrese de que el estado de los nodos sea *Listo*:
+
+    ```output
+    NAME                       STATUS   ROLES   AGE     VERSION
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
+    ```
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En esta guía de inicio rápido, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment], una para las aplicaciones Python de Azure Vote de ejemplo y otra para una instancia de Redis. También se crean dos [servicios de Kubernetes][kubernetes-service], uno interno para la instancia de Redis y otro externo para acceder a la aplicación Azure Vote desde Internet.
+Un [archivo de manifiesto de Kubernetes][kubernetes-deployment] define el estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. 
 
-Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual:
+En este inicio rápido se usa un manifiesto para crear todos los objetos necesarios para ejecutar la [aplicación Azure Vote][azure-vote-app]. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment]:
+* Las aplicaciones de Python de ejemplo de Azure Vote.
+* Una instancia de Redis. 
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
+También se crean dos [servicios de Kubernetes][kubernetes-service]:
+* Un servicio interno para la instancia de Redis.
+* Un servicio externo para acceder a la aplicación Azure Vote desde Internet.
+
+1. Cree un archivo llamado `azure-vote.yaml`.
+    * Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si trabajara en un sistema físico o virtual.
+1. Copie la siguiente definición de código YAML:
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
-      labels:
+      name: azure-vote-back
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: azure-vote-back
+      template:
+        metadata:
+          labels:
+            app: azure-vote-back
+        spec:
+          nodeSelector:
+            "beta.kubernetes.io/os": linux
+          containers:
+          - name: azure-vote-back
+            image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+            env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+            - containerPort: 6379
+              name: redis
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: azure-vote-back
+    spec:
+      ports:
+      - port: 6379
+      selector:
         app: azure-vote-back
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-        env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  template:
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
-      labels:
-        app: azure-vote-front
+      name: azure-vote-front
     spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-```
+      replicas: 1
+      selector:
+        matchLabels:
+          app: azure-vote-front
+      template:
+        metadata:
+          labels:
+            app: azure-vote-front
+        spec:
+          nodeSelector:
+            "beta.kubernetes.io/os": linux
+          containers:
+          - name: azure-vote-front
+            image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            ports:
+            - containerPort: 80
+            env:
+            - name: REDIS
+              value: "azure-vote-back"
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: azure-vote-front
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+      selector:
+        app: azure-vote-front
+    ```
 
-Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
+1. Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
-```console
-kubectl apply -f azure-vote.yaml
-```
+    ```console
+    kubectl apply -f azure-vote.yaml
+    ```
 
-En la salida de ejemplo siguiente se muestran las implementaciones y los servicios creados correctamente:
+    La salida muestra los servicios y las implementaciones que se crearon correctamente:
 
-```output
-deployment "azure-vote-back" created
-service "azure-vote-back" created
-deployment "azure-vote-front" created
-service "azure-vote-front" created
-```
+    ```output
+    deployment "azure-vote-back" created
+    service "azure-vote-back" created
+    deployment "azure-vote-front" created
+    service "azure-vote-front" created
+    ```
 
 ### <a name="test-the-application"></a>Prueba de la aplicación
 
@@ -230,14 +244,14 @@ Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
+La salida de **EXTERNAL-IP** del servicio `azure-vote-front` aparecerá inicialmente como *pendiente*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
+Una vez que la dirección **EXTERNAL-IP** cambia de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el `kubectl` proceso de inspección. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -249,24 +263,24 @@ Para ver la aplicación Azure Vote en acción, abra un explorador web en la dire
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para eliminar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
+Para evitar cargos de Azure, se recomienda limpiar los recursos que no sean necesarios. Use el comando [az group delete][az-group-delete] para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Cuando elimina el clúster, la entidad de servicio Azure Active Directory que utiliza el clúster de AKS no se quita. Para conocer los pasos que hay que realizar para quitar la entidad de servicio, consulte [Consideraciones principales y eliminación de AKS][sp-delete]. Si usó una identidad administrada, esta está administrada por la plataforma y no requiere que la quite.
+> Cuando elimina el clúster, la entidad de servicio Azure Active Directory que utiliza el clúster de AKS no se quita. Para conocer los pasos que hay que realizar para quitar la entidad de servicio, consulte [Consideraciones principales y eliminación de AKS][sp-delete].
+> 
+> Si usó una identidad administrada, esta está administrada por la plataforma y no requiere que la quite.
 
 ## <a name="get-the-code"></a>Obtención del código
 
-En este inicio rápido, se han usado imágenes de un contenedor creado previamente para crear una implementación de Kubernetes. El código de la aplicación relacionada, Dockerfile, y el archivo de manifiesto de Kubernetes están disponibles en GitHub.
-
-[https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
+En este inicio rápido, se han usado imágenes de un contenedor creado previamente para crear una implementación de Kubernetes. El código de la aplicación relacionada, Dockerfile, y el archivo de manifiesto de Kubernetes están [disponibles en GitHub][azure-vote-app].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un clúster de Kubernetes y una aplicación de varios contenedores en él. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster que ha creado.
+En este inicio rápido, ha implementado un clúster de Kubernetes y luego ha implementado en él una aplicación de varios contenedores. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster de AKS.
 
 Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
 

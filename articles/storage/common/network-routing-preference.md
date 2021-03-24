@@ -1,26 +1,26 @@
 ---
-title: Configuración de las preferencias de enrutamiento de red (versión preliminar)
+title: Preferencia de enrutamiento de red
 titleSuffix: Azure Storage
-description: Configure las preferencias de enrutamiento de red (versión preliminar) de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet.
+description: La preferencia de enrutamiento de red le permite especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 02/11/2021
 ms.author: santoshc
-ms.reviewer: tamram
+ms.reviewer: normesta
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726944"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage (versión preliminar)
+# <a name="network-routing-preference-for-azure-storage"></a>Preferencia de enrutamiento de red para Azure Storage
 
-Puede configurar las [preferencias de enrutamiento](../../virtual-network/routing-preference-overview.md) de red (versión preliminar) de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. De forma predeterminada, el tráfico procedente de Internet se enruta al punto de conexión público de la cuenta de almacenamiento a través de la [red global de Microsoft](../../networking/microsoft-global-network.md). Azure Storage proporciona opciones adicionales para configurar la forma de enrutar el tráfico a la cuenta de almacenamiento.
+Puede configurar la [preferencia de enrutamiento](../../virtual-network/routing-preference-overview.md) de red de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. De forma predeterminada, el tráfico procedente de Internet se enruta al punto de conexión público de la cuenta de almacenamiento a través de la [red global de Microsoft](../../networking/microsoft-global-network.md). Azure Storage proporciona opciones adicionales para configurar la forma de enrutar el tráfico a la cuenta de almacenamiento.
 
 La configuración de las preferencias de enrutamiento le ofrece la flexibilidad de optimizar el tráfico en función del rendimiento de la red Premium o del costo. Cuando configure una preferencia de enrutamiento, debe especificar cómo se dirigirá el tráfico al punto de conexión público de la cuenta de almacenamiento de forma predeterminada. También puede publicar puntos de conexión específicos de la ruta para la cuenta de almacenamiento.
 
@@ -37,9 +37,11 @@ En el diagrama siguiente se muestra cómo fluye el tráfico entre el cliente y l
 
 ![Información general de las opciones de enrutamiento para Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-Para obtener más información sobre las preferencias de enrutamiento en Azure, consulte [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../../virtual-network/routing-preference-overview.md).
+Para obtener más información sobre la preferencia de enrutamiento en Azure, consulte [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md).
 
 ## <a name="routing-configuration"></a>Configuración de enrutamiento
+
+Para obtener una guía paso a paso que le muestre cómo configurar la preferencia de enrutamiento y los puntos de conexión específicos de la ruta, consulte [Configuración de la preferencia de enrutamiento de red para Azure Storage](configure-network-routing-preference.md).
 
 Puede elegir entre la red global de Microsoft y el enrutamiento de Internet como una preferencia de enrutamiento predeterminada del punto de conexión público de la cuenta de almacenamiento. La preferencia de enrutamiento predeterminada se aplica a todo el tráfico de los clientes fuera de Azure y afecta a los puntos de conexión de Azure Data Lake Storage Gen2, Blob Storage, Azure Files y sitios web estáticos. No se admite la configuración de preferencias de enrutamiento en las colas de Azure o las tablas de Azure.
 
@@ -65,7 +67,7 @@ Si tiene un almacenamiento con redundancia geográfica con acceso de lectura (RA
 
 Las cadenas de conexión de los puntos de conexión específicos de la ruta publicados se pueden copiar a través de [Azure Portal](https://portal.azure.com). Estas cadenas de conexión se pueden usar para la autorización de claves compartidas con todos los SDK y API de Azure Storage existentes.
 
-## <a name="about-the-preview"></a>Acerca de la versión preliminar
+## <a name="regional-availability"></a>Disponibilidad regional
 
 La preferencia de enrutamiento de Azure Storage está disponible en las siguientes regiones:
 
@@ -100,16 +102,17 @@ La preferencia de enrutamiento de Azure Storage está disponible en las siguient
 - Este de Australia 
 - Sudeste de Australia 
 
-Los siguientes problemas conocidos afectan a la versión preliminar de las preferencias de enrutamiento para Azure Storage:
+Los siguientes problemas conocidos afectan a la preferencia de enrutamiento para Azure Storage:
 
 - Las solicitudes de acceso al punto de conexión específico de la ruta correspondiente a la red global de Microsoft producen el error HTTP 404 o uno equivalente. El enrutamiento a través de la red global de Microsoft funciona según lo esperado cuando se establece como preferencia de enrutamiento predeterminada en el punto de conexión público.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Para obtener información sobre los precios y los detalles de facturación, consulte la sección **Precios** de [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../../virtual-network/routing-preference-overview.md#pricing).
+Para obtener información sobre los precios y los detalles de facturación, consulte la sección **Precios** de [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la preferencia de enrutamiento (versión preliminar)?](../../virtual-network/routing-preference-overview.md)
+- [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md)
+- [Configuración de las preferencias de enrutamiento de red](configure-network-routing-preference.md)
 - [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md)
 - [Recomendaciones de seguridad para Blob Storage](../blobs/security-recommendations.md)

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bc54cc8dfc34db8aa88690c03ef0b18991e60776
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 16379380fc35bb2355c496dc857e9de3b41347f9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797122"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096911"
 ---
 # <a name="the-azure-defender-dashboard"></a>Panel de Azure Defender
 
@@ -33,11 +33,11 @@ El panel incluye las secciones siguientes:
 
 1. **Cobertura de Azure Defender**: aquí puede ver los tipos de recursos que se encuentran en su suscripción y que pueden protegerse mediante Azure Defender. Siempre que proceda, tendrá también la opción de actualizar. Si desea actualizar todos los recursos válidos posibles, seleccione **Actualizar todo**.
 
-1. **Área de alertas de seguridad**: cuando Azure Defender detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta. Al seleccionar cualquier parte de este gráfico, se abre la **página de alertas de seguridad**.
+2. **Alertas de seguridad**: cuando Azure Defender detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta. Al seleccionar cualquier parte de este gráfico, se abre la **página de alertas de seguridad**.
 
-1. **Protección avanzada**: Azure Defender incluye muchas capacidades avanzadas de protección contra amenazas para máquinas virtuales, bases de datos SQL, contenedores, aplicaciones web, la red y mucho más. En esta sección de protección avanzada, puede ver el estado de los recursos de las suscripciones seleccionadas para cada una de estas protecciones. Seleccione cualquiera de ellas para ir directamente al área de configuración de ese tipo de protección.
+3. **Protección avanzada**: Azure Defender incluye muchas capacidades avanzadas de protección contra amenazas para máquinas virtuales, bases de datos SQL, contenedores, aplicaciones web, la red y mucho más. En esta sección de protección avanzada, puede ver el estado de los recursos de las suscripciones seleccionadas para cada una de estas protecciones. Seleccione cualquiera de ellas para ir directamente al área de configuración de ese tipo de protección.
 
-1. **Información detallada** : este panel continuo de noticias, lecturas sugeridas y alertas de alta prioridad aporta a Security Center información sobre aspectos de seguridad apremiantes que son pertinentes para usted y su suscripción. Ya sea que se trate de una lista de vulnerabilidades y exposiciones comunes de alta gravedad descubiertas en sus máquinas virtuales por una herramienta de análisis de vulnerabilidades, o una nueva publicación de blog de un miembro del equipo de Security Center, lo encontrará en el panel de información detallada de su **panel de Azure Defender**.
+4. **Información detallada** : este panel continuo de noticias, lecturas sugeridas y alertas de alta prioridad aporta a Security Center información sobre aspectos de seguridad apremiantes que son pertinentes para usted y su suscripción. Ya sea que se trate de una lista de vulnerabilidades y exposiciones comunes de alta gravedad descubiertas en sus máquinas virtuales por una herramienta de análisis de vulnerabilidades, o una nueva publicación de blog de un miembro del equipo de Security Center, lo encontrará en el panel de información detallada de su **panel de Azure Defender**.
 
 
 
@@ -49,4 +49,4 @@ En este artículo, aprendió las características del panel de Azure Defender.
 Para más información sobre Azure Defender, consulte [Introducción a Azure Defender](azure-defender.md).
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitación de Azure Defender](enable-azure-defender.md)

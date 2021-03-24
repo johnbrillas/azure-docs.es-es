@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/19/2021
 ms.author: b-juche
-ms.openlocfilehash: edfebe3d9470defbe70b3694d5574e58ca3b5938
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f963c87148c08a4855befc5afb79d9c5ea0f4481
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325528"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713395"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Consideraciones sobre el rendimiento de Azure NetApp Files
 
@@ -72,5 +72,6 @@ Si usa volúmenes con QoS manual, no tiene que aprovisionar en exceso la cuota d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Calculadora de rendimiento de Azure NetApp Files](https://cloud.netapp.com/azure-netapp-files/tco?hs_preview=tIKQbfoF-41214739590)
 - [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Bancos de pruebas de rendimiento para Linux](performance-benchmarks-linux.md)

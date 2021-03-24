@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373239"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122449"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -61,7 +61,7 @@ Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará 
 
 - `kubelet` es el agente de Kubernetes que procesa las solicitudes de orquestación desde el plano de control y la programación de la ejecución de los contenedores solicitados.
 - Las redes virtuales se controlan mediante *kube-proxy* en cada nodo. El proxy enruta el tráfico de red y administra las direcciones IP para los servicios y los pods.
-- El *entorno de ejecución del contenedor* es el componente que permite que las aplicaciones en contenedor ejecuten recursos adicionales e interactúen con ellos, como la red virtual y el almacenamiento. En AKS, Moby se usa como el entorno de ejecución del contenedor.
+- El *entorno de ejecución del contenedor* es el componente que permite que las aplicaciones en contenedor ejecuten recursos adicionales e interactúen con ellos, como la red virtual y el almacenamiento. Los clústeres de AKS que usan grupos de nodos con la versión 1.19 de Kubernetes y posterior usan `containerd` como entorno de ejecución del contenedor. Los clústeres de AKS que usan grupos de nodos con versiones anteriores a la 1.19 de Kubernetes usan [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución del contenedor.
 
 ![Máquina virtual de Azure y recursos auxiliares para un nodo de Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -69,7 +69,7 @@ El tamaño de la máquina virtual de Azure para los nodos define el número de C
 
 En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux o en Windows Server 2019. Al crear un clúster de AKS o escalar horizontalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No se puede realizar ninguna configuración manual. Los nodos de agente se facturan como máquinas virtuales estándar, por lo que cualquier descuento que tenga en el tamaño de la máquina virtual que esté utilizando (incluidas las [reservas de Azure][reservation-discounts]) se aplica automáticamente.
 
-Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar un entorno de ejecución del contenedor que no sea Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
+Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar un entorno de ejecución del contenedor que no sea `containerd` ni Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258630"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570217"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de clúster Linux de Service Fabric en Syslog
 
@@ -87,7 +87,7 @@ Estos son los cambios que se deben realizar:
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integración de los registros de Azure Monitor
-Puede leer estos eventos de Syslog en una herramienta de supervisión como los registros de Azure Monitor. Puede crear un área de trabajo de Log Analytics con Azure Marketplace mediante estas [instrucciones].(../azure-monitor/learn/quick-create-workspace.md) También debe agregar el agente de Log Analytics al clúster para recopilar y enviar estos datos al área de trabajo. Este es el mismo agente que se usa para recopilar los contadores de rendimiento. 
+Puede leer estos eventos de Syslog en una herramienta de supervisión como los registros de Azure Monitor. Puede crear un área de trabajo de Log Analytics con Azure Marketplace mediante estas [instrucciones].(../azure-monitor/logs/quick-create-workspace.md) También debe agregar el agente de Log Analytics al clúster para recopilar y enviar estos datos al área de trabajo. Este es el mismo agente que se usa para recopilar los contadores de rendimiento. 
 
 1. Navegue hasta la hoja `Advanced Settings`.
 
@@ -113,6 +113,6 @@ El ejemplo anterior es de un evento NodeDown. Puede ver la lista completa de eve
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
-* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
-* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/platform/view-designer.md)
-* Consulte esta referencia para obtener información sobre la [integración de los registros de Azure Monitor con Syslog](../azure-monitor/platform/data-sources-syslog.md).
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/logs/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/visualize/view-designer.md)
+* Consulte esta referencia para obtener información sobre la [integración de los registros de Azure Monitor con Syslog](../azure-monitor/agents/data-sources-syslog.md).

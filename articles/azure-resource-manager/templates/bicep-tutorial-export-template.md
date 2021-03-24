@@ -2,15 +2,15 @@
 title: 'Tutorial: exportación de una plantilla JSON desde Azure Portal para el desarrollo de Bicep'
 description: Aprenda a usar una plantilla JSON exportada para completar el desarrollo de Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743011"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632569"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla JSON exportada desde Azure Portal
 
@@ -79,7 +79,7 @@ Actualmente, Azure Portal solo admite la exportación de plantillas JSON. Hay he
 
 La plantilla exportada descompilada le proporciona la mayor parte del código de Bicep que necesita, pero debe personalizarlo para su archivo de Bicep. Preste especial atención a las diferencias, en cuanto a parámetros y variables, que existen entre el archivo de Bicep y la plantilla de Bicep exportada. Obviamente, el proceso de exportación no conoce los parámetros y las variables que ya ha definido en el archivo de Bicep.
 
-En el ejemplo siguiente se resaltan los elementos agregados al archivo de Bicep. Contiene el código exportado y algunos cambios. En primer lugar, cambia el nombre del parámetro para que coincida con su convención de nomenclatura. En segundo lugar, usa el parámetro de ubicación para la ubicación del plan de App Service. En tercer lugar, elimina algunas de las propiedades en las que el valor predeterminado es correcto.
+En el ejemplo siguiente se muestran los elementos agregados al archivo de Bicep. Contiene el código exportado y algunos cambios. En primer lugar, cambia el nombre del parámetro para que coincida con su convención de nomenclatura. En segundo lugar, usa el parámetro de ubicación para la ubicación del plan de App Service. En tercer lugar, elimina algunas de las propiedades en las que el valor predeterminado es correcto.
 
 Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
 

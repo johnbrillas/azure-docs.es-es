@@ -4,12 +4,12 @@ description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319561"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093624"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -37,7 +37,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
 
 1. Si mueve un recurso que tiene un rol de Azure asignado directamente al recurso (o a un recurso secundario), la asignación de roles no se mueve y queda huérfana. Después de moverlo, debe volver a crear asignaciones de roles. Finalmente, la asignación de roles huérfana se quitará automáticamente, pero se recomienda quitar la asignación de roles antes de mover el recurso.
 
-    Para más información sobre cómo administrar las asignaciones de roles, consulte [Enumeración de asignaciones de roles de Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) y [Incorporación o eliminación de asignaciones de roles](../../role-based-access-control/role-assignments-portal.md).
+    Para más información sobre cómo administrar las asignaciones de roles, consulte [Enumeración de asignaciones de roles de Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) y [Asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Las suscripciones de origen y de destino deben estar activas. Si tiene problemas para habilitar una cuenta que se ha deshabilitado, [cree una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
 
@@ -178,11 +178,11 @@ Cuando se visualiza el grupo de recursos, la opción para mover está deshabilit
 
 Para habilitar la opción para mover, seleccione los recursos que desea trasladar. Para seleccionar todos los recursos, active la casilla situada en la parte superior de la lista. O bien, seleccione cada recurso de forma individual. Después de seleccionar los recursos, se habilita la opción para moverlos.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opción para mover deshabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="seleccionar recursos":::
 
 Seleccione el botón **Mover**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opción para mover deshabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opciones de movimiento":::
 
 Este botón ofrece tres opciones:
 
@@ -194,11 +194,11 @@ Seleccione si va a mover los recursos a un nuevo grupo de recursos o a una nueva
 
 Seleccione el grupo de recursos de destino. Confirme que tiene que actualizar los scripts para estos recursos y seleccione **Aceptar**. Si ha seleccionado mover a una suscripción nueva, también debe seleccionar la suscripción de destino.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opción para mover deshabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="seleccionar destino":::
 
 Después de validar que los recursos se pueden mover, verá una notificación de que se está ejecutando la operación de movimiento.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opción para mover deshabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificación":::
 
 Cuando haya finalizado, se le notificará del resultado.
 

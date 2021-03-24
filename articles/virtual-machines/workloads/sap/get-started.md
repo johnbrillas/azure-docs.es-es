@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.date: 03/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d759ad0ebb1aa4f1b6a5f404812ab8149ed69e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671858"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038635"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -83,6 +83,7 @@ En esta sección encontrará documentos sobre la integración de Microsoft Powe
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 03/03/2021: cambio en la [Guía de alta disponibilidad de ASCS/SCS de SAP con WSFC y Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para agregar una instrucción de precaución de que se requieren privilegios elevados para el usuario que ejecuta SWPM, durante la instalación del sistema SAP
 - 02/11/2021: cambios en la [alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) para modificar los comandos de clúster de Pacemaker para RHEL 8. x
 - 03/02/2021: Cambio en [Configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) para actualizar pcmk_host_map en el comando stonith create
 - 03/02/2021: Cambio en [Configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para agregar pcmk_host_map en el comando stonith create 

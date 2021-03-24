@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591181"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644653"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -32,6 +32,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - Se admiten los clientes Win32 de Microsoft 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. No se admiten otras versiones; en estas, para iniciar sesión, los usuarios escribirán sus nombres de usuario, pero no las contraseñas. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - SSO de conexión directa no funciona en modo de exploración privada en Firefox.
 - El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
+- SSO de conexión directa no funciona en modo de exploración privada en los navegadores Microsoft Edge (heredado).
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
 - Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 50 KB; los vales de Kerberos deben ser menores que ese número para albergar otros artefactos de Azure AD (generalmente, de 2 a 5 KB), como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-the-feature) la característica en su inquilino.

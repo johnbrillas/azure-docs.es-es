@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694604"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233555"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -23,7 +23,7 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
 |------------------------------|---------------|---------------|
-| [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran la pertinencia de los resultados de la búsqueda con muy poco esfuerzo. Con solo realizar unos pequeños cambios en una solicitud de búsqueda, puede probar estas características en los índices existentes.</br></br>La [consulta semántica](semantic-how-to-query-request.md) es un nuevo tipo de consulta que aprovecha los avances en el procesamiento del lenguaje natural para mejorar la clasificación y comprender la intención de la consulta con el fin de proporcionar respuestas, subtítulos y resaltados semánticos.</br></br>La [clasificación y las respuestas semánticas (respuestas, subtítulos y resaltados)](semantic-how-to-query-response.md) hacen referencia al modelo que evalúa los resultados y la capacidad del modelo para aportar estructura a la respuesta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use la API REST de [búsqueda de documentos](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview y el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
+| [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la pertinencia de los resultados de la búsqueda con muy poco esfuerzo. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) son pasajes relevantes del documento que resumen mejor el documento, con resaltados en los términos o frases más importantes. </br></br>Las [respuestas semánticas](semantic-answers.md) son los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use la API REST de [búsqueda de documentos](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview y el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
 | [Corrector ortográfico de términos de consulta](speller-how-to-add.md) | Antes de que los términos de la consulta lleguen al motor de búsqueda, puede comprobar que no tengan errores ortográficos. La opción `speller` funciona con cualquier tipo de consulta (simple, completa o semántica). |  Versión preliminar pública, solo REST, api-version=2020-06-30-Preview|
 | [Indexador de SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador le conecta a un sitio de SharePoint Online para que pueda indexar el contenido de una biblioteca de documentos. | Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
 

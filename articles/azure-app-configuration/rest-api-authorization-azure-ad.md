@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f144c1f09f87e0b915daf86ba0391c2934e60095
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c028dcf6649da9abd196997d077b58386a5e6dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932683"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092797"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorización de Azure Active Directory: referencia de API REST
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Administración de asignaciones de roles
 
-Puede administrar las asignaciones de roles mediante [procedimientos de RBAC](../role-based-access-control/overview.md) que son estándar en todos los servicios de Azure. Puede hacerlo a través de la CLI de Azure, PowerShell y Azure Portal. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Puede administrar las asignaciones de roles mediante [procedimientos de Azure RBAC](../role-based-access-control/overview.md) que son estándar en todos los servicios de Azure. Puede hacerlo a través de la CLI de Azure, PowerShell y Azure Portal. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).

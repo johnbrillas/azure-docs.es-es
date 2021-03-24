@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692950"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175318"
 ---
 # <a name="authentication-methods-activity"></a>Actividad de los métodos de autenticación 
 
@@ -26,10 +26,17 @@ El nuevo panel de actividad de los métodos de autenticación permite a los admi
 
 ## <a name="permissions-and-licenses"></a>Permisos y licencias
 
-Los siguientes roles pueden tener acceso al uso y las conclusiones:
+Los roles integrados y personalizados con los siguientes permisos pueden acceder a la hoja Actividad de los métodos de autenticación y a las API:
+
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
+
+Los siguientes roles tienen los permisos necesarios:
 
 - Lector de informes
 - Lector de seguridad
+- Lector global
+- Operador de seguridad
 - Administrador de seguridad
 - Administrador global
 
@@ -100,7 +107,7 @@ Mediante los controles de la parte superior de la lista, puede buscar un usuario
 El informe de detalles de registro muestra la siguiente información para cada usuario:
 
 - Nombre principal de usuario
-- Nombre
+- nombre
 - Capacidad MFA (con capacidad, sin capacidad)
 - Capacidad sin contraseña (con capacidad, sin capacidad)
 - SSPR registrado (registrado, no registrado)
@@ -122,11 +129,12 @@ El informe de detalles de registro muestra la siguiente información para cada u
 - Estado (correcto, error)
 - Motivo del error (explicación)
 
-  ![Captura de pantalla de la página de uso](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Captura de pantalla de eventos de registro y restablecimiento](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limitaciones
 
-Los registros de pase de acceso temporal (TAP) no se reflejan en la pestaña de registro del informe porque solo son válidos durante un breve período de tiempo.
+- Los datos del informe no se actualizan en tiempo real y pueden reflejar una latencia de hasta unas cuantas horas.
+- Los registros de Pase de acceso temporal (TAP) no se reflejan en la pestaña de registro del informe porque solo son válidos durante un breve período de tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

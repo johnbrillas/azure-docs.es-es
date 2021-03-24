@@ -1,14 +1,14 @@
 ---
 title: Ofertas de servicios administrados en Azure Marketplace
 description: Las ofertas de servicios administrados le permiten vender ofertas de administración de recursos a los clientes en Azure Marketplace.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375551"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092999"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
@@ -19,6 +19,9 @@ En este artículo se describe el tipo de oferta **Servicio administrado** de [Az
 Las ofertas de servicio administrado simplifican el proceso de incorporación de clientes a Azure Lighthouse. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse.
 
 Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino administrador mediante la [Administración de recursos delegados de Azure](azure-delegated-resource-management.md), en función del acceso que se haya definido al crear la oferta. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los [roles](tenants-users-roles.md) que definen su nivel de acceso.
+
+> [!NOTE]
+> Es posible que las ofertas de servicios administrados no estén disponibles en Azure Government y otras nubes nacionales.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas y privadas
 
@@ -43,4 +46,4 @@ Aprenda a publicar una oferta de servicios administrados, consulte [Publicación
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de la [administración de recursos delegados de Azure](azure-delegated-resource-management.md) y las [experiencias de administración entre inquilinos](cross-tenant-management-experience.md).
-- [Publicación de una oferta de servicio administrado](../how-to/publish-managed-services-offers.md) en Azure Marketplace.
+- [Publique ofertas de servicios administrados](../how-to/publish-managed-services-offers.md) en Azure Marketplace.

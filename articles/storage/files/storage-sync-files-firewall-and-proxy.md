@@ -4,15 +4,15 @@ description: Comprenda la configuración del proxy y el firewall locales de Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673627"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729647"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -50,6 +50,30 @@ Comandos de PowerShell para configurar el proxy específico de la aplicación:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
+Por ejemplo, si el servidor proxy requiere autenticación con un nombre de usuario y una contraseña, ejecute los siguientes comandos de PowerShell:
+
+```powershell
+# IP address or name of the proxy server.
+$Address="127.0.0.1"  
+
+# The port to use for the connection to the proxy.
+$Port=8080
+
+# The user name for a proxy.
+$UserName="user_name" 
+
+# Please type or paste a string with a password for the proxy.
+$SecurePassword = Read-Host -AsSecureString
+
+$Creds = New-Object System.Management.Automation.PSCredential ($UserName, $SecurePassword)
+
+# Please verify that you have entered the password correctly.
+Write-Host $Creds.GetNetworkCredential().Password
+
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+
+Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
 **Esta configuración de proxy en el nivel de máquina** es transparente para el agente de Azure File Sync, ya que todo el tráfico del servidor se enruta a través de este proxy.
 
@@ -99,8 +123,8 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Use la dirección URL del punto de conexión público. | La biblioteca de autenticación de Active Directory tiene acceso a esta dirección URL que usa la interfaz de usuario de registro del servidor de Azure File Sync para iniciar sesión en el administrador. |
 | **Almacenamiento de Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Cuando el servidor descarga un archivo, realiza el movimiento de datos de forma más eficaz al comunicarse directamente con el recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;. afs.azure.us | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
-| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
-| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una vez instalado el agente de Azure File Sync, las direcciones URL de Microsoft Update se usan para descargar las actualizaciones del agente de Azure File Sync. |
+| **Microsoft PKI** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una vez instalado el agente de Azure File Sync, las direcciones URL de Microsoft Update se usan para descargar las actualizaciones del agente de Azure File Sync. |
 
 > [!Important]
 > Si permite el tráfico a &ast;.afs.azure.net, el tráfico solo podrá enviarse al servicio sincronización. Ningún otro servicio de Microsoft usa este dominio.
@@ -135,8 +159,8 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 | Público | Sudeste de Asia | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | Este de Asia | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
 | Público | Norte de Suiza | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net | Oeste de Suiza | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net |
 | Público | Oeste de Suiza | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net | Norte de Suiza | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net |
-| Público | Sur de Reino Unido | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Oeste de Reino Unido | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
-| Público | Oeste de Reino Unido | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sur de Reino Unido | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
+| Público | Sur de Reino Unido 2 | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Oeste de Reino Unido | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
+| Público | Oeste de Reino Unido | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sur de Reino Unido 2 | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | Centro-Oeste de EE. UU. | https:\//westcentralus01.afs.azure.net | Oeste de EE. UU. 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Público | Oeste de Europa | https:\//westeurope01.afs.azure.net<br>https:\//kailani6.one.microsoft.com | Norte de Europa | https:\//tm-westeurope01.afs.azure.net<br>https:\//tm-kailani6.one.microsoft.com |
 | Público | Oeste de EE. UU. | https:\//westus01.afs.azure.net<br>https:\//kailani.one.microsoft.com | Este de EE. UU. | https:\//tm-westus01.afs.azure.net<br>https:\//tm-kailani.one.microsoft.com |

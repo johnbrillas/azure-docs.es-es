@@ -8,25 +8,28 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
+author: shkale
+ms.author: shkale
 ms.reviewer: mathoma, sstein
-ms.date: 05/18/2019
-ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/25/2021
+ms.openlocfilehash: b1ba3f98f39511bcebf94502ed749d7cba1fc71b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782627"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184056"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
-Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de carácter empresarial que requieren la conservación de las copias de seguridad de las bases de datos más allá del período de entre 7 y 35 días que ofrecen las [copias de seguridad automáticas](automated-backups-overview.md) de Azure SQL Database e Instancia administrada de Azure SQL. Con la característica Retención a largo plazo (LTR), puede almacenar copias de seguridad completas de SQL Database e Instancia administrada de SQL en Azure Blob Storage con [redundancia configurada](automated-backups-overview.md#backup-storage-redundancy) con acceso de lectura durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva.
+Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de carácter empresarial que requieren la conservación de las copias de seguridad de las bases de datos más allá del período de entre 7 y 35 días que ofrecen las [copias de seguridad automáticas](automated-backups-overview.md) de Azure SQL Database e Instancia administrada de Azure SQL. Con la característica Retención a largo plazo (LTR), puede almacenar copias de seguridad completas de SQL Database e Instancia administrada de SQL en Azure Blob Storage con [redundancia configurada](automated-backups-overview.md#backup-storage-redundancy) con acceso de lectura durante un máximo de 10 años. Las copias de seguridad de LTR se pueden restaurar luego como una nueva base de datos.
 
-La retención a largo plazo se puede habilitar para Azure SQL Database y se encuentra en versión preliminar pública limitada para Instancia administrada de Azure SQL. En este artículo se proporciona información general conceptual de la retención a largo plazo. Para configurar la retención a largo plazo, consulte [Configuración de la retención a largo plazo en Azure SQL Database](long-term-backup-retention-configure.md) y [Configuración de retención a largo plazo en Instancia administrada de Azure SQL](../managed-instance/long-term-backup-retention-configure.md). 
+La retención a largo plazo se puede habilitar para Azure SQL Database y está disponible en versión preliminar pública para Azure SQL Managed Instance. En este artículo se proporciona información general conceptual de la retención a largo plazo. Para configurar la retención a largo plazo, consulte [Configuración de la retención a largo plazo en Azure SQL Database](long-term-backup-retention-configure.md) y [Configuración de retención a largo plazo en Instancia administrada de Azure SQL](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
+
+> [!IMPORTANT]
+> La retención a largo plazo en Managed Instance solo está disponible actualmente en versión preliminar pública en las regiones públicas de Azure. 
 
 
 ## <a name="how-long-term-retention-works"></a>Cómo funciona la retención a largo plazo
@@ -77,25 +80,20 @@ Si usa grupos de conmutación por error o de replicación geográfica activa com
 > [!NOTE]
 > Cuando la base de datos principal original se recupere de una interrupción que provoque la conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
 
-## <a name="sql-managed-instance-support"></a>Compatibilidad con Instancia administrada de SQL
-
-El uso de la retención de copias de seguridad a largo plazo con Azure SQL Managed Instance tiene las siguientes limitaciones:
-
-- **Versión preliminar pública limitada** : esta versión preliminar solo está disponible para las suscripciones EA y CSP, y está sujeta a una disponibilidad limitada.  
-- [**Solo PowerShell**](../managed-instance/long-term-backup-retention-configure.md): actualmente no hay compatibilidad con Azure Portal. La retención a largo plazo sebe habilitarse mediante PowerShell. 
-
-Para solicitar la inscripción, cree una [incidencia de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/). Como tipo de incidencia, seleccione Problema técnico, como servicio elija SQL Managed Instance y, como tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo** . En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR de SQL Managed Instance.
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo
 
-Puede configurar la retención de copias de seguridad a largo plazo mediante Azure Portal y PowerShell para Azure SQL Database y mediante PowerShell para Azure SQL Managed Instance. Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente de la misma instancia administrada y con la misma suscripción que la base de datos original.
+Puede configurar la retención de copias de seguridad a largo plazo mediante Azure Portal y PowerShell para Azure SQL Database y Azure SQL Managed Instance. Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente de la misma instancia administrada y con la misma suscripción que la base de datos original.
 
-Para obtener información sobre cómo configurar la retención a largo plazo o cómo restaurar una base de datos a partir de una copia de seguridad de SQL Database mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo en Azure SQL Database](long-term-backup-retention-configure.md).
+Para aprender a configurar la retención a largo plazo o restaurar una base de datos a partir de una copia de seguridad de SQL Database mediante Azure Portal o PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md).
 
 Para obtener información sobre cómo configurar la retención a largo plazo o cómo restaurar una base de datos a partir de una copia de seguridad de SQL Managed Instance mediante PowerShell, consulte [Administración de la retención de copias de seguridad a largo plazo en Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
 
-Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. Para más información sobre cómo restaurar la base de datos a partir de una copia de seguridad de LTR mediante Azure Portal o PowerShell, vea [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md). En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR de SQL Managed Instance.
+Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. Para más información sobre cómo restaurar la base de datos a partir de una copia de seguridad de LTR mediante Azure Portal o PowerShell, vea [Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Dado que las copias de seguridad de bases de datos protegen los datos de eliminaciones o daños accidentales, son una parte esencial de cualquier estrategia de recuperación ante desastres y de continuidad empresarial. Para descubrir otras soluciones de continuidad empresarial de SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+Dado que las copias de seguridad de bases de datos protegen los datos de eliminaciones o daños accidentales, son una parte esencial de cualquier estrategia de recuperación ante desastres y de continuidad empresarial. 
+
+- Para descubrir otras soluciones de continuidad empresarial de SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- Para aprender sobre las copias de seguridad automáticas generadas por el servicio, consulte [copias de seguridad automáticas](../database/automated-backups-overview.md)

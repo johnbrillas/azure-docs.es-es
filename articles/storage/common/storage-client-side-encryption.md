@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718529"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 
@@ -132,6 +132,8 @@ Hay dos paquetes necesarios para la integración de Key Vault:
 * Azure.Core contiene las interfaces `IKeyEncryptionKey` y `IKeyEncryptionKeyResolver`. La biblioteca cliente de almacenamiento para .NET ya lo define como una dependencia.
 * Azure.Security.KeyVault.Keys (versión 4.x) contiene el cliente REST de Key Vault así como clientes criptográficos que se usan con el cifrado del lado cliente.
 
+Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. A partir de Azure.Security.KeyVault.Keys 4.1.0, no hay ninguna implementación `IKeyEncryptionKeyResolver` que admita el almacenamiento en caché de claves. Si el almacenamiento en caché es necesario debido a una limitación, se puede seguir [este ejemplo](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) para insertar una capa de almacenamiento en caché en una instancia de `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
+
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Hay tres paquetes de Key Vault:
@@ -140,15 +142,15 @@ Hay tres paquetes de Key Vault:
 * Microsoft.Azure.KeyVault (versión 3.x) contiene el cliente REST de Key Vault.
 * Microsoft.Azure.KeyVault.Extensions (versión 3.x) contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar Azure Key Vault para almacenar sus claves o utilizar las extensiones de Key Vault para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.
 
-Puede encontrar más información sobre el uso de Key Vault en la versión 11 en los [ejemplos de código de cifrado versión 11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con Key Vault, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en Key Vault y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:
 
 1. Crear un secreto sin conexión y cargarlo en  Key Vault.
 2. Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).
 3. Utilizar la resolución de caché como una entrada al crear la directiva de cifrado.
+
+Puede encontrar más información sobre el uso de Key Vault en la versión 11 en los [ejemplos de código de cifrado versión 11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

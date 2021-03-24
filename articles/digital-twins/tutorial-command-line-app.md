@@ -1,40 +1,59 @@
 ---
-title: 'Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo'
+title: 'Tutorial: Creación de un grafo en Azure Digital Twins (aplicación cliente)'
 titleSuffix: Azure Digital Twins
-description: Tutorial para explorar los SDK de Digital Twins mediante una aplicación de línea de comandos de ejemplo
+description: Tutorial para crear un escenario de Azure Digital Twins mediante una aplicación de línea de comandos de ejemplo
 author: baanders
 ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d54207de9d74944e5b44e9970c1c5b896a56a373
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560767"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493718"
 ---
-# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
+# <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante una aplicación cliente de ejemplo
 
-En este tutorial se presenta una aplicación de ejemplo que implementa una aplicación cliente de línea de comandos, para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md).
+[!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-Puede usar este ejemplo para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos y crear relaciones. No obstante, si lo prefiere, también puede examinar el código del ejemplo para aprender sobre las API de Azure Digital Twins, y practicar la implementación de sus propios comandos mediante la modificación del proyecto de ejemplo.
+En este tutorial creará un grafo en Azure Digital Twins con modelos, gemelos y relaciones. La herramienta de este tutorial es una **aplicación cliente de línea de comandos de ejemplo** para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md).
 
-En este tutorial, aprenderá lo siguiente:
+Puede usar este ejemplo para realizar acciones básicas de Azure Digital Twins, como cargar modelos, crear y modificar gemelos y crear relaciones. No obstante, si lo prefiere, también puede examinar el [código del ejemplo](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) para aprender sobre las API de Azure Digital Twins y practicar la implementación de sus propios comandos mediante la modificación del proyecto de ejemplo.
+
+En este tutorial:
 > [!div class="checklist"]
-> * Configuración de una instancia de Azure Digital Twins
-> * Configuración de la aplicación de línea de comandos de ejemplo para interactuar con la instancia
-> * Uso de la aplicación de línea de comandos para explorar Azure Digital Twins, por ejemplo, los **modelos**, los **gemelos digitales**, las **relaciones** y las **consultas**
+> * Modelará un entorno.
+> * Creación de gemelos digitales
+> * Agregará relaciones para formar un grafo.
+> * Consultará el grafo para responder preguntas.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
 
-## <a name="explore-with-the-sample-solution"></a>Exploración con la solución de ejemplo
+### <a name="run-the-sample-project"></a>Ejecución del proyecto de ejemplo
 
-Ahora que la instancia y la aplicación de ejemplo están configuradas, usará el proyecto de ejemplo y algunos códigos de ejemplo escritos previamente para crear y explorar una solución básica de Azure Digital Twins. Los componentes principales de la solución son **modelos**, **gemelos digitales** y **relaciones**, cuyo resultado es un **gráfico de gemelos** de un entorno.
+Ahora que la aplicación y la autenticación están configuradas, ejecute el proyecto con este botón de la barra de herramientas:
 
-### <a name="model-a-physical-environment-with-dtdl"></a>Modelado de un entorno físico con DTDL
+:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Captura de pantalla del botón de inicio de Visual Studio (proyecto SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
+
+Se abre una ventana de la consola, se lleva a cabo la autenticación y se espera un comando. 
+* La autenticación se realiza a través del explorador: el explorador web predeterminado se abrirá con un aviso de autenticación. Use este aviso para iniciar sesión con sus credenciales de Azure. Luego, puede cerrar la pestaña o la ventana del explorador.
+
+Esta es una captura de pantalla de la apariencia de la consola del proyecto:
+
+:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Captura de pantalla del mensaje de bienvenida de la aplicación de línea de comandos." lightbox="media/tutorial-command-line/app/command-line-app.png":::
+
+> [!TIP]
+> Si quiere una lista de todos los comandos posibles que puede usar con este proyecto, escriba `help` en la consola del proyecto y presione Entrar.
+
+Mantenga la consola del proyecto en ejecución durante el resto de los pasos de este tutorial.
+
+## <a name="model-a-physical-environment-with-dtdl"></a>Modelado de un entorno físico con DTDL
+
+Ahora que la instancia de Azure Digital Twins y la aplicación de ejemplo están configuradas, puede empezar a crear un grafo de un escenario. 
 
 El primer paso para crear una solución de Azure Digital Twins es definir los [**modelos**](concepts-models.md) de gemelos del entorno. 
 
@@ -47,67 +66,25 @@ En la ventana de Visual Studio donde está abierto el proyecto _**AdtE2ESample*
 
 Seleccione *Room.json* para abrirlo en la ventana de edición y cámbielo de la siguiente manera:
 
-1. **Actualice el número de versión** para indicar que proporciona una versión más actualizada de este modelo. Para ello, cambie el *1* al final del valor `@id` por *2*. También servirá cualquier número mayor que el número de versión actual.
-1. **Edite una propiedad**. Cambie el nombre de la propiedad `Humidity` por *HumidityLevel* (o algo diferente que prefiera. Si usa algo diferente a *HumidityLevel*, recuerde lo que ha usado y no lo cambie por *HumidityLevel* a lo largo de todo el tutorial).
-1. **Agregue una propiedad**. Debajo de la propiedad `HumidityLevel` que termina en la línea 15, pegue el código siguiente para agregar una propiedad `RoomName` a la sala:
+[!INCLUDE [digital-twins-tutorial-model-create.md](../../includes/digital-twins-tutorial-model-create.md)]
 
-    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
-
-1. **Agregue una relación**. Debajo de la propiedad `RoomName` que acaba de agregar, pegue el código siguiente para que este tipo de gemelo pueda formar relaciones *contiene* con otros gemelos:
-
-    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
-
-Cuando haya terminado, el modelo actualizado coincidirá con este:
-
-:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
-
-Asegúrese de guardar el archivo antes de continuar.
-
-> [!TIP]
-> Si quiere intentar crear su propio modelo, puede pegar el código del modelo *Room* en un nuevo archivo que guarde con una extensión *.json* en la carpeta *AdtSampleApp\SampleClientApp\Models*. Después, experimente con la adición de propiedades y relaciones para representar lo que quiera. Para encontrar ideas, puede examinar los otros modelos de ejemplo de esta carpeta.
-
-> [!TIP] 
-> Hay un [ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independiente del lenguaje que puede usar para comprobar los documentos del modelo y asegurarse de que el DTDL sea válido. Se basa en la biblioteca del analizador de DTDL, sobre la que puede leer más en [*Procedimiento: Análisis y validación de modelos*](how-to-parse-models.md).
-
-### <a name="get-started-with-the-command-line-app"></a>Introducción a la aplicación de línea de comandos
-
-Ahora que ha definido un modelo, el resto de los pasos supone el uso de la aplicación de ejemplo para interactuar con la instancia de Azure Digital Twins. Ejecute el proyecto con este botón de la barra de herramientas:
-
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Botón de inicio de Visual Studio (proyecto SampleClientApp)":::
-
-Se abre una ventana de la consola, se lleva a cabo la autenticación y se espera un comando. 
-* La autenticación se realiza a través del explorador: el explorador web predeterminado se abrirá con un aviso de autenticación. Use este aviso para iniciar sesión con sus credenciales de Azure. Luego, puede cerrar la pestaña o la ventana del explorador.
-
-Esta es una captura de pantalla de la apariencia de la consola del proyecto:
-
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Mensaje de bienvenida de la aplicación de línea de comandos":::
-
-> [!TIP]
-> Si quiere una lista de todos los comandos posibles que puede usar con este proyecto, escriba `help` en la consola del proyecto y presione Entrar.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Salida del comando de ayuda":::
-
-Mantenga la consola del proyecto en ejecución durante el resto de los pasos de este tutorial.
-
-#### <a name="upload-models-to-azure-digital-twins"></a>Carga de modelos en Azure Digital Twins
+### <a name="upload-models-to-azure-digital-twins"></a>Carga de modelos en Azure Digital Twins
 
 Después de diseñar los modelos, debe cargarlos en la instancia de Azure Digital Twins. De esta forma se configura la instancia del servicio Azure Digital Twins con su propio vocabulario de dominio personalizado. Cuando haya cargado los modelos, puede crear instancias gemelas que los usen.
 
-En la ventana de la consola del proyecto, ejecute el siguiente comando para cargar el modelo *Room* actualizado, así como un modelo *Floor* que también usará en la sección siguiente para crear distintos tipos de gemelos.
+1. En la ventana de la consola del proyecto, ejecute el siguiente comando para cargar el modelo *Room* actualizado, así como un modelo *Floor* que también usará en la sección siguiente para crear distintos tipos de gemelos.
 
-```cmd/sh
-CreateModels Room Floor
-```
+    ```cmd/sh
+    CreateModels Room Floor
+    ```
+    
+    La salida debe indicar que los modelos se crearon correctamente.
 
-La salida debe indicar que los modelos se crearon correctamente.
+1. Para comprobar que los modelos se han creado, ejecute el comando `GetModels true`. Se consultará la instancia de Azure Digital Twins para conocer todos los modelos que se han cargado y se imprimirá toda su información. Busque el modelo *Room* editado en los resultados:
 
-> [!TIP]
-> Si ha diseñado su propio modelo anteriormente, también puede cargarlo aquí; para ello, agregue su nombre de archivo (puede omitir la extensión) a la lista `Room Floor` en el comando anterior.
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Captura de pantalla del resultado de GetModels, que muestra el modelo de Room actualizado." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
-Para comprobar que los modelos se han creado, ejecute el comando `GetModels true`. Se consultará la instancia de Azure Digital Twins para conocer todos los modelos que se han cargado y se imprimirá toda su información. Busque el modelo *Room* editado en los resultados:
-
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Resultados de GetModels, que muestra el modelo Room actualizado":::
-
-#### <a name="errors"></a>Errors
+### <a name="errors"></a>Errors
 
 La aplicación de ejemplo también controla los errores del servicio. 
 
@@ -133,93 +110,105 @@ Content-Length: 223
 Content-Type: application/json; charset=utf-8
 ```
 
-### <a name="create-digital-twins"></a>Creación de gemelos digitales
+## <a name="create-digital-twins"></a>Creación de gemelos digitales
 
 Ahora que algunos modelos se han cargado en la instancia de Azure Digital Twins, puede crear [**gemelos digitales**](concepts-twins-graph.md) basados en las definiciones de modelo. Los gemelos digitales representan las entidades del entorno empresarial, como los sensores de una granja, las salas de un edificio o las luces de un coche. 
 
 Para crear un gemelo digital, se usa el comando `CreateDigitalTwin`. Se debe hacer referencia al modelo en el que se basa el gemelo y, opcionalmente, puede definir los valores iniciales de las propiedades del modelo. En esta fase, no es necesario pasar ninguna información de relación.
 
-Ejecute este código en la consola del proyecto en ejecución para crear varios gemelos, según el modelo *Room* que ha actualizado anteriormente y otro modelo, *Floor*. Recuerde que *Room* tiene tres propiedades, por lo que puede proporcionar argumentos con los valores iniciales de estas.
+1. Ejecute este código en la consola del proyecto en ejecución para crear varios gemelos, según el modelo *Room* que ha actualizado anteriormente y otro modelo, *Floor*. Recuerde que *Room* tiene tres propiedades, por lo que puede proporcionar argumentos con los valores iniciales de estas. (La inicialización de los valores de propiedad es opcional en general, pero son necesarios para este tutorial).
 
-```cmd/sh
-CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
-CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
-CreateDigitalTwin dtmi:example:Floor;1 floor0
-CreateDigitalTwin dtmi:example:Floor;1 floor1
-```
+    ```cmd/sh
+    CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
+    CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
+    CreateDigitalTwin dtmi:example:Floor;1 floor0
+    CreateDigitalTwin dtmi:example:Floor;1 floor1
+    ```
 
-> [!TIP]
-> Si cargó su propio modelo anteriormente, pruebe a crear su propio comando `CreateDigitalTwin` según los comandos anteriores para agregar un gemelo de su propio tipo de modelo.
+    La salida de estos comandos debe indicar que los gemelos se crearon correctamente. 
+    
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Captura de pantalla que muestra un extracto del resultado de los comandos de CreateDigitalTwin, que incluye floor0, floor1, room0 y room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
-La salida de estos comandos debe indicar que los gemelos se crearon correctamente. 
+1. Para comprobar que se han creado los gemelos, ejecute el comando `Query`. Este comando consulta la instancia de Azure Digital Twins para conocer todos los gemelos digitales que contiene. Busque los gemelos *room0*, *room1*, *floor0* y *floor1* en los resultados.
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Extracto de los resultados de los comandos de CreateDigitalTwin, que muestra floor0, floor1, room0 y room1":::
+### <a name="modify-a-digital-twin"></a>Modificación de un gemelo digital
 
-También puede comprobar que se han creado los gemelos con el comando `Query`. Este comando consulta la instancia de Azure Digital Twins para conocer todos los gemelos digitales que contiene. Busque los gemelos *floor0*, *floor1*, *room0* y *room1* en los resultados.
-
-#### <a name="modify-a-digital-twin"></a>Modificación de un gemelo digital
-
-También puede modificar las propiedades de un gemelo que haya creado. Pruebe a ejecutar este comando para cambiar la propiedad RoomName de *room0* de *Room0* a *PresidentialSuite*:
-
-```cmd/sh
-UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
-```
-
-La salida indicará que el gemelo se actualizó correctamente.
-
-Otra forma de comprobarlo es ejecutar este comando para ver la información de *room0*:
-
-```cmd/sh
-GetDigitalTwin room0
-```
-
-La salida reflejará el nombre actualizado.
+También puede modificar las propiedades de un gemelo que haya creado. 
 
 > [!NOTE]
-> La API REST subyacente usa la revisión de JSON para definir las actualizaciones de un gemelo. La aplicación de línea de comandos refleja este formato, por lo que puede experimentar con lo que realmente esperan las API subyacentes.
+> La API REST subyacente usa el formato de [revisión de JSON](http://jsonpatch.com/) para definir las actualizaciones en un gemelo. La aplicación de línea de comandos también usa este formato para ofrecer una experiencia auténtica con lo que esperan las API subyacentes.
 
-### <a name="create-a-graph-by-adding-relationships"></a>Creación de un gráfico mediante la adición de relaciones
+1. Ejecute este comando para cambiar la propiedad RoomName de *room0* de *Room0* a *PresidentialSuite*:
+    
+    ```cmd/sh
+    UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
+    ```
+    
+    La salida indicará que el gemelo se actualizó correctamente.
+
+1. Para comprobar que la actualización se ha realizado correctamente, ejecute este comando para ver la información de *room0*:
+
+    ```cmd/sh
+    GetDigitalTwin room0
+    ```
+    
+    La salida reflejará el nombre actualizado.
+
+
+## <a name="create-a-graph-by-adding-relationships"></a>Creación de un gráfico mediante la adición de relaciones
 
 A continuación, puede crear algunas **relaciones** entre estos gemelos para conectarlos en un [**gráfico de gemelos**](concepts-twins-graph.md). Los gráficos de gemelos se utilizan para representar un entorno completo. 
 
-Para agregar una relación, use el comando `CreateRelationship`. Especifique el gemelo del que procede la relación, el tipo de relación que se va a agregar y el gemelo con el que conecta la relación. Por último, proporcione un nombre (identificador) para la relación.
+Los tipos de relaciones que puede crear de un gemelo a otro se definen dentro de los [modelos](#model-a-physical-environment-with-dtdl) que cargó anteriormente. La [definición del modelo para *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) especifica que las plantas pueden tener un tipo de relación denominado *contains*. Esto permite crear una relación de tipo *contains* a partir de cada gemelo de *Floor* en la planta correspondiente que lo contiene.
 
-Ejecute el código siguiente para agregar una relación "contiene" desde cada uno de los gemelos *Floor* que creó anteriormente hasta un gemelo *Room* correspondiente. Tenga en cuenta que, para que esto sea posible, debe haber una relación *contiene* definida en el modelo *Floor*.
+Para agregar una relación, use el comando `CreateRelationship`. Especifique el gemelo del que procede la relación, el tipo de relación y el gemelo con el que conecta la relación. Por último, asígnele un identificador único a la relación.
 
-```cmd/sh
-CreateRelationship floor0 contains room0 relationship0
-CreateRelationship floor1 contains room1 relationship1
-```
+1. Ejecute el código siguiente para agregar una relación "contiene" desde cada uno de los gemelos *Floor* que creó anteriormente hasta un gemelo *Room* correspondiente. Las relaciones se denominan *relationship0* y *relationship1*.
 
-La salida de estos comandos confirma que las relaciones se crearon correctamente:
-
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Extracto de los resultados de los comandos CreateRelationship, que muestra relationship0 y relationship1":::
-
-También puede comprobar las relaciones con cualquiera de los siguientes comandos, que consultan las relaciones en la instancia de Azure Digital Twins.
-* Para ver todas las relaciones que proceden de cada planta (vista de las relaciones desde un lado):
     ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
+    CreateRelationship floor0 contains room0 relationship0
+    CreateRelationship floor1 contains room1 relationship1
     ```
-* Para ver todas las relaciones que llegan a cada sala (vista de la relación desde el "otro" lado):
-    ```cmd/sh
-    GetIncomingRelationships room0
-    ```
-* Para consultar estas relaciones de forma individual: 
-    ```cmd/sh
-    GetRelationship floor0 relationship0
-    GetRelationship floor1 relationship1
-    ```
+
+    >[!TIP]
+    >La relación *contains* en el modelo de [ *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) también se ha definido con dos propiedades de cadena, `ownershipUser` y `ownershipDepartment`, por lo que también puede proporcionar argumentos con los valores iniciales para estas al crear las relaciones.
+    > Esta es una versión alternativa del comando anterior para crear *relationship0* que también especifica valores iniciales para estas propiedades:
+    > ```cmd/sh
+    > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
+    > ``` 
+    
+    La salida de estos comandos confirma que las relaciones se crearon correctamente:
+    
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Captura de pantalla de un extracto del resultado de los comandos de CreateRelationship, que incluye relationship0 y relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
+
+1. Puede comprobar las relaciones con cualquiera de los siguientes comandos, que consultan las relaciones en la instancia de Azure Digital Twins.
+    * Para ver todas las relaciones que proceden de cada planta (vista de las relaciones desde un lado):
+        ```cmd/sh
+        GetRelationships floor0
+        GetRelationships floor1
+        ```
+    * Para ver todas las relaciones que llegan a cada habitación (vista de la relación desde el "otro" lado):
+        ```cmd/sh
+        GetIncomingRelationships room0
+        GetIncomingRelationships room1
+        ```
+    * Para buscar estas relaciones individualmente, por identificador:
+        ```cmd/sh
+        GetRelationship floor0 relationship0
+        GetRelationship floor1 relationship1
+        ```
 
 Los gemelos y las relaciones que ha configurado en este tutorial forman el siguiente gráfico conceptual:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Un gráfico que muestra floor0 conectado a través de relationship0 con room0 y floor1 conectado a través de relationship1 con room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Un diagrama que muestra un grafo conceptual. floor0 conectado a través de relationship0 con room0 y floor1, a través de relationship1 con room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
-### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consulta del gráfico de gemelos para responder a las preguntas del entorno
+## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consulta del gráfico de gemelos para responder a las preguntas del entorno
 
-Una de las principales características de Azure Digital Twins es la posibilidad de [consultar](concepts-query-language.md) el gráfico de gemelos de forma fácil y eficaz para responder a las preguntas sobre el entorno. Ejecute los siguientes comandos en la consola del proyecto en ejecución para hacerse una idea del aspecto que tendrá.
+Una de las principales características de Azure Digital Twins es la posibilidad de [consultar](concepts-query-language.md) el gráfico de gemelos de forma fácil y eficaz para responder a las preguntas sobre el entorno. 
 
-* **¿Cuáles son todas las entidades de mi entorno que se representan en Azure Digital Twins?** (consulta de todo)
+Ejecute los siguientes comandos en la consola del proyecto en ejecución para responder a algunas preguntas sobre el entorno de ejemplo.
+
+1. **¿Cuáles son las entidades de mi entorno que se representan en Azure Digital Twins?** (consulta de todo)
 
     ```cmd/sh
     Query
@@ -227,12 +216,12 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Esto le permite evaluar su entorno de un vistazo y asegurarse de que todo se representa tal y como desea en Azure Digital Twins. El resultado es una salida que contiene cada gemelo digital con sus detalles. Aquí se muestra un extracto:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Resultados parciales de una consulta de gemelos, que muestra room0 y floor1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Captura de pantalla que muestra un resultado parcial de la consulta gemela, que incluye room0 y floor1.":::
 
     >[!NOTE]
     >En el proyecto de ejemplo, el comando `Query` sin argumentos adicionales equivale a `Query SELECT * FROM DIGITALTWINS`. Para consultar todos los gemelos de la instancia mediante [API de consulta](/rest/api/digital-twins/dataplane/query) o [comandos de la CLI](how-to-use-cli.md), use el formato de consulta más largo (completo).
 
-* **¿Cuáles son todas las salas de mi entorno?** (consulta por modelo)
+1. **¿Cuáles son todas las salas de mi entorno?** (consulta por modelo)
 
     ```cmd/sh
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
@@ -240,9 +229,9 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede restringir la consulta a los gemelos de un tipo determinado para tener información más específica sobre lo que se representa. El resultado muestra *room0* y *room1*, pero **no** *floor0* o *floor1* (dado que son plantas, no salas).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Resultados de la consulta del modelo, que muestra solo room0 y room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Captura de pantalla del resultado de la consulta del modelo, que muestra solo room0 y room1.":::
 
-* **¿Cuáles son todas las salas de *floor0*?** (consulta por relación)
+1. **¿Cuáles son todas las salas de *floor0*?** (consulta por relación)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
@@ -250,9 +239,9 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede realizar consultas en función de las relaciones del gráfico para tener información sobre cómo se conectan los gemelos o para restringir la consulta a un área determinada. Solo *room0* está en *floor0*, por lo que es la única sala del resultado.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Resultados de la consulta de relación, que muestra room0":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Captura de pantalla del resultado de la consulta de relación, que muestra room0.":::
 
-* **¿Cuáles son todos los gemelos de mi entorno con una temperatura superior a 75?** (consulta por propiedad)
+1. **¿Cuáles son todos los gemelos de mi entorno con una temperatura superior a 75?** (consulta por propiedad)
 
     ```cmd/sh
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
@@ -260,9 +249,9 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede consultar el gráfico en función de las propiedades para responder a diversas preguntas, como buscar valores atípicos en el entorno que puedan necesitar atención. También se admiten otros operadores de comparación ( *<* , *>* , *=* o *!=* ). *room1* se muestra aquí en los resultados porque tiene una temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Resultados de la consulta de propiedades, que muestra solo room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Captura de pantalla del resultado de la consulta de propiedad, que muestra solo room1.":::
 
-* **¿Cuáles son todas las salas de *floor0* con una temperatura superior a 75?** (consulta compuesta)
+1. **¿Cuáles son todas las salas de *floor0* con una temperatura superior a 75?** (consulta compuesta)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
@@ -270,7 +259,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     También puede combinar las consultas anteriores como lo haría en SQL, mediante operadores combinados como `AND`, `OR``NOT`. Esta consulta usa `AND` para que la consulta anterior sobre las temperaturas gemelas sea más específica. El resultado ahora solo incluye las salas con temperaturas superiores a 75 que se encuentran en *floor0*, que en este caso no es ninguna de ellas. El conjunto de resultados está vacío.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados de la consulta compuesta, que no muestra ningún resultado":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Captura de pantalla del resultado de la consulta compuesta, que no muestra ningún resultado." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -278,7 +267,7 @@ Después de completar este tutorial, puede elegir los recursos que desea quitar 
 
 * **Si tiene previsto continuar con el siguiente tutorial**, puede mantener los recursos configurados aquí para seguir usando esta instancia de Azure Digital Twins y la aplicación de ejemplo configurada para el siguiente tutorial.
 
-* **Si desea seguir usando la instancia de Azure Digital Twins, pero borra todos sus modelos, gemelos y relaciones**, puede usar los comandos `DeleteAllTwins` y `DeleteAllModels` de la aplicación de ejemplo para borrar los gemelos y los modelos de la instancia, respectivamente. De esta forma, tendrá una pizarra en blanco para el siguiente tutorial.
+* **Si desea seguir usando la instancia de Azure Digital Twins, pero borra todos sus modelos, gemelos y relaciones**, puede usar los comandos `DeleteAllTwins` y `DeleteAllModels` de la aplicación de ejemplo para borrar los gemelos y los modelos de la instancia, respectivamente.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
@@ -286,8 +275,8 @@ También puede que desee eliminar la carpeta del proyecto de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-En este tutorial, ha empezado a trabajar con Azure Digital Twins, para lo cual ha configurado una instancia y una aplicación cliente a fin de interactuar con la instancia. Ha usado la aplicación cliente para explorar Azure Digital Twins y crear modelos, gemelos digitales y relaciones. También ha ejecutado algunas consultas de la solución para hacerse una idea de los tipos de preguntas que Azure Digital Twins puede responder sobre un entorno.
+En este tutorial ha empezado a usar Azure Digital Twins mediante la creación de un grafo en la instancia con una aplicación cliente de ejemplo. Ha creado modelos, gemelos digitales y relaciones para formar un grafo. También ha ejecutado algunas consultas en el grafo para hacerse una idea de los tipos de preguntas que Azure Digital Twins puede responder sobre un entorno.
 
-Continúe con el siguiente tutorial para usar la aplicación de línea de comandos de ejemplo en combinación con otros servicios de Azure a fin de completar un escenario de un extremo a otro basado en datos:
+Continúe con el siguiente tutorial para combinar Azure Digital Twins con otros servicios de Azure con el fin de completar un escenario integral basado en datos:
 > [!div class="nextstepaction"]
 > [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).

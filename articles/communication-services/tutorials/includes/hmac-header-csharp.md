@@ -1,56 +1,57 @@
 ---
 title: Envío de una solicitud HTTP con C#
-description: Esta es la versión de C# para firmar una solicitud HTTP con una firma HMAC para Communication Services.
+description: En este tutorial se explica la versión de C# de firma de una solicitud HTTP con una firma HMAC en Azure Communication Services.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 3c1b56f81e5164bbdfa94fdaeca5f5f1f55b3b51
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551712"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490522"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, compruebe lo siguiente:
-- Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Instalar [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso Azure Communication Services](../../quickstarts/create-communication-resource.md). Para este tutorial, deberá registrar los valores de **resourceEndpoint** y **resourceAccessKey**.
 
-
+- Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Instale [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+- Cree un recurso de Azure Communication Services. Para más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md). En este tutorial, deberá registrar los valores **resourceEndpoint** y **resourceAccessKey**.
 
 ## <a name="sign-an-http-request-with-c"></a>Envío de una solicitud HTTP con C#
-La autenticación de clave de acceso usa una clave secreta compartida para generar una firma HMAC para cada solicitud HTTP. Esta firma se genera con el algoritmo SHA256 y se envía en el encabezado de `Authorization` mediante el esquema de `HMAC-SHA256`. Por ejemplo:
+
+La autenticación de clave de acceso usa una clave secreta compartida para generar una firma HMAC para cada solicitud HTTP. Esta firma se genera con el algoritmo SHA256 y se envía en el encabezado `Authorization` mediante el esquema `HMAC-SHA256`. Por ejemplo:
 
 ```
 Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
-`hmac-sha256-signature` consta de: 
+`hmac-sha256-signature` consta de:
 
-- Verbo HTTP (como `GET` o `PUT`)
+- Verbo HTTP (por ejemplo, `GET` o `PUT`)
 - Ruta de acceso de la solicitud HTTP
 - Date
 - administrador de flujos de trabajo
 - x-ms-content-sha256
 
-## <a name="setting-up"></a>Instalación
-En los pasos siguientes se describe cómo construir el encabezado de autorización:
+## <a name="setup"></a>Configurar
+
+En los pasos siguientes se describe cómo construir el encabezado de autorización.
 
 ### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
-En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `SignHmacTutorial`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: **Program.cs**.
+En una ventana de la consola, como cmd, PowerShell o Bash, use el comando `dotnet new` para crear una aplicación de consola con el nombre `SignHmacTutorial`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: **Program.cs**.
 
 ```console
 dotnet new console -o SignHmacTutorial
 ```
 
-Cambie el directorio a la carpeta de la aplicación recién creada y use el comando `dotnet build` para compilar la aplicación.
+Cambie el directorio a la carpeta de aplicaciones recién creada. Use el comando `dotnet build` para compilar la aplicación.
 
 ```console
 cd SignHmacTutorial
@@ -59,13 +60,13 @@ dotnet build
 
 ## <a name="install-the-package"></a>Instalar el paquete
 
-Instale el paquete `Newtonsoft.Json`, que se usa para la serialización del cuerpo:
+Instale el paquete `Newtonsoft.Json` que se usa en la serialización del cuerpo.
 
 ```console
 dotnet add package Newtonsoft.Json
 ```
 
-Actualice la declaración del método `Main` para admitir código asincrónico. Use el código siguiente para empezar:
+Actualice la declaración del método `Main` para admitir código asincrónico. Use el código siguiente para empezar.
 
 ```csharp
 using System;
@@ -82,21 +83,22 @@ namespace SignHmacTutorial
         static async Task Main(string[] args)
         {
             Console.WriteLine("Azure Communication Services - Sign an HTTP request Tutorial");
-            // Tutorial code goes here
+            // Tutorial code goes here.
         }
     }
 }
 
 ```
+
 ## <a name="create-a-request-message"></a>Creación de un mensaje de solicitud
 
-En este ejemplo se firmará una solicitud para crear una identidad mediante Authentication API de Communication Services (versión `2021-03-07`)
+En este ejemplo se firma una solicitud para crear una identidad mediante Authentication API de Azure Communication Services (versión `2021-03-07`).
 
-Agregue el siguiente código al método `Main`:
+Agregue el siguiente código al método `Main`.
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
-//Create an uri you are going to call
+//Create a uri you are going to call.
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2021-03-07");
 //Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
 var body = new[] { "chat" }; 
@@ -109,7 +111,7 @@ var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 
 Reemplace `resourceEndpoint` por el valor real del punto de conexión del recurso.
 
-## <a name="create-content-hash"></a>Creación de código hash de contenido
+## <a name="create-a-content-hash"></a>Creación de un hash de contenido
 
 El código hash de contenido es parte de la firma HMAC. Agregue el código siguiente para procesar el código hash de contenido. Puede agregar este método a `Progam.cs` en el método `Main`.
 
@@ -125,6 +127,7 @@ static string ComputeContentHash(string content)
 ```
 
 ## <a name="compute-a-signature"></a>Procesamiento de una firma
+
 Use el código siguiente para crear un método para procesar una firma HMAC.
 
 ```csharp
@@ -140,47 +143,48 @@ Use el código siguiente para crear un método para procesar una firma HMAC.
 }
 ```
 
-Reemplace `resourceAccessKey` por la clave de acceso del recurso real de Azure Communication Services.
+Reemplace `resourceAccessKey` por la clave de acceso del recurso real de Communication Services.
 
 ## <a name="create-an-authorization-header-string"></a>Creación de una cadena de encabezado de autorización
 
-Ahora crearemos la cadena que agregaremos a nuestro encabezado de autorización:
+Ahora crearemos la cadena que agregaremos a nuestro encabezado de autorización.
 
-1. Procesamiento de un hash de contenido
-2. Especificación de la marca de tiempo de la hora universal coordinada (UTC)
-3. Preparación de una cadena para firmar
-4. Procesamiento de la firma
-5. Concatenación de la cadena que se usará en el encabezado de autorización
+1. Procese un hash de contenido.
+1. Especifique la marca de tiempo de la hora universal coordinada (UTC).
+1. Prepare una cadena para firmar.
+1. Procese la firma.
+1. Concatene la cadena, que se usará en el encabezado de autorización.
  
-Agregue el siguiente código al método `Main`:
+Agregue el siguiente código al método `Main`.
 
 ```csharp
-// Compute a content hash
+// Compute a content hash.
 var contentHash = ComputeContentHash(serializedBody);
-//Specify the Coordinated Universal Time (UTC) timestamp
+//Specify the Coordinated Universal Time (UTC) timestamp.
 var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
-//Prepare a string to sign
+//Prepare a string to sign.
 var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authority};{contentHash}";
-//Compute the signature
+//Compute the signature.
 var signature = ComputeSignature(stringToSign);
-//Concatenate the string, which will be used in authorization header
+//Concatenate the string, which will be used in the authorization header.
 var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
 ## <a name="add-headers-to-requestmessage"></a>Incorporación de encabezados a requestMessage
 
-Use el código siguiente para agregar los encabezados necesarios a `requestMessage`:
+Use el código siguiente para agregar los encabezados necesarios a `requestMessage`.
 
 ```csharp
-//Add content hash header
+//Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
-//add date header
+//Add a date header.
 requestMessage.Headers.Add("Date", date);
-//add Authorization header
+//Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```
 
 ## <a name="test-the-client"></a>Probar el cliente
+
 Llame al punto de conexión mediante `HttpClient` y compruebe la respuesta.
 
 ```csharp

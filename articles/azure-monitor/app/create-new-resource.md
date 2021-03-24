@@ -3,19 +3,19 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575620"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100940"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
 Azure Application Insights muestra los datos de la aplicación en un *recurso* de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. Después de haber creado el recurso nuevo, puede obtener su clave de instrumentación y usarla para configurar el SDK de Application Insights. La clave de instrumentación vincula la telemetría al recurso.
 
 > [!IMPORTANT]
-> Application Insights clásico está en desuso. Siga estas [instrucciones sobre cómo actualizar a Application Insights basado en áreas de trabajo](convert-classic-resource.md).
+> [La versión clásica de Application Insights está en desuso](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Siga estas [instrucciones sobre cómo actualizar a Application Insights basado en áreas de trabajo](convert-classic-resource.md).
 
 ## <a name="sign-in-to-microsoft-azure"></a>Iniciar sesión en Microsoft Azure
 

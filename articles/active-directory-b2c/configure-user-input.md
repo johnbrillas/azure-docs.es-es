@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb7cba1de280793a1ca98687c71355c1ea702d4c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585231"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607958"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adición de atributos de usuario y personalización de entradas de usuario en Azure Active Directory B2C
 
@@ -156,16 +156,22 @@ Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocal
 1. Agregue la notificación de ciudad al elemento **ClaimsSchema**.  
 
 ```xml
-<ClaimType Id="city">
-  <DisplayName>City where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>DropdownSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="city">
+      <DisplayName>City where you work</DisplayName>
+      <DataType>string</DataType>
+      <UserInputType>DropdownSingleSelect</UserInputType>
+      <Restriction>
+        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+      </Restriction>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks>-->
 ```
 
 ## <a name="add-a-claim-to-the-user-interface"></a>Incorporación de una notificación a la interfaz de usuario
@@ -198,7 +204,7 @@ Para recopilar la notificación de ciudad durante el registro, se debe agregar c
 </ClaimsProvider>
 ```
 
-Para recopilar la notificación de ciudad después del inicio de sesión inicial con una cuenta federada, se debe agregar como notificación de salida al perfil técnico `SelfAsserted-Social`. Para que los usuarios de cuentas locales y federadas puedan editar sus datos de perfil posteriormente, agregue la notificación de salida al perfil técnico `SelfAsserted-ProfileUpdate`. Reemplace estos perfiles técnicos en el archivo de extensión. Especifique la lista completa de notificaciones de salida para controlar el orden en que se presentan las notificaciones en la pantalla. Busque el elemento **ClaimsProviders**. Agregue un nuevo elemento ClaimsProviders tal como se muestra a continuación:
+Para recopilar la notificación de ciudad después del inicio de sesión inicial con una cuenta federada, se debe agregar como notificación de salida al perfil técnico `SelfAsserted-Social`. Para que los usuarios de cuentas locales y federadas puedan editar sus datos de perfil posteriormente, agregue las notificaciones de entrada y salida al perfil técnico `SelfAsserted-ProfileUpdate`. Reemplace estos perfiles técnicos en el archivo de extensión. Especifique la lista completa de notificaciones de salida para controlar el orden en que se presentan las notificaciones en la pantalla. Busque el elemento **ClaimsProviders**. Agregue un nuevo elemento ClaimsProviders tal como se muestra a continuación:
 
 ```xml
 <ClaimsProvider>
@@ -206,6 +212,9 @@ Para recopilar la notificación de ciudad después del inicio de sesión inicial
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
     <TechnicalProfile Id="SelfAsserted-Social">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName"/>
@@ -215,6 +224,9 @@ Para recopilar la notificación de ciudad después del inicio de sesión inicial
     </TechnicalProfile>
     <!--Edit profile page-->
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="city" />
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName" />
@@ -255,14 +267,20 @@ Reemplace estos perfiles técnicos en el archivo de extensión. Busque el elemen
         <PersistedClaim ClaimTypeReferenceId="city"/>
       </PersistedClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a local account. -->
+    <!-- Read data after user resets the password. -->
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a federated account. -->
+    <!-- Read data after user authenticates with a local account. -->
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>

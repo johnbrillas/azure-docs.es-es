@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: a626ae1406a6ea4a83919f0fc3ee71ffaa5fbac2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427053"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224918"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación SPA de JavaScript mediante el flujo de código de autorización con PKCE 
 
@@ -110,12 +110,18 @@ En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorizaci�
 > Modifique los valores de la sección `msalConfig` como se describe aquí:
 >
 > - `Enter_the_Application_Id_Here` es el **identificador de aplicación (cliente)** de la aplicación que registró.
+>
+>    Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
 > - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com/`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` se establece en una de las opciones siguientes:
 >   - Si la aplicación admite *cuentas de este directorio organizativo*, reemplace este valor por los valores de **Id. de inquilino** o **Nombre de inquilino**. Por ejemplo, `contoso.microsoft.com`.
+>
+>    Para encontrar el valor de **Identificador de directorio (inquilino)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
 >   - Si la aplicación admite *cuentas de cualquier directorio organizativo*, reemplace este valor por `organizations`.
 >   - Si la aplicación admite *cuentas de cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por `common`. **En este inicio rápido**, use `common`.
 >   - Para restringir la compatibilidad a *solo cuentas de Microsoft personales*, reemplace este valor por `consumers`.
+>
+>    Para buscar el valor de **Tipos de cuenta admitidos**, vaya a la página **Información general** del registro de la aplicación en Azure Portal.
 > - `Enter_the_Redirect_Uri_Here` es `http://localhost:3000/`.
 >
 > El valor `authority` en *authConfig.js* debe ser similar al siguiente si usa la nube principal (global) de Azure:
@@ -124,9 +130,7 @@ En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorizaci�
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Para encontrar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** del registro de aplicaciones en Azure Portal.
->
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse
 > Hemos configurado el proyecto con los valores de las propiedades de su aplicación.

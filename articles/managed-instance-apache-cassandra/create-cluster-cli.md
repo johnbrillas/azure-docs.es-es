@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 86fa7e2e45dacb86b6601b699dca46b1b909fd08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.openlocfilehash: 3890b06b2d085cea57b59cfe34d8b961918471c5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424706"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562406"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Inicio rápido: creación de un clúster de Azure Managed Instance for Apache Cassandra mediante la CLI de Azure (versión preliminar)
 
@@ -26,12 +26,12 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artículo requiere la CLI de Azure 2.12.1 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
-
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) con conectividad a su entorno autohospedado o local. Para obtener más información sobre cómo conectar entornos locales a Azure, consulte el artículo [Conexión de una red local a Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/).
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+> [!IMPORTANT]
+> Este artículo requiere la CLI de Azure 2.17.1 o una versión posterior. Si usa Azure Cloud Shell, la versión más reciente ya está instalada.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Creación de un clúster de instancia administrada
 
@@ -56,9 +56,9 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
    ```
 
    > [!NOTE]
-   > Los valores `assignee` y `role` del comando anterior son los identificadores de rol y principio de servicio fijos, respectivamente.
+   > Los valores `assignee` y `role` del comando anterior son valores fijos. Escriba estos valores exactamente como se mencionó en el comando. Si no lo hace, se producirán errores al crear el clúster. Si se producen errores al ejecutar este comando, es posible que no tenga permisos para ejecutarlo. Para obtenerlos, póngase en contacto con el administrador.
 
-1. A continuación, cree el clúster en la red virtual recién creada. Ejecute el siguiente comando y asegúrese de usar el valor `Resource ID` obtenido en el comando anterior como valor de la variable `delegatedManagementSubnetId`:
+1. Luego, cree el clúster en la red virtual recién creada mediante el comando [az managed-cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create). Ejecute el siguiente comando y asegúrese de usar el valor `Resource ID` obtenido en el comando anterior como valor de la variable `delegatedManagementSubnetId`:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -76,7 +76,7 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
       --debug
    ```
 
-1. Por último, cree un centro de datos para el clúster, con tres nodos:
+1. Por último, cree un centro de datos para el clúster, con tres nodos, mediante el comando [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create):
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -92,7 +92,7 @@ En este inicio rápido se muestra cómo usar los comandos de la CLI de Azure par
       --node-count 3 
    ```
 
-1. Una vez creado el centro de datos, si desea escalar o reducir verticalmente los nodos del centro de datos, ejecute el siguiente comando. Cambie el valor del parámetro `node-count` al valor deseado:
+1. Una vez que se crea el centro de datos, si quiere escalar o reducir verticalmente los nodos que contiene, ejecute el comando [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update). Cambie el valor del parámetro `node-count` al valor deseado:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

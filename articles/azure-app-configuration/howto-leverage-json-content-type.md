@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565779"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122160"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveche el tipo de contenido para almacenar los pares clave-valor JSON en App Configuration
 
@@ -175,12 +175,28 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Consumo de pares clave-valor JSON en aplicaciones
 
-La forma más fácil de consumir pares clave-valor JSON en una aplicación es mediante bibliotecas de proveedores de App Configuration. Con las bibliotecas de proveedores, no es necesario implementar un tratamiento especial de los pares clave-valor JSON en la aplicación. Siempre se deserializan para la aplicación de la misma manera que otras bibliotecas de proveedor de configuración de JSON. 
+La forma más fácil de consumir pares clave-valor JSON en una aplicación es mediante bibliotecas de proveedores de App Configuration. Con las bibliotecas de proveedores, no es necesario implementar un tratamiento especial de los pares clave-valor JSON en la aplicación. Se analizarán y se convertirán para que coincidan con la configuración nativa de la aplicación.
+
+Por ejemplo, si tiene el siguiente par clave-valor en App Configuration:
+
+| Clave | Value | Tipo de contenido |
+|---|---|---|
+| Configuración | {"FontSize":24,"UseDefaultRouting":false} | application/json |
+
+La configuración de la aplicación .NET tendrá los siguientes pares de clave-valor:
+
+| Clave | Valor |
+|---|---|
+| Settings:FontSize | 24 |
+| Settings:UseDefaultRouting | false |
+
+Puede acceder directamente a las nuevas claves o puede elegir [enlazar los valores de configuración a las instancias de objetos de .NET](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > La compatibilidad nativa con los pares clave-valor JSON está disponible en la versión 4.0.0 del proveedor de configuración de .NET (o posterior). Para más información, consulte [*Siguientes pasos*](#next-steps).
 
-Si usa el SDK o la API REST para leer los pares clave-valor desde App Configuration, según el tipo de contenido, la aplicación será responsable de deserializar el valor de un par clave-valor JSON mediante cualquier deserializador JSON estándar.
+Si usa el SDK o la API REST para leer los pares clave-valor desde App Configuration, según el tipo de contenido, la aplicación será responsable de analizar el valor de un par clave-valor JSON.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

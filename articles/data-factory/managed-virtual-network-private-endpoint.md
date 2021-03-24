@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379580"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699663"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -113,6 +113,8 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Creación de un servicio vinculado para Azure Key Vault 
 - Cuando se crea un servicio vinculado para Azure Key Vault, no existe ninguna referencia a Azure Integration Runtime. Por este motivo, no se puede generar un punto de conexión privado cuando se crea un servicio vinculado para Azure Key Vault. Sin embargo, si se crea un servicio vinculado para almacenes de datos que hace referencia a un servicio vinculado de Azure Key Vault y dicho servicio vinculado hace referencia a Azure Integration Runtime con la característica Managed Virtual Network habilitada, puede crear un punto de conexión privado para el servicio vinculado de Azure Key Vault durante la creación. 
 - La operación **Prueba de conexión** del servicio vinculado de Azure Key Vault solo valida el formato de la dirección URL, pero no realiza ninguna operación de red.
+- La columna **Using private endpoint** (Uso de punto de conexión privado) siempre se muestra en blanco, incluso si crea un punto de conexión privado para Azure Key Vault.
+![Punto de conexión privado para AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

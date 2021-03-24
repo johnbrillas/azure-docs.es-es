@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 77a1c02c1ec59778521104e57f3bf3de8e52fa44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738997"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177421"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -104,46 +104,57 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 1. Inicie sesión en https://portal.azure.com/.
 2. Busque los **trabajos de importación y exportación**.
 
-    ![Buscar en trabajos de importación y exportación](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+   ![Buscar en trabajos de importación y exportación](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Seleccione **+ Nuevo**.
 
-    ![Seleccione Nuevo para crear uno nuevo. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+   ![Seleccione Nuevo para crear uno nuevo. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. En **Aspectos básicos**:
 
-   * Seleccione **Import into Azure** (Importar en Azure).
-   * Escriba un nombre descriptivo para el trabajo de importación. Utilice el nombre para realizar un seguimiento del progreso de los trabajos.
-       * El nombre solo pueden contener letras minúsculas, números y guiones.
-       * El nombre tiene que empezar por una letra y no puede contener espacios.
-   * Seleccione una suscripción.
-   * Escriba o seleccione un grupo de recursos.
+   1. Seleccione una suscripción.
+   1. Seleccione un grupo de recursos o elija **Crear nuevo** y cree uno.
+   1. Escriba un nombre descriptivo para el trabajo de importación. Utilice el nombre para realizar un seguimiento del progreso de los trabajos.
+      * El nombre solo pueden contener letras minúsculas, números y guiones.
+      * El nombre tiene que empezar por una letra y no puede contener espacios.
 
-     ![Creación del trabajo de importación: Paso 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+   1. Seleccione **Import into Azure** (Importar en Azure).
+
+    ![Creación del trabajo de importación: Paso 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    Seleccione **Siguiente: Detalles del trabajo >** para continuar.
 
 5. En **Detalles del trabajo**:
 
-   * Cargue los archivos de diario de la unidad que haya obtenido durante el paso de preparación de la unidad. Si utilizó `waimportexport.exe version1`, cargue un archivo por cada unidad que haya preparado. Si el tamaño del archivo diario supera los 2 MB, puede usar el archivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` que se creó también junto con el archivo de diario.
-   * Seleccione la cuenta de almacenamiento de destino en la que residirán los datos.
-   * La ubicación de la entrega se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
+   1. Cargar los archivos de diario que creó con anterioridad en [Paso 1: Preparación de las unidades de disco](#step-1-prepare-the-drives). Si utilizó `waimportexport.exe version1`, cargue un archivo por cada unidad que haya preparado. Si el tamaño del archivo diario supera los 2 MB, puede usar el archivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` que se creó también junto con el archivo de diario.
+   1. Seleccione la región de Azure de destino del pedido.
+   1. Seleccione la cuenta de almacenamiento de la importación.
+      
+      La ubicación de la entrega se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
+   1. Si no quiere guardar un registro detallado, desactive la opción **Guardar registro detallado en el contenedor de blobs 'waimportexport'** .
 
-   ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
 
-6. En **Información de envío de devolución**:
+   Seleccione **Siguiente: Envío >** para continuar.
 
-   * Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
-   * Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
-   * Proporcione la siguiente información completa y válida: nombre de contacto, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
+6. En **Envío**:
+
+   1. Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
+   1. Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
+   1.  Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 
        > [!TIP]
        > En lugar de especificar una dirección de correo electrónico para un solo usuario, proporcione un correo electrónico de grupo. Esto garantiza que recibirá notificaciones incluso si sale un administrador.
 
-     ![Creación del trabajo de importación - Paso 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Creación del trabajo de importación - Paso 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-7. En el **Resumen**:
+   Seleccione **Revisar y crear** para continuar.
 
-   * Revise la información de trabajo proporcionada en el resumen. Anote el nombre del trabajo y la dirección de envío del centro de datos Azure para enviar discos a Azure. Esta información se utiliza posteriormente en la etiqueta de envío.
-   * Haga clic en **Aceptar** para crear el trabajo de importación.
+7. En el resumen del pedido:
+
+   1. Revise los **Términos** y, luego, seleccione "Reconozco que toda la información proporcionada es correcta y estoy de acuerdo con los términos y las condiciones anteriores". A continuación, se realiza la validación.
+   1. Revise la información de trabajo proporcionada en el resumen. Anote el nombre del trabajo y la dirección de envío del centro de datos Azure para enviar discos a Azure. Esta información se utiliza posteriormente en la etiqueta de envío.
+   1. Seleccione **Crear**.
 
      ![Creación del trabajo de importación: Paso 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 

@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104219"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175556"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -45,7 +45,7 @@ Debe tener permisos suficientes para registrar una aplicación en su inquilino d
 1. En el panel izquierdo, seleccione **Configuración de usuario**.
 1. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Este valor solo puede configurarlo un administrador. Si se configura en **Sí**, cualquier usuario en el inquilino de Azure Active Directory puede registrar una aplicación.
 
-Si la configuración de registro de aplicaciones se establece en **No**, solo los usuarios con un rol de administrador pueden registrar este tipo de aplicaciones. Consulte los [roles disponibles](../roles/permissions-reference.md#available-roles) y los [permisos de roles](../roles/permissions-reference.md#role-permissions) para conocer los roles de administrador disponibles y los permisos específicos en Azure AD que se otorgan a cada rol. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los administradores, pida al administrador que le asigne un rol de administrador para poder crear y administrar todos los aspectos de los registros de aplicaciones, o que permita a los usuarios registrar las aplicaciones.
+Si la configuración de registro de aplicaciones se establece en **No**, solo los usuarios con un rol de administrador pueden registrar este tipo de aplicaciones. Consulte [Roles integrados de Azure AD](../roles/permissions-reference.md#all-roles) para conocer los roles de administrador disponibles y los permisos específicos en Azure AD que se otorgan a cada uno. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los administradores, pida al administrador que le asigne un rol de administrador para poder crear y administrar todos los aspectos de los registros de aplicaciones, o que permita a los usuarios registrar las aplicaciones.
 
 ### <a name="check-azure-subscription-permissions"></a>Comprobación de los permisos de suscripción de Azure
 
@@ -84,6 +84,9 @@ Vamos a saltar directamente a la creación de la identidad. Si experimenta un pr
    ![Escriba un nombre para la aplicación](./media/howto-create-service-principal-portal/create-app.png)
 
 Ha creado una aplicación de Azure AD y una entidad de servicio.
+
+> [!NOTE]
+> Puede registrar varias aplicaciones con el mismo nombre en Azure AD, pero las aplicaciones deben tener distintos identificadores de aplicación (cliente).
 
 ## <a name="assign-a-role-to-the-application"></a>Asignación de un rol a la aplicación
 

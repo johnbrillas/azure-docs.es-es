@@ -1,20 +1,20 @@
 ---
-title: Firma de una solicitud HTTP mediante C#
+title: Modo de firmar una solicitud HTTP con C#
 titleSuffix: An Azure Communication Services tutorial
-description: Aprenda a firmar una solicitud HTTP de Communication Services mediante C#
+description: Aprenda a firmar una solicitud HTTP en Azure Communication Services mediante C#.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a9191180dcf4a16f586d109e820e63def566a42
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e9b24e981e472371e477cd4dd895e976f709b2fb
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488739"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490521"
 ---
 # <a name="sign-an-http-request"></a>Envío de una solicitud HTTP
 
@@ -27,14 +27,14 @@ En este tutorial aprenderá a firmar una solicitud HTTP con una firma HMAC.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si quiere limpiar y quitar una suscripción a Communication Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él. Puede obtener más información sobre [la limpieza de los recursos de Azure Communication Services](../quickstarts/create-communication-resource.md#clean-up-resources) y [la limpieza de los recursos de Azure Functions](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+Si quiere limpiar y quitar una suscripción de Communication Services, elimine el recurso o el grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él. Puede encontrar más información sobre la [limpieza de los recursos de Azure Communication Services](../quickstarts/create-communication-resource.md#clean-up-resources) y la [limpieza de los recursos de Azure Functions](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Adición de la llamada de voz a una aplicación](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-Puede que también le interese:
+También puede que desee consultar:
 
 - [Incorporación de chat a una aplicación](../quickstarts/chat/get-started.md)
 - [Creación de tokens de acceso de usuario](../quickstarts/access-tokens.md)

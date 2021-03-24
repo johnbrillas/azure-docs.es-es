@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: 67f296c7584fcf25af79f9125137aca07c9906fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744059"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124166"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adición de compatibilidad con IPv6 para el emparejamiento privado mediante Azure Portal (versión preliminar)
 
@@ -88,7 +88,7 @@ Siga los pasos que se indican a continuación si tiene previsto conectarse a un 
 
 2. [Creación de la subred de puerta de enlace de doble pila](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. [Cree la puerta de enlace de red virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ.
+3. [Cree la puerta de enlace de red virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ (tenga en cuenta que esto solo está disponible para los circuitos mediante ExpressRoute Direct).
 
 4. [Vincule la red virtual a su circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
@@ -98,6 +98,9 @@ Aunque la compatibilidad con IPv6 está disponible para las conexiones a las imp
 * Conexiones a implementaciones en Azure a través de una SKU de puerta de enlace ExpressRoute sin AZ
 * Conexiones a implementaciones en regiones que no sin AZ
 * Conexiones Global Reach entre circuitos ExpressRoute
+* Uso de ExpressRoute con WAN virtual
+* FastPath con circuitos que no son de ExpressRoute Direct
+* Coexistencia con VPN Gateway
 
 ## <a name="next-steps"></a>Pasos siguientes
 

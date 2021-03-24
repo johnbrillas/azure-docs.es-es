@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737620"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202644"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -119,26 +119,38 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="sizeondisk-versus-size"></a>
    **¿Por qué la propiedad *Tamaño en disco* de un archivo no coincide con la propiedad *Tamaño* después de usar Azure File Sync?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  Consulte [Descripción de la nube por niveles de Azure File Sync](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
    **¿Cómo se puede saber si un archivo se ha organizado en niveles?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Uno de los archivos que quiero usar se ha organizado en niveles. ¿Cómo puedo recuperarlo en el disco para usarlo de forma local?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-recall-file).
+  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
    **¿Cómo puedo forzar la organización en niveles de un archivo o directorio?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-force-tiering).
+  Consulte [Administración de archivos almacenados por niveles de Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
    **¿Cómo se interpreta el *espacio disponible del volumen* cuando tengo varios puntos de conexión de servidor en un volumen?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  Consulte [Selección de directivas de nube por niveles de Azure File Sync](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Tengo deshabilitada la nube por niveles, ¿por qué hay archivos por niveles en la ubicación del punto de conexión de servidor?**  
-  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    Existen dos razones por las que pueden existir archivos por niveles en la ubicación del punto de conexión de servidor:
+
+    - Al agregar un nuevo punto de conexión de servidor a un grupo de sincronización existente, si elige la opción de recuperar primero el espacio de nombres o la opción de recuperar solo el espacio de nombres para el modo de descarga inicial, los archivos se mostrarán por niveles hasta que se descarguen localmente. Para evitar esta situación, seleccione la opción de evitar archivos por niveles para el modo de descarga inicial. Para recuperar archivos manualmente, use el cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+
+    - Si se ha habilitado la nube por niveles en el punto de conexión de servidor y luego se ha deshabilitado, los archivos permanecen por niveles hasta que se accede a ellos.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+   **¿Por qué no se muestran miniaturas ni vistas previas de los archivos almacenados por niveles en el Explorador de Windows?**  
+    En el caso de los archivos con niveles, las vistas previas y las miniaturas no estarán visibles en el punto de conexión del servidor. Este comportamiento es el esperado, ya que la característica de caché de vistas en miniatura de Windows omite intencionadamente la lectura de archivos con el atributo sin conexión. Con Niveles de la nube habilitado, la lectura de archivos con niveles provocaría su descarga (recuperación).
+
+    Este comportamiento no es específico de Azure File Sync, el Explorador de Windows muestra una "X gris" para los archivos que tienen establecido el atributo sin conexión. Verá el icono X al acceder a los archivos a través de SMB. Para obtener una explicación detallada de este comportamiento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+
+    Si tiene preguntas sobre cómo administrar archivos almacenados por niveles, consulte [Administración de archivos almacenados por niveles](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
    **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  

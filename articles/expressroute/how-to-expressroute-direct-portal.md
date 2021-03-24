@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018945"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097081"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
@@ -21,12 +21,19 @@ ExpressRoute Direct le permite conectarse directamente a la red global de Micros
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
-Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. Para ello, envíe un correo electrónico a <ExpressRouteDirect@microsoft.com> con el identificador de la suscripción, incluidos los detalles siguientes:
+Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. Para inscribirse, haga lo siguiente a través de Azure PowerShell:
+1.  Inicie sesión en Azure y seleccione la suscripción a la que quiera inscribirse.
 
-* Los escenarios que desea lograr con **ExpressRoute Direct**
-* Las preferencias de ubicación: consulte el artículo [Asociados y ubicaciones de emparejamiento](expressroute-locations-providers.md) para obtener una lista completa de todas las ubicaciones
-* Escala de tiempo de implementación
-* ¿Alguna otra pregunta?
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registre la suscripción para la versión preliminar pública con el siguiente comando:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Una vez inscrito, compruebe que el proveedor de recursos **Microsoft.Network** está registrado en su suscripción. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este.
 

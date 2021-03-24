@@ -4,21 +4,23 @@ description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace tran
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f7f05fb84ff6cbe320e8f479912bdcdefdc41021
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370434"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201653"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Este artículo proporciona instrucciones detalladas para configurar un dispositivo IoT Edge de modo que funcione como una puerta de enlace transparente para que otros dispositivos se comuniquen con IoT Hub. En este artículo, el término *puerta de enlace IoT Edge* hace referencia a un dispositivo IoT Edge configurado como una puerta de enlace transparente. Para más información, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](./iot-edge-as-gateway.md).
 
@@ -26,10 +28,9 @@ Este artículo proporciona instrucciones detalladas para configurar un dispositi
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->Actualmente:
+>En IoT Edge versiones 1.1 y anteriores, un dispositivo IoT Edge no puede ser de bajada de una puerta de enlace de IoT Edge.
 >
-> * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge.
-> * Los dispositivos de bajada no pueden usar la carga de archivos.
+>Los dispositivos de bajada no pueden usar la carga de archivos.
 
 ::: moniker-end
 
@@ -37,9 +38,7 @@ Este artículo proporciona instrucciones detalladas para configurar un dispositi
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Actualmente:
->
-> * Los dispositivos de bajada no pueden usar la carga de archivos.
+>Los dispositivos de bajada no pueden usar la carga de archivos.
 
 ::: moniker-end
 
@@ -51,7 +50,17 @@ Hay tres pasos generales para configurar una conexión de puerta de enlace trans
 
 Para que un dispositivo funcione como puerta de enlace, tiene que conectarse de forma segura a sus dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo de puerta de enlace. Esta comprobación de identidad evita que los dispositivos se conecten a puertas de enlace que pueden ser malintencionadas.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](../iot-hub/index.yml). Estas aplicaciones suelen usar el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. Sin embargo, un dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](../iot-hub/index.yml). Estas aplicaciones suelen usar el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge.
+:::moniker-end
+<!-- end 1.2 -->
 
 Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo se da por hecho que usa la misma configuración de certificado que usaría para habilitar la [seguridad de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a un centro de IoT específico (la entidad de certificación raíz del centro de IoT), una serie de certificados firmados con esta entidad de certificación y una entidad de certificación para el dispositivo IoT Edge.
 
@@ -64,7 +73,7 @@ Los pasos siguientes le guían por el proceso de crear los certificados e instal
 
 Un dispositivo Linux o Windows con IoT Edge instalado.
 
-Si no tiene listo un dispositivo, puede crear uno en una máquina virtual de Azure. Siga los pasos descritos en [Implementación del primer módulo de IoT Edge en un dispositivo virtual Linux](quickstart-linux.md) para crear una instancia de IoT Hub, crear una máquina virtual y configurar el entorno de ejecución de Azure IoT Edge. 
+Si no tiene listo un dispositivo, puede crear uno en una máquina virtual de Azure. Siga los pasos descritos en [Implementación del primer módulo de IoT Edge en un dispositivo virtual Linux](quickstart-linux.md) para crear una instancia de IoT Hub, crear una máquina virtual y configurar el entorno de ejecución de Azure IoT Edge.
 
 ## <a name="set-up-the-device-ca-certificate"></a>Configuración del certificado de CA de dispositivo
 
@@ -72,7 +81,7 @@ Todas las puertas de enlace de IoT Edge necesitan un certificado de CA de dispos
 
 ![Configuración del certificado de puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-El certificado de CA raíz y el certificado de CA de dispositivo (con su clave privada) deben estar presentes en el dispositivo de puerta de enlace de IoT Edge y configurarse en el archivo config.yaml de IoT Edge. Recuerde que, en este caso, *certificado de CA raíz* significa la entidad de certificación de nivel superior para este escenario de IoT Edge. El certificado de CA de dispositivo de puerta de enlace y los certificados de dispositivo de bajada deben acumularse en el mismo certificado de CA raíz.
+El certificado de CA raíz y el certificado de CA de dispositivo (con su clave privada) deben estar presentes en el dispositivo de puerta de enlace de IoT Edge y configurarse en el archivo de configuración de IoT Edge. Recuerde que, en este caso, *certificado de CA raíz* significa la entidad de certificación de nivel superior para este escenario de IoT Edge. El certificado de CA de dispositivo de puerta de enlace y los certificados de dispositivo de bajada deben acumularse en el mismo certificado de CA raíz.
 
 >[!TIP]
 >El proceso de instalación del certificado de CA raíz y el certificado de CA de dispositivo en un dispositivo IoT Edge también se explica más detalladamente en [Administración de certificados en un dispositivo IoT Edge](how-to-manage-device-certificates.md).
@@ -85,7 +94,7 @@ Tenga listos los archivos siguientes:
 
 En escenarios de producción, debe generar estos archivos con su propia entidad de certificación. En escenarios de desarrollo y pruebas, puede usar certificados de demostración.
 
-1. Si usa certificados de demostración, siga las instrucciones de [Creación de certificados de demostración para probar las características de dispositivo IoT Edge](how-to-create-test-certificates.md) para crear los archivos. En esa página, debe seguir los pasos a continuación:
+Si no tiene su propia entidad de certificación y quiere usar certificados de demostración, siga las instrucciones de [Creación de certificados de demostración para probar las características del dispositivo IOT Edge](how-to-create-test-certificates.md) para crear sus archivos. En esa página, debe seguir los pasos a continuación:
 
    1. Para empezar, configure los scripts para generar certificados en el dispositivo.
    2. Cree un certificado de CA raíz. Al final de esas instrucciones, tendrá un archivo de certificado de CA raíz:
@@ -94,24 +103,55 @@ En escenarios de producción, debe generar estos archivos con su propia entidad 
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` y
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Si ha creado los certificados en otra máquina, cópielos en el dispositivo IoT Edge.
+Si creó los certificados en otra máquina, cópielos en el dispositivo IoT Edge y, a continuación continúe con los pasos siguientes.
 
-3. Abra el archivo de configuración del demonio de seguridad en el dispositivo IoT Edge.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+1. Abra el archivo de configuración del demonio de seguridad en el dispositivo IoT Edge.
+
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. Busque la sección **Configuración de certificado** del archivo. Quite la marca de comentario de las cuatro líneas que empiezan por **certificates:** y proporcione los URI de archivo a los tres archivos como valores de las siguientes propiedades:
+1. Busque la sección **Configuración de certificado** del archivo. Quite la marca de comentario de las cuatro líneas que empiezan por **certificates:** y proporcione los URI de archivo a los tres archivos como valores de las siguientes propiedades:
    * **device_ca_cert**: certificado de CA de dispositivo
    * **device_ca_pk**: clave privada de CA de dispositivo
    * **trusted_ca_certs**: certificado de CA raíz
 
    Asegúrese de que la línea **certificates:** no tenga ningún espacio en blanco delante y de que las otras líneas tengan una sangría de dos espacios.
 
-5. Guarde y cierre el archivo.
+1. Guarde y cierre el archivo.
 
-6. Reinicie IoT Edge.
+1. Reinicie IoT Edge.
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. En el dispositivo IoT Edge, abra el archivo de configuración: `/etc/aziot/config.toml`
+
+   >[!TIP]
+   >Si el archivo de configuración todavía no existe en el dispositivo, use `/etc/aziot/config.toml.edge.template` como plantilla para crear uno.
+
+1. Busque el parámetro `trust_bundle_cert`. Quite la marca de comentario de esta línea y proporcione el URI de archivo al certificado de CA raíz en el dispositivo.
+
+1. Busque la sección `[edge_ca]` (Aprovisionamiento) del archivo. Quite la marca de comentario de las tres líneas de esta sección y proporcione los URI de los archivos de certificado y clave como valores para las siguientes propiedades:
+   * **cert**: certificado de CA del dispositivo
+   * **pk**: clave privada de CA del dispositivo
+
+1. Guarde y cierre el archivo.
+
+1. Aplique los cambios.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Implementación de edgeHub y enrutado de mensajes
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696074"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010479"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registro y examen de un origen de Oracle (versión preliminar)
 
@@ -29,9 +29,9 @@ El origen de Oracle admite un **examen completo** para extraer metadatos de una 
 
 2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no lo está, descárguelo desde [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  Tiene que descargar manualmente un controlador JDBC de Oracle denominado 'oracle.jdbc.driver.OracleDriver\' en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado.
+4.  Tiene que descargar manualmente un controlador JDBC de Oracle desde [aquí](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) en la máquina virtual donde se ejecuta el entorno de ejecución de integración autohospedado.
 
     > [!Note] 
     > Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
@@ -115,9 +115,9 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 5.  Especifique los detalles siguientes:
 
-    a.  **Name** (Nombre): nombre del examen.
+    a.  **Name** (Nombre): el nombre del examen.
 
-    b.  **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
+    b.  **Connect via integration runtime** (Conectar mediante IR): seleccione el entorno de ejecución de integración configurado.
 
     c.  **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
     - Selecciona la autenticación básica al crear una credencial.        
@@ -141,7 +141,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 8.  Haga clic en **Continuar**.
 
-9.  Seleccione el **desencadenador de examen**. Puede configurar una programación o ejecutar el examen una vez.
+9.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
 10.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
 

@@ -4,15 +4,15 @@ description: En este artículo se enumeran recomendaciones de seguridad de Azure
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b4fe575039c6e913ca20198f204b6529f6c482c7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100413"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466241"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
@@ -28,9 +28,17 @@ La puntuación de seguridad se basa en el número de recomendaciones de Security
 > Si la descripción de una recomendación indica "No hay ninguna directiva relacionada", suele deberse a que esta recomendación depende de una recomendación distinta y de _su_ directiva. Por ejemplo, la recomendación "Los errores de estado de Endpoint Protection deberían corregirse..." se basa en la recomendación que comprueba si una solución de Endpoint Protection está incluso _instalada_ ("La solución de Endpoint Protection debe estar instalada..."). La recomendación subyacente _tiene_ una directiva.
 > Limitar las directivas a únicamente la recomendación básica simplifica la administración de directivas.
 
+## <a name="appservices-recommendations"></a><a name='recs-appservices'></a>Recomendaciones de AppServices
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name="compute-recommendations"></a><a name='recs-compute'></a>Recomendaciones de proceso
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name="container-recommendations"></a><a name='recs-container'></a>Recomendaciones del contenedor
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name="data-recommendations"></a><a name='recs-data'></a>Recomendaciones de datos
 

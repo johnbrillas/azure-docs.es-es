@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280531"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092397"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servicio de detección de anomalías para la facturación de uso medido
 
@@ -50,32 +50,37 @@ El modelo funciona mediante la generación de intervalos de confianza retrospect
 
 ## <a name="anomaly-detection-notification"></a>Notificaciones de detección de anomalías
 
-Se enviarán por correo electrónico avisos de detección de anomalías semanalmente. Estos avisos incluyen todas las anomalías detectadas esa semana para todos los medidores y clientes. Este correo electrónico se envía a los contactos de **ingeniería** y **soporte técnico** que se proporcionaron cuando creó la oferta.
+Puede evaluar, administrar y confirmar anomalías en el Centro de partners. Para saber cómo, consulte [Administración de anomalías de facturación de uso medido en el Centro de partners](../anomaly-detection.md).
 
-Se espera que compruebe si las anomalías detectadas son problemas reales y, si es así, se ponga en contacto con Microsoft para informar del uso incorrecto (consulte la sección de soporte técnico a continuación).
+Para asegurarse de que a los clientes no se les cobra de más por el uso medido, debe investigar si las anomalías detectadas son problemas reales. Si es así, puede confirmar el uso incorrecto en el Centro de partners.
 
-Si confirma que las anomalías detectadas constituyen un uso normal, no es necesario realizar ninguna otra acción. Sin embargo, si una anomalía representa un riesgo financiero potencialmente alto, podremos ponernos en contacto con usted para confirmar el uso.  
+Se recomienda confirmar si las anomalías detectadas son de uso normal. Al hacerlo, se mejorarán los datos de anomalías que se le proporcionan. Si una anomalía representa un riesgo financiero potencialmente alto, podremos ponernos en contacto con usted para confirmar el uso.
 
 ## <a name="when-and-how-to-get-support"></a>Obtención de soporte técnico
 
-Si ha enviado un uso incorrecto a Microsoft y esto ha dado o dará lugar a un cargo menor al cliente, Microsoft no iniciará una factura al cliente por la utilización no informada o no le pagará por dicha utilización. Tendrá que asumir la pérdida de ingresos debido a la falta de información.
+Si nos ha enviado un uso medido incorrecto y, como resultado, al cliente se la ha cobrado, o se le cobrará, un importe menor, no se emitirá una factura al cliente por el uso menor notificado ni se le pagará ese uso. Tendrá que asumir la pérdida de ingresos debido a la falta de información.
 
-Si se aplica uno de los casos siguientes, puede abrir una incidencia de soporte técnico para solicitar el reembolso o el ajuste de facturación de los clientes:
+Si se aplica uno de los siguientes casos, puede ajustar la cantidad de uso en el Centro de partners, lo que dará como resultado un reembolso o un ajuste de la facturación para sus clientes:
 
-- Ha confirmado que una de las anomalías encontradas es un problema real y la utilización incorrecta daría como resultado **cargos extra** al cliente.
-- Descubre que nos ha enviado una utilización incorrecta y que esto daría como resultado **cargos extra** al cliente.
-- Le gustaría solicitar un reembolso por el cargo del uso de facturación medida de su cliente.
+- Ha confirmado que una de las anomalías encontradas es un problema real y que el uso incorrecto daría como resultado cargos extra al cliente.
+- Descubre que nos ha enviado un uso incorrecto y que, como resultado, al cliente se le podría cobrar de más.
 
-Para enviar una incidencia:
+Para enviar una incidencia de soporte técnico relacionada con las anomalías de facturación de uso medido:
 
-1. Vaya a la página de soporte técnico. En el **cuadro de información sobre la incidencia**, escriba "uso incorrecto".
-2. En los temas de soporte técnico, en la lista desplegable de resultados de la búsqueda, seleccione una de las siguientes opciones:
-    - **Marketplace comercial** > **Facturación de uso medido** > **Se ha enviado un uso incorrecto para la oferta de aplicaciones de Azure**, o
-    - **Marketplace comercial** > **Facturación de uso medido** > **Se ha enviado un uso incorrecto para la oferta de SaaS**
-3. En **Siguiente paso**, seleccione el botón **Revisar soluciones** para que se le redirija para iniciar sesión en el Centro de partners y poder enviar una incidencia de soporte técnico.
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con su cuenta profesional.
+1. En el menú que se encuentra en la parte superior derecha de la página, seleccione el icono **Soporte técnico**. El panel **Ayuda y soporte técnico** aparece en el lado derecho de la página.
+1. Para ayuda con el marketplace comercial, seleccione **Marketplace comercial**.
+   ![Se muestra el panel de soporte técnico.](../media/support/commercial-marketplace-support-pane.png)
+1. En el cuadro **Resumen del problema**, escriba **marketplace comercial > facturación de uso medido**.
+1. En el cuadro **Tipo de problema**, seleccione uno de los siguientes:
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer** (Marketplace comercial > Facturación según uso > Uso incorrecto enviado para oferta de aplicaciones de Azure)
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer** (Marketplace comercial > Facturación según uso > Uso incorrecto enviado para oferta de SaaS)
+1. En **Paso siguiente**, seleccione **Review solutions** (Revisar soluciones).
+1. Revise los documentos recomendados, si los hay, o seleccione **Provide issue details** (Proporcionar detalles del problema) para enviar una incidencia de soporte técnico.
 
 Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](../support.md).
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md).
+- [Administración de las anomalías de facturación de uso medido en el Centro de partners](../anomaly-detection.md)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942828"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091428"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -54,7 +54,7 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
     |---|---|
     |Información general|proporciona información general del clúster.|
     |Registro de actividades|muestra y consulta los registros de actividad.|
-    |Control de acceso (IAM)|usa asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).|
+    |Control de acceso (IAM)|usa asignaciones de roles.  Consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).|
     |Etiquetas|las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto** y luego usar un valor común para todos los servicios asociados a un proyecto específico.|
     |Diagnosticar y solucionar problemas|muestra información de solución de problemas.|
     |Guía de inicio rápido|muestra información que lo ayuda a empezar a usar HDInsight.|

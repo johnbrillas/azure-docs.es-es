@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 110607e9da68cf131a43651b97c599873ce33cb8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489283"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495273"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -86,7 +86,7 @@ En la tabla siguiente se representa el conjunto de exploradores compatibles que 
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*Se admiten las versiones de Safari 13.1 y posteriores. 
+*Se admiten las versiones de Safari 13.1 +, las llamadas a un solo destinatario no se admiten en Safari. 
 
 **Son necesarios Safari 14+ y macOS 11+ para la compatibilidad con vídeo saliente. 
 

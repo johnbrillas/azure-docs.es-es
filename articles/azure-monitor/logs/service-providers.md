@@ -1,17 +1,16 @@
 ---
 title: Registros de Azure Monitor para proveedores de servicios | Microsoft Docs
 description: Los registros de Azure Monitor pueden ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales o en la nube del cliente.
-ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5f1421da10c4748dd78e4c6790568285fa646979
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604156"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047118"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 
@@ -48,7 +47,7 @@ Las ventajas de la arquitectura distribuida son las siguientes:
 
 Las desventajas de la arquitectura distribuida son las siguientes:
 
-* La visualización y el análisis de datos de forma centralizada entre los inquilinos del cliente con herramientas como Workbooks de Azure Monitor pueden dar lugar a experiencias más lentas, especialmente al analizar datos en más de 50 áreas de trabajo.
+* La visualización y el análisis de datos de forma centralizada [entre los inquilinos del cliente](cross-workspace-query.md) con herramientas como Workbooks de Azure Monitor pueden dar lugar a experiencias más lentas, especialmente al analizar datos en más de 50 áreas de trabajo.
 * Si los clientes no se incorporan a la administración de recursos delegados de Azure, los administradores de proveedores de servicios deben aprovisionarse en el directorio del cliente, y será más difícil para el proveedor de servicios administrar un gran número de inquilinos de clientes a la vez.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. Central: los registros se almacenan en el área de trabajo que se encuentra en el inquilino del proveedor de servicios
@@ -85,7 +84,7 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 * Automatice la creación de áreas de trabajo con [PowerShell](../logs/powershell-workspace-configuration.md).
 
-* Use [alertas](../platform/alerts-overview.md) para integrarse con sistemas existentes.
+* Use [alertas](../alerts/alerts-overview.md) para integrarse con sistemas existentes.
 
 * Genere informes de resumen con [Power BI](../visualize/powerbi.md).
 

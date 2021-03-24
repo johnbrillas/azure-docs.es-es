@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727796"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177797"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento de almacenamiento
 
@@ -26,7 +26,6 @@ Si desea ver una demostración y una introducción de diez minutos de esta carac
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > La integración descrita en este artículo depende de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Asegúrese de que el proveedor de la suscripción se registra con el proveedor de recursos de Event Grid. Para más información, consulte [Tipos y proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Debe poder realizar la acción *Microsoft.EventGrid/eventSubscriptions/* *. Esta acción forma parte del rol integrado Colaborador de EventSubscription EventGrid.
 
@@ -34,11 +33,11 @@ Si desea ver una demostración y una introducción de diez minutos de esta carac
 
 En esta sección se muestra cómo crear un desencadenador de eventos de almacenamiento dentro de la interfaz de usuario de Azure Data Factory.
 
-1. Vaya al **Lienzo de creación**
+1. Cambie a la pestaña **Edit** (Editar), que se muestra con un símbolo de lápiz. 
 
-1. En la esquina inferior izquierda, haga clic en el botón **Desencadenadores**.
+1. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
 
-1. Haga clic en **+ Nuevo** para abrir la navegación del lado Crear desencadenador.
+1. En la página **Add Triggers** (Agregar desencadenadores), seleccione **Choose trigger...** (Elegir desencadenador) y, después, seleccione **+New** (+Nuevo). 
 
 1. Seleccione el tipo de desencadenador **Evento de almacenamiento**.
 
@@ -107,4 +106,5 @@ En esta sección encontrará ejemplos de configuración de desencadenadores de e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
+* Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
+* Aprenda a hacer referencia a los metadatos de desencadenador en la canalización; para ello, consulte [Referencia a los metadatos de desencadenador en las ejecuciones de canalización](how-to-use-trigger-parameterization.md).

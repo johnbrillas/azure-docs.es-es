@@ -4,15 +4,15 @@ description: En este artículo se describe cómo usar la creación de particione
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.date: 09/19/2019
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72f81a0eac81acdca71c8ed81695789c417898ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 95749f2acea6b605cfdba5a4f3d4f5526e751c5a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014202"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182543"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Vuelva a crear particiones para optimizar el procesamiento con Azure Stream Analytics
 
@@ -23,25 +23,47 @@ Es posible que no pueda usar la [paralelización](stream-analytics-parallelizati
 * No controla la clave de partición para el flujo de entrada.
 * El origen divide la entrada en varias particiones que se deben combinar posteriormente.
 
-Se requiere volver a crear particiones, o remodelar, cuando se procesan los datos de una secuencia que no está particionada de acuerdo con un esquema de entrada natural, como **PartitionId** para Event Hubs. Al volver a particionar, cada partición se puede procesar de forma independiente, lo que le permite escalar horizontalmente la canalización de streaming.
+Se requiere volver a crear particiones, o remodelar, cuando se procesan los datos de una secuencia que no está particionada de acuerdo con un esquema de entrada natural, como **PartitionId** para Event Hubs. Al volver a particionar, cada partición se puede procesar de forma independiente, lo que le permite escalar horizontalmente la canalización de streaming. 
 
 ## <a name="how-to-repartition"></a>Cómo volver a crear particiones
+Puede volver a particionar la entrada de dos maneras:
+1. Usar un trabajo de Stream Analytics independiente que realiza la nueva creación de particiones
+2. Usar un solo trabajo, pero realizar primero la nueva creación de particiones antes de la lógica de análisis personalizada
 
-Para volver a crear particiones, use la palabra clave **INTO** tras una instrucción **PARTITION BY** en la consulta. En el ejemplo siguiente, se crean particiones de los datos por **DeviceID** en un número de particiones de 10. El hash de **DeviceID** se usa para determinar qué partición aceptará determinada subsecuencia. Los datos se vacían de forma independiente para cada flujo con particiones, suponiendo que la salida admita escrituras con particiones y que tenga 10 particiones.
-
+### <a name="creating-a-separate-stream-analytics-job-to-repartition-input"></a>Creación de un trabajo de Stream Analytics independiente para volver a particionar la entrada
+Puede crear un trabajo que lea la entrada y escriba en una salida del centro de eventos mediante una clave de partición. Este centro de eventos puede servir como entrada para otro trabajo de Stream Analytics en el que se implementa la lógica de análisis. Al configurar esta salida del centro de eventos en el trabajo, debe especificar la clave de partición por la que Stream Analytics volverá a particionar los datos. 
 ```sql
+-- For compat level 1.2 or higher
 SELECT * 
 INTO output
 FROM input
-PARTITION BY DeviceID 
-INTO 10
+
+--For compat level 1.1 or lower
+SELECT *
+INTO output
+FROM input PARTITION BY PartitionId
+```
+
+### <a name="repartition-input-within-a-single-stream-analytics-job"></a>Creación de una nueva partición de la entrada en un único trabajo de Stream Analytics
+También puede introducir un paso en la consulta que primero vuelva a particionar la entrada y que se pueda usar en otros pasos de la consulta. Por ejemplo, si quiere volver a particionar la entrada en función de **DeviceId**, la consulta sería:
+```sql
+WITH RepartitionedInput AS 
+( 
+SELECT * 
+FROM input PARTITION BY DeviceID
+)
+
+SELECT DeviceID, AVG(Reading) as AvgNormalReading  
+INTO output
+FROM RepartitionedInput  
+GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
 En la consulta de ejemplo siguiente se combinan dos flujos de datos con particiones. Al combinar dos flujos de datos con particiones, los flujos deben tener la misma clave de partición y el mismo número. El resultado es un flujo que tiene el mismo esquema de partición.
 
 ```sql
-WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
-step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
+WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID),
+step2 AS (SELECT * FROM input2 PARTITION BY DeviceID)
 
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```

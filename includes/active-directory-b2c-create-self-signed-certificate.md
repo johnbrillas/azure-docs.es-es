@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: 3458a4f3ba337d4c470c21fa5d89b28f5f2701a3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 41d9962657aa81dbe34a52302d1b68ec655f2893
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916934"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095296"
 ---
-Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. Un certificado autofirmado es un certificado de seguridad que no está firmado por una entidad de certificación (CA). No proporciona todas las garantías de seguridad de un certificado firmado por una entidad de certificación. 
+Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. Un certificado autofirmado es un certificado de seguridad que no está firmado por una entidad de certificación (CA) y no proporciona las garantías de seguridad de un certificado firmado por una CA. 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -31,10 +31,10 @@ En Windows, use el cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclie
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
-1. Abra **Administrar certificados de usuario** > **Usuario actual** > **Personal** > **Certificados** > *yourappname.yourtenant.onmicrosoft.com*
-1. Seleccione el certificado > **Acción** > **Todas las tareas** > **Exportar**
-1. Seleccione **Sí** > **Siguiente** > **Sí, exportar la clave privada** > **Siguiente**
-1. Acepte los valores predeterminados para **Formato de archivo de exportación**
+1. Abra **Administrar certificados de usuario** > **Usuario actual** > **Personal** > **Certificados** > *yourappname.yourtenant.onmicrosoft.com*.
+1. Seleccione el certificado y, a continuación, seleccione **Acción** > **Todas las tareas** > **Exportar**.
+1. Seleccione **Sí** > **Siguiente** > **Sí, exportar la clave privada** > **Siguiente**.
+1. Acepte los valores predeterminados para **Formato de archivo de exportación**.
 1. Proporcionar una contraseña para el certificado.
 
 Para que Azure AD B2C acepte la contraseña del archivo .pfx, esta debe estar cifrada con la opción TripleDES-SHA1 de la utilidad de exportación del almacén de certificados de Windows en lugar de AES256-SHA256.
@@ -43,13 +43,13 @@ Para que Azure AD B2C acepte la contraseña del archivo .pfx, esta debe estar 
 
 En macOS, use el [Asistente para Certificados](https://support.apple.com/guide/keychain-access/aside/glosa3ed0609/11.0/mac/11.0) de Acceso a llaveros para generar un certificado.
 
-1. Siga las instrucciones de [Crear certificados autofirmados en Acceso a Llaveros en el Mac](https://support.apple.com/guide/keychain-access/kyca8916/mac).
+1. Siga las instrucciones que encontrará en [Creación de certificados autofirmados en Acceso a Llaveros en el equipo Mac](https://support.apple.com/guide/keychain-access/kyca8916/mac).
 1. En la aplicación Acceso a llaveros del equipo Mac, seleccione el certificado que ha creado.
-1. Seleccione Archivo > Exportar elementos.
-1. Seleccione un nombre de archivo para guardar el certificado. Por ejemplo, **self-signed-certificate.p12**. 
+1. Elija **Archivo** > **Exportar elementos**.
+1. Seleccione un nombre de archivo para guardar el certificado. Por ejemplo, **self-signed-certificate.p12**.
 1. En **Formato de archivo**, seleccione **Personal Information Exchange (.p12)** .
 1. Seleccione **Guardar**.
 1. Escriba una **Contraseña** y luego seleccione **Comprobar**.
-1. Cambie la extensión del archivo a `.pfx`. Por ejemplo, **self-signed-certificate.pfx**. 
+1. Cambie la extensión del archivo a `.pfx`. Por ejemplo, **self-signed-certificate.pfx**.
 
 ---
