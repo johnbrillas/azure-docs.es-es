@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: 72ebe6186da179bc5a1effddcc14327455eb7557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89612405"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
@@ -59,7 +59,7 @@ Por ejemplo, en un grupo con dos instancias de contenedor que solicitan 1 CPU c
 En este escenario, podría establecer un límite de recursos de hasta dos CPU para la instancia de contenedor. Esta configuración permite que la instancia de contenedor use hasta dos CPU, si estuvieran disponibles.
 
 > [!NOTE]
-> La infraestructura subyacente del servicio usa una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores pueden acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
+> La infraestructura subyacente al servicio utiliza una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores pueden acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
 
 ### <a name="minimum-and-maximum-allocation"></a>Asignación mínima y máxima
 
@@ -67,7 +67,7 @@ En este escenario, podría establecer un límite de recursos de hasta dos CPU p
 
 * Para los recursos **máximos** de un grupo de contenedores, consulte la [disponibilidad de recursos][region-availability] para Azure Container Instances en la región de implementación.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funciones de red
 
 Los grupos de contenedores pueden compartir una dirección IP externa, uno o más puertos de esa dirección IP y una etiqueta DNS con un nombre de dominio completo (FQDN). Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Cuando se elimina el grupo de contenedores, se libera su dirección IP y FQDN. 
 

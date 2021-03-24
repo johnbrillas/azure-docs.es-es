@@ -4,10 +4,10 @@ description: Aprenda a restablecer las contraseñas de las máquinas virtuales (
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96436817"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Establecimiento o restablecimiento de contraseñas de las máquinas virtuales en laboratorios (alumnos)

@@ -12,20 +12,20 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74534772"
 ---
 # <a name="azure-active-directory-operations-reference-guide"></a>Guía de referencia de operaciones de Azure Active Directory
 
 Esta guía de referencia de operaciones describe las comprobaciones y las acciones que debe realizar para proteger y mantener las áreas siguientes:
 
-- **[La administración de identidades y accesos](active-directory-ops-guide-iam.md)** : capacidad de administrar el ciclo de vida de las identidades y sus derechos.
-- **[Administración de autenticación](active-directory-ops-guide-auth.md)** : capacidad de administrar las credenciales, definir la experiencia de autenticación, delegar la asignación, medir el uso y definir directivas de acceso basadas en la postura de seguridad de la empresa.
-- **[Gobernanza](active-directory-ops-guide-govern.md)** : capacidad para evaluar y confirmar el acceso concedido a las identidades sin privilegios y con privilegios, así como auditar y controlar los cambios en el entorno.
-- **[Operaciones](active-directory-ops-guide-ops.md)** : optimizar las operaciones de Azure Active Directory (Azure AD).
+- **[La administración de identidades y accesos](active-directory-ops-guide-iam.md)**: capacidad de administrar el ciclo de vida de las identidades y sus derechos.
+- **[Administración de autenticación](active-directory-ops-guide-auth.md)**: capacidad de administrar las credenciales, definir la experiencia de autenticación, delegar la asignación, medir el uso y definir directivas de acceso basadas en la postura de seguridad de la empresa.
+- **[Gobernanza](active-directory-ops-guide-govern.md)**: capacidad para evaluar y confirmar el acceso concedido a las identidades sin privilegios y con privilegios, así como auditar y controlar los cambios en el entorno.
+- **[Operaciones](active-directory-ops-guide-ops.md)**: optimizar las operaciones de Azure Active Directory (Azure AD).
 
 Algunas de estas recomendaciones podrían no aplicarse al entorno de todos los clientes; por ejemplo, podrían no aplicarse los procedimientos recomendados de AD FS si la organización usara la sincronización de hash de contraseñas.
 

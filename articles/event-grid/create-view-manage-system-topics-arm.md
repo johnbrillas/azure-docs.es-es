@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo usar plantillas de Azure Resourc
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115169"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Creación de temas del sistema en Azure Event Grid con plantillas de Resource Manager
@@ -52,7 +52,7 @@ Para crear un tema del sistema en un origen de Azure en primer lugar y después 
             "type": "String",
             "defaultValue": "mystoragesystemtopic",
             "metadata": {
-                "description": "Provide a name for the system topic."
+                "description": "Provide a name for the system topic."
             }
         }
     },
@@ -80,7 +80,7 @@ Para crear un tema del sistema en un origen de Azure en primer lugar y después 
                 "[parameters('storageName')]"
             ],
             "properties": {
-                "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
+                "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
                 "topicType": "Microsoft.Storage.StorageAccounts"
             }
         },

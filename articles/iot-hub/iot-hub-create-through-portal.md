@@ -10,10 +10,10 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536052"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
@@ -42,7 +42,7 @@ Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
 **IP Filter** (Filtro de IP): especifique un intervalo de direcciones IP que el centro de IoT va a aceptar o rechazar.
 
-**Propiedades** : proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
+**Propiedades**: proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
 
 ### <a name="shared-access-policies"></a>Directivas de acceso compartido
 

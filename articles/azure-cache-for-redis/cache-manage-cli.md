@@ -8,10 +8,10 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537701"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Creación y administración de Azure Cache for Redis mediante la CLI de Azure clásica
@@ -53,7 +53,7 @@ Las siguientes propiedades se utilizan al crear y actualizar instancias de Azure
 | StaticIP |-p, --static-ip \<static-ip\> |Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. |
 | Subnet |t, --subnet \<subnet\> |Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. |
 | VirtualNetwork |-v, --virtual-network \<virtual-network\> |Si hospeda la memoria caché en una red virtual, especifica el id. de recurso de ARM exacto de la red virtual en la que se va a implementar la instancia de Azure Cache for Redis. Formato de ejemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Suscripción |-s, --subscription |Identificador de la suscripción. |
+| Subscription |-s, --subscription |Identificador de la suscripción. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Ver todos los comandos de Azure Cache for Redis
 Para ver todos los comandos de Azure Cache for Redis y sus parámetros, use el comando `azure rediscache -h`.

@@ -4,10 +4,10 @@ description: En este artículo se proporciona información sobre cómo autentica
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518235"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticación y autorización de una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus
@@ -43,10 +43,10 @@ Antes de asignar un rol de Azure a una entidad de seguridad, determine el ámbit
 
 En la lista siguiente se describen los niveles en los que puede definir el ámbito de acceso a recursos Service Bus, empezando por el ámbito más restringido:
 
-- **Cola** , **tema** o **suscripción** : la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. 
-- **Espacio de nombres de Service Bus** : la asignación de roles abarca toda la topología de Service Bus en el espacio de nombres y el grupo de consumidores que tiene asociado.
-- **Grupo de recursos** : la asignación de roles se aplica a todos los recursos de Service Bus del grupo de recursos.
-- **Suscripción** : la asignación de roles se aplica a todos los recursos de Service Bus de todos los grupos de recursos de la suscripción.
+- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. 
+- **Espacio de nombres de Service Bus**: la asignación de roles abarca toda la topología de Service Bus en el espacio de nombres y el grupo de consumidores que tiene asociado.
+- **Grupo de recursos**: la asignación de roles se aplica a todos los recursos de Service Bus del grupo de recursos.
+- **Suscripción**: la asignación de roles se aplica a todos los recursos de Service Bus de todos los grupos de recursos de la suscripción.
 
 > [!NOTE]
 > Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse. 
@@ -68,7 +68,7 @@ Después de determinar el ámbito adecuado de una asignación de roles, vaya a e
 1. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles. Seleccione el botón **Agregar** de la barra de herramientas y luego seleccione **Agregar asignación de roles**. 
 
     ![Botón Agregar de la barra de herramientas](./media/authenticate-application/role-assignments-add-button.png)
-1. En la página **Agregar asignación de roles** , siga estos pasos:
+1. En la página **Agregar asignación de roles**, siga estos pasos:
     1. Seleccione el **rol de Service Bus** que quiere asignar. 
     1. Realice una búsqueda para localizar la **entidad de seguridad** (usuario, grupo, entidad de servicio) a la que quiere asignar el rol.
     1. Seleccione **Guardar** para guardar la asignación de roles. 
@@ -98,7 +98,7 @@ En las imágenes siguientes se muestran los pasos para registrar una aplicación
 > [!Note]
 > Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el URI de redirección. Para las aplicaciones nativas, no es necesario que este valor sea una dirección URL real. Para las aplicaciones web, el URI de redirección debe ser un URI válido, ya que especifica la dirección URL a la que se proporcionan los tokens.
 
-Una vez que ha registrado su aplicación, verá el **id. de la aplicación (o id. de cliente)** en **Configuración** :
+Una vez que ha registrado su aplicación, verá el **id. de la aplicación (o id. de cliente)** en **Configuración**:
 
 ![Id. de aplicación de la aplicación registrada](./media/authenticate-application/application-id.png)
 
@@ -112,7 +112,7 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 
 1. Vaya a su registro de aplicaciones en Azure Portal si todavía no se encuentra en la página.
 1. Seleccione **Certificados y secretos** en el panel izquierdo.
-1. En **Secretos de cliente** , seleccione **Nuevo secreto de cliente** para crear un nuevo secreto.
+1. En **Secretos de cliente**, seleccione **Nuevo secreto de cliente** para crear un nuevo secreto.
 
     ![Nuevo secreto de cliente, botón](./media/authenticate-application/new-client-secret-button.png)
 1. Proporcione una descripción para el secreto, elija el intervalo de expiración deseado y, a continuación, seleccione **Agregar**.

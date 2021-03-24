@@ -15,17 +15,17 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154736"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-La *autenticación*es acto de solicitar a un usuario credenciales legítimas, lo que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. En términos más sencillos, es el proceso de comprobar que es quien dice ser. A veces, la autenticación se abrevia como AuthN.
+La *autenticación* es acto de solicitar a un usuario credenciales legítimas, lo que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. En términos más sencillos, es el proceso de comprobar que es quien dice ser. A veces, la autenticación se abrevia como AuthN.
 
 La *autorización* es el acto de conceder un permiso a la entidad de seguridad autenticada para hacer algo. Especifica a qué datos puede acceder y qué puede hacer con ellos. A veces, la autorización se abrevia como AuthZ.
 
@@ -133,14 +133,14 @@ En la tabla siguiente se proporciona una breve descripción de cada tipo de noti
 | Emisor | Identifica al STS que emitió el token, así como el inquilino de Azure AD. |
 | Apellido | Proporciona los apellidos del usuario, tal como se establecieron en Azure AD. |
 | Nombre | Proporciona un valor en lenguaje natural que identifica al firmante del token. |
-| Id. de objeto | Contiene un identificador único e inmutable del firmante en Azure AD. |
+| Identificador de objeto | Contiene un identificador único e inmutable del firmante en Azure AD. |
 | Roles | Contiene los nombres descriptivos de los roles de aplicación de Azure AD que se han concedido al usuario. |
 | Ámbito | Indica los permisos concedidos a la aplicación cliente. |
 | Asunto | Indica la entidad de seguridad sobre la que el token valida información. |
 | Id. de inquilino | Contiene un identificador único e inmutable del inquilino de directorio que emitió el token. |
 | Vigencia del token | Define el intervalo de tiempo dentro del cual es válido un token. |
 | Nombre principal del usuario | Contiene el nombre principal de usuario del firmante. |
-| Versión | Contiene el número de versión del token. |
+| Version | Contiene el número de versión del token. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

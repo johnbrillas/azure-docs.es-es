@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932070"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872105"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -36,7 +36,7 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 |[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **Tamaño de clúster** en el menú izquierdo y, luego, en el panel Tamaño de clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
-![Opción de escalado de clústeres de Azure Portal](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Opción de escalado de clústeres de Azure Portal":::
 
 Con cualquiera de estos métodos, puede escalar o reducir verticalmente el clúster de HDInsight en cuestión de minutos.
 
@@ -82,7 +82,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
     1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar**. Especifique el retraso antes de realizar la operación de reequilibrio.
 
-        ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Reequilibrio de escalado de HDInsight Storm":::
 
   * La herramienta de la interfaz de línea de comandos (CLI)
 
@@ -130,13 +130,13 @@ Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **i
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
 4. En la página de YARN, seleccione **Vínculos rápidos**, mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
 
-    ![Interfaz de usuario de Resource Manager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Interfaz de usuario de Resource Manager de vínculos rápidos de Apache Ambari":::
 
 Puede acceder directamente a la UI de Resource Manager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 Verá una lista de trabajos, junto con su estado actual. En la captura de pantalla, hay un trabajo en ejecución:
 
-![Aplicaciones de la UI de Resource Manager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Aplicaciones de la UI de Resource Manager":::
 
 Para terminar manualmente dicha aplicación en ejecución, ejecute el siguiente comando del shell de SSH:
 

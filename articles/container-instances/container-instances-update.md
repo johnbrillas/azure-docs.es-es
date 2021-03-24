@@ -4,10 +4,10 @@ description: Aprenda a actualizar contenedores en ejecución en los grupos de co
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: fb31eeda83532c408a303e879439006bcd7d4e45
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102200655"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Actualización de contenedores en Azure Container Instances

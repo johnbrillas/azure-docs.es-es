@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90708213"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Inicio rápido: Creación de una nueva instancia de servicio de Azure API Management mediante Azure Portal
@@ -41,7 +41,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
    
 1. En la página **servicio API Management**, escriba los valores.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Crear un recurso":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nueva instancia":::
    
    | Configuración                 | Descripción   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -72,11 +72,11 @@ Cuando ya no los necesite, puede quitar el grupo de recursos y todos los recurso
 
 1. En Azure Portal, busque y seleccione **Grupos de recursos**. También puede seleccionar **Grupos de recursos** en la página **principal**. 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Crear un recurso":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Navegación por grupos de recursos":::
 
 1. En la página **Grupos de recursos**, seleccione el grupo de recursos.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Crear un recurso":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Seleccionar grupo de recursos":::
 
 1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**. 
    

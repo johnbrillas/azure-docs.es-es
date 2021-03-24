@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1e8f596ee022a59baa89e7f78648c98420eb44b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945709"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868875"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrección de un error de memoria insuficiente de Apache Hive en Azure HDInsight
 
@@ -104,7 +104,7 @@ La propiedad **hive.auto.convert.join.noconditionaltask** del archivo hive-site.
 
 Es probable que la combinación de la asignación provocara el error de memoria insuficiente en el montón de Java. Como se explica en la entrada de blog [Configuración de memoria de Hadoop Yarn en HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), cuando se usa el motor de ejecución de Tez, el espacio de montón utilizado pertenece en realidad al contenedor de Tez. Consulte la siguiente imagen, que describe la memoria del contenedor de Tez.
 
-![Diagrama de memoria del contenedor de Tez: error de memoria insuficiente de Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+:::image type="content" source="./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png" alt-text="Diagrama de memoria del contenedor de Tez: error de memoria insuficiente de Hive" border="false":::
 
 Como sugiere la entrada de blog, los dos valores de configuración de memoria siguientes definen la memoria del contenedor del montón: **hive.tez.container.size** y **hive.tez.java.opts**. En nuestra experiencia, la excepción de memoria insuficiente no significa que el tamaño del contenedor sea demasiado pequeño. Significa que el tamaño del montón de Java (hive.tez.java.opts) es demasiado pequeño. Por tanto, siempre que vea memoria insuficiente, puede intentar aumentar **hive.tez.java.opts**. Si es necesario, es posible que deba aumentar **hive.tez.container.size**. El valor de **java.opts** debe ser aproximadamente el 80 % de **container.size**.
 

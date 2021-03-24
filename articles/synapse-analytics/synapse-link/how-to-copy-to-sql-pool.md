@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: cosmos-db
+ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309217"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868569"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copia de datos de Azure Cosmos DB en un grupo de SQL dedicado mediante Apache Spark
 
@@ -50,7 +51,7 @@ En ese ejemplo, se usa un contenedor HTAP denominado **RetailSales**. Forma part
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Agregaremos las ventas ( *quantity* , *revenue* [precio x cantidad] por *productCode* y *weekStarting* para la elaboración de informes. Por último, se exportarán los datos en una tabla del grupo de SQL dedicado denominada **dbo.productsales**.
+Agregaremos las ventas (*quantity*, *revenue* [precio x cantidad] por *productCode* y *weekStarting* para la elaboración de informes. Por último, se exportarán los datos en una tabla del grupo de SQL dedicado denominada **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configuración de un cuaderno de Spark
 Cree un cuaderno de Spark con Scala and Spark (Scala) como lenguaje principal. Se usa la configuración predeterminada del cuaderno para la sesión.

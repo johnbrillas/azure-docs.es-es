@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102175075"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registro y examen de un origen de Teradata (versión preliminar)
@@ -80,7 +80,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 5.  Especifique los detalles siguientes:
 
-    a.  **Name** (Nombre): nombre del examen.
+    a.  **Name** (Nombre): el nombre del examen.
 
     b.  **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
 
@@ -113,7 +113,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 6.  Haga clic en **Continuar**.
 
-7.  Seleccione el **desencadenador de examen**. Puede configurar una programación o ejecutar el examen una vez.
+7.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
 8.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
 

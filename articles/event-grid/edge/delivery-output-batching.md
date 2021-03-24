@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0ae2261f8278c4d5e1944b01a9731afd293df20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171642"
 ---
 # <a name="output-batching"></a>Procesamiento por lotes de salida
@@ -75,7 +75,7 @@ El comportamiento de procesamiento por lotes de Event Grid se puede personalizar
 
 La siguiente configuración de tiempo de implementación controla el valor máximo permitido al crear una suscripción de eventos.
 
-| Nombre de propiedad | Descripción |
+| Nombre de la propiedad | Descripción |
 | ------------- | ----------- | 
 | `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para el control `PreferredBatchSizeInKilobytes`. El valor predeterminado es `1033`.
 | `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para el control `MaxEventsPerBatch`. El valor predeterminado es `50`.
@@ -84,7 +84,7 @@ La siguiente configuración de tiempo de implementación controla el valor máxi
 
 La siguiente configuración de tiempo de implementación controla el valor predeterminado en tiempo de ejecución de cada control cuando no se especifica en la suscripción de eventos. Para volver a iterar, debe establecerse al menos un control en la suscripción de eventos para activar el comportamiento del procesamiento por lotes.
 
-| Nombre de propiedad | Descripción |
+| Nombre de la propiedad | Descripción |
 | ------------- | ----------- |
 | `broker__defaultMaxBatchSizeInBytes` | Tamaño máximo de la solicitud de entrega cuando solo se especifica `MaxEventsPerBatch`. El valor predeterminado es `1_058_576`.
 | `broker__defaultMaxEventsPerBatch` | Número máximo de eventos para agregar a un lote cuando solo se especifica `MaxBatchSizeInBytes`. El valor predeterminado es `10`.

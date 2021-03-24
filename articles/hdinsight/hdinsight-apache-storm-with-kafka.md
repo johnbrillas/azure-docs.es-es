@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942733"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868428"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -377,7 +377,7 @@ Apache Kafka en HDInsight no proporciona acceso a los agentes de Kafka a través
 
 En el diagrama siguiente, se muestra cómo fluye la comunicación entre Storm y Kafka:
 
-![Diagrama de clústeres Storm y Kafka en una red virtual de Azure](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagrama de clústeres Storm y Kafka en una red virtual de Azure":::
 
 > [!NOTE]  
 > Se puede tener acceso a otros servicios del clúster, como SSH y [Apache Ambari](https://ambari.apache.org/), a través de Internet. Para más información sobre los puertos públicos disponibles en HDInsight, consulte [Puertos e identificadores URI usados en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -405,7 +405,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
       | Configuración | Value |
       | --- | --- |
-      | Suscripción | Su suscripción de Azure |
+      | Subscription | Su suscripción de Azure |
       | Resource group | El grupo de recursos que contiene los recursos. |
       | Location | La región de Azure en que se crean los recursos. |
       | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. |
@@ -415,7 +415,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
       | SSH User Name (Nombre de usuario de SSH) | El usuario de SSH que se crea para los clústeres. |
       | SSH Password (Contraseña de SSH) | La contraseña del usuario de SSH. |
    
-      ![Imagen de los parámetros de plantilla](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Imagen de los parámetros de plantilla":::
 
 3. Consulte los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 

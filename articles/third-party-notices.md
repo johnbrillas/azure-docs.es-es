@@ -7,17 +7,17 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "72750424"
 ---
 # <a name="legal-notices"></a>Avisos legales
 
 Microsoft y los colaboradores le conceden una licencia para la documentación de Microsoft y otro contenido de este repositorio de conformidad con la [licencia pública Attribution 4.0 International de Creative Commons](https://creativecommons.org/licenses/by/4.0/legalcode) y le concede licencia para el código del repositorio de conformidad con la [licencia MIT](https://opensource.org/licenses/MIT).
 
-Microsoft, Windows, Microsoft Azure y otros productos y servicios de Microsoft a los que se hace referencia en la documentación pueden ser marcas comerciales o marcas registradas de Microsoft Corporation en los Estados Unidos y/o en otros países.
+Microsoft, Windows, Microsoft Azure y otros productos y servicios de Microsoft a los que se hace referencia en la documentación pueden ser marcas comerciales o marcas registradas de Microsoft Corporation en los Estados Unidos y/o en otros países.
 Las licencias de este proyecto no le conceden derechos de uso de nombres, logotipos ni marcas comerciales de Microsoft.
 Las directrices generales de marca registrada de Microsoft se encuentran en [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
 

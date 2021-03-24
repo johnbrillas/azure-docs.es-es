@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101647479"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
@@ -108,7 +108,7 @@ Este comando genera las propiedades del servidor Kerberos de Azure AD. Puede re
 
 | Propiedad | Descripción |
 | --- | --- |
-| ID | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
+| id | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
 | DomainDnsName | Nombre de dominio DNS del dominio de Active Directory. |
 | ComputerAccount | Objeto de cuenta de equipo del objeto de servidor Kerberos de Azure AD (controlador de dominio). |
 | UserAccount | Objeto de cuenta de usuario deshabilitado que contiene la clave de cifrado del TGT del servidor Kerberos de Azure AD. El DN de esta cuenta es `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |

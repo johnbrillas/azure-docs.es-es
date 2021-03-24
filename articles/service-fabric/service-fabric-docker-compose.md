@@ -4,10 +4,10 @@ description: Azure Service Fabric acepta el formato de Docker Compose para facil
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84691295"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Compatibilidad con la implementación de Docker Compose en Azure Service Fabric (versión preliminar)
@@ -127,8 +127,8 @@ Configure el clúster para exigir límites de recursos, como se describe en [Gob
 ### <a name="ports-section"></a>Sección de puertos
 
 Especifique el protocolo HTTP o HTTPS en la sección de puertos que usará el agente de escucha del servicio de Service Fabric. Así se asegurará de que el protocolo de punto de conexión se publica correctamente con el servicio de nombres para permitir que el proxy inverso reenvíe las solicitudes:
-* Para enrutar a los servicios Compose de Service Fabric no seguros, especifique **/http**. Por ejemplo: **"80:80/http"** .
-* Para enrutar a los servicios Compose de Service Fabric seguros, especifique **/https**. Por ejemplo: **"443:443/https"** .
+* Para enrutar a los servicios Compose de Service Fabric no seguros, especifique **/http**. Por ejemplo: **"80:80/http"**.
+* Para enrutar a los servicios Compose de Service Fabric seguros, especifique **/https**. Por ejemplo: **"443:443/https"**.
 
 > [!NOTE]
 > La sintaxis de la sección de puertos /http y /https es específica de Service Fabric a fin de registrar la dirección URL correcta para el agente de escucha de Service Fabric.  Se puede producir un error de validación si la sintaxis del archivo de Docker Compose se valida mediante programación.

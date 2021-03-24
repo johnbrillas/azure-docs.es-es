@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo configurar un clúster de Service 
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563733"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -112,7 +112,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 7. **Habilitación del proxy inverso**.  El [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con dichos servicios.
 8. En la hoja **Configuración del clúster**, en **+Mostrar configuración opcional**, configure el **diagnóstico** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
 9. **Inclusión del servicio DNS**.  El [servicio DNS](service-fabric-dnsservice.md) es un servicio opcional que le permite buscar otros servicios mediante el protocolo DNS.
-10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para más información sobre el modo de actualización de Service Fabric, vea el [documento de actualización de un clúster de Service Fabric][service-fabric-cluster-upgrade].
+10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático** si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual** si desea elegir una versión compatible. Para más información sobre el modo de actualización de Service Fabric, vea el [documento de actualización de un clúster de Service Fabric][service-fabric-cluster-upgrade].
 
 > [!NOTE]
 > Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible.

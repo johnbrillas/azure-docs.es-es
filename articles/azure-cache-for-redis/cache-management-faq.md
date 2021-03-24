@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537667"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Preguntas frecuentes sobre la administración de Azure Cache for Redis
@@ -147,7 +147,7 @@ Cómo configurar este valor:
 * También es posible especificar el valor mínimo de subprocesos mediante el conjunto de configuración [*minIoThreads* o *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) del elemento de configuración `<processModel>` de `Machine.config`, que normalmente está ubicado en `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Por lo general, no se recomienda establecer el número mínimo de subprocesos de esta forma, ya que es una configuración que afecta a todo el sistema.**
 
   > [!NOTE]
-  > El valor especificado en este elemento de configuración es *por núcleo* . Por ejemplo, si tiene una máquina de 4 núcleos y quiere que el valor de *minIOThreads* sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
+  > El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que el valor de *minIOThreads* sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis

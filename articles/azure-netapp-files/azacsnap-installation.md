@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 458f4d3f29cb08a94095167ed45133f5cd70f5f4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737174"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869198"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Instalación de la herramienta Azure Application Consistent Snapshot (versión preliminar)
 
@@ -239,71 +239,6 @@ SAP HANA 2; cambie la dirección IP, los nombres de usuario y las contraseñas 
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
     ```
-
-### <a name="additional-instructions-for-using-the-log-trimmer-sap-hana-20-and-later"></a>Instrucciones adicionales para usar el optimizador de registros (SAP HANA 2.0 y versiones posteriores)
-
-Si usa el optimizador de registros, los siguientes comandos de ejemplo configuran un usuario (AZACSNAP) en las bases de datos TENANT del sistema de bases de datos de SAP HANA 2.0. Recuerde cambiar la dirección IP, los nombres de usuario y las contraseñas según corresponda:
-
-1. Conéctese a la base de datos TENANT para crear el usuario, los detalles específicos del inquilino son `<IP_address_of_host>` y `<SYSTEM_USER_PASSWORD>`.  Además, anote el puerto (`30015`) necesario para comunicarse con la base de datos TENANT.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. Cree el usuario:
-
-    En este ejemplo se crea el usuario AZACSNAP en SYSTEMDB.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. Conceda los permisos de usuario:
-
-    En este ejemplo se establece el permiso para que el usuario AZACSNAP permita realizar una instantánea de almacenamiento coherente con la base de datos.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *OPCIONAL*: evite que expire la contraseña del usuario.
-
-    > [!NOTE]
-    > Compruebe las directivas corporativas antes de efectuar este cambio.
-
-   En este ejemplo se deshabilita la caducidad de la contraseña para el usuario AZACSNAP; sin este cambio, la contraseña del usuario expirará y se impedirá que las instantáneas se tomen correctamente.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> Repita estos pasos en todas las bases de datos TENANT. Los detalles de conexión de todos los inquilinos se obtienen mediante la siguiente consulta SQL en SYSTEMDB.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-Consulte el siguiente ejemplo de salida y consulta.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
 
 ### <a name="using-ssl-for-communication-with-sap-hana"></a>Uso de SSL para la comunicación con SAP HANA
 

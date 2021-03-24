@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446456"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Especificaciones de los cables de alimentación de Azure Stack Edge Pro
@@ -28,7 +28,7 @@ Puede usar la siguiente tabla para buscar las especificaciones de cable correcta
 |Albania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Argelia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Angola|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Argentina|250|10|H05VV-F 3x1.00|IRAM 2073|C13|2\.500|
+|Argentina|250|10|H05VV-F 3x1.00|IRAM 2073|C13|2.500|
 |Australia|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
 |Austria|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Azerbaiyán|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
