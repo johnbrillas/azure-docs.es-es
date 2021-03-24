@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
 ms.openlocfilehash: 2010b21a3cdb81f2b2aa4180f87857862cd02bf5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101743559"
 ---
 # <a name="connect-your-nxlog-linuxaudit-to-azure-sentinel"></a>Conexión de NXLog LinuxAudit con Azure Sentinel
@@ -39,7 +39,7 @@ NXLog puede configurarse para enviar eventos en formato JSON directamente a Azur
 
 1. Seleccione **Open connector page** (Abrir página del conector).
 
-1. Siga las instrucciones paso a paso del tema de integración [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) de la *guía de usuario de NXLog* para configurar el reenvío a través de la API REST.
+1. Siga las instrucciones paso a paso del tema de integración [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) de *NXLog User Guide* (Guía de usuario de NXLog) para configurar el reenvío a través de la API REST.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 

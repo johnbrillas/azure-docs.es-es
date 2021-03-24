@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alzam
 ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726621"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configuración de captura de paquetes para instancias de VPN Gateway

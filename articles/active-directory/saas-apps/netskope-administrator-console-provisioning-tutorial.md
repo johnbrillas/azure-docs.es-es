@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357483"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netskope User Authentication para el aprovisionamiento automático de usuarios
@@ -88,7 +88,7 @@ Antes de configurar Netskope User Authentication para el aprovisionamiento autom
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Netskope User Authentication** , seleccione **Netskope User Authentication** en el panel de resultados y, después, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Netskope User Authentication**, seleccione **Netskope User Authentication** en el panel de resultados y, después, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Netskope User Authentication en la lista de resultados](common/search-new-app.png)
 
@@ -120,15 +120,15 @@ En esta sección se le guía por los pasos para configurar el servicio de aprovi
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , en **URL de inquilino** , escriba el valor de **URL de servidor de SCIM** recuperado anteriormente. Escriba el valor de **TOKEN** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para confirmar que Azure AD se puede conectar a Netskope User Authentication. Si se produce un error en la conexión, asegúrese de que la cuenta de Netskope User Authentication tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, en **URL de inquilino**, escriba el valor de **URL de servidor de SCIM** recuperado anteriormente. Escriba el valor de **TOKEN** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para confirmar que Azure AD se puede conectar a Netskope User Authentication. Si se produce un error en la conexión, asegúrese de que la cuenta de Netskope User Authentication tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
 8. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Users to Netskope User Authentication** (Sincronizar usuarios de Azure Active Directory con Netskope User Authentication).
 

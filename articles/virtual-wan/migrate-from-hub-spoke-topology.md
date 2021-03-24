@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91839646"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migración a Azure Virtual WAN
@@ -33,7 +33,7 @@ Contoso es una organización financiera global con oficinas en Europa y Asia. En
 
 En la figura siguiente se muestra una vista de alto nivel de la red global existente, que incluye la conectividad a varias regiones de Azure.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Topología de red de Contoso existente":::
 **Ilustración: Topología de red de Contoso existente**
 
 Los siguientes puntos se pueden entender a partir de la topología de red existente:
@@ -61,7 +61,7 @@ El equipo de redes se ha encargado de ofrecer un modelo de red global que puede 
 
 En la figura siguiente se muestra una vista de alto nivel de la topología de destino actualizada con Azure Virtual WAN para cumplir los requisitos detallados en la sección anterior.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Arquitectura de la red WAN virtual de Contoso":::
 **Ilustración: Arquitectura de Azure Virtual WAN**
 
 Resumen:
@@ -82,7 +82,7 @@ En esta sección se muestran los pasos que deben seguirse para migrar a Azure Vi
 
 En la ilustración siguiente se muestra una topología de una sola región para Contoso antes del lanzamiento de Azure Virtual WAN:
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="Topología de una sola región":::
 **Figura 1: Tipo hub-and-spoke manual de una sola región**
 
 En línea con el enfoque del tipo hub-and-spoke, la red virtual del centro de conectividad administrado por el cliente contiene varios bloques de funciones:
@@ -103,14 +103,14 @@ Implemente un centro de conectividad de Virtual WAN en cada región. Configure e
 > Azure Virtual WAN debe usar la SKU estándar para habilitar algunas de las rutas de acceso de tráfico mostradas en este artículo.
 >
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="Implementación de centros de conectividad de Virtual WAN":::
 **Figura 2: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Paso 3: Conexión de sitios remotos (ExpressRoute y VPN) a Virtual WAN
 
 Conecte el centro de conectividad de Virtual WAN a los circuitos de ExpressRoute existentes e instale las VPN de sitio a sitio a través de Internet en las ramas remotas.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Conexión de los sitios remotos a Virtual WAN":::
 **Figura 3: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 En este punto, el equipo de red local comenzará a recibir rutas que reflejan el espacio de direcciones IP asignado a la red virtual del centro administrado por Virtual WAN. Las ramas conectadas a una VPN remota en esta fase verán dos rutas de acceso a las aplicaciones existentes en las redes virtuales radiales. Estos dispositivos deben estar configurados para seguir usando el túnel al centro de conectividad administrado por el cliente para garantizar el enrutamiento simétrico durante la fase de transición.
@@ -119,14 +119,14 @@ En este punto, el equipo de red local comenzará a recibir rutas que reflejan el
 
 Antes de usar el centro de conectividad de Virtual WAN administrado para la conectividad de producción, se recomienda que configure una red virtual radial de prueba y una conexión de red virtual de Virtual WAN. Compruebe que las conexiones a este entorno de prueba funcionan mediante ExpressRoute y la VPN de sitio a sitio antes de continuar con los pasos siguientes.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="Prueba de la conectividad híbrida mediante Virtual WAN":::
 **Ilustración 4: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 En esta fase, es importante reconocer que tanto la red virtual del centro de conectividad administrado por el cliente original como el nuevo centro de conectividad de Virtual WAN están conectados al mismo circuito de ExpressRoute. Debido a esto, tenemos una ruta de tráfico que se puede usar para permitir que los radios de ambos entornos se comuniquen. Por ejemplo, el tráfico desde un radio que está conectado a la red virtual del centro de conectividad administrado por el cliente recorrerá los dispositivos MSEE que se usan para el circuito de ExpressRoute para llegar a cualquier radio conectado a través de una conexión de red virtual al nuevo centro de conectividad de Virtual WAN. Esto permite una migración por fases de los radios del paso 5.
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Paso 5: Transición de la conectividad al centro de conectividad de Virtual WAN
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="Transición de la conectividad al centro de conectividad de Virtual WAN":::
 **Ilustración 5: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 **a**. Elimine las conexiones de emparejamiento existentes de las redes virtuales radiales al centro administrado por cliente antiguo. El acceso a las aplicaciones en las redes virtuales radiales no está disponible hasta que se completen los pasos a-c.
@@ -143,7 +143,7 @@ En esta fase, es importante reconocer que tanto la red virtual del centro de con
 
 Ya hemos rediseñado nuestra red de Azure para que el centro de conectividad de Virtual WAN sea el punto central de la nueva topología.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="El concentrador anterior se convierte en un radio de servicios compartidos":::
 **Ilustración 6: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 Dado que el centro de conectividad de Virtual WAN es una entidad administrada y no permite la implementación de recursos personalizados como máquinas virtuales, el bloque de servicios compartidos ahora existe como una red virtual radial que hospeda funciones como la entrada de Internet mediante Azure Application Gateway o una aplicación virtualizada de red. El tráfico entre el entorno de servicios compartidos y las máquinas virtuales de back-end ahora pasa por el centro de conectividad administrado de Virtual WAN.
@@ -152,7 +152,7 @@ Dado que el centro de conectividad de Virtual WAN es una entidad administrada y 
 
 En esta fase, Contoso ha completado principalmente las migraciones de aplicaciones empresariales en la nube de Microsoft, con solo algunas aplicaciones heredadas que permanecen en el controlador de dominio local.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="Optimización de la conectividad local para usar plenamente Virtual WAN":::
 **Ilustración 7: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 Para aprovechar toda la funcionalidad de Azure Virtual WAN, Contoso decide retirar sus conexiones VPN locales heredadas. Todas las ramas que siguen accediendo a las redes de la oficina central o del controlador de dominio pueden atravesar la red global de Microsoft mediante el enrutamiento de tránsito integrado de Azure Virtual WAN.
@@ -163,7 +163,7 @@ Para aprovechar toda la funcionalidad de Azure Virtual WAN, Contoso decide retir
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Arquitectura y rutas de acceso de tráfico del estado final
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="Arquitectura y rutas de acceso de tráfico del estado final":::
 **Ilustración: Virtual WAN de dos regiones**
 
 En esta sección se proporciona un resumen de cómo esta topología cumple los requisitos originales mediante el examen de algunos flujos de tráfico de ejemplo.
@@ -178,7 +178,7 @@ El tráfico se enruta de la manera siguiente:
 
 * El centro de conectividad de Virtual WAN de Asia enruta el tráfico localmente a la red virtual conectada.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="Flujo 1":::
 
 ### <a name="path-2"></a>Ruta de acceso 2
 
@@ -190,7 +190,7 @@ El tráfico se enruta de la manera siguiente:
 
 * La conectividad global entre centros de conectividad de Virtual WAN permite el tránsito del tráfico a la red virtual conectada en una región remota.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="Flujo 2":::
 
 ### <a name="path-3"></a>Ruta de acceso 3
 
@@ -204,7 +204,7 @@ El tráfico se enruta de la manera siguiente:
 
 * La conectividad global entre centros de conectividad de Virtual WAN permite el tránsito del tráfico.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="Flujo 3":::
 
 ### <a name="path-4"></a>Ruta de acceso 4
 
@@ -214,7 +214,7 @@ El tráfico se enruta de la manera siguiente:
 
 * La conectividad global entre centros de conectividad de Virtual WAN permite el tránsito nativo de todas las redes virtuales de Azure conectadas sin que sea preciso que el usuario realice ninguna configuración adicional.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="Flujo 4":::
 
 ### <a name="path-5"></a>Ruta de acceso 5
 
@@ -226,13 +226,13 @@ El tráfico se enruta de la manera siguiente:
 
 * El centro de conectividad de Virtual WAN de Oeste de Europa enruta el tráfico localmente a la red virtual conectada.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="Flujo 5":::
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>Seguridad y control de directivas mediante Azure Firewall
 
 Contoso ahora ha validado la conectividad entre todas las ramas y redes virtuales que se ajustan a los requisitos descritos anteriormente en este artículo. Para cumplir sus requisitos de control de seguridad y aislamiento de red, deben seguir separando y registrando el tráfico a través de la red del centro. Anteriormente, esta función la realizaba una aplicación virtual de red (NVA). Contoso también quiere retirar los servicios de proxy existentes y utilizar los servicios nativos de Azure para el filtrado de salida de Internet.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="Seguridad y control de directivas mediante Azure Firewall":::
 **Ilustración: Azure Firewall en Virtual WAN (centro virtual protegido)**
 
 Los siguientes pasos de alto nivel son necesarios para introducir Azure Firewall en los centros de conectividad de Virtual WAN para habilitar un punto unificado de control de directivas. Para obtener más información sobre este proceso y el concepto de centros virtuales seguros, consulte [Azure Firewall Manager](../firewall-manager/index.yml).
@@ -256,7 +256,7 @@ El tráfico se enruta de la manera siguiente:
 
 * Azure Firewall puede aplicar la directiva a estos flujos.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="Flujo 6":::
 
 ### <a name="path-7"></a>Ruta de acceso 7
 
@@ -268,7 +268,7 @@ El tráfico se enruta de la manera siguiente:
 
 * Este tráfico se puede filtrar localmente mediante reglas de nombre de dominio completo de Azure Firewall o enviarse a un servicio de seguridad de terceros para su inspección.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="Flujo 7":::
 
 ### <a name="path-8"></a>Ruta de acceso 8
 
@@ -280,7 +280,7 @@ El tráfico se enruta de la manera siguiente:
 
 * Este tráfico se puede filtrar localmente mediante reglas de nombre de dominio completo de Azure Firewall o enviarse a un servicio de seguridad de terceros para su inspección.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="centro de conectividad y radio":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="Flujo 8":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

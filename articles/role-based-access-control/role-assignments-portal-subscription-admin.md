@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
 ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556841"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Asignación de un usuario como administrador de una suscripción de Azure
@@ -38,7 +38,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
     ![Información general del grupo de recursos](./media/shared/sub-overview.png)
 
-## <a name="step-2-open-the-add-role-assignment-pane"></a>Paso 2: Abrir el panel Agregar asignación de roles
+## <a name="step-2-open-the-add-role-assignment-pane"></a>Paso 2: abrir el panel Agregar asignación de roles
 
 **Control de acceso (IAM)** es la página que se usa normalmente para asignar roles y conceder acceso a los recursos de Azure. También se conoce como administración de identidad y acceso (IAM) y aparece en varias ubicaciones de Azure Portal.
 

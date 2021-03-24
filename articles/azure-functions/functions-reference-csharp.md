@@ -7,17 +7,17 @@ ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164846"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de scripts de C# ( *.csx* ).
+Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de scripts de C# ( *.csx*).
 
 Azure Functions es compatible con C# y con los lenguajes de programación de scripts de C#. Si busca orientación sobre cómo [usar C# en un proyecto de biblioteca de clases de Visual Studio](functions-develop-vs.md), consulte la [referencia para desarrolladores de C#](functions-dotnet-class-library.md).
 
@@ -56,7 +56,7 @@ Las extensiones de enlace necesarias en la [versión 2.x y posteriores](functio
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 
-Los datos de entrada o salida está enlazados a un parámetro de función de script de C# mediante la propiedad `name` en el archivo de configuración *function.json* . En el ejemplo siguiente se muestra un archivo *function.json* y un archivo *run.csx* para una función queue-triggered. El parámetro que recibe los datos del mensaje de cola se llama `myQueueItem` porque ese es el valor de la propiedad `name`.
+Los datos de entrada o salida está enlazados a un parámetro de función de script de C# mediante la propiedad `name` en el archivo de configuración *function.json*. En el ejemplo siguiente se muestra un archivo *function.json* y un archivo *run.csx* para una función queue-triggered. El parámetro que recibe los datos del mensaje de cola se llama `myQueueItem` porque ese es el valor de la propiedad `name`.
 
 ```json
 {
@@ -117,7 +117,7 @@ Una clase POCO debe tener un captador y un establecedor definidos para cada prop
 
 ## <a name="reusing-csx-code"></a>Reutilización del código .csx
 
-Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx* . Para ello, utilice directivas `#load` en el archivo *run.csx* . En el siguiente ejemplo, una rutina de registro denominada `MyLogger` se comparte en *myLogger.csx* y se carga en *run.csx* mediante la directiva `#load`:
+Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*. En el siguiente ejemplo, una rutina de registro denominada `MyLogger` se comparte en *myLogger.csx* y se carga en *run.csx* mediante la directiva `#load`:
 
 Archivo *run.csx* de ejemplo:
 
@@ -187,7 +187,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log
 }
 ```
 
-Por ejemplo, *order.csx* :
+Por ejemplo, *order.csx*:
 
 ```cs
 public class Order
@@ -213,13 +213,13 @@ Puede usar una ruta de acceso relativa con la directiva `#load` :
 
 * `#load "mylogger.csx"` carga un archivo que se encuentra en la carpeta de la función.
 * `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta dentro de la carpeta de la función.
-* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot* .
+* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
 
-La directiva `#load` solo funciona con archivos *.csx* , no con archivos *.cs* .
+La directiva `#load` solo funciona con archivos *.csx*, no con archivos *.cs*.
 
 ## <a name="binding-to-method-return-value"></a>Enlace al valor devuelto del método
 
-Puede usar el valor devuelto de un método para un enlace de salida, mediante el nombre `$return` en *function.json* . Para ver ejemplos, consulte [Desencadenadores y enlaces](./functions-bindings-return-value.md).
+Puede usar el valor devuelto de un método para un enlace de salida, mediante el nombre `$return` en *function.json*. Para ver ejemplos, consulte [Desencadenadores y enlaces](./functions-bindings-return-value.md).
 
 Utilice el valor devuelto solo si una ejecución de función correcta siempre da como resultado un valor devuelto para pasar al enlace de salida. En caso contrario, use `ICollector` o `IAsyncCollector`, como se muestra en la sección siguiente.
 
@@ -368,7 +368,7 @@ Se puede hacer referencia a los ensamblados siguientes con nombre simple (por ej
 
 ## <a name="referencing-custom-assemblies"></a>Hacer referencia a ensamblados personalizados
 
-Para hacer referencia a un ensamblado personalizado, puede usar un ensamblado *compartido* o un ensamblado *privado* :
+Para hacer referencia a un ensamblado personalizado, puede usar un ensamblado *compartido* o un ensamblado *privado*:
 
 * Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en una carpeta denominada `bin` en su [carpeta raíz de aplicaciones de función](functions-reference.md#folder-structure) (wwwroot).
 
@@ -381,7 +381,7 @@ Para más información sobre cómo cargar archivos en su carpeta de función, co
 El directorio que contiene el archivo de script de función se inspecciona automáticamente para buscar cambios en los ensamblados. Para inspeccionar los cambios de los ensamblado en otros directorios, agréguelos a la lista `watchDirectories` en [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso de paquetes NuGet
-Para usar paquetes NuGet en una función de C# de la versión 2.x y posteriores, cargue un archivo *function.proj* en la carpeta de la función del sistema de archivos de la aplicación de funciones. Este es un ejemplo del archivo *function.proj* en el que se agrega una referencia a la versión *1.1.0* de *Microsoft.ProjectOxford.Face* :
+Para usar paquetes NuGet en una función de C# de la versión 2.x y posteriores, cargue un archivo *function.proj* en la carpeta de la función del sistema de archivos de la aplicación de funciones. Este es un ejemplo del archivo *function.proj* en el que se agrega una referencia a la versión *1.1.0* de *Microsoft.ProjectOxford.Face*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -398,9 +398,9 @@ Para usar paquetes NuGet en una función de C# de la versión 2.x y posteriores,
 Para usar una fuente NuGet personalizada, especifique la fuente en un archivo *Nuget.Config* en la raíz de la aplicación la función. Para más información, vea [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configuración del comportamiento de NuGet).
 
 > [!NOTE]
-> En las funciones de C# de la versión 1.x, se hace referencia a los paquetes NuGet con un archivo *project.json* en lugar de un archivo *function.proj* .
+> En las funciones de C# de la versión 1.x, se hace referencia a los paquetes NuGet con un archivo *project.json* en lugar de un archivo *function.proj*.
 
-Para las funciones de la versión 1.x, use un archivo *project.json* en su lugar. Aquí tiene un ejemplo de un archivo *project.json* :
+Para las funciones de la versión 1.x, use un archivo *project.json* en su lugar. Aquí tiene un ejemplo de un archivo *project.json*:
 
 ```json
 {
@@ -417,8 +417,8 @@ Para las funciones de la versión 1.x, use un archivo *project.json* en su lugar
 ### <a name="using-a-functionproj-file"></a>Uso de un archivo function.proj
 
 1. Abra la función en Azure Portal. La pestaña de registros muestra el resultado de la instalación del paquete.
-2. Para cargar un archivo *function.proj* , use uno de los métodos descritos en [Actualización de los archivos de aplicación de funciones](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
-3. Una vez que haya cargado el archivo *function.proj* , verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
+2. Para cargar un archivo *function.proj*, use uno de los métodos descritos en [Actualización de los archivos de aplicación de funciones](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
+3. Una vez que haya cargado el archivo *function.proj*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -455,7 +455,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>Enlace en tiempo de ejecución
 
-En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de *function.json* . Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se pueden establecer enlaces compatibles de entrada y salida sobre la marcha en el código de función.
+En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de *function.json*. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se pueden establecer enlaces compatibles de entrada y salida sobre la marcha en el código de función.
 
 Defina un enlace imperativo como se indica a continuación:
 

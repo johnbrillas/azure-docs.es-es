@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74048375"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalización de reglas de Firewall de aplicaciones web con Azure Portal
@@ -27,7 +27,7 @@ El Firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona p
 
 **Para ver reglas y grupos de reglas**
 1. Navegue hasta la puerta de enlace de aplicaciones y seleccione **Firewall de aplicaciones web**.  
-2. Seleccione su  **Directiva WAF**.
+2. Seleccione su **Directiva WAF**.
 2. Seleccione **Reglas administradas**.
 
    Esta vista muestra una tabla en la página de todos los grupos de reglas proporcionados con el conjunto de reglas elegido. Todas las casillas de la regla están seleccionadas.

@@ -4,10 +4,10 @@ description: En este artículo, aprenderá a realizar copias de seguridad de una
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719617"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure

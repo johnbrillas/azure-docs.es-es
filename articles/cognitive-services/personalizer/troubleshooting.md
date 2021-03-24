@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777282"
 ---
 # <a name="personalizer-troubleshooting"></a>Solución de problemas de Personalizer
@@ -34,7 +34,7 @@ Si seleccionó un plan de tarifa gratis al crear la instancia de Personalizer, e
 
 ### <a name="im-getting-a-5xx-error-on-rank-or-reward-apis-what-should-i-do"></a>Obtengo un error 5xx en las API Rank o Reward. ¿Cuál debo hacer?
 
-Estos problemas deben ser fáciles de solucionar. Si persisten, póngase en contacto con el servicio de soporte técnico al seleccionar **Nueva solicitud de soporte técnico** en la sección **Soporte técnico y solución de problemas**en Azure Portal del recurso de Personalizer.
+Estos problemas deben ser fáciles de solucionar. Si persisten, póngase en contacto con el servicio de soporte técnico al seleccionar **Nueva solicitud de soporte técnico** en la sección **Soporte técnico y solución de problemas** en Azure Portal del recurso de Personalizer.
 
 ## <a name="learning-loop"></a>Bucle de aprendizaje
 

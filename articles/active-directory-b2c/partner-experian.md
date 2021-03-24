@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928705"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian con Azure Active Directory B2C
@@ -143,21 +143,21 @@ Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custo
 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
-1. Abra el inquilino de Azure AD B2C y, en Directivas, seleccione **Flujos de usuario**.
+1. Abra el inquilino de Azure AD B2C y, en Directivas, seleccione **Flujos de usuario**.
 
 2. Seleccione el **flujo de usuario** que creó anteriormente.
 
 3. Seleccione **Ejecutar flujo de usuario** y elija la configuración:
 
-   a. **Aplicación**: seleccione la aplicación registrada (en el ejemplo es JWT).
+   a. **Aplicación**: seleccione la aplicación registrada (el ejemplo es JWT).
 
-   b. **URL de respuesta**: seleccione la **dirección URL** de redireccionamiento.
+   b. **URL de respuesta**: seleccione la **dirección URL de redireccionamiento**.
 
    c. Seleccione **Ejecutar flujo de usuario**.
 
 4. Recorra el flujo de registro y cree una cuenta.
 
-5. Cierre la sesión.
+5. Cierre sesión.
 
 6. Recorra el flujo de inicio de sesión.  
 

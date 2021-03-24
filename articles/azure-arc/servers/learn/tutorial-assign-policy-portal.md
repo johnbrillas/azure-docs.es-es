@@ -4,10 +4,10 @@ description: En este tutorial, se usa Azure Portal a fin de crear una asignació
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826593"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Creación de una asignación de directiva para identificar recursos no compatibles
@@ -16,7 +16,7 @@ El primer paso para entender el cumplimiento en Azure es identificar el estado d
 
 Al final de este proceso, se identificarán correctamente las máquinas que no tengan instalado el agente de Log Analytics para Windows o Linux. _No son compatibles_ con la asignación de directiva.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -30,11 +30,11 @@ En este tutorial, creará una asignación de directiva y asignará la definició
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Página Seleccionar asignaciones en la página Información general de directivas" border="false":::
 
 1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Asignar una definición de directiva en la página Asignaciones" border="false":::
 
 1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
 
@@ -52,7 +52,7 @@ En este tutorial, creará una asignación de directiva y asignará la definició
 
 1. Busque en la lista de definiciones de directivas para encontrar la definición de _\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Windows de Azure Arc_ si ha habilitado el agente de servidores habilitados para Arc en una máquina basada en Windows. Para una máquina basada en Linux, busque la definición de directiva correspondiente _\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Linux de Azure Arc._ Haga clic en esa directiva y después en **Seleccionar**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Búsqueda de la definición de directiva correcta" border="false":::
 
 1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje _\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Windows de Azure Arc_ o _\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Linux de Azure Arc_ en función del que haya seleccionado. También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
    **Asignado por** se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
@@ -67,7 +67,7 @@ Ahora ya está listo para identificar los recursos no compatibles a fin de conoc
 
 Seleccione **Cumplimiento** en el panel izquierdo de la página. Localice luego la asignación de directiva que haya creado de **\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Windows de Azure Arc** o **\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Linux de Azure Arc.**
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Detalles de cumplimiento en la página Cumplimiento de directivas" border="false":::
 
 Si hay algún recurso existente no compatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
 
@@ -91,7 +91,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 1. Haga clic con el botón derecho en la asignación de directiva y seleccione **Eliminar asignación**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Eliminación de una asignación desde la página Cumplimiento" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,10 +12,10 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
 ms.openlocfilehash: 56e92a698446bd417c74820d6da662ad9ee55c77
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555684"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación web de Python mediante Azure AD B2C
@@ -61,7 +61,7 @@ Para actualizar una aplicación en su inquilino de Azure AD B2C, puede usar la 
 1. En **Web**, seleccione el vínculo **Agregar URI** y, a continuación, escriba `http://localhost:5000/getAToken` en el cuadro de texto.
 1. Seleccione **Guardar**.
 
-#### <a name="applications-legacy"></a>[Aplicaciones (heredado)](#tab/applications-legacy/)
+#### <a name="applications-legacy"></a>[Applications (Legacy)](#tab/applications-legacy/) (Aplicaciones [heredadas])
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
