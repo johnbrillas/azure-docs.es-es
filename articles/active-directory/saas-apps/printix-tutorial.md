@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integración de Azure Active Directory con Printix
@@ -100,20 +100,20 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Captura de pantalla que muestra que se ha seleccionado Inicio de sesión único en Administrar en Azure Portal.][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único** , en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![La captura de pantalla muestra el modo de inicio de sesión basado en SAML seleccionado.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
-1. En la sección **Dominio y direcciones URL de Printix** , realice los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Printix**, realice los pasos siguientes:
 
     ![Captura de pantalla que muestra la sección Dominio y direcciones URL de Printix, donde puede especificar una URL para el inicio de sesión.](./media/printix-tutorial/tutorial_printix_url.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.printix.net`.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.printix.net`.
 
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Printix](mailto:support@printix.net) para obtener este valor. 
  
-1. En la sección **Certificado de firma de SAML** , haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Captura de pantalla que muestra el panel Certificado de firma de SAML, donde puede descargar un certificado.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
@@ -123,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. Inicie la sesión en el inquilino de Printix como administrador.
 
-1. En el menú de la parte superior, haga clic en el icono situado en la esquina superior derecha y seleccione " **Authentication** " (Autenticación).
+1. En el menú de la parte superior, haga clic en el icono situado en la esquina superior derecha y seleccione "**Authentication**" (Autenticación).
    
     ![Captura de pantalla que muestra la opción Authentication (Autenticación) seleccionada en el menú.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -131,23 +131,23 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Captura de pantalla que muestra la página Printix.net, donde puede seleccionar Enable Azure/Office 365 authentication (Habilitar la autenticación de Azure y Office 365).](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. En la pestaña **Azure** , escriba la dirección URL de metadatos de federación en el cuadro de texto de " **Federation metadata document** " (Documento de metadatos de federación). 
+1. En la pestaña **Azure**, escriba la dirección URL de metadatos de federación en el cuadro de texto de "**Federation metadata document**" (Documento de metadatos de federación). 
 
     Adjunte el archivo XML de metadatos que descargó de Azure AD al [equipo de soporte técnico de Printix](mailto:support@printix.net). Ellos se encargarán de cargar este archivo y le proporcionarán una dirección URL de metadatos de federación.
    
     ![Captura de pantalla que muestra la página Printix.net, donde puede especificar un documento de metadatos de federación.](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Haga clic en el botón " **Test** " (Probar) y, si la prueba se ha realizado correctamente, en el botón " **OK** " (Aceptar).
+1. Haga clic en el botón "**Test**" (Probar) y, si la prueba se ha realizado correctamente, en el botón "**OK**" (Aceptar).
    
      Después de hacer clic en el botón **Test** (Probar) se mostrará la página de Azure Active Directory. El mensaje "The test was successful" (La prueba se ha realizado correctamente) aquí significa que después de escribir las credenciales de su cuenta de prueba de Azure se mostrará el mensaje "Settings tested OK" (Configuración probada correctamente). Después, haga clic en el botón **OK** (Aceptar).
    
     ![Captura de pantalla que muestra los resultados de la prueba.](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Haga clic en el botón **Save** (Guardar) en la página " **Authentication** " (Autenticación).
+1. Haga clic en el botón **Save** (Guardar) en la página "**Authentication**" (Autenticación).
 
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales** , simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -157,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
     ![Captura de pantalla que muestra un nombre y un nombre de usuario que se van a crear.](./media/printix-tutorial/create_aaduser_01.png) 
 
@@ -165,17 +165,17 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     
     ![La captura de pantalla muestra el icono de Azure AD en Azure Portal.](./media/printix-tutorial/create_aaduser_02.png) 
 
-1. Para abrir el cuadro de diálogo **Usuario** , haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Captura de pantalla que muestra los usuarios y grupos seleccionados en el menú Administrar, con la opción Todos los usuarios seleccionada.](./media/printix-tutorial/create_aaduser_03.png) 
 
-1. En la página de diálogo **Usuario** , realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Captura de pantalla que muestra el cuadro de diálogo Usuario, donde puede especificar los valores descritos.](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-    b. En el cuadro de texto **Nombre de usuario** , escriba la **dirección de correo electrónico** de Britta Simon.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
@@ -215,7 +215,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Captura de pantalla que muestra el botón Agregar y la página Agregar asignación, donde puede seleccionar Usuarios y Grupos.][203]
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
 1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 

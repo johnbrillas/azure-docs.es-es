@@ -1,24 +1,14 @@
 ---
 title: Solución de problemas de inicio del agente de seguridad (Linux)
 description: Solución de los problemas de funcionamiento de los agentes de seguridad de Azure Defender para IoT en Linux.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9c9c36b822ab6acb9f9a48d4ba809ad32f6f4695
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449227"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782595"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guía de solución de problemas de un agente de seguridad (Linux)
 
@@ -91,19 +81,18 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 ```
 
 | Código de error | Subcódigo de error | Detalles del error | Corregir en C | Corregir en C# |
-|:-----------|:---------------|:--------|:------------|:------------|
-| Configuración local | Configuración que falta | Falta una configuración en el archivo de configuración local. El mensaje de error debe indicar la clave que falta. | Agregue la clave que falta al archivo /var/LocalConfiguration.json y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información.| Agregue la clave que falta al archivo General.config y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. |
-| Configuración local | No se puede analizar la configuración | No se puede analizar un valor de configuración. El mensaje de error debe indicar la clave que no se puede analizar. No se puede analizar un valor de configuración porque el valor no tiene el tipo esperado o está fuera del intervalo. | Corrija el valor de la clave en el archivo /var/LocalConfiguration.json, para que coincida con el esquema LocalConfiguration, y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. |  Corrija el valor de la clave en el archivo General.config, para que coincida con el esquema, y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información.|
-| Configuración local | Formato de archivo | No se pudo analizar el archivo de configuración. | El archivo de configuración está dañado, descargue el agente y vuelva a instalarlo. | |
-| Configuración remota | Tiempo de espera | El agente no pudo capturar el módulo gemelo azureiotsecurity durante el tiempo de espera. | Asegúrese de que la configuración de la autenticación es correcta y vuelva a intentarlo. | El agente no pudo capturar el módulo gemelo azureiotsecurity durante el tiempo de espera. | Asegúrese de que la configuración de la autenticación es correcta y vuelva a intentarlo. |
-| Authentication | El archivo no existe | El archivo de la ruta de acceso especificada no existe. | Asegúrese de que el archivo existe en la ruta de acceso especificada o vaya al archivo **LocalConfiguration.json** y cambie la configuración de **FilePath**. | Asegúrese de que el archivo existe en la ruta de acceso especificada o vaya al archivo **Authentication.config** y cambie la configuración de **FilePath**.|
+|--|--|--|--|--|
+| Configuración local | Configuración que falta | Falta una configuración en el archivo de configuración local. El mensaje de error debe indicar la clave que falta. | Agregue la clave que falta al archivo /var/LocalConfiguration.json y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información. | Agregue la clave que falta al archivo General.config y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. |
+| Configuración local | No se puede analizar la configuración | No se puede analizar un valor de configuración. El mensaje de error debe indicar la clave que no se puede analizar. No se puede analizar un valor de configuración porque el valor no tiene el tipo esperado o está fuera del intervalo. | Corrija el valor de la clave en el archivo /var/LocalConfiguration.json, para que coincida con el esquema LocalConfiguration, y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. | Corrija el valor de la clave en el archivo General.config, para que coincida con el esquema, y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información. |
+| Configuración local | Formato de archivo | No se pudo analizar el archivo de configuración. | El archivo de configuración está dañado, descargue el agente y vuelva a instalarlo. | - |
+| Configuración remota | Tiempo de espera | El agente no pudo capturar el módulo gemelo azureiotsecurity durante el tiempo de espera. | Asegúrese de que la configuración de la autenticación es correcta y vuelva a intentarlo. | El agente no pudo capturar el módulo gemelo azureiotsecurity durante el tiempo de espera. Asegúrese de que la configuración de la autenticación es correcta y vuelva a intentarlo. |
+| Authentication | El archivo no existe | El archivo de la ruta de acceso especificada no existe. | Asegúrese de que el archivo existe en la ruta de acceso especificada o vaya al archivo **LocalConfiguration.json** y cambie la configuración de **FilePath**. | Asegúrese de que el archivo existe en la ruta de acceso especificada o vaya al archivo **Authentication.config** y cambie la configuración de **FilePath**. |
 | Authentication | Permiso del archivo | El agente no tiene permisos suficientes para abrir el archivo. | Conceda al usuario **asciotagent** permisos de lectura del archivo de la ruta de acceso especificada. | Asegúrese de que se puede acceder al archivo. |
 | Authentication | Formato de archivo | El archivo proporcionado no está en el formato correcto. | Asegúrese de que el archivo está en el formato correcto. Los tipos de archivo compatibles son .pfx y .pem. | Asegúrese de que el archivo es un archivo de certificado válido. |
-| Authentication | No autorizado | El agente no pudo autenticarse en IoT Hub con las credenciales proporcionadas. | Valide la configuración de autenticación del archivo LocalConfiguration, repase la configuración de autenticación, asegúrese de que todos los detalles son correctos y compruebe que el secreto del archivo coincide con la identidad autenticada. | Valide la configuración de autenticación del archivo Authentication.config, repase la configuración de autenticación, asegúrese de que todos los detalles son correctos y, después, compruebe que el secreto del archivo coincide con la identidad autenticada.
-| Authentication | No encontrado | Se encontró el dispositivo o módulo. | Valide la configuración de autenticación: asegúrese de que el nombre de host es correcto, de que el dispositivo existe en IoT Hub y de que tiene un módulo gemelo azureiotsecurity. |  Valide la configuración de autenticación: asegúrese de que el nombre de host es correcto, de que el dispositivo existe en IoT Hub y de que tiene un módulo gemelo azureiotsecurity. |
-| Authentication | Configuración que falta | Falta una configuración en el archivo *Authentication.config*. El mensaje de error debe indicar la clave que falta. | Agregue la clave que falta al archivo *LocalConfiguration.json*.| Agregue la clave que falta al archivo *Authentication.config* y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. |
-| Authentication | No se puede analizar la configuración | No se puede analizar un valor de configuración. El mensaje de error debe indicar la clave que no se puede analizar. No se puede analizar un valor de configuración porque el valor no tiene el tipo esperado o está fuera del intervalo. |Corrija el valor de la clave en el archivo **LocalConfiguration.json**. |Corrija el valor de la clave en el archivo **Authentication.config**, para que coincida con el esquema, y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información.|
-|
+| Authentication | No autorizado | El agente no pudo autenticarse en IoT Hub con las credenciales proporcionadas. | Valide la configuración de autenticación del archivo LocalConfiguration, repase la configuración de autenticación, asegúrese de que todos los detalles son correctos y compruebe que el secreto del archivo coincide con la identidad autenticada. | Valide la configuración de autenticación del archivo Authentication.config, repase la configuración de autenticación, asegúrese de que todos los detalles son correctos y, después, compruebe que el secreto del archivo coincide con la identidad autenticada. |
+| Authentication | No encontrado | Se encontró el dispositivo o módulo. | Valide la configuración de autenticación: asegúrese de que el nombre de host es correcto, de que el dispositivo existe en IoT Hub y de que tiene un módulo gemelo azureiotsecurity. | Valide la configuración de autenticación: asegúrese de que el nombre de host es correcto, de que el dispositivo existe en IoT Hub y de que tiene un módulo gemelo azureiotsecurity. |
+| Authentication | Configuración que falta | Falta una configuración en el archivo *Authentication.config*. El mensaje de error debe indicar la clave que falta. | Agregue la clave que falta al archivo *LocalConfiguration.json*. | Agregue la clave que falta al archivo *Authentication.config* y consulte [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) para obtener más información. |
+| Authentication | No se puede analizar la configuración | No se puede analizar un valor de configuración. El mensaje de error debe indicar la clave que no se puede analizar. No se puede analizar un valor de configuración porque el valor no tiene el tipo esperado o está fuera del intervalo. | Corrija el valor de la clave en el archivo **LocalConfiguration.json**. | Corrija el valor de la clave en el archivo **Authentication.config**, para que coincida con el esquema, y consulte [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) para obtener más información.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

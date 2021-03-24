@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82204829"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Docker
@@ -24,9 +24,9 @@ En este artículo se detallan los pasos para implementar un componente de puerta
 > [!NOTE]
 > El hospedaje de una puerta de enlace autohospedada en Docker es más adecuado para los casos de uso de evaluación y desarrollo. Kubernetes está recomendado para un uso de producción. Consulte [este](how-to-deploy-self-hosted-gateway-kubernetes.md) documento para aprender a implementar una puerta de enlace autohospedada en Kubernetes.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+- Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Cree un entorno de Docker. [Docker for Desktop](https://www.docker.com/products/docker-desktop) es una buena opción para fines de desarrollo y evaluación. Consulte la [documentación de Docker](https://docs.docker.com) para obtener información sobre todas las ediciones de Docker, sus características y la documentación completa de Docker.
 - [Aprovisione un recurso de puerta de enlace en la instancia de API Management](api-management-howto-provision-self-hosted-gateway.md)
 

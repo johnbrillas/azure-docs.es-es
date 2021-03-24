@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690309"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
 
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de API Management. Este artículo muestra cómo configurar las notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una instancia del servicio de API Management, complete el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="configure-notifications"></a><a name="publisher-notifications"></a>Configuración de notificaciones
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configuración de notificaciones
 
 1.  Seleccione su instancia de **API MANAGEMENT**.
 2.  Haga clic en **Notificaciones** para ver las notificaciones disponibles.
@@ -77,7 +77,7 @@ Estas plantillas se pueden modificar tal como se desee.
 
 Para ver y configurar las plantillas de correo electrónico para la instancia de API Management, haga clic en **Plantillas de notificaciones**.
 
-![Email templates][api-management-email-templates]
+![Plantillas de correo electrónico][api-management-email-templates]
 
 Cada plantilla de correo electrónico tiene un asunto en texto sin formato y una definición del cuerpo en formato HTML. Cada elemento se puede personalizar según se desee.
 

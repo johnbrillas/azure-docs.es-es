@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520003"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889117"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Vinculación de áreas de trabajo de Azure Synapse Analytics y Azure Machine Learning (versión preliminar)
 
@@ -102,12 +102,14 @@ Vincule el área de trabajo de Machine Learning y el área de trabajo de Synapse
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 1. En la sección **Administrar** del panel izquierdo, seleccione **Servicios vinculados**.
 1. Seleccione **Agregar integración**.
-1. Rellene los campos del formulario **Vincular área de trabajo**. 
-    Campo| Descripción    
-    ---|---
-    Nombre| Indique un nombre para el servicio vinculado. Este nombre es el que se usará para hacer referencia a este servicio vinculado concreto.
-    Nombre de suscripción | Seleccione el nombre de la suscripción que está asociada con el área de trabajo de Machine Learning. 
-    Área de trabajo de Synapse | Seleccione el área de trabajo de Synapse con la que desea establecer el vínculo.
+1. Rellene los campos del formulario **Vincular área de trabajo**.
+
+    |Campo| Descripción    
+    |---|---
+    |Nombre| Indique un nombre para el servicio vinculado. Este nombre es el que se usará para hacer referencia a este servicio vinculado concreto.
+    |Nombre de suscripción | Seleccione el nombre de la suscripción que está asociada con el área de trabajo de Machine Learning. 
+    |Área de trabajo de Synapse | Seleccione el área de trabajo de Synapse con la que desea establecer el vínculo.
+    
 1. Seleccione **Siguiente** para abrir el formulario **Selección de los grupos de Spark (opcional)** . En este formulario, seleccione el grupo de Spark de Synapse que se va a asociar al área de trabajo.
 
 1. Seleccione **Siguiente** para abrir el formulario **Revisión** y comprobar sus selecciones.

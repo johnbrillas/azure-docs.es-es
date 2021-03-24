@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: 458b527194c1123e266bd6abedf25de18e0cee09
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359364"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
@@ -92,25 +92,25 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de LinkedIn Elevate.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
-11. Rellene los campos siguientes en **Credenciales de administrador** :
+11. Rellene los campos siguientes en **Credenciales de administrador**:
 
-    * En el campo **URL de inquilino** , escriba https://developer.linkedin.com.
+    * En el campo **URL de inquilino**, escriba https://developer.linkedin.com.
 
-    * En el campo **Token secreto** , escriba el token de acceso que ha generado en el paso 1 y haga clic en **Probar conexión**.
+    * En el campo **Token secreto**, escriba el token de acceso que ha generado en el paso 1 y haga clic en **Probar conexión**.
 
     * Debería ver una notificación que le indica que el proceso se ha realizado correctamente en el lado superior derecho del portal.
 
 12. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-13. Haga clic en **Save** (Guardar).
+13. Haga clic en **Save**(Guardar).
 
-14. En la sección **Asignaciones de atributos** , revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Sales Navigator. Tenga en cuenta que los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de LinkedIn Sales Navigator para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+14. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Sales Navigator. Tenga en cuenta que los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de LinkedIn Sales Navigator para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
     ![La captura de pantalla muestra las asignaciones, incluidas las asignaciones de atributos.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Para habilitar el servicio de aprovisionamiento de Azure AD para LinkedIn Sales Navigator, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-16. Haga clic en **Save** (Guardar).
+16. Haga clic en **Save**(Guardar).
 
 Esta acción iniciará la sincronización inicial de todos los usuarios y grupos asignados a LinkedIn Sales Navigator en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación LinkedIn Sales Navigator.
 

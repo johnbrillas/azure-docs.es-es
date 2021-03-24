@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
-ms.openlocfilehash: d54c005ffb17571be172b5716723febb742253a3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb6cfc7f0dbc0bc886550e1d601dc52dff66267
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945401"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866376"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Creación de un clúster con Data Lake Storage Gen2 mediante Azure Portal
 
@@ -37,7 +37,7 @@ Cree una identidad administrada asignada por el usuario si todavía no tiene una
 
 Para obtener más información sobre cómo funcionan las identidades administradas en Azure HDInsight, vea [Identidades administradas en Azure HDInsight](hdinsight-managed-identities.md).
 
-![Crear una identidad administrada asignada por el usuario](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+:::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png" alt-text="Creación de una identidad administrada asignada por el usuario":::
 
 ## <a name="create-a-storage-account-to-use-with-data-lake-storage-gen2"></a>Creación de una cuenta de almacenamiento para su uso con Data Lake Storage Gen2
 
@@ -57,7 +57,7 @@ Cree una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2.
 
 Para obtener más información sobre otras opciones durante la creación de la cuenta de almacenamiento, consulte [Inicio rápido: Creación de una cuenta de almacenamiento para Azure Data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md).
 
-![Captura de pantalla en la que se muestra la creación de una cuenta de almacenamiento en Azure Portal](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+:::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png" alt-text="Captura de pantalla en la que se muestra la creación de una cuenta de almacenamiento en Azure Portal":::
 
 ## <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2"></a>Configuración de permisos para la identidad administrada en Data Lake Storage Gen2
 
@@ -66,12 +66,12 @@ Asigne la identidad administrada al rol **Propietario de datos de Storage Blob**
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 1. Seleccione la cuenta de almacenamiento y, después, seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de la cuenta. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 
-    ![Captura de pantalla que muestra la configuración de control de acceso del almacenamiento](./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png)
+    :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del almacenamiento":::
 
 1. Seleccione el botón **+ Agregar asignación de roles** para agregar un rol nuevo.
 1. En la ventana **Agregar asignación de roles**, seleccione el rol **Propietario de datos de Storage Blob**. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y esta se mostrará en **Miembros seleccionados**.
 
-    ![Captura de pantalla que muestra cómo asignar un rol de Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png" alt-text="Captura de pantalla que muestra cómo asignar un rol de Azure":::
 
 1. Seleccione **Guardar**. La identidad asignada por el usuario que seleccionó ahora aparece en el rol seleccionado.
 1. Una vez completada la configuración inicial, puede crear un clúster a través del portal. El clúster debe estar en la misma región de Azure que la cuenta de almacenamiento. En la pestaña **Almacenamiento** del menú de creación del clúster, seleccione las siguientes opciones:
@@ -81,7 +81,7 @@ Asigne la identidad administrada al rol **Propietario de datos de Storage Blob**
 
     * En **Identidad**, seleccione la identidad administrada asignada por el usuario recién creada.
 
-        ![Configuración de almacenamiento para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
+        :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png" alt-text="Configuración de almacenamiento para usar Data Lake Storage Gen2 con Azure HDInsight":::
 
     > [!NOTE]
     > * Para agregar una cuenta secundaria con Data Lake Storage Gen2 en el nivel de cuenta de almacenamiento, basta con asignar la identidad administrada que ha creado anteriormente a la nueva de Data Lake Storage Gen2 que quiere agregar. Tenga en cuenta que no se admite la adición de una cuenta de almacenamiento secundaria de Data Lake Storage Gen2 mediante la hoja "Cuentas de almacenamiento adicionales" en HDInsight.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91743699"
 ---
 # <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Creación y configuración de directivas IPsec personalizadas para punto a sitio (versión preliminar)
@@ -25,7 +25,7 @@ Si su entorno requiere una directiva IPsec personalizada para el cifrado, puede 
 
 Compruebe que el entorno cumpla los siguientes requisitos previos:
 
-* Ya tiene configurada una VPN de punto a sitio que funciona. Si no es así, configure una con los pasos del artículo**Creación de una VPN de punto a sitio** con [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) o [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Ya tiene configurada una VPN de punto a sitio que funciona. Si no es así, configure una con los pasos del artículo **Creación de una VPN de punto a sitio** con [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) o [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 

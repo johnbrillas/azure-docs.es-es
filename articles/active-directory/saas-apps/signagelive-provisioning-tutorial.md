@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: 10ad06041e8136b5661b1b1ff487cd4d3b0f5153
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358412"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: Configuración de Signagelive para aprovisionar usuarios automáticamente
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Signagelive
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -72,7 +72,7 @@ Para configurar Signagelive para el aprovisionamiento automático de usuarios co
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Signagelive** , seleccione **Signagelive** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Signagelive**, seleccione **Signagelive** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Signagelive en la lista de resultados](common/search-new-app.png)
 
@@ -101,16 +101,16 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección Credenciales de administrador, escriba ` https://samlapi.signagelive.com/scim/v2` en la **URL de inquilino**. En el campo **Token secreto** , escriba el valor del **token de portador** proporcionado por el equipo de desarrollo de ingeniería. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Signagelive. Si la conexión no se establece, asegúrese de que la cuenta de Signagelive tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección Credenciales de administrador, escriba ` https://samlapi.signagelive.com/scim/v2` en la **URL de inquilino**. En el campo **Token secreto**, escriba el valor del **token de portador** proporcionado por el equipo de desarrollo de ingeniería. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Signagelive. Si la conexión no se establece, asegúrese de que la cuenta de Signagelive tiene permisos de administrador e inténtelo de nuevo.
     ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Signagelive**.
+8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Signagelive**.
 
     ![Captura de pantalla de la sección de asignaciones con la opción para sincronizar los usuarios de Azure Active Directory con Signagelive resaltada.](media/signagelive-provisioning-tutorial/usermapping.png)
 
@@ -118,13 +118,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la sección de asignaciones de atributos, con siete asignaciones mostradas.](media/signagelive-provisioning-tutorial/userattribute.png)
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar grupo de Azure Active Directory con Signagelive**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar grupo de Azure Active Directory con Signagelive**.
 
     ![Captura de pantalla de la sección de asignaciones con la opción de sincronizar el grupo de Azure Active Directory con Signagelive resaltada.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Signagelive en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de grupo de Signagelive con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Captura de pantalla de la sección de asignaciones de atributos, con tres asignaciones mostradas.](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Captura de pantalla de la sección Attribute Mappings (Asignaciones de atributos), con tres asignaciones mostradas.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -132,7 +132,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Signagelive.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Signagelive.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

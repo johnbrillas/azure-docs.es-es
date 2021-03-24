@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75452146"
 ---
 # <a name="introduction-to-application-groups"></a>Introducción a los grupos de aplicaciones
@@ -99,7 +99,7 @@ La reserva de espacio en el clúster para la aplicación sucede inmediatamente, 
 - el número de servicios en la instancia de aplicación cambia cada vez 
 - los servicios existen pero no consumen recursos 
 
-Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity* .
+Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity*.
 
 - **MinimumNodes**: define el número mínimo de nodos en los que se debe ejecutar la instancia de aplicación.  
 - **NodeReservationCapacity**: este valor es por métrica de la aplicación. El valor es la cantidad de esa métrica reservada para la aplicación en cualquier nodo donde se ejecutan los servicios de esa aplicación.

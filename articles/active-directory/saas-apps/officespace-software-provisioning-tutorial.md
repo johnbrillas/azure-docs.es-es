@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: Zhchia
 ms.openlocfilehash: fc67d649e3a7cd094eb2c3d633244077abcab308
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359937"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de OfficeSpace Software para el aprovisionamiento automático de usuarios
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se deben realizar en Offic
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -80,7 +80,7 @@ Antes de configurar OfficeSpace Software para el aprovisionamiento automático d
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **OfficeSpace Software** , seleccione **OfficeSpace Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **OfficeSpace Software**, seleccione **OfficeSpace Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![OfficeSpace Software en la lista de resultados](common/search-new-app.png)
 
@@ -109,21 +109,21 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba la dirección URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` en la **URL de inquilino**. Por ejemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OfficeSpace Software. Si se produce un error en la conexión, asegúrese de que la cuenta de OfficeSpace Software tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba la dirección URL `https://<subdomain>.officespacesoftware.com/api/scim/v2/` en la **URL de inquilino**. Por ejemplo, `https://contoso.officespacesoftware.com/api/scim/v2/`. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a OfficeSpace Software. Si se produce un error en la conexión, asegúrese de que la cuenta de OfficeSpace Software tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to OfficeSpace Software** (Sincronizar usuarios de Azure Active Directory con OfficeSpace Software).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to OfficeSpace Software** (Sincronizar usuarios de Azure Active Directory con OfficeSpace Software).
 
     ![Asignaciones de usuario de OfficeSpace Software](media/officespace-software-provisioning-tutorial/usermappings.png)
 
-9. En la sección **Asignación de atributos** , revise los atributos de usuario que se han sincronizado entre Azure AD y OfficeSpace Software. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de OfficeSpace Software para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. En la sección **Asignación de atributos**, revise los atributos de usuario que se han sincronizado entre Azure AD y OfficeSpace Software. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de OfficeSpace Software para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de usuario de OfficeSpace Software](media/officespace-software-provisioning-tutorial/userattributes.png)
 
@@ -133,7 +133,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Para definir los usuarios o grupos que quiere aprovisionar en OfficeSpace Software, seleccione los valores deseados en **Ámbito** , en la sección **Configuración**.
+13. Para definir los usuarios o grupos que quiere aprovisionar en OfficeSpace Software, seleccione los valores deseados en **Ámbito**, en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

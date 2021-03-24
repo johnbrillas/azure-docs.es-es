@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94532688"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con Azure Portal
@@ -29,7 +29,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Actualización de datos
 > * Restauración de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -43,7 +43,7 @@ Se crea un servidor de Azure Database for MySQL con un conjunto definido de [rec
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
-2. Seleccione **Bases de datos** > **Azure Database for MySQL**. Si no encuentra el servidor MySQL en la categoría **Bases de datos** , haga clic en **Ver todo** para mostrar todos los servicios de base de datos disponibles. También puede escribir **Azure Database for MySQL** en el cuadro de búsqueda para encontrar el servicio rápidamente.
+2. Seleccione **Bases de datos** > **Azure Database for MySQL**. Si no encuentra el servidor MySQL en la categoría **Bases de datos**, haga clic en **Ver todo** para mostrar todos los servicios de base de datos disponibles. También puede escribir **Azure Database for MySQL** en el cuadro de búsqueda para encontrar el servicio rápidamente.
    
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Vaya a MySQL":::
 
@@ -57,12 +57,12 @@ Se crea un servidor de Azure Database for MySQL con un conjunto definido de [rec
     Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group | *myresourcegroup* | Proporcione un nombre de grupo de recursos nuevo o existente.
     Seleccionar origen | *En blanco* | Seleccione *En blanco* para crear un nuevo servidor desde el principio. (Seleccione *Copia de seguridad* si va a crear un servidor a partir de una copia de seguridad con redundancia geográfica de un servidor existente de Azure Database for MySQL).
-    Inicio de sesión de administrador de servidor | myadmin | Una cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ni **public**.
+    Inicio de sesión de administrador de servidor | myadmin | Una cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
     Contraseña | *Su elección* | Proporcione una nueva contraseña para la cuenta de administrador del servidor. Debe contener entre ocho y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *Su elección*| Confirme la contraseña de la cuenta de administrador.
     Location | *Región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *La versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos que requieran otra versión).
-    Plan de tarifa | **Uso general** , **Gen 5** , **2 núcleos virtuales** , **5 GB** , **7 días** , **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Uso general**. *Gen 5* , *2 núcleos virtuales* , *5 GB* y *7 días* son los valores predeterminados de **Generación de procesos** , **Núcleos virtuales** , **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar los controles deslizantes tal y como están. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
+    Plan de tarifa | **Uso general**, **Gen 5**, **2 núcleos virtuales**, **5 GB**, **7 días**, **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Uso general**. *Gen 5*, *2 núcleos virtuales*, *5 GB* y *7 días* son los valores predeterminados de **Generación de procesos**, **Núcleos virtuales**, **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar los controles deslizantes tal y como están. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Plan de tarifa":::
 
@@ -90,7 +90,7 @@ Obtenga en Azure Portal el **nombre de servidor** y el **nombre de inicio de ses
 
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Todos los recursos** en el menú izquierdo, escriba el nombre y busque el servidor de Azure Database for MySQL. Seleccione el nombre del servidor para ver los detalles.
 
-2. En la página **Información general** , anote los valores de **Nombre de servidor** y **Nombre de inicio de sesión del administrador del servidor**. Puede hacer clic en el botón Copiar situado junto a cada campo para copiar el valor en el Portapapeles.
+2. En la página **Información general**, anote los valores de **Nombre de servidor** y **Nombre de inicio de sesión del administrador del servidor**. Puede hacer clic en el botón Copiar situado junto a cada campo para copiar el valor en el Portapapeles.
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 Propiedades del servidor":::
 
 En este ejemplo, el nombre del servidor es *mydemoserver.mysql.database.azure.com* y el inicio de sesión del administrador del servidor es *myadmin\@mydemoserver*.
@@ -168,7 +168,7 @@ SELECT * FROM inventory;
 
 Imagine que ha eliminado accidentalmente una tabla de base de datos importantes y no puede recuperar los datos fácilmente. Azure Database for MySQL permite restaurar el servidor a un momento dado, ya que crea una copia de las bases de datos en un nuevo servidor. Puede usar este servidor nuevo para recuperar los datos eliminados. Los pasos siguientes restauran el servidor de ejemplo a un punto antes de que se agregara la tabla.
 
-1. En Azure Portal, localice Azure Database for MySQL. En la página **Información general** , haga clic en **Restaurar** en la barra de herramientas. Se abre la página de restauración.
+1. En Azure Portal, localice Azure Database for MySQL. En la página **Información general**, haga clic en **Restaurar** en la barra de herramientas. Se abre la página de restauración.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 Restaurar una base de datos":::
 
@@ -176,10 +176,10 @@ Imagine que ha eliminado accidentalmente una tabla de base de datos importantes 
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 Formulario de restauración":::
 
-   - **Punto de restauración** : seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convierte la zona horaria local a UTC.
-   - **Restaurar en el servidor nuevo** : especifique el nombre del nuevo servidor donde desea realizar la restauración.
-   - **Ubicación** : la región es la misma que la del servidor de origen y no se puede cambiar.
-   - **Plan de tarifa** : es el mismo que el del servidor de origen y no se puede cambiar.
+   - **Punto de restauración**: seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convierte la zona horaria local a UTC.
+   - **Restaurar en el servidor nuevo**: especifique el nombre del nuevo servidor donde desea realizar la restauración.
+   - **Ubicación**: la región es la misma que la del servidor de origen y no se puede cambiar.
+   - **Plan de tarifa**: es el mismo que el del servidor de origen y no se puede cambiar.
    
 3. Haga clic en **Aceptar** para restaurar el servidor a un [momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Al restaurar un servidor, se crea una nueva copia del servidor a partir del momento dado que especifique.
 

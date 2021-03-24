@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78898476"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planes y facturación de Azure Scheduler
@@ -26,7 +26,7 @@ ms.locfileid: "78898476"
 
 En Azure Scheduler, una colección de trabajos contiene un número específico de trabajos. La colección de trabajos es la entidad facturable y viene en los planes Estándar, P10 Premium y P20 Premium, que se describen aquí: 
 
-| Plan de colección de trabajos | Nº máx. de trabajos por colección | Periodicidad máxima | N.º máximo de colecciones de trabajos por suscripción | límites | 
+| Plan de colección de trabajos | Nº máx. de trabajos por colección | Periodicidad máxima | N.º máximo de colecciones de trabajos por suscripción | Límites | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Estándar** | 50 trabajos por colección | Uno por minuto. No se puede ejecutar trabajos con más frecuencia que uno por minuto. | Cada suscripción de Azure puede tener un máximo de 100 colecciones de trabajos Estándar. | Acceso al conjunto completo de características de Scheduler | 
 | **Premium P10** | 50 trabajos por colección | Uno por minuto. No se puede ejecutar trabajos con más frecuencia que uno por minuto. | Cada suscripción de Azure puede tener un máximo de 10 000 colecciones de trabajos P10 Premium. Para más colecciones, <a href="mailto:wapteams@microsoft.com">póngase en contacto con nosotros</a>. | Acceso al conjunto completo de características de Scheduler |

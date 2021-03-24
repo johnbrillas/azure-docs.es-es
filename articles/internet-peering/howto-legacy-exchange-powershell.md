@@ -10,10 +10,10 @@ ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: acc32f4916f5f7f8fe22eebdd1e72db297cac94c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590212"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell
@@ -98,7 +98,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando el 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Para obtener más información, consulte las [Preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

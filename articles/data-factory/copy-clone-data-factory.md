@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo copiar o clonar una factoría de d
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1ea16785502ce8a82087b79dd8e7f0014c0059fc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e13aa0a66d1c1a65462e80f14efc048dd2f06c8c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375245"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780283"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copia o clonación de una factoría de datos en Azure Data Factory
 

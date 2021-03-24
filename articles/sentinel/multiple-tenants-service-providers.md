@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578160"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Administración de varios inquilinos en Azure Sentinel como un MSSP
@@ -43,7 +43,7 @@ Si es un proveedor de servicios de seguridad administrados (MSSP) y usa [Azure L
 
 1. En **Directorio + suscripción**, seleccione los directorios delegados (directorio = inquilino) y las suscripciones en las que están ubicadas las áreas de trabajo de Azure Sentinel del cliente.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Comprobar los proveedores de recursos":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Elección de inquilinos y suscripciones":::
 
 1. Abra Azure Sentinel. Verá todas las áreas de trabajo de las suscripciones seleccionadas y podrá trabajar con ellas sin problemas, como con cualquier área de trabajo de su propio inquilino.
 

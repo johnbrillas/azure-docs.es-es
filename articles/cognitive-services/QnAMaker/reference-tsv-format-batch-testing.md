@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
 ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87132133"
 ---
 # <a name="batch-testing-tsv-format"></a>Pruebas por lotes de formato TSV
@@ -52,7 +52,7 @@ Utilice la siguiente información para comprender e implementar el formato TSV p
 |Pregunta|Pregunta tal como se especificó en el archivo de entrada.|
 |Respuesta|Respuesta principal de Knowledge Base.|
 |Identificador de la respuesta.|Identificador de la respuesta.|
-|Score|Puntuación de predicción para la respuesta. |
+|Puntuación|Puntuación de predicción para la respuesta. |
 |Etiquetas de metadatos|Asociadas a la respuesta devuelta.|
 |Identificador de respuesta esperado|Opcional (solo cuando se proporciona el identificador de respuesta esperado).|
 |Etiqueta de resolución|Opcional; los valores pueden ser: correcto o incorrecto (solo cuando se proporciona la respuesta esperada).|

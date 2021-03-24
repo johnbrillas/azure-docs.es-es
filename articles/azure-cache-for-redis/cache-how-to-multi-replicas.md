@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91566795"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Incorporación de réplicas a Azure Cache for Redis (versión preliminar)
@@ -23,7 +23,7 @@ Los niveles Estándar y Premium de Azure Cache for Redis ofrecen redundancia med
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción a Azure:  [cree una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > Esta característica se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si le interesa.
@@ -50,7 +50,7 @@ Para crear una instancia de caché, siga estos pasos:
    
 1. En la página **Advanced** (Avanzadas), elija **Recuento de réplicas**.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selección de Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Recuento de réplicas.":::
 
 1. Deje las demás opciones con los valores predeterminados. 
 

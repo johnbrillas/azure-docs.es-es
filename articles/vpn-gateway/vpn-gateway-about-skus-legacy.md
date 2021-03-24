@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84687793"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)
@@ -22,7 +22,7 @@ Este artículo contiene información sobre las SKU de puerta de enlace de red vi
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-Puede ver los precios de las puertas de enlace heredadas en la sección **Puertas de enlace de Virtual Network**de la página [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Puede ver los precios de las puertas de enlace heredadas en la sección **Puertas de enlace de Virtual Network** de la página [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>Rendimiento agregado estimado por SKU
 

@@ -1,24 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un módulo gemelo de seguridad'
 description: En esta guía de inicio rápido, aprenderá a crear un módulo gemelo de Defender para IoT para su uso con Azure Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/21/2021
-ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 2ee88bd23b7d125ef9244f8ff630ee5eb8cdd015
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449703"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782680"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
 
@@ -26,7 +16,7 @@ Este inicio rápido explica cómo crear módulos gemelos de _azureiotsecurity_ i
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ninguno
+None
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Descripción de los módulos gemelos de azureiotsecurity
 
@@ -39,9 +29,9 @@ Para más información acerca del concepto general de los módulos gemelos en Az
 
 Defender para IoT usa el mecanismo de módulos gemelos y mantiene un módulo gemelo de seguridad denominado _azureiotsecurity_ para cada uno de los dispositivos.
 
-Este módulo contiene toda la información apropiada para la seguridad del dispositivo en cuestión.
+El módulo gemelo Defender-IoT-micro-agent contiene toda la información apropiada para la seguridad del dispositivo en cuestión.
 
-Para aprovechar al máximo las características de Defender para IoT, estos módulos gemelos de seguridad deben crearse, configurarse y usarse en todos los dispositivos del servicio.
+Para aprovechar al máximo las características de Defender para IoT, debe crear, configurar y usar estos módulos gemelos de Defender-IoT-micro-agent en todos los dispositivos del servicio.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Creación de un módulo gemelo de azureiotsecurity
 

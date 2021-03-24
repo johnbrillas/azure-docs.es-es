@@ -1,18 +1,14 @@
 ---
 title: Uso de las notificaciones del dispositivo
 description: Las notificaciones proporcionan información sobre la actividad de red que puede requerir su atención, junto con recomendaciones para tratar con esta actividad.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523573"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781337"
 ---
 # <a name="work-with-device-notifications"></a>Uso de las notificaciones del dispositivo
 
@@ -24,11 +20,7 @@ Las notificaciones proporcionan información sobre la actividad de red que puede
 
 La respuesta a las notificaciones mejora la información proporcionada en el mapa de dispositivos, el inventario de dispositivos y las consultas e informes de minería de datos. También proporciona información sobre los cambios de red legítimos y los posibles errores de configuración de la red.
 
-Para acceder a las notificaciones:
-
-- Seleccione **Configuración del sistema** y, luego, elija **Data Enhancement**(Mejora de datos).
-
-## <a name="notifications-vs-alerts"></a>Notificaciones frente a alertas
+**Notificaciones frente a alertas**
 
 Además de recibir notificaciones sobre la actividad de red, es posible que reciba *alertas*. Las notificaciones proporcionan información sobre los cambios de red o las propiedades del dispositivo no resueltas que no presentan una amenaza. Las alertas proporcionan información sobre las desviaciones de red y los cambios que podrían presentar una amenaza para la red.
 
@@ -86,18 +78,6 @@ Para mostrar notificaciones y administrarlas:
 
 Los eventos configurados de **New IPs** (Nuevas direcciones IP) y **No Subnets** (No hay subredes) no se pueden administrar a la vez. Requieren confirmación manual.
 
-## <a name="improve-device-os-classification-data-enhancement"></a>Mejora de la clasificación del sistema operativo del dispositivo: mejora de los datos 
-
-El sensor detecta continuamente nuevos dispositivos de OT. También detecta automáticamente los cambios en los dispositivos detectados anteriormente, incluidos los tipos de sistema operativo.
-
-En determinadas circunstancias, es posible que se identifiquen conflictos en los sistemas operativos detectados. Esto puede ocurrir porque tenga una versión del sistema operativo que haga referencia a sistemas de servidor o escritorio. En ese caso, recibirá una notificación con clasificaciones de sistemas operativos opcionales.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Mejora de los datos.":::
-
-Investigue las recomendaciones para enriquecer la clasificación del sistema operativo. Esta información aparece en el inventario de dispositivos, en los informes de minería de datos y en otras pantallas. También puede mejorar la precisión de las alertas, las amenazas y el análisis de riesgos.
-
-Al aceptar una recomendación, la información del tipo de sistema operativo se actualizará en el sensor.
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Visualización de alertas](how-to-view-alerts.md)

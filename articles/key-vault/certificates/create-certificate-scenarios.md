@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81427368"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Supervisión y administración de la creación de certificados
@@ -36,7 +36,7 @@ escenarios y operaciones que se describen en este artículo son:
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Solicitar un certificado KV con un emisor admitido 
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -79,7 +79,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>Obtener una solicitud pendiente, el estado de la solicitud es "inProgress"
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -115,7 +115,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Solicitud
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -147,7 +147,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Solicitud
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -185,7 +185,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Obtener una solicitud pendiente, el estado de la solicitud pendiente es "deleted" u "overwritten"
 Un objeto pendiente se puede eliminar o sobrescribir mediante una operación de creación o importación cuando su estado no es "inProgress".
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -223,7 +223,7 @@ Para corregir un conflicto:
 > [!NOTE]
 > Es posible que la eliminación de un objeto pendiente no cancele la solicitud del certificado X.509 con el proveedor.
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -260,7 +260,7 @@ La combinación no se permite cuando un objeto pendiente se crea con un emisor, 
 
 Si la solicitud para crear el certificado X.509 genera error o se cancela por algún motivo, y si un certificado X.509 se puede recuperar por medios fuera de banda, se puede realizar una operación de combinación para completar el certificado KV.
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -329,7 +329,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > Es posible que la eliminación de un objeto pendiente cancele o no la solicitud del certificado X.509 con el proveedor.
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |Delete|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -359,7 +359,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>Crear un certificado KV manualmente
 Puede crear un certificado emitido con una entidad de certificación de su elección mediante un proceso de creación manual. Establezca el nombre del emisor como "Unknown" o no especifique el campo del emisor.
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -399,7 +399,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Combinar cuando se crea una solicitud pendiente, creación manual de certificados
 
-|Método|URI de solicitud|
+|Método|URI de la solicitud|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 

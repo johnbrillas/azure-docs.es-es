@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84689994"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
@@ -138,7 +138,7 @@ Se admiten las siguientes opciones de localización:
 |WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registre la aplicación|  
-|WebDevelopersRemoveLink|Remove|  
+|WebDevelopersRemoveLink|Quitar|  
 |WebDevelopersSubmitLink|Enviar|  
 |WebDevelopersYourApplicationsHeader|Sus aplicaciones|  
   
@@ -146,7 +146,7 @@ Se admiten las siguientes opciones de localización:
   
 |Nombre|Texto|  
 |----------|----------|  
-|WebApplicationsHeader|APLICACIONES|  
+|WebApplicationsHeader|Aplicaciones|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
@@ -164,10 +164,10 @@ Se admiten las siguientes opciones de localización:
 |Nombre|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
-|ButtonLabelSave|Save|  
+|ButtonLabelSave|Guardar|  
 |GeneralExceptionMessage|Se ha producido algún problema. Podría ser un problema temporal o un error. Vuelva a intentarlo.|  
 |NoItemsToDisplay|No hay ningún elemento para mostrar.|  
-|PagerButtonLabelFirst|Primero|  
+|PagerButtonLabelFirst|First|  
 |PagerButtonLabelLast|Último|  
 |PagerButtonLabelNext|Siguiente|  
 |PagerButtonLabelPrevious|Anterior|  
@@ -302,7 +302,7 @@ Se admiten las siguientes opciones de localización:
 |OAuth2UnsupportedTokenType|El tipo de token "{0}" no se admite.|  
 |OAuth2InvalidState|Respuesta no válida del servidor de autorización|  
 |OAuth2GrantType_AuthorizationCode|Código de autorización|  
-|OAuth2GrantType_Implicit|Implícito|  
+|OAuth2GrantType_Implicit|Implícita|  
 |OAuth2GrantType_ClientCredentials|Credenciales de cliente|  
 |OAuth2GrantType_ResourceOwnerPassword|Contraseña del propietario del recurso|  
 |WebDocumentation302Code|302 (encontrado)|  
@@ -324,7 +324,7 @@ Se admiten las siguientes opciones de localización:
 |ButtonLinkOpenConsole|Pruébelo|  
 |SectionHeadingRequestBody|Cuerpo de la solicitud|  
 |SectionHeadingRequestParameters|Parámetros de solicitud|  
-|SectionHeadingRequestUrl|URL de la solicitud|  
+|SectionHeadingRequestUrl|URL de solicitud|  
 |SectionHeadingResponse|Response|  
 |SectionHeadingRequestHeaders|Encabezados de solicitud|  
 |FormLabelSubtextOptional|opcional|  
@@ -423,7 +423,7 @@ Se admiten las siguientes opciones de localización:
 |ValidationErrorSpecificEmailInvalid|El correo electrónico "{0}" no es válido.|  
 |ValidationErrorPasswordInvalid|La contraseña no es válida. Corrija los errores y vuelva a intentarlo.|  
 |PropertyTooShort|La propiedad {0} es demasiado corta.|  
-|WebAuthenticationAddresserEmailInvalidErrorMessage|La dirección de correo electrónico no es válida.|  
+|WebAuthenticationAddresserEmailInvalidErrorMessage|Dirección de correo electrónico no válida.|  
 |ValidationMessageNewPasswordConfirmationRequired|Confirme la nueva contraseña.|  
 |ValidationErrorPasswordConfirmationRequired|El campo de la contraseña de confirmación está vacío.|  
 |WebAuthenticationEmailChangeNotice|El mensaje de correo electrónico de confirmación del cambio va de camino a {0}. Siga las instrucciones incluidas en él para confirmar la nueva dirección de correo electrónico. Si no recibe el correo electrónico en su bandeja de entrada en los próximos minutos, consulte su carpeta de correo no deseado.|  
@@ -433,7 +433,7 @@ Se admiten las siguientes opciones de localización:
 |ValidationErrorEmailAlreadyExists|La dirección de correo electrónico ya existe.|  
 |ValidationErrorEmailInvalid|Dirección de correo electrónico no válida|  
 |TextboxLabelEmail|Email|  
-|ValidationErrorEmailRequired|Debe especificar un correo electrónico.|  
+|ValidationErrorEmailRequired|Se requiere un correo electrónico.|  
 |WebAuthenticationErrorNoticeHeader|Error|  
 |WebAuthenticationFieldLengthErrorMessage|{0} debe tener una extensión máxima de {1}|  
 |TextboxLabelEmailFirstName|Nombre|  
@@ -443,7 +443,7 @@ Se admiten las siguientes opciones de localización:
 |NoticeHeaderInvalidInvitationToken|Token de invitación no válido|  
 |NoticeTitleInvalidInvitationToken|Correo electrónico de confirmación|  
 |WebAuthenticationLastNameInvalidErrorMessage|Apellidos no válidos|  
-|TextboxLabelEmailLastName|Apellidos|  
+|TextboxLabelEmailLastName|Apellido|  
 |ValidationErrorLastNameRequired|Debe especificar un apellido.|  
 |WebAuthenticationLinkExpiredNotice|El vínculo de confirmación que se le ha enviado ha expirado. `<a href={0}?token={1}>Resend confirmation email.</a\>`|  
 |NoticePasswordResetLinkInvalidOrExpired|El vínculo de restablecimiento de la contraseña no es válido o ha expirado.|  
@@ -456,10 +456,10 @@ Se admiten las siguientes opciones de localización:
 |WebAuthenticationPasswordChangedNotice|La contraseña se ha actualizado correctamente.|  
 |WebAuthenticationPasswordChangedNoticeTitle|Contraseña actualizada|  
 |WebAuthenticationPasswordCompareErrorMessage|Las contraseñas no coinciden.|  
-|WebAuthenticationPasswordConfirmLabel|Confirmar contraseña|  
+|WebAuthenticationPasswordConfirmLabel|Confirmación de la contraseña|  
 |ValidationErrorPasswordInvalidDetailed|La contraseña es demasiado poco segura.|  
 |WebAuthenticationPasswordLabel|Contraseña|  
-|ValidationErrorPasswordRequired|Se requiere una contraseña.|  
+|ValidationErrorPasswordRequired|La contraseña es obligatoria.|  
 |WebAuthenticationPasswordResetSendNotice|El mensaje de correo electrónico de confirmación del cambio de contraseña va de camino a {0}. Siga las instrucciones incluidas en el mensaje de correo electrónico para continuar con el proceso de cambio de la contraseña.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|La solicitud de restablecimiento de contraseña se ha procesado correctamente.|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Se solicitó el restablecimiento de contraseña.|  
@@ -516,7 +516,7 @@ Se admiten las siguientes opciones de localización:
 |WebAuthenticationNotAMember|¿Aún no es miembro? `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Recordarme en este equipo|  
 |WebAuthenticationSigininWithPassword|Inicie sesión con su nombre de usuario y contraseña.|  
-|WebAuthenticationSigninTitle|Iniciar sesión|  
+|WebAuthenticationSigninTitle|Inicio de sesión|  
 |WebAuthenticationSignUpNow|Regístrese ahora|  
   
 ###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
@@ -539,7 +539,7 @@ Se admiten las siguientes opciones de localización:
 |WebDevelopersPrimaryKey|Clave principal|  
 |WebDevelopersRegenerateLink|Regenerar|  
 |WebDevelopersSecondaryKey|Clave secundaria|  
-|ButtonLabelShowKey|Presentación|  
+|ButtonLabelShowKey|Mostrar|  
 |ButtonLabelRenewSubscription|Renovación|  
 |WebDevelopersSubscriptionRequested|Solicitud realizada el {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitada|  
@@ -561,7 +561,7 @@ Se admiten las siguientes opciones de localización:
 |ButtonLabelHideKey|Ocultar|  
 |ButtonLabelRegenerateKey|Regenerar|  
 |InformationMessageKeyWasRegenerated|¿Está seguro de que desea regenerar esta clave?|  
-|ButtonLabelShowKey|Presentación|  
+|ButtonLabelShowKey|Mostrar|  
   
 ###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
@@ -579,7 +579,7 @@ Se admiten las siguientes opciones de localización:
 |ButtonLabelCloseAccount|Cerrar cuenta|  
 |TextboxLabelEmail|Email|  
 |TextboxLabelEmailFirstName|Nombre|  
-|TextboxLabelEmailLastName|Apellidos|  
+|TextboxLabelEmailLastName|Apellido|  
 |TextboxLabelNotificationsSenderEmail|Correo electrónico del remitente de las notificaciones|  
 |TextboxLabelOrganizationName|Nombre de la organización|  
 |SubscriptionStateActive|Active|  
