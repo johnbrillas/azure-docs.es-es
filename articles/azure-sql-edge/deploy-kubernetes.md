@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395298"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Implementación de un contenedor de Azure SQL Edge en Kubernetes
@@ -108,7 +108,7 @@ Configure un [volumen persistente](https://kubernetes.io/docs/concepts/storage/p
          storage: 8Gi
    ```
 
-   Guarde el archivo (por ejemplo, **pvc.yaml** ).
+   Guarde el archivo (por ejemplo, **pvc.yaml**).
 
 2. Cree la notificación de volumen persistente en Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Al usar el tipo de servicio `LoadBalancer`, se puede acceder a la instancia de Azure SQL Edge de forma remota (mediante Internet) en el puerto 1433.
 
-   Guarde el archivo (por ejemplo, **sqledgedeploy.yaml** ).
+   Guarde el archivo (por ejemplo, **sqledgedeploy.yaml**).
 
 2. Cree la implementación.
 

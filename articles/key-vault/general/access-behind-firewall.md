@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
 ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289175"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
@@ -56,7 +56,7 @@ Para la administración de Key Vault (CRUD y establecimiento de una directiva de
 
 ## <a name="key-vault-operations"></a>Operaciones de Key Vault
 
-Para todas las operaciones criptográficas y de administración de objetos (claves y secretos) de Key Vault, es preciso que el cliente de Key Vault acceda al punto de conexión de Key Vault. En función de la ubicación del almacén de claves, el sufijo DNS del punto de conexión varía. El punto de conexión de Key Vault tiene el formato *vault-name*. *region-specific-dns-suffix* , como se describe en la tabla siguiente.  
+Para todas las operaciones criptográficas y de administración de objetos (claves y secretos) de Key Vault, es preciso que el cliente de Key Vault acceda al punto de conexión de Key Vault. En función de la ubicación del almacén de claves, el sufijo DNS del punto de conexión varía. El punto de conexión de Key Vault tiene el formato *vault-name*.*region-specific-dns-suffix*, como se describe en la tabla siguiente.  
 
 | Tipo de operación | Punto de conexión:puerto |
 | --- | --- |

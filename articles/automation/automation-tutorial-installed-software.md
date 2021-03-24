@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
 ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100593787"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Detección del software instalado en sus máquinas virtuales
@@ -62,7 +62,7 @@ En primer lugar, debe habilitar Change Tracking e Inventario para este tutorial.
 
 Durante la configuración, la máquina virtual se aprovisiona con el agente de Log Analytics para Windows y un [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). La habilitación de Change Tracking e Inventario puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
 
-Después de habilitar la característica, la información sobre el software instalado y los cambios en la máquina virtual se transfiere a los registros de Azure Monitor. Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
+Después de habilitar la característica, la información sobre el software instalado y los cambios en la máquina virtual se transfiere a los registros de Azure Monitor. Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
 ## <a name="add-an-azure-vm-to-change-tracking-and-inventory"></a>Incorporación de una máquina virtual de Azure a Change Tracking e Inventario
 

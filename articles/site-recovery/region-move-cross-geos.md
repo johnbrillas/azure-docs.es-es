@@ -8,10 +8,10 @@ ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89425354"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
@@ -53,7 +53,7 @@ En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Governme
 Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máquinas virtuales en Azure.
 
 - Revise los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) que necesita para replicar máquinas en Azure.
-- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). 
+- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). 
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
@@ -172,7 +172,7 @@ Seleccione y compruebe los recursos de destino.
 2. En **Crear directiva de replicación**, especifique un nombre de directiva.
 3. En **Umbral de RPO**, especifique el límite del objetivo de punto de recuperación (RPO). Este valor especifica la frecuencia con que se crean puntos de recuperación de datos. Se genera una alerta cuando la replicación continua supera este límite.
 4. En **Retención de punto de recuperación**, especifique la duración (en horas) del período de retención de cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage y 72 horas para almacenamiento estándar.
-5. En **Frecuencia de instantánea coherente con la aplicación**especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Haga clic en **Aceptar** para crear la directiva.
+5. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Haga clic en **Aceptar** para crear la directiva.
 
     ![Directiva de replicación](./media/physical-azure-disaster-recovery/replication-policy.png)
 

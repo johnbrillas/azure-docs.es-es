@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87504235"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
@@ -44,7 +44,7 @@ Este es el tercer tutorial de una serie. En él se da por hecho que ya ha realiz
 ## <a name="select-a-replication-goal"></a>Selección de un objetivo de replicación
 
 1. En Azure Portal, vaya a **Almacenes de Recovery Services** y seleccione el almacén. Hemos preparado el almacén **ContosoVMVault** en el tutorial anterior.
-2. En **Introducción**, seleccione **Site Recovery**y, luego, **Preparar la infraestructura**.
+2. En **Introducción**, seleccione **Site Recovery** y, luego, **Preparar la infraestructura**.
 3. En **Objetivo de protección** >  **¿Dónde están ubicadas las máquinas?** , seleccione **Local**.
 4. En **¿En dónde quiere replicar las máquinas?** , seleccione **En Azure**.
 5. En **¿Las máquinas están virtualizadas?** , seleccione **Sí, con Hyper-V**.

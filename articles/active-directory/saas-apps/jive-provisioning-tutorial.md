@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: ebee5d986007e07d497056620f0cfc437b2da4d1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94356406"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
@@ -65,9 +65,9 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de espacio aislado de Jive, con el modo de aprovisionamiento establecido en automático y otros valores que se pueden establecer.](./media/jive-provisioning-tutorial/provisioning.png)
 
-1. En la sección **Credenciales de administrador** , proporcione los siguientes valores de configuración:
+1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
-    a. En el cuadro de texto **Nombre de usuario del administrador de Jive** , escriba un nombre de cuenta de Jive que tenga asignado el perfil **Administrador del sistema** en Jive.com.
+    a. En el cuadro de texto **Nombre de usuario del administrador de Jive**, escriba un nombre de cuenta de Jive que tenga asignado el perfil **Administrador del sistema** en Jive.com.
    
     b. En el cuadro de texto **Contraseña de administrador de Jive** , escriba la contraseña para esta cuenta.
    
@@ -85,7 +85,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
 1. En la sección Asignaciones, seleccione **Sincronizar usuarios de Azure Active Directory con Jive.**
 
-1. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y Jive. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Jive con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Jive. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Jive con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Jive, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
 

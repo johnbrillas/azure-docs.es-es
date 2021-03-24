@@ -3,16 +3,16 @@ title: Compilación de la primera factoría de datos (Azure Portal)
 description: En este tutorial, se crea una canalización de Azure Data Factory de ejemplo mediante Data Factory Editor en Azure Portal.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 449c8ec976a71d68e3ddddfea839ef06094c2176
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9794aa0750a886803aac3fec7622f6b3770acf9d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392228"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785587"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]

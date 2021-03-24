@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098670"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
@@ -119,12 +119,12 @@ El SDK de JavaScript usa los términos genéricos *contenedor* y *elemento*. Un 
 
 ## <a name="connect-to-the-azure-cosmos-account"></a>Conexión a una cuenta de Azure Cosmos
 
-En el archivo *app.js* , copie y pegue el código siguiente para usar el punto de conexión y la clave guardados anteriormente a fin de crear un nuevo objeto CosmosClient.
+En el archivo *app.js*, copie y pegue el código siguiente para usar el punto de conexión y la clave guardados anteriormente a fin de crear un nuevo objeto CosmosClient.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Si se conecta al **emulador de Cosmos DB** , deshabilite la comprobación de TLS para el proceso de los nodos:
+> Si se conecta al **emulador de Cosmos DB**, deshabilite la comprobación de TLS para el proceso de los nodos:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -158,7 +158,7 @@ Azure Cosmos DB admite el reemplazo del contenido de los elementos. Copie y peg
 
 ## <a name="delete-an-item"></a><a id="DeleteItem"></a>Eliminación de un elemento
 
-Azure Cosmos DB admite la eliminación de elementos JSON. En el código siguiente se muestra cómo obtener un elemento por su identificador y eliminarlo. Copie y pegue el código siguiente en el archivo *app.js* :
+Azure Cosmos DB admite la eliminación de elementos JSON. En el código siguiente se muestra cómo obtener un elemento por su identificador y eliminarlo. Copie y pegue el código siguiente en el archivo *app.js*:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="DeleteItem":::
 

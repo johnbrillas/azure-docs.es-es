@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101126"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB con Ruby
@@ -76,7 +76,7 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Adición de una conexión de Azure Cosmos DB
 
-Para conectarse a Azure Cosmos DB, copie la cadena de conexión principal de Azure Portal y cree un objeto **Client** con la cadena de conexión que ha copiado. Puede pasar el objeto **Client** cuando crea un objeto **TableService** :
+Para conectarse a Azure Cosmos DB, copie la cadena de conexión principal de Azure Portal y cree un objeto **Client** con la cadena de conexión que ha copiado. Puede pasar el objeto **Client** cuando crea un objeto **TableService**:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -150,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>Consulta de un conjunto de entidades
 
-Para realizar una consulta de un conjunto de entidades de una tabla, cree un objeto hash de consulta y use el método **query_entities()** . El siguiente ejemplo muestra la obtención de todas las entidades con el mismo valor de **PartitionKey** :
+Para realizar una consulta de un conjunto de entidades de una tabla, cree un objeto hash de consulta y use el método **query_entities()** . El siguiente ejemplo muestra la obtención de todas las entidades con el mismo valor de **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }

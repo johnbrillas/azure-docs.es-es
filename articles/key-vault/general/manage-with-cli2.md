@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289895"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
@@ -65,7 +65,7 @@ También puede leer los artículos siguientes para familiarizarse con Azure Reso
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Procedimiento para crear un contenedor protegido (un almacén) en Azure.
 
-Los almacenes son contenedores protegidos respaldados por módulos de seguridad de hardware. Los almacenes ayudan a reducir las posibilidades de que se produzca una pérdida accidental de información de seguridad centralizando el almacenamiento de los secretos de aplicación. Key Vault también permite controlar y registrar el acceso a todo lo que está almacenado en ellos. Azure Key Vault puede administrar la solicitud y renovación de los certificados de Seguridad de la capa de transporte (TLS), proporcionando las características necesarias para conseguir una eficaz solución de administración del ciclo de vida de los certificados. En los pasos siguientes, creará un almacén.
+Los almacenes son contenedores protegidos respaldados por módulos de seguridad de hardware. Los almacenes ayudan a reducir las posibilidades de que se produzca una pérdida accidental de información de seguridad centralizando el almacenamiento de los secretos de aplicación. Key Vault también permite controlar y registrar el acceso a todo lo que está almacenado en los almacenes de claves. Azure Key Vault puede administrar la solicitud y renovación de los certificados de Seguridad de la capa de transporte (TLS), proporcionando las características necesarias para conseguir una eficaz solución de administración del ciclo de vida de los certificados. En los pasos siguientes, creará un almacén.
 
 ### <a name="connect-to-your-subscriptions"></a>Conectarse a sus suscripciones
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Utilice el comando `az keyvault create` para crear un Almacén de claves. Este script tiene tres parámetros obligatorios: el nombre del grupo de recursos, el nombre del Almacén de claves y la ubicación geográfica.
 
-Para crear un nuevo almacén con el nombre **ContosoKeyVault** , en el grupo de recursos **ContosoResourceGroup** , que reside en la ubicación **Este de Asia** , escriba: 
+Para crear un nuevo almacén con el nombre **ContosoKeyVault**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de Asia**, escriba: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 La salida de este comando muestra las propiedades del almacén de claves que ha creado. Las dos propiedades más importantes son:
 
-* **name** : en el ejemplo, el nombre es ContosoKeyVault. Usará este nombre para otros comandos de Key Vault.
-* **vaultUri** : en el ejemplo, el URI es https://contosokeyvault.vault.azure.net. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **name**: en el ejemplo, el nombre es ContosoKeyVault. Usará este nombre para otros comandos de Key Vault.
+* **vaultUri**: en el ejemplo, el URI es https://contosokeyvault.vault.azure.net. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta ahora, nadie más está autorizado.
 

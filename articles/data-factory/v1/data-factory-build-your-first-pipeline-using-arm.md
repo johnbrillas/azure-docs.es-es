@@ -3,16 +3,16 @@ title: Compilación de la primera factoría de datos (plantilla de Resource Mana
 description: En este tutorial, creará una canalización de Azure Data Factory de ejemplo con la plantilla de Azure Resource Manager.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: deeed3890094961b0934a6e093b9f5025990d1a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f4f5156870ec5119c71a0acc77786c71ab8b7e62
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392109"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783054"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "100392109"
 
 En este artículo, usará una plantilla de Azure Resource Manager para crear su primera instancia de Azure Data Factory. Para realizar el tutorial con otros SDK/herramientas, seleccione una de las opciones de la lista desplegable.
 
-La canalización de este tutorial tiene solo una actividad: **Actividad de Hive de HDInsight**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
+La canalización de este tutorial tiene una actividad: **actividad de HDInsight Hive**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
 
 > [!NOTE]
 > En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

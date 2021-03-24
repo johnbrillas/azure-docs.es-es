@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680612"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Tutorial: Copia de datos de Azure Data Box a través de NFS
@@ -25,17 +25,17 @@ En este tutorial, aprenderá a:
 >
 > * Requisitos previos
 > * Conexión a un dispositivo Data Box
-> * Copia de datos de Data Box
+> * Copiar datos de Data Box
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
 1. Ha realizado el pedido de Azure Data Box.
-    - Para saber el orden de importación, consulte [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
-    - Para saber el orden de exportación, consulte [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-export-ordered.md).
+    - Si necesita un pedido de importación, consulte el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
+    - En caso de un pedido de exportación, consulte el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-export-ordered.md).
 2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado).
-3. Tiene un equipo host en el que desea copiar los datos del Data Box. El equipo host debe:
+3. Tiene un equipo host en el que quiere copiar los datos de Data Box. El equipo host debe:
    * Ejecutar un [sistema operativo admitido](data-box-system-requirements.md).
    * Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, use un vínculo de datos de 1 GbE, pero las velocidades de copia se verán afectadas.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73647499"
 ---
 # <a name="update-to-the-30-api"></a>Actualización a la API 3.0
@@ -44,14 +44,14 @@ Las API 2.0 usaban la iteración predeterminada o un identificador de iteración
 
 ### <a name="publish-an-iteration"></a>Publicación de una iteración
 
-Después de entrenar una iteración, puede hacer que esté disponible para la predicción mediante el método **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** . Para publicar una iteración, necesitará el identificador de recurso de predicción, que está disponible en la página de configuración del sitio web de Custom Vision.
+Después de entrenar una iteración, puede hacer que esté disponible para la predicción mediante el método **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)**. Para publicar una iteración, necesitará el identificador de recurso de predicción, que está disponible en la página de configuración del sitio web de Custom Vision.
 
 ![La página de configuración del sitio web de Custom Vision con el identificador de recurso de predicción subrayado.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
 > También puede obtener esta información de [Azure Portal](https://portal.azure.com); para ello, vaya a recurso de predicción de Custom Vision y seleccione **Propiedades**.
 
-Después de publicar la iteración, las aplicaciones pueden usarla en la predicción mediante la especificación del nombre en su llamada a la API de predicción. Para que una iteración deje de estar disponible para las llamadas de predicción, use la API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
+Después de publicar la iteración, las aplicaciones pueden usarla en la predicción mediante la especificación del nombre en su llamada a la API de predicción. Para que una iteración deje de estar disponible para las llamadas de predicción, use la API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

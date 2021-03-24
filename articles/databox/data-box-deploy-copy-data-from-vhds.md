@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337685"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Uso de Data Box para importar datos como discos administrados en Azure
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Conexión a un dispositivo Data Box
 > * Copia de datos a un dispositivo Data Box
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 

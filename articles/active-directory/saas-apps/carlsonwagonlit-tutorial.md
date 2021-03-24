@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 86c2d9585abd546acb3efb22256d3f3b70bfb972
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97674402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: Integración de Azure Active Directory con Carlson Wagonlit Travel
@@ -30,7 +30,7 @@ La integración de Carlson Wagonlit Travel con Azure AD proporciona las siguient
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Carlson Wagonlit Travel, necesita los siguientes elementos:
 
@@ -73,10 +73,10 @@ Es decir, para que el inicio de sesión único funcione, es necesario establecer
 Para configurar y probar el inicio de sesión único de Azure AD con Carlson Wagonlit Travel, es preciso completar los siguientes bloques de compilación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Carlson Wagonlit Travel](#configure-carlson-wagonlit-travel-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Carlson Wagonlit Travel](#configure-carlson-wagonlit-travel-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Carlson Wagonlit Travel](#create-carlson-wagonlit-travel-test-user)** : para tener un homólogo de Britta Simon en Carlson Wagonlit Travel que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Carlson Wagonlit Travel](#create-carlson-wagonlit-travel-test-user)**: para tener un homólogo de Britta Simon en Carlson Wagonlit Travel que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD

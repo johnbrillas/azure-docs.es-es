@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c1ec38e792987f4bd7208c3bf57a882a05f4f46
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 330c02f15c0818f0a5c69088757c92a91a523589
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648057"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952670"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Samsung Knox and Business Services
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Samsung Knox and Business Services con A
 * Permitir que los usuarios inicien sesión automáticamente en Samsung Knox and Business Services con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -141,7 +141,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a [SamsungKnox.com](https://samsungknox.com/) e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Samsung Knox and Business Services en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de [SamsungKnox.com](https://samsungknox.com/). Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Samsung Knox and Business Services en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de [SamsungKnox.com](https://samsungknox.com/). Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

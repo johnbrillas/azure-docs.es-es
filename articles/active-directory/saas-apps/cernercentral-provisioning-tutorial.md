@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 1f82cab1172e7293e2a5910d35280eefb30ed49e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357460"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
@@ -92,27 +92,27 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
    ![Aprovisionamiento de Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9. Rellene los campos siguientes en **Credenciales de administrador** :
+9. Rellene los campos siguientes en **Credenciales de administrador**:
 
-   * En el campo **URL de inquilino** , escriba una dirección URL en el formato siguiente y sustituya "User-Roster-Realm-ID" por el identificador de dominio kerberos que obtuvo en el paso 4.
+   * En el campo **URL de inquilino**, escriba una dirección URL en el formato siguiente y sustituya "User-Roster-Realm-ID" por el identificador de dominio kerberos que obtuvo en el paso 4.
 
     > Espacio aislado: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
     > 
     > Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * En el campo **Token secreto** , escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión**.
+   * En el campo **Token secreto**, escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión**.
 
    * Debería ver una notificación que le indica que el proceso se ha realizado correctamente en el lado superior derecho del portal.
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
-1. En la sección **Asignaciones de atributos** , revise los atributos de usuario y de grupo que se van a sincronizar desde Azure AD con Cerner Central. Los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de Cerner Central para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se van a sincronizar desde Azure AD con Cerner Central. Los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de Cerner Central para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Cerner Central, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Cerner Central en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Cerner Central.
 

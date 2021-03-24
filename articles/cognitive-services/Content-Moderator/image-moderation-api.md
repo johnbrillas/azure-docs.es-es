@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85801002"
 ---
 # <a name="learn-image-moderation-concepts"></a>Información sobre los conceptos de moderación de imágenes
@@ -45,7 +45,7 @@ La operación **Evaluate** (Evaluar) devuelve una puntuación de confianza entre
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detección de texto con reconocimiento óptico de caracteres (OCR)
 
-La operación**Optical Character Recognition (OCR)** (Reconocimiento óptico de caracteres) predice la presencia de contenido de texto en una imagen y lo extrae para moderarlo, entre otros usos. Puede especificar el idioma. Si no especifica un idioma, el valor predeterminado de la detección es inglés.
+La operación **Optical Character Recognition (OCR)** (Reconocimiento óptico de caracteres) predice la presencia de contenido de texto en una imagen y lo extrae para moderarlo, entre otros usos. Puede especificar el idioma. Si no especifica un idioma, el valor predeterminado de la detección es inglés.
 
 La respuesta incluye la siguiente información:
 - El texto original.

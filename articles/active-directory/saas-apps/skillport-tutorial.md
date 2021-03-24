@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integración de Azure Active Directory con Skillport
@@ -30,7 +30,7 @@ La integración de Skillport con Azure AD le proporciona las siguientes ventajas
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Skillport, necesita los siguientes elementos:
 
@@ -73,10 +73,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Skillport, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Skillport](#configure-skillport-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Skillport](#configure-skillport-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Skillport](#create-skillport-test-user)** : para tener un homólogo de Britta Simon en Skillport que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Skillport](#create-skillport-test-user)**: para tener un homólogo de Britta Simon en Skillport que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Skillport, realice l
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Skillport](common/sp-identifier-reply.png)
 
-    1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: 
+    1. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: 
 
         Centro de datos de UE: `https://adfs.skillport.eu`
 

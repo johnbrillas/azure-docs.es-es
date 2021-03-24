@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3c41b218ac0d347b2e58931421493755346b13d7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97591980"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutorial: Uso de las colas de Azure Queue Storage en .NET
@@ -192,7 +192,7 @@ Cree un nuevo método para enviar un mensaje a la cola.
 
    # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-   A este método se le pasa una referencia de cola. Se crea una cola, en caso de que no exista, mediante la llamada a [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Luego, agrega `newMessage` a la cola mediante una llamada a [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
+   A este método se le pasa una referencia de cola. Se crea una cola, en caso de que no exista, mediante una llamada a [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Luego, agrega `newMessage` a la cola mediante una llamada a [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 

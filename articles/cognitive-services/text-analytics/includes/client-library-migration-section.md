@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 2cfef9626983ed0fa120e11bbfebdc2a38d91096
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97506320"
 ---
 Para usar la versión más reciente de la biblioteca cliente Text Analytics v3, tendrá que descargar el paquete de software más reciente en el espacio de nombres `Azure.AI.TextAnalytics`. La sección **Instalación** en el [artículo de inicio rápido](../quickstarts/client-libraries-rest-api.md) muestra los comandos que puede usar para su lenguaje preferido, con código de ejemplo.

@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097862"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express
@@ -82,9 +82,9 @@ En este tutorial también se necesita:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Creación de aplicación mediante la plataforma Express
 
-1. En Visual Studio Code, en el panel **Explorer** , haga clic con el botón derecho en la carpeta **src** , haga clic en **Nueva carpeta** y asigne el nombre *server* a la nueva carpeta.
+1. En Visual Studio Code, en el panel **Explorer**, haga clic con el botón derecho en la carpeta **src**, haga clic en **Nueva carpeta** y asigne el nombre *server* a la nueva carpeta.
 
-2. En el panel **Explorer** , haga clic con el botón derecho en la carpeta **server** , haga clic en **Nuevo archivo** y asigne el nombre *index.js* al nuevo archivo.
+2. En el panel **Explorer**, haga clic con el botón derecho en la carpeta **server**, haga clic en **Nuevo archivo** y asigne el nombre *index.js* al nuevo archivo.
 
 3. En el símbolo del sistema, utilice el siguiente comando para instalar el analizador de cuerpo. Esto ayuda a la aplicación a analizar los datos JSON que se pasan a través de las API.
 
@@ -126,7 +126,7 @@ En este tutorial también se necesita:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. En Visual Studio Code, en el panel **Explorer** , haga clic con el botón derecho en la carpeta **server** y, a continuación, haga clic en **Nuevo archivo**. Asigne el nombre *routes.js* al archivo nuevo. 
+5. En Visual Studio Code, en el panel **Explorer**, haga clic con el botón derecho en la carpeta **server** y, a continuación, haga clic en **Nuevo archivo**. Asigne el nombre *routes.js* al archivo nuevo. 
 
 6. Copie el código siguiente en **routes.js**. Este código:
    * Hace referencia el enrutador de Express
