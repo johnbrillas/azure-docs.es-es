@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90931905"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Administración de Azure Database for MySQL: servidor flexible (versión preliminar) mediante Azure Portal
@@ -26,7 +26,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com). Vaya al recurso de s
 
 ## <a name="scale-compute-and-storage"></a>Escalado de proceso y almacenamiento
 
-Tras crear el servidor, puede escalar entre los distintos [planes de tarifa](https://azure.microsoft.com/pricing/details/mysql/) a medida que cambien las necesidades. También puede escalar o reducir verticalmente el proceso y la memoria mediante el aumento o la reducción de núcleos virtuales.
+Tras crear el servidor, puede escalar entre los distintos [planes de tarifa](https://azure.microsoft.com/pricing/details/mysql/) a medida que cambien las necesidades. También puede escalar el proceso y la memoria mediante el aumento o la reducción de núcleos virtuales.
 
 1. Seleccione el servidor en Azure Portal. Seleccione **Proceso y almacenamiento** en la sección **Configuración**.
 
@@ -50,7 +50,7 @@ La contraseña del rol de administrador se puede cambiar en Azure Portal.
 2. Escriba la contraseña nueva y confírmela. El cuadro de texto le pedirá los requisitos de complejidad de la contraseña.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Escalado del almacenamiento del servidor flexible":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Restablecimiento de la contraseña del servidor flexible":::
 
 3. Seleccione **Guardar** para guardar la contraseña nueva.
 
@@ -63,7 +63,7 @@ Puede eliminar el servidor cuando ya no lo necesite.
 2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que lo quiere eliminar.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Escalado del almacenamiento del servidor flexible":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Eliminación del servidor flexible":::
 
    > [!NOTE]
    > La eliminación de un servidor es irreversible.

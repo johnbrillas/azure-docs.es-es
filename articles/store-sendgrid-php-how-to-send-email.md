@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023795"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Uso del servicio de correo electrónico SendGrid desde PHP
@@ -37,7 +37,7 @@ SendGrid es un [servicio de correo electrónico basado en la nube] que ofrece un
 * Reenvío de consultas de los clientes
 * Envío de notificaciones de correo electrónico desde su aplicación
 
-Para más información, vea [https://sendgrid.com][https://sendgrid.com].
+Para más información, consulte [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Creación de una cuenta de SendGrid
 
@@ -53,7 +53,7 @@ Puede enviar correo electrónico usando SMTP o la API web que proporciona SendGr
 
 ### <a name="smtp-api"></a>API SMTP
 
-Para enviar correo electrónico mediante la API SMTP de SendGrid, use *Swift Mailer*, una biblioteca basada en componentes para el envío de correo electrónico desde aplicaciones PHP. Puede descargar la biblioteca de [Swift Mailer](https://swiftmailer.symfony.com/) v5.3.0 (use [Compositor] para instalar Swift Mailer). El envío de correo electrónico con la biblioteca implica crear instancias de las clases `Swift\_SmtpTransport`, `Swift\_Mailer` y `Swift\_Message`, establecer las propiedades correspondientes y llamar al método `Swift\_Mailer::send`.
+Para enviar correo electrónico mediante la API SMTP de SendGrid, use *Swift Mailer*, una biblioteca basada en componentes para el envío de correo electrónico desde aplicaciones PHP. Puede descargar la biblioteca de [Swift Mailer](https://swiftmailer.symfony.com/) v5.3.0 (use [Composer] para instalar Swift Mailer). El envío de correo electrónico con la biblioteca implica crear instancias de las clases `Swift\_SmtpTransport`, `Swift\_Mailer` y `Swift\_Message`, establecer las propiedades correspondientes y llamar al método `Swift\_Mailer::send`.
 
 ```php
 <?php

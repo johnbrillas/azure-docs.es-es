@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: fe33730fc11bfc18b7d67471e1077fb9490385d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541953"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante PowerShell
@@ -43,7 +43,7 @@ Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 > [!IMPORTANT]
-> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 

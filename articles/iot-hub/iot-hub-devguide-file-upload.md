@@ -13,15 +13,15 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90019536"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
-Tal como se detalla en el artículo [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md), un dispositivo puede iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo ( **/devices/{deviceId}/files**). Cuando un dispositivo notifica a IoT Hub que se ha completado una carga, este envía un mensaje de notificación de carga a través del punto de conexión accesible desde el servicio ( **/messages/servicebound/filenotifications**).
+Tal como se detalla en el artículo [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md), un dispositivo puede iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo (**/devices/{deviceId}/files**). Cuando un dispositivo notifica a IoT Hub que se ha completado una carga, este envía un mensaje de notificación de carga a través del punto de conexión accesible desde el servicio (**/messages/servicebound/filenotifications**).
 
 En lugar de servir de intermediario de los mensajes, IoT Hub actúa como distribuidor a una cuenta de Azure Storage asociada. Un dispositivo solicita un token de almacenamiento de IoT Hub que es específico del archivo que el dispositivo quiere cargar. El dispositivo usa el URI de SAS para cargar el archivo en el almacenamiento y, cuando la carga ha finalizado, envía una notificación de finalización a IoT Hub. IoT Hub comprueba que la carga del archivo está completa y agrega después un mensaje de notificación de carga de archivo al nuevo punto de conexión de notificaciones de archivos accesible desde el servicio.
 
@@ -101,7 +101,7 @@ Los siguientes temas de referencia proporcionan más información sobre la carga
 
 Opcionalmente, cuando un dispositivo notifica a IoT Hub que la carga está completa, IoT Hub genera un mensaje de notificación. Este mensaje contiene el nombre y ubicación de almacenamiento del archivo.
 
-Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio ( **/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
+Como se ha explicado en [Puntos de conexión](iot-hub-devguide-endpoints.md), IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -156,7 +156,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 
 Ahora que ha aprendido a cargar los archivos desde dispositivos con IoT Hub, pueden interesarle los siguientes temas de la guía del desarrollador de IoT Hub:
 
-* [Administración de identidades del dispositivo en IoT Hub](iot-hub-devguide-identity-registry.md)
+* [Administrar identidades del dispositivo en IoT Hub](iot-hub-devguide-identity-registry.md)
 
 * [Control del acceso a IoT Hub](iot-hub-devguide-security.md)
 

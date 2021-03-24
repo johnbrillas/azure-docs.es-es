@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487124"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600809"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultas de Azure Cognitive Search
 
@@ -71,7 +71,7 @@ En Cognitive Search, la búsqueda de texto completo se basa en el motor de consu
 
 Cuando se encuentran términos coincidentes, el motor de consultas reconstituye un documento de búsqueda que contiene la coincidencia mediante la clave o el identificador del documento para ensamblar valores de campo, clasifica los documentos en orden de relevancia y devuelve los 50 resultados principales (de forma predeterminada) en la respuesta, o un número diferente si especificó **`top`** .
 
-Si va a implementar una búsqueda de texto completo, comprender cómo se tokeniza el contenido le ayudará a depurar las anomalías de consulta. Las consultas a través de cadenas con guiones o caracteres especiales podrían requerir el uso de un analizador que no sea el estándar predeterminado de Lucene para asegurarse de que el índice contiene los tokens correctos. Puede invalidar el valor predeterminado con [analizadores de idiomas](index-add-language-analyzers.md#language-analyzer-list) o [especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis léxico. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. Para más información, consulte [Búsqueda de términos parciales y patrones con caracteres especiales](search-query-partial-matching.md).
+Si va a implementar una búsqueda de texto completo, comprender cómo se tokeniza el contenido le ayudará a depurar las anomalías de consulta. Las consultas a través de cadenas con guiones o caracteres especiales podrían requerir el uso de un analizador que no sea el estándar predeterminado de Lucene para asegurarse de que el índice contiene los tokens correctos. Puede invalidar el valor predeterminado con [analizadores de idiomas](index-add-language-analyzers.md#language-analyzer-list) o [especializados](index-add-custom-analyzers.md#built-in-analyzers) que modifiquen el análisis léxico. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. Para más información, consulte [Búsqueda de términos parciales y patrones con caracteres especiales](search-query-partial-matching.md).
 
 Si prevé un uso intensivo de los operadores booleanos, lo cual es más probable en los índices que contienen bloques de texto de gran tamaño (un campo de contenido o descripciones largas), asegúrese de probar las consultas con el parámetro **`searchMode=Any|All`** para evaluar el impacto de esa configuración en la búsqueda booleana.
 

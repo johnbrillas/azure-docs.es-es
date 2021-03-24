@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944864"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867872"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -18,7 +18,7 @@ ms.locfileid: "98944864"
 
 Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vista de Hive permite crear, optimizar y ejecutar consultas de Hive directamente desde el explorador web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,11 +30,11 @@ Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux
 
 1. En la lista de vistas, seleccione __Vista de Hive__.
 
-    ![Apache Ambari: seleccionar Vista de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari: seleccionar Vista de Apache Hive" border="true":::
 
     La página de la vista de Hive es similar a la siguiente imagen:
 
-    ![Imagen de la hoja de cálculo de consulta de la vista de Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Imagen de la hoja de cálculo de consulta de la vista de Hive" border="true":::
 
 1. En la pestaña __Consulta__, pegue las instrucciones HiveQL siguientes en la hoja de cálculo:
 
@@ -99,19 +99,19 @@ Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez UI** qu
 
 La pestaña __Trabajos__ muestra un historial de las consultas de Hive.
 
-![Apache Hive: historial de la pestaña Ver trabajos](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Apache Hive: historial de la pestaña Ver trabajos" border="true":::
 
 ## <a name="database-tables"></a>Tablas de la base de datos
 
 Puede usar la pestaña __Tablas__ para trabajar con tablas dentro de una base de datos de Hive.
 
-![Imagen de la pestaña Tablas de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Imagen de la pestaña Tablas de Apache Hive" border="true":::
 
 ## <a name="saved-queries"></a>Consultas guardadas
 
 Si lo desea, puede guardar consultas en la pestaña **Consulta**. Si guarda una consulta, podrá volver a usarla en la pestaña __Consultas guardadas__.
 
-![Pestaña Ver consultas guardadas de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Pestaña Ver consultas guardadas de Apache Hive" border="true":::
 
 > [!TIP]  
 > Las consultas guardadas se almacenan en el almacenamiento predeterminado del clúster. Puede encontrar las consultas guardadas en la ruta de acceso `/user/<username>/hive/scripts`. Se almacenan como archivos de texto sin formato `.hql`.
@@ -124,7 +124,7 @@ Puede ampliar la funcionalidad de Hive con funciones definidas por el usuario (U
 
 Si desea declarar y guardar un conjunto de UDF, utilice la pestaña **UDF** situada en la parte superior de la vista de Hive. Estas UDF se pueden usar con el **Editor de consultas**.
 
-![Pantalla de la pestaña Ver UDF de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Pantalla de la pestaña Ver UDF de Apache Hive" border="true":::
 
 Aparecerá el botón **Insertar UDF** en la parte inferior del **Editor de consultas**. Esta entrada muestra una lista desplegable de las UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
 

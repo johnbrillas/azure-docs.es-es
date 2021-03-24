@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/10/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 55427f2a9b889c247708d130f651738c50f6bf5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 1b98948100c06868cd14f636f2049ca515fec18d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496452"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "94564817"
 ---
 # <a name="commercial-marketplace-analytics-common-questions"></a>Preguntas comunes sobre análisis de Marketplace comercial
 

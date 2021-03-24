@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515273"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
@@ -131,7 +131,7 @@ Cuando se quitan ambos cables SAS o se interrumpe la conexión entre el gabinete
 10. Revise que las luces LED del canal SAS (cuatro por cada controlador EBOD) estén todas encendidas para comprobar que la conexión del gabinete EBOD con el gabinete principal es correcta.
 
 > [!IMPORTANT]
-> Si los cables SAS son defectuosos o la conexión entre el gabinete EBOD y el gabinete principal no es buena, cuando encienda el sistema, entrará en el modo de recuperación. Si esto sucede, [póngase en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) .
+> Si los cables SAS son defectuosos o la conexión entre el gabinete EBOD y el gabinete principal no es buena, cuando encienda el sistema, entrará en el modo de recuperación. Por favor, [póngase en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) si ocurre esto.
 
 
 ## <a name="turn-off-a-running-device"></a>Apagar un dispositivo activo
@@ -146,7 +146,7 @@ Para apagar el dispositivo de manera ordenada y controlada, use Azure Portal o W
 > [!IMPORTANT]
 > No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
 > 
-> Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En Azure Portal, vaya a **Dispositivos** > **Supervisar** > **Mantenimiento de hardware** y compruebe que todos los componentes tengan el estado verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
+> Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En Azure Portal, vaya a **Dispositivos** > **Supervisar** > **Mantenimiento de hardware** y compruebe que todos los componentes tengan el estado verde. Esto solo sucede si el sistema funciona correctamente. Si el sistema se apaga para sustituir un componente en mal estado, verá un estado de error (rojo) o de degradado (amarillo) para el componente correspondiente en el **Estado de hardware**.
 > 
 > 
 

@@ -3,15 +3,16 @@ title: Implementación de IBM DB2 pureScale en Azure
 description: Obtenga información sobre cómo implementar un ejemplo de arquitectura utilizado recientemente para migrar una empresa de su entorno de IBM DB2 con z/OS a IBM DB2 pureScale en Azure.
 author: njray
 ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 481816ca0c1fecfee9396f6cc40582695b0952f2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 33ff6174d7e5107076dda177731c9daec7e57266
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102550202"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956152"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implementación de IBM DB2 pureScale en Azure
 
@@ -19,7 +20,7 @@ En este artículo, se muestra cómo implementar un [ejemplo de arquitectura](ibm
 
 Para seguir los pasos que se usan para la migración, vea los scripts de instalación en el repositorio [DB2onAzure](https://aka.ms/db2onazure) de GitHub. Estos scripts están basados en la arquitectura usada para una carga de trabajo de procesamiento de transacciones en línea (OLTP) de tamaño mediano.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Para implementar esta arquitectura, descargue y ejecute el script deploy.sh que puede encontrar en el repositorio [DB2onAzure](https://aka.ms/db2onazure) de GitHub.
 
@@ -71,7 +72,7 @@ El repositorio de GitHub incluye DB2server.rsp, un archivo de respuesta (.rsp) q
 > [!NOTE]
 > Se incluye un archivo de respuesta de ejemplo, DB2server.rsp, en el repositorio de GitHub [DB2onAzure](https://aka.ms/db2onazure). Si usa este archivo, debe editarlo para que funcione en su entorno.
 
-| Nombre de pantalla               | Campo                                        | Valor                                                                                                 |
+| Nombre de pantalla               | Campo                                        | Value                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Pantalla de inicio                   |                                              | Nueva instalación                                                                                           |
 | Elija un producto          |                                              | DB2 versión 11.1.3.3. Ediciones de servidor con DB2 pureScale                                              |

@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442419"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
@@ -39,11 +39,11 @@ Cree una cuenta de Cosmos. Si ya tiene una cuenta que desea usar, puede ir direc
 
 ### <a name="create-a-database"></a>Crear una base de datos 
 En esta aplicación se tratarán dos maneras de crear colecciones en Azure Cosmos DB: 
-- **Almacenar cada modelo de objetos en una colección independiente** : Se recomienda [crear una base de datos con rendimiento dedicado](set-throughput.md#set-throughput-on-a-database). El uso de este modelo de capacidad le proporcionará una mayor rentabilidad.
+- **Almacenar cada modelo de objetos en una colección independiente**: Se recomienda [crear una base de datos con rendimiento dedicado](set-throughput.md#set-throughput-on-a-database). El uso de este modelo de capacidad le proporcionará una mayor rentabilidad.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal en la que se muestra cómo crear una base de datos en el Explorador de datos de una cuenta de Azure Cosmos DB, para usarla con el módulo de nodo de Mongoose":::
 
-- **Almacenar todos los modelos de objetos en una sola colección de Cosmos DB** : Si prefiere almacenar todos los modelos en una sola colección, solo tiene que crear una base de datos sin seleccionar la opción Aprovisionar rendimiento. El uso de este modelo de capacidad creará una colección con su propia capacidad de rendimiento para cada modelo de objetos.
+- **Almacenar todos los modelos de objetos en una sola colección de Cosmos DB**: Si prefiere almacenar todos los modelos en una sola colección, solo tiene que crear una base de datos sin seleccionar la opción Aprovisionar rendimiento. El uso de este modelo de capacidad creará una colección con su propia capacidad de rendimiento para cada modelo de objetos.
 
 Después de crear la base de datos, deberá usar el nombre en la variable de entorno `COSMOSDB_DBNAME` a continuación.
 

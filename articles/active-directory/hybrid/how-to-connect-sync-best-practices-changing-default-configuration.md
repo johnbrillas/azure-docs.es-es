@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect: Cambio de la configuración predeterminada | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: cambio de la configuración predeterminada | Microsoft Docs'
 description: Proporciona procedimientos recomendados para cambiar la configuración predeterminada de Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70e91ff8fa3666a2dfc5aaad07be7927852b08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85357705"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronización de Azure AD Connect: Procedimientos recomendados de cambio de la configuración predeterminada
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
 El propósito de este tema es describir los cambios admitidos y no admitidos en la sincronización de Azure AD Connect.
 
 La configuración creada por Azure AD Connect funciona "tal cual" para la mayoría de entornos que sincronizan Active Directory local con Azure AD. Sin embargo, en algunos casos, es necesario aplicar algunos cambios a una configuración para satisfacer un requisito o una necesidad en particular.
@@ -63,7 +63,7 @@ En la imagen anterior, el Asistente para la instalación ha encontrado un esquem
 ### <a name="change-an-out-of-box-rule"></a>cambiar una regla lista para usar
 La única vez que se debe cambiar una regla integrada es cuando tiene que cambiar la regla de unión. Si tiene que cambiar un flujo de atributo, debe crear una regla de sincronización con mayor prioridad que las reglas integradas. La única regla que necesita desde un punto de vista práctico es la regla **In from AD - User Join**. Puede invalidar el resto de reglas con una regla de prioridad superior.
 
-Si tiene que realizar cambios en una regla lista para usar, debe realizar una copia de esta y deshabilitar la regla original. A continuación, realice los cambios en la regla clonada. El Editor de reglas de sincronización le ayuda con esos pasos. Cuando se abre una regla lista para usar, se presenta este cuadro de diálogo:  
+Si tiene que realizar cambios en una regla lista para usar, debe realizar una copia de esta y deshabilitar la regla original. A continuación, realice los cambios en la regla clonada. El Editor de reglas de sincronización le ayuda con esos pasos. Cuando se abre una regla lista para usar, se presenta este cuadro de diálogo:   
 ![Regla lista para usar de advertencia](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 Seleccione **Sí** para crear una copia de la regla. A continuación, se abre la regla clonada.  

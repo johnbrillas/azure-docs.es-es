@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439534"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600503"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Evitar errores de configuración con las recomendaciones Aplicar o Denegar
 
@@ -68,6 +68,7 @@ Estas recomendaciones se pueden usar con la opción **Aplicar**:
 - La auditoría de SQL Server debe estar habilitada
 - Azure Backup debería habilitarse en las máquinas virtuales
 - Azure Defender para SQL debe estar habilitada en los servidores de SQL
+- El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres
 - Se deben habilitar los registros de diagnóstico en Azure Stream Analytics
 - Se deben habilitar los registros de diagnóstico en las cuentas de Batch
 - Los registros de diagnóstico de Data Lake Analytics deben estar habilitados

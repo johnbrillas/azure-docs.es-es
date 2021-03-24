@@ -8,17 +8,17 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 8b500a87613dee094c63e71fc76fb751d72aa049
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491161"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Guía de publicación de ofertas de Microsoft 365, Dynamics 365, Power Apps y Power BI
 
 Microsoft AppSource incluye ofertas que se basan en Microsoft 365, Dynamics 365, Power BI y Power Apps o los amplían. Cada uno de estos productos tiene documentación específica para orientarlo durante el proceso de publicación. 
 
-AppSource tiene ofertas de pago, lista y prueba, con las opciones de lista *Obtener ahora* , *Ponerse en contacto conmigo* o *Probar ahora*.
+AppSource tiene ofertas de pago, lista y prueba, con las opciones de lista *Obtener ahora*, *Ponerse en contacto conmigo* o *Probar ahora*.
 
 ## <a name="product-specific-guides"></a>Guías específicas del producto
 

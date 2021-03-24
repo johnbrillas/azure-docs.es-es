@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724258"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600724"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ Para administrar correctamente esas aplicaciones, debe supervisarlas de forma pr
   * [El problema se presenta al usar el emulador de almacenamiento para realizar tareas de desarrollo o pruebas]
   * [Se producen problemas al instalar el SDK de Azure para .NET]
   * [Tiene otro problema distinto relacionado con un servicio de almacenamiento]
-  * [Solución de problemas de discos duros virtuales con máquinas virtuales Windows](../../virtual-machines/troubleshooting/index.yml)   
-  * [Solución de problemas de discos duros virtuales con máquinas virtuales Linux](../../virtual-machines/troubleshooting/index.yml)
+  * [Solución de problemas de discos duros virtuales con máquinas virtuales Windows](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Solución de problemas de discos duros virtuales con máquinas virtuales Linux](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Solución de problemas de Azure Files con Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Solución de problemas de Azure Files con Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Apéndices]

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
 ms.openlocfilehash: 5723e8d9fc7b0a72393dda1b225ca073a6474a0a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534320"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instalación de Update 0.5 en StorSimple Virtual Array
@@ -92,7 +92,7 @@ Utilice este método para instalar actualizaciones en un dispositivo que ejecute
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento** > **Actualización de software**.
    
-    ![Captura de pantalla que muestra Actualización de software seleccionada en el menú Mantenimiento.](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Captura de pantalla que muestra Actualización de software seleccionado en el menú Mantenimiento.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. En **Update file path**(Ruta de acceso del archivo de actualización), escriba el nombre del archivo de actualización o de revisión. Asimismo, también puede acceder al archivo de instalación de la actualización o de la revisión si está en un recurso compartido de red. Haga clic en **Aplicar**.
    

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
 ms.openlocfilehash: 7efd8baf54aeacbd2f55640240a15f2517dcd904
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046931"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor.
@@ -47,7 +47,7 @@ Mientras se recopilan las métricas y los registros de actividad para la máquin
 
 6. Verá que están incorporadas la máquina virtual con otras máquinas virtuales de la suscripción. Seleccione la pestaña **Sin supervisión** si desea ver las máquinas virtuales de la suscripción que no están incorporadas.
 
-    ![Introducción](media/quick-monitor-azure-vm/get-started.png)
+    ![Primeros pasos](media/quick-monitor-azure-vm/get-started.png)
 
 
 ## <a name="configure-workspace"></a>Configuración del área de trabajo

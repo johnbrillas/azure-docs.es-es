@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84700049"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Habilitación de Azure Peering Service en un emparejamiento directo mediante Azure Portal
@@ -23,7 +23,7 @@ Si lo prefiere, puede completar esta guía mediante [PowerShell](howto-peering-s
 
 ## <a name="before-you-begin"></a>Antes de empezar
 * Revise los [requisitos previos](prerequisites.md) antes de comenzar la configuración.
-* Elija un emparejamiento directo en la suscripción en la que quiera habilitar Peering Service. Si no tiene una, convierta un emparejamiento directo heredado o cree uno.
+* Elija un emparejamiento directo en la suscripción en la que quiera habilitar Peering Service. Si no tiene ninguna, convierta un emparejamiento directo heredado o cree uno:
     * Para convertir un emparejamiento directo heredado, siga las instrucciones que se indican en [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante el portal](howto-legacy-direct-portal.md).
     * Para crear un emparejamiento directo, siga las instrucciones que se indican en [Creación o modificación de un emparejamiento directo mediante el portal](howto-direct-portal.md).
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023898"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
@@ -92,7 +92,7 @@ Utilice los procedimientos siguientes para agregar las credenciales de la cuenta
    
     3. En el cuadro de texto **Clave de acceso de la cuenta de almacenamiento**, proporcione la clave de acceso principal para la credencial de la cuenta de Azure Storage. Para obtener esta clave, vaya al servicio Azure Storage, seleccione la credencial de la cuenta de almacenamiento y haga clic en **Administrar claves de cuenta**. Ahora puede copiar la clave de acceso principal.
    
-    4. Para habilitar TLS, haga clic en el botón **Habilitar** para crear un canal seguro para la comunicación de red entre el administrador de dispositivos de StorSimple y la nube. Haga clic en el botón **Deshabilitar** solo si está trabajando en una nube privada.
+    4. Para habilitar TLS, haga clic en el botón **Habilitar** para crear un canal seguro para la comunicación de red entre StorSimple Device Manager y la nube. Haga clic en el botón **Deshabilitar** solo si está trabajando en una nube privada.
    
     5. Haga clic en **Agregar**. Recibirá una notificación cuando la credencial de la cuenta de almacenamiento se haya creado correctamente.
 

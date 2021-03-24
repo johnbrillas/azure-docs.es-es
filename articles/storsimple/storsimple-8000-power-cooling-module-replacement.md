@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514592"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
@@ -55,7 +55,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
    * Si una fuente de alimentación en PCM 0 está defectuosa, el estado de **Fuente de alimentación en PCM 0** será rojo.
    * Si una fuente de alimentación en PCM 1 está defectuosa, el estado de **Fuente de alimentación en PCM 1** será rojo.
    * Si ha fallado el ventilador de PCM 1, el estado de **Refrigeración 0 para PCM 0** o **Refrigeración 1 para PCM 0** será rojo.
-2. Busque el PCM defectuoso en la parte posterior del gabinete principal. Si está ejecutando un modelo 8600, identifique el gabinete principal examinando el número de identificación de unidad de sistema que se muestra en el pantalla LED del panel frontal. El identificador de unidad predeterminado que se muestra en el gabinete principal es **00**, mientras que el de la unidad predeterminada en el receptáculo EBOD es **01**. El diagrama y la tabla siguiente explican el panel frontal de la pantalla LED.
+2. Busque el PCM defectuoso en la parte posterior del gabinete principal. Si está ejecutando un modelo 8600, identifique el gabinete principal examinando el número de identificación de unidad de sistema que se muestra en el pantalla LED del panel frontal. El identificador de unidad predeterminado que se muestra en el alojamiento principal es **00**, mientras que el identificador de unidad predeterminado del alojamiento de EBOD es **01**. El diagrama y la tabla siguiente explican el panel frontal de la pantalla LED.
    
     ![Identificador del sistema en el panel frontal OPS](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
@@ -68,7 +68,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
    | 3 |Error de módulo |
    | 4 |Error lógico |
    | 5 |Pantalla de identificación de la unidad |
-3. Los LED indicadores de supervisión en la parte posterior del gabinete principal también pueden utilizarse para identificar el PCM defectuoso. Vea la siguiente tabla y diagrama para aprender a usar los LED para localizar el PCM defectuoso. Por ejemplo, si el LED correspondiente a **Error del ventilador** está encendido, el ventilador ha producido un error. Del mismo modo, si el LED correspondiente a **Error de CA** está encendido, el sistema de alimentación ha producido un error. 
+3. Los LED indicadores de supervisión en la parte posterior del gabinete principal también pueden utilizarse para identificar el PCM defectuoso. Vea la siguiente tabla y diagrama para aprender a usar los LED para localizar el PCM defectuoso. Por ejemplo, si el LED correspondiente a **Error de ventilador** está encendido, se ha producido un error en el ventilador. Asimismo, si el LED correspondiente a **Error de CA** está encendido, se ha producido un error en la fuente de alimentación. 
    
     ![Backplane de LED indicadores de supervisión del PCM del dispositivo](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    

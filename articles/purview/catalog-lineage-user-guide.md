@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 8b08a60d484aa3d52600b8aef2f53d6ca8a04f9b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202916"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952174"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guía del usuario del linaje de Azure Purview Data Catalog
 
@@ -50,7 +50,7 @@ Sistemas de datos como Azure ML y Power BI informan del linaje en Azure Purvie
 
 ## <a name="get-started-with-lineage"></a>Introducción al linaje
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
 El linaje en Purview incluye conjuntos de datos y procesos. Los conjuntos de datos se conocen como nodos, mientras que los procesos también se pueden llamar bordes:
 

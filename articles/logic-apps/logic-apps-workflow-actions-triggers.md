@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784315"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
@@ -1696,7 +1696,7 @@ Esta definición de acción crea una tabla HTML a partir de la variable "myItemA
 
 Esta es la tabla HTML que esta acción crea: 
 
-<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
 *Ejemplo 3*
 
@@ -2665,7 +2665,7 @@ De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure L
 
   1. En la barra de título de la acción HTTP, seleccione el botón de puntos suspensivos ( **...** ), que abre la configuración de la acción.
 
-  1. Busque la configuración **Modelo asincrónico**.
+  1. Busque la opción de configuración **Modelo asincrónico**.
 
      ![Configuración "Modelo asincrónico"](./media/logic-apps-workflow-actions-triggers/asynchronous-pattern-setting.png)
 

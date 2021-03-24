@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: allensu
 ms.openlocfilehash: d394a475c5121607f70c03437382e104a5d0cbee
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746414"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servicio Private Link mediante Azure Portal
@@ -217,12 +217,12 @@ En esta sección, va a crear un servicio Private Link detrás de un equilibrador
 
 12. En la pestaña **Revisar y crear**, seleccione **Crear**.
 
-Se crea el servicio Private Link, que puede recibir tráfico. Si desea ver los flujos de tráfico, configure la aplicación detrás de la instancia de Standard Load Balancer.
+Se crea el servicio Private Link, que puede recibir tráfico. Si desea ver los flujos de tráfico, configure la aplicación detrás de la instancia local de Standard Load Balancer.
 
 
 ## <a name="create-private-endpoint"></a>Creación de un punto de conexión privado
 
-En esta sección, asignará el servicio Private Link a un punto de conexión privado. Una red virtual contiene el punto de conexión privado para el servicio Private Link. Esta red virtual contiene los recursos que accederán al servicio Private Link.
+En esta sección, asignará el servicio de vínculo privado a un punto de conexión privado. Una red virtual contiene el punto de conexión privado para el servicio de vínculo privado. Esta red virtual contiene los recursos que accederán al servicio de vínculo privado.
 
 ### <a name="create-private-endpoint-virtual-network"></a>Creación de una red virtual de punto de conexión privado
 

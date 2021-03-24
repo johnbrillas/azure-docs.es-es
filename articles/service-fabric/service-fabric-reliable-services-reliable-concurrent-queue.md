@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue es una cola de alto rendimiento que permite
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: d6852982621d3efd3f4a8597a2959fceb13abd12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784298"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
@@ -29,7 +29,7 @@ La cola simultánea confiable proporciona un rendimiento mayor y menor latencia 
 
 Un ejemplo de caso de uso de ReliableConcurrentQueue es el escenario de la [cola de mensajes](https://en.wikipedia.org/wiki/Message_queue). En este escenario, uno o más productores de mensajes crean elementos y los agregan a la cola, y uno o más consumidores de mensajes extraen mensajes de la cola y los procesan. Varios productores y consumidores pueden trabajar de manera independiente usando transacciones simultáneas para procesar la cola.
 
-## <a name="usage-guidelines"></a>Directrices de uso
+## <a name="usage-guidelines"></a>Instrucciones de uso
 * La cola espera que los elementos de la cola tengan un período de retención baja. Es decir, los elementos no permanecen en la cola durante mucho tiempo.
 * La cola no garantiza la ordenación FIFO estricta.
 * La cola no lee sus propias escrituras. Si un elemento se pone en cola dentro de una transacción, no será visible para un operador de eliminación de la cola dentro de la misma transacción.

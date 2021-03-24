@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895060"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configuración de vCenter en la nube privada para VMware vRealize Automation
@@ -49,7 +49,7 @@ Complete estas tareas antes de configurar el servidor vCenter Server:
     1. Vaya a https://*url-vra*:5480/installer, donde *url-vra* es la dirección URL que usa para acceder a la interfaz de usuario de administración de vRealize Automation.
     2. Haga clic en **IaaS Installer** (Instalador de IaaS) para descargar el instalador.<br>
     La convención de nomenclatura del archivo del instalador es setup_ *url-vra*@5480.exe.
-    3. Ejecute al programa de instalación. En la pantalla de bienvenida, haga clic en **Next** (Siguiente).
+    3. Ejecute al programa de instalación. En la pantalla de bienvenida, haga clic en **Siguiente**.
     4. Acepte el contrato de licencia de usuario final y haga clic en **Next** (Siguiente).
     5. Proporcione la información de inicio de sesión, haga clic en **Accept Certificate** (Aceptar certificado) y, después, haga clic en **Next** (Siguiente).
     ![Credenciales de vRA](media/configure-vra-endpoint-login.png)

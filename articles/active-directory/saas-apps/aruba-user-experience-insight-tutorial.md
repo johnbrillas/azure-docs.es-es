@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 144e121b140e47ebda62530354943d5d27cce094
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735418"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aruba-user-experience-insight"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Aruba User Experience Insight
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Aruba User Experience Insight con Azure A
 * Permitir que los usuarios inicien sesión automáticamente en Aruba User Experience Insight con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

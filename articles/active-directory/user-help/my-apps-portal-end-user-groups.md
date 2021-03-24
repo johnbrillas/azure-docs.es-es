@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100095051"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Actualización de la información de los grupos en el portal Mis aplicaciones
@@ -28,9 +28,9 @@ Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basa
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).
 >
-> Si observa un error al iniciar sesión con una cuenta Microsoft personal, puede acudir a su administrador para iniciar sesión con el nombre de dominio (por ejemplo, contoso.com) o el **identificador de inquilino** de la organización en una de las siguientes direcciones URL:
+> Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
 >
->   - https://myapplications.microsoft.com?tenantId=*su_nombre_de_dominio*
+>   - https://myapplications.microsoft.com?tenantId=*nombre_de_dominio*
 >   - https://myapplications.microsoft.com?tenant=*su_identificador_de_inquilino*
 
 ## <a name="view-your-groups-information"></a>Visualización de la información de los grupos
@@ -47,7 +47,7 @@ Si el administrador le ha dado permiso para ver el icono **Grupos**, puede:
 
 2. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com. Aunque inicie sesión con una cuenta Microsoft personal, puede acudir a su administrador para iniciar sesión con el nombre de dominio (por ejemplo, contoso.com) o el **identificador de inquilino** de la organización en una de las siguientes direcciones URL:
 
-   - https://myapplications.microsoft.com?tenantId=*su_nombre_de_dominio*
+   - https://myapplications.microsoft.com?tenantId=*nombre_de_dominio*
    - https://myapplications.microsoft.com?tenant=*su_identificador_de_inquilino*
 
 

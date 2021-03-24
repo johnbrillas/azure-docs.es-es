@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945822"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872207"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
@@ -32,19 +32,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En el menú superior, seleccione **+ Crear un recurso**.
 
-    ![Creación de un clúster en Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Creación de un clúster en Azure Portal")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Creación de un clúster en Azure Portal":::
 
 1. Seleccione **Analytics** > **Azure HDInsight** para ir a la página **Crear clúster de HDInsight**.
 
 ## <a name="basics"></a>Aspectos básicos
 
-![Conceptos básicos de creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Creación de un clúster en Azure Portal")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="Conceptos básicos de creación de clústeres de HDInsight":::
 
 En la pestaña **Básico**, especifique la siguiente información:
 
 |Propiedad |Descripción |
 |---|---|
-|Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+|Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
 |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
 |Nombre del clúster|Escriba un nombre único global.|
 |Region|En la lista desplegable, seleccione una región donde crear el clúster.|
@@ -63,7 +63,7 @@ Seleccione **Siguiente: Almacenamiento>>** para avanzar a la pestaña siguiente.
 > [!WARNING] 
 > A partir del 15 de junio de 2020 los clientes no podrán crear una nueva entidad de servicio mediante HDInsight. Consulte [Creación de una entidad de servicio y certificados](../active-directory/develop/howto-create-service-principal-portal.md) mediante Azure Active Directory.
 
-![Almacenamiento en creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creación de un clúster en Azure Portal: almacenamiento")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="Almacenamiento en creación de clústeres de HDInsight":::
 
 ### <a name="primary-storage"></a>Almacenamiento principal
 
@@ -90,7 +90,7 @@ Seleccione **Siguiente: Seguridad y redes >>** para avanzar a la pestaña siguie
 
 ## <a name="security--networking"></a>Seguridad y redes
 
-![Creación de clúster de HDInsight en seguridad y redes](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "Creación de clúster de HDInsight en seguridad y redes")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="Creación de clúster de HDInsight en seguridad y redes":::
 
 En la pestaña **Seguridad y redes**, especifique la información siguiente:
 
@@ -107,7 +107,7 @@ Seleccione **Siguiente: Configuración y precios >>** para avanzar a la pestaña
 
 ## <a name="configuration--pricing"></a>Configuración y precios
 
-![Creación de un clúster de HDInsight en configuración](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png "Pestaña Configuración y precios")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="Creación de un clúster de HDInsight en configuración":::
 
 En la pestaña **Configuración y precios**, especifique la información siguiente:
 
@@ -123,7 +123,7 @@ Seleccione **Revisar y crear >>** para validar la configuración del clúster y 
 
 ## <a name="review--create"></a>Revisar y crear
 
-![Resumen de creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Especificación del número de nodos del clúster")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="Resumen de creación de clústeres de HDInsight":::
 
 Revise la configuración. Seleccione **Crear** para crear el clúster.
 
@@ -133,7 +133,7 @@ El clúster tarda algo de tiempo en crearse, normalmente unos 20 minutos. Superv
 
 Una vez completado el proceso de creación, seleccione **Ir al recurso** en la notificación **Implementación correcta**. La ventana del clúster ofrece la siguiente información.
 
-![Información general de HDI en Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propiedades de clúster")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="Información general de HDI en Azure Portal":::
 
 Algunos de los iconos de la ventana se explican de la siguiente manera:
 

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2215bd9a60fdcf76077c3a1f2a91631dc0dbe88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895829"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilegios de nube privada en vCenter desde el portal de CloudSimple
@@ -88,5 +88,5 @@ Después de completas las tareas administrativas, debe anular el escalado de pri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Set up vCenter identity sources to use Active Directory](./set-vcenter-identity.md) (Configurar orígenes de identidad de vCenter para usar Active Directory)
+* [Configuración de orígenes de identidad de vCenter para usar Active Directory](./set-vcenter-identity.md)
 * Instalar la solución de copia de seguridad para [copia de seguridad de máquinas virtuales de cargas de trabajo](./backup-workloads-veeam.md)

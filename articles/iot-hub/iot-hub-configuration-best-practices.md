@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96024136"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
@@ -20,9 +20,9 @@ La administración automática de dispositivos en Azure IoT Hub automatiza mucha
 
 * **Integrador o fabricante de hardware de IoT**: fabricantes de hardware de IoT, integradores que ensamblan hardware de diversos fabricantes o proveedores que proporcionan hardware para una implementación de IoT que fabrican o integran otros proveedores. Intervienen en el desarrollo y la integración de firmware, sistemas operativos integrados y software integrado.
 
-* **Desarrollador de soluciones de IoT:** el desarrollo de soluciones de IoT suelen realizarlo los desarrolladores de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, integrar varios componentes estándar o de código abierto o personalizar un [acelerador de soluciones de IoT](../iot-accelerators/index.yml).
+* **Desarrollador de soluciones de IoT**: el desarrollo de soluciones de IoT suelen realizarlo los desarrolladores de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, integrar varios componentes estándar o de código abierto o personalizar un [acelerador de soluciones de IoT](../iot-accelerators/index.yml).
 
-* **Operador de soluciones de IoT:** una vez que la solución de IoT se implementa, requiere operaciones, supervisión, actualizaciones y mantenimiento a largo plazo. De estas tareas puede encargarse un equipo interno formado por especialistas en tecnología de la información, equipos de operaciones de hardware y mantenimiento y especialistas en dominios que supervisan que la infraestructura de IoT funciona de manera correcta globalmente.
+* **Operador de soluciones de IoT**: una vez que la solución de IoT se implementa, requiere operaciones, supervisión, actualizaciones y mantenimiento a largo plazo. De estas tareas puede encargarse un equipo interno formado por especialistas en tecnología de la información, equipos de operaciones de hardware y mantenimiento y especialistas en dominios que supervisan que la infraestructura de IoT funciona de manera correcta globalmente.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Administración automática de dispositivos para configurar dispositivos IoT a escala
 
@@ -49,7 +49,7 @@ Los siguientes procedimientos recomendados van dirigidos a los fabricantes e int
 
 * **Notificar atributos de dispositivo que son útiles para la administración de dispositivos:** atributos como la marca y el modelo del dispositivo físico, el firmware, el sistema operativo, el número de serie y otros identificadores resultan de utilidad para notificaciones y como parámetros para dirigir los cambios de configuración.
 
-* **Definir los principales estados para notificar el estado y el progreso:** Los estados de nivel superior se deben enumerar para que se pueden notificar al operador. Por ejemplo, una actualización de firmware notificaría el estado como Actual, Descargando, Aplicando, En curso y Error. Defina campos adicionales para obtener más información sobre cada estado.
+* **Definir los estados principales para notificar el estado y el progreso:** los estados de nivel superior se deben enumerar para que se puedan notificar al operador. Por ejemplo, una actualización de firmware notificaría el estado como Actual, Descargando, Aplicando, En curso y Error. Defina campos adicionales para obtener más información sobre cada estado.
 
 ## <a name="iot-solution-developer"></a>Desarrollador de soluciones de IoT
 
@@ -70,7 +70,7 @@ Estos son los procedimientos recomendados para los desarrolladores de soluciones
 
    Las configuraciones automáticas de dispositivos se ejecutan por primera vez poco después de crear la configuración y, a continuación, en intervalos de cinco minutos. También se benefician de que IoT Hub realiza operaciones de dispositivo gemelo a una velocidad que nunca supera los [límites](iot-hub-devguide-quotas-throttling.md) de lecturas y actualizaciones de dispositivos gemelos.
 
-* **Usar el servicio [de aprovisionamiento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** los desarrolladores de soluciones deben usar el servicio de aprovisionamiento de dispositivos para asignar etiquetas de dispositivo gemelo a nuevos dispositivos, de forma que se configurarán automáticamente mediante **configuraciones automáticas de dispositivos** dirigidas a dispositivos gemelos con esa etiqueta. 
+* **Usar el servicio [Device Provisioning](../iot-dps/how-to-manage-enrollments.md):** los desarrolladores de soluciones deben usar el servicio Device Provisioning para asignar etiquetas de dispositivo gemelo a nuevos dispositivos, de forma que se configurarán automáticamente mediante **configuraciones automáticas de dispositivos** dirigidas a dispositivos gemelos con esa etiqueta. 
 
 ## <a name="iot-solution-operator"></a>Operador de soluciones de IoT
 
@@ -78,11 +78,11 @@ Los siguientes procedimientos recomendados están destinados a los operadores de
 
 * **Organizar los dispositivos para la administración:** la solución de IoT debe definir o permitir la creación de anillos de calidad u otros conjuntos de dispositivos basados en diversas estrategias de implementación, como valores controlados. Los conjuntos de dispositivos se usarán para implementar los cambios de configuración y realizar otras operaciones de administración de dispositivos a escala.
 
-* **Realizar los cambios de configuración mediante una implementación por fases:**  un lanzamiento por fases es un proceso global en el que un operador implementa cambios en un amplio conjunto de dispositivos IoT. El objetivo consiste en realizar cambios gradualmente para reducir el riesgo de realizar cambios importantes a gran escala.    El operador debe usar la interfaz de la solución para crear una [configuración automática de dispositivos](./iot-hub-automatic-device-management.md), y la condición de destino debe tener como destino un conjunto inicial de dispositivos (por ejemplo, un grupo de valores controlados). El operador debe validar entonces el cambio de configuración en el conjunto inicial de dispositivos.
+* **Realizar cambios de configuración mediante una implementación por fases:** una implementación por fases es un proceso global por el cual un operador implementa cambios en un conjunto cada vez más amplio de dispositivos IoT. El objetivo consiste en realizar cambios gradualmente para reducir el riesgo de realizar cambios importantes a gran escala.  El operador debe usar la interfaz de la solución para crear una [configuración automática de dispositivos](./iot-hub-automatic-device-management.md), y la condición de destino debe tener como destino un conjunto inicial de dispositivos (por ejemplo, un grupo de valores controlados). El operador debe validar entonces el cambio de configuración en el conjunto inicial de dispositivos.
 
    Una vez completada la validación, el operador actualizará la configuración automática de dispositivos para que incluya un conjunto mayor de dispositivos. El operador también debe establecer la configuración con una prioridad más alta que otras configuraciones dirigidas actualmente a esos dispositivos. La implementación se puede supervisar mediante las métricas notificadas por la configuración automática de dispositivos.
 
-* **Realizar reversiones en caso de errores o configuraciones incorrectas:**  una configuración automática de dispositivos que provoca errores o configuraciones incorrectas se puede revertir cambiando la **condición de destino** de forma que los dispositivos ya no la cumplan. Asegúrese de que otra configuración automática de dispositivos de prioridad inferior todavía está dirigida a esos dispositivos. Comprobar que la reversión se ha realizado correctamente visualizando las métricas: la configuración revertida ya no debe mostrar el estado de los dispositivos no dirigidos, y las métricas de la segunda configuración debe incluir ahora recuentos de los dispositivos aún dirigidos.
+* **Realizar reversiones en caso de errores o configuraciones incorrectas:** una configuración automática de dispositivos que provoca errores o configuraciones incorrectas se puede revertir cambiando la **condición de destino** de forma que los dispositivos ya no la cumplan. Asegúrese de que otra configuración automática de dispositivos de prioridad inferior todavía está dirigida a esos dispositivos. Para comprobar que la reversión se ha realizado correctamente, examine las métricas: la configuración revertida ya no debe mostrar el estado de los dispositivos no dirigidos, y las métricas de la segunda configuración debe incluir ahora recuentos de los dispositivos aún dirigidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

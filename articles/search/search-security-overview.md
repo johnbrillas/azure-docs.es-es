@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
 ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097643"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Información general de seguridad para Azure Cognitive Search
@@ -112,7 +112,7 @@ En Azure Cognitive Search, Resource Manager se usa para crear o eliminar el serv
 Se han definido [tres roles básicos](search-security-rbac.md#management-tasks-by-role) para la administración de servicios de búsqueda. Las asignaciones de roles se pueden realizar con cualquier metodología compatible (portal, PowerShell, etc.) y se respetan en todo el servicio. Los roles Propietario y Colaborador pueden realizar diversas funciones de administración. Puede asignar el rol Lector a los usuarios que solo ven información esencial.
 
 > [!Note]
-> Mediante el uso de mecanismos de aplicación en todo el sistema de Azure, puede bloquear una suscripción o un recurso para evitar la eliminación accidental o no autorizada del servicio de búsqueda por parte de usuarios con derechos de administrador. Para obtener más información, vea [Bloqueo de recursos para impedir eliminación inesperada](../azure-resource-manager/management/lock-resources.md).
+> Mediante el uso de mecanismos de aplicación en todo el sistema de Azure, puede bloquear una suscripción o un recurso para evitar la eliminación accidental o no autorizada del servicio de búsqueda por parte de usuarios con derechos de administrador. Para más información, consulte [Bloqueo de recursos para impedir eliminación inesperada](../azure-resource-manager/management/lock-resources.md).
 
 <a name="encryption"></a>
 
