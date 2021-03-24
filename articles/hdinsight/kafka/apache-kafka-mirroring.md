@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940849"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870507"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -34,7 +34,7 @@ La configuración de la creación de reflejo que resulta más útil para la recu
 
 En el siguiente diagrama, se ilustra el proceso de creación de reflejo y cómo fluye la comunicación entre los clústeres:
 
-![Diagrama del proceso de creación de reflejo](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagrama del proceso de creación de reflejo" border="false":::
 
 Los clústeres principales y secundarios pueden tener un número diferente de nodos y de particiones. Además, los desplazamientos dentro de los temas también son diferentes. La creación de reflejos conserva el valor de la clave que se utiliza para crear particiones, por lo que se mantiene el orden de los registros en una base por claves.
 
@@ -84,7 +84,7 @@ Esta arquitectura contiene dos clústeres en diferentes grupos de recursos y red
     1. Seleccione **Agregar**.
     1. En la pantalla **Agregar emparejamiento**, escriba los datos tal y como aparecen en la captura de pantalla siguiente.
 
-        ![Agregar emparejamiento de red virtual de HDInsight Kafka](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Agregar emparejamiento de red virtual de HDInsight Kafka" border="true":::
 
 ### <a name="configure-ip-advertising"></a>Configuración del anuncio de direcciones IP
 
@@ -107,7 +107,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 1. En **Save Configuration Changes** (Guardar cambios de configuración), haga clic en **Ok** (Aceptar).
 1. Seleccione **Restart** (Reiniciar) > **Restart All Affected** (Reiniciar todos los elementos afectados) en la notificación **Restart Required** (Es necesario reiniciar). Seleccione **Confirm Restart All** (Confirmar reinicio de todo).
 
-    ![Apache Ambari: reinicar todos los afectados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="Apache Ambari: reinicar todos los afectados" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure Kafka para que escuche en todas las interfaces de red.
     
@@ -120,7 +120,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
 1. Seleccione **Hosts** en el panel de Ambari.
 1. Tome nota de las direcciones IP de los agentes y los nodos de Zookeeper. El nombre del host de los nodos de los agentes comienza por **wn**, mientras que el nombre del host de los nodos de Zookeeper comienza por **zk**.
 
-    ![Ver direcciones IP de nodo en Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Ver direcciones IP de nodo en Apache Ambari" border="true":::
 
 1. Repita los tres pasos anteriores con el segundo clúster, **kafka-secondary-cluster**: configure la publicidad basada en IP, establezca los agentes de escucha y tome nota de las direcciones IP de Zookeeper y el agente.
 
@@ -256,7 +256,7 @@ La configuración del anuncio de direcciones IP permite al cliente conectarse me
         1. Cambie el valor de `auto.create.topics.enable` a true y, a continuación, seleccione __Guardar__. Agregue una nota y, a continuación, seleccione de nuevo __Guardar__.
         1. Seleccione el servicio __Kafka__, seleccione __Reiniciar__ y luego seleccione __Restart all affected__ (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
 
-        ![Habilitar la creación automática de temas en Kafka](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="Habilitar la creación automática de temas en Kafka" border="true":::
 
 ## <a name="start-mirrormaker"></a>Inicio de MirrorMaker
 

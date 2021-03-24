@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880648"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registro y examen de Azure Blob Storage
@@ -25,7 +25,7 @@ Azure Blob Storage admite exámenes completos e incrementales para capturar los 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
-- Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
+- Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
@@ -41,7 +41,7 @@ Al elegir la **Identidad administrada** para configurar la conexión, primero de
 
 1. Vaya a la cuenta de almacenamiento.
 1. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el menú de navegación izquierdo. 
-1. Seleccione **+ Agregar**.
+1. Seleccione **+Agregar**.
 1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el nombre de la cuenta de Azure Purview en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Save** (Guardar) para dar esta asignación de rol a su cuenta de Purview.
 
 > [!Note]
@@ -91,7 +91,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 1. Vaya a la cuenta de almacenamiento.
 1. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el menú de navegación izquierdo. 
-1. Seleccione **+ Agregar**.
+1. Seleccione **+Agregar**.
 1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el nombre de entidad de seguridad de servicio o el id. del objeto en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Guardar** para dar esta asignación de rol a la entidad de servicio.
 
 ## <a name="firewall-settings"></a>Configuración de firewall

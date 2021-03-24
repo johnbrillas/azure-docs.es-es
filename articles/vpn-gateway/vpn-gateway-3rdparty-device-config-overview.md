@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880159"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
@@ -19,10 +19,10 @@ Este artículo proporciona información general sobre configuraciones de disposi
 
 
 
-## <a name="device-requirements"></a>Requisitos del dispositivo
+## <a name="device-requirements"></a>Requisitos de los dispositivos
 Las puertas de enlace de VPN de Azure usan los conjuntos de protocolos IPsec o IKE estándar para túneles VPN de sitio a sitio (S2S). Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obtener una lista de los parámetros IPsec o IKE y los algoritmos criptográficos para las puertas de enlace de VPN de Azure. También puede especificar los algoritmos exactos y los niveles de clave para una conexión específica, como se describe en [Acerca de los requisitos criptográficos](vpn-gateway-about-compliance-crypto.md).
 
-## <a name="single-vpn-tunnel"></a><a name ="singletunnel"></a>Túnel VPN único
+## <a name="single-vpn-tunnel"></a><a name ="singletunnel"></a>Un solo túnel VPN
 La primera configuración del ejemplo consta de un solo túnel VPN S2S entre una puerta de enlace de VPN de Azure y el dispositivo VPN local. Opcionalmente puede configurar [Border Gateway Protocol (BGP) a través del túnel VPN](#bgp).
 
 ![Diagrama de túnel VPN S2S único](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
@@ -119,7 +119,7 @@ Si los dispositivos VPN no admiten selectores de tráfico universales, tales com
 
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
-* IKEv2: AES256, SHA384, DHGroup24
+* IKEv2: AES256, SHA384 y DHGroup24
 * IPsec: AES256, SHA1, PFS24, vigencia de SA 7,200 segundos y 20.480.000 KB (20 GB)
 
 El script aplica la directiva IPsec/IKE y habilita la opción **UsePolicyBasedTrafficSelectors** en la conexión.

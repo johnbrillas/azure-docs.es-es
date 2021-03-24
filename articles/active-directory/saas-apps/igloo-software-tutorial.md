@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Igloo Software | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Igloo Software | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Igloo Software.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 033561ac3c4a510927691dc8db4f61196f54ec2a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integración de Azure Active Directory con Igloo Software
@@ -30,7 +30,7 @@ La integración de Igloo Software con Azure AD proporciona las siguientes ventaj
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Igloo Software, necesita los siguientes elementos:
 
@@ -50,11 +50,11 @@ Para configurar la integración de Igloo Software en Azure AD, deberá agregar I
 
 **Para agregar Igloo Software desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -62,22 +62,22 @@ Para configurar la integración de Igloo Software en Azure AD, deberá agregar I
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Igloo Software** , seleccione **Igloo Software** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Igloo Software**, seleccione **Igloo Software** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Igloo Software en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Igloo Software con un usuario de prueba llamado **Britta Simon** .
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Igloo Software con un usuario de prueba llamado **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Igloo Software.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Igloo Software, debe completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Igloo Software](#configure-igloo-software-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Igloo Software](#configure-igloo-software-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Igloo Software](#create-igloo-software-test-user)** : para tener un homólogo de Britta Simon en Igloo Software vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba en Igloo Software](#create-igloo-software-test-user)**: para tener un homólogo de Britta Simon en Igloo Software vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -86,32 +86,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Igloo Software, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Igloo Software** , seleccione **Inicio de sesión único** .
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Igloo Software**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Igloo Software](common/sp-identifier-reply.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com`
 
-    b. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com/saml.digest`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com/saml.digest`
 
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com/saml.digest`
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.igloocommmunities.com/saml.digest`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte de cliente de Igloo Software](https://www.igloosoftware.com/services/support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -129,61 +129,61 @@ Para configurar el inicio de sesión único de Azure AD con Igloo Software, real
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de Igloo Software de la compañía.
 
-2. Vaya a **Control Panel** (Panel de control).
+2. Acceda al **Panel de control**.
 
      ![Control Panel (Panel de control)](./media/igloo-software-tutorial/ic799949.png "Panel de control")
 
-3. En la pestaña **Membership** (Pertenencia), haga clic en **Sign In Settings** (Configuración de inicio de sesión).
+3. En la pestaña **Pertenencia**, haga clic **Configuración de inicio de sesión**.
 
-    ![Configuración de inicio de sesión](./media/igloo-software-tutorial/ic783968.png "Sign In Settings")
+    ![Sign In Settings](./media/igloo-software-tutorial/ic783968.png "Sign In Settings")
 
-4. En la sección SAML Configuration (Configuración de SAML), haga clic en **Configure SAML Authentication** (Configurar la autenticación de SAML).
+4. En la sección Configuración SAML, haga clic en **Configurar autenticación SAML**.
 
-    ![SAML Configuration (Configuración de SAML)](./media/igloo-software-tutorial/ic783969.png "Configuración de SAML")
+    ![Configuración de SAML](./media/igloo-software-tutorial/ic783969.png "Configuración de SAML")
 
-5. En la sección de **General Configuration** (Configuración general), realice los pasos siguientes:
+5. En la sección **Configuración general**, lleve a cabo los siguientes pasos:
 
-    ![Configuración general](./media/igloo-software-tutorial/ic783970.png "General Configuration")
+    ![General Configuration](./media/igloo-software-tutorial/ic783970.png "General Configuration")
 
-    a. En el cuadro de texto **Connection Name** (Nombre de conexión), escriba el nombre personalizado de la configuración.
+    a. En el cuadro de texto **Nombre de conexión**, escriba un nombre personalizado para su configuración.
 
     b. En el cuadro de texto **IdP Login URL** (URL de inicio de sesión del IdP), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     c. En el cuadro de texto **IdP Logout URL** (URL de cierre de sesión del IdP), pegue el valor de la **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    d. Seleccione **Logout Response and Request HTTP Type** (Respuesta de cierre de sesión y tipo de solicitud HTTP) como **POST** .
+    d. Seleccione **Logout Response and Request HTTP Type** (Respuesta de cierre de sesión y tipo de solicitud HTTP) como **POST**.
 
-    e. Abra el certificado codificado en **base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado público** .
+    e. Abra el certificado codificado en **base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado público**.
 
-6. En **Response and Authentication Configuration** (Configuración de autenticación y respuesta), realice los pasos siguientes:
+6. En la sección **Configuración de la autenticación y la respuesta**, lleve a cabo los siguientes pasos:
 
-    ![Configuración de la respuesta y la autenticación](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
+    ![Response and Authentication Configuration](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
   
-    a. En **Identity Provider** (Proveedor de identidades), seleccione **Microsoft ADFS** .
+    a. Como **Proveedor de identidades**, seleccione **Microsoft ADFS**.
 
-    b. En **Identifier Type** (Tipo de identificador), seleccione **Email Address** (Dirección de correo electrónico). 
+    b. Como **Tipo de identificador**, seleccione **Dirección de correo electrónico**. 
 
-    c. En el cuadro de texto **Atributo de correo electrónico** , escriba **emailaddress** .
+    c. En el cuadro de texto **Atributo de correo electrónico**, escriba **emailaddress**.
 
-    d. En el cuadro de texto **First Name Attribute** (Atributo de nombre), escriba **givenname** .
+    d. En el cuadro de texto **Atributo de nombre**, escriba **givenname**.
 
-    e. En el cuadro de texto **Last Name Attribute** (Atributo de apellido), escriba **surname** .
+    e. En el cuadro de texto **Atributo de nombre**, escriba **surname**.
 
 7. Realice los pasos siguientes para completar la configuración:
 
     ![Creación de usuario al inicio de sesión](./media/igloo-software-tutorial/IC783972.png "Creación de usuario al inicio de sesión") 
 
-    a. En **User creation on Sign in** (Creación de usuario al inicio de sesión), seleccione **Create a new user in your site when they sign in** (Crear un nuevo usuario en el sitio cuando se inicia sesión).
+    a. En **Creación de usuario en el inicio de sesión**, seleccione **Crear un nuevo usuario en su sitio al iniciar sesión**.
 
-    b. En **Sign in Settings** (Configuración de inicio de sesión), seleccione **Use SAML button on "Sign in" screen** (Usar botón SAML en la pantalla "Iniciar sesión").
+    b. Como **Configuración de inicio de sesión**, seleccione **Uso del botón SAML en la pantalla "Inicio de sesión"**.
 
-    c. Haga clic en **Save** (Guardar).
+    c. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -195,40 +195,40 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Igloo Software.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Igloo Software** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Igloo Software**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Igloo Software** .
+2. En la lista de aplicaciones, seleccione **Igloo Software**.
 
     ![Vínculo a Igloo Software en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-igloo-software-test-user"></a>Creación del usuario de prueba en Igloo Software
 

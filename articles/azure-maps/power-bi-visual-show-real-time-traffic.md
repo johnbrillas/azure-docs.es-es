@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: fe9e86f3c1d155a1f0b29f500de3954e360b4aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261514"
 ---
 # <a name="show-real-time-traffic"></a>Mostrar el tráfico en tiempo real
@@ -32,7 +32,7 @@ Los siguientes valores están disponibles en la sección **Capa de tráfico**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el objeto visual de Azure Maps en Power BI:
+Obtenga más información sobre el objeto visual de Azure Maps en Power BI:
 
 > [!div class="nextstepaction"]
 > [Información sobre las capas en el objeto visual de Azure Maps para Power BI](power-bi-visual-understanding-layers.md)

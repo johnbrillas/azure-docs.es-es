@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968296"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro para el flujo de implementación avanzada
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
 
@@ -63,7 +63,7 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
 3. En **Create IoT Edge service** (Crear servicio IoT Edge), escriba lo siguiente:
 
    
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |Suscripción     |Seleccione una suscripción para el recurso de IoT Hub. Puede seleccionar la misma suscripción que usa el recurso de Azure Stack Edge.        |
     |Resource group     |Escriba un nombre para el grupo de recursos del recurso de IoT Hub. Puede seleccionar el mismo grupo de recursos que usa el recurso de Azure Stack Edge.         |
@@ -177,7 +177,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
  
     2. Especifique la configuración para el módulo personalizado de IoT Edge. Escriba los siguientes valores.
      
-        |Campo  |Valor  |
+        |Campo  |Value  |
         |---------|---------|
         |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
         |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |

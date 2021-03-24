@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629791"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage
@@ -21,7 +21,7 @@ El Explorador de Azure Storage es una herramienta de cliente conocida que está 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Esta guía de inicio rápido requiere que esté instalado el Explorador de Storage. Para su descarga e instalación, vaya a [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
@@ -66,7 +66,7 @@ Al agregar un directorio se proporciona una estructura jerárquica para administ
 
 El directorio *myDirectory* se muestra en la pestaña del recurso compartido de archivos *myshare*.
 
-### <a name="upload-a-file"></a>Cargar un archivo 
+### <a name="upload-a-file"></a>Carga de un archivo 
 Puede cargar un archivo desde la máquina local hasta el nuevo directorio del recurso compartido de archivos. Puede cargar una carpeta completa o un único archivo.
 
 1. En el menú superior, seleccione **Upload** (Cargar). Esta operación le da la opción de cargar un archivo o una carpeta.
@@ -76,7 +76,7 @@ Puede cargar un archivo desde la máquina local hasta el nuevo directorio del re
 Cuando haya terminado, el archivo aparece en la lista en el panel *myDirectory*.
 
 ### <a name="download-a-file"></a>Descarga de un archivo
-Para descargar una copia de un archivo desde el recurso compartido de archivos, haga clic con el botón derecho en el archivo y, a continuación, seleccione **Download** (Descargar). Elija dónde desea colocar el archivo en la máquina local y, a continuación, seleccione **Save** (Guardar).
+Para descargar una copia de un archivo desde el recurso compartido de archivos, haga clic con el botón derecho en el archivo y, después, seleccione **Descargar**. Elija dónde desea colocar el archivo en la máquina local y, a continuación, seleccione **Save** (Guardar).
 
 El progreso de la descarga aparece en el panel **Activities** (Actividades) en la parte inferior de la ventana.
 

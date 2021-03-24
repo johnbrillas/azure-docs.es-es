@@ -9,10 +9,10 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555710"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
@@ -44,7 +44,7 @@ Después de crear un perfil de CDN, se usa para crear un punto de conexión.
 
 3. Escriba los siguientes valores de configuración:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **Nombre** | Escriba *my-endpoint-123* como nombre de host del punto de conexión. Este nombre debe ser único globalmente en Azure; si ya está en uso, escriba otro. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;NombreDePuntoDeConexión&gt;_ .azureedge.net.|
     | **Tipo de origen** | Seleccione **Storage**. | 

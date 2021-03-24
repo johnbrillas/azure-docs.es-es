@@ -9,10 +9,10 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 5b188021de30561222f098e2b5782bada25d7ce0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94411276"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-timeout-exceptions"></a>Diagnóstico y solución de problemas de excepciones de tiempo de espera de solicitud en Azure Cosmos DB
@@ -33,7 +33,7 @@ La aplicación debe controlar este escenario y volver a intentarlo tras estos er
 Póngase en contacto con el [soporte técnico de Azure](https://aka.ms/azure-support).
  
 ### <a name="hot-partition-key"></a>Clave de partición activa
-Azure Cosmos DB distribuye el rendimiento general aprovisionado de forma uniforme entre las particiones físicas. Cuando hay una partición activa, una o varias claves de partición lógica de una partición física consumen todas las unidades de solicitud por segundo (RU/s) de la partición física. Al mismo tiempo, las RU/s de otras particiones físicas no se usan. Como síntoma, el total de RU/s consumidas será inferior al total de RU/s aprovisionado globalmente en la base de datos o el contenedor. Seguirá viendo limitaciones (errores 429) en las solicitudes en la clave de partición lógica activa. Use la [métrica de consumo normalizado de RU](monitor-normalized-request-units.md) para ver si la carga de trabajo está detectando una partición activa. 
+Azure Cosmos DB distribuye el rendimiento general aprovisionado de forma uniforme entre las particiones físicas. Cuando hay una partición activa, una o varias claves de partición lógica en una partición física están consumiendo todas las unidades de solicitud de la partición física por segundo (RU/s). Al mismo tiempo, las RU/s de otras particiones físicas no se usan. Como síntoma, el total de RU/s consumidas será inferior al total de RU/s aprovisionado globalmente en la base de datos o el contenedor. Seguirá viendo limitaciones (errores 429) en las solicitudes en la clave de partición lógica activa. Use la [métrica de consumo normalizado de RU](monitor-normalized-request-units.md) para ver si la carga de trabajo está detectando una partición activa. 
 
 #### <a name="solution"></a>Solución:
 Elija una buena clave de partición que distribuya uniformemente el volumen y el almacenamiento de solicitudes. Obtenga más información acerca de [cómo cambiar la clave de partición](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).

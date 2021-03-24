@@ -4,10 +4,10 @@ description: En este tutorial, va a usar Azure Lab Services para configurar un l
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787424"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
@@ -137,14 +137,14 @@ Se puede crear un grupo de Azure AD en la instancia de Azure Active Directory d
 
     :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Incorporación de usuarios mediante la sincronización desde un grupo de Azure AD":::
     
-1. Se le pedirá que elija un grupo de Azure AD existente al que sincronizar el laboratorio. 
+1. Se le pedirá que elija un grupo de Azure AD existente con el que sincronizar el laboratorio. 
     
     Si no ve ningún grupo de Azure AD en la lista, puede deberse a los siguientes motivos:
 
-    -   Si es un usuario invitado de una instancia de Azure Active Directory (normalmente, si está fuera de la organización que es propietaria de Azure AD) y no puede buscar grupos dentro de Azure AD. En este caso, no podrá agregar un grupo de Azure AD al laboratorio. 
-    -   Los grupos de Azure AD creados mediante Teams no aparecen en esta lista. Puede agregar la aplicación Azure Lab Services a Teams para crear y administrar laboratorios directamente desde él. Vea más información sobre cómo [administrar la lista de usuarios de un laboratorio desde Teams](how-to-manage-user-lists-within-teams.md). 
-1. Una vez que haya seleccionado el grupo de Azure AD al que sincronizar el laboratorio, haga clic en **Agregar**.
-1. Al sincronizar un laboratorio, extraerá a todos los miembros del grupo de Azure AD al laboratorio como usuarios y verá la lista de usuarios actualizada. Solo las personas de este grupo de Azure AD tendrán acceso a su laboratorio. La lista de usuarios se actualizará cada 24 horas para que coincida con la última pertenencia al grupo de Azure AD. También puede hacer clic en el botón Sincronizar de la pestaña Usuarios para sincronizar manualmente los cambios más recientes del grupo de Azure AD.
+    -   Si es un usuario invitado de una instancia de Azure Active Directory (normalmente, si está fuera de la organización propietaria de Azure AD) y no puede buscar grupos dentro de Azure AD. En este caso, no podrá agregar un grupo de Azure AD al laboratorio. 
+    -   Los grupos de Azure AD creados mediante Teams no aparecen en esta lista. Puede agregar la aplicación Azure Lab Services a Teams para crear y administrar laboratorios directamente desde este. Vea más información sobre cómo [administrar la lista de usuarios de un laboratorio desde Teams](how-to-manage-user-lists-within-teams.md). 
+1. Una vez que haya seleccionado el grupo de Azure AD con el que se va a sincronizar el laboratorio, haga clic en **Agregar**.
+1. Una vez que se sincronice un laboratorio, este extraerá a todos los miembros del grupo de Azure AD en el laboratorio como usuarios, y podrá ver la lista de usuarios actualizada. Solo las personas de este grupo de Azure AD tendrán acceso a su laboratorio. La lista de usuarios se actualizará cada 24 horas para que coincida con la última pertenencia al grupo de Azure AD. También puede hacer clic en el botón Sincronizar de la pestaña Usuarios para sincronizar manualmente los cambios más recientes del grupo de Azure AD.
 1. Para invitar a los usuarios a su laboratorio, haga clic en el botón **Invitar a todos**, con lo que se enviará un mensaje de correo electrónico a todos los usuarios con el vínculo de registro al laboratorio. 
 
 ### <a name="add-users-manually-from-emails-or-csv-file"></a>Incorporación de usuarios manual desde mensajes de correo electrónico o archivos CSV
@@ -156,8 +156,8 @@ En esta sección, agregará alumnos manualmente, (mediante direcciones de correo
 1. En el panel izquierdo, seleccione **Usuarios**. 
 1. Haga clic en **Add users manually** (Agregar usuarios manualmente). 
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Incorporación de usuarios manual":::
-1. Seleccione **Agregar por dirección de correo electrónico** (opción predeterminada), escriba las direcciones de correo electrónico de los alumnos en líneas independientes, o bien en una sola línea separadas por punto y coma. 
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Agregar usuarios manualmente":::
+1. Seleccione **Agregar por dirección de correo electrónico** (opción predeterminada), escriba las direcciones de correo electrónico de los alumnos en líneas independientes o en una sola línea separadas por punto y coma. 
 
     :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Adición de direcciones de correo electrónico de los usuarios":::
 1. Seleccione **Guardar**. 

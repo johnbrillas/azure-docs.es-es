@@ -11,10 +11,10 @@ ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
 ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357579"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>¿Qué es HSM administrado de Azure Key Vault (versión preliminar)?
@@ -27,15 +27,15 @@ HSM administrado de Azure Key Vault es un servicio en la nube que cumple los est
 
 - **Totalmente administrado** El servicio controla el aprovisionamiento, la configuración, la revisión y el mantenimiento de HSM. 
 - **Alta disponibilidad y resistencia a la zona** (donde se admiten zonas de disponibilidad): Cada clúster de HSM consta de varias particiones de HSM que abarcan al menos dos zonas de disponibilidad. Si se produce un error de hardware, las particiones de miembro de su clúster de HSM se migrarán automáticamente a los nodos correctos.
-- **Inquilino único** : cada instancia de HSM administrada está dedicada a un solo cliente y consta de un clúster de varias particiones de HSM. Cada clúster de HSM usa un dominio de seguridad independiente específico del cliente que aísla de forma criptográfica el clúster de HSM de cada cliente.
+- **Inquilino único**: cada instancia de HSM administrada está dedicada a un solo cliente y consta de un clúster de varias particiones de HSM. Cada clúster de HSM usa un dominio de seguridad independiente específico del cliente que aísla de forma criptográfica el clúster de HSM de cada cliente.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Control de acceso, protección de datos mejorada y cumplimiento
 
-- **Administración de claves centralizada** : administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
-- **Control de acceso aislado** : El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
-- **HSM validados con FIPS 140-2 nivel 3** : Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
-- **Supervisión y auditoría** : completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
+- **Administración de claves centralizada**: administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
+- **Control de acceso aislado**: El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
+- **HSM validados con FIPS 140-2 nivel 3**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
+- **Supervisión y auditoría**: completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integración con los servicios PaaS y SaaS de Microsoft y Azure 
 

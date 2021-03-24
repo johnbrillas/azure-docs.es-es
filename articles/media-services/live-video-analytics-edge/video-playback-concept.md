@@ -4,18 +4,18 @@ description: Marcador de posición
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87042975"
 ---
 # <a name="video-playback"></a>Reproducción de vídeo 
 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura 
 
-* [Introducción a Live Video Analytics on IoT Edge](overview.md)
-* [Terminología de Live Video Analytics on IoT Edge](terminology.md)
+* [Introducción a Análisis de vídeos en vivo en IoT Edge](overview.md)
+* [Terminología de Live Video Analytics en IoT Edge](terminology.md)
 * [Concepto de grafo multimedia](media-graph-concept.md)
 
 ## <a name="overview"></a>Información general  

@@ -14,13 +14,13 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383724"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos: Reactivación de los espacios de nombres deshabilitados de Access Control Service
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Reactivación de los espacios de nombres deshabilitados de Access Control Service
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -126,4 +126,4 @@ Ya no se aprobarán automáticamente más extensiones. Si necesita tiempo adicio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise la información sobre la retirada de ACS en [ Migración desde Azure Access Control Service](active-directory-acs-migration.md).
+- Revise la información sobre la retirada de ACS en [Procedimiento para la migración desde Azure Access Control Service](active-directory-acs-migration.md).

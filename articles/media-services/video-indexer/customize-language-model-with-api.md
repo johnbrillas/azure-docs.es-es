@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: kumud
 ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87047078"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Personalización de un modelo de lenguaje con la API de Video Indexer
@@ -109,7 +109,7 @@ El `id` devuelto es un identificador único que se usa para distinguir entre mod
 
 ## <a name="delete-a-language-model"></a>Eliminación de un modelo de lenguaje
 
-La API para [eliminar un modelo de lenguaje](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) elimina un modelo de lenguaje personalizado de la cuenta especificada. Cualquier vídeo que haya estado usando el modelo de lenguaje eliminado mantendrá el mismo índice hasta que vuelva a indexarlo. Si vuelve a indexar el vídeo, puede asignarle un nuevo modelo de lenguaje. En caso contrario, Video Indexer usará el modelo predeterminado para volver a indexar el vídeo.
+La API para [eliminar un modelo de lenguaje](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) elimina un modelo de lenguaje personalizado de la cuenta especificada. Cualquier vídeo que haya estado usando el modelo de lenguaje eliminado mantendrá el mismo índice hasta que vuelva a indexar el vídeo. Si vuelve a indexar el vídeo, puede asignarle un nuevo modelo de lenguaje. En caso contrario, Video Indexer usará el modelo predeterminado para volver a indexar el vídeo.
 
 ### <a name="response"></a>Response
 

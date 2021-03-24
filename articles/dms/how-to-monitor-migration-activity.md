@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297477"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Supervisión de la actividad de migración con Azure Database Migration Service
@@ -63,7 +63,7 @@ En la tabla siguiente se enumeran los campos en la hoja de nivel de base de dato
       <td>La canalización de DMS está ejecutándose y realizando la migración.</td>
     </tr>
     <tr>
-      <td>Operación completada</td>
+      <td>Completo</td>
       <td>Migración completada.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ En la tabla siguiente se enumeran los campos en la hoja de nivel de base de dato
       <td>Haga clic en el vínculo para mostrar detalles del error.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duration</strong></td>
+      <td rowspan="1" class="duration"><strong>Duración</strong></td>
       <td>N/D</td>
       <td>Tiempo total desde que se inicia la actividad de migración hasta que se completa o se produce un error de migración.</td>
     </tr>

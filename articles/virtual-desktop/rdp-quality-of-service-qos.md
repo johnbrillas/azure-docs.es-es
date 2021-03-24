@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: b61faf74d96e2571e91f7bf9d10eac88cdbf8345
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94639128"
 ---
 # <a name="implement-quality-of-service-qos-for-windows-virtual-desktop-preview"></a>Implementación de calidad de servicio (QoS) para Windows Virtual Desktop (versión preliminar)
@@ -85,7 +85,7 @@ Se recomienda usar el valor 46 de DSCP que se asigna a la clase de DSCP **Expedi
 
 Puede usar la calidad de servicio (QoS) basada en directivas en la directiva de grupo para establecer el valor de DSCP predefinido.
 
-Para crear una directiva de QoS para hosts de sesión unidos a un dominio, lo primero que debe hacer es iniciar sesión en un equipo en el que se haya instalado la Administración de directivas de grupo. Abra Administración de directivas de grupo (seleccione Inicio, Herramientas administrativas y seleccione Administración de directivas de grupo) y, después, siga estos pasos:
+Para crear una directiva de QoS para hosts de sesión unidos a un dominio, lo primero que debe hacer es iniciar sesión en un equipo en el que se haya instalado la Administración de directivas de grupo. Abra la Administración de directivas de grupo (seleccione Inicio, Herramientas administrativas y seleccione Administración de directivas de grupo) y, después, siga estos pasos:
 
 1. En Administración de directivas de grupo, busque el contenedor en el que se debe crear la nueva directiva. Por ejemplo, si todos los equipos host de sesión se encuentran en una unidad organizativa denominada **"hosts de sesión"** , la nueva directiva se debe crear en la unidad organizativa Hosts de sesión.
 
@@ -95,7 +95,7 @@ Para crear una directiva de QoS para hosts de sesión unidos a un dominio, lo pr
 
 4. Haga clic con el botón derecho en la directiva recién creada y seleccione **Editar**.
 
-5. En el Editor de administración de directivas de grupo, expanda **Configuración del equipo** y  **Configuración de Windows**, haga clic con el botón derecho en **QoS basada en directiva** y, después, seleccione **Crear nueva directiva**.
+5. En el Editor de administración de directivas de grupo, expanda **Configuración del equipo** y **Configuración de Windows**, haga clic con el botón derecho en **QoS basada en directiva** y, después, seleccione **Crear nueva directiva**.
 
 6. En el cuadro de diálogo **QoS basada en directiva**, en la página de apertura, escriba el nombre de la nueva directiva en el cuadro **Nombre**. Seleccione **Specify DSCP Value** (Especificar valor de DSCP) y establezca el valor en **46**. Deje **Specify Outbound Throttle Rate** (Especificar velocidad de regulador de carga de trabajo de salida) sin seleccionar y, después, seleccione **Next** (Siguiente).
 
