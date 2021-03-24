@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728202"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
 La compresión de archivo es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño de un archivo antes de enviarlo al servidor. La compresión de archivo reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -153,10 +153,10 @@ En las tablas siguientes se describe el comportamiento de la compresión de Azur
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>La compresión está habilitada y el archivo es válido para la compresión
 | Formato solicitado por el cliente (mediante el encabezado Accept-Encoding) | Formato de archivo en caché | Respuesta de la red CDN al cliente | Notas |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |La red CDN transcodifica entre los formatos admitidos. |
+| Compressed |Compressed |Compressed |La red CDN transcodifica entre los formatos admitidos. <br/>**Azure CDN de Microsoft** no admite la transcodificación entre formatos y, en su lugar, captura datos de origen, comprime y almacena en caché por separado para el formato. |
 | Compressed |Sin comprimir |Compressed |La red CDN realiza una compresión. |
 | Compressed |No almacenado en caché |Compressed |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
-| Sin comprimir |Compressed |Sin comprimir |La red CDN realiza una descompresión. |
+| Sin comprimir |Compressed |Sin comprimir |La red CDN realiza una descompresión. <br/>**Azure CDN de Microsoft** no admite la descompresión y, en su lugar, captura datos del origen y de las cachés por separado para los clientes sin comprimir. |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |
 

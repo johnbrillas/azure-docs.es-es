@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367812"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036833"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -58,9 +58,9 @@ En esta sección se proporciona una revisión de las finalidades de planeación 
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Roles que se pueden administrar con PIM
 
-**Roles de Azure AD** : están todos en Azure Active Directory (por ejemplo, administrador global, administrador de Exchange y administrador de seguridad). Puede leer más sobre los roles y sus funcionalidades en [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md). Para obtener ayuda con la determinación de qué roles asignar a los administradores, consulte [Roles con privilegios mínimos por tarea](../roles/delegate-by-task.md).
+**Roles de Azure AD**: están todos en Azure Active Directory (por ejemplo, administrador global, administrador de Exchange y administrador de seguridad). Puede leer más sobre los roles y sus funcionalidades en [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md). Para obtener ayuda con la determinación de qué roles asignar a los administradores, consulte [Roles con privilegios mínimos por tarea](../roles/delegate-by-task.md).
 
-**Roles de Azure** : son roles que están vinculados a un recurso, grupo de recursos, suscripción o grupo de administración de Azure. Puede usar PIM para proporcionar acceso Just-In-Time a roles de Azure integrados, como propietario, administrador de acceso de usuario y colaborador, así como a [roles personalizados](../../role-based-access-control/custom-roles.md). Para más información sobre los roles de Azure, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md).
+**Roles de Azure**: son roles que están vinculados a un recurso, grupo de recursos, suscripción o grupo de administración de Azure. Puede usar PIM para proporcionar acceso Just-In-Time a roles de Azure integrados, como propietario, administrador de acceso de usuario y colaborador, así como a [roles personalizados](../../role-based-access-control/custom-roles.md). Para más información sobre los roles de Azure, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
 Para más información, consulte [Roles que no se pueden administrar en Privileged Identity Management](pim-roles.md).
 
@@ -111,7 +111,7 @@ Para los roles de Azure AD, es habitual que las organizaciones asignen el rol de
 
 Siga estos pasos para implementar el principio de privilegio mínimo para los roles de Azure AD.
 
-1. Para conocer la granularidad de los roles, lea y entienda los [roles de administrador de Azure AD disponibles](../roles/permissions-reference.md#available-roles). Usted y su equipo también deben consultar [Roles de administrador por tarea de administrador en Azure Active Directory](../roles/delegate-by-task.md), donde se explica el rol con privilegios mínimos para tareas específicas.
+1. Para conocer la granularidad de los roles, lea y entienda los [roles integrados de Azure AD](../roles/permissions-reference.md) disponibles. Usted y su equipo también deben consultar [Roles de administrador por tarea de administrador en Azure Active Directory](../roles/delegate-by-task.md), donde se explica el rol con privilegios mínimos para tareas específicas.
 
 1. Especifique quién tiene roles con privilegios en su organización. Puede usar la página [Detección e información (versión preliminar)](pim-security-wizard.md) en Privileged Identity Management para reducir la exposición.
 
@@ -286,7 +286,7 @@ Ahora que ha identificado a los usuarios de prueba, use este paso para configura
 
 1. [Defina la configuración del rol de Azure AD](pim-how-to-change-default-settings.md) en función de lo que haya planeado.
 
-1. Vaya a **Roles de Azure AD** , seleccione **Roles** y luego seleccione el rol que acaba de configurar.
+1. Vaya a **Roles de Azure AD**, seleccione **Roles** y luego seleccione el rol que acaba de configurar.
 
 1. Para el grupo de usuarios de prueba, si estos ya están establecidos como un administrador permanente, puede establecerlos como válidos buscándolos y convirtiéndolos de permanentes a válidos seleccionando los tres puntos de su fila. Si todavía no tienen ninguna asignación de roles, puede [realizar una nueva asignación válida](pim-how-to-add-role-to-user.md#make-a-user-eligible-for-a-role).
 
@@ -341,17 +341,17 @@ Si Privileged Identity Management no funciona según lo previsto en el entorno d
 #### <a name="azure-ad-roles"></a>Roles de Azure AD
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Abra **Azure AD Privileged Identity Management** .
-1. Seleccione **Roles de Azure AD** y luego elija **Roles** .
+1. Abra **Azure AD Privileged Identity Management**.
+1. Seleccione **Roles de Azure AD** y luego elija **Roles**.
 1. Para cada rol que haya configurado, seleccione los puntos suspensivos ( **...** ) correspondientes a todos los usuarios que tengan una asignación válida.
 1. Seleccione la opción **Hacer permanente** para que la asignación de roles sea permanente.
 
 #### <a name="azure-roles"></a>Roles de Azure
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 1. Seleccione **Recursos de Azure** y luego elija una suscripción o un recurso que desee revertir.
-1. Seleccione **Roles** .
+1. Seleccione **Roles**.
 1. Para cada rol que haya configurado, seleccione los puntos suspensivos ( **...** ) correspondientes a todos los usuarios que tengan una asignación válida.
 1. Seleccione la opción **Hacer permanente** para que la asignación de roles sea permanente.
 
@@ -364,8 +364,8 @@ La implementación correcta de Privileged Identity Management en producción es 
 Para más información sobre el uso de la funcionalidad integrada de alertas de Privileged Identity Management para proteger mejor su organización, consulte [Alertas de seguridad](pim-how-to-configure-security-alerts.md#security-alerts). Estas alertas se incluyen: los administradores no usan roles con privilegios, los roles se asignan fuera de Privileged Identity Management, se activan roles con demasiada frecuencia y muchas más. Para ofrecer una protección total a su organización, debe consultar regularmente la lista de alertas y corregir los problemas. Puede ver y corregir las alertas de la manera siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Abra **Azure AD Privileged Identity Management** .
-1. Seleccione **Roles de Azure AD** y luego elija **Alertas** .
+1. Abra **Azure AD Privileged Identity Management**.
+1. Seleccione **Roles de Azure AD** y luego elija **Alertas**.
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recomienda** solucionar inmediatamente todas las alertas marcadas con gravedad alta. En el caso de las alertas de seguridad de gravedad media y baja, debe mantenerse informado y realizar cambios si considera que existe una amenaza de seguridad.

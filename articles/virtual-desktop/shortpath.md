@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876705"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571586"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP Shortpath de Windows Virtual Desktop (versión preliminar)
 
@@ -151,7 +151,8 @@ Para permitir el acceso al agente de escucha de RDP Shortpath a través de los l
 Siga las instrucciones de la [documentación del grupo de seguridad de red](../virtual-machines/windows/nsg-quickstart-portal.md) para crear una regla de seguridad de entrada que permita el tráfico con los parámetros siguientes:
 
 * **Origen** - **Cualquiera** o el intervalo IP en el que residen los clientes
-* **Intervalos de puertos de origen** - * *\** _ _ **Destino** - **Cualquiera**
+* **Intervalos de puertos de origen** -  **\***
+* **Destino** - **Cualquiera**
 * **Intervalos de puertos de destino** - **3390**
 * **Protocolo** - **UDP**
 * **Acción** - **Permitir**
@@ -188,7 +189,7 @@ Los valores posibles son:
 * **0**: la conexión del usuario no usa RDP Shortpath.
 * **1**: la conexión del usuario está usando RDP Shortpath.
   
-La siguiente lista de consultas le permite examinar la información de conexión. Puede ejecutar esta consulta en el [editor de consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). En todas las consultas, reemplace `userupn` por el UPN del usuario que desee buscar.
+La siguiente lista de consultas le permite examinar la información de conexión. Puede ejecutar esta consulta en el [editor de consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). En todas las consultas, reemplace `userupn` por el UPN del usuario que desee buscar.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

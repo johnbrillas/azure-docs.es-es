@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a39340f44e2c6eeae5b5f1a8e687bc73b3b0fe
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028417"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094297"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -48,11 +48,11 @@ Antes de poder asociar o agregar la suscripción, realice las siguientes tareas:
   - Si tiene almacenes de claves, no se podrá acceder a ellos y tendrá que corregirlos después de la asociación.
   - Si tiene identidades administradas para recursos, como Virtual Machines o Logic Apps, debe volver a habilitarlas o crearlas después de la asociación.
   - Si tiene una instancia de Azure Stack registrada, tendrá que volver a registrarla después de la asociación.
-  - Para obtener más información, vea [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
+  - Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 - Iniciar sesión con una cuenta que:
 
-  - Tiene una asignación de rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción. Para más información sobre cómo asignar el rol de propietario, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+  - Tiene una asignación de rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción. Para más información sobre la asignación del rol Propietario, consulte [Asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
   - Exista en el directorio actual y en el nuevo directorio. El directorio actual está asociado a la suscripción. Va a asociar el nuevo directorio a la suscripción. Para más información sobre cómo obtener acceso a otro directorio, consulte [Adición de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../external-identities/add-users-administrator.md).
 
 - Asegúrese de que no usa una suscripción de proveedores de servicios en la nube de Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una suscripción interna de Microsoft (MS-AZR-0015P) o una suscripción a Microsoft Imagine (MS-AZR-0144P).
@@ -91,7 +91,7 @@ Después de asociar una suscripción a un directorio diferente, puede que tenga 
 
 - Si ha registrado una instancia de Azure Stack que usa esta suscripción, debe volver a registrarla. Para obtener más información, consulte [Registro de Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
 
-- Para obtener más información, vea [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
+- Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

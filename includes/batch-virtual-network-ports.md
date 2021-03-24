@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750894"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561929"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -42,10 +42,10 @@ Los requisitos adicionales de red virtual difieren en función de si el grupo de
 
 **Permisos**: compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos de un usuario para administrar la red virtual.
 
-**Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual.
+**Recursos de red adicionales**: Batch crea automáticamente recursos de red adicionales en el grupo de recursos que contiene la red virtual.
 
 > [!IMPORTANT]
-> Por cada 100 nodos dedicados o de prioridad baja, Batch asigna: un grupo de seguridad de red, una dirección IP pública y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba solicitar un aumento de la cuota de uno o varios de estos recursos.
+> Por cada cien nodos dedicados o de prioridad baja, Batch crea: un grupo de seguridad de red, una dirección IP pública y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba solicitar un aumento de la cuota de uno o varios de estos recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de seguridad de red: valor predeterminado de Batch
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576166"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -55,12 +55,12 @@ La transferencia de datos entre puntos de conexión exige la creación de varios
 ## <a name="flow-limits-and-active-connections-recommendations"></a>Recomendaciones sobre límites de flujo y conexiones activas
 
 Actualmente, la pila de redes de Azure admite un total de 1 millón de flujos (500 mil de entrada y 500 mil de salida) para una máquina virtual. Las conexiones activas totales que una VM puede controlar en distintos escenarios son las siguientes.
-- Las máquinas virtuales que pertenecen a la red virtual pueden controlar 500 000 **_conexiones activas_* _ para todos los tamaños de máquina virtual con 500 000 _*_flujos activos en cada dirección_*_.  
-- Las máquinas virtuales con aplicaciones virtuales de red (NVA) como la puerta de enlace, el proxy y el firewall pueden controlar 250 000 _*_conexiones activas_*_ con 500 000 *_flujos activos en cada dirección_** debido al reenvío y a la creación de flujos adicionales en la nueva configuración de conexión al próximo salto, tal como se muestra en el diagrama anterior. 
+- Las máquinas virtuales que pertenecen a la red virtual pueden controlar 500 000 ***conexiones activas** para todos los tamaños de máquina virtual con 500 000 _flujos activos en cada dirección_**.  
+- Las máquinas virtuales con aplicaciones virtuales de red (NVA) como la puerta de enlace, el proxy y el firewall pueden controlar 250 000 ***conexiones activas** con 500 000 *_flujos activos en cada dirección_** debido al reenvío y a la creación de flujos adicionales en la nueva configuración de conexión al próximo salto, tal como se muestra en el diagrama anterior. 
 
 Una vez alcanzado este límite, se quitan las conexiones adicionales. Las tasas de establecimiento y finalización de conexiones también pueden afectar al rendimiento de red, ya que el establecimiento y la finalización de conexiones comparten CPU con rutinas de procesamiento de paquetes. Se recomienda evaluar las cargas de trabajo en patrones de tráfico esperados y escalar horizontalmente las cargas de trabajo adecuadamente para satisfacer las necesidades de rendimiento.
 
-Hay métricas disponibles en [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para realizar un seguimiento del número de flujos de red y la velocidad de creación de flujos en las instancias de VM o VMSS.
+Hay métricas disponibles en [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) para realizar un seguimiento del número de flujos de red y la velocidad de creación de flujos en las instancias de VM o VMSS.
 
 ![Captura de pantalla que muestra la página de métricas de Azure Monitor con un gráfico de líneas y los totales de los flujos entrantes y salientes.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 

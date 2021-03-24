@@ -6,21 +6,21 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ca6ef57db062ff22b20a8e968eaac39388b9551f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750730"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495434"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
-- Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Instalar [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
+- Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Instalar [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md). Deberá registrar el **punto de conexión** del recurso para esta guía de inicio rápido.
 - Un [Token de acceso de usuario](../../access-tokens.md). Asegúrese de establecer el ámbito en "chat" y anote la cadena del token, así como la cadena userId.
 
@@ -46,8 +46,8 @@ dotnet build
 Instale la biblioteca cliente de chat de comunicación de Azure para .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+```
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -60,23 +60,33 @@ Las siguientes clases controlan algunas de las características principales de l
 
 ## <a name="create-a-chat-client"></a>Creación de un cliente de chat
 
-Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Debe usar la clase `CommunicationIdentityClient` de la biblioteca cliente de `Administration` para crear un usuario y emitir un token para pasarlo al cliente de chat.
+Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Debe usar la clase `CommunicationIdentityClient` de la biblioteca cliente de identidades para crear un usuario y emitir un token para pasarlo al cliente de chat.
 
 Obtenga más información sobre los [tokens de acceso de usuario](../../access-tokens.md).
 
 Este inicio rápido no cubre la creación de un nivel de servicio para administrar tokens para la aplicación de chat, aunque se recomienda. [Más información sobre la arquitectura del chat](../../../concepts/chat/concepts.md).
 
+Copie los siguientes fragmentos de código y péguelos en el archivo de código fuente: **Program.cs**
 ```csharp
-using Azure.Communication.Identity;
-using Azure.Communication.Chat;
 using Azure;
-using Azure.Communication
+using Azure.Communication;
+using Azure.Communication.Chat;
+using System;
 
-// Your unique Azure Communication service endpoint
-Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+namespace ChatQuickstart
+{
+    class Program
+    {
+        static async System.Threading.Tasks.Task Main(string[] args)
+        {
+            // Your unique Azure Communication service endpoint
+            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+            CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+            ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+        }
+    }
+}
 ```
 
 ## <a name="start-a-chat-thread"></a>Inicio de un subproceso de chat
@@ -85,15 +95,15 @@ Use el método `createChatThread` en chatClient para crear una conversación de 
 - Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateTopic`.
 - Utilice la propiedad `participants` para pasar una lista de objetos `ChatParticipant` que se van a agregar al subproceso de chat. El objeto `ChatParticipant` se inicializó con un objeto `CommunicationIdentifier`. El objeto `CommunicationIdentifier` puede ser de tipo `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` o `PhoneNumberIdentifier`. Por ejemplo, para obtener un objeto `CommunicationIdentifier`, deberá pasar un identificador de acceso creado siguiendo las instrucciones de [Creación de un usuario](../../access-tokens.md#create-an-identity).
 
-El objeto de respuesta del método createChatThread contiene los detalles de chatThread. Para interactuar con las operaciones de conversaciones de chat, como agregar participantes, enviar un mensaje, eliminar un mensaje, etc., es necesario crear una instancia del cliente chatThreadClient con el método GetChatThreadClient en el cliente ChatClient. 
+El objeto de respuesta del método `createChatThread` contiene los detalles `chatThread`. Para interactuar con las operaciones de conversaciones de chat, como agregar participantes, enviar un mensaje, eliminar un mensaje, etc., es necesario crear una instancia del cliente `chatThreadClient` con el método `GetChatThreadClient` en el cliente `ChatClient`.
 
 ```csharp
-var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
 CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -102,7 +112,7 @@ El método `GetChatThreadClient` devuelve un cliente de subproceso para un subpr
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envío de un mensaje a un subproceso de chat
@@ -124,7 +134,7 @@ Utilice `GetMessage` para recuperar un mensaje del servicio.
 `ChatMessage` es la respuesta que se devuelve al obtener un mensaje. Contiene un valor que es el identificador único del mensaje, entre otros campos. Consulte Azure.Communication.Chat.ChatMessage.
 
 ```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recepción de mensajes de chat de un subproceso de chat
@@ -135,7 +145,7 @@ También puede recuperar mensajes de chat mediante el sondeo del método `GetMes
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
 await foreach (ChatMessage message in allMessages)
 {
-    Console.WriteLine($"{message.Id}:{message.Id}:{message.Content}");
+    Console.WriteLine($"{message.Id}:{message.Content.Message}");
 }
 ```
 
@@ -164,7 +174,7 @@ Para actualizar un mensaje que ya se envío, puede invocar `UpdateMessage` en `C
 ```csharp
 string id = "id-of-message-to-edit";
 string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(id, content);
+await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
 ```
 
 ## <a name="deleting-a-message"></a>Eliminación de un mensaje
@@ -173,7 +183,7 @@ Para eliminar un mensaje, puede invocar `DeleteMessage` en `ChatThreadClient`.
 
 ```csharp
 string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(id);
+await chatThreadClient.DeleteMessageAsync(messageId: id);
 ```
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adición de un usuario como miembro a la conversación del chat
@@ -197,7 +207,7 @@ var participants = new[]
     new ChatParticipant(amy) { DisplayName = "Amy" }
 };
 
-await chatThreadClient.AddParticipantsAsync(participants);
+await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>Eliminación de un usuario de un subproceso de chat
 
@@ -205,7 +215,7 @@ De forma similar a la adición de un usuario a un subproceso, puede quitar usuar
 
 ```csharp
 var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(gloria);
+await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
 ```
 
 ## <a name="get-thread-participants"></a>Obtención de los participantes de la conversación
@@ -233,7 +243,7 @@ await chatThreadClient.SendTypingNotificationAsync();
 Use `SendReadReceipt` para notificar a otros participantes que el usuario ha leído el mensaje.
 
 ```csharp
-await chatThreadClient.SendReadReceiptAsync(messageId);
+await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
 ## <a name="get-read-receipts"></a>Obtención de confirmaciones de lectura

@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021854"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562338"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
 En las siguientes secciones se indican los cambios en las versiones más recientes.
+
+## <a name="speech-devices-sdk-1150"></a>SDK de dispositivos de Voz 1.15.0:
+
+- Se ha actualizado a la nueva pila de audio de Microsoft (MAS) con formación de haces y reducción de ruido mejorada para la voz.
+- Se ha reducido el tamaño binario hasta un 70 % según el destino.
+- Se ha añadido la compatibilidad con [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) con [binario](https://aka.ms/sdsdk-download-APAudio).
+- Se ha actualizado el componente [SDK de Voz](./speech-sdk.md) a la versión 1.15.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>SDK de dispositivos de voz 1.11.0:
 

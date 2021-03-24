@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508023"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119780"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -87,6 +87,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {Context:CorrelationId} | Identificador de correlación.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |Hora y fecha en UTC.  | 10/10/2018 12:00:00 p. m. |
 | {Context:DeploymentMode} |Modo de implementación de la directiva.  | Producción |
+| {Context:HostName} | El nombre de host de la solicitud actual.  | contoso.b2clogin.com |
 | {Context:IPAddress} | Dirección IP del usuario. | 11.111.111.11 |
 | {Context:KMSI} | Indica si se ha seleccionado la casilla [Mantener la sesión iniciada](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |  true |
 
@@ -141,7 +142,7 @@ Puede usar solucionadores de notificaciones con los siguientes elementos:
 |Perfil técnico de [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de [transformación de notificaciones](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de un [proveedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Perfil técnico de un [proveedor de identidades SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico de un [proveedor de identidades SAML](identity-provider-generic-saml.md)| `OutputClaim`| 1, 2|
 |Perfil técnico [autoafirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

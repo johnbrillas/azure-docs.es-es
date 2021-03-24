@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/22/2021
+ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493413"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658561"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -112,6 +112,7 @@ else {
 - Al cambiar a una versión anterior la base de datos con la [replicación geográfica](active-geo-replication-configure-portal.md) habilitada, se cambian también sus bases de datos principales al nivel de servicio y tamaño de proceso deseados antes de cambiar a una versión anterior la base de datos secundaria (regla general para un mejor rendimiento). Si se realiza la actualización a una edición diferente, es necesario actualizar primero la base de datos secundaria.
 - Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si va a cambiar al nivel **Básico**, hay un período de retención de copia de seguridad más bajo. Consulte el artículo sobre [Copias de seguridad de Azure SQL Database](automated-backups-overview.md).
 - Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
+- Cuando es necesario copiar datos para escalar una base de datos (consulte [Latencia](#latency)) al cambiar el nivel de servicio, el uso elevado de recursos simultáneamente a la operación de escalado puede dar lugar a tiempos de escalado más largos. Con la [recuperación acelerada de la base de datos (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md), la reversión de las transacciones de larga duración no es una causa de retraso significativa, pero el uso elevado de recursos simultáneamente puede dejar menos recursos de proceso, almacenamiento y ancho de banda de red para el escalado, especialmente para tamaños de proceso más pequeños.
 
 ## <a name="billing"></a>Facturación
 

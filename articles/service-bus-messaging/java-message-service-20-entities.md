@@ -1,18 +1,18 @@
 ---
-title: 'Mensajería de Azure Service Bus: entidades de Java Message Service (versión preliminar)'
+title: 'Mensajería de Azure Service Bus: entidades de Java Message Service'
 description: En este artículo se proporciona información general sobre las entidades de mensajería de Azure Service Bus accesibles a través de la API de Java Message Service.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 1a7fe3d6355146ccf0fce50266a6f3b8da5231b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87801330"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652588"
 ---
-# <a name="java-message-service-jms-20-entities-preview"></a>Entidades de Java Message Service (JMS) 2.0 (versión preliminar)
+# <a name="java-message-service-jms-20-entities"></a>Entidades de Java Message Service (JMS) 2.0
 
-Las aplicaciones cliente que se conectan a Azure Service Bus Premium y usan la [biblioteca JMS de Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) pueden aprovechar las siguientes entidades.
+Las aplicaciones cliente que se conectan a Azure Service Bus Premium y usan la [biblioteca JMS de Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) pueden utilizar las siguientes entidades.
 
 ## <a name="queues"></a>Colas
 
@@ -36,7 +36,7 @@ Topic createTopic(String topicName)
 
 ## <a name="temporary-queues"></a>Colas temporales
 
-Cuando una aplicación cliente requiere una entidad temporal que existe durante la vigencia de la aplicación, puede usar colas temporales. Estas se utilizan en el patrón de [solicitud-respuesta](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
+Si una aplicación cliente requiere una entidad temporal que existe durante la vigencia de la aplicación, puede usar colas temporales. Estas entidades se utilizan con el patrón de [solicitud-respuesta](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
 
 Para crear una cola temporal, use los métodos siguientes de la clase `JMSContext`:
 
@@ -56,19 +56,19 @@ TemporaryTopic createTemporaryTopic()
 
 ## <a name="java-message-service-jms-subscriptions"></a>Suscripciones de Java Message Service (JMS)
 
-Aunque estas son semánticamente similares a las [suscripciones](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (es decir, existen en un tema y habilitan la semántica de publicación o suscripción), la especificación de Java Message Service presenta los conceptos de los atributos **Compartido**, **No compartido**, **Duradero** y **No duradero** para una suscripción determinada.
+Aunque estas son semánticamente similares a las [suscripciones](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (es decir, existen en un tema y habilitan la semántica de publicación o suscripción), la especificación de Java Message Service presenta los conceptos de los atributos **Compartido**, **No compartido**, **Duradero y **No duradero** para una suscripción determinada.
 
 > [!NOTE]
-> Las suscripciones siguientes están disponibles en el nivel Premium de Azure Service Bus para la versión preliminar de las aplicaciones cliente que se conectan a Azure Service Bus mediante la [biblioteca JMS de Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+> Las suscripciones siguientes están disponibles en el nivel Premium de Azure Service Bus para las aplicaciones cliente que se conectan a Azure Service Bus mediante la [biblioteca JMS de Azure Service Bus](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
 >
-> En el caso de la versión preliminar pública, estas suscripciones no se pueden crear mediante Azure Portal.
+> Solo se pueden crear suscripciones duraderas mediante Azure Portal.
 >
 
 ### <a name="shared-durable-subscriptions"></a>Suscripciones duraderas compartidas
 
 Una suscripción duradera compartida se usa cuando una aplicación va a recibir y procesar todos los mensajes publicados en un tema, independientemente de si la aplicación se utiliza de forma activa en la suscripción en todo momento.
 
-Puesto que se trata de una suscripción compartida, cualquier aplicación autenticada para recibir de Service Bus puede recibir de la suscripción.
+Cualquier aplicación autenticada para recibir de Service Bus puede recibir de la suscripción duradera compartida.
 
 Para crear una suscripción duradera compartida, use los métodos siguientes de la clase `JMSContext`:
 
@@ -86,7 +86,7 @@ void unsubscribe(String name)
 
 ### <a name="unshared-durable-subscriptions"></a>Suscripciones duraderas no compartidas
 
-Al igual que una suscripción duradera compartida, una suscripción duradera no compartida se usa cuando una aplicación va a recibir y procesar todos los mensajes publicados en un tema, independientemente de si la aplicación se utiliza de forma activa en la suscripción en todo momento.
+Al igual que una suscripción duradera compartida, una suscripción duradera no compartida se usa cuando una aplicación va a recibir y procesar todos los mensajes publicados en un tema, independientemente de si la aplicación se utiliza de forma activa en la suscripción.
 
 Sin embargo, puesto que se trata de una suscripción no compartida, solo la aplicación que creó la suscripción puede recibir de ella.
 
@@ -152,12 +152,55 @@ Al igual que existen **filtros y acciones** para las suscripciones normales a Se
 
 Los selectores de mensajes se pueden configurar en cada una de las suscripciones de JMS y existen como una condición de filtro en las propiedades del encabezado del mensaje. Solo se entregarán aquellos mensajes cuyas propiedades de encabezado coincidan con la expresión de selector de mensajes. Un valor de null o una cadena vacía indica que no hay ningún selector de mensajes para el consumidor o la suscripción de JMS.
 
+## <a name="additional-concepts-for-java-message-service-jms-20-subscriptions"></a>Conceptos adicionales para las suscripciones de Java Message Service 2.0
+
+### <a name="client-scoping"></a>Ámbito del cliente
+
+Las suscripciones, tal y como se especifican en la API de Java Message Service 2.0, pueden tener o no un *ámbito limitado a aplicaciones cliente específicas* (identificadas con el identificador `clientId` adecuado).
+
+Una vez que se limita el ámbito de una suscripción, **solo se puede acceder** a ella desde las aplicaciones cliente que tengan el mismo identificador de cliente. 
+
+Cualquier intento de acceder a una suscripción cuyo ámbito esté limitado a un identificador de cliente específico (por ejemplo, clientId1) desde una aplicación con otro identificador de cliente (por ejemplo, clientId2) dará lugar a la creación de otra suscripción cuyo ámbito sea el otro identificador de cliente (clientId2).
+
+> [!NOTE]
+> El identificador de cliente puede ser null o estar vacío, pero debe coincidir con el identificador de cliente establecido en la aplicación cliente de JMS. Desde la perspectiva de Azure Service Bus, un identificador de cliente NULL y un identificador de cliente vacío tienen el mismo comportamiento.
+>
+> Si el identificador de cliente es null o está vacío, solo es accesible para las aplicaciones cliente cuyo identificador de cliente también sea null o esté vacío.
+>
+
+### <a name="shareability"></a>Capacidad de uso compartido
+
+Las suscripciones **compartidas** permiten que varios clientes o consumidores (es decir, objetos JMSConsumer) reciban mensajes de ellos.
+
+>[!NOTE]
+> Varios clientes o consumidores podrán seguir accediendo a las suscripciones compartidas con un ámbito limitado a un identificador de cliente específico (es decir, objetos JMSConsumer), pero cada una de las aplicaciones cliente debe tener el mismo identificador de cliente.
+>
+ 
+
+Las suscripciones **no compartidas** solo permiten que un único cliente o consumidor (es decir, un objeto JMSConsumer) reciba mensajes de ellas. Si se crea un objeto `JMSConsumer` en una suscripción no compartida al tiempo que ya tiene una escucha de `JMSConsumer` activa para los mensajes de ella, se producirá una excepción `JMSException`.
+
+
+### <a name="durability"></a>Durabilidad.
+
+Las suscripciones **duraderas** se conservan y continúan recopilando mensajes del tema, independientemente de si una aplicación (`JMSConsumer`) está consumiendo los mensajes de este.
+
+No se conservarán las suscripciones **no duraderas** y los mensajes del tema se recopilarán siempre y cuando una aplicación (`JMSConsumer`) consuma los mensajes de este. 
+
+## <a name="representation-of-client-scoped-subscriptions"></a>Representación de suscripciones de clientes con ámbito
+
+Dado que las suscripciones de cliente (JMS) con ámbito deben coexistir con las [suscripciones](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) existentes, la manera en que se representan las suscripciones de clientes (JMS) con ámbito tiene el siguiente formato.
+
+   * **\<SUBSCRIPTION-NAME\>** $ **\<CLIENT-ID\>** $**D** (para las suscripciones duraderas)
+   * **\<SUBSCRIPTION-NAME\>** $ **\<CLIENT-ID\>** $**ND** (para las no duraderas)
+
+Aquí, **$** es el delimitador.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información y ejemplos de cómo usar la mensajería de Service Bus, consulte estos temas avanzados:
 
 * [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
-* [Uso de la API de Java Message Service 2.0 con Azure Service Bus Premium (versión preliminar)](how-to-use-java-message-service-20.md)
+* [Uso de la API de Java Message Service 2.0 con Azure Service Bus Premium](how-to-use-java-message-service-20.md)
 
 
 

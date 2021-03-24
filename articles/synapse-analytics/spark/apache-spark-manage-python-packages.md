@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695894"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098781"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas de Python para Apache Spark en Azure Synapse Analytics
 
@@ -36,13 +36,13 @@ Cuando se inicie una instancia de Spark, estas bibliotecas se incluirán automá
 Una vez que haya identificado las bibliotecas de Python que le gustaría usar para la aplicación Spark, puede instalarlas en un grupo de Spark. Las bibliotecas de nivel de grupo están disponibles para todos los cuadernos y todos los trabajos que se ejecutan en el grupo.
 
 Hay dos maneras principales de instalar una biblioteca en un clúster:
--  Instalar una biblioteca de área de trabajo que se ha cargado como un paquete de área de trabajo.
+-  Instalar una biblioteca de área de trabajo que se haya cargado como un paquete de área de trabajo.
 -  Proporcionar un archivo *requirements.txt* o un archivo *environment.yml de Conda* de especificación de entorno para instalar paquetes desde repositorios como PyPI, Conda-Forge, etc.
 
 > [!IMPORTANT]
 > - Si el paquete que va a instalar es de gran tamaño o tarda mucho tiempo en instalarse, afectará al tiempo de inicio de la instancia de Spark.
 > - No se admite la modificación de la versión de PySpark, Python, Scala/Java, .NET o Spark.
-> - No se admite la instalación de paquetes desde PyPI en áreas de trabajo habilitadas para DEP.
+> - La instalación de paquetes de repositorios externos como PyPI, Conda-Forge o los canales Conda predeterminados no se admiten en áreas de trabajo habilitadas para DEP.
 
 ### <a name="install-python-packages"></a>Instalación de paquetes de Python
 Los paquetes de Python se pueden instalar desde repositorios como PyPI y Conda-Forge proporcionando un archivo de especificación de entorno. 
@@ -140,9 +140,6 @@ Para agregar paquetes de área de trabajo:
 
 ![Captura de pantalla en la que se resaltan los paquetes de área de trabajo.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualización de paquetes de área de trabajo")
 
-> [!IMPORTANT]
-> La instalación de paquetes de área de trabajo no se admite todavía en áreas de trabajo protegidas de la filtración de datos.
-
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Los paquetes wheel de compilación personalizada se pueden instalar en el grupo de Apache Spark mediante la carga de todos los archivos wheel en la cuenta de Azure Data Lake Storage (Gen2) que está vinculada al área de trabajo de Synapse. 
 
@@ -160,8 +157,8 @@ Es posible que tenga que agregar la carpeta ```python``` dentro de la carpeta ``
 >[!WARNING]
 > A la hora de proporcionar archivos wheel personalizados, los usuarios solo pueden proporcionar archivos wheel en la cuenta de almacenamiento o en la interfaz de la biblioteca del área de trabajo. Si se proporcionan en ambas, solo se instalarán los archivos wheel especificados en la lista de paquetes del área de trabajo. 
 
-## <a name="session-scoped-libraries-preview"></a>Bibliotecas de ámbito de sesión (versión preliminar)
-Además de las bibliotecas de nivel de grupo, también puede especificar bibliotecas de ámbito de sesión al comienzo de una sesión de cuaderno.  Las bibliotecas de ámbito de sesión permiten especificar y usar entornos de Python personalizados en una sesión de cuaderno. 
+## <a name="session-scoped-packages-preview"></a>Paquetes de ámbito de sesión (versión preliminar)
+Además de los paquetes de nivel de grupo, también puede especificar bibliotecas de ámbito de sesión al comienzo de una sesión del cuaderno.  Las bibliotecas de ámbito de sesión permiten especificar y usar entornos de Python personalizados en una sesión de cuaderno. 
 
 Cuando se usan bibliotecas de ámbito de sesión, es importante tener en cuenta lo siguiente:
    - Al instalar las bibliotecas de ámbito de sesión, solo el cuaderno actual tiene acceso a las bibliotecas especificadas. 
@@ -187,3 +184,4 @@ En algunos casos, para ver las versiones de los paquetes desde Conda, es posible
 ## <a name="next-steps"></a>Pasos siguientes
 - Visualización de las bibliotecas predeterminadas: [Compatibilidad de las versiones de Azure Spark](apache-spark-version-support.md)
 - [Solución de errores de instalación de biblioteca](apache-spark-troubleshoot-library-errors.md)
+- Creación de un canal privado de Conda mediante la cuenta de Azure Data Lake Storage: [canales privados de Conda](./spark/../apache-spark-custom-conda-channel.md)

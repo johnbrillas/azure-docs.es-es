@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400935"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093037"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -42,6 +42,8 @@ Use los dispositivos gemelos para:
 Para obtener instrucciones sobre el uso de propiedades notificadas, mensajes de dispositivo a nube o carga de archivos, consulte [Guía de comunicación de dispositivo a nube](iot-hub-devguide-d2c-guidance.md).
 
 Para obtener instrucciones sobre el uso de propiedades deseadas, los métodos directos o los mensajes de nube a dispositivo, consulte [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
+
+Para obtener información sobre cómo se relacionan los dispositivos gemelos con el modelo de dispositivo utilizado en un dispositivo Azure IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-pnp/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Dispositivos gemelos
 

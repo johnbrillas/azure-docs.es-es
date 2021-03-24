@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704034"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041287"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -167,6 +167,19 @@ Si las máquinas virtuales detectadas no aparecen en el portal o si los datos de
 
 Si elimina las máquinas virtuales y siguen apareciendo en el portal, espere treinta minutos. Si siguen apareciendo, actualice como se describió anteriormente.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Aplicaciones e instancias y bases de datos de SQL Server detectadas que no están en el portal
+
+Una vez que haya iniciado la detección en el dispositivo, puede tardar hasta 24 horas en empezar a mostrar los datos de inventario en el portal.
+
+Si no ha proporcionado las credenciales de autenticación de Windows o SQL Server en el administrador de configuración del dispositivo, agregue las credenciales para que el dispositivo pueda usarlas para conectarse a las instancias de SQL Server correspondientes.
+
+Una vez conectado, el dispositivo recopila datos de configuración y rendimiento de las instancias y de las bases de datos de SQL Server. Los datos de configuración de SQL Server se actualizan una vez cada 24 horas y los datos de rendimiento se capturan cada 30 segundos. Por lo tanto, cualquier cambio en las propiedades de la instancia y bases de datos de SQL Server, como el estado de la base de datos, el nivel de compatibilidad, etc. puede tardar hasta 24 horas en actualizarse en el portal.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>La instancia de SQL Server se muestra en el estado "Sin conexión" en el portal
+Para ver los problemas encontrados durante la detección de instancias y bases de datos de SQL Server, haga clic en el estado "Sin conexión" en la columna de estado de la conexión de la página "Servidores detectados" del proyecto.
+
+La creación de una evaluación sobre los servidores que contienen instancias de SQL que no se detectaron por completo o que se encuentran en estado sin conexión, puede dar lugar a que se marque la preparación como "desconocida".
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>No veo los datos de rendimiento de algunos adaptadores de red en los servidores físicos.
 
 Esto puede ocurrir si el servidor físico tiene habilitada la virtualización de Hyper-V. Debido a una brecha en el producto, el rendimiento de la red se captura en los adaptadores de red virtuales descubiertos.
@@ -215,12 +228,12 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 | 9013: Se crea un nuevo perfil temporal para cada inicio de sesión. | Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual de VMware. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9014: No se pueden recuperar los metadatos del sistema de archivos de la máquina virtual invitada. | No hay conectividad con el host ESXi. | Asegúrese de que el dispositivo puede conectarse al puerto 443 en el host ESXi que ejecuta la máquina virtual. |
 | 9015: El rol Operaciones de invitado no está habilitado en la cuenta de usuario de vCenter | El rol operaciones de invitado no está habilitado en la cuenta de usuario de vCenter. | Asegúrese de que el rol Operaciones de invitado está habilitado en la cuenta de usuario de vCenter. |
-| 9016: No se puede detectar porque el agente de operaciones de invitado no está actualizado. | Las herramientas de VMware no están instaladas correctamente o no están actualizadas. | Asegúrese de que las herramientas de VMware están correctamente instaladas y actualizadas. |
+| 9016: No se puede detectar porque el agente de operaciones de invitado no está actualizado. | Las herramientas de VMware no están instalado correctamente o no están actualizadas. | Asegúrese de que las herramientas de VMware están correctamente instaladas y actualizadas. |
 | 9017: No se encuentra el archivo con los metadatos detectados en la máquina virtual. | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9018: PowerShell no está instalado en las máquinas virtuales invitadas. | PowerShell aún no está disponible en la máquina virtual invitada. | Instale PowerShell en la máquina virtual invitada. |
 | 9019: No se puede realizar la detección debido a errores de operación de la máquina virtual invitada. | No se pudo realizar la operación de invitado de VMware en la máquina virtual. | Asegúrese de que las credenciales de la máquina virtual sean válidas y que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN. |
 | 9020: Se ha denegado el permiso se creación de archivo. | El rol asociado al usuario o a la directiva de grupo restringe al usuario a la hora de crear el archivo de la carpeta. | Compruebe si el usuario invitado proporcionado tiene permiso de creación para el archivo de la carpeta. Consulte las **notificaciones** en Server Assessment para ver el nombre de la carpeta. |
-| 9021: No se puede crear el archivo en la ruta de acceso temporal del sistema. | La herramienta de VMware reporta la ruta de acceso temporal del sistema en lugar de la ruta temporal de los usuarios. | Actualice la versión de las herramientas de VMware a una versión superior a 10287 (formato de cliente NGC/VI). |
+| 9021: No se puede crear el archivo en la ruta de acceso temporal del sistema. | La herramienta de VMware reporta la ruta de acceso temporal del sistema en lugar de la ruta temporal de los usuarios. | Actualice la versión de la herramienta de VMware a una versión superior a 10287 (formato de cliente NGC/VI). |
 | 9022: Se ha denegado el acceso al objeto WMI. | El rol asociado al usuario o a la directiva de grupo restringe el acceso del usuario al objeto WMI. | Póngase en contacto con el soporte técnico de Microsoft. |
 | 9023: No se puede ejecutar PowerShell ya que valor de la variable de entorno SystemRoot está vacío. | El valor de la variable de entorno SystemRoot está vacío para la máquina virtual invitada. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9024: No se puede descubrir ya que el valor de la variable de entorno TEMP está vacío. | El valor de la variable de entorno TEMP está vacío para la máquina virtual invitada. | Póngase en contacto con el soporte técnico de Microsoft. |
@@ -228,13 +241,13 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 | 9026: No se pueden ejecutar operaciones de invitado en la máquina virtual. | El estado de la máquina virtual no permite la ejecución de operaciones de invitado en la máquina virtual. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9027: El agente de operaciones de invitado no se ejecuta en la máquina virtual. | No se pudo establecer contacto con el agente de operaciones de invitado que se ejecuta en la máquina virtual. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9028: No se puede crear el archivo porque no hay suficiente almacenamiento en disco en la máquina virtual. | No hay suficiente espacio en el disco. | Asegúrese de que hay suficiente espacio disponible en el almacenamiento en disco de la máquina virtual. |
-| 9029: Las credenciales de la máquina virtual invitada no tienen acceso a PowerShell. | El acceso a PowerShell no está disponible para el usuario. | Asegúrese de que el usuario agregado en el dispositivo puede acceder a PowerShell en la máquina virtual invitada. |
+| 9029: Las credenciales de la VM invitada no tienen acceso a PowerShell. | El acceso a PowerShell no está disponible para el usuario. | Asegúrese de que el usuario agregado en el dispositivo puede acceder a PowerShell en la máquina virtual invitada. |
 | 9030: No se pueden recopilar los metadatos detectados porque el host ESXi está desconectado. | El host ESXi está desconectado. | Asegúrese de que el host ESXi que ejecuta la máquina virtual está conectado. |
 | 9031: No se pueden recopilar los metadatos detectados porque el host ESXi no responde. | El host remoto tiene un estado no válido. | Asegúrese de que el host ESXi que ejecuta la máquina virtual se está ejecutando y está conectado. |
 | 9032: No se puede detectar debido a un error interno. | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |
 | 9033: No se puede detectar porque el nombre de usuario de la máquina virtual contiene caracteres no válidos. | Se han detectado caracteres no válidos en el nombre de usuario. | Proporcione de nuevo la credencial de máquina virtual asegurándose de que no hay caracteres no válidos. |
 | 9034: El nombre de usuario proporcionado no está en formato UPN. | El nombre de usuario no está en formato UPN. | Asegúrese de que el nombre de usuario está en formato de nombre principal de usuario (UPN). |
-| 9035: No se puede detectar porque el modo de lenguaje de PowerShell no está establecido en 'Lenguaje completo'. | El modo de lenguaje de PowerShell en la máquina virtual invitada no se estableció en idioma completo. | Asegúrese de que el modo de lenguaje de PowerShell se estableció en 'Lenguaje completo'. |
+| 9035: No se puede detectar porque el modo de lenguaje de PowerShell no está establecido en "Full Language". | El modo de lenguaje de PowerShell en la máquina virtual invitada no está establecido en lenguaje completo. | Asegúrese de que el modo de lenguaje de PowerShell se estableció en 'Lenguaje completo'. |
 | 9037: La recopilación de datos se pausa temporalmente porque el tiempo de respuesta de la máquina virtual es demasiado alto. | La máquina virtual detectada está tardando demasiado tiempo en responder | No es necesaria ninguna acción. Se probará con un nuevo intento en 24 horas para la detección de aplicaciones y 3 horas para el análisis de dependencias (sin agente). |
 | 10000: El tipo de sistema operativo no es compatible. | El sistema operativo que se ejecuta en el servidor no es Windows ni Linux. | Los tipos de sistema operativo admitidos son solo Windows y Linux. |
 | 10001: No se encuentra el script de detección de servidores en el dispositivo. | La detección no funciona según lo esperado. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft. |

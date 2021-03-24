@@ -4,21 +4,26 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371233"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180316"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La característica descrita en este documento, directiva de seguridad de pod (versión preliminar), está programada para quedar en desuso y dejará de estar disponible a partir del 30 de junio de 2021** en favor de [Azure Policy para AKS](use-pod-security-on-azure-policy.md). La fecha de puesta en desuso se ha retrasado desde la anterior, que era el 15 de octubre de 2020.
+> **La característica descrita en este documento, directiva de seguridad de pod (versión preliminar), está programada para quedar en desuso y dejará de estar disponible a partir del 30 de junio de 2021** en favor de [Azure Policy para AKS](use-azure-policy.md). La fecha de puesta en desuso se ha retrasado desde la anterior, que era el 15 de octubre de 2020.
 >
 > Una vez que la directiva de seguridad de pod (versión preliminar) haya quedado en desuso, deberá deshabilitar la característica en todos los clústeres existentes que la incluyan para realizar futuras actualizaciones de clústeres y seguir recibiendo el soporte técnico de Azure.
 >
-> Se recomienda que comience a probar escenarios con Azure Policy para AKS, que ofrece directivas integradas para proteger los pods e iniciativas integradas que se asignan a las directivas de seguridad de pod. Haga clic aquí para obtener más información sobre la [migración a Azure Policy desde la directiva de seguridad de pod (versión preliminar)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+> Se recomienda que comience a probar escenarios con Azure Policy para AKS, que ofrece directivas integradas para proteger los pods e iniciativas integradas que se asignan a las directivas de seguridad de pod. Para migrar desde la directiva de seguridad de pod, debe realizar las siguientes acciones en un clúster.
+> 
+> 1. [Deshabilitar la directiva de seguridad de pod](#clean-up-resources) en el clúster
+> 1. Habilitar el [complemento de Azure Policy][kubernetes-policy-reference]
+> 1. Habilitar las directivas de Azure deseadas a partir de las [directivas integradas disponibles][policy-samples]
+> 1. Revise [Cambios de comportamiento entre la directiva de seguridad de pod y Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy).
 
 Para mejorar la seguridad del clúster de AKS, puede limitar los pods que se pueden programar. Los pods que soliciten recursos que no permita no podrán ejecutarse en el clúster de AKS. Defina este acceso mediante directivas de seguridad de pod. En este artículo se muestra cómo usar las directivas de seguridad de pod para limitar la implementación de pods en AKS.
 
@@ -77,6 +82,26 @@ Al habilitar la directiva de seguridad de pod en el clúster de AKS, se aplican 
 * Habilitación de la característica de directiva de seguridad de pod
 
 Para mostrar cómo las directivas predeterminadas limitan la implementación de pods, en este artículo primero se habilita la característica de las directivas de seguridad de pod y después se crea una directiva personalizada.
+
+### <a name="behavior-changes-between-pod-security-policy-and-azure-policy"></a>El comportamiento cambia entre la directiva de seguridad de pod y Azure Policy
+
+A continuación se muestra un resumen de los cambios de comportamiento entre la directiva de seguridad de pod y Azure Policy.
+
+|Escenario| Directiva de seguridad de pod | Azure Policy |
+|---|---|---|
+|Instalación|Habilitar la característica de directiva de seguridad de pod |Habilitar el complemento de Azure Policy
+|Implementar directivas| Implementar el recurso de la directiva de seguridad de pod| Asigne las directivas de Azure al ámbito de la suscripción o del grupo de recursos. El complemento de Azure Policy es necesario para las aplicaciones de recursos de Kubernetes.
+| Directivas predeterminadas | Cuando la directiva de seguridad de pod está habilitada en AKS, se aplican las directivas predeterminadas Con privilegios y Sin restricciones. | No se aplica ninguna directiva predeterminada al habilitar el complemento de Azure Policy. Debe habilitar explícitamente las directivas en Azure Policy.
+| Quién puede crear y asignar directivas | El administrador del clúster crea un recurso de directiva de seguridad de pod | Los usuarios deben tener un rol mínimo con permisos de "propietario" o "colaborador de directiva de recursos" en el grupo de recursos del clúster de AKS. - Mediante la API, los usuarios pueden asignar directivas en el ámbito del recurso del clúster de AKS. El usuario debe tener permisos mínimos de "propietario" o "colaborador de directiva de recursos" en el recurso del clúster de AKS. - En Azure Portal, las directivas se pueden asignar en el nivel de grupo de administración, suscripción o grupo de recursos.
+| Autorizar directivas| Los usuarios y las cuentas de servicio requieren permisos explícitos para usar las directivas de seguridad de pod. | No se requiere ninguna asignación adicional para autorizar directivas. Una vez que se han asignado las directivas en Azure, todos los usuarios del clúster pueden usar estas directivas.
+| Aplicabilidad de las directivas | El usuario administrador está exento del cumplimiento de las directivas de seguridad de pod. | Todos los usuarios (administradores y no administradores) ven las mismas directivas. No hay ninguna grafía especial basada en los usuarios. La aplicación de las directivas se puede excluir en el nivel de espacio de nombres.
+| Ámbito de la directiva | Las directivas de seguridad de pod no tienen espacios de nombres | Las plantillas de restricción usadas por Azure Policy no tienen espacios de nombres.
+| Acción de denegación/auditoría/mutación | Las directivas de seguridad de pod solo admiten acciones de denegación. La mutación se puede realizar con valores predeterminados en las solicitudes de creación. La validación se puede realizar durante las solicitudes de actualización.| Azure Policy admite las acciones de denegación y de auditoría. La mutación todavía no se admite, pero está planeada.
+| Cumplimiento de la directiva de seguridad de pod | No hay visibilidad del cumplimiento de los pods que existían antes de habilitar la directiva de seguridad de pod. Los pods no compatibles creados después de habilitar las directivas de seguridad de pod se deniegan. | Los pods no compatibles que existían antes de aplicar las directivas de Azure se mostrarían en infracciones de directivas. Los pods no compatibles creados después de habilitar las directivas de Azure se deniegan si las directivas se establecen con efecto de denegación.
+| Cómo ver las directivas del clúster | `kubectl get psp` | `kubectl get constrainttemplate` : devuelve todas las directivas.
+| Directiva de seguridad de pod estándar: con privilegios | De forma predeterminada, se crea un recurso de directiva de seguridad de pod con privilegios al habilitar la característica. | El modo con privilegios no implica ninguna restricción, por tanto, es equivalente a no tener ninguna asignación de Azure Policy.
+| [Directiva de seguridad de pod estándar: línea de base/predeterminada](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | El usuario instala un recurso de línea de base de la directiva de seguridad de pod. | Azure Policy proporciona una [iniciativa de línea de base integrada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) que se asigna a la directiva de seguridad de pod de línea de base.
+| [Directiva de seguridad de pod estándar: restringida](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | El usuario instala un recurso restringido de la directiva de seguridad de pod. | Azure Policy proporciona una [iniciativa restringida integrada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) que se asigna a la directiva de seguridad de pod de restringida.
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Habilitación de una directiva de seguridad de pod en un clúster de AKS
 
@@ -453,3 +478,4 @@ Para más información sobre la limitación del tráfico del pod, consulte [Prot
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice

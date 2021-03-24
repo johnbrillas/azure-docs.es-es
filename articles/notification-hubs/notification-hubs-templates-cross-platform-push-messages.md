@@ -5,23 +5,21 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 02/16/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee42512a468f4ff86ad7ba273d3971fd124779e2
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86219970"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635649"
 ---
 # <a name="notification-hubs-templates"></a>Plantillas de Notification Hubs
 
@@ -32,7 +30,7 @@ Las plantillas permiten que una aplicación cliente especifique el formato exact
 - Independencia de la versión del cliente
 - Localización sencilla
 
-Esta sección proporciona ejemplos detallados sobre cómo usar las plantillas para enviar notificaciones independientes de la plataforma orientadas a todos los dispositivos en todas las plataformas y para personalizar la notificación de difusión a cada dispositivo.
+Esta sección proporciona dos ejemplos detallados sobre cómo usar las plantillas para enviar notificaciones independientes de la plataforma orientadas a todos los dispositivos en todas las plataformas y para personalizar las notificaciones de difusión a cada dispositivo.
 
 ## <a name="using-templates-cross-platform"></a>Uso de plantillas multiplataforma
 
@@ -58,9 +56,9 @@ Puede crear cargas similares para plataformas MPNS (Windows Phone) y FCM (Androi
 
 Este requisito obliga al back-end de la aplicación a generar cargas distintas para cada plataforma y, de manera efectiva, hace que el back-end sea responsable de parte del nivel de presentación de la aplicación. Algunos problemas incluye diseños gráficos y de localización (especialmente para las aplicaciones de la Tienda Windows que incluyen notificaciones para varios tipos de iconos).
 
-La característica de plantilla de Notification Hubs permite que una aplicación cliente cree registros especiales, llamados registros de plantilla, que, además del conjunto de etiquetas, incluye una plantilla. La característica de plantilla de Notification Hubs permite que una aplicación cliente asocie los dispositivos con plantillas, ya sea que trabaje con Instalaciones (la opción de preferencia) o con Registros. Dados los ejemplos de carga anteriores, la única información independiente de la plataforma es el mensaje de alerta mismo (Hello!). Una plantilla es un conjunto de instrucciones para el Centro de notificaciones sobre cómo dar formato a un mensaje independiente de la plataforma para el registro de esa aplicación cliente específica. En el ejemplo anterior, el mensaje independiente de la plataforma es una propiedad única: `message = Hello!`.
+La característica de plantilla de Notification Hubs permite que una aplicación cliente cree registros especiales, llamados registros de plantilla, que, además del conjunto de etiquetas, incluye una plantilla. La característica de plantilla de Notification Hubs permite que una aplicación cliente asocie los dispositivos con plantillas, tanto si trabaja con instalaciones (la opción de preferencia) como con registros. Dados los ejemplos de carga anteriores, la única información independiente de la plataforma es el propio mensaje de alerta (**Hello!** ). Una plantilla es un conjunto de instrucciones para el centro de notificaciones sobre cómo dar formato a un mensaje independiente de la plataforma para el registro de esa aplicación cliente específica. En el ejemplo anterior, el mensaje independiente de la plataforma es una propiedad única: `message = Hello!`.
 
-La siguiente ilustración muestra el proceso:
+La figura siguiente ilustra el proceso:
 
 ![Diagrama que muestra el proceso de uso de las plantillas multiplataforma](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -82,11 +80,11 @@ La plantilla correspondiente a una aplicación cliente de la Tienda Windows es:
 </toast>
 ```
 
-Observe que la expresión $(message) sustituye al mensaje mismo. Esta expresión indica al Centro de notificaciones, cada vez que envía un mensaje a este registro en especial, que cree un mensaje que lo siga y cambia el valor común.
+Observe que la expresión `$(message)` sustituye al mensaje real. Cada vez que se envía un mensaje a este registro en particular, esta expresión indica al centro de notificaciones que cree un mensaje según las indicaciones e inserta el valor común.
 
-Si trabaja con el modelo de Instalación, la clave "plantillas" de la instalación contiene el código JSON de varias plantillas. Si trabaja con el modelo de Registro, la aplicación cliente puede crear varios registros para usar varias plantillas; por ejemplo, una plantilla para los mensajes de alerta y una plantilla para las actualizaciones de icono. Las aplicaciones cliente también pueden combinar los registros nativos (registros sin plantilla) y los registros de plantilla.
+Si trabaja con el modelo de instalación, la clave "templates" (plantillas) de la instalación contiene el código JSON de varias plantillas. Si trabaja con el modelo de registro, la aplicación cliente puede crear varios registros para usar varias plantillas; por ejemplo, una plantilla para los mensajes de alerta y una plantilla para las actualizaciones de iconos. Las aplicaciones cliente también pueden combinar los registros nativos (registros sin plantilla) y los registros de plantilla.
 
-El Centro de notificaciones envía una notificación para cada plantilla sin considerar si pertenecen a la misma aplicación cliente. Este comportamiento se puede usar para traducir las notificaciones independientes de la plataforma en más notificaciones. Por ejemplo, el mismo mensaje independiente de la plataforma al Centro de notificaciones se puede traducir sin problemas en una alerta de notificación del sistema y una actualización de icono, sin requerir que el back-end lo sepa. Algunas plataformas (por ejemplo, iOS) pueden contraer las diversas notificaciones en el mismo dispositivo si se envían en un período breve.
+El centro de notificaciones envía una notificación para cada plantilla sin tener en cuenta si pertenecen a la misma aplicación cliente. Este comportamiento se puede usar para traducir las notificaciones independientes de la plataforma en más notificaciones. Por ejemplo, el mismo mensaje independiente de la plataforma al centro de notificaciones se puede traducir sin problemas en una alerta de notificación del sistema y una actualización de iconos, sin que sea necesario que el back-end lo sepa. Algunas plataformas (por ejemplo, iOS) pueden contraer varias notificaciones al mismo dispositivo si se envían en un período breve.
 
 ## <a name="using-templates-for-personalization"></a>Uso de plantillas para personalización
 
@@ -106,26 +104,20 @@ La plantilla para un pronóstico de 1 día con temperaturas expresadas en Celsiu
 </tile>
 ```
 
-El mensaje enviado al Centro de notificaciones contiene todas las propiedades siguientes:
+El mensaje enviado al centro de notificaciones contiene todas las propiedades siguientes:
 
-```html
-<table border="1">
+| day1_image | day2_image | day3_image | day4_image | day5_image |
+|------------|------------|------------|------------|------------|
+| day1_tempC | day2_tempC | day3_tempC | day4_tempC | day5_tempC |
+| day1_tempF | day2_tempF | day3_tempF | day4_tempF | day5_tempF |
 
-<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
-
-<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
-
-<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
-</table><br/>
-```
-
-Con este patrón, el back-end solo envía un mensaje único sin tener que almacenar opciones de personalización específicas para los usuarios de la aplicación. La siguiente ilustración muestra este escenario:
+Con este patrón, el back-end solo envía un mensaje único sin tener que almacenar opciones de personalización específicas para los usuarios de la aplicación. En la siguiente ilustración se muestra este escenario:
 
 ![Diagrama que muestra cómo el back-end solo envía un único mensaje a cada plataforma.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Registro de las plantillas
 
-Para registrar las plantillas con el modelo de Instalación (la opción de preferencia) o el modelo de Registro, consulte [Administración de registros](notification-hubs-push-notification-registration-management.md).
+Para registrar las plantillas con el modelo de instalación (la opción de preferencia) o el modelo de registro, consulte [Administración de registros](notification-hubs-push-notification-registration-management.md).
 
 ## <a name="template-expression-language"></a>Lenguaje de expresión de plantilla
 
@@ -136,11 +128,11 @@ La tabla siguiente muestra el lenguaje que se permite en las plantillas:
 | Expression       | Descripción |
 | ---------------- | --- |
 | $(prop)          | Referencia a una propiedad de evento con el nombre especificado. Los nombres de propiedad no distinguen mayúsculas de minúsculas. Esta expresión se resuelve en el valor de texto de la propiedad o en una cadena vacía, si la propiedad no está presente. |
-| $(prop, n)       | Igual que el caso anterior, pero el texto se recorta explícitamente en n caracteres, por ejemplo, $(title, 20) recorta el contenido de la propiedad title en 20 caracteres. |
-| .(prop, n)       | Igual que el caso anterior, pero se agregan tres puntos como sufijo al texto debido a que se recorta. El tamaño total de la cadena recortada y el sufijo no exceden los n caracteres. .(title, 20) con una propiedad de entrada de "Esta es la línea del título", con lo que queda como **Esta es la línea ...** |
+|$(prop, n)       | Igual que el caso anterior, pero el texto se recorta explícitamente en n caracteres, por ejemplo, $(title, 20) recorta el contenido de la propiedad title en 20 caracteres. |
+| .(prop, n)      | Igual que el caso anterior, pero se agregan tres puntos como sufijo al texto debido a que se recorta. El tamaño total de la cadena recortada y el sufijo no supera los n caracteres. (title, 20), con lo que la propiedad de entrada "This is the title line" daría como resultado **This is the title..** . |
 | %(prop)          | Similar a $(name), salvo en que la salida está codificada en URI. |
-| #(prop)          | Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que $(prop) especificada anteriormente, salvo cuando se usa en plantillas de JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre “{‘,’}” (por ejemplo, ‘myJsonProperty’ : ‘#(name)’) y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, el JSON de salida es un número.<br><br>Por ejemplo, ‘badge : ‘#(name)’ se convierte en ‘badge’: 40 (y no ‘40‘). |
-| ‘texto’ o “texto” | Literal. Los literales contienen texto arbitrario encerrado entre comillas simples o dobles. |
+| #(prop)          | Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que la especificada anteriormente '$(prop)', salvo cuando se usa en plantillas JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre "{','}" (por ejemplo, 'myJsonProperty' : '#(name)') y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, el código JSON de salida es un número.<br><br>Por ejemplo, 'badge: '#(name)' se convierte en 'badge' : 40 (y no '40'). |
+| 'text' o "text" | Literal. Los literales contienen texto arbitrario encerrado entre comillas simples o dobles. |
 | expr1 + expr2    | El operador de concatenación que une dos expresiones en una sola cadena. |
 
 Las expresiones pueden estar en cualquiera de los formatos anteriores.

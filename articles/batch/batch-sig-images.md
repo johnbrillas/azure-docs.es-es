@@ -2,14 +2,14 @@
 title: Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 description: Los grupos de imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de trabajo de Batch.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731368"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124251"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -69,12 +69,15 @@ Si va a crear una máquina virtual para la imagen, use una imagen propia de Azur
 > [!NOTE]
 > No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para más información sobre estas imágenes de Azure Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
 
+Siga estas instrucciones al crear máquinas virtuales.
+
 - Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
 - No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
 - Cuando use discos de datos conectados, debe montar y dar formato a los discos desde una máquina virtual para usarlos.
 - Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
 - Asegúrese de que el disco del sistema operativo no esté cifrado.
-- Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
+- Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.
+- Para que el aprovisionamiento de grupo se realice más rápidamente, use la [configuración de caché de disco ReadWrite](../virtual-machines/premium-storage-performance.md#disk-caching) para el disco del sistema operativo de la máquina virtual.
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual
 

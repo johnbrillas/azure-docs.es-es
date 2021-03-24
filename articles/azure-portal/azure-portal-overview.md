@@ -2,14 +2,14 @@
 title: Introducción a Azure Portal
 description: Azure Portal es una interfaz gráfica de usuario que puede usarse para administrar los servicios de Azure. Aprenda a navegar y buscar recursos en Azure Portal.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745934"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564001"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 
@@ -35,7 +35,7 @@ Si selecciona el modo acoplado para el menú del portal, siempre está visible. 
 
 ## <a name="azure-home"></a>Inicio de Azure
 
-Como nuevo suscriptor a servicios de Azure, lo primero que ve nada más [iniciar sesión en el portal](https://portal.azure.com) es **Inicio de Azure**. En esta página se compilan recursos que le ayudan a sacar el máximo partido a su suscripción a Azure. Hemos incluido vínculos a cursos en línea gratuitos, documentación, servicios principales y sitios útiles para mantenerse al día y administrar el cambio para su organización. Para obtener acceso de forma rápida y sencilla al trabajo en curso, también mostramos una lista de sus últimos recursos visitados. No puede personalizar esta página, pero puede elegir si desea ver **Inicio de Azure** o **Panel de Azure** como su vista predeterminada. Al iniciar sesión por primera vez, aparece un aviso en la parte superior de la página donde puede guardar su preferencia.
+Como nuevo suscriptor a servicios de Azure, lo primero que ve nada más [iniciar sesión en el portal](https://portal.azure.com) es **Inicio de Azure**. En esta página se compilan recursos que le ayudan a sacar el máximo partido a su suscripción a Azure. Hemos incluido vínculos a cursos en línea gratuitos, documentación, servicios principales y sitios útiles para mantenerse al día y administrar el cambio para su organización. Para obtener acceso de forma rápida y sencilla al trabajo en curso, también mostramos una lista de sus últimos recursos visitados. No puede personalizar esta página, pero puede elegir si desea ver **Inicio de Azure** o **Panel de Azure** como la vista predeterminada. Al iniciar sesión por primera vez, aparece un aviso en la parte superior de la página donde puede guardar su preferencia.
 
 ![Captura de pantalla que muestra dónde guardar sus preferencias.](./media/azure-portal-overview/azure-portal-default-view.png)
 
@@ -51,7 +51,7 @@ Los paneles proporcionan una vista enfocada de los recursos de su suscripción q
 
 Es útil para entender el diseño básico del portal y cómo interactuar con él. Aquí, presentaremos los componentes de la interfaz de usuario y parte de la terminología que empleamos para proporcionar instrucciones. Para un recorrido más detallado por el portal, consulte la lección del curso [Desplazarse por el portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-El menú de Azure Portal y el encabezado de página son elementos globales que están siempre presentes. Estas características persistentes son el "shell" para la interfaz de usuario asociada a cada característica o servicio individual y el encabezado proporciona acceso a los controles globales. La página de configuración (a veces denominada "hoja") de un recurso también puede tener un menú para ayudarle a moverse entre características.
+El menú de Azure Portal y el encabezado de página son elementos globales que están siempre presentes. Estas características persistentes son el "armazón" de la interfaz de usuario asociada a cada característica o servicio individual y el encabezado proporciona acceso a los controles globales. La página de configuración (a veces denominada "hoja") de un recurso también puede tener un menú para ayudarle a moverse entre características.
 
 En la siguiente ilustración se etiquetan los elementos básicos de Azure Portal, cada uno de los cuales se describe en la siguiente tabla.
 
@@ -75,7 +75,7 @@ En la siguiente ilustración se etiquetan los elementos básicos de Azure Portal
 
 ## <a name="get-started-with-services"></a>Introducción a los servicios
 
-Si es un suscriptor nuevo, tendrá que crear un recurso antes de que haya algo para administrar. Seleccione **+ Crear un recurso** para ver los servicios disponibles en Azure Marketplace. Aquí encontrará aplicaciones y servicios de cientos de proveedores, todos certificados para ejecutarse en Azure.
+Si es un suscriptor nuevo, tendrá que crear un recurso antes de que haya algo para administrar. Seleccione **+ Crear un recurso** para ver los servicios disponibles en Azure Marketplace. Aquí encontrará cientos de aplicaciones y servicios de varios proveedores, todos certificados para ejecutarse en Azure.
 
 Se han rellenado previamente sus Favoritos en la barra lateral con vínculos a servicios usados con frecuencia.  Para ver todos los servicios disponibles, seleccione **Todos los servicios** en la barra lateral.
 

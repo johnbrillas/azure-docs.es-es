@@ -2,16 +2,16 @@
 title: 'Tutorial: Incorporación de variables a un archivo de Bicep de Azure Resource Manager'
 description: Agregue variables a cualquier archivo de Bicep para simplificar la sintaxis.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1706bafb85834cfd3abae1f5d6a0090da9041bb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da2755c1f2c0f9fa891fe1a99b1fed21f64492c8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743014"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632482"
 ---
 # <a name="tutorial-add-variables-to-azure-resource-manager-bicep-file"></a>Tutorial: Incorporación de variables a un archivo de Bicep de Azure Resource Manager
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a agregar una variable a un archivo Bicep. Las vari
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las funciones](bicep-tutorial-add-functions.md).
 
-Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte el apartado relativo a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
+Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte la sección relativa a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## <a name="review-bicep-file"></a>Examen de un archivo de Bicep
 
@@ -35,7 +35,7 @@ El parámetro del nombre de la cuenta de almacenamiento es difícil de usar porq
 
 ## <a name="use-variable"></a>Uso de la variable
 
-En el ejemplo siguiente se resaltan los cambios que hay que realizar para agregar una variable al archivo de Bicep que crea un nombre de cuenta de almacenamiento único. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
+En el ejemplo siguiente se muestran los cambios que hay que realizar para agregar una variable al archivo de Bicep que crea un nombre de cuenta de almacenamiento único. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-31" highlight="1-3,19,22":::
 
@@ -43,7 +43,7 @@ Observe que se incluye una variable llamada `uniqueStorageName`. Esta variable u
 
 Ya conoce la función [resourceGroup](template-functions-resource.md#resourcegroup). En este caso, obtendrá la propiedad `id` en lugar de la propiedad `location`, tal como se muestra en el tutorial anterior. La propiedad `id` devuelve el identificador completo del grupo de recursos, incluido el identificador de la suscripción y el nombre del grupo de recursos.
 
-La función [uniqueString](template-functions-string.md#uniquestring) crea un valor hash de 13 caracteres. El valor devuelto viene determinado por los parámetros que se pasan. En este tutorial, usará el identificador del grupo de recursos como entrada del valor hash, lo que significa que puede implementar este archivo de Bicep en distintos grupos de recursos y obtener un valor de cadena único diferente. Sin embargo, se obtiene el mismo valor si la implementa en el mismo grupo de recursos.
+La función [uniqueString](template-functions-string.md#uniquestring) crea un valor hash de 13 caracteres. El valor devuelto viene determinado por los parámetros que se pasan. En este tutorial, usará el identificador del grupo de recursos como entrada del valor hash. lo que significa que puede implementar este archivo de Bicep en distintos grupos de recursos y obtener un valor de cadena único diferente. Sin embargo, se obtiene el mismo valor si la implementa en el mismo grupo de recursos.
 
 Bicep admite una sintaxis de [interpolación de cadena](https://en.wikipedia.org/wiki/String_interpolation#). En el caso de esta variable, toma la cadena del parámetro y la cadena de la función `uniqueString` y las combina en una cadena.
 

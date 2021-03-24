@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634301"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ La replicación geográfica activa es una característica de Azure SQL Database 
 
 > [!NOTE]
 > La replicación geográfica activa no es compatible con Instancia administrada de Azure SQL. Para la conmutación por error geográfica de Instancia administrada de SQL, use [Grupos de conmutación por error automática](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Para migrar bases de datos SQL desde Azure Alemania mediante la replicación geográfica activa, consulte [Migración de bases de datos SQL mediante la replicación geográfica activa](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres de bases de datos individuales en el caso de que se produzca un desastre regional o una interrupción a gran escala. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente.
 
@@ -292,6 +295,9 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | [Vínculos de replicación: lista por base de datos](/rest/api/sql/replicationlinks/listbydatabase) | Obtiene todos los vínculos de replicación para una base de datos determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
 | [Eliminar vínculo de replicación](/rest/api/sql/replicationlinks/delete) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
 |  | |
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a4299eff296d9795f8d256ff1236a8e8b4ad3e42
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585214"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654381"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -43,7 +43,8 @@ En el diagrama siguiente se muestra el comportamiento de duración de la ventana
 ![Vigencia del token de actualización](./media/configure-tokens/refresh-token-lifetime.png)
 
 > [!NOTE]
-> Las aplicaciones de página única que usan el flujo de código de autorización con PKCE siempre tienen una duración de token de actualización de 24 horas. [Más información sobre las consecuencias de seguridad de los tokens de actualización en el explorador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+> >Las aplicaciones de página única que usan el flujo de código de autorización con PKCE siempre tienen una vigencia del token de actualización de 24 horas, mientras que las aplicaciones móviles, las aplicaciones de escritorio y las aplicaciones web no tienen esta limitación. [Más información sobre las consecuencias de seguridad de los tokens de actualización en el explorador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 
 ## <a name="configure-token-lifetime"></a>Configuración de la duración de los tokens
 

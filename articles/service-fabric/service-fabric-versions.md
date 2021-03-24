@@ -3,12 +3,12 @@ title: Actualización de la versión del clúster de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698389"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Actualización de la versión del clúster de Azure Service Fabric
 
@@ -63,9 +63,9 @@ Los clústeres de Azure Service Fabric que se ejecutan en versiones sin cambios 
   
   - **En el caso de los clústeres que ejecutan una versión de Service Fabric superior a 6.3 que NO usan la característica de red abierta**, el clúster permanecerá activo.
 
- - **En el caso de clústeres que ejecutan una versión de Service Fabric posterior a la 6.3 y que usan la [característica de red abierta para contenedores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , el clúster podría dejar de estar disponible y cesar su actividad, lo que podría provocar interrupciones del servicio en las cargas de trabajo.
+ - **En el caso de clústeres que ejecutan una versión de Service Fabric posterior a la 6.3 y que usan la [característica de red abierta para contenedores](./service-fabric-networking-modes.md#set-up-open-networking-mode)** , el clúster podría dejar de estar disponible y cesar su actividad, lo que podría provocar interrupciones del servicio en las cargas de trabajo.
  
- -   **Para los clústeres que ejecutan [versiones de Windows entre 7.0.457 y 7.0.466 (ambas inclusive)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) y el sistema operativo Windows tiene habilitada la característica de contenedores de Windows. NOTA: Las versiones de Linux 7.0.457, 7.0.464 y 7.0.465 no se ven afectadas**.
+ -   **Para los clústeres que ejecutan [versiones de Windows entre 7.0.457 y 7.0.466 (ambas inclusive)](#supported-version-names) y el sistema operativo Windows tiene habilitada la característica de contenedores de Windows. NOTA: Las versiones de Linux 7.0.457, 7.0.464 y 7.0.465 no se ven afectadas**.
     - **Impacto**: el clúster dejará de funcionar, lo que podría provocar interrupciones del servicio para las cargas de trabajo.
     
 #### <a name="required-action"></a>Acción necesaria
@@ -130,6 +130,7 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 7.2.433.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 | 7.2.445.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 | 7.2.452.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.2.457.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -209,6 +210,7 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.1 CU10 | 7.1.510.9590 | N/D |
 | 7.2 RTO | 7.2.413.9590 | N/D |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7.2 CU3 | 7.2.433.9590 | No aplicable|
+| 7.2 CU3 | 7.2.433.9590 | N/D |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
+| 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099955"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732588"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Windows Virtual Desktop
 
@@ -21,6 +21,14 @@ El agente de Windows Virtual Desktop puede provocar problemas de conexión debid
    - Problemas durante la instalación del agente, que interrumpe la conexión con el host de sesión.
 
 Este artículo le guiará a través de las soluciones para estos escenarios comunes y de cómo solucionar los problemas de conexión.
+
+>[!NOTE]
+>Para solucionar problemas relacionados con la conectividad de sesión y el agente de Windows Virtual Desktop, se recomienda que revise los registros de eventos en **Visor de eventos** > **Registros de Windows** > **Aplicación**. Busque eventos que tengan uno de los orígenes siguientes para identificar el problema:
+>
+>- WVD-Agent
+>- WVD-Agent-Updater
+>- RDAgentBootLoader
+>- MsiInstaller
 
 ## <a name="error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running"></a>Error: El cargador del agente de Escritorio remoto o RDAgentBootLoader ha dejado de ejecutarse
 
@@ -63,9 +71,9 @@ Para resolver este problema, cree un token de registro válido:
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de IsRegistered 1](media/isregistered-registry.png)
 
-## <a name="error-agent-cannot-connect-to-broker-with-invalid_form-or-not_found-url"></a>Error: El agente no se puede conectar al agente con INVALID_FORM o NOT_FOUND. Dirección URL
+## <a name="error-agent-cannot-connect-to-broker-with-invalid_form"></a>Error: El agente no se puede conectar al agente con INVALID_FORM.
 
-Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3277, que indica **INVALID_FORM** o **NOT_FOUND. URL** en la descripción, significa que se produjo un error con la comunicación entre los agentes. El agente no puede establecer conexión con el agente y no puede acceder a una dirección URL concreta. Esto puede deberse a la configuración del firewall o DNS.
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3277, que indica "INVALID_FORM" en la descripción, significa que se produjo un error con la comunicación entre los agentes. El agente no se puede conectar al agente o tener acceso a una dirección URL determinada debido a determinados valores de configuración de DNS o firewall.
 
 Para resolver este problema, compruebe que puede acceder a BrokerURI y BrokerURIGlobal:
 1. Abra el Editor del Registro. 
@@ -100,13 +108,43 @@ Para resolver este problema, compruebe que puede acceder a BrokerURI y BrokerURI
 8. Si la red está bloqueando estas direcciones URL, tendrá que desbloquear las direcciones URL necesarias. Para más información, consulte [Lista de direcciones URL requeridas](safe-url-list.md).
 9. Si esto no resuelve el problema, asegúrese de que no tiene ninguna directiva de grupo con cifrados que bloqueen la conexión entre los agentes. Windows Virtual Desktop usa los mismos cifrados TLS 1.2 que [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Para obtener más información, consulte [Seguridad de conexión](network-connectivity.md#connection-security).
 
-## <a name="error-3703-or-3019"></a>Error: 3703 o 3019
+## <a name="error-3703"></a>Error: 3703
 
-Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3703, que indica **Dirección URL de puerta de enlace de Escritorio remoto: no es accesible**, o cualquier evento con el identificador 3019 en la descripción, significa que el agente no puede tener acceso a las direcciones URL de puerta de enlace ni a las direcciones URL de transporte de socket web. Para conectarse correctamente al host de sesión y permitir que el tráfico de red a estos puntos de conexión omita las restricciones, debe desbloquear las direcciones URL de la [lista de direcciones URL requeridas](safe-url-list.md). Además, asegúrese de que el firewall o la configuración de proxy no bloqueen estas direcciones URL. El desbloqueo de estas direcciones URL es necesario para usar Windows Virtual Desktop.
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3703, que indica "Dirección URL de puerta de enlace de Escritorio remoto: no es accesible" en la descripción, significa que el agente no puede tener acceso a las direcciones URL de puerta de enlace. Para conectarse correctamente al host de sesión y permitir que el tráfico de red a estos puntos de conexión omita las restricciones, debe desbloquear las direcciones URL de la [lista de direcciones URL requeridas](safe-url-list.md). Además, asegúrese de que el firewall o la configuración de proxy no bloqueen estas direcciones URL. El desbloqueo de estas direcciones URL es necesario para usar Windows Virtual Desktop.
 
 Para resolver este problema, compruebe que la configuración de firewall o DNS no está bloqueando estas direcciones URL:
 1. [Uso de Azure Firewall para proteger las implementaciones de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
 2. Defina la [configuración DNS de Azure Firewall](../firewall/dns-settings.md).
+
+## <a name="error-3019"></a>Error: 3019
+
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3019, significa que el agente no puede tener acceso a las direcciones URL de transporte de socket web. Para conectarse correctamente al host de sesión y permitir que el tráfico de red omita las restricciones, debe desbloquear las direcciones URL de la [lista de direcciones URL requeridas](safe-url-list.md). Trabaje con el equipo de Redes de Azure para asegurarse de que la configuración de firewall, proxy y DNS no esté bloqueando estas direcciones URL. También puede comprobar los registros de seguimiento de red para identificar dónde se está bloqueando el servicio Windows Virtual Desktop. Si abre una solicitud de soporte técnico para este problema en particular, asegúrese de adjuntar los registros de seguimiento de red a la solicitud.
+
+## <a name="error-installationhealthcheckfailedexception"></a>Error: InstallationHealthCheckFailedException
+
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3277 que indica "InstallationHealthCheckFailedException" en la descripción, significa que el cliente de escucha de la pila no funciona porque el servidor de Terminal Server ha activado la clave del Registro para el cliente de escucha de la pila.
+
+Para solucionar este problema:
+1. Compruebe si [el cliente de escucha de la pila está funcionando](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. Si no funciona, [desinstale y vuelva a instalar manualmente el componente de pila](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+
+## <a name="error-endpoint_not_found"></a>Error: ENDPOINT_NOT_FOUND
+
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3277 que dice "ENDPOINT_NOT_FOUND" en la descripción, significa que el agente no pudo encontrar un punto de conexión con el que establecer una conexión. Este problema de conexión puede deberse a una de las siguientes causas:
+
+- No hay máquinas virtuales en el grupo de hosts.
+- Las máquinas virtuales del grupo de hosts no están activas.
+- Todas las máquinas virtuales del grupo de hosts han superado el límite de sesión máximo
+- Ninguna de las máquinas virtuales del grupo de hosts tienen el servicio del agente en ejecución.
+
+Para solucionar este problema:
+
+1. Asegúrese de que la máquina virtual esté encendida y no se haya quitado del grupo de hosts.
+2. Asegúrese de que la máquina virtual no haya superado el límite máximo de sesiones.
+3. Asegúrese de que el [servicio del agente se esté ejecutando](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) y de que el [cliente de escucha de la pila esté funcionando](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+4. Asegúrese [de que el agente pueda conectarse al agente](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Asegúrese [de que la máquina virtual tenga un token de registro válido](#error-invalid_registration_token).
+6. Asegúrese [de que el token de registro de la máquina virtual no haya expirado](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## <a name="error-installmsiexception"></a>Error: InstallMsiException
 
@@ -176,11 +214,17 @@ Para solucionar este problema:
 8. En **ClusterSettings**, busque **SessionDirectoryListener** y asegúrese de que su valor de datos es **rdp-sxs...** .
 9. Si **SessionDirectoryListener** no está establecido en **rdp-sxs...** , deberá seguir los pasos descritos en la sección [Desinstalación del agente y el cargador de arranque](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) para desinstalar primero el agente, el cargador de arranque y los componentes de la pila y, a continuación, [volver a instalar el agente y el cargador de arranque](#step-4-reinstall-the-agent-and-boot-loader). De esta forma, se volverá a instalar la pila en paralelo.
 
-## <a name="error-users-keep-getting-disconnected-from-session-hosts"></a>Error: Los usuarios siguen desconectando de los hosts de sesión
+## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Error: Problema de latido en el que los usuarios siguen desconectándose de los hosts de sesión
 
-Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 0, que indica **CheckSessionHostDomainIsReachableAsync** en la descripción o los usuarios siguen desconectados de sus hosts de sesión, significa que el servidor no selecciona un latido del servicio de Windows Virtual Desktop.
+Si el servidor no selecciona un latido del servicio Windows Virtual Desktop, deberá cambiar el umbral de latido. Si se aplican uno o varios de los siguientes escenarios, siga estas instrucciones:
 
-Para resolver este problema, cambie el umbral de latido:
+- Está recibiendo un error **CheckSessionHostDomainIsReachableAsync**.
+- Está recibiendo un error **ConnectionBrokenMissedHeartbeatThresholdExceeded**.
+- Está recibiendo un error **ConnectionEstablished: UnexpectedNetworkDisconnect**.
+- Los clientes de usuario siguen sin conexión.
+- Los usuarios siguen desconectándose de los hosts de sesión.
+
+Para cambiar el umbral de latidos:
 1. Abra el símbolo del sistema como administrador.
 2. Escriba el comando **qwinsta** y ejecútelo.
 3. Deben mostrarse dos componentes de la pila: **rdp-tcp** y **rdp-sxs**. 
@@ -194,6 +238,9 @@ Para resolver este problema, cambie el umbral de latido:
    - HeartbeatDropCount: 60 
 8. Reinicie la máquina virtual.
 
+>[!NOTE]
+>Si al cambiar el umbral del latido no se resuelve el problema, es posible que tenga un problema de red subyacente sobre el que tendrá que ponerse en contacto con el equipo de Redes de Azure.
+
 ## <a name="error-downloadmsiexception"></a>Error: DownloadMsiException
 
 Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3277, que indica **DownloadMsiException** en la descripción, significa que no hay suficiente espacio en el disco para RDAgent.
@@ -201,6 +248,11 @@ Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve 
 Para resolver este problema, haga lo siguiente para crear espacio en el disco:
    - Elimine archivos que ya no están en el usuario.
    - Aumente la capacidad de almacenamiento de la máquina virtual.
+
+## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>Error: El agente no se puede actualizar con MissingMethodException.
+
+Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3389 que indica "MissingMethodException: método no encontrado" en la descripción, significa que el agente de Windows Virtual Desktop no se ha actualizado correctamente y se ha revertido a una versión anterior. Esto puede deberse a que el número de versión de .NET Framework instalado actualmente en las máquinas virtuales es inferior a 4.7.2. Para resolver este problema, debe actualizar .NET a la versión 4.7.2 o versiones posteriores siguiendo las instrucciones de instalación de la [documentación de .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>Error: Las máquinas virtuales están atascadas en estado No disponible o Actualizando
 
@@ -210,7 +262,7 @@ Abra una ventana de PowerShell como administrador y ejecute el siguiente cmdlet:
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-Si el estado que se muestra para el host de sesión o los hosts en el grupo de hosts siempre indica **No disponible** o **Actualizando**, es posible que se haya producido un error en la instalación del agente o la pila.
+Si el estado que se muestra para el host de sesión o los hosts en el grupo de hosts siempre indica "No disponible" o "Actualizando", significa que el agente o la pila no se han instalado correctamente.
 
 Para resolver este problema, reinstale la pila en paralelo:
 1. Abra un símbolo del sistema como administrador.
@@ -253,7 +305,7 @@ El nombre de la VM ya se ha registrado y probablemente es un duplicado.
 Para solucionar este problema:
 1. Siga los pasos de la sección [Eliminación del host de sesión del grupo de hosts](#step-2-remove-the-session-host-from-the-host-pool).
 2. [Cree otra máquina virtual](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Asegúrese de elegir un nombre único para esta máquina virtual.
-3. Vaya a Azure Portal (https://portal.azure.com) ) y abra la página **Información general** del grupo de hosts en el que se encontraba la máquina virtual. 
+3. Vaya a [Azure Portal](https://portal.azure.com) y abra la página **Información general** del grupo de hosts en el que se encontraba la máquina virtual. 
 4. Abra la pestaña **Hosts de sesión** y asegúrese de que todos los hosts de sesión se encuentran en ese grupo de hosts.
 5. Espere de 5 a 10 minutos para que el estado del host de sesión indique **Disponible**.
 
@@ -269,6 +321,7 @@ Si no encuentra el problema en este artículo o las instrucciones no le ayudaron
 - No ve las máquinas virtuales en la lista de hosts de sesión.
 - No ve **Cargador del agente de Escritorio remoto** en la ventana Servicios.
 - No ve el componente **RdAgentBootLoader** en el administrador de tareas.
+- Está recibiendo un error que indica que el **agente de conexión no pudo validar la configuración** en las máquinas virtuales de imágenes personalizadas.
 - Las instrucciones de este artículo no resolvieron el problema.
 
 ### <a name="step-1-uninstall-all-agent-boot-loader-and-stack-component-programs"></a>Paso 1: Desinstalación de todos los programas del agente, el cargador de arranque y los componentes de la pila
@@ -319,12 +372,12 @@ Debe generar una nueva clave de registro que se usa para volver a registrar la m
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>Paso 4: Reinstalación del agente y el cargador de arranque
 
 Al volver a instalar la versión más actualizada del agente y el cargador de arranque, la pila en paralelo y el agente de supervisión de Geneva también se instalan automáticamente. Para reinstalar el agente y el cargador de arranque:
-1. Inicie sesión en la máquina virtual como administrador y siga las instrucciones que se indican en [Registro de las máquinas virtuales](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) para descargar el **agente de Windows Virtual Desktop** y el **cargador de arranque del agente de Windows Virtual Desktop**.
+1. Inicie sesión en la máquina virtual como administrador y use la versión correcta del instalador del agente para su implementación, en función de la versión de Windows en la que se ejecute la máquina virtual. Si tiene una máquina virtual de Windows 10, siga las instrucciones que se indican en [Registro de las máquinas virtuales](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) para descargar el **agente de Windows Virtual Desktop** y el **cargador de arranque del agente de Windows Virtual Desktop**. Si tiene una máquina virtual de Windows 7, siga los pasos 13 y 14 de [Registro de máquinas virtuales](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) para descargar el **agente de Windows Virtual Desktop** y **Agent Manager de Windows Virtual Desktop**.
 
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de la página de descarga del agente y el cargador de arranque](media/download-agent.png)
 
-2. Haga clic con el botón derecho en los instaladores de agente y cargador de arranque que acaba de descargar.
+2. Haga clic con el botón derecho en los instaladores de agente y cargador de arranque que ha descargado.
 3. Seleccione **Propiedades**.
 4. Seleccione **Unblock** (Desbloquear).
 5. Seleccione **Aceptar**.

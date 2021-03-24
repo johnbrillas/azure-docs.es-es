@@ -1,42 +1,42 @@
 ---
-title: 'Azure Communication Services: problemas conocidos'
-description: Más información sobre los problemas conocidos de Azure Communication Services
+title: 'Azure Communication Services: preguntas frecuentes y problemas conocidos'
+description: Obtenga información acerca de Azure Communication Services.
 author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: e9e4b747d9d0ab39a1d0ecef6cf45e4cc0f9e2c5
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2c6ac34d8daf00578cb1d03833a28eb8535708b7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628120"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493652"
 ---
-# <a name="known-issues-azure-communication-services"></a>Problemas conocidos: Azure Communication Services
+# <a name="faq--known-issues"></a>Preguntas frecuentes y problemas conocidos
+En este artículo se proporciona información sobre problemas conocidos y preguntas frecuentes en relación con Azure Communication Services.
 
-En este artículo se proporciona información sobre los problemas conocidos asociados a Azure Communication Services.
+## <a name="faq"></a>Preguntas más frecuentes
 
-## <a name="video-streaming-quality-on-chromeandroid"></a>Calidad del streaming de vídeo en Chrome para Android 
+### <a name="why-is-the-quality-of-my-video-degraded"></a>¿Por qué se ha degradado la calidad del vídeo?
 
-El rendimiento del streaming de vídeo se puede degradar en Chrome para Android.
+La calidad de las secuencias de vídeo depende del tamaño del representador del lado cliente que se haya usado para iniciar esa secuencia. Al suscribirse a una secuencia remota, un receptor determinará su propia resolución en función de las dimensiones del representador del lado cliente del remitente.
 
-### <a name="possible-causes"></a>Causas posibles
-La calidad de las secuencias remotas depende de la resolución del representador del lado cliente que se haya usado para iniciar esa secuencia. Al suscribirse a una secuencia remota, un receptor determinará su propia resolución en función de las dimensiones del representador del lado cliente del remitente.
+### <a name="why-is-it-not-possible-to-enumerateselect-micspeaker-devices-on-safari"></a>¿Por qué no es posible enumerar o seleccionar dispositivos micrófonos o altavoces en Safari?
 
-## <a name="bluetooth-headset-microphones-are-not-detected"></a>No se detectan auriculares con micrófono Bluetooth
+Las aplicaciones no pueden enumerar ni seleccionar micrófonos ni altavoces (por ejemplo, Bluetooth) MIC/SPEAKER (como Bluetooth) en Safari en iOS o iPad. Se trata de una limitación del sistema operativo: siempre hay un solo dispositivo.
 
-Al conectar los auriculares Bluetooth a una llamada de Communication Services, puede experimentar problemas.
+En el caso de Safari en macOS, la aplicación no puede enumerar ni seleccionar un altavoz mediante el administrador de dispositivos de Communication Services; debe seleccionarse mediante el sistema operativo. Si usa Chrome en macOS, la aplicación sí puede enumerar y seleccionar dispositivos mediante el administrador de dispositivos de Communication Services.
 
-### <a name="possible-causes"></a>Causas posibles
-No hay ninguna opción para seleccionar un micrófono Bluetooth en iOS.
+## <a name="known-issues"></a>Problemas conocidos
 
+En esta sección, se proporciona información sobre los problemas conocidos asociados a Azure Communication Services.
 
-## <a name="repeatedly-switching-video-devices-may-cause-video-streaming-to-temporarily-stop"></a>El cambio repetido de dispositivos de los dispositivos de vídeo puede provocar la detención temporal del streaming de vídeo
+### <a name="repeatedly-switching-video-devices-may-cause-video-streaming-to-temporarily-stop"></a>El cambio repetido de dispositivos de los dispositivos de vídeo puede provocar la detención temporal del streaming de vídeo
 
 El cambio entre dispositivos de vídeo puede hacer que la secuencia de vídeo se pause mientras se adquiere la secuencia desde el dispositivo seleccionado.
 
-### <a name="possible-causes"></a>Causas posibles
+#### <a name="possible-causes"></a>Causas posibles
 El streaming desde los dispositivos multimedia y el cambio entre estos consume muchos recursos informáticos. Los cambios frecuentes pueden provocar una degradación del rendimiento. Se recomienda a los desarrolladores detener una secuencia del dispositivo antes de iniciar otra.

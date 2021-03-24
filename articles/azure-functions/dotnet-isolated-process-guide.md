@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: dacf3436ce98d839ad5b45361f1573c98c62d3e7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563649"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561828"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guía para la ejecución de funciones en .NET 5.0 en Azure
 
@@ -82,11 +82,17 @@ El código siguiente muestra un ejemplo de una canalización de `HostBuilder`:
 
 El acceso a la canalización del generador de host significa que puede establecer cualquier configuración específica de la aplicación durante la inicialización. Estas configuraciones se aplican a la aplicación de funciones que se ejecuta en un proceso independiente. Para realizar cambios en el host de funciones o en la configuración del enlace y el desencadenador, todavía necesitará usar el [archivo host.json](functions-host-json.md).      
 
-En el ejemplo siguiente se muestra cómo agregar la configuración `args`, que se lee como argumentos de la línea de comandos: 
+<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
+:::code language="csharp" 
+                .ConfigureAppConfiguration(c =>
+                {
+                    c.AddCommandLine(args);
+                })
+                :::
 
-El método `ConfigureAppConfiguration` se usa para configurar el resto del proceso de compilación y la aplicación. En este ejemplo también se usa un [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), que facilita la adición de varios elementos de configuración. Dado que `ConfigureAppConfiguration` devuelve la misma instancia de [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), también puede llamarlo varias veces para agregar varios elementos de configuración. Puede tener acceso al conjunto completo de configuraciones desde [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) y [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true).
+The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
+Puede tener acceso al conjunto completo de configuraciones desde [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) y [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true).
 
 Para más información, consulte [Configuración en ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
@@ -116,7 +122,7 @@ While the full middleware registration set of APIs is not yet exposed, we do sup
 
 Los enlaces se definen mediante atributos en métodos, parámetros y tipos de valor devuelto. Un método de función es un método con una `Function` y un atributo de desencadenador aplicados a un parámetro de entrada, tal como se muestra en el ejemplo siguiente:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 El atributo desencadenador especifica el tipo de desencadenador y enlaza los datos de entrada a un parámetro del método. La función de ejemplo anterior se desencadena mediante un mensaje de cola, y este último se pasa al método en el parámetro `myQueueItem`.
 
@@ -134,7 +140,7 @@ Una función puede tener cero o más enlaces de entrada que pueden pasar datos a
 
 Para escribir en un enlace de salida, debe aplicar un atributo de enlace de salida al método de función, que define cómo escribir en el servicio enlazado. El valor devuelto por el método se escribe en el enlace de salida. Por ejemplo, en el ejemplo siguiente se escribe un valor de cadena en una cola de mensajes denominada `functiontesting2` mediante un enlace de salida:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Varios enlaces de salida
 
@@ -150,7 +156,7 @@ Del mismo modo, la función devuelve un objeto `HttpReponseData`, que proporcion
 
 El código siguiente es un desencadenador HTTP. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Registro
 
@@ -158,7 +164,7 @@ En .NET aislado, puede escribir en los registros mediante una instancia de [`ILo
 
 En el ejemplo siguiente se muestra cómo obtener `ILogger` y escribir registros dentro de una función:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Use diferentes métodos de `ILogger` para escribir varios niveles de registro, como `LogWarning` o `LogError`. Para obtener más información sobre los niveles de registro, consulte el [artículo sobre supervisión](functions-monitoring.md#log-levels-and-categories).
 
@@ -171,7 +177,7 @@ En esta sección se describe el estado actual de las diferencias funcionales y d
 | Característica/comportamiento |  En proceso (.NET Core 3.1) | Fuera de proceso (.NET 5.0) |
 | ---- | ---- | ---- |
 | Versiones de .NET | LTS (.NET Core 3.1) | Actual (.NET 5.0) |
-| Paquetes base | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| Paquetes base | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Paquetes de extensión de enlace | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | En [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Registro | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) se pasa a la función | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) se obtiene de `FunctionContext` |
 | Tokens de cancelación | [Compatible](functions-dotnet-class-library.md#cancellation-tokens) | No compatible |
@@ -182,7 +188,7 @@ En esta sección se describe el estado actual de las diferencias funcionales y d
 | Funciones duraderas | [Compatible](durable/durable-functions-overview.md) | No compatible | 
 | Enlaces imperativos | [Compatible](functions-dotnet-class-library.md#binding-at-runtime) | No compatible |
 | Artefacto function.json | Generado | No se han generado |
-| Configuración | [host.json](functions-host-json.md) | [host.js](functions-host-json.md) e [inicialización personalizada](#configuration) |
+| Configuración | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) e inicialización personalizada |
 | Inserción de dependencias | [Compatible](functions-dotnet-dependency-injection.md)  | [Compatible](#dependency-injection) |
 | Software intermedio | No compatible | Compatible |
 | Tiempo de arranque en frío | Habitual | Más tiempo, debido al inicio Just-in-Time. Ejecute en Linux en lugar de en Windows para reducir los posibles retrasos. |

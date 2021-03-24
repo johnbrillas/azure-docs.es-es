@@ -2,13 +2,13 @@
 title: Filtros de tema de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo los suscriptores pueden especificar filtros para definir qué mensajes desean recibir de un tema.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742971"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651670"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -32,9 +32,7 @@ Cada suscripción de tema recién creada tiene una regla de suscripción predete
 Service Bus admite tres condiciones de filtro:
 
 -   *Filtros SQL*: una propiedad **SqlFilter** contiene una expresión condicional de tipo SQL que se evalúa en el agente contra las propiedades del sistema y las propiedades definidas por el usuario de los mensajes entrantes. Todas las propiedades del sistema deben ir precedidas de `sys.` en la expresión condicional. El [subconjunto de lenguaje SQL para las condiciones de filtro](service-bus-messaging-sql-filter.md) comprueba la existencia de propiedades (`EXISTS`), valores nulos (`IS NULL`), operadores lógicos, relacionales NOT/AND/OR, aritmética numérica simple y coincidencia de patrones de texto simple con `LIKE`.
-
 -   *Filtros booleanos*: el filtro **TrueFilter** y **FalseFilter** hace que se seleccionen todos los mensajes entrantes (**true**) o ninguno de los mensajes entrantes (**false**) de la suscripción. Estos dos filtros provienen del filtro SQL. 
-
 -   *Filtros de correlación*: una propiedad **CorrelationFilter** contiene un conjunto de condiciones para las que se busca la coincidencia con una o varias de las propiedades del usuario y del sistema de un mensaje entrante. Un uso común es comparar con la propiedad **CorrelationId**, pero la aplicación también puede elegir comparar con las siguientes propiedades:
 
     - **ContentType**
@@ -66,7 +64,8 @@ En la creación de particiones se usan filtros para distribuir los mensajes entr
 
 En el enrutamiento se usan filtros para distribuir los mensajes entre las suscripciones a temas de un modo predecible, pero no necesariamente exclusivo. Junto con la característica de [reenvío automático](service-bus-auto-forwarding.md), pueden usarse filtros de tema para crear gráficos complejos de enrutamiento dentro de un espacio de nombres de Service Bus para la distribución de mensajes dentro de una región de Azure. Si Azure Functions o Azure Logic Apps actúan como un puente entre los espacios de nombres de Azure Service Bus, puede crear topologías globales complejas con integración directa en las aplicaciones de línea de negocio.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Ejemplos
+Para obtener ejemplos, consulte [Ejemplos de filtros de Service Bus](service-bus-filter-examples.md).
 
 
 

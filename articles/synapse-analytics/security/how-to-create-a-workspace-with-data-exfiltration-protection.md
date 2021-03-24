@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694145"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096129"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Creación de un área de trabajo con la protección contra la filtración de datos habilitada
 En este artículo se describe cómo crear un área de trabajo con la protección contra la filtración de datos habilitada y cómo administrar los inquilinos de Azure AD aprobados para esta área de trabajo.
@@ -50,7 +50,9 @@ Puede crear puntos de conexión privados administrados para conectarse a recurso
 >Los recursos de inquilinos que no sean el inquilino del área de trabajo no deben tener implantadas reglas de firewall que impidan que los grupos de SQL se conecten a ellos. Los recursos de la red virtual administrada del área de trabajo, como los clústeres de Spark, pueden conectarse a través de vínculos privados administrados a recursos protegidos mediante firewall.
 
 ## <a name="known-limitations"></a>Restricciones conocidas
-Los usuarios pueden proporcionar un archivo de configuración de entorno para instalar paquetes de Python desde repositorios públicos, como PyPI. En las áreas de trabajo protegidas de filtración de datos, se bloquean las conexiones a los repositorios de salida. Como resultado, no se admite la biblioteca de Python instalada desde repositorios públicos, como PyPI. Como alternativa, los usuarios pueden crear un canal privado en su cuenta de Azure Data Lake Storage principal y hacer referencia a él dentro del archivo de configuración del entorno de Conda. 
+Los usuarios pueden proporcionar un archivo de configuración de entorno para instalar paquetes de Python desde repositorios públicos, como PyPI. En las áreas de trabajo protegidas de filtración de datos, se bloquean las conexiones a los repositorios de salida. Como resultado, no se admite la biblioteca de Python instalada desde repositorios públicos, como PyPI. 
+
+Como alternativa, los usuarios pueden cargar paquetes del área de trabajo o crear un canal privado en la cuenta principal de Azure Data Lake Storage. Para obtener más información, consulte [Administración de paquetes en Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md). 
   
 ## <a name="next-steps"></a>Pasos siguientes
 

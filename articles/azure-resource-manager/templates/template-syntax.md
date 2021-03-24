@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722711"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120423"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -46,62 +46,6 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 Cada elemento tiene propiedades que puede configurar. En este artículo se describen las secciones de la plantilla con más detalle.
 
-## <a name="data-types"></a>Tipos de datos
-
-Dentro de una plantilla de Resource Manager, puede usar estos tipos de datos:
-
-* string
-* securestring
-* int
-* bool
-* object
-* secureObject
-* array
-
-En la plantilla siguiente se muestra el formato de los tipos de datos. Cada tipo tiene un valor predeterminado en el formato correcto.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "boolParameter": {
-      "type": "bool",
-      "defaultValue": true
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    }
-  },
-  "resources": [],
-  "outputs": {}
-}
-```
-
-La cadena segura usa el mismo formato que la cadena y el objeto seguro usa el mismo formato que el objeto. Cuando se establece un parámetro en una cadena segura o un objeto seguro, el valor del parámetro no se guarda en el historial de implementaciones y no se registra. Sin embargo, si establece ese valor seguro en una propiedad que no espera un valor seguro, el valor no está protegido. Por ejemplo, si establece una cadena segura en una etiqueta, ese valor se almacena como texto sin formato. Use cadenas seguras para contraseñas y secretos.
-
-En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar una plantilla, los tipos de enteros pueden oscilar entre -2 147 483 648 y 2 147 483 647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
-
-Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles (`"string value"`).
-
-Los objetos comienzan con una llave de apertura (`{`) y terminan con una llave de cierre (`}`). Las matrices comienzan con un corchete de apertura (`[`) y terminan con un corchete de cierre (`]`).
-
 ## <a name="parameters"></a>Parámetros
 
 En la sección `parameters` de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Está limitado a 256 parámetros en una plantilla. Puede reducir el número de parámetros mediante el uso de objetos que contienen varias propiedades.
@@ -128,7 +72,7 @@ Las propiedades disponibles para un parámetro son:
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
 | nombre-del-parámetro |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. Consulte [Tipos de datos](#data-types). |
+| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. Consulte [Tipos de datos en plantillas de ARM](data-types.md). |
 | defaultValue |No |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |No |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |No |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
@@ -141,7 +85,7 @@ Para ejemplos de cómo usar los parámetros, ve [Parámetros en plantillas de AR
 
 ## <a name="variables"></a>variables
 
-En la sección `variables`, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas. El formato de cada variable coincide con uno de los [tipos de datos](#data-types).
+En la sección `variables`, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas. El formato de cada variable coincide con uno de los [tipos de datos](data-types.md).
 
 En el ejemplo siguiente se muestran las opciones disponibles para definir una variable:
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348728"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647428"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación
 
@@ -35,7 +35,28 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
-No hay ninguno programado en este momento.  Consulte a continuación los cambios que están o estarán próximamente en producción.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>El acceso condicional solo se desencadenará para ámbitos solicitados explícitamente
+
+**Fecha de entrada en vigor**: marzo de 2021
+
+**Puntos de conexión afectados**: v2.0
+
+**Protocolo afectado**: todos los flujos que usan el [consentimiento dinámico](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+En la actualidad, a las aplicaciones que usan el consentimiento dinámico se les otorgan todos los permisos para los que tienen consentimiento, incluso si no se solicitaron en el parámetro `scope` por nombre.  Esto puede hacer que se fuerce a una aplicación que solicite, por ejemplo, solo `user.read`, pero con consentimiento para `files.read`, a pasar el acceso condicional asignado para el permiso `files.read`. 
+
+Con el fin de reducir el número de mensajes de acceso condicional innecesarios, Azure AD está cambiando la manera en que se proporcionan ámbitos no solicitados a las aplicaciones para que solo aquellos ámbitos solicitados explícitamente desencadenen el acceso condicional. Este cambio puede provocar que las aplicaciones que dependan del comportamiento anterior de Azure AD (es decir, proporcionar todos los permisos incluso aunque no se soliciten) se interrumpan, ya que los tokens que solicitan no tendrán permisos.
+
+Ahora, las aplicaciones recibirán tokens de acceso con una combinación de permisos: los permisos solicitados y aquellos para los que se tiene consentimiento y que no requieren indicaciones de acceso condicional.  Los ámbitos del token de acceso se reflejan en el parámetro `scope` de la respuesta del token. 
+
+**Ejemplos**
+
+Una aplicación tiene el consentimiento para `user.read`, `files.readwrite` y `tasks.read`. `files.readwrite` tiene aplicadas directivas de acceso condicional, mientras que los otros dos no. Si una aplicación realiza una solicitud de token para `scope=user.read` y el usuario que ha iniciado sesión actualmente no ha pasado ninguna directiva de acceso condicional, el token resultante será para los permisos `user.read` y `tasks.read`. Se incluye `tasks.read` porque la aplicación tiene el consentimiento y no requiere que se aplique una directiva de acceso condicional. 
+
+Si, después, la aplicación solicita `scope=files.readwrite`, el acceso condicional que requiere el inquilino se desencadenará, obligando a la aplicación a mostrar un mensaje de autenticación interactiva en el que se puede satisfacer la directiva de acceso condicional.  El token devuelto tendrá los tres ámbitos. 
+
+Si la aplicación realiza una última solicitud para cualquiera de los tres ámbitos (por ejemplo, `scope=tasks.read`), Azure AD verá que el usuario ya ha completado las directivas de acceso condicional necesarias para `files.readwrite` y, de nuevo, emitirá un token con los tres permisos. 
+
 
 ## <a name="may-2020"></a>Mayo de 2020
 

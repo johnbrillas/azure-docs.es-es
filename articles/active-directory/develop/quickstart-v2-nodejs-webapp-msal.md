@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092176"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224986"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización
 
@@ -27,7 +27,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 En este inicio rápido se usa la biblioteca de autenticación de Microsoft para Node.js (MSAL Node) con el flujo del código de autorización.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
@@ -48,6 +48,15 @@ En este inicio rápido se usa la biblioteca de autenticación de Microsoft para 
 > 1. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
 > 1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y, luego, seleccione **Agregar**.
 > 1. Anote el **valor** de **Secreto de cliente** para usarlo más adelante.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
+> Para que el código de ejemplo de este inicio rápido funcione, es preciso crear un secreto de cliente y agregar una dirección URL de respuesta como **http://localhost:3000/redirect** .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Hacer este cambio por mí]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Ya configurada](media/quickstart-v2-windows-desktop/green-check.png) La aplicación está configurada con estos atributos.
 
 #### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto
 
@@ -91,16 +100,17 @@ En este inicio rápido se usa la biblioteca de autenticación de Microsoft para 
 > Modifique los valores de la sección `config` como se describe aquí:
 >
 > - `Enter_the_Application_Id_Here` es el **identificador de aplicación (cliente)** de la aplicación que registró.
+>
+>    Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
 > - `Enter_the_Client_Secret_Here` es el **valor** de **Secreto de cliente** de la aplicación que registró.
+>
+>    Para recuperar o generar un nuevo **secreto de cliente**, en **Administrar**, seleccione **Certificados y secretos**.
 >
 > El valor de `authority` predeterminado representa la nube de Azure principal (global):
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal. Vaya a **Certificados y secretos** para recuperar un **secreto de cliente** o crear uno nuevo.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse

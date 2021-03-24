@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630709"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732571"
 ---
 # <a name="networking"></a>Redes
 
@@ -39,7 +39,7 @@ Maximice el rendimiento de la máquina virtual con redes aceleradas; para ello, 
 ```
 El clúster de Service Fabric se puede aprovisionar en [Linux con redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md) y [Windows con redes aceleradas](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-Las redes aceleradas se admiten para las SKU de la serie de máquina virtual de Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 y Ms/Mms. Las redes aceleradas se probaron correctamente con la SKU Standard_DS8_v3 el 23 de enero de 2019 en un clúster de Windows de Service Fabric y con Standard_DS12_v2 el 29 de enero de 2019 en un clúster de Linux de Service Fabric.
+Las redes aceleradas se admiten para las SKU de la serie de máquina virtual de Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 y Ms/Mms. Las redes aceleradas se probaron correctamente con la SKU Standard_DS8_v3 el 23 de enero de 2019 en un clúster de Windows de Service Fabric y con Standard_DS12_v2 el 29 de enero de 2019 en un clúster de Linux de Service Fabric. Tenga en cuenta que las redes aceleradas requieren al menos cuatro vCPU. 
 
 Para habilitar las redes aceleradas en un clúster de Service Fabric existente, primero debe [escalar un clúster de Service Fabric horizontalmente mediante la incorporación de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-set-scale-node-type-scale-out.md), para realizar lo siguiente:
 1. Aprovisionar un elemento NodeType con las redes aceleradas habilitadas

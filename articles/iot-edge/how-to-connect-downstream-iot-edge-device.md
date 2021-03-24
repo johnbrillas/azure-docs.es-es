@@ -4,7 +4,7 @@ description: Se describe cómo configurar un dispositivo IoT Edge para conectars
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,19 +12,23 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629410"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199134"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge (versión preliminar)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 En este artículo se proporcionan instrucciones para establecer una conexión de confianza entre una puerta de enlace IoT Edge y un dispositivo IoT Edge de nivel inferior.
 
 >[!NOTE]
 >Esta característica requiere IoT Edge versión 1.2, que se encuentra en versión preliminar pública, y la ejecución de contenedores Linux.
+>
+>En este artículo se refleja la versión preliminar más reciente de IoT Edge versión 1.2. Asegúrese de que el dispositivo ejecuta la versión [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) o posterior. Para los pasos de obtención de la versión preliminar más reciente en el dispositivo, consulte [Instalación de Azure IoT Edge para Linux (versión 1.2)](how-to-install-iot-edge.md) o [Actualización de IOT Edge a la versión 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
 En un escenario de puerta de enlace, un dispositivo IoT Edge puede ser tanto una puerta de enlace como un dispositivo de nivel inferior. Se pueden superponer varias puertas de enlace IoT Edge para crear una jerarquía de dispositivos. Los dispositivos de nivel inferior (o secundarios) pueden autenticar y enviar o recibir mensajes a través de su dispositivo de puerta de enlace (o primario).
 
@@ -103,9 +107,6 @@ Cree los siguientes certificados:
 * Todo **certificado intermedio** que quiera incluir en la cadena de certificados raíz.
 * Un **certificado de CA de dispositivo** y su **clave privada**, generada por los certificados raíz e intermedios. Necesita un único certificado de CA de dispositivo para cada dispositivo IoT Edge en la jerarquía de puertas de enlace.
 
->[!NOTE]
->Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
-
 Puede usar una entidad de certificado autofirmado o comprar uno a una entidad de certificación comercial de confianza, como Baltimore, Verisign, DigiCert o GlobalSign.
 
 Si no tiene sus propios certificados para usar, puede [crear certificados de demostración para probar las características de dispositivo IoT Edge](how-to-create-test-certificates.md). Siga los pasos de este artículo para crear un conjunto de certificados raíz e intermedios y, a continuación, crear certificados de CA de dispositivos IoT Edge para cada uno de los dispositivos.
@@ -124,7 +125,7 @@ En los pasos de esta sección se hace referencia al **certificado de CA raíz** 
 
 Siga los pasos a continuación para configurar IoT Edge en el dispositivo.
 
-En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura para el directorio que contiene los certificados y las claves.
+Asegúrese de que el usuario **iotedge** tenga permisos de lectura para el directorio que contiene los certificados y las claves.
 
 1. Instale el **certificado de CA raíz** en este dispositivo IoT Edge.
 
@@ -140,19 +141,16 @@ En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura par
 
    La salida de este comando debe indicar que se ha agregado un certificado en /etc/ssl/certs.
 
-1. Abra el archivo de configuración del demonio de seguridad de IoT Edge.
+1. Abra el archivo de configuración de IoT Edge.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo nano /etc/aziot/config.toml
    ```
 
-1. Busque la sección **certificates** en el archivo config.yaml. Actualice los tres campos de certificado para que apunten a sus certificados. Proporcione las rutas de acceso del URI del archivo, las cuales adoptan el formato `file:///<path>/<filename>`.
+   >[!TIP]
+   >Si el archivo de configuración todavía no existe en el dispositivo, use `/etc/aziot/config.toml.edge.template` como plantilla para crear uno.
 
-   * **device_ca_cert**: Ruta de acceso del URI del archivo al certificado de CA del dispositivo único para este dispositivo.
-   * **device_ca_pk**: Ruta de acceso del URI del archivo a la clave privada de CA del dispositivo única para este dispositivo.
-   * **trusted_ca_certs**: Ruta de acceso del URI de archivo al certificado de CA raíz compartido por todos los dispositivos en la jerarquía de puertas de enlace.
-
-1. Busque el parámetro **hostname** en el archivo config.yaml. Actualice el nombre de host para que sea el nombre de dominio completo (FQDN) o la dirección IP del dispositivo IoT Edge.
+1. Busque la sección **Hostname** en el archivo de configuración. Quite la marca de comentario de la línea con el parámetro `hostname` y actualice el valor para que sea el nombre de dominio completo (FQDN) o la dirección IP del dispositivo IoT Edge.
 
    El valor de este parámetro es lo que los dispositivos de nivel inferior usarán para conectarse a esta puerta de enlace. El nombre de host toma el nombre de la máquina de manera predeterminada, pero el FQDN o la dirección IP son necesarios para conectar los dispositivos de nivel inferior.
 
@@ -160,33 +158,38 @@ En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura par
 
    Sea coherente con el patrón del nombre de host en una jerarquía de puertas de enlace. Use FQDN o direcciones IP, pero no ambos.
 
-1. **Si este dispositivo es un dispositivo secundario**, busque el parámetro **parent_hostname**. Actualice el campo **parent_hostname** para que sea el FQDN o la dirección IP del dispositivo primario, que coincida con lo que se indicó como nombre de host en el archivo config.yaml del elemento primario.
+1. *Si se trata de un dispositivo secundario*, busque la sección **Parent hostname**. Quite la marca de comentario y actualice el parámetro `parent_hostname` para que sea el FQDN o la dirección IP del dispositivo primario, que coincida con lo que se indicó como nombre de host en el archivo de configuración del dispositivo primario.
+
+1. Busque la sección **Trust bundle cert**. Quite la marca de comentario y actualice el parámetro `trust_bundle_cert` con el URI del archivo para el certificado de CA raíz del dispositivo.
 
 1. Si bien esta característica se encuentra en versión preliminar pública, debe configurar el dispositivo IoT Edge para usar la versión preliminar pública del agente de IoT Edge cuando se inicia.
 
-   Busque la sección **agent** de yaml y actualice el valor de la imagen a la imagen de versión preliminar pública:
+   Busque la sección **Default Edge Agent** y actualice el valor de la imagen a la imagen de versión preliminar pública:
 
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   ```toml
+   [agent.config]
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
    ```
 
-1. Guarde (`Ctrl+O`) y cierre (`Ctrl+X`) el archivo config.yaml.
+1. Busque la sección **Edge CA certificate** del archivo de configuración. Quite las marcas de comentario de las líneas de esta sección y proporcione las rutas de acceso del URI de archivo para los archivos de certificado y clave en el dispositivo IoT Edge.
+
+   ```toml
+   [edge_ca]
+   cert = "file:///<path>/<device CA cert>"
+   pk = "file:///<path>/<device CA key>"
+   ```
+
+1. Guarde (`Ctrl+O`) y cierre (`Ctrl+X`) el archivo de configuración.
 
 1. Si anteriormente ha usado cualquier otro certificado para IoT Edge, elimine los archivos de los dos directorios siguientes para asegurarse de que se apliquen los nuevos certificados:
 
-   * `/var/lib/iotedge/hsm/certs`
-   * `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/aziot/certd/certs`
+   * `/var/lib/aziot/keyd/keys`
 
-1. Reinicie el servicio de IoT Edge para aplicar los cambios.
+1. Aplique los cambios.
 
    ```bash
-   sudo systemctl restart iotedge
+   sudo iotedge config apply
    ```
 
 1. Compruebe los errores en la configuración.
@@ -202,7 +205,7 @@ En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura par
 
 Si bien esta característica se encuentra en versión preliminar pública, debe configurar el dispositivo IoT Edge para usar las versiones preliminares públicas de los módulos de entorno de ejecución de Azure IoT Edge. En la sección anterior se indican los pasos para configurar edgeAgent en el inicio. También debe configurar los módulos del entorno de ejecución en las implementaciones del dispositivo.
 
-1. Configure el módulo edgeHub para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
+1. Configure el módulo edgeHub para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 1. Configure las siguientes variables de entorno para el módulo edgeHub:
 
@@ -211,7 +214,7 @@ Si bien esta característica se encuentra en versión preliminar pública, debe 
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configure el módulo edgeAgent para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
+1. Configure el módulo edgeAgent para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 ## <a name="network-isolate-downstream-devices"></a>Aislamiento de red de dispositivos de nivel inferior
 
@@ -356,21 +359,20 @@ Si no quiere que los dispositivos de las capas inferiores realicen solicitudes d
 
 El agente de IoT Edge es el primer componente del entorno de ejecución en iniciarse en cualquier dispositivo IoT Edge. Debe asegurarse de que los dispositivos IoT Edge de nivel inferior pueden acceder a la imagen del módulo edgeAgent cuando se inician y, a continuación, pueden acceder a las implementaciones e iniciar el resto de las imágenes del módulo.
 
-Cuando vaya al archivo config.yaml en un dispositivo IoT Edge para proporcionar la información de autenticación, los certificados y el nombre de host principal, actualice también la imagen del contenedor edgeAgent.
+Cuando vaya al archivo de configuración en un dispositivo IoT Edge para proporcionar la información de autenticación, los certificados y el nombre de host primario, actualice también la imagen del contenedor edgeAgent.
 
 Si el dispositivo de puerta de enlace de nivel superior está configurado para controlar las solicitudes de imagen de contenedor, reemplace `mcr.microsoft.com` por el nombre de host primario y el puerto de escucha del proxy de API. En el manifiesto de implementación, puede usar `$upstream` como acceso directo, pero esto requiere que el módulo edgeHub controle el enrutamiento y que ese módulo no se haya iniciado en este momento. Por ejemplo:
 
-```yml
-agent:
-  name: "edgeAgent"
-  type: "docker"
-  env: {}
-  config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
-    auth: {}
+```toml
+[agent]
+name = "edgeAgent"
+type = "docker"
+
+[agent.config]
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
 ```
 
-Si usa un registro de contenedor local o proporciona las imágenes de contenedor manualmente en el dispositivo, actualice el archivo config.yaml en consecuencia.
+Si usa un registro de contenedor local o proporciona las imágenes de contenedor manualmente en el dispositivo, actualice el archivo de configuración en consecuencia.
 
 #### <a name="configure-runtime-and-deploy-proxy-module"></a>Configuración del entorno de ejecución e implementación del módulo de proxy
 

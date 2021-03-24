@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 10206aced4f38f4d157f46703aac2d28ec863274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319157"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093018"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
 
@@ -29,6 +29,8 @@ IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen f
 * [Propiedades deseadas del dispositivo gemelo](iot-hub-devguide-device-twins.md), para comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos.
 
 * [Mensajes de nube a dispositivo](iot-hub-devguide-messages-c2d.md), para notificaciones unidireccionales a la aplicación de dispositivo.
+
+Para obtener información sobre cómo usa [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) estas opciones para controlar los dispositivos IoT Plug and Play, consulte [Guía para desarrolladores de dispositivos IoT Plug and Play](../iot-pnp/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

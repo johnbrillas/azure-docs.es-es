@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428038"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175352"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -95,7 +95,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50000 | TokenIssuanceError: hay un problema con el servicio de inicio de sesión. Abra un [vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema. |
 | AADSTS50001 | InvalidResource: el recurso está deshabilitado o no existe. Compruebe el código de la aplicación para asegurarse de que ha especificado la URL exacta del recurso al que está intentando acceder.  |
 | AADSTS50002 | NotAllowedTenant: no se pudo iniciar sesión debido a un acceso de proxy restringido en el inquilino. Si se trata de su propia directiva de inquilino, puede cambiar la configuración restringida del inquilino para corregir este problema. |
-| AADSTS500021 | Se denegó el acceso al inquilino "{tenant}". AADSTS500021 indica que la característica de restricción de inquilino está configurada y que el usuario está intentando acceder a un inquilino que no está en la lista de inquilinos permitidos especificados en el encabezado `Restrict-Access-To-Tenant`. Para obtener más información, consulte [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | Se denegó el acceso al inquilino "{tenant}". AADSTS500021 indica que la característica de restricción de inquilino está configurada y que el usuario está intentando acceder a un inquilino que no está en la lista de inquilinos permitidos especificados en el encabezado `Restrict-Access-To-Tenant`. Para obtener más información, consulte [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey: no se pudo iniciar sesión debido a que falta la clave de firma o el certificado. Esto se puede deber a que no había ninguna clave de firma configurada en la aplicación. Consulte las resoluciones que se describen en [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Si siguen los problemas, póngase en contacto con el propietario o el administrador de la aplicación. |
 | AADSTS50005 | DevicePolicyError: el usuario intentó iniciar sesión en un dispositivo desde una plataforma que no es compatible mediante una directiva de acceso condicional. |
 | AADSTS50006 | InvalidSignature: no se pudo comprobar la firma debido a una firma no válida. |
@@ -168,6 +168,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired: el cliente es capaz de obtener un token de inicio de sesión único mediante la extensión Cuentas de Windows 10, pero no se encontró el token en la solicitud o el token proporcionado ha expirado. |
 | AADSTS50169 | InvalidRequestBadRealm: el dominio Kerberos no es un dominio configurado del espacio de nombres de servicio actual. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping: falta la asignación de controles externos. |
+| AADSTS50173 | FreshTokenNeeded: la concesión proporcionada ha expirado debido a que se ha revocado y se necesita un nuevo token de autenticación. Un administrador o un usuario ha revocado los tokens de este usuario, lo que hace que se produzcan errores en las actualizaciones posteriores del token y sea necesaria una nueva autenticación. Pida al usuario que vuelva a iniciar sesión. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers: no se admite el desafío externo para los usuarios de acceso directo. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers: no se admite el control de sesión para los usuarios de acceso directo. |
 | AADSTS50180 | WindowsIntegratedAuthMissing: es obligatoria la autenticación de Windows integrada. Habilite el inquilino para un inicio de sesión único de conexión directa. |
@@ -186,6 +187,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp: la aplicación utilizada no es una aplicación aprobada para el acceso condicional. Para poder acceder, el usuario tiene que usar una de las aplicaciones de la lista de aplicaciones aprobadas. |
 | AADSTS53003 | BlockedByConditionalAccess: se ha bloqueado el acceso a las directivas de acceso condicional. La directiva de acceso no admite la emisión de tokens. |
 | AADSTS53004 | ProofUpBlockedDueToRisk: el usuario tiene que completar el proceso de registro de la autenticación multifactor antes de acceder a este contenido. El usuario se debe registrar en la autenticación multifactor. |
+| AADSTS53011 | Usuario bloqueado debido al riesgo en el inquilino principal. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: el usuario o el administrador no han dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. |
 | AADSTS65004 | UserDeclinedConsent: el usuario no ha dado su consentimiento para acceder a la aplicación. Haga que el usuario intente iniciar sesión de nuevo y dé el consentimiento para acceder a la aplicación|

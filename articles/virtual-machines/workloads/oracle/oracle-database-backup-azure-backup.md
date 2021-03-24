@@ -2,18 +2,19 @@
 title: Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Backup
 description: Aprenda a realizar una copia de seguridad y recuperar una base de datos de Oracle Database 19c con el servicio de Azure Backup.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806416"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673897"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Backup
 
@@ -193,19 +194,19 @@ En este paso se presupone que tiene una instancia de Oracle (*test*) que se ejec
     RMAN> show all;
     ```    
 
-12.  Ahora, ejecute la copia de seguridad. El siguiente comando tomará una copia de seguridad completa de la base de datos, incluidos los archivos de registro de archivo, como conjunto de copias de seguridad en formato comprimido:
+12.  Ahora, ejecute la copia de seguridad. El comando siguiente tomará una copia de seguridad completa de la base de datos, incluidos los archivos de registro de archivo, como conjunto de copias de seguridad en formato comprimido:
 
      ```bash
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Uso de Azure Backup
+## <a name="using-azure-backup-preview"></a>Uso de Azure Backup (versión preliminar)
 
 El servicio Azure Backup proporciona soluciones sencillas, seguras y rentables tanto para realizar copias de seguridad de datos de la nube de Microsoft Azure como para recuperarlos. Azure Backup proporciona copias de seguridad independientes y aisladas para evitar la destrucción accidental de datos originales. Las copias de seguridad se almacenan en un almacén de Recovery Services con administración integrada de puntos de recuperación. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 
-El servicio de Azure Backup proporciona un [marco](../../../backup/backup-azure-linux-app-consistent.md) para lograr la coherencia de la aplicación durante las copias de seguridad de las máquinas virtuales Windows y Linux para diversas aplicaciones, como Oracle, MySQL, Mongo DB, SAP HANA y PostgreSQL. Esto implica invocar un script previo (para poner en modo inactivo las aplicaciones) antes de tomar una instantánea de los discos y llamar un script posterior (comandos para liberar las aplicaciones) una vez completada la instantánea, de modo que las aplicaciones vuelven al modo normal. Aunque que los scripts previos y posteriores de ejemplo se proporcionan en GitHub, la creación y mantenimiento de los mismos es su responsabilidad. 
+El servicio Azure Backup proporciona un [marco](../../../backup/backup-azure-linux-app-consistent.md) para lograr la coherencia de la aplicación durante las copias de seguridad de las máquinas virtuales Windows y Linux para diversas aplicaciones, como Oracle, MySQL, Mongo DB y PostgreSQL. Esto implica invocar un script previo (para poner en modo inactivo las aplicaciones) antes de tomar una instantánea de los discos y llamar un script posterior (comandos para liberar las aplicaciones) una vez completada la instantánea, de modo que las aplicaciones vuelven al modo normal. Aunque que los scripts previos y posteriores de ejemplo se proporcionan en GitHub, la creación y mantenimiento de los mismos es su responsabilidad.
 
-Ahora Azure Backup proporciona un marco de scripts previos y posteriores mejorado, de modo que el servicio de Azure Backup proporcionará scripts previos y posteriores empaquetados para aplicaciones específicas. Los usuarios de Azure Backup solo tienen que asignar un nombre a la aplicación y, a continuación, la copia de seguridad de la máquina virtual de Azure invocará automáticamente los scripts previos/posteriores correspondientes. El equipo de Azure Backup dará mantenimiento a los scripts previos y posteriores empaquetados, por lo que los usuarios podrán estar seguros de la compatibilidad, propiedad y validez de estos scripts. Actualmente, las aplicaciones compatibles con el marco mejorado son *Oracle* y *MySQL*.
+Azure Backup ahora proporciona un marco de scripts previos y posteriores mejorado (**actualmente en versión preliminar**), de modo que el servicio Azure Backup proporcionará scripts previos y posteriores empaquetados para aplicaciones específicas. Los usuarios de Azure Backup solo tienen que asignar un nombre a la aplicación y, a continuación, la copia de seguridad de la máquina virtual de Azure invocará automáticamente los scripts previos/posteriores correspondientes. El equipo de Azure Backup dará mantenimiento a los scripts previos y posteriores empaquetados, por lo que los usuarios podrán estar seguros de la compatibilidad, propiedad y validez de estos scripts. Actualmente, las aplicaciones compatibles con el marco mejorado son *Oracle* y *MySQL*.
 
 En esta sección, usará el marco mejorado de Azure Backup para tomar instantáneas coherentes con la aplicación de la máquina virtual en ejecución y la base de datos de Oracle. La base de datos se pondrá en modo de copia de seguridad, lo que permitirá que se produzca una copia de seguridad en línea coherente con las transacciones mientras Azure Backup toma una instantánea de los discos de máquina virtual. La instantánea será una copia completa del almacenamiento y no una instantánea incremental o de copia por escritura, por lo que es un medio eficaz para restaurar la base de datos. La ventaja de usar instantáneas de Azure Backup coherentes con la aplicación es que son muy rápidas de tomar independientemente del tamaño de la base de datos, y una instantánea se puede usar para las operaciones de restauración tan pronto como se toma, sin tener que esperar a que se transfiera al almacén de Recovery Services.
 
@@ -314,7 +315,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    sudo su -
    ```
 
-2. Cree el directorio de trabajo de copia de seguridad coherente con la aplicación:
+2. Busque la carpeta "etc/azure". Si no está presente, cree el directorio de trabajo de copia de seguridad coherente con la aplicación:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    fi
    ```
 
-3. Cree un archivo en el directorio */etc/azure* denominado *workload.conf* con el siguiente contenido, que debe comenzar con `[workload]`. El siguiente comando creará el archivo y rellenará el contenido:
+3. Busque "workload.conf" dentro de la carpeta. Si no está presente, cree un archivo en el directorio */etc/azure* denominado *workload.conf* con el siguiente contenido, que debe comenzar por `[workload]`. Si el archivo ya está presente, simplemente edite los campos de forma que coincida con el contenido siguiente. En caso contrario, el siguiente comando creará el archivo y rellenará el contenido:
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Para usar Azure Backup para crear una copia de seguridad de la base de datos, si
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Descargue los scripts preOracleMaster.sql y postOracleMaster.sql del [repositorio de GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) y cópielos en el directorio */etc/azure*.
-
-5. Cambie los permisos del archivo.
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Desencadenamiento de una copia de seguridad coherente con la aplicación de la máquina virtual
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 
-[Ejemplos de la CLI de Azure para implementación de máquinas virtuales](../../linux/cli-samples.md)
+[Ejemplos de la CLI de Azure para implementación de máquinas virtuales](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

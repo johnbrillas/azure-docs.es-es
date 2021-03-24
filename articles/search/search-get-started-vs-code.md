@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Introducción a Visual Studio Code'
+title: 'Inicio rápido: Introducción a Azure Cognitive Search con Visual Studio Code'
 titleSuffix: Azure Cognitive Search
 description: Aprenda a instalar y usar la extensión de Visual Studio Code para Azure Cognitive Search.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122698"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015852"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Introducción a Visual Studio Code y Azure Cognitive Search
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Introducción a Azure Cognitive Search con Visual Studio Code
 
-En este artículo se explica cómo formular solicitudes de API REST de forma interactiva mediante las [API REST de Azure Cognitive Search](/rest/api/searchservice) y un cliente API para enviar y recibir solicitudes. Con un cliente API y estas instrucciones, puede enviar solicitudes y ver las respuestas sin necesidad de escribir código.
+En este artículo se explica cómo formular solicitudes de API REST de forma interactiva mediante las [API REST de Azure Cognitive Search](/rest/api/searchservice) y [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). Con la [extensión de Visual Studio Code para Azure Cognitive Search (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) y estas instrucciones, puede enviar solicitudes y ver las respuestas antes de escribir cualquier código.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-En el artículo se usa una extensión de Visual Studio Code (versión preliminar) para las API REST de Azure Cognitive Search.
 
 > [!IMPORTANT] 
 > Esta característica actualmente está en su versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -35,18 +33,6 @@ Para este inicio rápido, se requieren los siguientes servicios y herramientas.
 + [Azure Cognitive Search para Visual Studio Code (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
-
-## <a name="copy-a-key-and-url"></a>Copia de una clave y una dirección URL
-
-Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
-
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
-
-1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
-
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-rest/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
-
-Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 ## <a name="install-the-extension"></a>Instalación de la extensión
 

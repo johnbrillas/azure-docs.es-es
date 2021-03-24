@@ -1,20 +1,20 @@
 ---
-title: 'Procedimiento para usar Azure Queue Storage desde Python: Azure Storage'
+title: Procedimiento para usar Azure Queue Storage desde Python
 description: Aprenda a usar Azure Queue Storage desde Python para crear y eliminar colas, e insertar, obtener y eliminar mensajes.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600795"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653268"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Procedimiento para usar Azure Queue Storage desde Python
 
@@ -22,9 +22,9 @@ ms.locfileid: "98600795"
 
 ## <a name="overview"></a>Información general
 
-En este artículo se muestran escenarios comunes con el servicio Azure Queue Storage. Entre los escenarios descritos se incluyen insertar, inspeccionar, obtener y eliminar mensajes de la cola. También se incluye código para crear y eliminar colas.
+En este artículo se muestran escenarios comunes con el servicio Azure Queue Storage. Entre los escenarios descritos se incluyen la inserción, inspección, obtención y eliminación de mensajes de la cola. También se incluye código para crear y eliminar colas.
 
-Los ejemplos de este artículo están escritos en Python y usan la [biblioteca cliente de Azure Queue Storage para Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). Para obtener más información sobre las colas, consulte la sección [Pasos siguientes](#next-steps) .
+Los ejemplos de este artículo están escritos en Python y usan la [biblioteca cliente de Azure Queue Storage para Python](https://github.com/azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue). Para obtener más información sobre las colas, consulte la sección [Pasos siguientes](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -117,6 +117,26 @@ queue_service.create_queue(queue_name)
 
 ---
 
+Los mensajes de la cola de Azure se almacenan como texto. Si quiere almacenar datos binarios, configure las funciones de codificación y descodificación de Base64 antes de colocar un mensaje en la cola.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Configure las funciones de codificación y descodificación de Base64 durante la creación del objeto de cliente.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Configure las funciones de codificación y descodificación de Base64 en el objeto de Queue Storage.
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+---
+
 ## <a name="insert-a-message-into-a-queue"></a>un mensaje en una cola
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
@@ -133,26 +153,6 @@ Para insertar un mensaje en una cola, use el método [`put_message`](/azure/deve
 message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
-```
-
----
-
-Los mensajes de la cola de Azure se almacenan como texto. Si quiere almacenar datos binarios, configure las funciones de codificación y descodificación de Base64 antes de colocar un mensaje en la cola.
-
-# <a name="python-v12"></a>[Python v12](#tab/python)
-
-Configure las funciones de codificación y descodificación de Base64 en el objeto de cliente de cola.
-
-:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
-
-# <a name="python-v2"></a>[Python v2](#tab/python2)
-
-Configure las funciones de codificación y descodificación de Base64 en el objeto de Queue Storage.
-
-```python
-# Setup Base64 encoding and decoding functions
-queue_service.encode_function = QueueMessageFormat.binary_base64encode
-queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
 ---

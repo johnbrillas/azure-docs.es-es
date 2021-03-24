@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383898"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677926"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -43,9 +43,12 @@ Azure Purview admite los siguientes orígenes:
 
 Los siguientes tipos de archivo se admiten para los exámenes y para la extracción y clasificación de esquemas, si procede:
 
-- Formatos de archivo estructurados admitidos por extensión: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Formatos de archivo estructurados admitidos por extensión: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Formatos de archivo de documento admitidos por extensión: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview también admite extensiones de archivo personalizadas y analizadores personalizados.
+ 
+> [!Note]
+> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. 
 
 ## <a name="sampling-within-a-file"></a>Muestreo en un archivo
 

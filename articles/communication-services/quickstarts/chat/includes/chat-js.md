@@ -6,18 +6,18 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661675"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495477"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, compruebe lo siguiente:
 
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -140,22 +140,22 @@ Use el método `createThread` para crear un subproceso de chat.
 - Utilice `topic` para proporcionar un tema a este chat. Los temas se pueden actualizar después de crear el subproceso de chat mediante la función `UpdateThread`.
 - Use `participants` para enumerar los participantes que se van a agregar a la conversación del chat.
 
-Cuando se resuelve, el método `createChatThread` devuelve `CreateChatThreadResponse`. Este modelo contiene una propiedad `chatThread` donde se puede acceder al `id` del subproceso recién creado. Luego, se puede utilizar `id` para obtener una instancia de `ChatThreadClient`. A continuación, se puede usar `ChatThreadClient` para realizar una operación dentro del subproceso, como enviar mensajes o enumerar participantes.
+Cuando se resuelve, el método `createChatThread` devuelve `CreateChatThreadResult`. Este modelo contiene una propiedad `chatThread` donde se puede acceder al `id` del subproceso recién creado. Luego, se puede utilizar `id` para obtener una instancia de `ChatThreadClient`. A continuación, se puede usar `ChatThreadClient` para realizar una operación dentro del subproceso, como enviar mensajes o enumerar participantes.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 El método `getChatThreadClient` devuelve un `chatThreadClient` para un subproceso que ya existe. Se puede usar para realizar operaciones en el subproceso creado: agregar participantes, enviar un mensaje, etc. threadId es el identificador único de la conversación del chat existente.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envío de un mensaje a un subproceso de chat
 
-Utilice el método `sendMessage` para enviar un mensaje de chat al subproceso recién creado, identificado mediante threadId.
+Utilice el método `sendMessage` para enviar un mensaje a un subproceso identificado mediante threadId.
 
-`sendMessageRequest` describe los campos obligatorios de la solicitud del mensaje de chat:
+`sendMessageRequest` se utiliza para describir la solicitud del mensaje:
 
 - Utilice `content` para proporcionar el contenido del mensaje de chat.
 
-`sendMessageOptions` describe los campos opcionales de la solicitud del mensaje de chat:
+`sendMessageOptions` se usa para describir los parámetros opcionales de la operación:
 
-- Use `priority` para especificar el nivel de prioridad del mensaje de chat como, por ejemplo, "Normal" o "Alta". Esta propiedad se puede usar para mostrar un indicador de la interfaz de usuario que haga que el destinatario de la aplicación se fije en el mensaje o para ejecutar la lógica de negocios personalizada.
 - Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente.
+- Use `type` para especificar el tipo de mensaje, como "texto" o "html".
 
-La respuesta `sendChatMessageResult` contiene un identificador, que es el identificador único del mensaje.
+`SendChatMessageResult` es la respuesta que se devuelve al enviar un mensaje. Contiene un identificador que es el identificador único del mensaje.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Agregue este código en lugar del comentario `<SEND MESSAGE TO A CHAT THREAD>` en el archivo **client.js**, actualice la pestaña del explorador y compruebe la consola.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de es
 Antes de llamar al método `addParticipants`, asegúrese de que ha adquirido un nuevo token de acceso y una identidad para el usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
 
 `addParticipantsRequest` describe el objeto de solicitud, donde `participants` enumera los participantes que se van a agregar a la conversación del chat.
-- El elemento `user` es obligatorio y es el usuario de comunicación que se va a agregar al subproceso de chat.
+- El elemento `id` obligatorio es el identificador de la comunicación que se va a agregar al subproceso de chat.
 - `displayName` es opcional y es el nombre para mostrar del participante de la conversación.
 - `shareHistoryTime` es opcional y es la hora a partir de la cual el historial de chat se compartió con el participante. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el participante, establézcala en la fecha actual. Para compartir el historial parcialmente, establezca la opción en la fecha de su elección.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]

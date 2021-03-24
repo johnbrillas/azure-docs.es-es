@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954436"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095932"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
 
@@ -29,7 +29,7 @@ Debe tener en cuenta el contenido que va a procesar y personalizar o ajustar la 
 
 El valor predeterminado de [streaming adaptable](autogen-bitrate-ladder.md) de Microsoft soluciona parcialmente el problema de la variabilidad de calidad y resolución de los vídeos de origen. El contenido de nuestros clientes es muy variado: algunos vídeos tienen una resolución de 1080p, otros 720p y algunos tienen resoluciones de SD e inferiores. Además, no todo el contenido de origen está en formato mezzanine de alta calidad procedente de estudios de televisión o cinematográficos. El valor preestablecido de streaming adaptable soluciona estos problemas garantizando que la escala de velocidad de bits nunca supere la resolución o la velocidad de bits media del archivo mezzanine de entrada. Sin embargo, las únicas propiedades del origen que examina este valor predeterminado son la resolución y la velocidad de bits.
 
-## <a name="the-content-aware-encoding"></a>Codificación en función del contenido 
+## <a name="the-content-aware-encoding"></a>Codificación en función del contenido
 
 El valor predeterminado de codificación en función del contenido amplía el mecanismo de "streaming con velocidad de bits adaptable", para lo que incorpora una lógica personalizada que permite al codificador buscar el valor óptimo de velocidad de bits para una resolución determinada sin requerir un análisis de cálculo exhaustivo. Este valor predefinido produce un conjunto de archivos MP4s alineados con GOP. Dado cualquier contenido de entrada, el servicio realiza un análisis ligero inicial del mismo y usa los resultados para determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Este valor predefinido resulta particularmente eficaz en los vídeos de complejidad media y baja, donde los archivos de salida tendrán velocidades de bits más lentas que el valor predefinido de streaming adaptable, pero una calidad que seguirá ofreciendo una buena experiencia a los visores. La salida contendrá archivos MP4 con el vídeo y audio intercalados.
 

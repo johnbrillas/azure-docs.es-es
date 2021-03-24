@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 829afda7ba49d60e51f3a074d38e5a1d0ca924a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385632"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050059"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -59,13 +59,33 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"Answer is: @{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
-  
+
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="complex-expression-example"></a>Ejemplo de expresión compleja
 En el ejemplo siguiente se muestra un ejemplo complejo que hace referencia a un subcampo profundo de la salida de la actividad. Para hacer referencia a un parámetro de canalización que se evalúa como un subcampo, use la sintaxis [] en lugar del operador punto (.) (como en el caso de subfield1 y subfield2)
 
-@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
+`@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+### <a name="dynamic-content-editor"></a>Editor de contenido dinámico
+
+El editor de contenido dinámico convierte automáticamente los caracteres de escape en el contenido cuando finaliza la edición. Por ejemplo, el contenido siguiente del editor de contenido es una interpolación de cadenas con dos funciones de expresión. 
+
+```json
+{ 
+  "type": "@{if(equals(1, 2), 'Blob', 'Table' )}",
+  "name": "@{toUpper('myData')}"
+}
+```
+
+El editor de contenido dinámico convierte el contenido anterior en la expresión `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. El resultado de esta expresión es la cadena de formato JSON que se muestra a continuación.
+
+```json
+{
+  "type": "Table",
+  "name": "MYDATA"
+}
+```
 
 ### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
 En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su valor se usa para establecer un valor para la propiedad **folderPath** mediante la expresión: `dataset().path`. 

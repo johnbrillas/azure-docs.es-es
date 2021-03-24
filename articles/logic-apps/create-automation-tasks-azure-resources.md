@@ -3,15 +3,15 @@ title: Creación de tareas de automatización para administrar y supervisar recu
 description: Configure tareas automatizadas que lo ayuden a administrar los recursos de Azure y a supervisar los costos mediante la creación de flujos de trabajo que se ejecuten en Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719056"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Administración de los recursos de Azure y supervisión de los costos mediante la creación de tareas de automatización (versión preliminar)
 
@@ -71,13 +71,15 @@ En comparación, Azure Automation es un servicio de automatización y configurac
 
    ![Captura de pantalla que muestra el panel "Tareas" de la cuenta de almacenamiento en que la barra de herramientas tiene seleccionada la opción "Agregar".](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. En el panel **Agregar una tarea**, en **Seleccionar una plantilla**, seleccione la plantilla correspondiente a la tarea que quiere crear y, luego, seleccione **Siguiente: Autenticación**.
+1. En el panel **Agregar una tarea**, en **Seleccionar una plantilla**, seleccione la plantilla correspondiente a la tarea que quiere crear. Si no aparece la página siguiente, seleccione **Siguiente: autenticación**.
 
    En este ejemplo se sigue seleccionando la plantilla de tarea **Enviar el costo mensual del recurso**.
 
    ![Captura de pantalla que muestra las selecciones "Enviar el costo mensual del recurso" y "Siguiente: Autenticación".](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. En **Autenticación**, en la sección **Conexiones**, seleccione **Crear** para cada conexión, a fin de poder proporcionar credenciales de autenticación para esa conexión. Los tipos de conexiones de cada tarea varían según la tarea.
+1. En **Autenticación**, en la sección **Conexiones**, seleccione **Crear** para cada conexión que aparece en la tarea a fin de poder proporcionar credenciales de autenticación para todas las conexiones. Los tipos de conexiones de cada tarea varían según la tarea.
+
+   En este ejemplo solo se muestra una de las conexiones que requiere esta tarea.
 
    ![Captura de pantalla que muestra seleccionada la opción "Crear" para la conexión de Azure Resource Manager.](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,7 +91,7 @@ En comparación, Azure Automation es un servicio de automatización y configurac
 
    ![Captura de pantalla que muestra una conexión correctamente creada.](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Después de autenticar todas las conexiones requeridas, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
+1. Después de autenticar todas las conexiones, seleccione **Siguiente: configuración** si no aparece la página siguiente.
 
 1. En **Configuración**, proporcione un nombre y cualquier otra información necesaria para la tarea. Seleccione **Crear** cuando haya terminado.
 
@@ -265,7 +267,7 @@ Al cambiar el flujo de trabajo subyacente de una tarea de automatización, los c
 
 ## <a name="provide-feedback"></a>Proporciona comentarios
 
-Esperamos sus comentarios. Para informar errores, proporcionar comentarios o si tiene preguntas sobre esta funcionalidad en versión preliminar, [póngase en contacto con el equipo de Azure Logic Apps](mailto:logicapps@microsoft.com).
+Esperamos sus comentarios. Para informar errores, proporcionar comentarios o si tiene preguntas sobre esta funcionalidad en versión preliminar, [póngase en contacto con el equipo de Azure Logic Apps](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

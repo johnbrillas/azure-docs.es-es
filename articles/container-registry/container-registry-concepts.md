@@ -1,45 +1,30 @@
 ---
-title: Acerca de los repositorios y las imágenes
-description: Una introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor de Azure.
+title: Acerca de los registros, repositorios, artefactos e imágenes
+description: Introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor y otros artefactos de Azure.
 ms.topic: article
-ms.date: 06/16/2020
-ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 01/29/2021
+ms.openlocfilehash: 991be79b10b6061f2034eb19e4e139af65aef3cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008526"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578088"
 ---
-# <a name="about-registries-repositories-and-images"></a>Acerca de los registros, repositorios e imágenes
+# <a name="about-registries-repositories-and-artifacts"></a>Acerca de los registros, repositorios y artefactos
 
 En este artículo se presentan los conceptos básicos de los registros de contenedor, los repositorios y las imágenes de contenedor, así como los artefactos relacionados. 
 
+:::image type="content" source="media/container-registry-concepts/registry-elements.png" alt-text="Registros, repositorios y artefactos":::
+
 ## <a name="registry"></a>Registro
 
-Un *registro* de contenedor es un servicio que almacena y distribuye imágenes de contenedor. Docker Hub es un registro de contenedor público que admite la comunidad de código abierto y sirve como catálogo general de imágenes. Azure Container Registry proporciona a los usuarios control directo de sus imágenes, con autenticación integrada, [replicación geográfica](container-registry-geo-replication.md) que admite la distribución global y confiabilidad para implementaciones cercanas a la red, la [configuración virtual de red y firewall](container-registry-vnet.md), el [bloqueo con etiquetas](container-registry-image-lock.md) y muchas otras características mejoradas. 
+Un *registro* de contenedor es un servicio que almacena y distribuye no solo imágenes de contenedor, sino también los artefactos relacionados. Docker Hub es un ejemplo de un registro de contenedor público que sirve como catálogo general de las imágenes de contenedor de Docker. Azure Container Registry proporciona a los usuarios control directo del contenido de contenedor, con autenticación integrada, [replicación geográfica](container-registry-geo-replication.md) que admite la distribución global y confiabilidad para implementaciones cercanas a la red, la [configuración virtual de red y firewall](container-registry-private-link.md), el [bloqueo con etiquetas](container-registry-image-lock.md) y muchas otras características mejoradas. 
 
-Además de las imágenes de contenedor de Docker, Azure Container Registry admite [artefactos de contenido](container-registry-image-formats.md) relacionados, incluidos los formatos de imagen de Open Container Initiative (OCI).
+Además de las imágenes de contenedor compatibles con Docker, Azure Container Registry admite un conjunto de [artefactos de contenido](container-registry-image-formats.md) relacionados, entre los que se incluyen los formatos de imagen de gráficos de Helm y de Open Container Initiative (OCI).
 
-## <a name="content-addressable-elements-of-an-artifact"></a>Elementos direccionables del contenido de un artefacto
+## <a name="repository"></a>Repositorio
 
-La dirección de un artefacto en un registro de contenedor de Azure incluye los siguientes elementos. 
-
-`[loginUrl]/[repository:][tag]`
-
-* **loginUrl**: el nombre completo del host del registro. El host del registro de un registro de contenedor de Azure tiene el formato *myregistry*.azurecr.io (todo en minúsculas). Debe especificar el valor de loginUrl cuando utilice Docker u otras herramientas de cliente para extraer o insertar artefactos a un registro de contenedor de Azure. 
-* **repository**: el nombre de una agrupación lógica de una o varias imágenes o artefactos relacionados; por ejemplo, las imágenes de una aplicación o un sistema operativo base. Puede incluir la ruta de acceso al *espacio de nombres*. 
-* **tag**: un identificador de una versión específica de una imagen o un artefacto que se almacenan en un repositorio.
-
-Por ejemplo, el nombre completo de una imagen de un registro de contenedor de Azure puede tener este aspecto:
-
-*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
-
-Consulte las siguientes secciones para más información sobre estos elementos.
-
-## <a name="repository-name"></a>Nombre del repositorio
-
-Un *repositorio* es una colección de imágenes de contenedor u otros artefactos con el mismo nombre, pero con etiquetas diferentes. Por ejemplo, las tres imágenes siguientes están en el repositorio "acr-helloworld":
-
+Un *repositorio* es una colección de imágenes de contenedor u otros artefactos de un registro que tienen el mismo nombre, pero etiquetas diferentes. Por ejemplo, las tres imágenes siguientes están en el repositorio `acr-helloworld`:
 
 - *acr-helloworld:latest*
 - *acr-helloworld:v1*
@@ -57,7 +42,7 @@ Los nombres de repositorio solo pueden incluir caracteres alfanuméricos en min�
 
 Para obtener las reglas de nomenclatura de repositorios completas, vea la [Especificación sobre la distribución de Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
-## <a name="image"></a>Imagen
+## <a name="artifact"></a>Artefacto
 
 Una imagen de contenedor u otro artefacto dentro de un registro está asociado con una o varias etiquetas, tiene una o más capas y se identifica mediante un manifiesto. Entender cómo se relacionan entre sí estos componentes puede ayudarle a administrar el registro de forma eficaz.
 
@@ -73,15 +58,17 @@ Para obtener información sobre las reglas de nomenclatura de etiquetas, vea la 
 
 ### <a name="layer"></a>Nivel
 
-Las imágenes de contenedor se componen de una o más *capas*, cada una correspondiente a una línea en el archivo de Docker que define la imagen. Las imágenes de un registro comparten capas comunes para aumentar la eficacia de almacenamiento. Por ejemplo, varias imágenes en distintos repositorios pueden compartir la misma capa base de Alpine Linux, pero solo se almacena en el registro una copia de esa capa.
+Las imágenes de contenedor y los artefactos constan de una o varias *capas*. Los distintos tipos de artefacto definen las capas de manera diferente. Por ejemplo, en una imagen de contenedor de Docker, cada capa corresponde a una línea del Dockerfile que define la imagen:
 
-El uso compartido de las capas optimiza la distribución de la capa en nodos con varias imágenes que comparten capas comunes. Por ejemplo, si una imagen que ya se encuentra en un nodo incluye la capa de Alpine Linux como su base, la extracción posterior de una imagen distinta que haga referencia a la misma capa no transfiere la capa al nodo. En su lugar, hace referencia a la capa que ya existe en el nodo.
+:::image type="content" source="media/container-registry-concepts/container-image-layers.png" alt-text="Capas de una imagen de contenedor":::
+
+Los artefactos de un registro comparten capas comunes, lo que aumenta la eficacia de almacenamiento. Por ejemplo, varias imágenes de distintos repositorios pueden tener la misma capa base de ASP.NET Core, pero en el registro solo se almacena una copia de esa capa. El uso compartido de las capas optimiza la distribución de estas en nodos y que varios artefactos compartan capas comunes. Por ejemplo, si una imagen que ya se encuentra en un nodo incluye la capa de ASP.NET Core como base, la posterior extracción de otra imagen que haga referencia a la misma capa no transfiere la capa al nodo. En su lugar, hace referencia a la capa que ya existe en el nodo.
 
 Para proporcionar aislamiento seguro y protección frente a posibles manipulaciones de capa, las capas no se comparten entre los registros.
 
 ### <a name="manifest"></a>Manifest
 
-Cada imagen de contenedor o artefacto que se inserta en un registro de contenedor está asociado con un *manifiesto*. El manifiesto, generado por el registro cuando se inserta la imagen, identifica de forma única la imagen y especifica sus capas. 
+Cada imagen de contenedor o artefacto que se inserta en un registro de contenedor está asociado con un *manifiesto*. El manifiesto, que lo ha generado el registro cuando se inserta el contenido, identifica de forma única los artefactos y especifica las capas. Puede enumerar los manifiestos de un repositorio con el comando de la CLI de Azure [az acr repository show-manifests][az-acr-repository-show-manifests]. 
 
 Un manifiesto básico de una imagen `hello-world` de Linux tiene un aspecto similar al siguiente:
 
@@ -145,20 +132,56 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Hash de manifiesto
 
-Los manifiestos se identifican mediante un hash SHA-256 único o *hash de manifiesto*. Cada imagen o artefacto, etiquetados o no, se identifican por el hash. El valor del hash es único, incluso si los datos de la capa de la imagen son idénticos a los de otra imagen. Este mecanismo es lo que le permite insertar varias veces imágenes etiquetadas de forma idéntica a un registro. Por ejemplo, puede insertar varias veces `myimage:latest` en el registro sin errores porque cada imagen se identifica mediante su hash único.
+Los manifiestos se identifican mediante un hash SHA-256 único o *hash de manifiesto*. Cada imagen o artefacto, etiquetados o no, se identifican por el hash. El valor del hash es único, incluso si los datos de la capa del artefacto son idénticos a los de otro artefacto. Este mecanismo es lo que le permite insertar varias veces imágenes etiquetadas de forma idéntica a un registro. Por ejemplo, puede insertar varias veces `myimage:latest` en el registro sin errores porque cada imagen se identifica mediante su hash único.
 
-Puede extraer una imagen de un registro especificando su hash en la operación de extracción. Algunos sistemas se pueden configurar para extraer por hash porque se garantiza la versión de la imagen que se va a extraer, incluso si una imagen etiquetada de forma idéntica se inserta posteriormente en el registro.
-
-Por ejemplo, extraiga una imagen desde el repositorio "acr-helloworld" mediante el hash del manifiesto:
-
-`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+Puede extraer un artefacto de un registro especificando su hash en la operación de extracción. Algunos sistemas se pueden configurar para extraer por hash porque se garantiza la versión de la imagen que se va a extraer, incluso si una imagen etiquetada de forma idéntica se inserta posteriormente en el registro.
 
 > [!IMPORTANT]
-> Si inserta repetidamente imágenes modificadas con etiquetas idénticas, puede crear imágenes huérfanas: imágenes que están sin etiquetas, pero consumen espacio en el registro. Las imágenes sin etiquetas no se muestran en la CLI de Azure ni en Azure Portal al enumerar o visualizar las imágenes por etiqueta. Sin embargo, sus capas existen y consumen espacio en el registro. La eliminación de una imagen sin etiqueta libera espacio del registro cuando el manifiesto es el único, o el último, que apunta a una capa determinada. Para más información acerca de cómo liberar el espacio usado mediante imágenes sin etiquetar, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
+> Si inserta repetidamente artefactos modificados con etiquetas idénticas, puede crear artefactos "huérfanos" que están sin etiquetas, pero consumen espacio en el registro. Las imágenes sin etiquetas no se muestran en la CLI de Azure ni en Azure Portal al enumerar o visualizar las imágenes por etiqueta. Sin embargo, sus capas existen y consumen espacio en el registro. La eliminación de una imagen sin etiqueta libera espacio del registro cuando el manifiesto es el único, o el último, que apunta a una capa determinada. Para más información acerca de cómo liberar el espacio usado mediante imágenes sin etiquetar, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
+
+## <a name="addressing-an-artifact"></a>Direccionamiento de un artefacto
+
+Para direccionar un artefacto del registro en las operaciones de inserción y extracción con Docker, u otras herramientas de cliente, combine el nombre completo del registro, el nombre del repositorio (incluida la ruta de acceso del espacio de nombres, si procede) y una etiqueta del artefacto o un resumen del manifiesto. En las secciones anteriores encontrará explicaciones de estos términos.
+
+  **Dirección por etiqueta**: `[loginServerUrl]/[repository][:tag]`
+    
+  **Dirección por hash**: `[loginServerUrl]/[repository@sha256][:digest]`  
+
+Si se usan Docker u otras herramientas de cliente para extraer o insertar artefactos en un registro de contenedor de Azure, se debe utilizar la dirección URL completa del registro, también denominada nombre del *servidor de inicio de sesión*. En la nube de Azure, la dirección URL completa de un registro de contenedor de Azure está en formato `myregistry.azurecr.io` (todo en minúsculas).
+
+> [!NOTE]
+> * No puede especificar un número de puerto en la dirección URL del servidor de inicio de sesión del registro, como `myregistry.azurecr.io:443`. 
+> * De forma predeterminada, se usa la etiqueta `latest` si no se incluye ninguna en el comando.  
+
+   
+### <a name="push-by-tag"></a>Inserción por etiqueta
+
+Ejemplos: 
+
+   `docker push myregistry.azurecr.io/samples/myimage:20210106`
+
+   `docker push myregistry.azurecr.io/marketing/email-sender`
+
+### <a name="pull-by-tag"></a>Extracción por etiqueta
+
+Ejemplo: 
+
+  `docker pull myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
+
+### <a name="pull-by-manifest-digest"></a>Extracción por hash de manifiesto
+
+
+Ejemplo:
+
+  `docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el [almacenamiento de imágenes](container-registry-storage.md) y los [formatos de contenido admitidos](container-registry-image-formats.md) en Azure Container Registry.
+Obtenga más información sobre el [almacenamiento en el registro](container-registry-storage.md) y los [formatos de contenido admitidos](container-registry-image-formats.md) en Azure Container Registry.
+
+Aprenda a [insertar y extraer imágenes ](container-registry-get-started-docker-cli.md) desde Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

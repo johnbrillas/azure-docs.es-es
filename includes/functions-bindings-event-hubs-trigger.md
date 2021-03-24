@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557282"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608922"
 ---
 Use el desencadenador de funciones para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando esta función se desencadena, el mensaje que se pasa a la función se escribe como una cadena.
 
@@ -360,9 +360,59 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**eventHubName** |**EventHubName** | Functions 2.x y versiones posteriores. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. Se puede hacer referencia a él desde la [configuración de la aplicación](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
 |**cardinalidad** | N/D | Se utiliza para los lenguajes distintos de C#. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función.<br><br>En C#, esta propiedad se asigna automáticamente siempre que el desencadenador tenga una matriz para el tipo.|
-|**connection** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
+|**connection** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.<br><br>Si usa [la versión 5.x o superior de la extensión](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## <a name="usage"></a>Uso
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Valor predeterminado
+
+Los siguientes tipos de parámetros se pueden usar en el centro de eventos de desencadenamiento:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipos adicionales 
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
+
+### <a name="default"></a>Valor predeterminado
+
+Los siguientes tipos de parámetros se pueden usar en el centro de eventos de desencadenamiento:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - Las propiedades predeterminadas de EventData se proporcionan para el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### <a name="additional-types"></a>Tipos adicionales 
+Las aplicaciones que usan la versión 5.0.0 o posterior de la extensión del centro de eventos utilizan el tipo `EventData` en [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) en lugar del que está en el [espacio de nombres Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). En esta versión se elimina la compatibilidad con el tipo `Body` heredado en favor de los siguientes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# <a name="java"></a>[Java](#tab/java)
+
+Consulte el [ejemplo de desencadenador](#example) de Java para más información.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Consulte el [ejemplo de desencadenador](#example) de Javascript para más información.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Consulte el [ejemplo de desencadenador](#example) de Python para más información.
+
+
+---
+
 
 ## <a name="event-metadata"></a>Metadatos de evento
 
@@ -379,10 +429,3 @@ El desencadenador de Event Hubs proporciona varias [propiedades de metadatos](..
 |`SystemProperties`|`IDictionary<String,Object>`|Las propiedades del sistema, incluidos los datos del evento.|
 
 Consulte los [ejemplos de código](#example) que utilizan estas propiedades más arriba en este artículo.
-
-## <a name="hostjson-properties"></a>Propiedades de host.json
-<a name="host-json"></a>
-
-El archivo [host.json](../articles/azure-functions/functions-host-json.md#eventhub) contiene opciones de configuración que controlan el comportamiento de Event Hubs. La configuración varía en función de la versión de Azure Functions.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e90a374917239ae1a20d25795757811a12cee80c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e387653d73105911f10bb184f9179e33e22671d4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84200446"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021909"
 ---
 ---
 | Identificador de límites | Límite | Comentarios |
@@ -15,6 +15,6 @@ ms.locfileid: "84200446"
 | Número máximo de funciones por trabajo |60 |Hay un límite máximo de 60 funciones por trabajo de Stream Analytics. |
 | Número máximo de unidades de streaming por trabajo |192 |Hay un límite máximo de 192 unidades de streaming por trabajo de Stream Analytics. |
 | Número máximo de trabajos por región |1500 |Cada suscripción puede tener hasta 1500 trabajos por región geográfica. |
-| MB del blob de datos de referencia | 300 | Los blobs de datos de referencia no pueden tener más de 300 MB cada uno. |
+| MB del blob de datos de referencia | 5 GB | Hasta 5 GB al usar 6 unidades de búsqueda o más. |
 | Número máximo de caracteres incluidos en una consulta | 512 000 | Hay un límite máximo de 512 000 caracteres en una consulta de trabajo de Azure Stream Analytics.|
 

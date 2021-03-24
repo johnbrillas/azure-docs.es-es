@@ -5,15 +5,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30b075cfbd7d38ff81cdf79a05a3a95b87b0bc13
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 40dacdf243505447e9831239ef1252602a3e0f99
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488552"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491697"
 ---
 # <a name="what-is-azure-communication-services"></a>¿Qué es Azure Communication Services?
 
@@ -48,8 +48,8 @@ Los siguientes recursos son un buen punto de partida si no está familiarizado c
 | Recurso                               |Descripción                           |
 |---                                    |---                                   |
 |**[Incorporación de una aplicación de llamadas a una reunión de Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services se puede usar para crear experiencias de reunión personalizadas con interacción con Microsoft Teams. Los usuarios de sus soluciones de Communication Services pueden interactuar con los participantes de Teams mediante la voz, el vídeo, el chat y el uso compartido de la pantalla.|
-|**[Creación de un recurso de Communication Services](./quickstarts/create-communication-resource.md)**|Puede empezar a usar Azure Communication Services mediante el Azure Portal o la biblioteca de cliente de administración de Communication Services para aprovisionar su primer recurso de Communication Services. Una vez que tenga la cadena de conexión del recurso de Communication Services, puede aprovisionar los primeros tokens de acceso de usuario.|
-|**[Creación del primer token de acceso de usuario](./quickstarts/access-tokens.md)**|Los tokens de acceso de usuario se usan para autenticar los servicios en el recurso de Azure Communication Services. Estos tokens se aprovisionan y se remiten mediante la biblioteca de cliente de administración de Communication Services.|
+|**[Creación de un recurso de Communication Services](./quickstarts/create-communication-resource.md)**|Puede empezar a utilizar Azure Communication Services mediante Azure Portal o la biblioteca de cliente de Communication Services para aprovisionar el primer recurso de Communication Services. Una vez que tenga la cadena de conexión del recurso de Communication Services, puede aprovisionar los primeros tokens de acceso de usuario.|
+|**[Creación del primer token de acceso de usuario](./quickstarts/access-tokens.md)**|Los tokens de acceso de usuario se usan para autenticar los servicios en el recurso de Azure Communication Services. Estos tokens se aprovisionan y se remiten mediante la biblioteca de cliente de Communication Services.|
 |**[Obtención de un número de teléfono](./quickstarts/telephony-sms/get-phone-number.md)**|Puede usar Azure Communication Services para aprovisionar y liberar números de teléfono. Estos números de teléfono se pueden usar para iniciar llamadas salientes y compilar soluciones de comunicaciones en SMS.|
 |**[Envío de un SMS desde la aplicación](./quickstarts/telephony-sms/send.md)**|La biblioteca de cliente de SMS de Azure Communication Services permite enviar y recibir mensajes SMS desde las aplicaciones .NET y JavaScript.|
 |**[Introducción a las llamadas de voz y vídeo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services permite agregar llamadas de voz y vídeo a las aplicaciones mediante la biblioteca cliente de llamadas. Esta biblioteca se basa en WebRTC y le permite establecer comunicaciones de punto a punto, multimedia y en tiempo real dentro de sus aplicaciones.|

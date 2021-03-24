@@ -1,17 +1,20 @@
 ---
 title: Desarrollo y depuración iterativos en Azure Data Factory
 description: Obtenga información sobre cómo desarrollar y depurar de manera iterativa las canalizaciones de Data Factory en ADF UX.
-ms.date: 10/29/2020
+ms.date: 02/23/2021
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+services: data-factory
+documentationcenter: ''
+ms.workload: data-services
+author: kromerm
+ms.author: makromer
+ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392534"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712970"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,6 +76,8 @@ Los flujos de datos de asignación le permiten crear lógica de transformación 
 Puede supervisar las sesiones de depuración del flujo de datos activas en una factoría en la experiencia **Supervisar**.
 
 ![Visualización de sesiones de depuración del flujo de datos](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+La vista previa de los datos en el diseñador de flujo de datos y la depuración de la canalización de flujos de datos están diseñadas para ofrecer el máximo rendimiento con muestras de datos pequeñas. Sin embargo, si necesita probar la lógica de una canalización o de un flujo de datos con grandes cantidades de datos, aumente el tamaño de la instancia de Azure Integration Runtime utilizada en la sesión de depuración con más núcleos y un proceso mínimo de uso general.
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Depuración de una canalización con una actividad de flujo de datos
 
@@ -83,7 +88,7 @@ El uso de una sesión de depuración existente reducirá considerablemente el ti
 El uso del entorno de ejecución de actividad creará un nuevo clúster con la configuración especificada en el entorno de ejecución de integración de cada actividad de flujo de datos. Esto permite aislar cada trabajo y debe usarse para cargas de trabajo complejas o pruebas de rendimiento. También puede controlar el TTL en Azure IR para que los recursos de clúster usados para la depuración sigan estando disponibles durante ese período de tiempo para atender solicitudes de trabajo adicionales.
 
 > [!NOTE]
-> Si tiene una canalización con flujos de datos que se ejecutan en paralelo, elija "Use Activity Runtime" (Usar tiempo de ejecución de la actividad) para que Data Factory pueda usar el entorno de Integration Runtime que ha seleccionado en la actividad del flujo de datos. Esto permitirá que los flujos de datos se ejecuten en varios clústeres y puedan adaptarse a las ejecuciones de flujo de datos paralelas.
+> Si tiene una canalización con flujos de datos que se ejecutan en paralelo o flujos de datos que deben probarse con grandes conjuntos de datos, elija "Use Activity Runtime" (Usar tiempo de ejecución de la actividad) para que Data Factory pueda usar el entorno de Integration Runtime que ha seleccionado en la actividad del flujo de datos. Esto permitirá que los flujos de datos se ejecuten en varios clústeres y puedan adaptarse a las ejecuciones de flujo de datos paralelas.
 
 ![Ejecución de una canalización con un flujo de datos](media/iterative-development-debugging/iterative-development-dataflow.png)
 

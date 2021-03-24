@@ -2,7 +2,7 @@
 título: Introducción a Azure Media Services v3: Descripción de Azure Media Services: Información general de alto nivel de Azure Media Services v3 con vínculos a inicios rápidos, tutoriales y ejemplos de código.
 services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
 
-ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 3/10/2021 ms.author: inhenkel ms.custom: mvc
 #<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intención del cliente: los desarrolladores o proveedores de contenido queremos codificar, transmitir por secuencias (a petición o en vivo) y analizar el contenido multimedia para que los clientes puedan: ver el contenido en una amplia variedad de exploradores y dispositivos, y obtener información valiosa del contenido grabado.
 ---
 
@@ -13,9 +13,6 @@ ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm
 Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc. Media Services ayuda a desarrolladores de aplicaciones, centros de llamadas, agencias gubernamentales o empresas de ocio a crear aplicaciones que ofrecen experiencias multimedia de alta calidad a grandes audiencias en los navegadores y dispositivos móviles más usados en la actualidad.
 
 Los SDK de Media Services v3 se basan en la [especificación OpenAPI (Swagger) de Media Services v3](https://aka.ms/ams-v3-rest-sdk).
-
-> [!NOTE]
-> Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para: administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3 de Media Services, ver (no administrar) [recursos](assets-concept.md) y [obtener información sobre el acceso a las API](./access-api-howto.md). Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI](/cli/azure/ams), o uno de los[SDK](media-services-apis-overview.md#sdks) compatibles.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

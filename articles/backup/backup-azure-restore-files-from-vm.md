@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725516"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -76,6 +76,11 @@ No se puede ejecutar el ejecutable descargado en la máquina virtual que está c
 ### <a name="virtual-machine-backups-having-large-disks"></a>Copias de seguridad de máquinas virtuales con discos de gran tamaño
 
 Si el equipo del que se ha realizado una copia de seguridad tiene un gran número de discos (>16) o discos grandes (>4 TB cada uno), no se recomienda ejecutar el script en la misma máquina para la restauración, ya que tendrá un impacto significativo en la máquina virtual. En su lugar, se recomienda tener una máquina virtual independiente solo para la recuperación de archivos (máquinas virtuales D2v3 de Azure VM) y, después, cerrarla cuando no sea necesaria. 
+
+Consulte los requisitos para restaurar los archivos de las máquinas virtuales de las que se ha hecho una copia de seguridad con un disco grande:<br>
+[SO Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[SO Linux](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Paso 3: Requisitos del sistema operativo para ejecutar el script correctamente
 

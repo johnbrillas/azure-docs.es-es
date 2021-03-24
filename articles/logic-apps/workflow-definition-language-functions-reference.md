@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702494"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -282,7 +282,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devuelve el elemento body de una parte específica de la salida de una acción que consta de varias partes. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Devuelve la salida en tiempo de ejecución de una acción. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Se devuelve el valor de un parámetro que se describe en la definición de flujo de trabajo. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Devuelve las entradas y salidas de todas las acciones dentro de la acción de ámbito especificada, como `For_each`, `Until` y `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Devuelve las entradas y salidas de las acciones de nivel superior dentro de la acción de ámbito especificada, como `For_each`, `Until` y `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devuelve la salida de un desencadenador en tiempo de ejecución, o desde otros pares de nombre y valor JSON. Consulte también [triggerOutputs](#triggerOutputs) y [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devuelve la salida `body` de un desencadenador en tiempo de ejecución. Consulte [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devuelve un valor único que coincide con un nombre de clave en las salidas del desencadenador *form-data* o *form-encoded*. |
@@ -3451,7 +3451,12 @@ Este es el objeto JSON actualizado:
 
 ### <a name="result"></a>resultado
 
-Devuelve las entradas y salidas de todas las acciones que se encuentran dentro de la acción de ámbito especificada, como una acción `For_each`, `Until` o `Scope`. Esta función resulta útil para devolver los resultados de una acción con errores para diagnosticar y controlar las excepciones. Para obtener más información, vea [Obtención del contexto y resultados de errores](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Devuelve los resultados de las acciones de nivel superior en la acción de ámbito especificada, como una acción `For_each`, `Until` o `Scope`. La función `result()` acepta un único parámetro, que es el nombre del ámbito, y devuelve una matriz que contiene información de las acciones de primer nivel de ese ámbito. Estos objetos de acción incluyen los mismos atributos que los devueltos por la función `actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción.
+
+> [!NOTE]
+> Esta función devuelve información *solo* de las acciones de primer nivel en la acción de ámbito y no de acciones anidadas más profundas, como las acciones Switch o Condition.
+
+Por ejemplo, puede usar esta función para obtener los resultados de acciones con errores para que pueda diagnosticar excepciones y controlarlas. Para obtener más información, vea [Obtención del contexto y resultados de errores](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3459,12 +3464,12 @@ result('<scopedActionName>')
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Sí | String | Nombre de la acción con ámbito desde la que se van a devolver las entradas y salidas de todas las acciones internas |
+| <*scopedActionName*> | Sí | String | Nombre de la acción con ámbito donde desea que se muestren las entradas y salidas de las acciones de nivel superior dentro de ese ámbito |
 ||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Objeto de matriz | Matriz que contiene matrices de entradas y salidas de cada acción que aparece dentro de la acción con ámbito especificada |
+| <*array-object*> | Objeto de matriz | Una matriz que contiene matrices de entradas y salidas de cada acción de nivel superior dentro del ámbito especificado |
 ||||
 
 *Ejemplo*

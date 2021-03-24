@@ -7,14 +7,16 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8a23041a714089c447ab35ee05aae0de0c9c33d2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437004"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201150"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Starter
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Configure la integración continua (CI) y la integración continua (CD) para la aplicación de IoT Edge con DevOps Projects. DevOps Starter simplifica la configuración inicial de una canalización de compilación y de versión en Azure Pipelines.
 
@@ -22,13 +24,23 @@ Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita](https://
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-DevOps Starter crea una canalización de CI/CD en Azure DevOps. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción a Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure DevOps. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en [Microsoft Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso** y, después, busque **DevOps Starter**.  
 
 1. Seleccione **Crear**.
+
+1. De forma predeterminada, DevOps Starter se configura con GitHub. Para usar las características de este procedimiento, cambie DevOps Starter para configurarlo con Azure DevOps. Siga el vínculo **Cambiar configuración aquí**.
+
+   ![Selección de Cambiar configuración aquí para cambiar de GitHub a Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. En el panel derecho, elija el icono de **Azure DevOps** y seleccione **Listo**.
+
+   ![Selección de Azure DevOps para configurar DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   Ahora debería ver que DevOps Starter se está configurando con Azure DevOps.
 
 ## <a name="create-a-new-application-pipeline"></a>Creación de una nueva canalización de aplicaciones
 

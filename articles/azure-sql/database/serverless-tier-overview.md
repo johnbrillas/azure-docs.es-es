@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393248"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658595"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,9 +103,9 @@ Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché
 
 La memoria caché de SQL crece a medida que se capturan datos del disco de la misma manera y a la misma velocidad que para las bases de datos aprovisionadas. Cuando la base de datos está ocupada, la memoria caché puede crecer sin restricciones hasta el límite máximo de memoria.
 
-## <a name="auto-pause-and-auto-resume"></a>Pausa automática y reanudación automática
+## <a name="auto-pausing-and-auto-resuming"></a>Pausa y reanudación automáticas
 
-### <a name="auto-pause"></a>Pausa automática
+### <a name="auto-pausing"></a>Pausa automática
 
 La pausa automática se desencadena si todas las condiciones siguientes se cumplen durante la demora de pausa automática:
 

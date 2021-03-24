@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: c34ed97339076a4412f8b6bf36ddf342205c88be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffef03457f9d3faf385bd0a924474dfa6efc4121
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377209"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619275"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
@@ -70,7 +70,7 @@ require('dotenv').config();
 ```
 
 ### <a name="update-the-router-to-acquire-the-token"></a>Actualización del enrutador para adquirir el token
-Abra el archivo _routes\index.js_y reemplace el código generado automáticamente por el código siguiente.
+Abra el archivo _routes\index.js_ y reemplace el código generado automáticamente por el código siguiente.
 
 Este código crea un punto de conexión de la API que adquiere un token de autenticación de Azure AD mediante la contraseña de la entidad de servicio. También recupera el subdominio. Luego, devuelve un objeto que contiene el token y el subdominio.
 
@@ -256,4 +256,5 @@ Al hacer clic en el botón "Lector inmersivo", verá que se inicia dicha herrami
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../../reference.md)
+> [!div class="nextstepaction"]
+> [Crear un recurso y configurar AAD](../../how-to-create-immersive-reader.md)

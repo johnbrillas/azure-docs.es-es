@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530648"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651733"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuración de inteligencia sobre amenazas de Azure Firewall
 
@@ -24,21 +24,33 @@ Si ha configurado el filtrado basado en inteligencia sobre amenazas, las reglas 
 
 ## <a name="threat-intelligence-mode"></a>Modo de inteligencia sobre amenazas
 
-Puede optar por registrar solo una alerta cuando se desencadene una regla o puede elegir el modo de alerta y denegación.
+Puede configurar la inteligencia sobre amenazas en uno de los tres modos que se describen en la tabla siguiente. De forma predeterminada, el filtrado basado en inteligencia sobre amenazas está habilitado en el modo de alerta.
 
-De forma predeterminada, el filtrado basado en inteligencia sobre amenazas está habilitado en el modo de alerta.
+|Mode |Descripción  |
+|---------|---------|
+|`Off`     | La característica de inteligencia sobre amenazas no está habilitada para el firewall. |
+|`Alert only`     | Cuando se detecte tráfico que intenta atravesar el firewall hacia o desde dominios y direcciones IP malintencionados conocidos, recibirá alertas de alta confianza. |
+|`Alert and deny`     | Cuando se detecte tráfico que intenta atravesar el firewall hacia o desde dominios y direcciones IP malintencionados conocidos, el tráfico se bloqueará y recibirá alertas de alta confianza. |
 
-## <a name="allowed-list-addresses"></a>Lista de direcciones permitidas
+> [!NOTE]
+> El modo de inteligencia sobre amenazas se hereda de las directivas principales a las directivas secundarias. Una directiva secundaria debe configurarse con el mismo modo u otro más estricto que la directiva primaria.
 
-Puede configurar una lista de direcciones IP permitidas para que la inteligencia sobre amenazas no filtre ninguna de las direcciones, rangos o subredes que especifique.
+## <a name="allowlist-addresses"></a>Direcciones permitidas
 
+La inteligencia sobre amenazas podría desencadenar falsos positivos y bloquear el tráfico que realmente es válido. Puede configurar una lista de direcciones IP permitidas para que la inteligencia sobre amenazas no filtre ninguna de las direcciones, rangos o subredes que especifique.  
 
+![Direcciones permitidas](media/threat-intelligence-settings/allow-list.png)
+
+Puede actualizar la lista de permitidos con varias entradas a la vez mediante la carga de un archivo CSV. El archivo CSV solo puede contener direcciones IP e intervalos. El archivo no puede contener títulos.
+
+> [!NOTE]
+> Las direcciones de la lista de permitidos de inteligencia sobre amenazas se heredan de las directivas primarias a las secundarias. Todas las direcciones IP o intervalos agregados a una directiva primaria se aplicarán también a todas las directivas secundarias.
 
 ## <a name="logs"></a>Registros
 
-El siguiente extracto del registro muestra una regla desencadenada:
+El extracto de registro siguiente muestra una regla desencadenada para el tráfico saliente a un sitio malintencionado:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

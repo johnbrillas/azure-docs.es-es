@@ -4,12 +4,12 @@ description: Uso de los servicios de inserción de errores y análisis del clús
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ff3c88b7f86294badb76ec1e8dde0c34b942509
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 72b8f7e9e4934b516f843ae8bc9bb7adc1c349ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720517"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios distribuidos confiables en una infraestructura no confiable. Para escribir servicios distribuidos sólidos en una infraestructura no confiable, los desarrolladores necesitan poder probar la estabilidad de sus servicios, mientras que la infraestructura no confiable subyacente pasa por transiciones de estado complicadas debido a los errores.
@@ -40,7 +40,7 @@ Caos induce errores de las siguientes categorías:
 
 Caos se ejecuta en varias iteraciones. Cada iteración consta de validaciones de clúster y errores correspondientes al período especificado. Puede configurar el tiempo empleado por el clúster para que la estabilización y la validación sean correctas. Si se detecta un error de validación de clúster, Caos genera y conserva un evento ValidationFailedEvent con la marca de tiempo UTC y los detalles de los errores. Por ejemplo, analice una instancia de Caos que esté establecida para ejecutarse durante una hora con un máximo de tres errores simultáneos. Caos induce tres errores y después valida el estado del clúster. Itera a través del paso anterior hasta que el proceso se detiene expresamente mediante la API StopChaosAsync o cuando transcurre una hora. Si el clúster pasa a ser incorrecto en cualquier iteración (es decir, no se estabiliza o no pasa a ser correcto dentro de la instancia de MaxClusterStabilizationTimeout pasada), Chaos genera una instancia de ValidationFailedEvent. Este evento indica que algo salió mal y que podría necesitar más investigación.
 
-Para obtener los errores que ha provocado Chaos, puede usar la API de GetChaosReport (REST, Powershell o C#). La API obtiene el siguiente segmento del informe de Chaos basado en el token de continuación pasado o en el intervalo de tiempo pasado. Se puede especificar ContinuationToken para obtener el siguiente segmento del informe de Chaos, o bien se puede especificar el intervalo a través de StartTimeUtc y EndTimeUtc, pero no se pueden especificar ContinuationToken y el intervalo de tiempo en la misma llamada. Cuando hay más de 100 eventos de Chaos, el informe de Chaos se devuelve en segmentos y ningún segmento contiene más de 100 eventos de Chaos.
+Para obtener los errores que ha provocado Chaos, puede usar la API de GetChaosReport (PowerShell, C# o REST). La API obtiene el siguiente segmento del informe de Chaos basado en el token de continuación pasado o en el intervalo de tiempo pasado. Se puede especificar ContinuationToken para obtener el siguiente segmento del informe de Chaos, o bien se puede especificar el intervalo a través de StartTimeUtc y EndTimeUtc, pero no se pueden especificar ContinuationToken y el intervalo de tiempo en la misma llamada. Cuando hay más de 100 eventos de Chaos, el informe de Chaos se devuelve en segmentos y ningún segmento contiene más de 100 eventos de Chaos.
 
 ## <a name="important-configuration-options"></a>Opciones de configuración importantes
 * **TimeToRun**: tiempo total durante el cual se ejecutará Chaos antes de que finalice correctamente. Puede detener Caos antes de que se haya ejecutando durante el período de TimeToRun a través de la API StopChaos.

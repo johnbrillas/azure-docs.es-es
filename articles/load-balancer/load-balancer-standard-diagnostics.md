@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699086"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -72,18 +72,7 @@ Para ver las métricas de los recursos de Load Balancer Estándar:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperación de las métricas multidimensionales mediante programación con API
 
-Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas se pueden escribir en una cuenta de almacenamiento agregando una [configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para la categoría "Todas las métricas". 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configuración de alertas para métricas multidimensionales ###
-
-Azure Standard Load Balancer admite alertas configurables fácilmente para métricas multidimensionales. Configure umbrales personalizados para que métricas específicas desencadenen alertas con distintos niveles de gravedad para habilitar una experiencia de supervisión de recursos sin contacto.
-
-Para configurar alertas:
-1. Vaya a la subhoja de la alerta del equilibrador de carga.
-1. Creación de una nueva regla de alertas
-    1.  Configuración de la condición de alerta
-    1.  (Opcional) Adición de un grupo de acciones para la reparación automatizada
-    1.  Asigne la gravedad de la alerta, el nombre y la descripción que habilitan una reacción intuitiva.
+Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas se pueden escribir en una cuenta de almacenamiento agregando una [configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para la categoría "Todas las métricas". 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Escenarios comunes de diagnóstico y vistas recomendadas
 
@@ -228,6 +217,32 @@ En este gráfico se muestra la siguiente información:
 El gráfico permite a los clientes solucionar los problemas de la implementación por sí mismos, sin necesidad de adivinar o solicitar soporte técnico si se produjeron otros problemas. El servicio no estaba disponible porque los sondeos de mantenimiento producían errores debidos a una configuración incorrecta o errores en la aplicación.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configuración de alertas para métricas multidimensionales ###
+
+Azure Standard Load Balancer admite alertas configurables fácilmente para métricas multidimensionales. Configure umbrales personalizados para que métricas específicas desencadenen alertas con distintos niveles de gravedad para habilitar una experiencia de supervisión de recursos sin contacto.
+
+Para configurar alertas:
+1. Vaya a la subhoja de la alerta del equilibrador de carga.
+1. Creación de una nueva regla de alertas
+    1.  Configuración de la condición de alerta
+    1.  (Opcional) Adición de un grupo de acciones para la reparación automatizada
+    1.  Asigne la gravedad de la alerta, el nombre y la descripción que habilitan una reacción intuitiva.
+
+### <a name="inbound-availability-alerting"></a>Alertas de disponibilidad de entrada
+Para generar una alerta de disponibilidad de entrada, puede crear dos alertas independientes con las métricas de sondeo de estado y disponibilidad de la ruta de acceso de los datos. Los clientes pueden tener distintos escenarios que requieran una lógica de alertas específica, pero los ejemplos siguientes serán útiles para la mayoría de las configuraciones.
+
+Con la disponibilidad de la ruta de acceso de los datos, puede activar alertas siempre que una regla específica de equilibrio de carga deje de estar disponible. Para configurar esta alerta, establezca una condición de alerta para la disponibilidad de la ruta de acceso de los datos y divida por todos los valores actuales y los valores futuros del puerto de front-end y la dirección IP de front-end. Si establece la lógica de la alerta de forma que sea menor o igual que 0, la alerta se activará siempre que una regla de equilibrio de carga deje de responder. Establezca la granularidad de agregación y la frecuencia de evaluación en función de sus preferencias de evaluación. 
+
+Con el sondeo de estado, puede generar una alerta siempre que una instancia de back-end determinada no responda a dicho sondeo durante un período de tiempo considerable. Configure la condición de alerta para que use la métrica de sondeo de estado y divida por dirección IP de back-end y puerto back-end. Esto garantizará que pueda generar una alerta por separado para la capacidad de cada instancia de back-end individual a fin de atender el tráfico en un puerto específico. Use el tipo de agregación **Average** y establezca el valor de umbral en función de la frecuencia de sondeo de la instancia de back-end y de lo que considera que es el umbral correcto. 
+
+También puede generar una alerta en un nivel de grupo de back-end si no se divide por ninguna dimensión y se usa el tipo de agregación **Average**. Esto le permitirá configurar reglas de alerta como, por ejemplo, una alerta cuando el 50 % de los miembros del grupo de back-end tengan un estado incorrecto.
+
+### <a name="outbound-availability-alerting"></a>Alertas de disponibilidad de salida
+Para configurar la disponibilidad de salida, puede configurar dos alertas independientes con las métricas de Recuento de conexiones SNAT y Puertos SNAT usados.
+
+Para detectar los errores de la conexión saliente, configure una alerta que use el valor de Recuento de conexiones SNAT y que filtre por el estado de conexión de error. Use la agregación **Total**. A continuación, puede dividir también por dirección IP de back-end establecida en todos los valores actuales y futuros, de forma que alerte por separado para cada instancia de back-end que experimente conexiones con errores. Establezca el umbral en un valor mayor que cero o en un número mayor si espera que aparezcan algunos errores de conexión saliente.
+
+A través de Puertos SNAT usados, puede alertar sobre un mayor riesgo de agotamiento de SNAT y un error de la conexión saliente. Asegúrese de dividir por protocolo y dirección IP de back-end cuando use esta alerta y utilice la agregación **Average**. Establezca el umbral en un valor superior al del porcentaje de número de puertos asignados por instancia que considere que no son seguros. Por ejemplo, puede configurar una alerta de gravedad baja cuando una instancia de back-end utilice el 75 % de los puertos asignados y una gravedad alta cuando use el 90 o el 100 % de los puertos asignados.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Estado de mantenimiento de los recursos
 
 El estado de mantenimiento de los recursos de Load Balancer Estándar se expone en **Mantenimiento de los recursos**, en **Supervisar > Estado del servicio**. Se evalúa cada **dos minutos** mediante la medición de la disponibilidad de la ruta de acceso de datos, que determina si los puntos de conexión de equilibrio de carga del front-end están disponibles.
@@ -235,8 +250,8 @@ El estado de mantenimiento de los recursos de Load Balancer Estándar se expone 
 | Estado de mantenimiento de los recursos | Descripción |
 | --- | --- |
 | Disponible | El recurso de Standard Load Balancer está listo y disponible. |
-| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. [Siga la guía de solución de problemas de dRHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar si hay eventos iniciados por el usuario que provoquen un impacto en la disponibilidad.
-| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. [Siga la guía de solución de problemas de dRHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar si hay eventos iniciados por el usuario afectando la disponibilidad. |
+| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. [Siga la guía de solución de problemas de dRHC](./troubleshoot-rhc.md) para determinar si hay eventos iniciados por el usuario que provoquen un impacto en la disponibilidad.
+| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. [Siga la guía de solución de problemas de dRHC](./troubleshoot-rhc.md) para determinar si hay eventos iniciados por el usuario afectando la disponibilidad. |
 | Unknown | El estado de mantenimiento de recurso del recurso de Standard Load Balancer no se ha actualizado todavía o no ha recibido la información de disponibilidad de la ruta de acceso a los datos durante los últimos 10 minutos. Este estado debe ser transitorio y reflejará el estado correcto en cuanto se reciban dichos datos. |
 
 Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
@@ -263,7 +278,7 @@ La descripción genérica del estado de mantenimiento de los recursos está disp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo usar [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para ver estas métricas preconfiguradas para su instancia de Load Balancer.
+- Obtenga más información sobre cómo usar [Insights](./load-balancer-insights.md) para ver estas métricas preconfiguradas para su instancia de Load Balancer.
 - Más información acerca de [Load Balancer Estándar](./load-balancer-overview.md).
 - Más información sobre la [conectividad saliente de Load Balancer](./load-balancer-outbound-connections.md).
 - Más información acerca de [Azure Monitor](../azure-monitor/overview.md).

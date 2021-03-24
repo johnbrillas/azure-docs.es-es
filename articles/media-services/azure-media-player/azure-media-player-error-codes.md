@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f063ab50cfd880552e80a77ba798e4d06de5b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81725905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709587"
 ---
 # <a name="error-codes"></a>Códigos de error #
 
@@ -93,7 +93,7 @@ Describe los detalles del error. Los bits 27-20 proporcionan un alto nivel, mien
 
 El mensaje de usuario que se muestra está basado en los bits 27-20 del código de error.
 
-- MEDIA_ERR_ABORTED (1): "Ha anulado la reproducción de vídeo"
+- MEDIA_ERR_ABORTED (1): "Ha anulado la reproducción de vídeo".
 - MEDIA_ERR_NETWORK (2): "Un error de red hizo que la descarga de vídeo no se realizara correctamente".
 - MEDIA_ERR_DECODE (3): "La reproducción de vídeo se ha anulado debido a un problema de daños o porque el vídeo usó características que el explorador no admitía".
 - MEDIA_ERR_SRC_NOT_SUPPORTED (4): "No se pudo cargar el vídeo, ya sea porque se produjo un error en el servidor o la red o porque no se admite el formato".

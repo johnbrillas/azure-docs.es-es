@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576771"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202508"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -111,7 +111,7 @@ Para ver el estado de un **punto de conexión del servidor** en el portal, vaya 
 
 - El **estado del punto de conexión del servidor** y la **actividad de sincronización** en el portal se basan en los eventos de sincronización que se registran en el registro de eventos de telemetría en el servidor (identificadores 9102 y 9302). Si se produce un error en una sesión de sincronización debido a un error transitorio como, por ejemplo, un error cancelado, el punto de conexión del servidor seguirá apareciendo en el portal como **correcto**, siempre y cuando la sesión de sincronización actual esté en curso (se aplican los archivos). El identificador de evento 9302 es el evento del progreso de la sincronización y el 9102 se registra una vez que se completa la sesión de sincronización.  Para obtener más información, consulte [estado de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) y [progreso de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si el estado del punto de conexión del servidor muestra el estado **Error** o **Sin actividad**, consulte la [documentación de solución de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) para obtener instrucciones.
 - El recuento de **archivos que no se están sincronizando** en el portal se basa en el identificador de evento 9121, que se registra en el registro de eventos de telemetría del servidor. Este evento se registra en cada error por elemento una vez que se completa la sesión de sincronización. Para resolver los errores por elemento, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
-- Para ver la **eficiencia de la nube por niveles** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los datos que se proporcionan para la eficiencia de la nube por niveles se basan en el identificador de evento 9071, que se registra en el registro de eventos de telemetría del servidor. Para obtener más información, consulte la [información general de nube por niveles](./storage-sync-cloud-tiering.md).
+- Para ver la **eficiencia de la nube por niveles** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los datos que se proporcionan para la eficiencia de la nube por niveles se basan en el identificador de evento 9071, que se registra en el registro de eventos de telemetría del servidor. Para más información, consulte [Supervisión de la nube por niveles](./storage-sync-monitor-cloud-tiering.md).
 - Para ver **archivos que no se organizan por niveles** y **errores de recuperación** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los **archivos que no se organizan por niveles** están basados en el identificador de evento 9003, que se registra en el registro de eventos de telemetría del servidor y los **errores de recuperación** están basados en el 9006. Para investigar los archivos que no se organizan por niveles o se recuperan, consulte [Solución de problemas de archivos que no se organizan por niveles](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) y [Solución de problemas de archivos que no se recuperan](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Gráficos de métricas

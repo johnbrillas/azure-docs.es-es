@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732701"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653642"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ Para obtener información sobre los niveles de servicio y los límites de recurs
 Los siguientes pasos pueden ayudarle a calcular si un grupo es más rentable que las bases de datos únicas:
 
 1. Calcule las eDTU o los núcleos virtuales necesarios para el grupo de la siguiente forma:
-
-Para el modelo de compra basado en DTU:
-
-MAX(<*Número total de bases de datos* X *promedio de uso de DTU por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*>)
-
-Para el modelo de compra basado en núcleo virtual:
-
-MAX(<*Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de núcleo virtual por base de datos*>)
-
+   - Para el modelo de compra basado en DTU:
+     - MAX(<*Número total de bases de datos* &times; *promedio de uso de DTU por base de datos*>, <*Número de bases de datos con picos simultáneos* &times; *Uso de picos de DTU por base de datos*>)
+   - Para el modelo de compra basado en núcleo virtual:
+     - MAX(<*Número total de bases de datos* &times; *promedio de uso de núcleo virtual por base de datos*>, <*Número de bases de datos con picos simultáneos* &times; *Uso de picos de núcleo virtual por base de datos*>)
 2. Calcule el espacio de almacenamiento total necesario para el grupo agregando el tamaño de datos necesarios para todas las bases de datos del grupo. Para el modelo de compra basado en DTU, determine después el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleo virtual toma la estimación de núcleos virtuales del paso 1.
 4. Consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) y busque el tamaño de grupo más pequeño que sea mayor que la estimación del paso 3.

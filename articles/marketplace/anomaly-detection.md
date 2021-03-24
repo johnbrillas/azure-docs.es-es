@@ -1,34 +1,32 @@
 ---
-title: Detección de anomalías para la facturación de uso medido | Azure Marketplace
-description: Obtenga información sobre cómo la detección automática de anomalías para la facturación de uso medido ayuda a asegurarse de que se facture correctamente a los clientes para el uso medido de la oferta de marketplace comercial.
+title: Administración de las anomalías de facturación de uso medido en el Centro de partners | Azure Marketplace
+description: Obtenga información sobre cómo la detección automática de anomalías para la facturación de uso medido ayuda a asegurarse de que se facture correctamente a los clientes para el uso medido de las ofertas de marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989246"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092518"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Detección de anomalías para la facturación de uso medido
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Administración de las anomalías de facturación de uso medido en el Centro de partners
 
-En este artículo se proporcionan detalles sobre el servicio de medición de Marketplace y la funcionalidad de detección de anomalías automatizada asociada para ayudar a garantizar la facturación correcta a los clientes para su uso medido. La opción de facturación de uso medido está disponible actualmente para las ofertas de[software como servicio](plan-saas-offer.md) (SaaS) y las [aplicaciones de Azure](plan-azure-application-offer.md#types-of-plans) con un plan de aplicación administrada. Esta opción permite a los asociados crear ofertas en el programa de marketplace comercial que se cobran según unidades no estándar.
+La opción de facturación de uso medido personalizada está disponible actualmente para las ofertas de[software como servicio](plan-saas-offer.md) (SaaS) y las [aplicaciones de Azure](plan-azure-application-offer.md#types-of-plans) con un plan de aplicación administrada.
 
-Los asociados que tienen medidores personalizados implementados para SaaS y aplicaciones administradas pueden ver una desviación del comportamiento de uso esperado como anomalías para los _eventos de uso por encima del límite_ en _medidores personalizados_ específicos del Centro de partners. Para reducir este riesgo, el Centro de partners usa un servicio de detección de anomalías que aplica algoritmos de aprendizaje automático para determinar el comportamiento normal de la facturación de uso medido, analizar el uso de facturación medida y detectar anomalías con una intervención mínima del usuario. El uso de _modelos de detección de anomalías_ en los conjuntos de datos de uso de facturación medida, el Centro de partners pretende informar al publicador cada vez que el uso notificado supere el uso esperado.
+Si usa la opción de facturación de uso medido para crear ofertas en el programa de marketplace comercial que le permite cobrar el uso basado en unidades no estándar, debe saber cuándo el cliente ha usado un servicio más de lo esperado.
 
-## <a name="usability-experience"></a>Experiencia de facilidad de uso
+## <a name="use-the-anomaly-detection-feature"></a>Uso de la característica de detección de anomalías
 
-Microsoft confía en el asociado para notificar el uso por encima del límite de su cliente de sus ofertas de aplicaciones administradas de Azure o SaaS antes de que Microsoft facture al cliente. Si se notifica el uso incorrecto, el cliente podría recibir una factura incorrecta, perjudicando la credibilidad tanto del asociado como de Microsoft.
+Microsoft confía en usted, el asociado, para notificar el uso por encima del límite por parte de sus clientes de sus ofertas de aplicaciones administradas de Azure o SaaS antes de que Microsoft facture al cliente. Si se notifica el uso incorrecto, el cliente podría recibir una factura incorrecta, perjudicando la credibilidad tanto del asociado como de Microsoft.
 
-Para ayudar a mitigar esto, se proporciona una característica de detección de anomalías automatizada para los planes de la aplicación administrada de la aplicación de Azure y las aplicaciones SaaS. Esta característica es un modelo de aprendizaje automático que supervisa de forma proactiva el uso de facturación medida y predice el valor esperado de uso dentro del intervalo esperado. Si el uso está fuera del intervalo esperado, se trata como una anomalía y se muestra una notificación de alerta al asociado en la página Información general de la oferta en el programa de marketplace comercial del Centro de partners.
+Para asegurarse de que se factura a los clientes correctamente, use la característica de **detección de anomalías** tanto para las aplicaciones SaaS como para los planes de la aplicación administrada de la aplicación de Azure. Esta característica supervisa de forma proactiva la utilización de la facturación de uso medido y predice el valor esperado de uso dentro del intervalo esperado. Si el uso está fuera del intervalo esperado, se trata como inesperado (una anomalía), de modo que recibirá una notificación de alerta en la página Información general de la oferta en el programa de marketplace comercial del Centro de partners. Puede realizar un seguimiento diario del uso por parte de sus clientes de cada dimensión de medidor personalizada que haya definido.
 
-El modelo de aprendizaje automático analiza el uso por encima del límite de forma diaria. El publicador puede ver todas las anomalías que se indican en relación con el uso por encima del límite de sus clientes para cada una de las dimensiones de medidor personalizadas de la oferta.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Visualización y administración de anomalías de uso medido
+## <a name="view-and-manage-metered-usage-anomalies"></a>Visualización y administración de anomalías de uso medido
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Analizar**.
@@ -82,3 +80,4 @@ Después de marcar un uso por encima del límite como anomalía o reconocer un m
 ## <a name="see-also"></a>Consulte también
 - [Facturación según uso mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md)
 - [Facturación según uso de aplicaciones administradas](./partner-center-portal/azure-app-metered-billing.md)
+- [Servicio de detección de anomalías para la facturación según uso](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

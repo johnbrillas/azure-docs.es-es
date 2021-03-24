@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762364"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095721"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,11 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Marzo de 2021
+  - [El centro de Backup ya está disponible de forma general](#backup-center-is-now-generally-available).
+  - [Compatibilidad del nivel de acceso de archivo para Azure Backup (en versión preliminar)](#archive-tier-support-for-azure-backup-in-preview)
+- Febrero de 2021
+  - [Copia de seguridad de blobs de Azure (en versión preliminar)](#backup-for-azure-blobs-in-preview)
 - Enero de 2021
   - [Azure Disk Backup (en versión preliminar)](#azure-disk-backup-in-preview)
   - [Cifrado en reposo mediante claves administradas por el cliente ahora (disponible con carácter general)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +39,26 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-center-is-now-generally-available"></a>El centro de Backup ya está disponible de forma general.
+
+El centro de Backup simplifica la administración de la protección de datos a gran escala, ya que le permite consultar, regular, supervisar, dirigir y optimizar la administración de copias de seguridad desde una única consola central.
+
+Para obtener más información, consulte [Información general sobre el centro de copias de seguridad](backup-center-overview.md).
+
+## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Compatibilidad del nivel de acceso de archivo para Azure Backup (en versión preliminar)
+
+Azure Backup ahora le permite reducir el costo de las copias de seguridad de retención a largo plazo con la disponibilidad del nivel de archivo para Azure Virtual Machines y los servidores de SQL Server en Azure Virtual Machines.
+
+Para obtener más información, consulte [Compatibilidad del nivel de acceso de archivo (versión preliminar)](archive-tier-support.md).
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Copia de seguridad de blobs de Azure (en versión preliminar)
+
+La copia de seguridad operativa de blobs es una solución de protección de datos local administrada que le permite proteger los blobs en bloques de diversos escenarios en los que se hayan perdido datos; por ejemplo, si se producen daños, si se realizan eliminaciones de blobs y la eliminación accidental de cuentas de almacenamiento. Los datos se almacenan localmente dentro de la propia cuenta de almacenamiento de origen y se pueden recuperar a un momento determinado en el tiempo cuando sea necesario. Por tanto, proporciona un medio sencillo, seguro y rentable para proteger sus blobs.
+
+La copia de seguridad operativa de blobs se integra con el Centro de copias de seguridad, entre otras capacidades de administración de Backup, para proporcionar un solo panel que pueda ayudarle a controlar, supervisar, usar y analizar las copias de seguridad a escala.
+
+Para obtener más in, consulte [Información general de la copia de seguridad operativa de Azure Blobs (en versión preliminar)](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure Disk Backup (en versión preliminar)
 

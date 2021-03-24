@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176984"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Realización de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -59,7 +59,7 @@ Puede hacer un seguimiento del progreso de las revisiones a medida que los revis
     ![Revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/all-company-group-results.png)
 
 
-    Si ve una revisión de acceso que revisa el acceso de invitados en varios grupos de Microsoft 365 (versión preliminar), en la hoja Información general se mostrará cada grupo de la revisión. 
+    Si ve una revisión de acceso donde se revisa el acceso de invitado en grupos de Microsoft 365, en la hoja Información general se muestra cada grupo de la revisión. 
    
     ![revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

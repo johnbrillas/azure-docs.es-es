@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561354"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495715"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -51,12 +51,14 @@ El uso de Azure Portal o las API de Azure Resource Manager con Communication Ser
 
 ### <a name="telephone-number-management"></a>Administración de números de teléfono
 
-Azure Communication Services mantiene un directorio de números de teléfono asociados a un recurso de Communication Services. Use estas API para recuperar números de teléfono y eliminarlos:
+Azure Communication Services mantiene un directorio de números de teléfono asociados a un recurso de Communication Services. Utilice [Phone Number Administration API](/rest/api/communication/phonenumberadministration) para recuperar números de teléfono y eliminarlos:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Chat
 
-Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo totalmente inactivo se eliminará automáticamente después de 30 días. Use las [API de chat](/rest/api/communication/chat/deletechatmessage/deletechatmessage) para obtener, enumerar, actualizar y eliminar mensajes.
+Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo totalmente inactivo se eliminará automáticamente después de 30 días. Use las [API de chat](/rest/api/communication/chat/chatthread) para obtener, enumerar, actualizar y eliminar mensajes.
 
 - `Get Thread`
 - `Get Message`

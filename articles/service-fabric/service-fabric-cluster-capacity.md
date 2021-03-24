@@ -4,12 +4,12 @@ description: Tipos de nodos, durabilidad, confiabilidad y otros aspectos que se 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714942"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -39,21 +39,21 @@ El tipo de nodo principal se configura con el atributo `isPrimary` de la definic
 
 El número de tipos de nodos iniciales depende del propósito de su clúster y de las aplicaciones y servicios que se ejecutan en él. Tenga en cuenta las preguntas siguientes:
 
-* * **¿Tiene La aplicación varios servicios y cualquiera de ellos debe ser público o accesible desde Internet?** _
+* ***¿La aplicación tiene varios servicios y cualquiera de ellos debe ser público o accesible desde Internet?***
 
     Las aplicaciones típicas contienen un servicio front-end de puerta de enlace que recibe la entrada de un cliente, así como uno o varios servicios back-end que se comunican con los servicios front-end, con redes independientes entre los servicios front-end y back-end. Estos casos suelen requerir tres tipos de nodo: un tipo de nodo principal y dos tipos de nodo no principales (uno para el servicio front-end y back-end).
 
-_ * **¿Los servicios que componen la aplicación tienen diferentes necesidades de infraestructura, como una RAM mayor o más ciclos de CPU?** _
+* ***¿Los servicios que componen la aplicación tienen diferentes necesidades de infraestructura, como una RAM mayor o más ciclos de CPU?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
+    A menudo, el servicio front-end puede ejecutarse en máquinas virtuales más pequeñas (tamaños de máquina virtual como D2) que tienen puertos abiertos a Internet.  Es posible que los servicios back-end de cómputo intensivo deban ejecutarse en máquinas virtuales más grandes (con tamaños de máquina virtual como D4, D6, D15) que no son accesibles desde Internet. La definición de distintos tipos de nodo para estos servicios le permite hacer un uso más eficaz y seguro de las máquinas virtuales Service Fabric subyacentes y les permite escalarlas de forma independiente. Para más información sobre la estimación de la cantidad de recursos que necesita, consulte [Planeamiento de capacidad para aplicaciones de Service Fabric](service-fabric-capacity-planning.md)
 
-_ * **¿Alguno de los servicios de la aplicación necesitará escalar más allá de los 100 nodos?** _
+* ***¿Alguno de sus servicios de aplicación necesitará escalar más allá de 100 nodos?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
+    Un tipo de nodo único no puede escalar de manera confiable más allá de 100 nodos por conjunto de escalado de máquinas virtuales para aplicaciones Service Fabric. La ejecución de más de 100 nodos requiere conjuntos de escalado de máquinas virtuales adicionales (y por consiguiente, tipos de nodo adicionales).
 
-_ * **¿El clúster abarcará Availability Zones?** _
+* ***¿El clúster abarcará Availability Zones?***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric admite clústeres que abarcan [Availability Zones](../availability-zones/az-overview.md) con la implementación de tipos de nodo anclados a zonas específicas, lo que garantiza una alta disponibilidad de las aplicaciones. Availability Zones requiere planeación de tipo de nodo adicional y requisitos mínimos. Para más información, consulte [Topología recomendada para el tipo de nodo principal de clústeres de Service Fabric que se distribuyen en Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
 A la hora de determinar el número y las propiedades de los tipos de nodo para la creación inicial del clúster, tenga en cuenta que siempre se pueden agregar, modificar o quitar tipos de nodo (no principales) una vez implementado el clúster. [Los tipos de nodo principal también se pueden modificar](service-fabric-scale-up-primary-node-type.md) en clústeres en ejecución (aunque tales operaciones requieren una gran cantidad de planeación y precaución en entornos de producción).
 
@@ -61,7 +61,7 @@ Una consideración más detallada para las propiedades de tipo de nodo es el niv
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Características de durabilidad del clúster
 
-El _nivel de durabilidad designa los privilegios que tienen las máquinas virtuales de Service Fabric con la infraestructura subyacente de Azure. Este privilegio permite a Service Fabric pausar cualquier solicitud de infraestructura de nivel de máquina virtual (por ejemplo, reinicio, restablecimiento de imagen inicial o migración) que afecte los requisitos de quórum para los servicios del sistema de Service Fabric y sus servicios con estado.
+El *nivel de durabilidad* designa los privilegios que tienen las máquinas virtuales de Service Fabric con la infraestructura subyacente de Azure. Este privilegio permite a Service Fabric pausar cualquier solicitud de infraestructura de nivel de máquina virtual (por ejemplo, reinicio, restablecimiento de imagen inicial o migración) que afecte los requisitos de quórum para los servicios del sistema de Service Fabric y sus servicios con estado.
 
 > [!IMPORTANT]
 > El nivel de durabilidad se establece por tipo de nodo. Si no se especifica ninguno, se usará el nivel *Bronce*, pero no proporciona actualizaciones automáticas del sistema operativo. La durabilidad de *Plata* u *Oro* se recomienda para las cargas de trabajo de producción.
@@ -73,6 +73,9 @@ En la siguiente tabla se enumeran los niveles de durabilidad de Service Fabric, 
 | Oro             | 5                              | Tamaños de nodo completo dedicados a un solo cliente (por ejemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | Se puede pausar durante 2 horas por dominio de actualización para permitir el tiempo adicional para que las réplicas se recuperen de errores anteriores |
 | Plata           | 5                              | Máquinas virtuales de un solo núcleo o varios con al menos 50 GB de SSD local                      | Se puede retrasar hasta que lo apruebe el clúster de Service Fabric | No se puede retrasar una cantidad de tiempo significativa                                                    |
 | Bronce          | 1                              | Máquinas virtuales con al menos 50 GB de SSD local                                              | El clúster de Service Fabric no lo retrasará           | No se puede retrasar una cantidad de tiempo significativa                                                    |
+
+> [!NOTE]
+> El número mínimo de máquinas virtuales mencionado anteriormente es un requisito necesario para cada nivel de durabilidad. Tenemos validaciones en contexto que impedirán la creación o modificación de conjuntos de escalado de máquinas virtuales existentes que no cumplen estos requisitos.
 
 > [!WARNING]
 > La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](service-fabric-patch-orchestration-application.md) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.

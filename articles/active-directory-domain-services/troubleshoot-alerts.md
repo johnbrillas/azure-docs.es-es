@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618627"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092883"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -162,7 +162,7 @@ Este error es irrecuperable. Para resolver la alerta, [elimine el dominio admini
 
 Algunas entidades de servicio generadas automáticamente se utilizan para administrar y crear recursos para un dominio administrado. Si se modifican los permisos de acceso para una de estas entidades de servicio, el dominio no podrá administrar correctamente los recursos. En los pasos siguientes se muestra cómo comprender los permisos de acceso a una entidad de servicio para poder concederlos:
 
-1. Lea sobre el [control de acceso basado en rol y cómo conceder acceso a las aplicaciones en Azure Portal](../role-based-access-control/role-assignments-portal.md).
+1. Lea sobre el [control de acceso basado en rol de Azure y cómo conceder acceso a las aplicaciones en Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. Revise el acceso que la entidad de servicio con identificador *abba844e-bc0e-44b0-947a-dc74e5d09022* tiene y conceda el acceso que se ha denegado en una fecha anterior.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: No hay suficientes direcciones IP en el dominio administrado

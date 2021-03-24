@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905322"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094093"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -84,7 +84,7 @@ Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [c
 
 En las secciones siguientes se habla de los conceptos y componentes de la integración de Azure Maps con RBAC de Azure. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps. 
 
-Al configurar RBAC de Azure, elija una entidad de seguridad y aplíquela a una asignación de roles. Para más información sobre cómo agregar asignaciones de roles en Azure Portal, consulte [Incorporación o eliminación de asignaciones de roles de Azure](../role-based-access-control/role-assignments-portal.md).
+Al configurar RBAC de Azure, elija una entidad de seguridad y aplíquela a una asignación de roles. Para más información sobre cómo agregar asignaciones de roles en Azure Portal, consulte [Asignación de roles de Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Selección de una definición de roles
 
