@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341814"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>Creación de una directiva de atestación
@@ -36,7 +36,7 @@ issuancerules
  
 Un archivo de directiva tiene tres segmentos, como se ha indicado anteriormente:
 
-- **version** :  el número de versión de la gramática que se sigue. 
+- **version**:  el número de versión de la gramática que se sigue. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Un archivo de directiva tiene tres segmentos, como se ha indicado anteriormente:
 
     Actualmente, la única versión admitida es "1.0".
 
-- **authorizationrules** : una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules**. Las reglas de notificación se aplican en el orden en el que se definan.
+- **authorizationrules**: una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules**. Las reglas de notificación se aplican en el orden en el que se definan.
 
-- **issuancerules** : colección de las reglas de notificación que se evaluarán para agregar información adicional al resultado de la atestación tal y como se defina en la directiva. Las reglas de notificación se aplican en el orden en el que se definan y también son opcionales.
+- **issuancerules**: colección de las reglas de notificación que se evaluarán para agregar información adicional al resultado de la atestación tal y como se defina en la directiva. Las reglas de notificación se aplican en el orden en el que se definan y también son opcionales.
 
 Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.md) para más información.
    
@@ -128,8 +128,8 @@ Después de crear un archivo de directiva, para cargar una directiva en formato 
      ```
 
 2. (Opcional) Firme la directiva. Azure Attestation admite los siguientes algoritmos:
-     - **Ninguna** : no firme la carga de la directiva.
-     - **RS256** : algoritmo admitido para firmar la carga de la directiva.
+     - **Ninguna**: no firme la carga de la directiva.
+     - **RS256**: algoritmo admitido para firmar la carga de la directiva.
 
 3. Cargue el JWS y valide la directiva.
      - Si el archivo de directiva no tiene errores de sintaxis, el servicio lo acepta.

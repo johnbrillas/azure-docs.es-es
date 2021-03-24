@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178396"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623526"
 ---
 ## <a name="disk-level-bursting"></a>Expansión en el nivel de disco
 
@@ -147,7 +147,7 @@ Cuando se inicia la VM, se expande para solicitar su límite de expansión de 12
 
 Después del inicio, inicie una aplicación que tenga una carga de trabajo no crítica. Esta aplicación requiere 15 MB/s que se distribuyen uniformemente entre todos los discos.
 
-![La aplicación envía una solicitud de 15 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía a cada uno de sus discos una solicitud de 5 MB/s, cada disco devuelve 5 MB/s, la máquina virtual devuelve 15 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![La aplicación envía una solicitud de 15 MB/s de rendimiento a la máquina virtual, la máquina virtual toma la solicitud y envía a cada uno de sus discos una solicitud de 5 MB/s, cada disco devuelve respuestas de 5 MB/s, la máquina virtual devuelve 15 MB/s a la aplicación.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 A continuación, la aplicación necesita procesar un trabajo por lotes que requiere 360 MB/s. Standard_L8s_v2 se expande para satisfacer esta demanda y, a continuación, realiza una solicitud. El disco del SO solo necesita 20 MB/s. Los 340 MB/s restantes se administran mediante los discos de datos P4 de expansión.
 

@@ -5,13 +5,13 @@ description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.custom: mvc, seo-javascript-october2019, contperfq3
-ms.openlocfilehash: 4763e72e3a50bd6c84f158658b7531a25e4ceec9
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
+ms.openlocfilehash: 1371fb22b3474e37e50fe0eb67541d9ced69555f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492921"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771879"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 

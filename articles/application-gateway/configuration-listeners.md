@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397650"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuración del cliente de escucha de Application Gateway
@@ -20,7 +20,7 @@ ms.locfileid: "93397650"
 
 Un cliente de escucha es una entidad lógica que comprueba las solicitudes de conexión entrantes mediante el puerto, protocolo, host y dirección IP. Al configurar el cliente de escucha, debe especificar valores que coincidan con los valores correspondientes de la solicitud entrante de la puerta de enlace.
 
-Cuando crea una puerta de enlace de aplicaciones mediante Azure Portal, también puede crear un cliente de escucha predeterminado eligiendo el protocolo y el puerto de este cliente. Puede elegir si habilita compatibilidad con HTTP2 en el cliente de escucha o no. Después de crear la puerta de enlace de aplicaciones, puede editar la configuración de ese cliente de escucha predeterminado ( *appGatewayHttpListener* ) o crear otros clientes nuevos.
+Cuando crea una puerta de enlace de aplicaciones mediante Azure Portal, también puede crear un cliente de escucha predeterminado eligiendo el protocolo y el puerto de este cliente. Puede elegir si habilita compatibilidad con HTTP2 en el cliente de escucha o no. Después de crear la puerta de enlace de aplicaciones, puede editar la configuración de ese cliente de escucha predeterminado (*appGatewayHttpListener*) o crear otros clientes nuevos.
 
 ## <a name="listener-type"></a>Tipo de cliente de escucha
 
@@ -87,7 +87,7 @@ Para configurar una página de error personalizada global, consulte [Configuraci
 
 ## <a name="tls-policy"></a>Directiva TLS
 
-Puede centralizar la administración de certificados TLS/SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores de back-end. El control centralizado de TLS también le permite especificar una directiva TLS central adaptada a sus requisitos de seguridad. Puede elegir la directiva TLS *predeterminada* , *predefinida* o *personalizada*.
+Puede centralizar la administración de certificados TLS/SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores de back-end. El control centralizado de TLS también le permite especificar una directiva TLS central adaptada a sus requisitos de seguridad. Puede elegir la directiva TLS *predeterminada*, *predefinida* o *personalizada*.
 
 Puede configurar la directiva TLS para controlar las versiones del protocolo TLS. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS desde TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva TLS de Application Gateway](./application-gateway-ssl-policy-overview.md).
 

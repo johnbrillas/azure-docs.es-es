@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392340"
 ---
 # <a name="configure-azure-sql-edge"></a>Configuración de Azure SQL Edge
@@ -44,7 +44,7 @@ La siguiente variable de entorno de SQL Server en Linux no se admite en Azure S
 
 | Variable de entorno | Descripción |
 |-----|-----|
-| **MSSQL_ENABLE_HADR** | Habilite el grupo de disponibilidad. Por ejemplo, **1** significa que está habilitado y **0** , deshabilitado. |
+| **MSSQL_ENABLE_HADR** | Habilite el grupo de disponibilidad. Por ejemplo, **1** significa que está habilitado y **0**, deshabilitado. |
 
 > [!IMPORTANT]
 > La variable de entorno **MSSQL_PID** para SQL Edge solo acepta **Premium** y **Desarrollador** como valores válidos. Azure SQL Edge no admite la inicialización mediante una clave de producto.

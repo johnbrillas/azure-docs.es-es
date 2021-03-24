@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367510"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616407"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Azure CDN
 
@@ -356,6 +356,11 @@ En la tabla siguiente se muestra el progreso de la operación que se produce cua
 7. *Funcionamiento de la renovación de certificados con Bring Your Own Certificate*
 
     Para asegurarse de que se implementa un certificado más reciente en la infraestructura de PoP, cargue el nuevo certificado en Azure Key Vault. En la configuración de TLS en Azure CDN, elija la versión más reciente del certificado y seleccione Guardar. Azure CDN propagará el nuevo certificado actualizado. 
+
+8. *¿Es necesario volver a habilitar HTTPS después de reiniciar el punto de conexión?*
+
+    Sí. Si usa **Azure CDN de Akamai**, si el punto de conexión se detiene y se reinicia, debe volver a habilitar la configuración de HTTPS si el valor estaba activo antes.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,18 +3,19 @@ title: Creación de desencadenadores de ventana de saltos de tamaño constante e
 description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una ventana de saltos de tamaño constante.
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: f5bc9951229c61dd988f44b06b8fcd40881226ae
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393707"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779824"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -220,7 +221,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-    
+
 3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
@@ -244,10 +245,11 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-    
+
 Para supervisar las ejecuciones del desencadenador o de la canalización en Azure Portal, consulte la sección sobre la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
-* [Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante](tumbling-window-trigger-dependency.md)
+* [Creación de una dependencia de un desencadenador periódico](tumbling-window-trigger-dependency.md).
+* Aprenda a hacer referencia a los metadatos de desencadenador en la canalización; para ello, consulte [Referencia a los metadatos de desencadenador en las ejecuciones de canalización](how-to-use-trigger-parameterization.md).

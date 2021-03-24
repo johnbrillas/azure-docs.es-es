@@ -10,10 +10,10 @@ ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360537"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
@@ -105,11 +105,11 @@ Los fragmentos de código siguientes se han tomado del archivo Program.cs.
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de base de datos de grafos. En la pestaña **Información general** , puede ver dos puntos de conexión. 
+1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de base de datos de grafos. En la pestaña **Información general**, puede ver dos puntos de conexión. 
  
-   **URI del SDK de .NET** : este valor se usa al conectarse a la cuenta de grafos mediante la biblioteca de Microsoft.Azure.Graphs. 
+   **URI del SDK de .NET**: este valor se usa al conectarse a la cuenta de grafos mediante la biblioteca de Microsoft.Azure.Graphs. 
 
-   **Punto de conexión de Gremlin** : este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
+   **Punto de conexión de Gremlin**: este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar el punto de conexión":::
 

@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426377"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Aprovisionamiento de un dispositivo de Python con claves simétricas
@@ -32,7 +32,7 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Asegúrese de que tiene [Python 3.7](https://www.python.org/downloads/) o una versión posterior instalada en la máquina basada en Windows. Puede comprobar la versión de Python ejecutando `python --version`.
 
@@ -42,7 +42,7 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 ## <a name="prepare-the-python-sdk-environment"></a>Preparación del entorno del SDK de Python 
 
-1. Asegúrese de que Git está instalado en la máquina y se ha agregado a las variables de entorno accesibles desde la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash** , la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
+1. Asegúrese de que Git está instalado en la máquina y se ha agregado a las variables de entorno accesibles desde la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash**, la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
 
 2. Abra un símbolo del sistema. Clone el repositorio de GitHub para el SDK de Python de Azure IoT:
     
@@ -67,19 +67,19 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 2. Seleccione la pestaña **Administrar inscripciones** y, después, seleccione el botón **Agregar inscripción individual** de la parte superior. 
 
-3. En el panel **Agregar inscripción** , escriba la siguiente información y presione el botón **Guardar**.
+3. En el panel **Agregar inscripción**, escriba la siguiente información y presione el botón **Guardar**.
 
    - **Mecanismo:** seleccione **Clave simétrica** como *mecanismo* de atestación de identidad.
 
-   - **Generar claves automáticamente** : marque esta casilla.
+   - **Generar claves automáticamente**: marque esta casilla.
 
-   - **Identificador de registro** : escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-python-device-008**.
+   - **Identificador de registro**: escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-python-device-008**.
 
    - **Id. de dispositivo de IoT Hub:** escriba un identificador de dispositivo. Por ejemplo, **python-device-008**.
 
      ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-device-symm-key-python/create-individual-enrollment-python.png)
 
-4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria** , y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-phyton-device-008** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
+4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria**, y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-phyton-device-008** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
 
 5. Abra la inscripción y copie el valor de su **clave principal** generada. Usará estos valores de clave e **Id. de registro** más adelante cuando agregue variables de entorno para usarlas con el código de ejemplo de aprovisionamiento de dispositivos.
 

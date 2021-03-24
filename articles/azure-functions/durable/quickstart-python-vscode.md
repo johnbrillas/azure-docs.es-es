@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549471"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775160"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Creación de la primera función durable en Python
 
@@ -48,7 +48,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | Python | Cree un proyecto local de Functions en Python. |
     | Selección de una versión | Azure Functions v3 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
@@ -111,7 +111,7 @@ Se usa una plantilla para crear el código de la función de Durable Functions d
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Orquestador de Durable Functions | Crear una orquestación de Durable Functions |
     | Proporcionar un nombre de función | HelloOrchestrator | Nombre de la función de Durable Functions |
@@ -126,7 +126,7 @@ A continuación, agregará la función de actividad `Hello` a la que se hace ref
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Actividad de Durable Functions | Crear una función de actividad |
     | Proporcionar un nombre de función | Hola | Nombre de la función de actividad |
@@ -141,7 +141,7 @@ Por último, agregará una función desencadenada por HTTP que inicie la orquest
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions | Crear una función de inicio de HTTP |
     | Proporcionar un nombre de función | DurableFunctionsHttpStart | Nombre de la función de actividad |
@@ -166,7 +166,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
 1. Siga las indicaciones y proporcione la siguiente información para crear una nueva cuenta de almacenamiento en Azure.
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar suscripción | *nombre de la suscripción* | Selección de su suscripción a Azure |
     | Seleccione una cuenta de almacenamiento | Creación de una cuenta de almacenamiento nueva |  |
@@ -213,7 +213,7 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 ## <a name="test-your-function-in-azure"></a>Prueba de una función en Azure
 
-1. Copie la dirección URL del desencadenador HTTP del panel **Salida**. La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copie la dirección URL del desencadenador HTTP del panel **Salida**. La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Debe obtener la misma respuesta de estado que antes cuando se usó la aplicación publicada.
 

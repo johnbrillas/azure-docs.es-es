@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371518"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funcionalidades de administración de los roles de Azure AD en Privileged Identity Management
@@ -29,7 +29,7 @@ Con la actualización que se está implementando actualmente, combinamos las dos
 
 ## <a name="time-bound-assignments"></a>Asignaciones con límites temporales
 
-Anteriormente, había dos estados posibles para las asignaciones de roles: *válido* y *permanente* . Ahora también puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
+Anteriormente, había dos estados posibles para las asignaciones de roles: *válido* y *permanente*. Ahora también puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
 
 - Válido de manera permanente
 - Activo de manera permanente
@@ -42,15 +42,15 @@ En muchos casos, aunque no quiera que los usuarios tengan la asignación válida
 
 También hemos agregado nuevas opciones de configuración para los roles de Azure AD.
 
-- **Anteriormente** , solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico.
+- **Anteriormente**, solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico.
 - **Ahora** puede configurar si un usuario individual debe realizar la autenticación multifactor antes de poder activar un rol. Además, puede disponer de un control avanzado sobre los correos electrónicos de Privileged Identity Management relacionados con roles específicos.
 
 ## <a name="extend-and-renew-assignments"></a>Extensión y renovación de asignaciones
 
 Tan pronto como comprenda la asignación con límites temporales, lo primero que probablemente se preguntará es qué sucede si expira un rol. En esta nueva versión, se proporcionan dos opciones para este escenario:
 
-- **Extensión** : cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
-- **Renovación** : cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
+- **Extensión**: cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
+- **Renovación**: cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
 
 Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios. Los administradores ya no tendrán que encargarse de administrar estas expiraciones. Únicamente recibirán las solicitudes de extensión o renovación y deberán aprobarlas si son válidas.
 

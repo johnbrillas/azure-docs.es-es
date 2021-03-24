@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082621"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
@@ -157,7 +157,7 @@ Cuando se pasan el nombre y la clave de la cuenta de almacenamiento, la herramie
 Azure Site Recovery no es compatible con máquinas virtuales que tengan discos iSCSI y de acceso directo. La herramienta no puede detectar ni generar perfiles de discos iSCSI y de acceso directo que estén asociados a máquinas virtuales.
 
 ## <a name="generate-a-report"></a>Generación de un informe
-La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe. Este resume todas las recomendaciones de implementación. El informe se denomina DeploymentPlannerReport_*identificador numérico único*.xlsm y se coloca en el directorio especificado.
+La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe. Este resume todas las recomendaciones de implementación. El informe se denomina DeploymentPlannerReport_ *identificador numérico único*.xlsm y se coloca en el directorio especificado.
 
 Una vez que se completa la generación de perfiles, se puede ejecutar la herramienta en modo de generación de informes. 
 
@@ -292,7 +292,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>Consideraciones de rendimiento
 
-La herramienta crea varios archivos llamados asrvhdfile*number*.vhd de 64 MB (donde *number* es el número de archivos) en el directorio especificado. La herramienta carga los archivos en la cuenta de almacenamiento para hallar el rendimiento. Después de medir el rendimiento, la herramienta elimina todos estos archivos de la cuenta de almacenamiento y del servidor local. Si la herramienta se termina por cualquier motivo mientras calcula el rendimiento, no elimina los archivos de la cuenta de almacenamiento ni del servidor local. Tendrá que eliminarlos manualmente.
+La herramienta crea varios archivos llamados asrvhdfile *number*.vhd de 64 MB (donde *number* es el número de archivos) en el directorio especificado. La herramienta carga los archivos en la cuenta de almacenamiento para hallar el rendimiento. Después de medir el rendimiento, la herramienta elimina todos estos archivos de la cuenta de almacenamiento y del servidor local. Si la herramienta se termina por cualquier motivo mientras calcula el rendimiento, no elimina los archivos de la cuenta de almacenamiento ni del servidor local. Tendrá que eliminarlos manualmente.
 
 El rendimiento se mide en un momento determinado del tiempo. Es el rendimiento máximo que puede lograr Azure Site Recovery durante la replicación, si todos los demás factores son los mismos. Por ejemplo, si alguna aplicación empieza a consumir más ancho de banda en la misma red, el rendimiento real variará durante la replicación. El resultado de rendimiento medido es distinto si la operación de GetThroughput se ejecuta cuando las máquinas virtuales protegidas tienen una actividad de datos alta. 
 

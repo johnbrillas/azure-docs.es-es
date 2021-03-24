@@ -4,10 +4,10 @@ description: Obtenga información sobre las imágenes base para las imágenes de
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97707493"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Acerca de las actualizaciones de imagen base para ACR Tasks

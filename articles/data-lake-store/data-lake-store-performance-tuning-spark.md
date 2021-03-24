@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: twooley
 ms.openlocfilehash: 8a39e14b70827947687b7613b9ff86f18017ddfe
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97722511"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Storage Gen1
@@ -70,7 +70,7 @@ Memoria total de YARN = nodos * memoria de YARN por nodo
 
 **Calcule la restricción de memoria**: el parámetro num-executors está restringido por la memoria o por la CPU. La restricción de memoria se determina por la cantidad de memoria YARN disponible para la aplicación. Tome la memoria total de YARN y divídala por la memoria del ejecutor. La restricción debe adaptarse al número de aplicaciones, por lo que dividiremos entre dicho número.
 
-Restricción de memoria = (memoria de YARN total / memoria del ejecutor) / n.º de aplicaciones
+Restricción de memoria = (memoria de YARN total / memoria del ejecutor) / número de aplicaciones
 
 **Calcule la restricción de CPU**: la restricción de la CPU se calcula como el total de núcleos virtuales divididos por el número de núcleos por ejecutor. Hay 2 núcleos virtuales para cada núcleo físico. Al igual que en la restricción de memoria, se divide por el número de aplicaciones.
 

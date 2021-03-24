@@ -15,15 +15,15 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372436"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Detección e información (versión preliminar) para roles de Azure AD (anteriormente, Asistente para seguridad)
 
-Si es la primera vez que usa Privileged Identity Management (PIM) en la organización de Azure Active Directory (Azure AD), podrá usar la página **Detección e información (versión preliminar** ) para empezar. Esta característica muestra quién tiene asignado roles con privilegios en su organización y cómo usar PIM para cambiar rápidamente las asignaciones de roles permanentes en asignaciones Just-in-Time. Puede ver o realizar cambios en las asignaciones de roles con privilegios permanentes en **Detección e información (versión preliminar)** . Se trata de una herramienta de análisis y una herramienta de acción.
+Si es la primera vez que usa Privileged Identity Management (PIM) en la organización de Azure Active Directory (Azure AD), podrá usar la página **Detección e información (versión preliminar**) para empezar. Esta característica muestra quién tiene asignado roles con privilegios en su organización y cómo usar PIM para cambiar rápidamente las asignaciones de roles permanentes en asignaciones Just-in-Time. Puede ver o realizar cambios en las asignaciones de roles con privilegios permanentes en **Detección e información (versión preliminar)** . Se trata de una herramienta de análisis y una herramienta de acción.
 
 ## <a name="discovery-and-insights-preview"></a>Detección e información (versión preliminar)
 
@@ -37,13 +37,13 @@ Además, mantenga las asignaciones de roles permanentes si un usuario tiene una 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
 1. Seleccione **Roles de Azure AD** y, a continuación, seleccione **Detección e información (versión preliminar)** . Al abrir la página, se inicia el proceso de detección para buscar las asignaciones de roles pertinentes.
 
     ![La página Roles de Azure AD - Detección e información que muestra las 3 opciones](./media/pim-security-wizard/new-preview-link.png)
 
-1. Seleccione **Reducir administradores globales** .
+1. Seleccione **Reducir administradores globales**.
 
     ![Captura de pantalla que muestra la opción "Detección e información (versión preliminar)" con la acción "Reducir administradores globales" seleccionada.](./media/pim-security-wizard/new-preview-page.png)
 
@@ -51,7 +51,7 @@ Además, mantenga las asignaciones de roles permanentes si un usuario tiene una 
 
     ![Reducir administradores globales: panel de roles que muestra todos los administradores global](./media/pim-security-wizard/new-global-administrator-list.png)
 
-1. Seleccione **Siguiente** para seleccionar los usuarios o grupos que desea que sean válidos y, a continuación, seleccione **Establecer como apto** o **Quitar asignación** .
+1. Seleccione **Siguiente** para seleccionar los usuarios o grupos que desea que sean válidos y, a continuación, seleccione **Establecer como apto** o **Quitar asignación**.
 
     ![Página de conversión de los miembros en aptos con opciones para seleccionar los miembros que quiere que sean aptos para los roles](./media/pim-security-wizard/new-global-administrator-buttons.png)
 

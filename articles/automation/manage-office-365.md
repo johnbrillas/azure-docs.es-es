@@ -5,10 +5,10 @@ services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398052"
 ---
 # <a name="manage-office-365-services"></a>Administración de servicios de Office 365
@@ -99,7 +99,7 @@ Puede usar el script en un runbook de Azure Automation. A modo de ejemplo, usare
 3. Seleccione el nuevo runbook y haga clic en **Editar**.
 4. Copie el script y péguelo en el editor de texto para el runbook.
 5. Seleccione **ASSETS** (Recursos), expanda **Credentials** (Credenciales) y compruebe que la credencial de Office 365 está incluida.
-6. Haga clic en **Save** (Guardar).
+6. Haga clic en **Save**(Guardar).
 7. Seleccione **Panel de prueba** y, a continuación, haga clic en **Iniciar** para empezar a probar el runbook. Consulte [Administración de runbooks en Azure Automation](./manage-runbooks.md).
 8. Una vez finalizada la prueba, salga del panel prueba.
 

@@ -3,16 +3,16 @@ title: Creación y programación de canalizaciones y actividades en cadena en Da
 description: Aprenda a crear una canalización de datos en Azure Data Factory para mover y transformar datos. Crear un flujo de trabajo controlado por datos para producir información lista para usar.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9cc81a8e157c244828a15ac82913ce9a88c3d34f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f60ff3c8511472ee456d392257b815c0ab64f69c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376877"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779807"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

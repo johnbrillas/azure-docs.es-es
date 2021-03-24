@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176792"
 ---
 # <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores
@@ -33,7 +33,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
   
 -   [API](api-management-api-templates.md)  
-    -   [API list](api-management-api-templates.md#APIList)  
+    -   [Lista de API](api-management-api-templates.md#APIList)  
     -   [operación](api-management-api-templates.md#Product)  
     -   [Ejemplos de código](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
@@ -50,7 +50,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 -   [Aplicaciones](api-management-application-templates.md)  
     -   [Application list](api-management-application-templates.md#ProductList)  
     -   [Aplicación](api-management-application-templates.md#Application)  
--   [Issues](api-management-issue-templates.md)  
+-   [Problemas](api-management-issue-templates.md)  
     -   [Issue list](api-management-issue-templates.md#IssueList)  
 -   [Perfil de usuario](api-management-user-profile-templates.md)  
     -   [Perfil](api-management-user-profile-templates.md#Profile)  
@@ -65,6 +65,6 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ## <a name="next-steps"></a>Pasos siguientes  
 
 + [Referencia de plantilla](api-management-developer-portal-templates-reference.md)  
-+ [Data model reference](api-management-template-data-model-reference.md)  
++ [Referencia de modelo de datos](api-management-template-data-model-reference.md)  
 + [Controles de página](api-management-page-controls.md)  
 + [Recursos de plantilla](api-management-template-resources.md)

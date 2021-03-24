@@ -1,54 +1,21 @@
 ---
-title: Recomendaciones de seguridad
-description: Sepa en qué consiste el concepto de recomendaciones de seguridad y cómo se usan en Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Recomendaciones de seguridad para IoT Hub
+description: Sepa en qué consiste el concepto de recomendaciones de seguridad y cómo se usan en Defender para IoT Hub.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
-ms.author: shhazam
-ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.date: 02/16/2021
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521873"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779348"
 ---
-# <a name="security-recommendations"></a>Recomendaciones de seguridad
+# <a name="security-recommendations-for-iot-hub"></a>Recomendaciones de seguridad para IoT Hub
 
 Defender para IoT analiza los dispositivos IoT y los recursos de Azure y hace recomendaciones de seguridad para reducir la superficie expuesta a ataques.
 Las recomendaciones de seguridad requieren una acción y su objetivo es ayudar a los clientes a cumplir los procedimientos recomendados de seguridad.
 
-En este artículo, encontrará una lista de recomendaciones que se pueden activar en IoT Hub o en los dispositivos IoT.
-
-## <a name="agent-based-recommendations"></a>Recomendaciones basadas en agente
-
-Las recomendaciones de dispositivo proporcionan información y sugerencias para mejorar la posición de seguridad de los dispositivos.
-
-| severity | Nombre | Origen de datos | Descripción |
-|--|--|--|--|
-| Media | Puertos abiertos en el dispositivo | Módulo de seguridad clásico | Se encontró un punto de conexión de escucha en el dispositivo. |
-| Media | Se encontró una directiva de firewall permisiva en una de las cadenas. | Módulo de seguridad clásico | Se encontró una directiva de firewall permitida en las cadenas de firewall principales (ENTRADA/SALIDA). La directiva debe denegar todo el tráfico de manera predeterminada y definir reglas para permitir la comunicación necesaria hacia y desde el dispositivo. |
-| Media | Se encontró una regla de firewall permisiva en la cadena de entrada | Módulo de seguridad clásico | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos. |
-| Media | Se encontró una regla de firewall permisiva en la cadena de salida | Módulo de seguridad clásico | Se encontró una regla en el firewall que contiene un patrón permisivo para una amplia gama de direcciones IP o puertos. |
-| Media | Error de validación de línea base de sistema operativo | Módulo de seguridad clásico | El dispositivo no cumple las [pruebas comparativas de CIS Linux](https://www.cisecurity.org/cis-benchmarks/). |
-
-### <a name="agent-based-operational-recommendations"></a>Recomendaciones operativas basadas en agente
-
-Las recomendaciones operativas proporcionan información y sugerencias para mejorar la configuración de los agentes de seguridad.
-
-| severity | Nombre | Origen de datos | Descripción |
-|--|--|--|--|
-| Bajo | El agente envía mensajes sin utilizar | Módulo de seguridad clásico | 10 % o más de los mensajes de seguridad tenían un tamaño inferior a 4 KB durante las últimas 24 horas. |
-| Bajo | Configuración de gemelo de seguridad no óptima | Módulo de seguridad clásico | La configuración del gemelo de seguridad no es óptima. |
-| Bajo | Conflicto de configuración de gemelo de seguridad | Módulo de seguridad clásico | Se identificaron conflictos en la configuración del gemelo de seguridad. |  |
-
+En este artículo, encontrará una lista de recomendaciones que se pueden activar en IoT Hub.
 
 ## <a name="built-in-recommendations-in-iot-hub"></a>Recomendaciones integradas en IoT Hub
 

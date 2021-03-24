@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588304"
 ---
 # <a name="connect-extrahop-revealx"></a>Conexión de ExtraHop Reveal(x)
@@ -26,7 +26,7 @@ ms.locfileid: "77588304"
 El conector de datos de ExtraHop Reveal(x) le permite conectar fácilmente su sistema Reveal(x) con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. Esta integración le permite disponer de más información sobre la red de la organización y de mejores capacidades de seguridad.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 
@@ -38,7 +38,7 @@ El conector de datos de ExtraHop Reveal(x) le permite conectar fácilmente su s
 
 2. Seleccione **Open connector page** (Abrir página del conector).
 
-3. Siga las instrucciones de la página de **ExtraHop Reveal(x)** .
+3. Siga las instrucciones de la página de **ExtraHop Reveal(x)**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar ExtraHop Reveal(x) a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433257"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953704"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -179,7 +179,7 @@ Cosas que **puede** hacer:
 * Lectura de las propiedades
 * Lectura de las relaciones salientes
 * Adición y eliminación de las relaciones entrantes (de la misma forma, otras instancias de Digital Twins todavía pueden formar relaciones *con* esta instancia de Digital Twins)
-  - El atributo `target` de la definición de la relación todavía puede reflejar el DTMI del modelo eliminado. Una relación sin destino definido también puede funcionar aquí.
+  - El atributo `target` de la definición de la relación todavía puede reflejar el DTMI del modelo eliminado. Una relación sin destino definido también puede funcionar aquí.      
 * Eliminar relaciones
 * Eliminación de la instancia de Digital Twins
 

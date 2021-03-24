@@ -9,10 +9,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: c26d21e74e9808fe65890b7f4eba31ee742552a4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339995"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migración de los datos de Cassandra a una cuenta de Cassandra API de Azure Cosmos DB mediante Blitzz
@@ -20,11 +20,11 @@ ms.locfileid: "93339995"
 
 Cassandra API en Azure Cosmos DB se ha convertido en una excelente opción para cargas de trabajo empresariales que se ejecutan en Apache Cassandra por diversos motivos como, por ejemplo: 
 
-* **No hay sobrecarga de administración y supervisión** : evita la sobrecarga que supone administrar y supervisar innumerables configuraciones en el sistema operativo, JVM, los archivos yaml y sus interacciones.
+* **No hay sobrecarga de administración y supervisión**: evita la sobrecarga que supone administrar y supervisar innumerables configuraciones en el sistema operativo, JVM, los archivos yaml y sus interacciones.
 
-* **Importante ahorro de costos** : puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad. 
+* **Importante ahorro de costos**: puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad. 
 
-* **Posibilidad de usar código y herramientas existentes** : Azure Cosmos DB proporciona compatibilidad de nivel de protocolo de conexión con SDK y herramientas existentes de Cassandra. Esta compatibilidad garantiza que pueda usar el código base existente con Cassandra API de Azure Cosmos DB con cambios triviales.
+* **Posibilidad de usar código y herramientas existentes**: Azure Cosmos DB proporciona compatibilidad de nivel de protocolo de conexión con SDK y herramientas existentes de Cassandra. Esta compatibilidad garantiza que pueda usar el código base existente con Cassandra API de Azure Cosmos DB con cambios triviales.
 
 Existen varias maneras de migrar las cargas de trabajo de base de datos de una plataforma a otra. [Blitzz](https://www.blitzz.io) es una herramienta que ofrece una forma segura y confiable de realizar una migración sin tiempo de inactividad desde una variedad de bases de datos a Azure Cosmos DB. En este artículo se describen los pasos necesarios para migrar datos de la base de datos de Apache Cassandra a Cassandra API de Azure Cosmos DB mediante Blitzz.
 
@@ -114,11 +114,11 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
    max-connections: 30
    ```
 
-1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea** :
+1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea**:
 
-   * **Modo completo** : en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Apache Cassandra de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
+   * **Modo completo**: en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Apache Cassandra de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
 
-   * **Modo de instantánea** : en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
+   * **Modo de instantánea**: en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
 
    Mediante el uso de los dos modos anteriores, la migración se puede realizar sin tiempo de inactividad. 
 

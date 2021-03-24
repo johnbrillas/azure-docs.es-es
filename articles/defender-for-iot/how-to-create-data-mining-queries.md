@@ -1,18 +1,14 @@
 ---
 title: Creación de informes de minería de datos
 description: Genere información exhaustiva y detallada sobre los dispositivos de red en varias capas como protocolos, versiones de firmware o comandos de programación.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 0738dc7f2b7012002fc6ddf5cc68dd0c8e42b04d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522486"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779076"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de minería de datos del sensor
 
@@ -285,7 +281,3 @@ Para generar un informe:
 3. En la lista desplegable de la derecha, seleccione el informe que quiere generar.
 
 4. Para crear un PDF de los resultados del informe, seleccione :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[Informes de tendencias y estadísticas del sensor](how-to-create-trends-and-statistics-reports.md)

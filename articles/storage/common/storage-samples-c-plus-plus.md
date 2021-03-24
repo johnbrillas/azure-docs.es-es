@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 158f908dfd52a3365d19f65eb00faf1787893af5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372906"
 ---
 # <a name="azure-storage-samples-using-v12-c-client-libraries"></a>Ejemplos de Azure Storage con las bibliotecas de cliente para C++ v12
@@ -149,7 +149,7 @@ Consulte las guías siguientes si busca instrucciones sobre cómo instalar las b
 Para información sobre ejemplos para otros lenguajes:
 
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
-* Java: [ejemplos de Azure Storage con Java](storage-samples-java.md)
+* Java: [Azure Storage samples using Java](storage-samples-java.md) (Ejemplos de Azure Storage con Java)
 * Python: [Ejemplos de Azure Storage con Python](storage-samples-python.md)
 * JavaScript/Node.js: [Ejemplos de Azure Storage con JavaScript](storage-samples-javascript.md)
 * El resto de lenguajes: [Ejemplos de Azure Storage](storage-samples.md)

@@ -3,12 +3,12 @@ title: Restricción del acceso mediante puntos de conexión de servicio
 description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure. El acceso de punto de conexión de servicio es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026231"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773902"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure
 
@@ -26,7 +26,6 @@ La configuración de un punto de conexión de servicio de registro está disponi
 * El futuro desarrollo de puntos de conexión de servicio para Azure Container Registry no está planeado actualmente. En su lugar, se recomienda usar [puntos de conexión privados](container-registry-private-link.md).
 * No se puede usar Azure Portal para configurar puntos de conexión de servicio en un registro.
 * Para acceder a un registro de contenedor en un punto de conexión de servicio, solo se pueden usar como host un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md) o una [máquina virtual](../virtual-machines/linux/overview.md) de Azure. *No se admiten otros servicios de Azure, como Azure Container Instances.*
-* Cada registro admite un máximo de 100 reglas de acceso de red.
 * Los puntos de conexión de servicio para Azure Container Registry no se admiten en la nube de Azure US Government ni en la nube de Azure China.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
@@ -53,7 +52,7 @@ En esta sección se configura el registro de contenedor para permitir el acceso 
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Incorporación de un punto de conexión de servicio a una subred
 
-Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM* , el nombre predeterminado de la red virtual es *myDockerVMVNET* , con una subred llamada *myDockerVMSubnet*. Compruébelo mediante el comando [az network vnet list][az-network-vnet-list]:
+Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM*, el nombre predeterminado de la red virtual es *myDockerVMVNET*, con una subred llamada *myDockerVMSubnet*. Compruébelo mediante el comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 az network vnet list \

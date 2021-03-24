@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077649"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952769"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
 [Acceso condicional](./overview.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. ¿Cómo sabe qué esperar de las directivas de Acceso condicional en su entorno? Puede usar la **herramienta What If de Acceso condicional** para responder esta pregunta.
 
 En este artículo se explica cómo puede usar esta herramienta para probar las directivas de Acceso condicional.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## <a name="what-it-is"></a>¿Qué es?
 
@@ -32,7 +34,7 @@ La herramienta **What If** también ofrece una manera de determinar rápidamente
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-En la **herramienta What If de Acceso condicional** , primero debe configurar los valores del escenario de inicio de sesión que desea simular. Esta configuración incluye:
+En la **herramienta What If de Acceso condicional**, primero debe configurar los valores del escenario de inicio de sesión que desea simular. Esta configuración incluye:
 
 - El usuario que desea probar. 
 - Las aplicaciones en la nube a las que el usuario intentaría acceder.

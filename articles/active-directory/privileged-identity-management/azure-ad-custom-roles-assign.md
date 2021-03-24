@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75e004980ada23a616b57e3c7eb1afb241e09598
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371654"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Asignación de un rol personalizado de Azure AD en Privileged Identity Management
@@ -54,25 +54,25 @@ Privileged Identity Management puede administrar roles personalizados que se pue
 
     ![restricción del ámbito de las asignaciones de roles válidas en Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
 
-1. Elija **Seleccionar un rol** para abrir la lista **Seleccionar un rol** .
+1. Elija **Seleccionar un rol** para abrir la lista **Seleccionar un rol**.
 
     ![Selección del rol válido que se va a asignar a un usuario](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Seleccione el rol que quiera asignar y luego haga clic en **Seleccionar** . Se abre la lista **Seleccionar un miembro** .
+1. Seleccione el rol que quiera asignar y luego haga clic en **Seleccionar**. Se abre la lista **Seleccionar un miembro**.
 
     ![selección del usuario al que le va a asignar el rol](./media/azure-ad-custom-roles-assign/select-member.png)
 
-1. Seleccione el usuario que quiera asignar al rol y luego haga clic en **Seleccionar** . Se abre la lista **Configuración de pertenencia** .
+1. Seleccione el usuario que quiera asignar al rol y luego haga clic en **Seleccionar**. Se abre la lista **Configuración de pertenencia**.
 
     ![Establecimiento del tipo de asignación de roles en válido o activo](./media/azure-ad-custom-roles-assign/membership-settings.png)
 
-1. En la página **Configuración de pertenencia** , seleccione **Válido** o **Activo** :
+1. En la página **Configuración de pertenencia**, seleccione **Válido** o **Activo**:
 
     - Las asignaciones tipo **Válido** requieren que el usuario asignado al rol realice una acción para poder usar el rol. Estas acciones pueden incluir pasar una comprobación de autenticación multifactor, proporcionar una justificación comercial o solicitar la aprobación de los aprobadores designados.
     - Las asignaciones tipo **Activo** no requieren que el usuario asignado realice ninguna acción para usar el rol. Los usuarios activos tienen siempre los privilegios asignados al rol.
 
 1. Si la casilla **Permanente** está presente y disponible (en función de la configuración del rol), puede especificar si la asignación es permanente. Active la casilla para que la asignación sea permanentemente válida o esté permanentemente asignada. Desactive la casilla para especificar una duración para la asignación.
-1. Para crear la asignación de roles, haga clic en **Guardar** y luego en **Agregar** . Se muestra una notificación del estado del proceso de asignación.
+1. Para crear la asignación de roles, haga clic en **Guardar** y luego en **Agregar**. Se muestra una notificación del estado del proceso de asignación.
 
 Para comprobar la asignación de roles, en un rol abierto, seleccione **Asignaciones** > **Asignar** y compruebe que la asignación de roles se identifique correctamente como válida o activa.
 

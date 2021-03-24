@@ -3,17 +3,17 @@ title: Hotpatch para Windows Server Azure Edition (versión preliminar)
 description: Conozca cómo funciona Hotpatch para Windows Server Azure Edition y cómo habilitarlo.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687573"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953398"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Revisión en caliente para nuevas máquinas virtuales (versión preliminar)
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Instalación de revisiones
 
-Durante la versión preliminar, la opción [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) (Aplicación automática de revisiones a invitados de máquina virtual) se habilita automáticamente para todas las máquinas virtuales creadas con _Windows Server 2019 Datacenter: Azure Edition_. Con la revisión automática de invitado de máquina virtual habilitada:
+Durante la versión preliminar, la opción [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) (Aplicación automática de revisiones a invitados de máquina virtual) se habilita automáticamente para todas las máquinas virtuales creadas con _Windows Server 2019 Datacenter: Azure Edition_. Con la revisión automática de invitado de máquina virtual habilitada:
 * Las revisiones clasificadas de tipo Critico o de Seguridad se descargan y se aplican automáticamente en la máquina virtual.
 * Las revisiones se aplican durante las horas valle de la zona horaria de la máquina virtual.
-* Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
+* Azure administra la orquestación de las revisiones y estas se aplican siguiendo el [principio de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
 * Se supervisa el mantenimiento de la máquina virtual, determinado a través de las señales de mantenimiento de la plataforma, para detectar errores en la aplicación de revisiones.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>¿Cómo funciona la aplicación de revisiones a invitados de máquina virtual?
 
-Si [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) (Aplicación automática de revisiones a invitados de máquina virtual) está habilitada en una máquina virtual, se descargan y aplican automáticamente las revisiones críticas y de seguridad. Este proceso se inicia automáticamente cada mes cuando se lanzan nuevas revisiones. La evaluación e instalación de las revisiones es un proceso automático, que incluye el reinicio de la máquina virtual si es necesario.
+Si [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) (Aplicación automática de revisiones a invitados de máquina virtual) está habilitada en una máquina virtual, se descargan y aplican automáticamente las revisiones críticas y de seguridad. Este proceso se inicia automáticamente cada mes cuando se lanzan nuevas revisiones. La evaluación e instalación de las revisiones es un proceso automático, que incluye el reinicio de la máquina virtual si es necesario.
 
 Con la revisión en caliente habilitada en las máquinas virtuales de _Windows Server 2019 Datacenter: Azure Edition_, la mayoría de las actualizaciones de seguridad mensuales se entregan como revisiones en caliente que no requieren reinicios. Las actualizaciones acumulativas más recientes enviadas en los meses de líneas de base planeadas o no planeadas requerirán que se reinicie la máquina virtual. También puede haber revisiones críticas o de seguridad adicionales disponibles periódicamente, lo que puede requerir que se reinicie la máquina virtual.
 
 La máquina virtual se evalúa de forma automática cada pocos días y varias veces en un período de 30 días para determinar las revisiones que se le pueden aplicar. Esta evaluación automática garantiza que las revisiones que faltan se detecten lo antes posible.
 
-Las revisiones de instalan a los 30 días de las versiones de revisiones mensuales, siguiendo los [principios de orden de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, esta se evaluará y las revisiones aplicables se instalarán automáticamente durante la siguiente evaluación periódica, cuando la máquina virtual esté activada. La siguiente evaluación periódica suele tener lugar a los pocos días.
+Las revisiones de instalan a los 30 días de las versiones de revisiones mensuales, siguiendo los [principios de orden de disponibilidad](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, esta se evaluará y las revisiones aplicables se instalarán automáticamente durante la siguiente evaluación periódica, cuando la máquina virtual esté activada. La siguiente evaluación periódica suele tener lugar a los pocos días.
 
 Las actualizaciones de definiciones y otras revisiones no clasificadas como críticas o de seguridad no se instalarán mediante la aplicación de revisiones automáticas a invitados de máquinas virtuales.
 
@@ -151,7 +151,7 @@ Las actualizaciones de definiciones y otras revisiones no clasificadas como crí
 
 Para ver el estado de la revisión de la máquina virtual, vaya a la sección **Guest + host updates** (Actualizaciones de invitado y host) de la máquina virtual en Azure Portal. En la sección **Guest OS updates** (Actualizaciones del SO invitado), haga clic en "Go to Hotpatch (Preview)" (Ir a Hotpatch [versión preliminar]) para ver el estado de la revisión más reciente de la máquina virtual.
 
-En esta pantalla, verá el estado de Hotpatch de la máquina virtual. También puede examinar si hay alguna revisión disponible para la máquina virtual que no se haya instalado. Tal y como se describe en la sección anterior "Instalación de revisiones", todas las actualizaciones críticas y de seguridad se instalarán automáticamente en la máquina virtual mediante [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) (Aplicación automática de revisiones a invitados de máquina virtual) y no se requieren más acciones. Las revisiones con otras clasificaciones de actualización no se instalan automáticamente. Por el contrario, son visibles en la lista de revisiones disponibles en la pestaña "Comprobación de actualizaciones". También puede ver el historial de implementaciones de actualizaciones en la máquina virtual mediante el "Historial de actualizaciones". Se muestra el historial de actualizaciones de los últimos 30 días, junto con los detalles de la instalación de revisiones.
+En esta pantalla, verá el estado de Hotpatch de la máquina virtual. También puede examinar si hay alguna revisión disponible para la máquina virtual que no se haya instalado. Tal y como se describe en la sección anterior "Instalación de revisiones", todas las actualizaciones críticas y de seguridad se instalarán automáticamente en la máquina virtual mediante [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) (Aplicación automática de revisiones a invitados de máquina virtual) y no se requieren más acciones. Las revisiones con otras clasificaciones de actualización no se instalan automáticamente. Por el contrario, son visibles en la lista de revisiones disponibles en la pestaña "Comprobación de actualizaciones". También puede ver el historial de implementaciones de actualizaciones en la máquina virtual mediante el "Historial de actualizaciones". Se muestra el historial de actualizaciones de los últimos 30 días, junto con los detalles de la instalación de revisiones.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Administración de revisiones en caliente.":::
@@ -225,5 +225,5 @@ Existen algunas consideraciones importantes a la hora de ejecutar una máquina v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre Azure Update Management [aquí](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Más información sobre la revisión automática de invitados de máquina virtual [aquí](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching).
+* Más información sobre Azure Update Management [aquí](../automation/update-management/overview.md).
+* Más información sobre la revisión automática de invitados de máquina virtual [aquí](../virtual-machines/automatic-vm-guest-patching.md).

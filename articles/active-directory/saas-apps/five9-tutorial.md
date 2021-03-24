@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 68de5b11c131fe33252178ebecdeb9c3855fe239
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: integración de Azure Active Directory con Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -30,7 +30,7 @@ La integración de Five9 Plus Adapter (CTI, Contact Center Agents) con Azure AD 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Five9 Plus Adapter (CTI, Contact Center Agents), necesita los siguientes elementos:
 
@@ -49,11 +49,11 @@ Para configurar la integración de Five9 Plus Adapter (CTI, Contact Center Agent
 
 **Para agregar Five9 Plus Adapter (CTI, Contact Center Agents) desde la galería, lleve a cabo los siguientes pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,22 +61,22 @@ Para configurar la integración de Five9 Plus Adapter (CTI, Contact Center Agent
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Five9 Plus Adapter (CTI, Contact Center Agents)** , seleccione **Five9 Plus Adapter (CTI, Contact Center Agents)** del panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Five9 Plus Adapter (CTI, Contact Center Agents)**, seleccione **Five9 Plus Adapter (CTI, Contact Center Agents)** del panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Five9 Plus Adapter (CTI, Contact Center Agents) en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección puede configurar y probar el inicio de sesión único de Azure AD con Five9 Plus Adapter (CTI, Contact Center Agents) con un usuario de prueba llamado **Britta Simon** .
+En esta sección puede configurar y probar el inicio de sesión único de Azure AD con Five9 Plus Adapter (CTI, Contact Center Agents) con un usuario de prueba llamado **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Five9 Plus Adapter (CTI, Contact Center Agents).
 
 Para configurar y probar el inicio de sesión único de Azure AD con Five9 Plus Adapter (CTI, Contact Center Agents), es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Five9 Plus Adapter (CTI, Contact Center Agents)](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Five9 Plus Adapter (CTI, Contact Center Agents)](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba en Five9 Plus Adapter (CTI, Contact Center Agents)](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** : para disponer de un usuario homólogo de Britta Simon en Five9 Plus Adapter (CTI, Contact Center Agents) vinculado a la representación del usuario en Azure AD.
+5. **[Creación del usuario de prueba en Five9 Plus Adapter (CTI, Contact Center Agents)](#create-five9-plus-adapter-cti-contact-center-agents-test-user)**: para disponer de un usuario homólogo de Britta Simon en Five9 Plus Adapter (CTI, Contact Center Agents) vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -85,15 +85,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (CTI, Contact Center Agents), siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Five9 Plus Adapter (CTI, Contact Center Agents)** , seleccione **Inicio de sesión único** .
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Five9 Plus Adapter (CTI, Contact Center Agents)**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Five9 Plus Adapter (CTI, Contact Center Agents)](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
     
     |    Entorno      |       URL      |
     | :-- | :-- |
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (
     | Para "Five9 Plus Adapter for Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
     | Para "Five9 Plus Adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
 
     |      Entorno     |      URL      |
     | :--                  | :--           |
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (
     | Para "Five9 Plus Adapter for Zendesk" | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
     | Para "Five9 Plus Adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/SSO/alias/adt` |
 
-6. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (
 
 ### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Configuración del inicio de sesión único en Five9 Plus Adapter (CTI, Contact Center Agents)
 
-1. Para configurar el inicio de sesión único en **Five9 Plus Adapter (CTI, Contact Center Agents)** , debe enviar el **certificado descargado (Base64)** y las direcciones URL adecuadas que copiara al [equipo de soporte técnico de Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact). Además, para configurar aún más el inicio de sesión único, puede seguir los pasos descritos a continuación en función del adaptador:
+1. Para configurar el inicio de sesión único en **Five9 Plus Adapter (CTI, Contact Center Agents)**, debe enviar el **certificado descargado (Base64)** y las direcciones URL adecuadas que copiara al [equipo de soporte técnico de Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact). Además, para configurar aún más el inicio de sesión único, puede seguir los pasos descritos a continuación en función del adaptador:
 
     a. Guía del administrador de "Five9 Plus Adapter for Agent Desktop Toolkit": [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con Five9 Plus Adapter (
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -157,39 +157,39 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Five9 Plus Adapter (CTI, Contact Center Agents).
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , seleccione **Todas las aplicaciones** y **Five9 Plus Adapter (CTI, Contact Center Agents)** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, seleccione **Todas las aplicaciones** y **Five9 Plus Adapter (CTI, Contact Center Agents)**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Five9 Plus Adapter (CTI, Contact Center Agents)** .
+2. En la lista de aplicaciones, seleccione **Five9 Plus Adapter (CTI, Contact Center Agents)**.
 
     ![Vínculo a Five9 Plus Adapter (CTI, Contact Center Agents) en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Creación del usuario de prueba en Five9 Plus Adapter (CTI, Contact Center Agents)
 

@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo convertir una directiva de grupo d
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348651"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 
 Antes de crear definiciones de directivas personalizadas, es conveniente leer la información conceptual general en [Información sobre Guest Configuration de Azure Policy](../concepts/guest-configuration.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md). Para obtener información sobre cómo crear definiciones de directivas de configuración de invitado personalizadas para Windows, consulte la página [Cómo crear una directiva de configuración de invitados para Windows](./guest-configuration-create.md).
 
-Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible** , se desencadena el efecto *auditIfNotExists* de la directiva.
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear el archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina. Si la evaluación de la configuración es **no compatible**, se desencadena el efecto *auditIfNotExists* de la directiva.
 La [configuración de invitado de Azure Policy](../concepts/guest-configuration.md) solo realiza la auditoría de la configuración dentro de máquinas.
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ En esta guía, recorremos el proceso de creación de un paquete de configuració
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Descargue la línea de base de seguridad de Windows Server 2019 e instale los módulos de PowerShell relacionados
 
-Para instalar el **DSC** , **GuestConfiguration** , **administración de línea de base** y los módulos de Azure relacionados en PowerShell:
+Para instalar el **DSC**, **GuestConfiguration**, **administración de línea de base** y los módulos de Azure relacionados en PowerShell:
 
 1. En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
@@ -117,7 +117,7 @@ Después, convierta la línea de base de la instancia de Server 2019 descargada
 Con la directiva creada en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> Las definiciones de directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_ , los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
+> Las definiciones de directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
 
 La asignación de una definición de directiva con el efecto _DeployIfNotExists_ requiere un nivel de acceso adicional. Para conceder el privilegio mínimo, puede crear una definición de rol personalizada que amplíe **Colaborador de la directiva de recursos**. En el ejemplo siguiente se crea un rol denominado **Resource Policy Contributor DINE** con el permiso adicional _Microsoft.Authorization/roleAssignments/write_.
 

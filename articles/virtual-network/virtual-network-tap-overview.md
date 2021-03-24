@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804877"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617189"
 ---
 # <a name="virtual-network-tap"></a>TAP de red virtual
 > [!IMPORTANT]
-> La versión preliminar de TAP de red virtual actualmente está en espera en todas las regiones de Azure. Puede enviarnos un correo electrónico a <azurevnettap@microsoft.com> con su identificador de suscripción y le notificaremos las actualizaciones futuras sobre la versión preliminar. Mientras tanto, puede usar soluciones basadas en agentes o NVA que proporcionen funcionalidad de visibilidad de red o TAP a través de las [soluciones de partners de agentes de paquetes](#virtual-network-tap-partner-solutions) disponibles en las [ofertas de Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> La versión preliminar de TAP de red virtual actualmente está en espera en todas las regiones de Azure. Puede enviarnos un correo electrónico a <azurevnettap@microsoft.com> con su identificador de suscripción y le notificaremos las actualizaciones futuras sobre la versión preliminar. Mientras tanto, puede usar soluciones basadas en agentes o NVA que proporcionen funcionalidad de visibilidad de red o TAP a través de las [soluciones de partners de agentes de paquetes](#virtual-network-tap-partner-solutions) disponibles en las [ofertas de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir continuamente el tráfico de red de la máquina virtual a un recopilador de paquetes de red o a una herramienta de análisis. Un asociado de la [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/) proporciona el recopilador o la herramienta de análisis de la herramienta. Para ver una lista de soluciones de asociados que estén validadas para funcionar con Virtual Network TAP, consulte las [soluciones de asociados](#virtual-network-tap-partner-solutions).
 En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agregar una configuración de TAP en una [interfaz de red](virtual-network-network-interface.md) adjunta a una máquina virtual implementada en la red virtual. El destino es una dirección IP de red virtual en la misma red virtual que la interfaz de red supervisada o una red [virtual emparejada](virtual-network-peering-overview.md). La solución del recopilador para el punto de acceso de terminal de red virtual se puede implementar detrás de un equilibrador de carga interno de Azure para lograr alta disponibilidad.
@@ -64,6 +64,7 @@ Las cuentas que utiliza para aplicar la configuración del TAP en interfaces de 
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [vSTREAM de Netscout]( https://www.netscout.com/marketplace-azure)
+- [Seguridad de Noname](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [NetWitness® Platform de RSA](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Cognito de Vectra](https://vectra.ai/microsoftazure)

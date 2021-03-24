@@ -1,18 +1,14 @@
 ---
 title: Reenvío de la información de las alertas
 description: Puede enviar información de alertas a los sistemas asociados mediante las reglas de reenvío.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522740"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778804"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
@@ -203,6 +199,6 @@ Puede que el administrador haya definido reglas de exclusión de alertas. Dichas
 
 Es decir, que las reglas de reenvío que defina podrían omitirse en función de las reglas de exclusión que haya creado el administrador. Las reglas de exclusión se definen en la consola de administración local.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Aceleración de los flujos de trabajo de alertas](how-to-accelerate-alert-incident-response.md)

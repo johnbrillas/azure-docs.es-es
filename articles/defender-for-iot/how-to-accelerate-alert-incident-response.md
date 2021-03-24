@@ -1,18 +1,14 @@
 ---
 title: Aceleración de los flujos de trabajo de alertas
 description: Mejore los flujos de trabajo de alertas e incidentes.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526296"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779127"
 ---
 # <a name="accelerate-alert-workflows"></a>Aceleración de los flujos de trabajo de alertas
 
@@ -81,16 +77,29 @@ Estos campos deben configurarse en la solución de asociado para mostrar el nomb
 ### <a name="default-alert-groups"></a>Grupos de alertas predeterminados
 
 Los siguientes grupos de alertas se definen automáticamente:
-|  |  |  |
-|--|--|--|
-| Comportamiento de comunicación anómalo | Alertas personalizadas | Acceso remoto |
-| Comportamiento de comunicación HTTP anómalo | Detección | Comandos de reinicio y detención |
-| Authentication | Cambio de firmware | Explorar |
-| Comportamiento de comunicación no autorizado | Comandos ilegales | Tráfico del sensor |
-| Anomalías de ancho de banda | Acceso a Internet | Sospecha de malware |
-| Desbordamiento de búfer | Errores de operación | Sospecha de actividad malintencionada |
-| Errores de comando | Problemas operativos |  |
-| Cambios en la configuración | Programar |  |
+
+- Comportamiento de comunicación anómalo
+- Alertas personalizadas
+- Acceso remoto
+- Comportamiento de comunicación HTTP anómalo
+- Detección
+- Comandos de reinicio y detención
+- Authentication
+- Cambio de firmware
+- Explorar
+- Comportamiento de comunicación no autorizado
+- Comandos ilegales
+- Tráfico del sensor
+- Anomalías de ancho de banda
+- Acceso a Internet
+- Sospecha de malware
+- Desbordamiento de búfer 
+- Errores de operación
+- Sospecha de actividad malintencionada
+- Errores de comando
+- Problemas operativos
+- Cambios en la configuración
+- Programar
 
 Los grupos de alertas están predefinidos. Para más información acerca de las alertas asociadas a grupos de alertas y sobre la creación de grupos de alertas personalizados, póngase en contacto con [Soporte técnico de Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 

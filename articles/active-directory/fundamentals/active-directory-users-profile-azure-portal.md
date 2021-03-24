@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370923"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
@@ -28,9 +28,9 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
 ## <a name="to-add-or-change-profile-information"></a>Para agregar o cambiar la información del perfil
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios para la organización.
 
-2. Seleccione **Azure Active Directory** , **Usuarios** y, a continuación, seleccione un usuario. Por ejemplo, _Alain Charon_ .
+2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione un usuario. Por ejemplo, _Alain Charon_.
 
-    Se muestra la página **Alain Charon - Perfil** .
+    Se muestra la página **Alain Charon - Perfil**.
 
     ![Página de perfil del usuario, incluida la información editable](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
@@ -50,7 +50,7 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
 
     - **Información de contacto para la autenticación.** Compruebe esta información para asegurarse de que hay una dirección de correo electrónico y un número de teléfono activos para el usuario. Azure Active Directory usa esta información para comprobar la identidad del usuario durante el inicio de sesión. Solo un administrador global puede actualizar la información de contacto para la autenticación.
 
-4. Seleccione **Guardar** .
+4. Seleccione **Guardar**.
 
     Todos los cambios se guardan para el usuario.
 

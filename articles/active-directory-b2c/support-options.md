@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183727"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Presentación de solicitudes de soporte técnico
@@ -35,9 +35,9 @@ Puede presentar solicitudes de soporte técnico para Azure Active Directory B2
 1. En la hoja **Datos básicos**, use estos detalles y haga clic en **Siguiente**.
 
     * El valor de **Tipo de problema** es **Técnico**.
-    * Elija la **suscripción**adecuada.
+    * Elija la **suscripción** adecuada.
     * El valor de **Servicio** es **Active Directory**.
-    * Elija el **plan de soporte técnico**adecuado. Si no tiene ninguno, puede registrarse para obtenerlo [aquí](https://azure.microsoft.com/support/plans/).
+    * Elija el **plan de soporte técnico** adecuado. Si no tiene ninguno, puede registrarse para obtenerlo [aquí](https://azure.microsoft.com/support/plans/).
 
      ![Página Aspectos básicos con el botón Siguiente resaltado en Azure Portal](./media/support-options/support-basics.png)
 
@@ -45,7 +45,7 @@ Puede presentar solicitudes de soporte técnico para Azure Active Directory B2
 
     * Elija el nivel de **gravedad** adecuado.
     * El valor de **Tipo de problema** es **B2C**.
-    * Elija la **categoría**adecuada.
+    * Elija la **categoría** adecuada.
     * Describa el problema en el campo **Detalles** . Proporcione detalles como el nombre del inquilino B2C, la descripción del problema, los mensajes de error y los identificadores de correlación (si están disponibles), entre otros.
     * En el campo **Plazo de tiempo** , especifique la fecha y hora (incluida la zona horaria) en que se produjo el problema.
     * En **Carga de archivos**, cargue todas las capturas de pantalla y archivos que piense que pueden ayudar a resolver el problema.

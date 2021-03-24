@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426558"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Inicio rápido: Creación de un centro de notificaciones de Azure en Azure Portal
@@ -41,10 +41,10 @@ En esta sección, creará un centro de notificaciones en un espacio de nombres e
 3. En la página **Notification Hub Namespaces** (Espacios de nombres del centros de notificaciones), seleccione el espacio de nombres en la lista.
 
       ![Seleccionar el espacio de nombres en la lista](./media/create-notification-hub-portal/select-namespace.png)
-4. En la página **Espacio de nombres del centros de notificaciones** , seleccione **Agregar concentrador** en la barra de herramientas.
+4. En la página **Espacio de nombres del centros de notificaciones**, seleccione **Agregar concentrador** en la barra de herramientas.
 
       ![Espacios de nombres del centros de notificaciones: botón Agregar concentrador](./media/create-notification-hub-portal/add-hub-button.png)
-5. En la página **Nuevo centro de notificaciones** , escriba un nombre para el centro de notificaciones y seleccione **Aceptar**.
+5. En la página **Nuevo centro de notificaciones**, escriba un nombre para el centro de notificaciones y seleccione **Aceptar**.
 
       ![Página Nuevo centro de notificaciones: introduzca un nombre para el centro](./media/create-notification-hub-portal/new-notification-hub-page.png)
 6. Seleccione **Notificaciones** (icono de campana) en la parte superior para ver el estado de la implementación del nuevo centro. Seleccione **X** en la esquina derecha para cerrar la ventana de notificaciones.

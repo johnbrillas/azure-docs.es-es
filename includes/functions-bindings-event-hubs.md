@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: b0f8055dcd8bdfb2ecb3ea99448838514eeb34f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 05d136093bd509e8c23ce8622423216326b0f1f2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027534"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623227"
 ---
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
@@ -29,6 +29,26 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 [Actualización de las extensiones]: ../articles/azure-functions/functions-bindings-register.md
 [Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
+### <a name="event-hubs-extension-5x-and-higher"></a>Extensión 5.x y superior de Event Hubs
+
+Hay disponible una nueva versión de la extensión de enlaces de Event Hubs en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.1). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `Microsoft.Azure.EventHubs` se reemplazan por otros tipos más recientes de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+
+> [!NOTE]
+> El paquete en versión preliminar no se incluye en un conjunto de extensiones y debe instalarse manualmente. En el caso de las aplicaciones .NET, agregue una referencia al paquete. Con el resto de tipos de aplicaciones, consulte [Actualización de las extensiones].
+
+[core tools]: ./functions-run-local.md
+[conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
+[Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/
+[Actualización de las extensiones]: ./functions-bindings-register.md
+[Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
 ### <a name="functions-1x"></a>Functions 1.x
 
 Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+
+## <a name="hostjson-settings"></a>configuración de host.json
+<a name="host-json"></a>
+
+El archivo [host.json](../articles/azure-functions/functions-host-json.md#eventhub) contiene opciones de configuración que controlan el comportamiento de Event Hubs. La configuración varía en función de la versión de Azure Functions.
+
+[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
