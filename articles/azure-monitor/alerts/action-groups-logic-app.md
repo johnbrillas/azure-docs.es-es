@@ -4,14 +4,13 @@ description: Obtenga información sobre cómo crear una acción de aplicación l
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604492"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045724"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -19,7 +18,7 @@ En este artículo se muestra cómo configurar y desencadenar una aplicación ló
 
 ## <a name="overview"></a>Información general
 
-Cuando se desencadena una alerta de Azure Monitor, llama a un [grupo de acciones](../platform/action-groups.md). Los grupos de acciones permiten desencadenar una o varias acciones para notificar sobre la alerta a otros usuarios y también a resolverla.
+Cuando se desencadena una alerta de Azure Monitor, llama a un [grupo de acciones](./action-groups.md). Los grupos de acciones permiten desencadenar una o varias acciones para notificar sobre la alerta a otros usuarios y también a resolverla.
 
 El proceso general es:
 
@@ -35,29 +34,15 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Creación de una alerta del Registro de actividad: Administrativo
 
-1.  En Azure Portal, seleccione **Crear un recurso** en la esquina superior izquierda.
+1. [Crear una aplicación lógica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Busque y seleccione **Aplicación lógica** y luego seleccione **Crear**.
+2.  Seleccione el desencadenador: **Cuando se recibe una solicitud HTTP**.
 
-3.  Asigne un **Nombre** a la aplicación lógica, elija un **Grupo de recursos**, etc.
+1. En el cuadro de diálogo **Cuando se recibe una solicitud HTTP**, seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-    ![Creación de una aplicación lógica](media/action-groups-logic-app/create-logic-app-dialog.png "Creación de una aplicación lógica")
+    ![Captura de pantalla que muestra el cuadro de diálogo de la opción Cuando se recibe una solicitud HTTP y la opción Usar una carga de ejemplo para generar el esquema seleccionada. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Seleccione **Crear** para crear la aplicación lógica. Un mensaje emergente indica que se ha creado la aplicación lógica. Seleccione **Launch Resource** (Iniciar recurso) para abrir el **diseñador de Logic Apps**.
-
-5.  Seleccione el desencadenador: **Cuando se recibe una solicitud HTTP**.
-
-    ![Desencadenadores de aplicación lógica](media/action-groups-logic-app/logic-app-triggers.png "Desencadenadores de aplicación lógica")
-
-6.  Seleccione **Editar** para cambiar el desencadenador de solicitud HTTP.
-
-    ![Desencadenadores de solicitudes HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Desencadenadores de solicitudes HTTP")
-
-7.  Seleccione **Usar una carga de ejemplo para generar el esquema**.
-
-    ![Uso de carga de ejemplo](media/action-groups-logic-app/use-sample-payload-button.png "Uso de carga de ejemplo")
-
-8.  Copie y pegue la carga de ejemplo siguiente en el cuadro de diálogo:
+3.  Copie y pegue la carga de ejemplo siguiente en el cuadro de diálogo:
 
     ```json
         {
@@ -128,7 +113,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 14. En la parte superior del **diseñador de Logic Apps**, seleccione **Guardar** para guardar la aplicación lógica.
 
-15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../platform/action-groups.md) para crear uno. No olvide guardar los cambios.
+15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](./action-groups.md) para crear uno. No olvide guardar los cambios.
 
     ![Actualización del grupo de acciones](media/action-groups-logic-app/update-action-group.png "Actualización del grupo de acciones")
 
@@ -138,8 +123,8 @@ La próxima vez que una alerta llame al grupo de acciones, se llamará a la apli
 
 Las entradas de Azure Service Health forman parte del registro de actividad. El proceso de creación de la alerta es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
-- Los pasos del 1 al 7 son iguales.
-- Para el paso 8, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
+- Los pasos del 1 al 3 son iguales.
+- Para el paso 4, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
 
     ```json
     {
@@ -183,8 +168,8 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
     }
     ```
 
--  Los pasos 9 y 10 son iguales.
--  Para los pasos 11 a 14, siga este procedimiento:
+-  Los pasos 5 y 6 son iguales.
+-  Para los pasos 7 a 11, siga este procedimiento:
 
    1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes.  Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("0.1.1") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +211,8 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
 
 El proceso de creación de una alerta de métrica es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
-- Los pasos del 1 al 7 son iguales.
-- Para el paso 8, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
+- Los pasos del 1 al 3 son iguales.
+- Para el paso 4, use la carga de ejemplo siguiente para el desencadenador de solicitud HTTP:
 
     ```json
     {
@@ -271,8 +256,8 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
     }
     ```
 
-- Los pasos 9 y 10 son iguales.
-- Para los pasos 11 a 14, siga este procedimiento:
+- Los pasos 5 y 6 son iguales.
+- Para los pasos 7 a 11, siga este procedimiento:
 
   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes. Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("2.0") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +279,6 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
 Logic Apps tiene una serie de distintos conectores que permiten desencadenar acciones en una amplia gama de aplicaciones y bases de datos. Slack, SQL Server, Oracle, Salesforce, son solo algunos ejemplos. Para más información sobre los conectores, consulte [Conectores de Logic App](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte la [introducción a las alertas del registro de actividad de Azure](../platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
+* Consulte la [introducción a las alertas del registro de actividad de Azure](./alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Más información sobre los [grupos de acciones](../platform/action-groups.md).
-
+* Más información sobre los [grupos de acciones](./action-groups.md).

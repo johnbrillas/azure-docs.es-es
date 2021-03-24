@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 51301bd38bf0700ce42ef33a47b9e763da8d4ed6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595291"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
@@ -34,7 +34,7 @@ Los registros de Apache Kafka del clúster se encuentran en `/var/log/kafka`. Lo
 
 Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismos que para todos los clústeres de HDInsight. Use los vínculos siguientes para aprender a crear y configurar los servicios necesarios:
 
-1. Cree un área de trabajo de Log Analytics. Para obtener más información, vea el documento [Registros en Azure Monitor](../../azure-monitor/platform/data-platform-logs.md).
+1. Cree un área de trabajo de Log Analytics. Para obtener más información, vea el documento [Registros en Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 2. Cree Kafka en un clúster de HDInsight. Para obtener más información, consulte el documento [Introducción a Apache Kafka (versión preliminar) en HDInsight](apache-kafka-get-started.md).
 
@@ -65,7 +65,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Mensajes entrantes por segundo: (Reemplace `your_kafka_cluster_name` por el nombre del clúster).
+* Mensajes entrantes por segundo: (reemplace `your_kafka_cluster_name` por el nombre del clúster).
 
     ```kusto
     metrics_kafka_CL 
@@ -73,7 +73,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Bytes entrantes por segundo: (Reemplace `wn0-kafka` por un nombre de host del nodo de trabajo).
+* Bytes entrantes por segundo: (reemplace `wn0-kafka` por un nombre de host del nodo de trabajo).
 
     ```kusto
     metrics_kafka_CL 
@@ -81,7 +81,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Bytes salientes por segundo: (Reemplace `your_kafka_cluster_name` por el nombre del clúster).
+* Bytes de salida por segundo: (reemplace `your_kafka_cluster_name` por el nombre del clúster).
 
     ```kusto
     metrics_kafka_CL 
