@@ -3,16 +3,16 @@ title: Invocar programas Spark desde Azure Data Factory
 description: Obtenga información sobre cómo invocar programas Spark desde Azure Data Factory mediante la actividad MapReduce.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a7fcccad039ff6d737e10cfc57ba97f914645a9d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 644a0d645abb186731ddb1f408cd36e5b9ba3c3f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382674"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780028"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 

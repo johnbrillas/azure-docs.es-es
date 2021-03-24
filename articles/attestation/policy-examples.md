@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720161"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950576"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Ejemplos de una directiva de atestación
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Para obtener más información sobre las notificaciones entrantes generadas por Azure Attestation, consulte [conjuntos de notificaciones](/azure/attestation/claim-sets). Los creadores de directivas pueden utilizar las notificaciones entrantes para definir reglas de autorización en una directiva personalizada. 
+Para obtener más información sobre las notificaciones entrantes generadas por Azure Attestation, consulte [conjuntos de notificaciones](./claim-sets.md). Los creadores de directivas pueden utilizar las notificaciones entrantes para definir reglas de autorización en una directiva personalizada. 
 
-La sección de reglas de emisión no es obligatoria. Los usuarios pueden usar esta sección para que se generen notificaciones salientes adicionales en el token de atestación con nombres personalizados. Para obtener más información sobre las notificaciones salientes generadas por el servicio en el token de atestación, consulte [conjuntos de notificaciones](/azure/attestation/claim-sets).
+La sección de reglas de emisión no es obligatoria. Los usuarios pueden usar esta sección para que se generen notificaciones salientes adicionales en el token de atestación con nombres personalizados. Para obtener más información sobre las notificaciones salientes generadas por el servicio en el token de atestación, consulte [conjuntos de notificaciones](./claim-sets.md).
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Directiva predeterminada para un enclave de SGX
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-Las notificaciones utilizadas en la directiva predeterminada se consideran en desuso, pero se admiten por completo y seguirán estando incluidas en el futuro. Se recomienda usar los nombres de notificaciones que no estén en desuso. Para obtener más información sobre los nombres de notificaciones recomendados, consulte [conjuntos de notificaciones](/azure/attestation/claim-sets). 
+Las notificaciones utilizadas en la directiva predeterminada se consideran en desuso, pero se admiten por completo y seguirán estando incluidas en el futuro. Se recomienda usar los nombres de notificaciones que no estén en desuso. Para obtener más información sobre los nombres de notificaciones recomendados, consulte [conjuntos de notificaciones](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Ejemplo de directiva personalizada para admitir varios enclaves SGX
 

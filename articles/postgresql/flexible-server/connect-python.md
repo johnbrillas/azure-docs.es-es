@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90946194"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor flexible de Azure Database for PostgreSQL
@@ -44,7 +44,7 @@ Para instalar `psycopg2`, abra un símbolo del sistema o de terminal y ejecute e
 La conexión a un servidor flexible de Azure Database for PostgreSQL requiere el nombre completo del servidor y las credenciales de inicio de sesión. Puede obtener esta información en el Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com/), busque y seleccione el nombre del servidor flexible. 
-2. En la página de**Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador**. El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com*.
+2. En la página de **Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador**. El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com*.
 
    También necesitará la contraseña de administrador. Si la olvida, puede restablecerla desde la página de información general. 
 

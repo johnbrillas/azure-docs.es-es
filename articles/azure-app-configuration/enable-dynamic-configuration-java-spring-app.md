@@ -3,26 +3,47 @@ title: Uso de la configuración dinámica en una aplicación de Spring Boot
 titleSuffix: Azure App Configuration
 description: Aprenda a actualizar dinámicamente los datos de configuración para aplicaciones de Spring Boot
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 08/06/2020
+ms.date: 12/09/2020
 ms.custom: devx-track-java
-ms.author: alkemper
-ms.openlocfilehash: c32e928bd4a83b4884c99e3ec3a9c647f5433e87
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.author: mametcal
+ms.openlocfilehash: 076ab0bb7dbc85a31b626a24d977e6fea558143e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929164"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102636545"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de Java Spring
 
-La biblioteca cliente de Spring Boot de App Configuration admite la actualización de un conjunto de valores de configuración a petición sin provocar el reinicio de una aplicación. La biblioteca cliente almacena en caché cada configuración para evitar demasiadas llamadas al almacén de configuración. La operación de actualización no actualiza el valor hasta que haya expirado el valor almacenado en caché, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado de cada solicitud es de 30 segundos. Si es necesario, se puede invalidar.
+App Configuration tiene dos bibliotecas para Spring. `spring-cloud-azure-appconfiguration-config` requiere Spring Boot y tiene una dependencia de `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requiere Spring Web junto con Spring Boot. Ambas bibliotecas admiten el desencadenamiento manual para comprobar los valores de configuración actualizados. `spring-cloud-azure-appconfiguration-config-web` también agrega compatibilidad con la comprobación automática de la actualización de la configuración.
 
-Puede comprobar la configuración actualizada a petición llamando al método `refreshConfigurations()` de `AppConfigurationRefresh`.
+La actualización permite actualizar los valores de configuración sin tener que reiniciar la aplicación, aunque hará que se vuelvan a crear todas los beans de `@RefreshScope`. La biblioteca de cliente almacena en memoria caché un identificador hash de las configuraciones cargadas actualmente para evitar demasiadas llamadas al almacén de configuración. La operación de actualización no actualiza el valor hasta que haya expirado el valor almacenado en caché, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado de cada solicitud es de 30 segundos. Si es necesario, se puede invalidar.
 
-Como alternativa, puede usar el paquete `spring-cloud-azure-appconfiguration-config-web`, que toma una dependencia de `spring-web` para administrar la actualización automatizada.
+La actualización automatizada de `spring-cloud-azure-appconfiguration-config-web` se desencadena en función de la actividad, específicamente de `ServletRequestHandledEvent` de Spring Web. Si no se desencadena un evento `ServletRequestHandledEvent`, la actualización automatizada de `spring-cloud-azure-appconfiguration-config-web` no desencadenará una actualización aunque haya expirado la fecha de expiración de la caché.
+
+## <a name="use-manual-refresh"></a>Uso de la actualización manual
+
+App Configuration expone `AppConfigurationRefresh` que se puede usar para comprobar si la memoria caché ha expirado y, si ha expirado, desencadenar una actualización.
+
+```java
+import com.microsoft.azure.spring.cloud.config.AppConfigurationRefresh;
+
+...
+
+@Autowired
+private AppConfigurationRefresh appConfigurationRefresh;
+
+...
+
+public void myConfigurationRefreshCheck() {
+    Future<Boolean> triggeredRefresh = appConfigurationRefresh.refreshConfigurations();
+}
+```
+
+`refreshConfigurations()` de `AppConfigurationRefresh` devuelve un valor de `Future` que es true si se ha desencadenado una actualización y false en caso contrario. False significa que el tiempo de expiración de la caché no ha expirado, no se ha producido ningún cambio u otro subproceso está comprobando actualmente una actualización.
 
 ## <a name="use-automated-refresh"></a>Uso de la actualización automatizada
 
@@ -59,7 +80,7 @@ Abra el archivo *pom.xml* en un editor de texto y agregue `<dependency>` para `s
     mvn spring-boot:run
     ```
 
-1. Abra una ventana del explorador y vaya a la dirección URL: `http://localhost:8080`.  Verá el mensaje asociado con la clave. 
+1. Abra una ventana del explorador y vaya a la dirección URL: `http://localhost:8080`.  Verá el mensaje asociado con la clave.
 
     También puede usar *curl* para probar la aplicación, por ejemplo: 
     

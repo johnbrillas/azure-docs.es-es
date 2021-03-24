@@ -1,23 +1,14 @@
 ---
 title: Configuración de Azure Sentinel para Defender para IoT
 description: Explica cómo configurar Azure Sentinel para recibir datos de la solución de Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/28/2020
-ms.author: shhazam
-ms.openlocfilehash: 2d82aaadf158e45cb8faaeee0b9b4e0fc80a3420
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: b481dd31b73e741d265a569076f1ddc076ad4a45
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247342"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778957"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>Conexión de los datos de Defender para IoT con Azure Sentinel 
 
@@ -40,7 +31,7 @@ Esta integración permite a las organizaciones detectar rápidamente ataques de 
 1. Haga clic en **Conectar** junto a cada suscripción de IoT Hub cuyas alertas y alertas de dispositivo quiera transmitir a Azure Sentinel.
     - Recibirá un mensaje de error si Defender para IoT no está habilitado al menos en una instancia de IoT Hub dentro de una suscripción. Habilite Defender para IoT en la instancia de IoT Hub para eliminar el error.
 
-1. Puede decidir si quiere que las alertas de Defender para IoT generen incidentes automáticamente en Azure Sentinel. En **Create incidents** (Crear incidentes), seleccione **Habilitar** para que la regla de análisis predeterminada pueda crear incidentes de forma automática a partir de las alertas generadas. Esta regla puede cambiarse o editarse en **Análisis** > **Reglas activas**.
+1. Puede decidir si quiere que las alertas de Defender para IoT generen incidentes automáticamente en Azure Sentinel. En **Crear incidentes**, seleccione **Habilitar** para que la regla de análisis predeterminada pueda crear incidentes de forma automática a partir de las alertas generadas. Esta regla puede cambiarse o editarse en **Análisis** > **Reglas activas**.
 
 > [!NOTE]
 > Puede tardar 10 segundos o más en actualizar la lista de **Suscripción** tras realizar cambios en la conexión. 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303121"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Creación de una imagen de contenedor para su implementación en Azure Container Instances
@@ -44,7 +44,7 @@ También puede [descargar el archivo ZIP][aci-helloworld-zip] directamente de Gi
 
 ## <a name="build-the-container-image"></a>Compilación de la imagen del contenedor
 
-El archivo Dockerfile de la aplicación de ejemplo muestra cómo se compila el contenedor. Se comienza con una [imagen oficial de Node.js][docker-hub-nodeimage] basada en [Alpine Linux][alpine-linux], una pequeña distribución muy apropiada para usarla con contenedores. Luego copia los archivos de aplicación en el contenedor, instala las dependencias mediante Node Package Manager y, por último, inicia la aplicación.
+El archivo Dockerfile de la aplicación de ejemplo muestra cómo se compila el contenedor. Comienza con una [imagen oficial de Node.js][docker-hub-nodeimage] basada en [Alpine Linux][alpine-linux], una pequeña distribución muy apropiada para usarla con contenedores. Luego copia los archivos de aplicación en el contenedor, instala las dependencias mediante Node Package Manager y, por último, inicia la aplicación.
 
 ```Dockerfile
 FROM node:8.9.3-alpine

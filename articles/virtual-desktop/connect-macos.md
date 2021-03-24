@@ -7,10 +7,10 @@ ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230881"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Conexión a Windows Virtual Desktop mediante el cliente macOS
@@ -35,7 +35,7 @@ Para suscribirse a una fuente:
 1. Seleccione **Agregar área de trabajo** en la página principal para conectarse al servicio y recuperar los recursos.
 2. Escriba la dirección URL de la fuente. Puede ser una dirección URL o una dirección de correo electrónico:
    - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
-   - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
+   - Para usar un correo electrónico, escribe tu dirección de correo: Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
    - Para conectarse mediante el portal de US Gov, utilice <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
 3. Seleccione **Agregar**.
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563869"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronización de Azure AD Connect: Comprensión de la arquitectura
@@ -173,7 +173,7 @@ Para cada objeto que se especifica en el conector, en primer lugar el motor de s
 Cuando el motor de sincronización encuentra un objeto de almacenamiento provisional que coincide con el nombre distintivo pero no con el delimitador, se produce el siguiente comportamiento especial:
 
 * Si el objeto que se encuentra en el espacio conector no tiene ningún delimitador, el motor de sincronización lo quita del espacio conector y marca el objeto de metaverso al que está vinculado para **volver a intentar el aprovisionamiento en la siguiente sincronización**. A continuación, crea el nuevo objeto de importación.
-* Si el objeto que se encuentra en el espacio conector tiene delimitador, el motor de sincronización da por supuesto que este objeto se ha cambiado de nombre o eliminado en el directorio conectado. Asigna un nuevo nombre distintivo temporal al objeto de espacio conector para que pueda almacenar provisionalmente el objeto entrante. El objeto anterior se convierte en **transitorio**y espera a que el conector importe el cambio de nombre o la eliminación para resolver la situación.
+* Si el objeto que se encuentra en el espacio conector tiene delimitador, el motor de sincronización da por supuesto que este objeto se ha cambiado de nombre o eliminado en el directorio conectado. Asigna un nuevo nombre distintivo temporal al objeto de espacio conector para que pueda almacenar provisionalmente el objeto entrante. El objeto anterior se convierte en **transitorio** y espera a que el conector importe el cambio de nombre o la eliminación para resolver la situación.
 
 Si el motor de sincronización localiza un objeto de almacenamiento provisional que se corresponde con el objeto especificado en el conector, determina qué tipo de cambios se aplicarán. Por ejemplo, el motor de sincronización podría cambiar el nombre o eliminar el objeto en el origen de datos conectado o solamente actualizar los valores de atributo del objeto.
 

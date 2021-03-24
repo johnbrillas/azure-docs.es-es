@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93361794"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Puntos de conexión regionales para la cuenta de grafos de Azure Cosmos DB
@@ -21,8 +21,8 @@ ms.locfileid: "93361794"
 La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [escritura en varias regiones](how-to-multi-master.md).
 
 Razones para elegir más de una región:
-1. **Escalabilidad de lectura horizontal** : a medida que aumenta la carga de la aplicación, puede ser prudente enrutar el tráfico de lectura a diferentes regiones de Azure.
-2. **Menor latencia** : puede reducir la sobrecarga de latencia de red de los distintos recorridos mediante el enrutamiento del tráfico de lectura y escritura a la región de Azure más cercana.
+1. **Escalabilidad de lectura horizontal**: a medida que aumenta la carga de la aplicación, puede ser prudente enrutar el tráfico de lectura a diferentes regiones de Azure.
+2. **Menor latencia**: puede reducir la sobrecarga de latencia de red de los distintos recorridos mediante el enrutamiento del tráfico de lectura y escritura a la región de Azure más cercana.
 
 El requisito de **residencia de datos** se consigue estableciendo la directiva de Azure Resource Manager en la cuenta de Cosmos DB. El cliente puede limitar las regiones en las que Cosmos DB replica los datos.
 

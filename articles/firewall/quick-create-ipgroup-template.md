@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079139"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall y grupos de IP: plantilla de Resource Manager
@@ -68,7 +68,7 @@ Implementación de la plantilla de Resource Manager en Azure:
    - Autenticación: seleccione sshPublicKey o contraseña. 
    - Contraseña de administrador: escriba una contraseña o clave de administrador.
 
-3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. La implementación puede tardar 10 minutos o más en completarse.
+3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. La implementación puede tardar 10 minutos o más en completarse.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -76,7 +76,7 @@ En Azure Portal, revise los recursos implementados, especialmente las reglas de 
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="Grupos de IP.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Grupos de IP."::::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Reglas de red."::::
 
 Para información sobre la sintaxis y las propiedades de JSON de un firewall en una plantilla, consulte la [referencia de plantilla de Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 

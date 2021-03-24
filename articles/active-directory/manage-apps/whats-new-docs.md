@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601770"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775517"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
@@ -141,7 +141,6 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 
 ### <a name="new-articles"></a>Artículos nuevos
 - [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md)
-- [Uso de Azure AD para aplicaciones que no se enumeran en la galería de aplicaciones](non-gallery-apps.md)
 - [Obtenerla ahora: adición de una aplicación desde Azure Marketplace](get-it-now-azure-marketplace.md)
 - [Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)](add-application-portal-configure.md)
 - [Inicio rápido: Configuración del inicio de sesión único (SSO) de una aplicación en el inquilino de Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)

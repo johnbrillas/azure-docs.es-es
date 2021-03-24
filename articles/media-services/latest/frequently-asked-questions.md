@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505773"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871408"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -47,12 +47,6 @@ Consulte [Control de acceso basado en roles de Azure (RBAC de Azure) para cuenta
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>¿Cómo hago streaming a dispositivos de Apple iOS?
 
 Asegúrese de que tiene **(format=m3u8-aapl)** al final de la ruta de acceso (después de la parte **/manifest** de la dirección URL) para indicar al servidor de origen de streaming que devuelva el contenido de HTTP Live Streaming (HLS) para su consumo en dispositivos Apple iOS nativos. Para más información, consulte [Entrega de contenido](dynamic-packaging-overview.md).
-
-### <a name="how-do-i-configure-media-reserved-units"></a>¿Cómo se pueden configurar las unidades reservadas de multimedia?
-
-En trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda que aprovisione la cuenta con diez unidades reservadas de multimedia (MRU) S3. Si necesita más de diez unidades MRU S3, abra una incidencia de soporte técnico mediante [Azure Portal](https://portal.azure.com/).
-
-Para más información, consulte [Escalado de procesamiento de elementos multimedia](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>¿Cuál es el método recomendado para procesar vídeos?
 
@@ -86,12 +80,12 @@ La aplicación web debería preguntarle al usuario si quiere finalizar la difusi
 
 #### <a name="server-side"></a>En el servidor
 
-Puede supervisar eventos en directo si se suscribe a eventos de Azure Event Grid. Para más información, consulte el [esquema de eventos de Event Grid](media-services-event-schemas.md#live-event-types).
+Puede supervisar eventos en directo si se suscribe a eventos de Azure Event Grid. Para más información, consulte el [esquema de eventos de Event Grid](monitoring/media-services-event-schemas.md#live-event-types).
 
 Puede:
 
-* [Suscribirse](reacting-to-media-services-events.md) a los eventos [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) de nivel de flujo y supervisar que no se produzca ninguna reconexión durante un tiempo para detener y eliminar el evento en directo.
-* [Suscribirse](reacting-to-media-services-events.md) a los eventos de [latido](media-services-event-schemas.md#liveeventingestheartbeat) de nivel de pista. Si todas las pistas tienen una velocidad de bits de entrada que cae a 0, o bien si la última marca de tiempo ya no aumenta, puede apagar el evento en directo de manera segura. Los eventos de latido ocurren cada veinte segundos por cada pista, por lo que podría ser un poco detallado.
+* [Suscribirse](monitoring/reacting-to-media-services-events.md) a los eventos [Microsoft.Media.LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) de nivel de flujo y supervisar que no se produzca ninguna reconexión durante un tiempo para detener y eliminar el evento en directo.
+* [Suscribirse](monitoring/reacting-to-media-services-events.md) a los eventos de [latido](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) de nivel de pista. Si todas las pistas tienen una velocidad de bits de entrada que cae a 0, o bien si la última marca de tiempo ya no aumenta, puede apagar el evento en directo de manera segura. Los eventos de latido ocurren cada veinte segundos por cada pista, por lo que podría ser un poco detallado.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>¿Cómo inserto pausas o vídeos y caretas de imagen durante una transmisión en directo?
 

@@ -3,12 +3,12 @@ title: Conozca los términos y condiciones de Azure BareMetal Infrastructure
 description: Conozca los términos y condiciones de Azure BareMetal Infrastructure.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861910"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770893"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Conozca los términos y condiciones de BareMetal Infrastructure
 
@@ -23,4 +23,4 @@ En este artículo, trataremos algunos términos y condiciones importantes de Bar
 - **Tenant**: un cliente implementado en la demarcación de instancias de BareMetal se aísla en un *inquilino.* Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Las unidades de almacenamiento y proceso asignadas a los distintos inquilinos no pueden verse ni comunicarse entre sí en el nivel de la demarcación de instancias de BareMetal. Un cliente puede elegir que las implementaciones se realicen en diferentes inquilinos. Aún así, no hay ninguna comunicación entre los inquilinos en el nivel de la demarcación de instancias de BareMetal.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la [infraestructura de BareMetal](workloads/sap/baremetal-overview-architecture.md) o sobre cómo [identificar las unidades de instancia de BareMetal e interactuar con ellas](workloads/sap/baremetal-infrastructure-portal.md). 
+Obtenga más información sobre la [infraestructura de BareMetal](concepts-baremetal-infrastructure-overview.md) o sobre cómo [identificar las unidades de instancia de BareMetal e interactuar con ellas](connect-baremetal-infrastructure.md). 

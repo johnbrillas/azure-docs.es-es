@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372368"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Conexión a SQL Managed Instance habilitada para Azure Arc
@@ -47,7 +47,7 @@ Si usa AKS, kubeadm, OpenShift, etc., puede copiar el número de puerto y la dir
 
 Conexión con Azure Data Studio, SQL Server Management Studio o SQLCMD
 
-Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anteriores. Si usa una máquina virtual de Azure, necesitará la dirección IP _pública_ , que se puede identificar según se describe en [Nota especial sobre las implementaciones de máquinas virtuales de Azure](#special-note-about-azure-virtual-machine-deployments).
+Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anteriores. Si usa una máquina virtual de Azure, necesitará la dirección IP _pública_, que se puede identificar según se describe en [Nota especial sobre las implementaciones de máquinas virtuales de Azure](#special-note-about-azure-virtual-machine-deployments).
 
 Por ejemplo:
 

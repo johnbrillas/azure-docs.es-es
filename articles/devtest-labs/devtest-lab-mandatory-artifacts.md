@@ -4,10 +4,10 @@ description: Aprenda a especificar artefactos obligatorios que se han de instala
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480310"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especificación de artefactos obligatorios para su laboratorio de Azure DevTest Labs
@@ -22,7 +22,7 @@ Puede seleccionar artefactos obligatorios para equipos Windows y Linux por separ
 
 1. En la página principal del laboratorio, seleccione **Configuración y directivas** en **CONFIGURACIÓN**. 
 3. Seleccione **Artefactos obligatorios** en **RECURSOS EXTERNOS**. 
-4. Seleccione **Editar** en la sección **Windows** o la sección **Linux**. En este ejemplo se utiliza la opción**Windows**. 
+4. Seleccione **Editar** en la sección **Windows** o la sección **Linux**. En este ejemplo se utiliza la opción **Windows**. 
 
     ![Página Artefactos obligatorios: botón Editar](media/devtest-lab-mandatory-artifacts/mandatory-artifacts-edit-button.png)
 4. Seleccione un artefacto. En este ejemplo se utiliza la opción **7-Zip**. 
@@ -50,7 +50,7 @@ Para eliminar un artefacto obligatorio de un laboratorio, realice las siguientes
 
 1. Seleccione **Configuración y directivas** en **CONFIGURACIÓN**. 
 2. Seleccione **Artefactos obligatorios** en **RECURSOS EXTERNOS**. 
-3. Seleccione **Editar** en la sección **Windows** o la sección **Linux**. En este ejemplo se utiliza la opción**Windows**. 
+3. Seleccione **Editar** en la sección **Windows** o la sección **Linux**. En este ejemplo se utiliza la opción **Windows**. 
 4. Seleccione el mensaje con el número de artefactos obligatorios de la parte superior. 
 
     ![Página Artefactos obligatorio: seleccionar el mensaje](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)

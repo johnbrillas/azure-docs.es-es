@@ -4,10 +4,10 @@ description: Carga de un archivo VHD en la cuenta de almacenamiento del laborato
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91282534"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carga de un archivo VHD en la cuenta de almacenamiento del laboratorio mediante el Explorador de Microsoft Azure Storage
@@ -60,7 +60,7 @@ Los siguientes pasos le guían en la carga de un archivo VHD en DevTest Labs med
     
         ![Configuración de la cuenta de Azure][1]
     
-    1. El panel izquierdo muestra todas las cuentas de Microsoft en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Agregar una cuenta**y siga los cuadros de diálogo para iniciar sesión con una cuenta de Microsoft que esté asociada con al menos una suscripción activa de Azure.
+    1. El panel izquierdo muestra todas las cuentas de Microsoft en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Agregar una cuenta** y siga los cuadros de diálogo para iniciar sesión con una cuenta de Microsoft que esté asociada con al menos una suscripción activa de Azure.
     
         ![Agregar una cuenta][2]
     

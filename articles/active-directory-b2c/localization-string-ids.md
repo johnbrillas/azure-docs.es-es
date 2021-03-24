@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448651"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631190"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -95,7 +95,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfPasswordExpired**| La contraseña expiró.|
@@ -184,7 +184,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -356,7 +356,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 
 | ID | Valor predeterminado |
 | -- | ------------- |
-|intro_msg| La comprobación es necesaria. Haga clic en el botón Enviar.|
+|intro_msg <sup>*</sup>| La comprobación es necesaria. Haga clic en el botón Enviar.|
 |success_send_code_msg | Se ha enviado el código de verificación. Cópielo en el siguiente cuadro de entrada de texto.|
 |failure_send_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Escriba una dirección de correo electrónico válida e inténtelo de nuevo.|
 |success_verify_code_msg | Se ha verificado la dirección de correo electrónico. Ahora puede continuar.|
@@ -365,6 +365,12 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 |but_verify_code | Verificar código|
 |but_send_new_code | Envíe un código nuevo.|
 |but_change_claims | Cambie la dirección de correo electrónico.|
+
+Nota: El elemento `intro_msg` está oculto y no aparece en la página autofirmada. Para hacerlo visible, use la [personalización HTML](customize-ui-with-html.md) con hojas de estilo CSS. Por ejemplo:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Ejemplo de control de pantalla de verificación
 
@@ -499,7 +505,7 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| ID | Valor predeterminado |
+| id | Valor predeterminado |
 | -- | ------------- |
 |UserMessageIfMaxRetryAttempted |La comprobación proporcionada de la contraseña única ha superado el número máximo de intentos. |
 |UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
@@ -525,7 +531,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
-| ID | Transformación de notificaciones | Valor predeterminado |
+| id | Transformación de notificaciones | Valor predeterminado |
 | -- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|

@@ -4,10 +4,10 @@ description: Este patrón de Azure Policy proporciona un ejemplo de cómo implem
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89649985"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Patrón de Azure Policy: implementación de recursos

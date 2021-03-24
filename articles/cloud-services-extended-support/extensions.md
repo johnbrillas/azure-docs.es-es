@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98757176"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensiones de Cloud Services (soporte extendido)
@@ -41,4 +41,4 @@ Para más información, consulte [Aplicación de la extensión de Windows Azure 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
-- Implemente un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

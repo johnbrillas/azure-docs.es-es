@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412517"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775772"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -61,7 +61,7 @@ La caché necesita DNS para acceder a los recursos que están fuera de su red vi
 * Para acceder a los puntos de conexión de Azure Blob Storage y otros recursos internos, necesita el servidor DNS basado en Azure.
 * Para acceder al almacenamiento local, debe configurar un servidor DNS personalizado que pueda resolver los nombres de host de almacenamiento. Debe hacer esto **antes** de crear la memoria caché.
 
-Si solo necesita acceder a Blob Storage, puede usar el servidor DNS predeterminado proporcionado por Azure para la caché. Sin embargo, si necesita acceder a otros recursos, debe crear un servidor DNS personalizado y configurarlo para reenviar las solicitudes de resolución específicas de Azure al servidor de Azure DNS.
+Si solo usa Blob Storage, puede emplear el servidor DNS predeterminado proporcionado por Azure para la caché. Sin embargo, si necesita acceder al almacenamiento u otros recursos fuera de Azure, debe crear un servidor DNS personalizado y configurarlo para reenviar cualquier solicitud de resolución específica de Azure al servidor de Azure DNS.
 
 Debe realizar estos pasos de configuración antes de crear la memoria caché para usar un servidor DNS personalizado:
 
@@ -91,14 +91,18 @@ Antes de empezar a crear la caché, compruebe estos requisitos previos relaciona
   Siga las instrucciones que se indican en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para agregar los roles.
 
 ## <a name="storage-infrastructure"></a>Administración del almacenamiento
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-La caché admite contenedores de blobs de Azure o exportaciones de almacenamiento de hardware NFS. Agregar destino de almacenamiento después de crear la memoria caché.
+La memoria caché admite contenedores de blobs de Azure, exportaciones de almacenamiento de hardware NFS y contenedores de blobs ADLS montados en NFS (actualmente en versión preliminar). Agregar destino de almacenamiento después de crear la memoria caché.
 
 Cada tipo de almacenamiento tiene unos requisitos previos específicos.
 
 ### <a name="blob-storage-requirements"></a>Requisitos de Blob Storage
 
 Si quiere usar Azure Blob Storage con su instancia de caché, necesita una cuenta de almacenamiento compatible y un contenedor de blobs vacío o un contenedor rellenado con datos con formato de Azure HPC Cache, como se describe en [Traslado de datos a Azure Blob Storage](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Hay diferentes requisitos aplicables a Blob Storage montado en NFS. Lea los [requisitos de almacenamiento de ADLS-NFS](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) para obtener más información.
 
 Cree la cuenta antes de intentar agregar un destino de almacenamiento. Puede crear un contenedor al agregar el destino.
 
@@ -153,13 +157,6 @@ Se puede encontrar más información en [Solución de problemas de configuració
 
   * Compruebe la configuración del firewall para asegurarse de que permite el tráfico en todos estos puertos necesarios. Asegúrese de comprobar los firewalls que se usan en Azure, así como los firewalls locales de su centro de datos.
 
-* **Acceso a directorios:** Habilite el comando `showmount` en el sistema de almacenamiento. Azure HPC Cache usa este comando para comprobar que la configuración del destino de almacenamiento apunta a una exportación válida, y también para asegurarse de que varios montajes no tengan acceso a los mismos subdirectorios (lo que supone un riesgo de colisiones de archivos).
-
-  > [!NOTE]
-  > Si el sistema de almacenamiento NFS usa el sistema operativo ONTAP 9.2 de NetApp, **no habilite `showmount`** . [Póngase en contacto con los servicios y el soporte técnico de Microsoft](hpc-cache-support-ticket.md) para obtener ayuda.
-
-  Aprenda más sobre el acceso a la lista de directorios en el [artículo de solución de problemas](troubleshoot-nas.md#enable-export-listing) del destino de almacenamiento.
-
 * **Acceso raíz** (lectura y escritura): La memoria caché se conecta al sistema back-end como el ID. de usuario 0. Compruebe esta configuración en el sistema de almacenamiento:
   
   * Habilite `no_root_squash`. Esta opción garantiza que el usuario raíz remoto pueda tener acceso a los archivos que pertenecen a la raíz.
@@ -169,6 +166,37 @@ Se puede encontrar más información en [Solución de problemas de configuració
   * Si el almacenamiento tiene exportaciones que son subdirectorios de otra exportación, asegúrese de que la caché tenga acceso raíz al segmento más bajo de la ruta de acceso. Para más información, lea [Acceso raíz en las rutas de acceso de directorio](troubleshoot-nas.md#allow-root-access-on-directory-paths) en el artículo de solución de problemas de destino de almacenamiento de NFS.
 
 * El almacenamiento de back-end de NFS debe ser una plataforma de hardware o software compatible. Póngase en contacto con el equipo de Azure HPC Cache para más información.
+
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>Requisitos de almacenamiento de blobs montados en NFS (ADLS-NFS) (VERSIÓN PRELIMINAR)
+
+Azure HPC Cache también puede usar un contenedor de blobs montado, con el protocolo NFS como destino de almacenamiento.
+
+> [!NOTE]
+> La compatibilidad del protocolo NFS 3.0 con Azure Blob Storage se encuentra en versión preliminar pública. La disponibilidad está restringida, y las características actuales pueden cambiar cuando estén disponibles con carácter general. No utilice la tecnología de versión preliminar en los sistemas de producción.
+>
+> Obtenga más información sobre esta característica en vista previa en el artículo sobre la [compatibilidad del protocolo NFS 3.0 en Azure Blob Storage](../storage/blobs/network-file-system-protocol-support.md).
+
+Los requisitos de la cuenta de almacenamiento son diferentes para un destino de almacenamiento de blobs ADLS-NFS y un destino de almacenamiento de blobs estándar. Siga cuidadosamente las instrucciones que se indican en [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)](../storage/blobs/network-file-system-protocol-support-how-to.md) para crear y configurar la cuenta de almacenamiento habilitada para NFS.
+
+A continuación, se ofrece una introducción general de los pasos. Estos pasos pueden cambiar. Consulte siempre las [instrucciones de ADLS-NFS](../storage/blobs/network-file-system-protocol-support-how-to.md) para obtener información actualizada.
+
+1. Asegúrese de que las características que necesita están disponibles en las regiones en las que va a trabajar.
+
+1. Habilite la característica protocolo NFS para su suscripción. Debe hacerlo *antes* de crear la cuenta de almacenamiento.
+
+1. Cree una red virtual (VNet) segura para la cuenta de almacenamiento. Deberá usar la misma red virtual para Azure HPC Cache y la cuenta de almacenamiento habilitada para NFS. (No use la misma subred que la caché).
+
+1. Cree la cuenta de almacenamiento.
+
+   * En lugar de usar la configuración de la cuenta de almacenamiento para una cuenta estándar de Blob Storage, siga las instrucciones del [documento de procedimientos](../storage/blobs/network-file-system-protocol-support-how-to.md). El tipo de cuenta de almacenamiento admitido puede variar según la región de Azure.
+
+   * En la sección **Redes**, elija un punto de conexión privado en la red virtual segura que creó (recomendado) o un punto de conexión público con acceso restringido de la red virtual segura.
+
+   * No olvide completar la sección **Avanzado** para habilitar el acceso a NFS.
+
+   * Proporcione a la aplicación de caché acceso a su cuenta de almacenamiento de Azure, como se indicó anteriormente en [Permisos](#permissions). Puede hacerlo la primera vez que cree un destino de almacenamiento. Siga el procedimiento descrito en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso necesarios.
+
+     Si no es el propietario de la cuenta de almacenamiento, pida a este que realice este paso.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configuración del acceso mediante la CLI de Azure (opcional)
 

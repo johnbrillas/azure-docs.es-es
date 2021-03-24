@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 1ef6c678110037a4aed24ef40631b73a04ca6a9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 531e5cf274d40eae19075514d50aec5a6524aeec
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028094"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775347"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploración y modelado de datos con Spark
 
@@ -495,7 +495,8 @@ Tiempo empleado en ejecutar la celda anterior: 0,24 segundos
 
 ### <a name="feature-scaling"></a>Ajuste de la escala de las características
 
-El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. El código para ajustar la escala de las características usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para ajustarlas a la varianza de la unidad. MLlib lo proporciona para su uso en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de otros modelos de aprendizaje automático tales como regresiones regularizadas o máquinas de vectores de soporte (SVM).
+El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. El código para ajustar la escala de las características usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS
+) para ajustarlas a la varianza de la unidad. MLlib lo proporciona para su uso en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de otros modelos de aprendizaje automático tales como regresiones regularizadas o máquinas de vectores de soporte (SVM).
 
 > [!NOTE]
 > Hemos descubierto que el algoritmo LinearRegressionWithSGD es sensible al ajuste de la escala de las características.

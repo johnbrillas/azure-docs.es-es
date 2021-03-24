@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90007645"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Movimiento de recursos de Azure entre regiones
@@ -34,10 +34,10 @@ Después de implementar recursos en una región específica de Azure, hay una se
 Puede trasladar recursos a una región diferente con [Azure Resource Mover](../../resource-mover/overview.md). Resource Mover proporciona:
 
 - Un solo centro para trasladar recursos entre regiones.
-- Tiempos y complejidad de traslado menores. Todo lo que necesita está en una única ubicación.
+- Menores tiempo de traslado y complejidad. Todo lo que necesita está en una única ubicación.
 - Una experiencia sencilla y coherente para trasladar distintos tipos de recursos de Azure.
-- Una manera fácil de identificar las dependencias entre los recursos que quiera trasladar. Esto le ayuda a trasladar los recursos relacionados de forma conjunta, de modo que todo funciona según lo previsto en la región de destino después del traslado.
-- Limpieza automática de los recursos de la región de origen, si quiere eliminarlos después del traslado.
+- Una manera fácil de identificar las dependencias entre los recursos que desee trasladar. Esto le ayuda a trasladar los recursos relacionados de forma conjunta, de modo que todo funciona según lo previsto en la región de destino, después del traslado.
+- La limpieza automática de los recursos de la región de origen, si desea eliminarlos después del traslado.
 - Pruebas. Puede probar un traslado y, a continuación, descartarlo si no quiere completarlo.
 
 Puede trasladar recursos a otra región con un par de métodos diferentes:

@@ -7,17 +7,17 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302467"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y Azure AD DS
 
 En este artículo se muestra cómo crear un contenedor de perfiles de FSLogix con Azure Files y Azure Active Directory Domain Services (AD DS).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se supone que ya ha configurado una instancia de Azure AD DS. Si aún no tiene una, siga primero las instrucciones del artículo sobre la [creación de un dominio administrado básico](../active-directory-domain-services/tutorial-create-instance.md) y, después, continúe aquí.
 

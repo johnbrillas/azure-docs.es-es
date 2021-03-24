@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274119"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
@@ -200,7 +200,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > Se requiere el parámetro *TargetName* . El tema predeterminado que se incluyó con AD FS se llamada Default.
 
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Adición de una descripción de inicio de sesión 
-Para agregar una descripción de la **página de inicio de sesión**a dicha página, use el siguiente cmdlet de Windows PowerShell y la sintaxis.
+Para agregar una descripción de la **página de inicio de sesión** a dicha página, use el siguiente cmdlet de Windows PowerShell y la sintaxis.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
@@ -253,7 +253,7 @@ c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
 => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 ```
 
-En esta regla, simplemente va a comprobar el atributo **idflag**temporal. Decida si va a emitir la notificación basándose en su valor.
+En esta regla, simplemente va a comprobar el atributo **idflag** temporal. Decida si va a emitir la notificación basándose en su valor.
 
 > [!NOTE]
 > La secuencia de estas reglas es importante.

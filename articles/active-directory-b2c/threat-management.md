@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384981"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Administración de amenazas en los recursos y los datos en Azure Active Directory B2C
@@ -45,7 +45,7 @@ Para administrar la configuración de protección con contraseña, incluido el u
 1. Especifique la configuración de protección con contraseña deseada y después seleccione **Guardar**.
 
     ![Página Protección con contraseña de Azure Portal en la configuración de Azure AD](./media/threat-management/portal-02-password-protection.png)
-    <br />*Establezca el umbral de bloqueo en 5 en la configuración de **Protección con contraseña*** .
+    <br />*Establezca el umbral de bloqueo en 5 en la configuración de **Protección con contraseña***.
 
 ## <a name="view-locked-out-accounts"></a>Visualización de las cuentas bloqueadas
 

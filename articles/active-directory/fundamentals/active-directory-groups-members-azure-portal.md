@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af5a85bad1e7b2a6bf645084d6b78f77e6c0d8b2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371841"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Incorporación o eliminación de los miembros de un grupo mediante Azure Active Directory
@@ -27,17 +27,17 @@ Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
-2. Seleccione **Azure Active Directory** y después seleccione **Grupos** .
+2. Seleccione **Azure Active Directory** y después seleccione **Grupos**.
 
-3. En la página **Grupos - Todos los grupos** , busque y seleccione el grupo al que quiere agregar el miembro. En este caso, use nuestro grupo creado anteriormente, **MDM policy - West** .
+3. En la página **Grupos - Todos los grupos**, busque y seleccione el grupo al que quiere agregar el miembro. En este caso, use nuestro grupo creado anteriormente, **MDM policy - West**.
 
     ![Página Grupos - Todos los grupos, con el nombre del grupo resaltado](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. En la página **Información general de MDM policy - West** , seleccione **Miembros** en el área **Administrar** .
+4. En la página **Información general de MDM policy - West**, seleccione **Miembros** en el área **Administrar**.
 
     ![Página de información general de MDM policy - West, con la opción Miembros resaltada](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-5. Seleccione **Agregar miembros** y, a continuación, busque y seleccione a cada uno de los miembros que desea agregar al grupo y elija **Seleccionar** .
+5. Seleccione **Agregar miembros** y, a continuación, busque y seleccione a cada uno de los miembros que desea agregar al grupo y elija **Seleccionar**.
 
     Obtendrá un mensaje que indica que los miembros se han agregado correctamente.
 
@@ -47,9 +47,9 @@ Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo
 
 ## <a name="to-remove-group-members"></a>Para eliminar miembros del grupo
 
-1. En la página **Grupos - Todos los grupos** , busque y seleccione el grupo al que quiere quitar un miembro. De nuevo, usaremos como ejemplo a **MDM policy - West** .
+1. En la página **Grupos - Todos los grupos**, busque y seleccione el grupo al que quiere quitar un miembro. De nuevo, usaremos como ejemplo a **MDM policy - West**.
 
-2. Seleccione **Miembros** desde el área **Administrar** , busque y seleccione el nombre del miembro que desea quitar y, a continuación, seleccione **Quitar** .
+2. Seleccione **Miembros** desde el área **Administrar**, busque y seleccione el nombre del miembro que desea quitar y, a continuación, seleccione **Quitar**.
 
     ![Página de información de miembro, con la opción Quitar](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
 

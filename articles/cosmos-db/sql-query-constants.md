@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339213"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta SQL de Azure Cosmos DB  
@@ -25,10 +25,10 @@ ms.locfileid: "93339213"
 |-|-|  
 |**Undefined**|Valor único: **undefined**|  
 |**Null**|Valor único: **null**|  
-|**Boolean**|Valores: **false** , **true**.|  
+|**Boolean**|Valores: **false**, **true**.|  
 |**Number**|Número de punto flotante de precisión doble, estándar IEEE 754.|  
 |**String**|Secuencia de cero o más caracteres Unicode. Las cadenas deben ir entre comillas sencillas o dobles.|  
-|**Array**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto **Undefined**.|  
+|**Matriz**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto **Undefined**.|  
 |**Object**|Conjunto desordenado de cero o más pares nombre/valor. Nombre es una cadena Unicode, el valor puede ser de cualquier tipo de datos escalar, excepto **Undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxis
@@ -105,7 +105,7 @@ ms.locfileid: "93339213"
   
   Se permiten las secuencias de escape siguientes:  
   
-|**Secuencia de escape**|**Descripción**|**Carácter Unicode**|  
+|**Secuencia de escape**|**Descripción**|**carácter Unicode**|  
 |-|-|-|  
 |\\'|apóstrofo (')|U + 0027|  
 |\\"|comillas dobles (")|U + 0022|  

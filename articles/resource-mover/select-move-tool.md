@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 1b233028b52175842c73660ff116ac592d8296e0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90603363"
 ---
 # <a name="choose-a-tool-for-moving-azure-resources"></a>Elección de una herramienta para el traslado de recursos de Azure
@@ -35,4 +35,4 @@ Puede trasladar recursos dentro de Azure de la siguiente manera:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información](about-move-process.md) sobre los componentes de Resource Mover y el proceso de traslado.
+[Más información](about-move-process.md) sobre los componentes de Resource Mover y el proceso de movimiento.

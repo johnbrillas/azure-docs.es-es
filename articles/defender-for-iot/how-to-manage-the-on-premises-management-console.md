@@ -1,18 +1,14 @@
 ---
 title: Administración de la consola de administración local
 description: Obtenga información sobre las opciones de la consola de administración local, como la copia de seguridad y la restauración, la definición del nombre de host y la configuración de un proxy en sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 871c74eee4b74538a8a09188953916ff7376bc8d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523947"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781728"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -415,7 +411,21 @@ En el procedimiento siguiente se describe cómo actualizar la versión de softwa
 
 1. Seleccione el archivo que descargó de la página **Actualizaciones** de Defender para IoT.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="mail-server-settings"></a>Configuración del servidor de correo
+
+Defina la configuración del servidor de correo SMTP para la consola de administración local.
+
+Para realizar la definición, siga estos pasos:
+
+1. Inicie sesión en la CLI de la administración local con credenciales de administración.
+1. Escriba ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Seleccione ENTRAR. Aparecerán las solicitudes siguientes.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Escriba el nombre del servidor SMTP y el emisor. Luego, seleccione ENTRAR.
+
+## <a name="see-also"></a>Consulte también
 
 [Administración de sensores desde la consola de administración](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

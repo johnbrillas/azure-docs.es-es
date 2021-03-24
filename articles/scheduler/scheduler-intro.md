@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368135"
 ---
 # <a name="what-is-azure-scheduler"></a>¿Qué es Azure Scheduler?
@@ -29,9 +29,9 @@ Otras funcionalidades de Azure también usan Scheduler en segundo plano, por eje
 
 Estos son algunos escenarios en los que Scheduler puede ayudarle:
 
-* Ejecución de acciones de aplicación periódicas: Por ejemplo, recopilar periódicamente datos de Twitter en una fuente.
+* Ejecución de acciones de aplicación periódicas: por ejemplo, recopilar periódicamente datos de Twitter en una fuente.
 
-* Realización del mantenimiento diario: Por ejemplo, reducir los registros diariamente, realizar copias de seguridad y otras tareas de mantenimiento.
+* Realización del mantenimiento diario: eliminación diaria de registros, realización de copias de seguridad y otras tareas de mantenimiento.
 
   Por ejemplo, como administrador, es posible que desee realizar una copia de seguridad de la base de datos a la 1:00 a.m. cada día durante los próximos 9 meses.
 

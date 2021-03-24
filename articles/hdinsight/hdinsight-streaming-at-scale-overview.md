@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bf036ff413f720f54deef1a62b502668d1d8ac6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931700"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872003"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming a escala en HDInsight
 
@@ -18,7 +18,7 @@ Las soluciones de macrodatos en tiempo real actúan sobre los datos que se mueve
 
 En una aplicación de streaming, uno o varios orígenes de datos generan eventos (a veces, millones por segundo) que deben ser ingeridos rápidamente sin quitar ninguna información útil. Los eventos de entrada se tratan con el *almacenamiento en búfer de los flujos de datos*, también denominado *puesta en cola de eventos*, por un servicio como [Apache Kafka](kafka/apache-kafka-introduction.md) o [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Después de recopilar los eventos, puede analizar los datos mediante un sistema de análisis en tiempo real en el nivel de *procesamiento de flujos de datos*, como [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Los datos procesados se pueden almacenar en sistemas de almacenamiento a largo plazo, como [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) y se muestran en tiempo real en un panel de inteligencia empresarial, como [Power BI](https://powerbi.microsoft.com), Tableau o una página web personalizada.
 
-![Patrones de streaming de Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Patrones de streaming de Azure HDInsight":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

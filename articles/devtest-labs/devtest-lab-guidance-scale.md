@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478797"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
@@ -58,4 +58,4 @@ Una prueba de concepto de DevTest Labs tiene tres roles principales con responsa
 - **Usuario de DevTest Labs**: el usuario de DevTest Labs puede crear y consumir las máquinas virtuales del laboratorio. Estas personas tienen algunas funcionalidades administrativas mínimas en las máquinas virtuales que crean (iniciar, detener, eliminar y configurar sus máquinas virtuales). Los usuarios no pueden administrar máquinas virtuales de otros usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Lea el siguiente artículo de esta serie: [Orquestación de la implementación de Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Consulte el siguiente artículo de esta serie: [Orquestación de la implementación de Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

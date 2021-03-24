@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340233"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
@@ -30,7 +30,7 @@ Hay cuatro componentes principales en la implementación del procesador de fuent
 
 1. **El contenedor supervisado:** el contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y actualizaciones realizadas en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
 
-1. **El contenedor de concesión** : El contenedor de concesión actúa como un almacenamiento de estado y coordina el procesamiento de la fuente de cambios entre varios trabajadores. El contenedor de concesión se puede almacenar en la misma cuenta que el contenedor supervisado o en una cuenta independiente.
+1. **El contenedor de concesión**: El contenedor de concesión actúa como un almacenamiento de estado y coordina el procesamiento de la fuente de cambios entre varios trabajadores. El contenedor de concesión se puede almacenar en la misma cuenta que el contenedor supervisado o en una cuenta independiente.
 
 1. **El host:** Un host es una instancia de aplicación que usa el procesador de fuente de cambios para escuchar los cambios. Se pueden ejecutar varias instancias con la misma configuración de concesión en paralelo, pero cada instancia debe tener **un nombre de instancia** diferente.
 
@@ -64,7 +64,7 @@ El ciclo de vida normal de una instancia de host es:
 1. Leer la fuente de cambios.
 1. Si no hay ningún cambio, mantenerse suspendida durante un periodo de tiempo predefinido (personalizable con `WithPollInterval` en el generador) e ir a #1.
 1. Si hay cambios, enviarlos al **delegado.**
-1. Cuando el delegado termina de procesar los cambios **correctamente** , actualizar el almacén de concesión con el último punto en el tiempo e ir al nº 1.
+1. Cuando el delegado termina de procesar los cambios **correctamente**, actualizar el almacén de concesión con el último punto en el tiempo e ir al nº 1.
 
 ## <a name="error-handling"></a>Control de errores
 
@@ -106,7 +106,7 @@ De manera predeterminada, cuando se inicia un procesador de fuente de cambios po
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Lectura desde una fecha y hora anteriores
 
-Es posible inicializar el procesador de fuente de cambios para leer los cambios a partir de una **fecha y hora específicas** ; para ello, pase una instancia de `DateTime` a la extensión del generador `WithStartTime`:
+Es posible inicializar el procesador de fuente de cambios para leer los cambios a partir de una **fecha y hora específicas**; para ello, pase una instancia de `DateTime` a la extensión del generador `WithStartTime`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 

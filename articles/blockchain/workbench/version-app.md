@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85209885"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Control de versiones de una aplicación de Azure Blockchain Workbench, versión preliminar
@@ -17,7 +17,7 @@ Es posible crear y usar varias versiones de una aplicación de Azure Blockchain 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una implementación de Blockchain Workbench. Para más información sobre la implementación, consulte [Implementación de Azure Blockchain Workbench](deploy.md).
 * Una aplicación de cadena de bloques implementada en Blockchain Workbench. Consulte [Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench](create-app.md)

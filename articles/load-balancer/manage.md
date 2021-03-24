@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89596238"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Configuración del portal para Azure Load Balancer
@@ -63,7 +63,7 @@ Si selecciona **Interno** en Tipo, verá la siguiente información:
 | Asignación de dirección IP | Las opciones son **Estática** o **Dinámica**. </br> Estática garantiza que la dirección IP no cambie. Mientras que una dirección IP dinámica podría cambiar. |
 | Zona de disponibilidad | Las opciones son: </br> **Con redundancia de zona** </br> **Zona 1** </br> **Zona 2** </br> **Zona 3** </br> Para crear un equilibrador de carga de alta disponibilidad y resistente a errores de zona de disponibilidad, seleccione una dirección IP **con redundancia de zona**. |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Creación de un equilibrador de carga interno" border="true":::
 
 ## <a name="frontend-ip-configuration"></a>Configuración de direcciones IP de front-end
 
@@ -80,7 +80,7 @@ Si desea agregar una configuración de IP de front-end al equilibrador de carga,
 | Tipo de IP | Tipo de IP determina si una única dirección IP está asociada a su front-end o a un intervalo de direcciones IP mediante un prefijo IP. </br> Un [prefijo de IP pública](../virtual-network/public-ip-address-prefix.md) sirve de ayuda para cuando necesita conectarse al mismo punto de conexión repetidamente. El prefijo garantiza que se proporcionan suficientes puertos para ayudar a solucionar los problemas del puerto SNAT. |
 | Dirección IP pública (o prefijo si eligió un prefijo antes) | Seleccione o cree una dirección IP pública (o prefijo) para el front-end del equilibrador de carga. |
 
-:::image type="content" source="./media/manage/frontend.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/frontend.png" alt-text="Creación de una configuración de IP de front-end" border="true":::
 
 ## <a name="backend-pools"></a>Grupos back-end
 
@@ -96,7 +96,7 @@ Si desea agregar un grupo de back-end al equilibrador de carga, vaya a su equili
 
 Puede agregar máquinas virtuales o conjuntos de escalado de máquinas virtuales al grupo de back-end de su instancia de Azure Load Balancer. Cree primero las máquinas virtuales o los conjuntos de escalado de máquinas virtuales. A continuación, agréguelos al equilibrador de carga en el portal.
 
-:::image type="content" source="./media/manage/backend.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/backend.png" alt-text="Página de creación de un grupo de back-end" border="true":::
 
 ## <a name="health-probes"></a>Sondeos de estado
 
@@ -112,7 +112,7 @@ Si desea agregar un sondeo de estado al equilibrador de carga, vaya a su equilib
 | Intervalo | El número de segundos entre los intentos de sondeo. </br> El intervalo determinará la frecuencia con la que el sondeo de estado intentará comunicarse con la instancia de back-end. </br> Si selecciona 5, el segundo intento de sondeo se realizará después de 5 segundos, y así sucesivamente. |
 | Umbral incorrecto | El número de errores de sondeo consecutivos que tienen que producirse para que se considere que una máquina virtual no funciona correctamente.</br> Si selecciona 2, no se establecerán nuevos flujos en esta instancia de back-end después de 2 errores consecutivos. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="Adición del sondeo de estado" border="true":::
 
 ## <a name="load-balancing-rules"></a>Reglas de equilibrio de carga.
 
@@ -136,7 +136,7 @@ Si desea agregar una regla de equilibrio de carga al equilibrador de carga, vaya
 | Dirección IP flotante | La dirección IP flotante es el término de Azure para referirse a una parte de lo que se conoce como **Direct Server Return (DSR)** . </br> DSR consta de dos partes: <br> 1. Topología de flujo </br> 2. Un esquema de asignación de direcciones IP en el nivel de plataforma. </br></br> Azure Load Balancer siempre funciona en una topología de flujo DSR, independientemente de si la dirección IP flotante está habilitada o no. </br> Esto significa que la parte de salida de un flujo siempre se reescribe correctamente para que se dirija de nuevo al origen. </br> Sin una dirección IP flotante, Azure expone un esquema de asignación de direcciones IP de equilibrio (la IP de las instancias de máquina virtual). </br> Habilitar la dirección IP flotante cambia el esquema de asignación de direcciones IP a la IP de servidor front-end del equilibrador de carga para permitir más flexibilidad. </br> Para obtener más información, consulte [Varios front-ends para Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Creación de reglas de salida implícitas | así que seleccione **No**. </br> Valor predeterminado: **disableOutboundSnat = false**  </br> En este caso, la salida se produce a través de la misma dirección IP de front-end. </br></br> **disableOutboundSnat = true** </br>En este caso, se necesitan reglas de salida para la salida. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Adición de regla de equilibrio de carga" border="true":::
 
 ## <a name="inbound-nat-rules"></a>Reglas NAT de entrada
 
@@ -163,7 +163,7 @@ Si desea agregar una regla NAT de entrada a su equilibrador de carga, vaya a su 
 | Máquina virtual de destino | La parte de la máquina virtual del grupo de back-end al que le gustaría asociar esta regla. |
 | Asignación de puertos | Este valor puede ser el predeterminado o personalizada según las preferencias de la aplicación. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Adición de regla NAT de entrada" border="true":::
 
 ## <a name="outbound-rules"></a>Reglas de salida
 
@@ -193,7 +193,7 @@ Si desea agregar una regla de salida al equilibrador de carga, vaya a su equilib
 | Elegir por | Seleccione **Puertos por instancia**. |
 | Puertos por instancia | Escriba **10 000**. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Creación de un equilibrador de carga público" border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Adición de regla de salida" border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

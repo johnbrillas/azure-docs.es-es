@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86134953"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager con Azure Site Recovery
@@ -44,7 +44,7 @@ En caso de desastre, la Compañía A puede desencadenar una [conmutación por er
 
 En función de sus requisitos empresariales, la **Compañía A** puede elegir una [frecuencia de sondeo](../traffic-manager/traffic-manager-monitoring.md) mayor o menor para cambiar entre el entorno local y Azure en caso de desastre, y así garantizar un tiempo de inactividad mínimo para los usuarios.
 
-Cuando el desastre está controlado, la **Compañía A** puede conmutar por recuperación de Azure a su entorno local ([VMware](vmware-azure-failback.md) o [Hyper-V](hyper-v-azure-failback.md)) mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión **Principal** tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
+Cuando el desastre está controlado, la **Compañía A** puede conmutar por recuperación de Azure a su entorno local ([VMware](vmware-azure-failback.md) o [Hyper-V](hyper-v-azure-failback.md)) mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión Principal tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Migración del entorno local a Azure
 
@@ -79,7 +79,7 @@ En caso de desastre, la **Compañía C** puede desencadenar una [conmutación po
 
 En función de sus requisitos empresariales, la **Compañía C** puede elegir una [frecuencia de sondeo](../traffic-manager/traffic-manager-monitoring.md) mayor o menor para cambiar entre las regiones de origen y de recuperación, y así garantizar un tiempo de inactividad mínimo para los usuarios.
 
-Una vez controlado el desastre, la **Compañía C** puede conmutar por recuperación de la región de Azure de recuperación a la región de Azure de origen mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión **Principal** tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
+Una vez controlado el desastre, la **Compañía C** puede conmutar por recuperación de la región de Azure de recuperación a la región de Azure de origen mediante Azure Site Recovery. Luego, cuando Traffic Manager detecta que el punto de conexión Principal tiene de nuevo un estado correcto, lo usa automáticamente en sus respuestas DNS.
 
 ## <a name="protecting-multi-region-enterprise-applications"></a>Protección de aplicaciones empresariales de varias regiones
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6811a06eb3483fd53b6e566033935c3b2e00ceca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84887245"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas en tiempo real en Microsoft Azure CDN
@@ -60,7 +60,7 @@ En este documento se explican las alertas en tiempo real en Microsoft Azure CDN.
     ![Tipo de medio con objetos HTTP grande seleccionado](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > Necesita seleccionar **Objeto grande HTTP** en **Tipo de medio**.  **Azure CDN de Verizon**no usa las restantes opciones.  Si no se selecciona **HTTP Large Object** (Objeto HTTP grande), la alerta nunca se desencadenará.
+   > Necesita seleccionar **Objeto grande HTTP** en **Tipo de medio**.  **Azure CDN de Verizon** no usa las restantes opciones.  Si no se selecciona **HTTP Large Object** (Objeto HTTP grande), la alerta nunca se desencadenará.
    > 
    > 
 8. Cree la **expresión** que quiera supervisar (para hacerlo, seleccione una **métrica**, un **operador** y un **valor desencadenador**).
