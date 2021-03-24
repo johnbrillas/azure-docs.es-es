@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: e12b96883ae26b6c10e3622c35914ce498afca48
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f909f5714a049f63032c8a23ca1731777a40d332
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944432"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702868"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solución de errores de creación de clústeres con Azure HDInsight
 
@@ -65,7 +65,7 @@ Asegúrese de que no hay [bloqueos en la red virtual ni el grupo de recursos](..
 
 ## <a name="unsupported-component-versions"></a>Versiones de componentes no compatibles
 
-Asegúrese de que está usando una [versión compatible de Azure HDInsight](../hdinsight-component-versioning.md) y los [componentes de Apache Hadoop](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) en la solución.  
+Asegúrese de que está usando una [versión compatible de Azure HDInsight y un componente de Apache Hadoop](../hdinsight-component-versioning.md) en la solución.  
 
 ## <a name="storage-account-name-restrictions"></a>Restricciones en los nombres de cuentas de almacenamiento
 

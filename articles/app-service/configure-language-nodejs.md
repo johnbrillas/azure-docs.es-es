@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696020"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095201"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configuración de una aplicación de Node.js para Azure App Service
 
@@ -342,6 +342,19 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## <a name="monitor-with-application-insights"></a>Supervisión con Application Insights
+
+Application Insights permite supervisar el rendimiento, las excepciones y el uso de la aplicación sin realizar cambios en el código. Para asociar el agente de App Insights, vaya a la aplicación web en el portal y seleccione **Application Insights** en **Configuración** y elija **Activar Application Insights**. A continuación, seleccione un recurso de App Insights existente o cree uno. Por último, seleccione **Aplicar** en la parte inferior. Para instrumentar la aplicación web con PowerShell, consulte [estas instrucciones](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell).
+
+Este agente supervisará su aplicación de Node.js del lado servidor. Para supervisar el código JavaScript del lado cliente, [agregue el SDK de JavaScript al proyecto](../azure-monitor/app/javascript.md). 
+
+Para más información, consulte las [notas de la versión de la extensión de Application Insights](../azure-monitor/app/web-app-extension-release-notes.md).
+
+::: zone-end
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Cuando una aplicación de Node.js en funcionamiento se comporta de manera diferente en App Service o genera errores, intente lo siguiente:
@@ -370,4 +383,3 @@ Cuando una aplicación de Node.js en funcionamiento se comporta de manera difere
 > [P+F sobre App Service en Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

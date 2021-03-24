@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429269"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618005"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -80,8 +80,8 @@ En circunstancias normales, los clústeres implementados en dos regiones funcion
 - La BCDR de Azure Attestation proporcionará una conmutación por error fluida, en la que los clientes no tendrán que realizar ningún paso adicional para la recuperación.
 - El servicio de [Azure Traffic Manager](../traffic-manager/index.yml) para la región detectará que el sondeo de estado está degradado y cambiará el punto de conexión a la región emparejada.
 - Las conexiones existentes no funcionarán y recibirán problemas de tiempo de espera o errores internos del servidor.
-- Se bloquearán todas las operaciones del plano de control. Los clientes no podrán crear proveedores de atestación ni actualizar directivas en la región primaria.
-- Todas las operaciones del plano de datos, incluidas las atestaciones, seguirán funcionando en la región primaria.
+- Se bloquearán todas las operaciones del plano de control. Los clientes no podrán crear proveedores de atestación en la región primaria.
+- Todas las operaciones de plano de datos, incluidas las llamadas de atestación y la configuración de directiva, se atenderán en la región secundaria. Los clientes pueden seguir trabajando en las operaciones de plano de datos con el URI original correspondiente a la región primaria.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de los [conceptos básicos de Azure Attestation](basic-concepts.md)

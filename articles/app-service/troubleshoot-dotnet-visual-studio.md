@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576589"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095723"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -49,7 +49,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
    >
    >
 
-    Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](../role-based-access-control/role-assignments-portal.md).
+    Para más información sobre cómo conectarse a recursos de Azure desde Visual Studio, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
 3. Expanda el grupo de recursos que incluye la aplicación que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md) y luego haga clic con el botón derecho en el nodo de la aplicación y haga clic en **Ver configuración**.
 

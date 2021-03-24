@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018799"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581813"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -90,8 +90,8 @@ Estos son algunos patrones que muestran no solo cómo se puede controlar la peri
 | Hora de inicio | Periodicidad sin programación | Periodicidad con programación (desencadenador de periodicidad solo) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Ejecuta la primera carga de trabajo al instante. <p>Ejecuta futuras cargas de trabajo en función de la hora de la última ejecución. | Ejecuta la primera carga de trabajo al instante. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. |
-| Hora de inicio en el pasado | Desencadenador de **periodicidad**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y descarta las horas de ejecución anteriores. Ejecuta la primera carga de trabajo la hora de la próxima ejecución. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. <p><p>Desencadenador de **ventana deslizante**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y respeta las horas de ejecución anteriores. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de inicio especificada. <p><p>Para más información, vea el ejemplo a continuación de esta tabla. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
-| Hora de inicio en la actualidad o en el futuro | Ejecuta la primera carga de trabajo a la hora de inicio especificada. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
+| Hora de inicio en el pasado | Desencadenador de **periodicidad**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y descarta las horas de ejecución anteriores. <p><p>Ejecuta la primera carga de trabajo la hora de la próxima ejecución. <p><p>Ejecuta futuras cargas de trabajo en función de la hora de la última ejecución. <p><p>Desencadenador de **ventana deslizante**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y respeta las horas de ejecución anteriores. <p><p>Ejecuta futuras cargas de trabajo en función de la hora de inicio especificada. <p><p>Para más información, vea el ejemplo a continuación de esta tabla. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p><p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p><p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
+| Hora de inicio en la actualidad o en el futuro | Ejecuta la primera carga de trabajo a la hora de inicio especificada. <p><p>Desencadenador de **recurrencia**: ejecuta futuras cargas de trabajo en función de la hora de la última ejecución. <p><p>Desencadenador de **ventana deslizante**: ejecuta futuras cargas de trabajo en función de la hora de inicio especificada. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p><p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
 ||||
 
 *Ejemplo de una hora de inicio anterior con periodicidad, pero sin programación*
@@ -164,7 +164,7 @@ Si estas aplicaciones lógicas usan la zona UTC-6:00 de hora central (EE. UU. y
     | Date | Hora (local) | Hora (UTC) | Notas |
     |------|--------------|------------|-------|
     | 09/03/2019 | 2:30:00 a. m. | 8:30:00 a. m. | Hora UTC antes del día en que el horario de verano entra en vigor. |
-    | 10/03/2019 | 3:30:00 a. m. | 8:30:00 a. m. | El horario de verano ya está en vigor, por lo que la hora local se ha adelantado una hora porque la zona horaria UTC-6:00 cambia a UTC-5:00. Para obtener más información, consulte [Desencadenadores que comienzan entre 2:00 a. m. y 3:00 a. m.](#dst-window). |
+    | 10/03/2019 | 3:30:00 a. m. | 8:30:00 a. m. | El horario de verano ya está en vigor, por lo que la hora local se ha adelantado una hora porque la zona horaria UTC-6:00 cambia a UTC-5:00. Para obtener más información, consulte [Desencadenadores que comienzan entre 2:00 a. m. y 3:00 a. m](#dst-window). |
     | 11/03/2019 | 2:30:00 a. m. | 7:30:00 a. m. | Hora UTC atrasada una hora después de que el horario de verano entre en vigor. |
     |||||
 

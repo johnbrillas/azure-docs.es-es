@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530039"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579218"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos iOS concretos mediante Azure Notification Hubs
 
@@ -41,7 +41,7 @@ En este tutorial, realizará los siguientes pasos:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Este tema se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado el [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started].
+Este tema se basa en la aplicación creada en [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started]. Antes de iniciar este tutorial, debe haber completado primero [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adición de una selección de categorías a la aplicación
 
@@ -125,8 +125,6 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
@@ -193,7 +191,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
      }
     ```
 
-    Este método controla las notificaciones recibidas cuando la aplicación está en ejecución mostrando un **UIAlert**sencillo.
+    Este método controla las notificaciones recibidas cuando la aplicación está en ejecución mostrando un **UIAlert** sencillo.
 
 11. En `ViewController.m`, agregue una instrucción `import` para `AppDelegate.h` y copie el código siguiente en el método `subscribe` generado por XCode. Este código actualiza el registro de notificación para usar las nuevas etiquetas de categoría que el usuario ha elegido en la interfaz de usuario.
 

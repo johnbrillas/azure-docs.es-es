@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9e99318c526bb935d0e035fdbf59874249390da
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050946"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096459"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
@@ -64,10 +64,10 @@ Antes de conceder los permisos de la cuenta de ejecución, primero debe anotar e
 
 Para obtener pasos detallados sobre cómo agregar asignaciones de roles, consulte los artículos siguientes en función del método que desee usar.
 
-* [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
-* [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md)
-* [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](..//role-based-access-control/role-assignments-rest.md)
+* [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Asignación de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Asignación de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md)
+* [Asignación de roles de Azure mediante la API REST](..//role-based-access-control/role-assignments-rest.md)
 
 Después de asignar la cuenta de ejecución al rol, en el runbook especifique `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` para establecer el contexto de la suscripción que se va a usar. Para más información, consulte [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 

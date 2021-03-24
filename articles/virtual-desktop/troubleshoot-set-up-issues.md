@@ -3,15 +3,16 @@ title: 'Creación de entornos y grupos de hosts de Windows Virtual Desktop: Azur
 description: Cómo solucionar problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539634"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652452"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -49,9 +50,21 @@ Si la operación supera el límite de cuota, puede realizar una de las siguiente
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Error: Can't see user assignments in app groups. (No se pueden ver las asignaciones de usuario en los grupos de aplicaciones).
 
-Causa: Este error suele producirse después de haber migrado la suscripción de un inquilino de Azure Active Directory (AD) a otro. Si las asignaciones antiguas todavía están vinculadas al inquilino antiguo de Azure AD, Azure Portal perderá el seguimiento de ellas.
+**Causa**: Este error suele producirse después de haber migrado la suscripción de un inquilino de Azure Active Directory (AD) a otro. Si las asignaciones antiguas todavía están vinculadas al inquilino antiguo de Azure AD, Azure Portal perderá el seguimiento de ellas.
 
-Solución: Deberá volver a asignar los usuarios a los grupos de aplicaciones.
+**Solución**: Deberá volver a asignar los usuarios a los grupos de aplicaciones.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Solo veo "US" (EE. UU.) al establecer la ubicación de los objetos de servicio
+
+**Causa**: Azure actualmente no admite esa región para el servicio Windows Virtual Desktop. Para más información sobre las zonas geográficas admitidas, consulte [Ubicaciones de datos](data-locations.md). Si Windows Virtual Desktop admite la ubicación pero todavía no aparece cuando está intentando seleccionar una ubicación, significa que el proveedor de recursos todavía no se ha actualizado.
+
+**Corrección**: para obtener la lista más reciente de regiones, vuelva a registrar el proveedor de recursos:
+
+1. Vaya a **Suscripciones** y seleccione la suscripción adecuada.
+2. Seleccione **Proveedor de recursos**.
+3. Seleccione **Microsoft.DesktopVirtualization** y, a continuación, seleccione **Volver a registrar** en el menú de acciones.
+
+Al volver a registrar el proveedor de recursos, no verá ningún comentario o estado de actualización específico de la interfaz de usuario. El proceso de volver a registrar tampoco interferirá con los entornos existentes.
 
 ## <a name="azure-resource-manager-template-errors"></a>Errores de plantilla de Azure Resource Manager
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: ee392666a6c6807497eeac2a2291dac915c4e136
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761010"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644313"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -62,10 +62,10 @@ La versión preliminar de esta característica actualmente admite estas regiones
 
 Para habilitar la autenticación de Azure AD para las VM Windows en Azure, debe asegurarse de que la configuración de red de las VM permita el acceso de salida a los siguientes puntos de conexión a través del puerto TCP 443:
 
-- https:\//enterpriseregistration.windows.net
-- https:\//login.microsoftonline.com
-- https:\//device.login.microsoftonline.com
-- https:\//pas.windows.net
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
+- `https://pas.windows.net`
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar el inicio de sesión de Azure AD en VM Windows en Azure
 
@@ -98,9 +98,9 @@ Para crear una VM de Windows Server 2019 Datacenter en Azure con inicio de sesi�
 
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Cloud Shell incluye herramientas comunes de Azure preinstaladas y configuradas para que las use con su cuenta. Solo hay que seleccionar el botón Copiar para copiar el código, pegarlo en Cloud Shell y presionar Entrar para que se ejecute. Existen varias maneras de abrir Cloud Shell:
 
-Seleccione Pruébelo en la esquina superior derecha de un bloque de código.
-Abra Cloud Shell en el explorador.
-Seleccione el botón Cloud Shell en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com).
+- Seleccione **Pruébelo** en la esquina superior derecha de un bloque de código.
+- Abra Cloud Shell en el explorador.
+- Seleccione el botón Cloud Shell en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com).
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.31 o posterior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalar o actualizar, consulte el artículo [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -127,7 +127,7 @@ az vm create \
 
 La creación de la máquina virtual y los recursos auxiliares tarda unos minutos en realizarse.
 
-Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión AADLoginForWindows en la Vm denominada myVM en el grupo de recursos myResourceGroup:
+Por último, instale la extensión de VM de inicio de sesión de Azure AD para habilitar el inicio de sesión de Azure AD para la VM Windows. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión AADLoginForWindows en la máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`:
 
 > [!NOTE]
 > Puede instalar la extensión AADLoginForWindows en una VM existente de Windows Server 2019 o Windows 10 1809 y versiones posteriores para habilitarla para la autenticación de Azure AD. A continuación se muestra un ejemplo de la CLI de AZ.
@@ -194,9 +194,9 @@ az role assignment create \
 
 Para obtener más información sobre cómo usar RBAC de Azure para administrar el acceso a los recursos de la suscripción de Azure, consulte los siguientes artículos:
 
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Asignación de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="using-conditional-access"></a>Uso del acceso condicional
 
@@ -211,7 +211,7 @@ Puede aplicar directivas de acceso condicional, como la autenticación multifact
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Inicio de sesión mediante las credenciales de Azure AD en una VM Windows
 
 > [!IMPORTANT]
-> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están registrados en Azure AD (la compilación mínima requerida es 20H1), unidos a Azure AD o unidos a Azure AD híbrido en el **mismo** directorio que la máquina virtual. Además, para que RDP pueda usar las credenciales de Azure AD, el usuario debe pertenecer a uno de estos dos roles de Azure: Inicio de sesión de administrador de la máquina virtual o Inicio de sesión de usuario de la máquina virtual. Si usa un equipo con Windows 10 registrado en Azure AD, debe escribir las credenciales con el formato AzureAD\UPN (por ejemplo, AzureAD\john@contoso.com). En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows; solo se admite RDP directo.
+> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están registrados en Azure AD (la compilación mínima requerida es 20H1), unidos a Azure AD o unidos a Azure AD híbrido en el **mismo** directorio que la máquina virtual. Además, para que RDP pueda usar las credenciales de Azure AD, el usuario debe pertenecer a uno de estos dos roles de Azure: Inicio de sesión de administrador de la máquina virtual o Inicio de sesión de usuario de la máquina virtual. Si usa un equipo con Windows 10 registrado en Azure AD, debe escribir las credenciales con el formato `AzureAD\UPN` (por ejemplo, `AzureAD\john@contoso.com`). En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows; solo se admite RDP directo.
 
 Para iniciar sesión en la máquina virtual Windows Server 2019 mediante Azure AD: 
 
@@ -233,12 +233,12 @@ Habrá iniciado sesión en la máquina virtual Windows Server 2019 de Azure con 
 
 Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginForWindows se debe instalar correctamente. Si la extensión de la VM no se instala correctamente, realice los pasos siguientes.
 
-1. Establezca una conexión RDP a la máquina virtual con la cuenta de administrador local y examine el registro CommandExecution.log en  
+1. Establezca una conexión RDP a la máquina virtual con la cuenta de administrador local y examine el archivo `CommandExecution.log` en:
    
-   C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
 
    > [!NOTE]
-   > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como CommandExecution_AAAAMMDDHHMMSSSSS.log. "
+   > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como `CommandExecution_YYYYMMDDHHMMSSSSS.log`. "
 1. Abra un símbolo del sistema de PowerShell en la VM y compruebe estas consultas con el punto de conexión de Instance Metadata Service (IMDS) que se ejecuta en el host de Azure:
 
    | Comando para ejecutar | Salida prevista |
@@ -248,61 +248,61 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token de acceso válido que emite Azure Active Directory para la identidad administrada asignada a esta VM |
 
    > [!NOTE]
-   > El token de acceso se puede descodificar mediante una herramienta, como [http://calebb.net/](http://calebb.net/). Compruebe que el objeto "appid" del token de acceso coincide con la identidad administrada asignada a la VM.
+   > El token de acceso se puede descodificar mediante una herramienta, como [calebb.net](http://calebb.net/). Compruebe que el objeto `appid` del token de acceso coincide con la identidad administrada asignada a la máquina virtual.
 
 1. Asegúrese de que los punto de conexión necesarios sean accesibles desde la VM. Para ello, use la siguiente línea de comandos:
    
-   - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
 
    > [!NOTE]
    > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure.
 
-   - curl https:\//enterpriseregistration.windows.net/ -D -
-   - curl https:\//device.login.microsoftonline.com/ -D -
-   - curl https:\//pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. El estado del dispositivo se puede ver al ejecutar `dsregcmd /status`. El objetivo es que el estado del dispositivo se muestre como `AzureAdJoined : YES`.
 
    > [!NOTE]
-   > La actividad de unión a Azure AD se captura en el visor de eventos, en el registro de dispositivos Registration\Admin.
+   > Se captura la actividad de combinación de Azure AD en el Visor de eventos en el registro de `User Device Registration\Admin`.
 
 Si se produce un error en la extensión AADLoginForWindows con determinado código de error, puede realizar los pasos siguientes:
 
 #### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Problema 1: La extensión AADLoginForWindows no se puede instalar con el código de error de terminal "1007" y el código de salida:-2145648574.
 
-Este código de salida se convierte en DSREG_E_MSI_TENANTID_UNAVAILABLE porque la extensión no puede consultar la información del inquilino de Azure AD.
+Este código de salida se convierte en `DSREG_E_MSI_TENANTID_UNAVAILABLE` porque la extensión no puede consultar la información del inquilino de Azure AD.
 
 1. Compruebe que la VM de Azure puede recuperar el id. de inquilino de Instance Metadata Service.
 
    - Establezca una conexión RDP a la VM como administrador local y compruebe que el punto de conexión devuelve un id. de inquilino válido. Para ello, ejecute este comando desde una línea de comandos con privilegios elevados en la VM:
       
-      - curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. El administrador de la VM intenta instalar la extensión AADLoginForWindows, pero una identidad administrada asignada por el sistema no ha habilitado la VM en primer lugar. Vaya a la hoja identidad de la VM. En la pestaña Asignado por el sistema, compruebe que el estado es Activado.
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problema 2: La extensión AADLoginForWindows no se puede instalar con el código de salida:-2145648607
 
-Este código de salida se convierte en DSREG_AUTOJOIN_DISC_FAILED porque la extensión no puede alcanzar el punto de conexión de `https://enterpriseregistration.windows.net`.
+Este código de salida se convierte en `DSREG_AUTOJOIN_DISC_FAILED` porque la extensión no puede alcanzar el punto de conexión de `https://enterpriseregistration.windows.net`.
 
 1. Compruebe que los punto de conexión necesarios son accesibles desde la VM. Para ello, use la siguiente línea de comandos:
 
-   - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - `curl https://login.microsoftonline.com/ -D -`
+   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
    
    > [!NOTE]
-   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure. Si necesita buscar el id. de inquilino, puede mantener el mouse sobre el nombre de la cuenta para obtener el id. de directorio o inquilino, o bien seleccionar Azure Active Directory > Propiedades > Id. de directorio en Azure Portal.
+   > Reemplace `<TenantID>` por el identificador de inquilino Azure AD que está asociado a la suscripción de Azure. Si necesita buscar el id. de inquilino, puede mantener el mouse sobre el nombre de la cuenta para obtener el id. de directorio o inquilino, o bien seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
 
-   - curl https:\//enterpriseregistration.windows.net/ -D -
-   - curl https:\//device.login.microsoftonline.com/ -D -
-   - curl https:\//pas.windows.net/ -D -
+   - `curl https://enterpriseregistration.windows.net/ -D -`
+   - `curl https://device.login.microsoftonline.com/ -D -`
+   - `curl https://pas.windows.net/ -D -`
 
 1. Si en cualquiera de los comandos se produce el error "No se pudo resolver el host `<URL>`", intente ejecutar este comando para determinar el servidor DNS que la VM usa.
    
    `nslookup <URL>`
 
    > [!NOTE] 
-   > Reemplace `<URL>` por los nombres de dominio completos que los puntos de conexión usan, como "login.microsoftonline.com".
+   > Reemplace `<URL>` por los nombres de dominio completos que los puntos de conexión usan, como `login.microsoftonline.com`.
 
 1. A continuación, compruebe que la especificación de un servidor DNS público permite que el comando se ejecute correctamente:
 
@@ -322,7 +322,7 @@ Entre algunos de errores comunes al intentar usar RDP con las credenciales de Az
 
 Para ver el estado del dispositivo y SSO, ejecute `dsregcmd /status`. El objetivo es que el estado del dispositivo se muestre como `AzureAdJoined : YES` y `SSO State` para mostrar `AzureAdPrt : YES`.
 
-Además, el inicio de sesión de RDP mediante cuentas de Azure AD se captura en el visor de eventos, en los registros de eventos AAD\Operational.
+Además, el inicio de sesión de RDP mediante cuentas de Azure AD se captura en el visor de eventos, en los registros de eventos `AAD\Operational`.
 
 #### <a name="azure-role-not-assigned"></a>No hay ningún rol de Azure asignado
 
@@ -341,18 +341,18 @@ Compruebe que ha [configurado directivas de RBAC de Azure](../../virtual-machine
 
 Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remoto a la VM: 
 
-- Las credenciales no funcionaron.
+- las credenciales no han funcionado.
 
 ![Las credenciales no funcionaron.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
 Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](./overview.md)
 
 > [!NOTE]
-> La compilación 20H1 de Windows 10 agregó compatibilidad con un equipo registrado en Azure AD para iniciar la conexión RDP a la máquina virtual. Al usar un equipo registrado en Azure AD (no unido a Azure AD ni unido a Azure AD híbrido) como el cliente RDP para iniciar conexiones a la máquina virtual, debe escribir las credenciales con el formato AzureAD\UPn (por ejemplo, AzureAD\john@contoso.com).
+> La compilación 20H1 de Windows 10 agregó compatibilidad con un equipo registrado en Azure AD para iniciar la conexión RDP a la máquina virtual. Al usar un equipo registrado en Azure AD (no unido a Azure AD ni unido a Azure AD híbrido) como el cliente RDP para iniciar conexiones a la máquina virtual, debe escribir las credenciales con el formato `AzureAD\UPN` (por ejemplo, `AzureAD\john@contoso.com`).
 
 Compruebe que la extensión AADLoginForWindows no se ha desinstalado una vez terminada la unión a Azure AD.
 
-Además, asegúrese de que la directiva de seguridad "Seguridad de red: permitir solicitudes de autenticación PKU2U a este equipo para usar identidades en Internet" está habilitada en el servidor *y* el cliente.
+Además, asegúrese de que la directiva de seguridad "Seguridad de red: permitir solicitudes de autenticación PKU2U a este equipo para usar identidades en Internet" está habilitada en el servidor **y** el cliente.
  
 #### <a name="mfa-sign-in-method-required"></a>Se requiere el método de inicio de sesión MFA
 

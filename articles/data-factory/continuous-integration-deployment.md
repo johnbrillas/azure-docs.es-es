@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383609"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716539"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -199,7 +199,7 @@ El equipo de Data Factory ha proporcionado un [script de ejemplo anterior y post
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parámetros personalizados con la plantilla de Resource Manager
 
-Si la fábrica de desarrollo tiene un repositorio de Git asociado, puede invalidar los parámetros de plantilla de Resource Manager predeterminados de la plantilla de Resource Manager que se genera mediante la publicación o exportación de la plantilla. Es posible que desee reemplazar la plantilla de parametrización predeterminada en estos escenarios:
+Si la fábrica de desarrollo tiene un repositorio de Git asociado, puede invalidar los parámetros de plantilla de Resource Manager predeterminados de la plantilla de Resource Manager que se genera mediante la publicación o exportación de la plantilla. Es posible que desee reemplazar la configuración de parámetros de Resource Manager predeterminada en estos escenarios:
 
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
@@ -210,11 +210,14 @@ Si la fábrica de desarrollo tiene un repositorio de Git asociado, puede invalid
     * Refactorice la lógica en el flujo de datos para reducir los parámetros; por ejemplo, todos los parámetros de canalización tienen el mismo valor, solo puede usar parámetros globales en su lugar.
     * Divida una factoría de datos en varios flujos de datos.
 
-Para invalidar la plantilla de parametrización predeterminada, vaya al centro de administración y seleccione **Plantilla de parametrización** en la sección de control de código fuente. Seleccione **Editar plantilla** para abrir el editor de código de la plantilla de parametrización. 
+Para reemplazar la configuración de parámetros de Resource Manager predeterminada, vaya al centro **Administrar** y seleccione **Plantilla de ARM** en la sección "Control de código fuente". En la sección **Configuración de parámetros de ARM**, haga clic en el icono **Editar** en "Editar configuración de parámetros" para abrir el editor de código de configuración de parámetros de Resource Manager.
 
 ![Administración de parámetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
 
-Al crear una plantilla de parametrización personalizada se crea un archivo denominado **arm-template-parameters-definition.json** en la carpeta raíz de la rama de Git. Debe usar ese nombre de archivo exacto.
+> [!NOTE]
+> La **configuración del parámetros de ARM** solo está habilitada en "modo GIT". Actualmente está deshabilitada en el" modo activo" o el modo de "Data Factory".
+
+Al crear una configuración de parámetros de Resource Manager se crea un archivo denominado **arm-template-parameters-definition.json** en la carpeta raíz de la rama de Git. Debe usar ese nombre de archivo exacto.
 
 ![Archivo de parámetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ Al realizar la publicación desde la rama de colaboración, Data Factory leerá 
 Al exportar una plantilla de Resource Manager, Data Factory lee este archivo desde la rama en la que se está trabajando en ese momento, no la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración.
 
 > [!NOTE]
-> Una plantilla de parametrización personalizada no cambia el límite de 256 parámetros de plantilla de Resource Manager. Le permite elegir y reducir el número de propiedades parametrizadas.
+> Una configuración de parámetros de Resource Manager personalizada no cambia el límite de 256 parámetros de la plantilla de Resource Manager. Le permite elegir y reducir el número de propiedades parametrizadas.
 
 ### <a name="custom-parameter-syntax"></a>Sintaxis de los parámetros personalizados
 
@@ -244,7 +247,7 @@ A continuación se indican algunas de las instrucciones que se deben seguir para
  
 ### <a name="sample-parameterization-template"></a>Plantilla de parametrización de ejemplo
 
-En el ejemplo siguiente se muestra el aspecto que podría tener una plantilla de parametrización:
+Este es un ejemplo del aspecto que podría tener una configuración de parámetros de Resource Manager:
 
 ```json
 {

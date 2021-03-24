@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: dc1e54106e2f31c7390d784cba6f92cf775e963c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572689"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181455"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -42,6 +42,7 @@ Los siguientes permisos se usan en la identidad de clúster de AKS, que se crea 
 
 | Permiso | Motivo |
 |---|---|
+| Microsoft.ContainerService/managedClusters/*  <br/> | Necesario para la creación de usuarios y el funcionamiento del clúster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Se requiere para configurar el equilibrador de carga para un servicio LoadBalancer. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Se requiere para buscar y configurar direcciones IP públicas para un servicio LoadBalancer. |
 | Microsoft.Network/publicIPAddresses/join/action | Se requiere para configurar direcciones IP públicas para un servicio LoadBalancer. |

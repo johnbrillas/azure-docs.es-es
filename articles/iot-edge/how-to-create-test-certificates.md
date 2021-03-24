@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d82f1cac6e437663fa0b1c3e21c65036f3c1d4eb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927709"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046047"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -32,7 +32,7 @@ Siga estos pasos para crear certificados de demostración para probar el escenar
 1. [Configure scripts](#set-up-scripts) para la generación de certificados en el dispositivo.
 2. [Cree el certificado de CA raíz](#create-root-ca-certificate) que usa para firmar todos los demás certificados del escenario.
 3. Genere los certificados que necesita para el escenario que desea probar:
-   * [Cree certificados de identidad de dispositivo IoT Edge](#create-iot-edge-device-identity-certificates) para el aprovisionamiento automático con IoT Hub Device Provisioning Service.
+   * [Cree certificados de identidad de dispositivo de IoT Edge](#create-iot-edge-device-identity-certificates) para aprovisionar dispositivos con la autenticación de certificado X.509, ya sea manualmente o con IoT Hub Device Provisioning Service.
    * [Cree certificados de CA de dispositivo IoT Edge](#create-iot-edge-device-ca-certificates) para los dispositivos IoT Edge en escenarios de puerta de enlace.
    * [Cree certificados de dispositivo de bajada](#create-downstream-device-certificates) para la autenticación de dispositivos de bajada en un escenario de puerta de enlace.
 
@@ -163,7 +163,7 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
    New-CACertsCertChain rsa
    ```
 
-   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz** , use el siguiente archivo:
+   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz**, use el siguiente archivo:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,15 +177,15 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz** , use el siguiente archivo:
+   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz**, use el siguiente archivo:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Creación de certificados de identidad de dispositivo IoT Edge
 
-Los certificados de identidad de dispositivo se usan para aprovisionar dispositivos IoT Hub a través de Azure IoT Hub Device Provisioning Service (DPS).
+Los certificados de identidad de dispositivo se usan para aprovisionar dispositivos IoT Edge si decide usar la autenticación de certificado X.509. Estos certificados funcionan tanto si usa el aprovisionamiento manual como el automático a través de Azure IoT Hub Device Provisioning Service (DPS).
 
-Los certificados de identidad de dispositivo van en la sección **Aprovisionamiento** del archivo config.yaml en el dispositivo IoT Edge.
+Los certificados de identidad de dispositivo van en la sección **Provisioning** del archivo de configuración en el dispositivo IoT Edge.
 
 Antes de continuar con los pasos de esta sección, siga los descritos en las secciones [Configuración de scripts](#set-up-scripts) y [Creación de certificados de CA raíz](#create-root-ca-certificate).
 
@@ -223,11 +223,19 @@ El script crea varios archivos de certificado y clave, incluidos los tres que us
 
 ## <a name="create-iot-edge-device-ca-certificates"></a>Creación de certificados de CA de dispositivo IoT Edge
 
-Cada dispositivo IoT Edge que va a producción necesita un certificado de CA de dispositivo al que se hace referencia desde el archivo config.yaml.
+Cada dispositivo IoT Edge que va a producción necesita un certificado de CA de dispositivo al que se haga referencia desde el archivo de configuración.
 El certificado de CA de dispositivo es responsable de la creación de certificados para los módulos que se ejecutan en el dispositivo.
 También es necesario para los escenarios de puerta de enlace, ya que el certificado de entidad de certificación del dispositivo es la forma en que el dispositivo IoT Edge comprueba su identidad en los dispositivos de bajada.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Los certificados de CA de dispositivo van en la sección **Certificado** del archivo config.yaml en el dispositivo IoT Edge.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Los certificados de CA de dispositivo van en la sección **Edge CA** (CA de Edge) del archivo config.toml en el dispositivo IoT Edge.
+:::moniker-end
 
 Antes de continuar con los pasos de esta sección, siga los descritos en las secciones [Configuración de scripts](#set-up-scripts) y [Creación de certificados de CA raíz](#create-root-ca-certificate).
 
@@ -241,12 +249,12 @@ Antes de continuar con los pasos de esta sección, siga los descritos en las sec
    New-CACertsEdgeDevice "<CA cert name>"
    ```
 
-   Este comando crea varios archivos de claves y certificados. El siguiente certificado y el par de claves deben copiarse en un dispositivo IoT Edge y se puede hacer referencia a ellos en el archivo config.yaml:
+   Este comando crea varios archivos de claves y certificados. El siguiente certificado y el par de claves deben copiarse en un dispositivo IoT Edge y hacerse referencia en el archivo de configuración:
 
    * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
-El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con el parámetro hostname en config.yaml o el identificador de dispositivo en IoT Hub.
+El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con el parámetro hostname del archivo de configuración o el id. de dispositivo en IoT Hub.
 
 ### <a name="linux"></a>Linux
 
@@ -258,12 +266,12 @@ El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
-   Este comando de script crea varios archivos de claves y certificados. El siguiente certificado y el par de claves deben copiarse en un dispositivo IoT Edge y se puede hacer referencia a ellos en el archivo config.yaml:
+   Este comando de script crea varios archivos de claves y certificados. El siguiente certificado y el par de claves deben copiarse en un dispositivo IoT Edge y hacerse referencia en el archivo de configuración:
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-El nombre que se pasa al comando **create_edge_device_ca_certificate** no debe coincidir con el parámetro hostname en config.yaml ni con el identificador de dispositivo en IoT Hub.
+El nombre que se pasa al comando **create_edge_device_ca_certificate** no debe coincidir con el parámetro hostname del archivo de configuración ni con el id. de dispositivo en IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Creación de certificados de dispositivo de bajada
 

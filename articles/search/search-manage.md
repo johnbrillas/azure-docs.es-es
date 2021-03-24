@@ -9,18 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 814a5afbde548891a30d941365cdd71d227b4767
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935048"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674397"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
+> * [CLI de Azure](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [SDK de .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
@@ -139,7 +140,7 @@ Para ayudar en una futura planificación, es posible que quiera comprobar el esp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Automatización con [PowerShell](search-manage-powershell.md)
+* Automatización con [PowerShell](search-manage-powershell.md) o la [CLI de Azure](search-manage-azure-cli.md)
 
 * Revisión de las técnicas de [rendimiento y optimización](search-performance-optimization.md)
 

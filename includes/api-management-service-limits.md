@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/11/2021
+ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98147465"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622157"
 ---
 | Resource | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -34,6 +34,8 @@ ms.locfileid: "98147465"
 | Tamaño máximo de carga útil en búfer<sup>8</sup> | 2 MiB |
 | Tamaño máximo de la dirección URL de la solicitud<sup>9</sup> | 4096 bytes |
 | Longitud máxima del segmento de la ruta de acceso de la dirección URL<sup>10</sup> | 260 caracteres |
+| Tamaño máximo del esquema de API usado por la [directiva de validación](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
+| Tamaño máximo del cuerpo de solicitud o respuesta en la [directiva de validación de contenido](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
 | Número máximo de puertas de enlace autohospedadas<sup>11</sup> | 25 |
 
 <sup>1</sup>Los límites de escalado dependen del plan de tarifa. Para ver los planes de tarifa y sus límites de escalado, consulte [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>

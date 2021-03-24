@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935082"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592385"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Supervisión de solicitudes de consulta en Azure Cognitive Search
 
@@ -62,7 +62,7 @@ En todo el servicio, el rendimiento de las consultas se mide en términos de lat
 | Mínima | Consulta con la ejecución más corta del ejemplo.  | 
 | Total | Tiempo total de ejecución de todas las consultas del ejemplo que se ejecutan en el intervalo (un minuto).  |
 
-Analice el siguiente ejemplo de métricas de **latencia de búsqueda**: se muestrearon 86 consultas, con una duración media de 23,26 milisegundos. Un mínimo de 0 indica que se eliminaron algunas consultas. La consulta con la mayor duración tardó 1000 milisegundos en completarse. El tiempo de ejecución total fue de 2 segundos.
+Considere el siguiente ejemplo de métricas de **latencia de búsqueda**: se muestrearon 86 consultas, con una duración media de 23,26 milisegundos. Un mínimo de 0 indica que se eliminaron algunas consultas. La consulta con la mayor duración tardó 1000 milisegundos en completarse. El tiempo de ejecución total fue de 2 segundos.
 
 ![Agregaciones de latencia](./media/search-monitor-usage/metrics-latency.png "Agregaciones de latencia")
 
@@ -100,7 +100,7 @@ En la siguiente captura de pantalla, el primer número es el valor de "count" (o
 
 Para echar un vistazo a las cifras actuales, la pestaña **Supervisión** de la página de información general del servicio ofrece tres métricas (**Latencia de búsqueda**, **Consultas de búsqueda por segundo (por unidad de búsqueda)** , **Porcentaje de consultas de búsqueda limitadas**) en intervalos fijos que se miden en horas, días y semanas con la posibilidad de cambiar el tipo de agregación.
 
-Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](../azure-monitor/learn/tutorial-metrics-explorer.md).
+Para un análisis en profundidad, abra el explorador de métricas en el menú **Supervisión** para que pueda clasificar, ampliar y visualizar los datos en busca de tendencias o anomalías. Para más información sobre el explorador de métricas, realice este [tutorial sobre creación de un gráfico de métricas](../azure-monitor/essentials/tutorial-metrics-explorer.md).
 
 1. En la sección Supervisión, seleccione **Métricas** para que se abra el explorador de métricas con el ámbito establecido en el servicio de búsqueda.
 

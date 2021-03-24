@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684079"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092727"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Protección de una aplicación de página única con inicio de sesión no interactivo
 
@@ -111,7 +111,7 @@ Puede conceder el *control de acceso basado en roles de Azure (RBAC de Azure)* m
 
 2. En la pestaña **Asignaciones de roles**, en **Rol**, seleccione una definición de roles de Azure Maps integrada, como **Lector de datos de Azure Maps** o **Colaborador de datos de Azure Maps**. En **Asignar acceso a**, seleccione **Function App**. Seleccione la entidad de seguridad por nombre. Después, seleccione **Guardar**.
 
-   * Consulte más información en [Adición y eliminación de asignaciones de roles](../role-based-access-control/role-assignments-portal.md).
+   * Consulte los detalles sobre la [asignación de roles de Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > Las definiciones de roles de Azure Maps integradas proporcionan un acceso de autorización muy amplio a muchas API REST de Azure Maps. Para restringir al mínimo el acceso a las API, consulte cómo [crear una definición de roles personalizada y asignar la identidad asignada por el sistema](../role-based-access-control/custom-roles.md) a la definición de roles personalizada. Esto proporcionará el privilegio mínimo necesario para que la aplicación acceda a Azure Maps.

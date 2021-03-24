@@ -2,18 +2,18 @@
 title: Arquitectura para implementar aplicaciones de Oracle en Azure Virtual Machines | Microsoft Docs
 description: Arquitecturas de aplicaciones para implementar aplicaciones de Oracle como E-Business Suite, JD Edwards EnterpriseOne y PeopleSoft en Microsoft Azure Virtual Machines con bases de datos en Azure o en Oracle Cloud Infrastructure (OCI).
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: aa481090e3483e58f6a88304e3e9d8c1a16df3c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 862bb886c7ec5dfd40c7acdbae2f70f6698a711b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965925"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669929"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Arquitecturas para implementar aplicaciones de Oracle en Azure
 
@@ -102,7 +102,7 @@ La arquitectura también se puede adaptar para la implementación completamente 
 
 ![Arquitectura de JD Edwards EnterpriseOne solo para Azure](media/oracle-oci-applications/jdedwards-arch-azure.png)
 
-*Ilustración 4: Arquitectura de JD Edwards EnterpriseOne solo para Azure*
+*Figura 4: Arquitectura de JD Edwards EnterpriseOne solo para Azure*
 
 En las secciones siguientes se describen los distintos componentes en un nivel alto.
 
@@ -156,7 +156,7 @@ A continuación, se muestra una arquitectura canónica para implementar el conju
 
 ![Arquitectura entre nubes de PeopleSoft](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
-*Ilustración 5: Arquitectura entre nubes de PeopleSoft*
+*Figura 5: Arquitectura entre nubes de PeopleSoft*
 
 En esta arquitectura de ejemplo, la red virtual de Azure está conectada a la red de nube virtual en OCI mediante la interconexión entre nubes. La capa de aplicación está configurada en Azure, mientras que la base de datos se configura en OCI. Se recomienda implementar cada componente en su propia subred con grupos de seguridad de red para permitir el tráfico solo proveniente de subredes específicas en puertos específicos.
 
@@ -164,13 +164,13 @@ La arquitectura también se puede adaptar para la implementación completamente 
 
 ![Arquitectura de PeopleSoft solo para Azure](media/oracle-oci-applications/peoplesoft-arch-azure.png)
 
-*Ilustración 6: Arquitectura de PeopleSoft solo para Azure*
+*Figura 6: Arquitectura de PeopleSoft solo para Azure*
 
 En las secciones siguientes se describen los distintos componentes en un nivel alto.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
-### <a name="application-tier"></a>Capa de aplicación
+### <a name="application-tier"></a>Nivel de aplicación
 
 La capa de aplicación contiene instancias de los servidores de aplicación de PeopleSoft, servidores web de PeopleSoft, búsqueda elástica y el programador de procesos de PeopleSoft. Un equilibrador de carga de Azure está configurado para aceptar solicitudes de los usuarios que se enrutan al servidor adecuado en la capa de aplicación.
 

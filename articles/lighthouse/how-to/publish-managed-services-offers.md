@@ -1,14 +1,14 @@
 ---
 title: Publicación de una oferta de servicio administrado en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrado que incorpore clientes a Azure Lighthouse.
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555797"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092152"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicación de una oferta de servicio administrado en Azure Marketplace
 
@@ -33,6 +33,9 @@ La tabla siguiente puede ayudar a determinar si se deben incorporar clientes med
 |Se requiere la aceptación del cliente en Azure Portal     |Sí     |No   |
 |Se puede usar automatización para incorporar varias suscripciones, grupos de recursos o clientes |No     |Sí    |
 |Acceso inmediato a nuevos roles integrados y características de Azure Lighthouse     |No siempre (disponible generalmente después de un pequeño retraso)         |Sí         |
+
+> [!NOTE]
+> Es posible que las ofertas de servicios administrados no estén disponibles en Azure Government y otras nubes nacionales.
 
 ## <a name="create-your-offer"></a>Creación de la oferta
 

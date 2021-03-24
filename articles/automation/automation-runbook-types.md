@@ -3,14 +3,14 @@ title: Tipos de runbooks de Azure Automation
 description: En este artículo se describen los tipos de runbooks que puede usar en Azure Automation y las consideraciones de determinar qué tipo usar.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050976"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634896"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -100,14 +100,19 @@ Los runbooks del flujo de trabajo de PowerShell son runbooks de texto basados en
 
 ## <a name="python-runbooks"></a>Runbooks de Python
 
-Los runbooks de Python utilizan Python 2 y Python 3. Actualmente, los runbooks de Python 3 están en versión preliminar. Puede modificar directamente el código del runbook con el editor de texto en Azure Portal. También puede usar cualquier editor de texto sin conexión e [importar el runbook](manage-runbooks.md) en Azure Automation.
+Los runbooks de Python utilizan Python 2 y Python 3. Los runbooks de Python 3 se encuentran actualmente en versión preliminar. Puede modificar directamente el código del runbook con el editor de texto en Azure Portal. También puede usar cualquier editor de texto sin conexión e [importar el runbook](manage-runbooks.md) en Azure Automation.
+
+Los runbooks de Python 3 se admiten en las siguientes infraestructuras globales de Azure:
+
+* Azure Global
+* Azure Government
 
 ### <a name="advantages"></a>Ventajas
 
 * Use las sólidas bibliotecas de Python.
 * Se pueden ejecutar en Azure o en instancias de Hybrid Runbook Worker.
 * En el caso de Python 2, las instancias de Hybrid Runbook Worker de Windows son compatibles si [Python2.7](https://www.python.org/downloads/release/latest/python2) está instalado.
-* Para los trabajos en la nube de Python 3, se admite la versión 3.8 de Python. Es posible que los scripts y paquetes de cualquier versión 3.x funcionen si el código es compatible con distintas versiones.  
+* Para los trabajos en la nube de Python 3, se admite la versión 3.8 de Python. Los scripts y paquetes de cualquier versión 3.x podrían funcionar si el código es compatible con distintas versiones.  
 * En el caso de los trabajos híbridos de Python 3 en máquinas Windows, puede instalar cualquier versión 3. x que desee usar.  
 * Para los trabajos híbridos de Python 3 para Linux, depende de la versión de Python 3 instalada en el equipo para ejecutar DSC OMSConfig y Hybrid Worker para Linux. Se recomienda instalar la versión 3.6 en máquinas Linux. Sin embargo, otras versiones también deberían funcionar si no hay cambios importantes en los contratos o firmas de método entre versiones de Python 3.
 

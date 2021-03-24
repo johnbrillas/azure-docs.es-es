@@ -3,17 +3,17 @@ title: Diagnóstico y solución de problemas de disponibilidad de los SDK de Azu
 description: Obtenga información sobre el comportamiento de la disponibilidad del SDK de Azure Cosmos cuando se trabaja en entornos de varias regiones.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559690"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661433"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnóstico y solución de problemas de disponibilidad de los SDK de Azure Cosmos en entornos de varias regiones
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,6 +44,16 @@ Si **no establece una región preferida**, el cliente SDK utilizará la región 
 
 > [!NOTE]
 > La región primaria hace referencia a la primera región de la [lista de regiones de la cuenta de Azure Cosmos](distribute-data-globally.md).
+> Si los valores especificados como preferencia regional no coinciden con ninguna región de Azure existente, se omitirán. Si coinciden con una región existente pero la cuenta no se replica en ella, el cliente se conectará a la siguiente región preferida que coincida o a la región primaria.
+
+> [!WARNING]
+> La lógica de conmutación por error y de disponibilidad que se describe en este documento puede deshabilitarse en la configuración del cliente, lo que no se recomienda a menos que la aplicación del usuario controle los errores de disponibilidad por sí misma. Para lograr esto:
+>
+> * Establezca la propiedad [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) del SDK de .NET V2 en false.
+> * Establezca la propiedad [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) del SDK de .NET V3 en true.
+> * Establezca el método [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) del SDK de Java V4 en false.
+> * Establezca el parámetro [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) del SDK de Python en false.
+> * Establezca el parámetro [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) del SDK de JS en false.
 
 En circunstancias normales, el cliente SDK se conectará a la región preferida (si se ha establecido una preferencia regional) o a la región primaria (si no se ha establecido una preferencia); y las operaciones se limitarán a esa región, a menos que se produzca alguno de estos escenarios.
 
@@ -59,7 +69,7 @@ Para obtener información detallada sobre las garantías del Acuerdo de Nivel de
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region">Eliminación de una región de la cuenta</a>
 
-Al quitar una región de una cuenta de Azure Cosmos, cualquier cliente SDK que use activamente la cuenta detectará la eliminación de la región a través de un código de respuesta de back-end. Después, el cliente marca el punto de conexión regional como no disponible. El cliente reintentará la operación actual y todas las operaciones futuras se enrutarán permanentemente a la siguiente región en orden de preferencia.
+Al quitar una región de una cuenta de Azure Cosmos, cualquier cliente SDK que use activamente la cuenta detectará la eliminación de la región a través de un código de respuesta de back-end. Después, el cliente marca el punto de conexión regional como no disponible. El cliente reintentará la operación actual y todas las operaciones futuras se enrutarán permanentemente a la siguiente región en orden de preferencia. En caso de que la lista de preferencias tenga solo una entrada (o estaba vacía) pero la cuenta tenga otras regiones disponibles, se enrutará a la siguiente región de la lista de cuentas.
 
 ## <a name="adding-a-region-to-an-account"></a>Adición de una región a una cuenta
 

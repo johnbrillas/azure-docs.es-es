@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706044"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176154"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualización del estado de los trabajos de Azure Import/Export
 
 Este artículo proporciona información sobre cómo visualizar el estado de la unidad y los trabajos para los trabajos de Azure Import/Export. El servicio Azure Import/Export se usa para transferir de forma segura grandes cantidades de datos a los blobs de Azure y a Azure Files. El servicio también se usa para exportar datos desde Azure Blob Storage.  
 
 ## <a name="view-job-and-drive-status"></a>Visualización del estado de trabajos y unidades de disco
-Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde Azure Portal seleccionando la pestaña **Import/Export**. Aparece una lista de los trabajos en la página.
+Puede realizar el seguimiento del estado de sus trabajos de importación o exportación en la pestaña **Import/Export** de Azure Portal.
+1. Inicie sesión en https://portal.azure.com/.
+2. Busque los **trabajos de importación y exportación**.
 
-![Visualización del estado del trabajo](./media/storage-import-export-service/jobstate.png)
+    ![Buscar en trabajos de importación y exportación](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. Aparece una lista de los trabajos de importación y exportación en la página.
+
+    ![Visualización del estado del trabajo](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Seleccione y haga clic en el trabajo para ver sus detalles.
+
+   ![Visualización del estado detallado del trabajo](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Ver estado del trabajo
 
 Verá uno de los siguientes estados de trabajo en función de la fase del proceso en que se encuentre la unidad.
@@ -56,13 +67,13 @@ En la tabla siguiente se describe cada estado por el que puede pasar una unidad 
 
 Esta imagen de Azure Portal muestra el estado de la unidad de un trabajo de ejemplo:
 
-![Visualización de estado de la unidad](./media/storage-import-export-service/drivestate.png)
+![Visualización de estado de la unidad](./media/storage-import-export-view-drive-status/drive-state.png)
 
 En la tabla siguiente se describen los estados de error de la unidad y las medidas tomadas para cada estado.
 
 | Estado de la unidad | Evento | Resolución y paso siguiente |
 |:--- |:--- |:--- |
-| NeverReceived | Una unidad que está marcada como **NeverReceived** (porque no se recibió como parte del envío del trabajo) llega en otro envío. | El equipo de operaciones mueve a la unidad a **Received**. |
+| Nunca se recibió | Una unidad que está marcada como **NeverReceived** (porque no se recibió como parte del envío del trabajo) llega en otro envío. | El equipo de operaciones mueve a la unidad a **Received**. |
 | N/D | Una unidad que no forma parte de ningún trabajo llega al centro de datos como parte de otro trabajo. | La unidad está marcada como unidad extra. Se le devuelve cuando se complete el trabajo asociado al paquete original. |
 
 ## <a name="time-to-process-job"></a>Tiempo para procesar el trabajo

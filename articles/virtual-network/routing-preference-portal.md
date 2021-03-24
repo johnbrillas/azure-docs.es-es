@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217573"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672915"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal
 
@@ -30,22 +30,28 @@ En este artículo se muestra cómo configurar las [preferencias de enrutamiento]
 * Application Gateway
 * Azure Firewall
 
-De manera predeterminada, la preferencia de enrutamiento de la dirección IP pública se establece en la red global de Microsoft para todos los servicios de Azure y puede asociarse a cualquier servicio de Azure.
-
-> [!IMPORTANT]
-> La preferencia de enrutamiento se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+De forma predeterminada, la preferencia de enrutamiento de la dirección IP pública se establece en la red global de Microsoft para todos los servicios de Azure y puede asociarse a cualquier servicio de Azure.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Creación de una dirección IP pública con preferencia de enrutamiento
-1. Inicie sesión en [Azure Portal](https://preview.portal.azure.com/).
-2. Seleccione **Crear un recurso**. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Seleccione **Crear un recurso**.
 3. En el cuadro de búsqueda, escriba *Dirección IP pública*.
 3. En los resultados de la búsqueda, escriba **Dirección IP pública**. A continuación, en la página **Dirección IP pública** seleccione **Crear**.
-3. En las opciones de **Preferencias de enrutamiento**, seleccione **Internet**.
+1. En SKU, seleccione **Estándar**.
+1. En **Preferencias de enrutamiento**, seleccione **Internet**.
 
-      ![Creación de una dirección IP pública](./media/routing-preference-portal/pip-new.png)
+      ![Creación de una dirección IP pública](./media/routing-preference-portal/public-ip-new.png)
+1. En la sección **Configuración de dirección IP IPv4**, escriba o seleccione esta información:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | Subscription | Seleccione su suscripción.|
+    | Resource group | Seleccione **Crear nuevo**, escriba *RoutingPreferenceResourceGroup* y, a continuación, seleccione **Aceptar**. |
+    | Location | Seleccione **Este de EE. UU**.|
+    | Zona de disponibilidad | Mantenga el valor predeterminado: **Con redundancia de zona**. |
+1. Seleccione **Crear**.
 
     > [!NOTE]
     > Las direcciones IP públicas se crean con una dirección IPv4 o IPv6. Sin embargo, la preferencia de enrutamiento solo admite IPV4 actualmente.

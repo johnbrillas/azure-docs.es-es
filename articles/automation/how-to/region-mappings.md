@@ -1,20 +1,24 @@
 ---
 title: Regiones admitidas para el área de trabajo de Log Analytics vinculada
 description: En este artículo se describen las asignaciones de regiones admitidas entre una cuenta de Automation y un área de trabajo de Log Analytics en relación con ciertas características de Azure Automation.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720178"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiones admitidas para el área de trabajo de Log Analytics vinculada
 
 En Azure Automation, puede habilitar las características Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours para servidores y máquinas virtuales. Estas características tienen una dependencia en un área de trabajo de Log Analytics y, por tanto, requieren vincular el área de trabajo a una cuenta de Automation. Sin embargo, solo se admiten determinadas regiones para vincularlas. En general, la asignación *no* es aplicable si tiene previsto vincular una cuenta de Automation a un área de trabajo que no tenga habilitadas estas características.
+
+Las asignaciones que se describen aquí solo se aplican al vincular el área de trabajo de Log Analytics a una cuenta de Automation. No se aplican a las máquinas virtuales (VM) que están conectadas al área de trabajo que vinculada a la cuenta de Automation. Las máquinas virtuales no se limitan a las regiones admitidas por una área de trabajo de Log Analytics determinada. Pueden estar en cualquier región. Tenga en cuenta que tener las máquinas virtuales en una región distinta puede afectar a los requisitos legales de los diferentes niveles de la administración del Estado, o bien a los requisitos de cumplimiento de su empresa. Tener las máquinas virtuales en una región diferente también podría suponer cargos por ancho de banda de datos.
+
+Antes de conectar las máquinas virtuales a una área de trabajo en otra región, debe revisar los requisitos y los costos potenciales para confirmar y comprender las implicaciones legales y de costos.
 
 En este artículo se proporcionan las asignaciones admitidas para habilitar y usar correctamente estas características en su cuenta de Automation.
 
