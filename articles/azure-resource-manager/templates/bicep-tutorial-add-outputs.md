@@ -2,16 +2,16 @@
 title: 'Tutorial: Adición de salidas al archivo de Bicep de Azure Resource Manager'
 description: Agregue salidas a cualquier archivo de Bicep para simplificar la sintaxis.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce2d1044fb0e45a72ce34b14bb654974d29051dc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743023"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636281"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Tutorial: Adición de salidas al archivo de Bicep de Azure Resource Manager
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a devolver un valor de una implementación. Las sal
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre variables](bicep-tutorial-add-variables.md).
 
-Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte el apartado relativo a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
+Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte la sección relativa a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## <a name="review-bicep-file"></a>Examen de un archivo de Bicep
 
@@ -37,7 +37,7 @@ Este código implementa una cuenta de almacenamiento, pero no devuelve ninguna i
 
 Puede usar salidas para devolver valores de la implementación. Por ejemplo, puede resultar útil obtener los puntos de conexión de la nueva cuenta de almacenamiento.
 
-En el ejemplo siguiente se resalta el cambio en el archivo Bicep para agregar un valor de salida. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
+En el ejemplo siguiente se muestra el cambio que se realiza en el archivo Bicep para agregar un valor de salida. Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Hay algunos elementos importantes que se deben tener en cuenta sobre el valor de
 
 El tipo de valor devuelto se establece en `object`, lo que significa que devuelve un objeto de plantilla.
 
-Para obtener la propiedad `primaryEndpoints` de la cuenta de almacenamiento, use el nombre simbólico de la cuenta de almacenamiento.
+Para obtener la propiedad `primaryEndpoints` de la cuenta de almacenamiento, use el nombre simbólico de la cuenta de almacenamiento. La característica de autocompletar de Visual Studio Code presenta una lista completa de las propiedades:
+
+   ![Propiedades de objeto de nombre simbólico de Bicep de Visual Studio Code](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Implementación de un archivo de Bicep
 

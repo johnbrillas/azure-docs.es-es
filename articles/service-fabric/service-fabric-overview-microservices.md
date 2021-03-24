@@ -4,10 +4,10 @@ description: Información general sobre por qué la creación de aplicaciones de
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575659"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
@@ -42,7 +42,7 @@ La desventaja de los microservicios surge al tener que administrar un mayor núm
 
 Los estándares hacen que el enfoque de microservicios funcione al especificar un acuerdo sobre cómo llevar a cabo la comunicación y tolerar únicamente lo que se necesita de un servicio, en lugar de usar contratos rígidos. Es importante definir estos contratos por adelantado en el diseño, ya que los servicios se actualizan de forma independiente entre sí. Otra descripción acuñada para el diseño con el enfoque de microservicios es "arquitectura orientada a servicios (SOA) específica".
 
-***En su forma más simple, el enfoque de diseño de microservicios consiste en una federación desacoplada de servicios, con cambios independientes en cada uno, y estándares acordados para la comunicación.**
+***En su forma más simple, el enfoque de diseño de microservicios consiste en una federación desacoplada de servicios, con cambios independientes en cada uno, y estándares acordados para la comunicación.***
 
 A medida que se producen más aplicaciones en la nube, se ha descubierto que la descomposición de la aplicación global en servicios independientes centrados en escenarios es a largo plazo un mejor enfoque.
 
@@ -66,7 +66,7 @@ Cuando se usa un enfoque de microservicios, la aplicación se compone de muchos 
 
 Hay distintas definiciones de microservicios. No obstante, se suelen aceptar la mayoría de estas características de microservicios:
 
-Encapsulan un escenario de cliente o negocio. Qué problema está resolviendo
+* Encapsulan un escenario de cliente o negocio. Qué problema está resolviendo
 * Desarrollados por un pequeño equipo de ingenieros.
 * Escritos en cualquier lenguaje de programación y usando cualquier plataforma.
 * Constan de código y, opcionalmente, de un estado, ambos de los cuales se controlan para versiones, implementan y escalan de forma independiente.
@@ -76,7 +76,7 @@ Encapsulan un escenario de cliente o negocio. Qué problema está resolviendo
 
 Para resumirlo:
 
-***Las aplicaciones de microservicios se componen de servicios pequeños centrados en el cliente, escalables y con control de versiones independiente que se comunican entre sí mediante protocolos estándar con interfaces bien definidas.**
+***Las aplicaciones de microservicios se componen de servicios pequeños centrados en el cliente, escalables y con control de versiones independiente que se comunican entre sí mediante protocolos estándar con interfaces bien definidas.***
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Escritos en cualquier lenguaje de programación y usando cualquier plataforma.
 
@@ -94,9 +94,9 @@ Volvamos por un momento a nuestra comparación de los enfoques monolíticos y de
 
 ![Almacenamiento de estados de la plataforma Service Fabric][Image2]
 
-_*_El enfoque monolítico de la izquierda tiene una base de datos única y niveles de tecnologías específicas._*_
+***El enfoque monolítico de la izquierda tiene una base de datos única y niveles de tecnologías específicas.***
 
-_*_El enfoque de microservicios de la derecha tiene un gráfico de microservicios interconectados donde el estado normalmente tiene como ámbito el microservicio y se usan diversas tecnologías._*_
+***El enfoque de microservicios de la derecha tiene un gráfico de microservicios interconectados donde el estado normalmente tiene como ámbito el microservicio y se usan diversas tecnologías.***
 
 En un enfoque monolítico, normalmente la aplicación usa una base de datos única. La ventaja de usar una base de datos es que está en una única ubicación, lo que facilita la implementación. Cada componente puede tener una única tabla para almacenar su estado. Los equipos tienen que separar el estado estrictamente, lo cual supone un reto. Inevitablemente, existe la tentación de agregar una columna a una tabla de clientes existente, realizar una combinación entre tablas y crear dependencias en la capa de almacenamiento. Tras esto, no es posible escalar los componentes individuales.
 
@@ -126,7 +126,7 @@ La resistencia es difícil de conseguir cuando se producen errores durante la ac
 
 Aunque pueda parecer obvio, y a menudo se pase por alto, un microservicio debe informar sobre su mantenimiento y diagnóstico. De lo contrario, se dispondrá de poca información sobre su mantenimiento desde la perspectiva de las operaciones. Correlacionar eventos de diagnóstico en un conjunto de servicios independientes y enfrentarse a sesgos del reloj de las máquinas para entender el orden de eventos presenta dificultades. De la misma manera que se interactúa con un microservicio por medio de protocolos y formatos de datos acordados, es necesario normalizar la forma en que se registran los eventos de mantenimiento y diagnóstico que, en último término, terminarán en un almacén de eventos donde se pueden consultar y ver. Con un enfoque de microservicios, es fundamental que los diferentes equipos acuerden un único formato de registro. Debe haber un enfoque coherente para poder ver los eventos de diagnóstico en la aplicación como un todo.
 
-El estado es diferente de los diagnósticos. El mantenimiento hace referencia a que el microservicio notifica su estado actual para que se puedan llevar a cabo las acciones adecuadas. Un buen ejemplo es colaborar con los mecanismos de actualización e implementación para mantener la disponibilidad. Aunque un servicio puede tener un estado incorrecto debido a un bloqueo de un proceso o al reinicio de la máquina, puede seguir operativo. En este caso, lo menos recomendable es iniciar una actualización. El mejor enfoque es investigar primero, o bien dejar tiempo para que el microservicio se recupere. Los eventos de mantenimiento de un microservicio permiten tomar decisiones fundamentadas y, de hecho, ayudan a crear servicios de recuperación automática.
+El estado es diferente de los diagnósticos. El estado trata de cuando el microservicio informa sobre su estado actual para que se tomen las medidas oportunas. Un buen ejemplo es colaborar con los mecanismos de actualización e implementación para mantener la disponibilidad. Aunque un servicio puede tener un estado incorrecto debido a un bloqueo de un proceso o al reinicio de la máquina, puede seguir operativo. En este caso, lo menos recomendable es iniciar una actualización. El mejor enfoque es investigar primero, o bien dejar tiempo para que el microservicio se recupere. Los eventos de mantenimiento de un microservicio permiten tomar decisiones fundamentadas y, de hecho, ayudan a crear servicios de recuperación automática.
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Guía para el diseño de microservicios en Azure
 
@@ -136,18 +136,18 @@ Visite el Centro de arquitectura de Azure para una guía sobre el [diseño y cre
 
 Azure Service Fabric surgió cuando Microsoft pasó de ofrecer productos embalados, que eran habitualmente monolíticos, a ofrecer servicios. La experiencia de crear y operar servicios grandes, como Azure SQL Database y Azure Cosmos DB, dio forma a Service Fabric. La plataforma evolucionó con el tiempo a medida que la fueron adoptando más servicios. Service Fabric tenía que ejecutarse no solo en Azure, sino también en implementaciones independientes de Windows Server.
 
-_*_El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura, para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios._*_
+***El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura, para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios.***
 
 En este breve vídeo se presentan Service Fabric y los microservicios:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric ayuda a crear aplicaciones que usan un enfoque de microservicios al ofrecer:
 
-Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar servicios, enrutar mensajes, administrar el estado y supervisar el mantenimiento.
+* Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar servicios, enrutar mensajes, administrar el estado y supervisar el mantenimiento.
 * La posibilidad de implementar aplicaciones que se ejecuten en contenedores o como procesos. Service Fabric es un organizador de contenedores y proceso.
 * API de programación productivas que le ayudan a crear aplicaciones como microservicios: [ASP.NET Core, Reliable Actors y Reliable Services](service-fabric-choose-framework.md). Por ejemplo, es posible obtener información de estado y de diagnóstico, o se puede aprovechar la alta disponibilidad integrada.
 
-***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la creación de microservicios.**
+***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la creación de microservicios.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migración de aplicaciones existentes a Service Fabric
 
@@ -161,7 +161,7 @@ Service Fabric permite reutilizar código existente y modernizarse con nuevos mi
 
 ![Migración a microservicios][Image3]
 
-Recuerde que puede iniciar y detenerse en cualquiera de estas fases. No tiene que avanzar a la siguiente fase. 
+Recuerde que puede *iniciar y detenerse en cualquiera de estas fases*. No tiene que avanzar a la siguiente fase. 
 
 Veamos ejemplos de cada una de las fases.
 

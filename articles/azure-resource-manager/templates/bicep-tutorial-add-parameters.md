@@ -2,15 +2,15 @@
 title: 'Tutorial: Adición de parámetros a un archivo de Bicep de Azure Resource Manager'
 description: Agregue parámetros a un archivo de Bicep para que se pueda volver a usar.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743024"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632788"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>Tutorial: Adición de parámetros a un archivo de Bicep de Azure Resource Manager
 
@@ -34,7 +34,7 @@ Es posible que haya observado que existe un problema con este archivo de Bicep. 
 
 ## <a name="make-bicep-file-reusable"></a>Reutilización de un archivo de Bicep
 
-Para que el archivo de Bicep se pueda volver a usar, vamos a agregar un parámetro que puede usar para pasar un nombre de cuenta de almacenamiento. El Bicep resaltado en el ejemplo siguiente muestra lo que ha cambiado en el archivo. El parámetro `storageName` se identifica como una cadena. La longitud máxima se establece en 24 caracteres para evitar que los nombres sean demasiado largos.
+Para que el archivo de Bicep se pueda volver a usar, vamos a agregar un parámetro que puede usar para pasar un nombre de cuenta de almacenamiento. El siguiente archivo Bicep muestra lo que ha cambiado en el archivo. El parámetro `storageName` se identifica como una cadena. La longitud máxima se establece en 24 caracteres para evitar que los nombres sean demasiado largos.
 
 Copie todo el archivo y reemplácelo por el contenido siguiente.
 
