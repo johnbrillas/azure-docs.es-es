@@ -1,5 +1,5 @@
 ---
-title: Historial de lanzamiento de versiones
+title: Historial de lanzamientos de versiones
 titleSuffix: Microsoft Genomics
 description: El historial de versiones de actualizaciones al cliente de Python de Microsoft Genomics para obtener correcciones y funcionalidades nuevas.
 services: genomics
@@ -10,13 +10,13 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76991089"
 ---
-# <a name="version-release-history"></a>Historial de lanzamiento de versiones
+# <a name="version-release-history"></a>Historial de lanzamientos de versiones
 El equipo de Microsoft Genomics actualiza de manera habitual el cliente Python de Microsoft Genomics para obtener correcciones y funcionalidades nuevas. 
 
 ## <a name="latest-release"></a>Versión más reciente
@@ -27,7 +27,7 @@ La versión del cliente Python actual es la 0.9.0. Se lanzó el 6 febrero de 201
 Las versiones nuevas del cliente Python de Microsoft Genomics se lanzan una vez al año. Cuando se lanzan versiones nuevas del cliente Python de Microsoft Genomics, aquí se actualiza una lista de las correcciones y características. Cuando se lanzan versiones nuevas, se seguirá brindando soporte técnico a las versiones anteriores al menos por 90 días. En esta página se indicará cuando ya no se brinde soporte técnico a las versiones anteriores. 
 
 ### <a name="version-090"></a>Versión 0.9.0
-La versión 0.9.0 incluye compatibilidad con la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida de vcf o gvcf. Para más información, consulte las [preguntas frecuentes](frequently-asked-questions-genomics.md). 
+La versión 0.9.0 incluye compatibilidad con la compresión de salida. Esto es equivalente a ejecutar `-bgzip` seguido de `-tabix` en la salida de vcf o gvcf. Para más información, consulte [Preguntas más frecuentes](frequently-asked-questions-genomics.md). 
 
 ### <a name="version-081"></a>Versión 0.8.1
 La versión 0.8.1 incluye correcciones de errores menores.  

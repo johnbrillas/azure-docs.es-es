@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596712"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos de Azure Media Services
 
-Azure Media Services v3 emite eventos en [Azure Event Grid](media-services-event-schemas.md). Puede suscribirse a los eventos de muchas maneras y almacenarlos en almacenes de datos. En este tutorial, se suscribirá a los eventos de Media Services mediante un [flujo de Logic Apps](https://azure.microsoft.com/services/logic-apps/). La instancia de Logic Apps se desencadenará para cada evento y almacenará el cuerpo del evento en Azure Log Analytics. Una vez que los eventos se encuentran en Azure Log Analytics, puede usar otros servicios de Azure para crear un panel, un monitor y una alerta de estos eventos, aunque no vamos a cubrir eso en este tutorial.
+Azure Media Services v3 emite eventos en [Azure Event Grid](monitoring/media-services-event-schemas.md). Puede suscribirse a los eventos de muchas maneras y almacenarlos en almacenes de datos. En este tutorial, se suscribirá a los eventos de Media Services mediante un [flujo de Logic Apps](https://azure.microsoft.com/services/logic-apps/). La instancia de Logic Apps se desencadenará para cada evento y almacenará el cuerpo del evento en Azure Log Analytics. Una vez que los eventos se encuentran en Azure Log Analytics, puede usar otros servicios de Azure para crear un panel, un monitor y una alerta de estos eventos, aunque no vamos a cubrir eso en este tutorial.
 
 > [!NOTE]
 > Resultaría útil si ya está familiarizado con el uso de FFmpeg como codificador en el entorno local.  Si no lo está, está bien. A continuación se incluye la línea de comandos y las instrucciones para la transmisión de un vídeo.

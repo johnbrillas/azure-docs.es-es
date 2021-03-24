@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018331"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: preguntas frecuentes
@@ -44,8 +44,8 @@ Los comandos más usados son argumentos del cliente `msgen` e incluyen:
  |:--------------------|:-------------         |
  |`list`               |Devuelve una lista con los trabajos que se han enviado. Para ver los argumentos, consulte `msgen help list`.  |
  |`submit`             |Envía una solicitud de flujo de trabajo al servicio. Para ver los argumentos, consulte `msgen help submit`.|
- |`status`             |Devuelve el estado del flujo de trabajo que especificó `--workflow-id`. Consulte también `msgen help status`. |
- |`cancel`             |Envía una solicitud para cancelar el procesamiento del flujo de trabajo que especificó `--workflow-id`. Consulte también `msgen help cancel`. |
+ |`status`             |Devuelve el estado del flujo de trabajo que especificó `--workflow-id`. Vea también `msgen help status`. |
+ |`cancel`             |Envía una solicitud para cancelar el procesamiento del flujo de trabajo que especificó `--workflow-id`. Vea también `msgen help cancel`. |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>¿Dónde se puede obtener el valor de `--api-url-base`?
 Vaya a Azure Portal y abra la página de la cuenta de Genomics. En el encabezado **Administración**, elija **Claves de acceso**. Allí encontrará la URL de la API y las claves de acceso.
@@ -80,7 +80,7 @@ msgen comprende los archivos de configuración en el formato siguiente:
 
   |Argumento de línea de comandos            | Línea del archivo de configuración |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 

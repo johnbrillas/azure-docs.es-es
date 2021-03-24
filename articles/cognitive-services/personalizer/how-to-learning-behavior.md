@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579298"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configuración del comportamiento de aprendizaje de Personalizer
@@ -53,7 +53,7 @@ En Azure Portal, en la página **Evaluaciones** del recurso de Personalizer, rev
 > ![Captura de pantalla de revisión de la evaluación del comportamiento de aprendizaje del modo de aprendiz en Azure Portal](media/settings/evaluate-apprentice-mode.png)
 
 El modo de aprendiz proporciona las siguientes **métricas de evaluación**:
-* **Línea de base: promedio de recompensa**.  Promedio de recompensas del valor predeterminado de la aplicación (línea de base).
+* **Línea de base: promedio de recompensa**:  Promedio de recompensas del valor predeterminado de la aplicación (línea de base).
 * **Personalizer: promedio de recompensa**. Promedio de recompensas totales que Personalizer puede haber alcanzado.
 * **Proporción de logros de recompensas en los 1000 eventos más recientes**. Proporción de recompensas de línea de base y de Personalizer, normalizados con los últimos 1000 eventos.
 

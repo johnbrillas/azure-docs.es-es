@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: d3c8a08a14b23492c4bf032dd2b722c59bdf80ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: de17bf02392f0bb05820fabba3f9057e067391cf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930090"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865917"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
@@ -33,7 +33,7 @@ Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguaj
 
 2. En la página web de Jupyter, seleccione **New** (Nuevo)  > **PySpark** para crear un cuaderno.
 
-   ![Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas")
+   :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas" border="true":::
 
    Se crea y se abre un nuevo cuaderno con el nombre Untitled(`Untitled.ipynb`).
 
@@ -44,7 +44,7 @@ Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguaj
 
 Las aplicaciones pueden crear tramas de datos directamente desde archivos o carpetas del almacenamiento remoto, como Azure Storage o Azure Data Lake Storage; desde una tabla de Hive; o desde otros orígenes de datos compatibles con Spark, como Cosmos DB, Azure SQL DB, DW, etc. La captura de pantalla siguiente muestra una instantánea del archivo HVAC.csv que se usa en este tutorial. El archivo csv incluye todos los clústeres de HDInsight Spark. Los datos capturan las variaciones de temperatura de varios edificios.
 
-![Instantánea de los datos para la consulta Spark SQL interactiva](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantánea de los datos para la consulta Spark SQL interactiva")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png " alt-text="Instantánea de los datos para la consulta Spark SQL interactiva" border="true":::
 
 1. Pegue el código siguiente en una celda vacía del cuaderno de Jupyter Notebook y presione **MAYÚS + ENTRAR** para ejecutarlo. El código importa los tipos necesarios para este escenario:
 
@@ -55,7 +55,7 @@ Las aplicaciones pueden crear tramas de datos directamente desde archivos o carp
 
     Al ejecutar una consulta interactiva en Jupyter, la ventana del explorador web o la leyenda de la pestaña muestran el estado **(Busy)** [(Ocupado)] junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha. Cuando finaliza el trabajo, cambia a un círculo vacío.
 
-    ![Estado de una consulta Spark SQL interactiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Estado de una consulta Spark SQL interactiva")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="Estado de una consulta Spark SQL interactiva" border="true":::
 
 1. Anote el identificador de sesión devuelto. En la imagen anterior, el identificador de sesión es 0. Si lo desea, puede recuperar los detalles de la sesión. Para ello, vaya a `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`, donde CLUSTERNAME es el nombre del clúster de Spark y el identificador es el número de identificación de la sesión.
 
@@ -80,11 +80,11 @@ Una vez creada la tabla, puede ejecutar una consulta interactiva en los datos.
 
    Se muestra la siguiente salida tabular.
 
-     ![Salida de tabla del resultado de la consulta Spark interactiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Salida de tabla del resultado de la consulta Spark interactiva")
+     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png " alt-text="Salida de tabla del resultado de la consulta Spark interactiva" border="true":::
 
 2. También puede ver la salida en otras visualizaciones. Para ver un gráfico de áreas para la misma salida, seleccione **Área** y establezca otros valores tal como se muestra.
 
-    ![Gráfico de área del resultado de la consulta Spark interactiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gráfico de área del resultado de la consulta Spark interactiva")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png " alt-text="Gráfico de área del resultado de la consulta Spark interactiva" border="true":::
 
 3. En la barra de menús de cuaderno, vaya a **Archivo** > **Save and Checkpoint** (Guardar y punto de control).
 
@@ -96,7 +96,7 @@ Con HDInsight, los datos y los cuadernos de Jupyter Notebook se almacenan en Azu
 
 Abra el clúster en Azure Portal y seleccione **Eliminar**.
 
-![Eliminación de un clúster de HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png " alt-text="Eliminación de un clúster de HDInsight" border="true":::
 
 También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight Spark como la cuenta de almacenamiento predeterminada.
 

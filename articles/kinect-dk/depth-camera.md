@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276955"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Cámara de profundidad de Azure Kinect DK
@@ -56,7 +56,7 @@ El error sistemático se define como la diferencia entre la profundidad medida d
 
 ![Error sistemático de profundidad](./media/concepts/depth-camera-systematic-error.png)
 
-Donde *d<sub>t</sub>* indica la profundidad de medida en el tiempo *t*, *N* es el número de fotogramas usados en el procedimiento de cálculo del promedio y *d<sub>gt</sub>* es la profundidad de verdad terreno.
+Donde *d <sub>t</sub>* indica la profundidad de medida en el tiempo *t*, *N* es el número de fotogramas usados en el procedimiento de cálculo del promedio y *d <sub>gt</sub>* es la profundidad de verdad terreno.
 
 La especificación de los errores sistemáticos de la cámara de profundidad excluye la interferencia debida a trayectos múltiples (MPI). MPI se produce cuando un píxel del sensor integra la luz que refleja más de un objeto. Para reducir parcialmente este fenómeno en la cámara de profundidad, se emplean frecuencias de modulación más altas, junto con la invalidación de profundidad, que se tratará más adelante.
 
@@ -66,7 +66,7 @@ Supongamos que tomamos 100 imágenes del mismo objeto sin mover la cámara. La p
 
 ![Error aleatorio de profundidad](./media/concepts/depth-camera-random-error.png)
 
-Donde *N* indica el número de medidas de profundidad, *d<sub>t</sub>* representa la medida de profundidad en el tiempo *t* y *d* indica el valor medio calculado de todas las medidas de profundidad *d<sub>t</sub>* .
+Donde *N* indica el número de medidas de profundidad, *d <sub>t</sub>* representa la medida de profundidad en el tiempo *t* y *d* indica el valor medio calculado de todas las medidas de profundidad *d <sub>t</sub>* .
 
 ## <a name="invalidation"></a>Invalidación
 

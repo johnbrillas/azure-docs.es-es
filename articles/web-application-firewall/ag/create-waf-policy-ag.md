@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518828"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Cree directivas del Firewall de aplicaciones web para Application Gateway
@@ -37,7 +37,7 @@ En primer lugar, cree una directiva básica de WAF con un conjunto de reglas pre
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF regional (Application Gateway)|
-   |Suscripción     |Seleccione el nombre de la suscripción|
+   |Subscription     |Seleccione el nombre de la suscripción|
    |Resource group     |Seleccionar el grupo de recursos|
    |Nombre de la directiva     |Escriba un nombre único para la directiva WAF.|
 3. En la pestaña de **Asociación**, especifique una de las siguientes opciones y, después, seleccione **Agregar**:
