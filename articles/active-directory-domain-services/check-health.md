@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620331"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado de Azure Active Directory Domain Services
@@ -38,7 +38,7 @@ La marca de tiempo *Última evaluación* de la página de estado muestra cuándo
 
 El estado en la parte superior derecha indica el estado general del dominio administrado. Los factores de estado se tienen en cuenta en todas las alertas existentes en su dominio. En la siguiente tabla se detallan los indicadores de estado disponibles:
 
-| Estado | Icono | Explicación |
+| Status | Icono | Explicación |
 | --- | :----: | --- |
 | En ejecución | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | El dominio administrado se ejecuta correctamente y no tiene ninguna alerta crítica o de advertencia. El dominio puede tener alertas informativas. |
 | Requiere atención (advertencia) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | No hay alertas críticas en el dominio administrado, pero hay una o varias alertas de advertencia que se deben solucionar. |

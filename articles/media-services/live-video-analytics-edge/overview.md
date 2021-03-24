@@ -4,10 +4,10 @@ description: En este tema se proporciona información general sobre Live Video A
 ms.topic: overview
 ms.date: 05/27/2020
 ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90904359"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>¿Qué es Live Video Analytics on IoT Edge? (versión preliminar)
@@ -40,7 +40,7 @@ Lea los siguientes artículos sobre conceptos y pruebe un inicio rápido para ej
 * [Grafo de elementos multimedia](media-graph-concept.md)
 * [Grabación de vídeo](video-recording-concept.md)
 * [Reproducción de vídeo](video-playback-concept.md)
-* [Grabación continua de vídeo](continuous-video-recording-concept.md)
+* [Grabación de vídeo continua](continuous-video-recording-concept.md)
 * [Grabación de vídeo basada en eventos](event-based-video-recording-concept.md)
 * [Análisis de vídeos en vivo sin grabación de vídeo](analyze-live-video-concept.md)
 

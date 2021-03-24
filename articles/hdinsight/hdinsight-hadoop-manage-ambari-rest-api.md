@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945578"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
@@ -20,7 +20,7 @@ Aprenda a usar la API REST de Apache Ambari para administrar y supervisar clúst
 
 ## <a name="what-is-apache-ambari"></a>¿Qué es Apache Ambari?
 
-Apache Ambari simplifica la administración y la supervisión de los clústeres de Hadoop al proporcionar una interfaz de usuario web fácil de usar y respaldada por sus [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
+Apache Ambari simplifica la administración y la supervisión de los clústeres de Apache Hadoop al brindar una interfaz de usuario web fácil de usar y respaldada por sus [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -30,7 +30,7 @@ Apache Ambari simplifica la administración y la supervisión de los clústeres 
 
 * jq, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* Windows PowerShell.  También puede usar Bash.
+* Windows PowerShell.  O puede utilizar Bash.
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificador uniforme de recursos base para la API REST de Ambari
 

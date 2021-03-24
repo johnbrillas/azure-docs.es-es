@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d1607ef4ff277f9c9cdb55db3e58da1052a00756
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: cec391ba998165af4dd9339b719a3b73cb330c16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558411"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601797"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitación de Azure Disk Encryption con Azure AD en máquinas virtuales Linux (versión anterior)
 
@@ -210,7 +210,7 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 - Agregue los discos de datos que componen la máquina virtual.
 - Formatee, monte y agregue estos discos al archivo fstab.
 
-    1. Formatee el disco recién agregado. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte [Solución de problemas de nombres de dispositivo](../troubleshooting/troubleshoot-device-names-problems.md).
+    1. Formatee el disco recién agregado. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte [Solución de problemas de nombres de dispositivo](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -266,7 +266,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Puede agregar un nuevo disco de datos mediante [az vm disk attach](add-disk.md) o [Azure Portal](attach-disk-portal.md). Para poder cifrarlo, deberá montar primero el disco de datos recién asociado. Dado que la unidad de datos no se puede usar mientras el cifrado está en curso, deberá solicitar el cifrado de la unidad. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Habilitación del cifrado en un disco recién agregado con la CLI de Azure
- Si la máquina virtual se cifró previamente con "All", el parámetro --volume-type debe permanecer como "All". All incluye los discos de datos y del SO. Si la máquina virtual se cifró previamente con el tipo de volumen "OS", el parámetro --volume-type se debe cambiar a "All", con el fin de que se incluyan tanto el nuevo disco de datos como el sistema operativo. Si la VM solo se cifró con el tipo de volumen de "Data", puede permanecer como "Data", tal y como se muestra aquí. Para preparar el cifrado, no es suficiente con agregar y conectar un nuevo disco de datos a una máquina virtual. El disco recién conectado también se debe formatear y montar correctamente en la máquina virtual antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](../troubleshooting/troubleshoot-device-names-problems.md). 
+ Si la máquina virtual se cifró previamente con "All", el parámetro --volume-type debe permanecer como "All". All incluye los discos de datos y del SO. Si la máquina virtual se cifró previamente con el tipo de volumen "OS", el parámetro --volume-type se debe cambiar a "All", con el fin de que se incluyan tanto el nuevo disco de datos como el sistema operativo. Si la VM solo se cifró con el tipo de volumen de "Data", puede permanecer como "Data", tal y como se muestra aquí. Para preparar el cifrado, no es suficiente con agregar y conectar un nuevo disco de datos a una máquina virtual. El disco recién conectado también se debe formatear y montar correctamente en la máquina virtual antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems). 
 
 A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario proporcione ninguna versión de secuencia única cuando se habilita el cifrado. La CLI genera y usa su propio valor de versión de secuencia único automáticamente.
 

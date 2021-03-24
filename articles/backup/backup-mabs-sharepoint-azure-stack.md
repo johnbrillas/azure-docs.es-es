@@ -4,10 +4,10 @@ description: Use Azure Backup Server para crear una copia de seguridad de los da
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378328"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
@@ -104,7 +104,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
 1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](./backup-azure-backup-import-export.md).
 
-1. En la página **Resumen**, revise la configuración. Después de seleccionar **Crear grupo**, se produce la replicación inicial de los datos. Cuando finalice, el estado del grupo de protección se mostrará como **Correcto** en la página**Estado**. Después se realiza una copia de seguridad según la configuración del grupo de protección.
+1. En la página **Resumen**, revise la configuración. Después de seleccionar **Crear grupo**, se produce la replicación inicial de los datos. Cuando finalice, el estado del grupo de protección se mostrará como **Correcto** en la página **Estado**. Después se realiza una copia de seguridad según la configuración del grupo de protección.
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -148,7 +148,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 5. También puede desplazarse por varios puntos de recuperación y seleccionar una base de datos o un elemento para recuperar. Seleccione **Fecha > Hora de recuperación** y luego el elemento **Base de datos > Granja de SharePoint > Punto de recuperación > adecuado**.
 
     ![Protección de SharePoint con MABS7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Haga clic con el botón derecho en el elemento y seleccione**Recuperar** para abrir el **Asistente para recuperación**. Seleccione **Next** (Siguiente).
+6. Haga clic con el botón derecho en el elemento y seleccione **Recuperar** para abrir el **Asistente para recuperación**. Seleccione **Next** (Siguiente).
 
     ![Revisar selección de recuperación](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Seleccione el tipo de recuperación que quiere realizar y, a continuación, elija **Siguiente**.
@@ -172,7 +172,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     MABS conecta la base de datos de contenido que hospeda el elemento de SharePoint con la instancia temporal de SQL Server. Desde la base de datos de contenido, recupera el elemento y lo coloca en la ubicación del archivo de almacenamiento provisional en MABS. Ahora, el elemento recuperado en la ubicación de almacenamiento provisional debe exportarse a la ubicación provisional de la granja de SharePoint.
 
     ![Ubicación provisional2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Seleccione **Especificar opciones de recuperación**y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Seleccione **Next** (Siguiente).
+10. Seleccione **Especificar opciones de recuperación** y aplique la configuración de seguridad a la granja de SharePoint o aplique la configuración de seguridad del punto de recuperación. Seleccione **Next** (Siguiente).
 
     ![Opciones de recuperación](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

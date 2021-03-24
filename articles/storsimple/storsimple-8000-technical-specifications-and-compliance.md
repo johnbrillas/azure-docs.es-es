@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68965290"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -41,7 +41,7 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa 
 | Frecuencia |50/60 Hz |50/60 Hz |
 | Selección del intervalo de voltaje |Intervalo automático: 90-264 V CA, 47/63 Hz |Intervalo automático: 90-264 V CA, 47/63 Hz |
 | Corriente de entrada máxima |20 A |20 A |
-| Corrección del factor de potencia |>95% del voltaje de entrada nominal |>95% del voltaje de entrada nominal |
+| Corrección del factor de potencia |>95% del voltaje de entrada nominal  |>95% del voltaje de entrada nominal  |
 | Armónicos |Cumple la norma EN 61000-3-2 |Cumple la norma EN 61000-3-2 |
 | Output |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
 | +5 V \@ 42 A |+5 V \@ 40 A | |
@@ -152,7 +152,7 @@ El dispositivo de Microsoft Azure StorSimple cumple los estándares internaciona
 El dispositivo de Microsoft Azure StorSimple cumple las clasificaciones de seguridad siguientes:
 
 * Homologación del tipo de producto de sistema: UL, cUL, CE
-* Cumplimiento de seguridad: UL 60950, IEC 60950, EN 60950
+* Cumplimiento de seguridad: UL 60950, CEI 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Cumplimiento de normas de CEM
 

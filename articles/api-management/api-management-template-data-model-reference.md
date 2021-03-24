@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86243161"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
@@ -36,9 +36,9 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 -   [Aplicación](#Application)  
 -   [Datos adjuntos](#Attachment)  
 -   [Código de ejemplo](#Sample)  
--   [Comment](#Comment)  
--   [Filtrado](#Filtering)  
--   [Encabezado](#Header)  
+-   [Comentario](#Comment)  
+-   [Filtros](#Filtering)  
+-   [Header](#Header)  
 -   [Solicitud HTTP](#HTTPRequest)  
 -   [Respuesta HTTP](#HTTPResponse)  
 -   [Problema](#Issue)  
@@ -56,12 +56,12 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 -   [Inicio de sesión de usuario](#UseSignIn)  
 -   [Registro de usuario](#UserSignUp)  
   
-##  <a name="api"></a><a name="API"></a> API  
+##  <a name="api"></a>API <a name="API"></a>  
  La entidad `API` tiene las siguientes propiedades:  
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`id`|string|Identificador de recursos. Identifica de forma única la API de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{id}`, donde `{id}` es un identificador de API. Esta propiedad es de solo lectura.|  
+|`id`|string|Identificador de recursos. Identifica de forma única la API de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{id}`, donde `{id}` es un identificador de API. Esta propiedad es de sólo lectura.|  
 |`name`|string|Nombre de la API. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |`description`|string|Descripción de la API. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
 |`serviceUrl`|string|Dirección URL absoluta del servicio back-end que implementa esta API.|  
@@ -75,7 +75,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`id`|string|Identificador de recursos. Identifica de forma única la API de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{id}`, donde `{id}` es un identificador de API. Esta propiedad es de solo lectura.|  
+|`id`|string|Identificador de recursos. Identifica de forma única la API de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{id}`, donde `{id}` es un identificador de API. Esta propiedad es de sólo lectura.|  
 |`name`|string|Nombre de la API. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |`description`|string|Descripción de la API. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
   
@@ -195,7 +195,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`id`|string|Identificador de recursos. Identifica de forma única la operación de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{aid}/operations/{id}`, donde `{aid}` es un identificador de API y `{id}` es un identificador de operación. Esta propiedad es de solo lectura.|  
+|`id`|string|Identificador de recursos. Identifica de forma única la operación de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `apis/{aid}/operations/{id}`, donde `{aid}` es un identificador de API y `{id}` es un identificador de operación. Esta propiedad es de sólo lectura.|  
 |`name`|string|Nombre de la operación. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |`description`|string|Descripción de la operación. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
 |`scheme`|string|Describe en qué protocolos se pueden invocar las operaciones en esta API. Los valores permitidos son `http`, `https` o tanto `http` como `https`.|  
@@ -253,7 +253,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`Id`|string|Identificador de recursos. Identifica de forma única el producto en la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `products/{pid}`, donde `{pid}` es un identificador de producto. Esta propiedad es de solo lectura.|  
+|`Id`|string|Identificador de recursos. Identifica de forma única el producto en la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `products/{pid}`, donde `{pid}` es un identificador de producto. Esta propiedad es de sólo lectura.|  
 |`Title`|string|Nombre del producto. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |`Description`|string|Descripción del producto. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
 |`Terms`|string|Términos de uso del producto. Los desarrolladores que traten de suscribirse al producto verán y deberán aceptar estos términos para poder completar el proceso de suscripción.|  
@@ -278,12 +278,12 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |`contentType`|string|Especifica un tipo de contenido personalizado o registrado para esta representación, por ejemplo, `application/xml`.|  
 |`sample`|string|Un ejemplo de la representación.|  
   
-##  <a name="subscription"></a><a name="Subscription"></a> Subscription  
+##  <a name="subscription"></a>Suscripción a <a name="Subscription"></a>  
  La entidad `subscription` tiene las siguientes propiedades:  
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`Id`|string|Identificador de recursos. Identifica de forma única la suscripción de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `subscriptions/{sid}`, donde `{sid}` es un identificador de suscripción. Esta propiedad es de solo lectura.|  
+|`Id`|string|Identificador de recursos. Identifica de forma única la suscripción de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `subscriptions/{sid}`, donde `{sid}` es un identificador de suscripción. Esta propiedad es de sólo lectura.|  
 |`ProductId`|string|El identificador de recurso de producto del producto suscrito. El valor es una dirección URL relativa válida con el formato `products/{pid}`, donde `{pid}` es un identificador de producto.|  
 |`ProductTitle`|string|Nombre del producto. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |`ProductDescription`|string|Descripción del producto. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
@@ -309,7 +309,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
   
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
-|`Id`|string|Identificador de recursos. Identifica de forma única la suscripción de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `subscriptions/{sid}`, donde `{sid}` es un identificador de suscripción. Esta propiedad es de solo lectura.|  
+|`Id`|string|Identificador de recursos. Identifica de forma única la suscripción de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `subscriptions/{sid}`, donde `{sid}` es un identificador de suscripción. Esta propiedad es de sólo lectura.|  
 |`DisplayName`|string|Nombre para mostrar de la suscripción.|  
   
 ##  <a name="user-account-info"></a><a name="UserAccountInfo"></a> Información de cuenta de usuario  

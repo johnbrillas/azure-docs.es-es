@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250030"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
@@ -86,7 +86,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `basic-signin` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
--   [Sign in](api-management-page-templates.md#SignIn)  
+-   [Inicio de sesión](api-management-page-templates.md#SignIn)  
   
 ##  <a name="paging-control"></a><a name="paging-control"></a> paging-control  
  El control `paging-control` proporciona funcionalidad de paginación en las páginas del portal para desarrolladores que muestran una lista de elementos.  
@@ -105,7 +105,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `paging-control` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
--   [API list](api-management-api-templates.md#APIList)  
+-   [Lista de API](api-management-api-templates.md#APIList)  
   
 -   [Issue list](api-management-issue-templates.md#IssueList)  
   
@@ -128,7 +128,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `providers` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
--   [Sign in](api-management-page-templates.md#SignIn)  
+-   [Inicio de sesión](api-management-page-templates.md#SignIn)  
   
 ##  <a name="search-control"></a><a name="search-control"></a> search-control  
  El control `search-control` proporciona funcionalidad de búsqueda en las páginas del portal para desarrolladores que muestran una lista de elementos.  
@@ -147,7 +147,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `search-control` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
--   [API list](api-management-api-templates.md#APIList)  
+-   [Lista de API](api-management-api-templates.md#APIList)  
   
 -   [Product list](api-management-product-templates.md#ProductList)  
   

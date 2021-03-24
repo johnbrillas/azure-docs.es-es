@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249910"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Plantillas de producto en Azure API Management
@@ -82,7 +82,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 |Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |Paginación|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de productos.|  
-|Filtros|Entidad [Filtering](api-management-template-data-model-reference.md#Filtering).|La información de filtrado de la página de lista de productos.|  
+|Filtrado|Entidad [Filtering](api-management-template-data-model-reference.md#Filtering).|La información de filtrado de la página de lista de productos.|  
 |Productos|Colección de entidades de [producto](api-management-template-data-model-reference.md#Product).|Los productos visibles para el usuario actual.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
@@ -209,7 +209,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 |Producto|[Producto](api-management-template-data-model-reference.md#Product)|El producto especificado.|  
 |IsDeveloperSubscribed|boolean|Si el usuario actual está suscrito a este producto.|  
 |SubscriptionState|number|Estado de la suscripción. Los estados posibles son:<br /><br /> -   `0 - suspended`: la suscripción está bloqueada y el suscriptor no puede llamar a ninguna API del producto.<br />-   `1 - active`: la suscripción está activa.<br />-   `2 - expired`: la suscripción ha alcanzado su fecha de expiración y se ha desactivado.<br />-   `3 - submitted`: el desarrollador ha realizado una solicitud de suscripción, pero esta aún no se ha aprobado ni rechazado.<br />-   `4 - rejected`: un administrador ha rechazado la solicitud de suscripción.<br />-   `5 - cancelled`: el desarrollador o el administrador han cancelado la suscripción.|  
-|límites|array|Esta propiedad está en desuso y no debe utilizarse.|  
+|Límites|array|Esta propiedad está en desuso y no debe utilizarse.|  
 |DelegatedSubscriptionEnabled|boolean|Si la [delegación](./api-management-howto-setup-delegation.md) está habilitada para esta suscripción.|  
 |DelegatedSubscriptionUrl|string|Si la delegación está habilitada, la dirección URL de la suscripción delegada.|  
 |IsAgreed|boolean|Si el producto tiene términos, si el usuario actual ha aceptado los términos.|  

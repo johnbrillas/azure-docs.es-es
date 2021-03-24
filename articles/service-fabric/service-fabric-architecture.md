@@ -5,17 +5,17 @@ services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76024714"
 ---
 # <a name="service-fabric-architecture"></a>Arquitectura de Service Fabric
 
 Service Fabric está construido con subsistemas en capas. Este subsistema permiten escribir aplicaciones con las siguientes características:
 
-* Alta disponibilidad
+* De alta disponibilidad
 * Escalable
 * Capacidad de administración
 * De prueba

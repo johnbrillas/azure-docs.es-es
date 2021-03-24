@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 60a182764639341fcda159356dd9fe6c65cfabd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89463372"
 ---
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>Traslado de un espacio de nombres de Azure Relay a otra región
@@ -39,7 +39,7 @@ Para empezar, exporte una plantilla de Resource Manager. Esta plantilla contiene
 1. Busque `location` y reemplace el valor de la propiedad por el nuevo nombre de la región. Para obtener los códigos de ubicación, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/). El código de una región es el nombre de la región sin espacios, por ejemplo, `West US` es igual a `westus`.
 1. Quite las definiciones de los recursos de **retransmisión WCF dinámica** recursos (tipo: `Microsoft.Relay/namespaces/WcfRelays`). Las retransmisiones WCF dinámicas son las que tienen la propiedad **isDynamic** establecida en **true** en la página **Retransmisiones**. En el ejemplo siguiente, **echoservice** es una retransmisión WCF dinámica y su definición se debe quitar de la plantilla. 
 
-    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Descarga de la plantilla de Resource Manager":::
+    :::image type="content" source="./media/move-across-regions/dynamic-relays.png" alt-text="Retransmisiones dinámicas":::
 
 ## <a name="move"></a>Mover
 Implemente la plantilla para crear un espacio de nombres de Relay en la región de destino. 
@@ -47,19 +47,19 @@ Implemente la plantilla para crear un espacio de nombres de Relay en la región 
 1. En Azure Portal, haga clic en **Crear un recurso**.
 2. En **Buscar en Marketplace**, escriba **implementación de plantillas** para el texto de búsqueda, seleccione **Template Deployment (implementar mediante plantillas personalizadas)** y, a continuación, presione **Entrar**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Descarga de la plantilla de Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nueva implementación de plantilla":::    
 1. En la página **Implementación de plantillas**, seleccione **Crear**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Descarga de la plantilla de Resource Manager":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nueva implementación de plantilla, botón Crear":::        
 1. En la página **Implementación personalizada**, seleccione **Cree su propia plantilla en el editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Descarga de la plantilla de Resource Manager":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Cree su propia plantilla en el editor, vínculo":::            
 1. En la página **Editar plantilla**, seleccione **Cargar archivo** en la barra de herramientas y, después, siga las instrucciones para cargar el archivo **template.json** que descargó en la última sección.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Descarga de la plantilla de Resource Manager":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Seleccionar plantilla":::                
 1. Seleccione **Guardar** para guardar la plantilla. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Descarga de la plantilla de Resource Manager":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Guardar plantilla":::                    
 1. En la página **Implementación personalizada**, siga estos pasos: 
     1. Seleccione una **suscripción** de Azure. 
     2. Seleccione un **grupo de recursos** existente o cree uno. 
@@ -67,16 +67,16 @@ Implemente la plantilla para crear un espacio de nombres de Relay en la región 
     4. Escriba un nuevo **nombre para el espacio de nombres**.
     1. Seleccione **Revisar + crear**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Descarga de la plantilla de Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Implementación de la plantilla de Resource Manager":::
     1. En la página **Revisar y crear**, seleccione **Crear** en la parte inferior de la página. 
     
 ## <a name="verify"></a>Comprobar
 1. Cuando la implementación sea correcta, seleccione **Ir al grupo de recursos**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Descarga de la plantilla de Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Vínculo Ir al grupo de recursos":::    
 1. En la página **Grupo de recursos**, seleccione el espacio de nombres de Azure Relay. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Descarga de la plantilla de Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selección de un espacio de nombres de Azure Relay":::    
 1. En la página de **espacio de nombres de Azure Relay**, seleccione **Conexiones híbridas** o **Retransmisiones WCF** en el menú de la izquierda para comprobar que se crean conexiones híbridas y retransmisiones WCF. Si olvidó eliminar las definiciones de retransmisiones WCF dinámicas antes de importar la plantilla, elimínelas en la página **Retransmisiones WCF**. Las retransmisiones WCF dinámicas se crean automáticamente cuando los clientes se conectan al espacio de nombres de Relay. 
 
 ## <a name="discard-or-clean-up"></a>Descarte o limpieza

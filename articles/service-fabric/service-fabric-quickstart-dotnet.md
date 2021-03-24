@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575897"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de servicios de confianza .NET en Service Fabric
@@ -28,7 +28,7 @@ Mediante el uso de esta aplicación, aprenderá a hacer lo siguiente:
 * Escalar horizontalmente la aplicación en varios nodos
 * Realizar una actualización gradual de aplicaciones
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -50,7 +50,7 @@ Después de instalar el entorno de ejecución, los SDK, las herramientas de Visu
 > Aunque sea innecesario para este inicio rápido concreto, la instrucción para que Docker se ejecute cuando cree el clúster se incluye como procedimiento recomendado.
 > Compruebe que Docker se está ejecutando. Para ello, abra una ventana de terminal y ejecute `docker ps` para ver si se produce un error. Si la respuesta no indica un error, Docker se está ejecutando y ya está listo para compilar un clúster.
 >
-> [Configuración de Windows 10 o Windows Server para contenedores](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [Configurar Windows 10 o Windows Server para contenedores](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Abra una nueva ventana de PowerShell con privilegios elevados como administrador.
 2. Ejecute el siguiente comando de PowerShell para crear un clúster de desarrollo:
@@ -127,9 +127,9 @@ Para ver lo que ocurre en el código, siga estos pasos:
 
      ![Incorporación del servicio front-end de voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Primero, construya la dirección URL para el valor de ReverseProxy para nuestro servicio back-end **(1)** .
+   * Primero, construya la dirección URL para el valor de ReverseProxy para nuestro servicio back-end **(1)**.
    * A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)** .
-   * Por último, devuelva la respuesta desde el servicio back-end al cliente **(3)** .
+   * Por último, devuelva la respuesta desde el servicio back-end al cliente **(3)**.
 
 4. Pulse **F5** para continuar
    - Si el explorador se lo pide, conceda al grupo ServiceFabricAllowedUsers permisos de lectura y ejecución para el modo de depuración.
@@ -137,9 +137,9 @@ Para ver lo que ocurre en el código, siga estos pasos:
 
      ![Incorporación del servicio back-end de voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-   - En la primera línea del método **(1)** , `StateManager` obtiene un diccionario de confianza llamado `counts`, o bien lo agrega.
+   - En la primera línea del método **(1)**, `StateManager` obtiene un diccionario de confianza llamado `counts`, o bien lo agrega.
    - Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
-   - Después, en la transacción, actualice el valor de la tecla correspondiente para la opción de votación y confirme la operación **(3)** . Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
+   - Después, en la transacción, actualice el valor de la tecla correspondiente para la opción de votación y confirme la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
 5. Pulse **F5** para continuar
 
 Para detener la sesión de depuración, presione **Mayús+F5**.
@@ -176,7 +176,7 @@ Para actualizar la aplicación, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a hacer lo siguiente:
+En este inicio rápido ha aprendido a:
 
 * Crear una aplicación con .NET y Service Fabric
 * Usar ASP.NET Core como front-end web

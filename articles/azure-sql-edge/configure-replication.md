@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395230"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configuración de la replicación en Azure SQL Edge 
@@ -83,7 +83,7 @@ Las siguientes opciones no se admiten para las suscripciones de Azure SQL Edge:
 Cree una publicación y una suscripción de inserción. Para más información, consulte:
   
 - [Creación de una publicación](/sql/relational-databases/replication/publish/create-a-publication)
-- [Cree una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription/) mediante el nombre del servidor y la dirección IP de Azure SQL Edge como suscriptor (por ejemplo, **myEdgeinstance,1433** ) y el nombre de la base de datos en la instancia de Azure SQL Edge como base de datos de destino (por ejemplo, **AdventureWorks** ).  
+- [Cree una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription/) mediante el nombre del servidor y la dirección IP de Azure SQL Edge como suscriptor (por ejemplo, **myEdgeinstance,1433**) y el nombre de la base de datos en la instancia de Azure SQL Edge como base de datos de destino (por ejemplo, **AdventureWorks**).  
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

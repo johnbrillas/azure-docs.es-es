@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397542"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Reglas de enrutamiento de solicitudes de Application Gateway
 
-Si crea una puerta de enlace de aplicaciones mediante Azure Portal, creará una regla predeterminada ( *rule1* ). Esta regla enlaza el cliente de escucha predeterminado ( *appGatewayHttpListener* ) con el grupo de servidores back-end predeterminado ( *appGatewayBackendPool* ) y la configuración de HTTP de back-end predeterminada ( *appGatewayBackendHttpSettings* ). Después de crear la puerta de enlace, puede modificar la configuración de la regla predeterminada o crear nuevas reglas.
+Si crea una puerta de enlace de aplicaciones mediante Azure Portal, creará una regla predeterminada (*rule1*). Esta regla enlaza el cliente de escucha predeterminado (*appGatewayHttpListener*) con el grupo de servidores back-end predeterminado (*appGatewayBackendPool*) y la configuración de HTTP de back-end predeterminada (*appGatewayBackendHttpSettings*). Después de crear la puerta de enlace, puede modificar la configuración de la regla predeterminada o crear nuevas reglas.
 
 ## <a name="rule-type"></a>Tipo de regla
 

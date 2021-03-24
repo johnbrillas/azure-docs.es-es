@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132327"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
@@ -79,7 +79,7 @@ La mayoría de las aplicaciones requieren la presencia de un controlador de domi
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure está aislada de otras redes de forma predeterminada. Se recomienda usar el mismo intervalo de direcciones IP para esta red sea el mismo que el usado en la red de producción. No habilite la conectividad de sitio a sitio en esta red.
 1. Proporcione una dirección IP de DNS en la red aislada. Use la dirección IP que se espera que obtenga la máquina virtual de DNS. Si replica en Azure, indique la dirección IP para la máquina virtual que se utiliza en la conmutación por error. Para escribir la dirección IP, en la máquina virtual replicada, en la opción **Proceso y red**, seleccione el valor **IP de destino**.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure Network":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Red de prueba de Azure":::
 
    > [!TIP]
    > Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred con el mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético.
@@ -118,21 +118,21 @@ Si se han activado medidas de seguridad de virtualización después de una conmu
 
 - El valor de **GenerationID** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Azure Network":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Cambio del id. de generación":::
 
 - El valor de **InvocationID** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Azure Network":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Cambio del id. de invocación":::
 
 - La carpeta `SYSVOL` y los recursos compartidos `NETLOGON` no están disponibles.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Azure Network":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Recurso compartido de la carpeta SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Azure Network":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Carpeta SYSVOL de NtFrs":::
 
 - Las bases de datos DFSR se eliminan.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Azure Network":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Las bases de datos DFSR se eliminan":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Solución de problemas del controlador de dominio durante la conmutación por error de prueba
 

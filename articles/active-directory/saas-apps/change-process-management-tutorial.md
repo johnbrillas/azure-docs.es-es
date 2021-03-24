@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 03c78f05566876356e4f486368dc2a5b3a29de43
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456265"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Change Process Management
@@ -48,10 +48,10 @@ Una vez configurado Change Process Management, puede aplicar el control de sesi�
 Para configurar la integración de Change Process Management en Azure AD, es preciso agregar Change Process Management desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta profesional o educativa o con una cuenta Microsoft personal.
-1. En el panel izquierdo, seleccione **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Change Process Management** en el cuadro de búsqueda.
+1. En el panel izquierdo, seleccione **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Change Process Management** en el cuadro de búsqueda.
 1. Seleccione **Change Process Management** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-change-process-management"></a>Configuración y prueba del inicio de sesión único de Azure AD para Change Process Management
@@ -71,26 +71,26 @@ Para configurar y probar el inicio de sesión único de Azure AD con Change Pro
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Change Process Management** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Change Process Management**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
 
    ![Botón de lápiz para Configuración básica de SAML](common/edit-urls.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML** realice estos pasos:
 
-    a. En el cuadro **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<hostname>:8443/`
+    a. En el cuadro **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<hostname>:8443/`
 
-    b. En el cuadro **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<hostname>:8443/changepilot/saml/sso`
+    b. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<hostname>:8443/changepilot/saml/sso`
 
     > [!NOTE]
     > Los valores de **Identificador** y **Dirección URL de respuesta** anteriores no son los valores reales que debe usar. Póngase en contacto con el [equipo de soporte técnico de Change Process Management](mailto:support@realtech-us.com) para obtener los valores reales. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el vínculo **Descargar** para **Certificado (Base64)** para descargarlo y guardarlo en el equipo:
+1. En la página **Configurar inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** para **Certificado (Base64)** para descargarlo y guardarlo en el equipo:
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Change Process Management** , copie las direcciones URL adecuadas según sus necesidades:
+1. En la sección **Configurar Change Process Management**, copie las direcciones URL adecuadas según sus necesidades:
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -98,31 +98,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, creará un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** . Seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**. Seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades de **usuario** , realice estos pasos:
-   1. En el cuadro **Nombre** , escriba **B.Simon** .  
-   1. En el cuadro **Nombre de usuario** , escriba \<username>@\<companydomain>.\<extension>. Por ejemplo, `B.Simon@contoso.com`.
-   1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Seleccione **Crear** .
+1. En las propiedades de **usuario**, realice estos pasos:
+   1. En el cuadro **Nombre**, escriba **B.Simon**.  
+   1. En el cuadro **Nombre de usuario**, escriba \<username>@\<companydomain>.\<extension>. Por ejemplo, `B.Simon@contoso.com`.
+   1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Seleccione **Crear**.
 
 ### <a name="grant-access-to-the-test-user"></a>Concesión de acceso al usuario de prueba
 
 En esta sección, va a conceder a B.Simon acceso a Change Process Management mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Change Process Management** .
-1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos** :
+1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Change Process Management**.
+1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
 
    ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Selección de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ## <a name="configure-change-process-management-sso"></a>Configuración del inicio de sesión único de Change Process Management
 
