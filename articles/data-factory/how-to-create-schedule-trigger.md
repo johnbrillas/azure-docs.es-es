@@ -8,14 +8,15 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f10dac4e70a1edb05f2f2c02c48b9ae16c4f6823
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387587"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177834"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -25,6 +26,7 @@ Al crear un desencadenador de programación, especifique una programación (fech
 En las secciones siguientes se proporcionan los pasos necesarios para crear un desencadenador de programación de diferentes maneras. 
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
+
 Puede crear un **programador de desencadenador** para programar la ejecución de una canalización periódicamente (cada hora, diariamente, etc.). 
 
 > [!NOTE]
@@ -89,7 +91,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     > [!IMPORTANT]
     > Antes de guardar el archivo JSON, establezca el valor del elemento **startTime** en la hora UTC actual. Establezca el valor del elemento **endTime** en una hora anterior a la hora UTC actual.
 
-    ```json   
+    ```json
     {
         "properties": {
             "name": "MyTrigger",
@@ -167,9 +169,8 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
 
     Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
-
 ## <a name="net-sdk"></a>.NET SDK
+
 En esta sección se muestra cómo usar el SDK de.NET para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir los pasos que se incluyen en [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
 
 Para crear e iniciar un desencadenador de programación que se ejecuta cada 15 minutos, agregue el código siguiente al método principal:
@@ -258,8 +259,8 @@ Para supervisar una ejecución de desencadenador, agregue el código siguiente a
 
 Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
 ## <a name="python-sdk"></a>SDK de Python
+
 En esta sección se muestra cómo usar el SDK de Python para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir la [Creación de una factoría de datos y una canalización con SDK de Python](quickstart-create-data-factory-python.md). A continuación, agregue el siguiente bloque de código después del bloque de código para "supervisar la ejecución de canalización" en el script de Python. Este código crea un desencadenador de programación que se ejecuta cada 15 minutos entre las horas de inicio y finalización especificadas. Actualice la variable **start_time** a la hora UTC actual y la variable **end_time** a una hora posterior a la hora UTC actual.
 
 ```python
@@ -280,9 +281,11 @@ En esta sección se muestra cómo usar el SDK de Python para crear, iniciar y su
 Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+
 Puede usar una plantilla de Azure Resource Manager para crear un desencadenador. Para obtener instrucciones detalladas, consulte [Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmisión de la hora de inicio del desencadenador a una canalización
+
 La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
 
 ```json
@@ -292,6 +295,7 @@ La versión 1 de Azure Data Factory admite la lectura y la escritura de datos co
 ```
 
 ## <a name="json-schema"></a>Esquema JSON
+
 La siguiente definición de JSON le muestra cómo crear un desencadenador de programación con la programación y periodicidad:
 
 ```json
@@ -343,6 +347,7 @@ La siguiente definición de JSON le muestra cómo crear un desencadenador de pro
 
 
 ### <a name="schema-overview"></a>Información general del esquema
+
 En la tabla siguiente se muestra una descripción general de los elementos del esquema más importantes relacionados con la periodicidad y la programación de un desencadenador:
 
 | Propiedad JSON | Descripción |
@@ -405,6 +410,7 @@ La hora de la primera ejecución es la misma incluso si el valor de **startTime*
 Finalmente, cuando las horas o los minutos no se establecen en el programa para un desencadenador, se utilizan las horas o minutos de la primera ejecución como valores predeterminados.
 
 ### <a name="schedule-property"></a>Propiedad schedule
+
 Por un lado, el uso de una programación puede limitar el número de ejecuciones de desencadenadores. Por ejemplo, si un desencadenador con frecuencia mensual tiene un valor programado para ejecutarse solo el día 31, el desencadenador se ejecuta solo en los meses que tienen 31 días.
 
 En cambio, una programación también puede ampliar el número de ejecuciones de desencadenadores. Por ejemplo, un desencadenador con una frecuencia mensual programado para ejecutarse en los días 1 y 2 del mes, se ejecuta el primer y segundo día del mes, en lugar de una vez al mes.
@@ -412,7 +418,6 @@ En cambio, una programación también puede ampliar el número de ejecuciones de
 Si se especifican varios elementos de **schedule**, el orden de evaluación es de la configuración de programación mayor a menor. La evaluación empieza por el número de semana y, después, el día del mes, el día de la semana, la hora y, finalmente, los minutos.
 
 En la siguiente tabla se describen los elementos de **schedule** con detalle:
-
 
 | Elemento JSON | Descripción | Valores válidos |
 |:--- |:--- |:--- |
@@ -422,8 +427,8 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Matriz de valores</li></ul> |
 
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Ejemplos de programaciones de periodicidad del desencadenador
+
 En esta sección se muestran ejemplos de programaciones de periodicidad, y se centra en el objeto **schedule** y sus elementos.
 
 Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **frequency** es correcto según la definición de la programación. Por ejemplo, no puede tener un valor de **frequency** de "day" y tener también una modificación de "monthDays" en el objeto **schedule**. Restricciones como estas se mencionan en la tabla de la sección anterior.
@@ -457,6 +462,7 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Se ejecuta cada 15 minutos el último viernes del mes. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
+
+- Para obtener información detallada acerca de los desencadenadores, consulte el artículo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Ejecución de canalizaciones y desencadenadores).
+- Aprenda a hacer referencia a los metadatos de desencadenador en la canalización; para ello, consulte [Referencia a los metadatos de desencadenador en las ejecuciones de canalización](how-to-use-trigger-parameterization.md).

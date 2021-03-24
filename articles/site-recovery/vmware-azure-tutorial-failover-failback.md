@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132005"
 ---
 # <a name="fail-over--vmware-vms"></a>Conmutación por error de máquinas virtuales de VMware
@@ -66,7 +66,7 @@ Compruebe que son estas las propiedades:
 
 1. En **Configuración** > **Elementos replicados**, seleccione la máquina virtual que quiere conmutar por error y, luego, seleccione **Conmutar por error**.
 2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-   * **Más reciente**: esta opción procesa primero todos los datos enviados a Site Recovery. Proporciona el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos que se replicaron en Site Recovery al desencadenarse la conmutación por error.
+   * **Último**: esta opción procesa primero todos los datos enviados a Site Recovery. Proporciona el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos que se replicaron en Site Recovery al desencadenarse la conmutación por error.
    * **Procesado más recientemente**: con esta opción se realiza una conmutación por error de la máquina virtual al último punto de recuperación procesado por Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
    * **Más reciente coherente con la aplicación**: con esta opción se realiza una conmutación por error de la máquina virtual al punto de recuperación más reciente coherente con la aplicación que procesó Site Recovery.
    * **Personalizado**: esta opción permite especificar un punto de recuperación.

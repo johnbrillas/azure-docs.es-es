@@ -2,7 +2,7 @@
 title: Creación de una revisión de acceso de grupos y aplicaciones - Azure AD
 description: Obtenga información sobre cómo crear una revisión de acceso de los miembros del grupo o de la aplicación en las revisiones de acceso de Azure Active Directory.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778596"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176882"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -80,7 +80,7 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
     - **Propietarios del grupo** (solo disponibles al realizar una revisión en un equipo o grupo)
     - **Grupos o usuarios seleccionados**
     - **Los usuarios revisan su propio acceso**
-    - **(Versión preliminar) Administradores de usuarios.**
+    - **Administradores de usuarios.**
     Si elige **Administradores de usuarios** o **Propietarios del grupo**  también tiene la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que hagan una revisión cuando el usuario no tiene ningún administrador especificado en el directorio o el grupo no tiene un propietario.
 
     ![nueva revisión de acceso](./media/create-access-review/new-access-review.png)

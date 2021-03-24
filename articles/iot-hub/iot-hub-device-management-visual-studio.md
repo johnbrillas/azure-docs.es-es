@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73953179"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Uso de Cloud Explorer para Visual Studio para la administración de dispositivos de Azure IoT Hub
@@ -79,7 +79,7 @@ Para usar métodos directos, realice los pasos siguientes:
 
 1. Haga clic con el botón derecho en el dispositivo y seleccione **Invoke Device Direct Method** (Invocar método directo de dispositivo).
 
-1. Escriba el nombre del método y la carga en**Invocar un método directo** y, a continuación, seleccione **Aceptar**.
+1. Escriba el nombre del método y la carga en **Invocar un método directo** y, a continuación, seleccione **Aceptar**.
 
     Los resultados aparecerán en **Resultado**.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048260"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Procedimientos: Configuración de métricas y ajuste de la configuración de la detección
@@ -45,7 +45,7 @@ Esta configuración se aplicará a todas las series de esta métrica, excepto la
 
 Existen parámetros adicionales como **Dirección** y **Anomalía válida** que se pueden usar para ajustar aún más la configuración. También puede combinar diferentes métodos de detección. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Selección de una métrica" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Combinación de configuraciones" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>Ajuste de la configuración de una serie o grupo específicos
 
@@ -53,7 +53,7 @@ Haga clic en **Configuración avanzada** bajo las opciones de configuración de 
 
 Esta configuración se aplicará al grupo de series o series específicas en lugar de la configuración de nivel de métrica. Después de establecer las condiciones para este grupo, guárdelo.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Selección de una métrica" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Configuración avanzada" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>Métodos de detección de anomalías
 
@@ -68,11 +68,11 @@ En el modo de detección inteligente, los parámetros de versión de límite y s
 
 La sensibilidad puede afectar al ancho del intervalo de valores esperado de cada punto. Cuando aumente, el intervalo de valores esperado será más estricto y se notificarán más anomalías:
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Selección de una métrica":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Detección inteligente con alta sensibilidad":::
 
 Cuando se reduzca la sensibilidad, el intervalo de valores esperado será más amplio y se notificarán menos anomalías:
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Selección de una métrica":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Detección inteligente con baja sensibilidad":::
 
 **Umbral de cambio** 
 
@@ -85,16 +85,16 @@ Siga estos pasos para usar dicho modo:
 
 1. Seleccione **Umbral de cambio** como su método de detección de anomalías cuando establezca las configuraciones de detección de anomalías para las métricas o series temporales.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="Selección de una métrica":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="umbral de cambio":::
 
 2. Seleccione el parámetro **fuera del intervalo** o **en el intervalo** en función del escenario.
 
     Si desea detectar fluctuaciones, seleccione **fuera del intervalo**. Por ejemplo, con la configuración siguiente, cualquier punto de datos que cambie más de un 10 % en comparación con el anterior se detectará como un valor atípico.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="Selección de una métrica":::
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="parámetro fuera del intervalo":::
 
     Si desea detectar líneas planas en los datos, seleccione **en el intervalo**. Por ejemplo, con la configuración siguiente, cualquier punto de datos que cambie dentro del 0,01 % en comparación con el anterior se detectará como un valor atípico. Como el umbral es tan pequeño (0,01 %), detecta líneas planas en los datos como valores atípicos.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Selección de una métrica":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Parámetro en el intervalo":::
 
 3. Establezca el porcentaje de cambio que contará como anomalía y los puntos de datos capturados anteriormente que se usarán para la comparación. Esta comparación siempre se encuentra entre el punto de datos actual y un solo punto de datos N se señala antes que este.
     
@@ -117,7 +117,7 @@ En ocasiones, los eventos y sucesos esperados (como vacaciones) pueden generar d
 
 Haga clic en el botón **Configure Preset Event** (Configurar evento preestablecido) situado junto a la lista desplegable de métricas en cada página de detalles de métrica.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Selección de una métrica":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Botón Evento preestablecido":::
 
 En la ventana que aparece, configure las opciones según su uso. Asegúrese de que se ha seleccionado **Enable holiday event** (Habilitar evento festivo) para usar la configuración. 
 
@@ -161,7 +161,7 @@ X: no disponible.
 
 El evento de ciclo se usa para reducir las anomalías si siguen un patrón cíclico, pero notificará una anomalía si varios puntos de datos no siguen el patrón. El **modo strict** se usa para habilitar la notificación de anomalías si incluso un punto de datos no sigue el patrón. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="Selección de una métrica":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="configuración de eventos preestablecidos":::
 
 ## <a name="view-recent-incidents"></a>Ver incidentes recientes
 

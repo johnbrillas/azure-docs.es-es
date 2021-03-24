@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 0de65c4546f5e87377b119370ee629f5a365b24e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 98b40218d168133193410174bcc158ab8698c381
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650548"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225394"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Inicio rápido: creación del primer sitio estático mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ Azure Static Web Apps publica sitios web en entornos de producción mediante la 
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [GitHub](https://github.com)
 - [Token de acceso personal de GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
@@ -104,8 +104,13 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > La dirección URL que se pasa al parámetro `s` no debe incluir el sufijo `.git`.
 
-    - `<RESOURCE_GROUP_NAME>`: Reemplace este valor por un nombre de grupo de recursos de Azure existente.
+    - `<RESOURCE_GROUP_NAME>`: reemplace este valor por un [nombre de grupo de recursos de Azure](../azure-resource-manager/management/manage-resources-cli.md) existente.
+
+      - Consulte la documentación de [az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) para más información sobre cómo enumerar los grupos de recursos.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Reemplace este valor por el nombre de usuario de GitHub.
 

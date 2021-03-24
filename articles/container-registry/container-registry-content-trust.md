@@ -4,10 +4,10 @@ description: Aprenda a habilitar la confianza en el contenido para Azure Contain
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148587"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
@@ -38,7 +38,7 @@ La confianza en el contenido se administra mediante el uso de un conjunto de cla
 
 El primer paso es habilitar la confianza en el contenido en el nivel de registro. Una vez que habilite la confianza en el contenido, los clientes (usuarios o servicios) pueden insertar imágenes firmadas en el registro. Habilitar la confianza en el contenido en el registro no restringe el uso del registro solo a los consumidores con la confianza en el contenido habilitada. Los consumidores sin la confianza en el contenido habilitada pueden seguir usando el registro de la forma habitual. Los consumidores que han habilitado la confianza en el contenido en sus clientes, sin embargo, serán capaces de ver *solo* las imágenes firmadas del registro.
 
-Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas** , seleccione **Confianza del contenido** > **Habilitada** > **Guardar** . También puede usar el comando [az acr config content-trust update][az-acr-config-content-trust-update] en la CLI de Azure.
+Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Habilitada** > **Guardar**. También puede usar el comando [az acr config content-trust update][az-acr-config-content-trust-update] en la CLI de Azure.
 
 ![Captura de pantalla que muestra cómo habilitar la confianza en el contenido para un registro en Azure Portal.][content-trust-01-portal]
 
@@ -46,7 +46,7 @@ Para habilitar la confianza en el contenido para el registro, primero vaya al re
 
 Para trabajar con imágenes de confianza, tanto los publicadores de imágenes como los consumidores deben habilitar la confianza en el contenido en sus clientes de Docker. Como publicador, puede firmar las imágenes que inserta en un registro con la confianza en el contenido habilitada. Como consumidor, habilitar la confianza en el contenido limita la vista de un registro a únicamente las imágenes firmadas. La confianza en el contenido está deshabilitada de forma predeterminada en los clientes de Docker, pero puede habilitarla para una sesión del shell o para un comando.
 
-Para habilitar la confianza en el contenido para una sesión del shell, establezca la variable de entorno `DOCKER_CONTENT_TRUST` en **1** . Por ejemplo, en el shell de Bash:
+Para habilitar la confianza en el contenido para una sesión del shell, establezca la variable de entorno `DOCKER_CONTENT_TRUST` en **1**. Por ejemplo, en el shell de Bash:
 
 ```bash
 # Enable content trust for shell session
@@ -78,9 +78,9 @@ Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar i
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)**  > **Agregar asignación de rol** . En **Agregar asignación de rol** , seleccione `AcrImageSigner` para el **Rol** , **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar** .
+Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)**  > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
 
 En este ejemplo, se ha asignado el rol `AcrImageSigner` a dos entidades: una entidad de servicio llamada "service-principal" y un usuario llamado "Azure User".
 
@@ -112,7 +112,7 @@ También puede conceder a una [entidad de servicio](container-registry-auth-serv
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
-`<service principal ID>` puede ser el valor de **appId** , de **objectId** o uno de los valores de **servicePrincipalNames** de la entidad de servicio. Para más información sobre cómo trabajar con entidades de servicio y Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
+`<service principal ID>` puede ser el valor de **appId**, de **objectId** o uno de los valores de **servicePrincipalNames** de la entidad de servicio. Para más información sobre cómo trabajar con entidades de servicio y Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
 > Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto. Para obtener más información sobre la comprobación de roles de una identidad, vea [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md) y [Solución de problemas de Azure RBAC](../role-based-access-control/troubleshooting.md).
@@ -193,9 +193,9 @@ Junto con las claves de raíz y del repositorio que se generan localmente, Azure
 Si pierde el acceso a la clave de raíz, perderá el acceso a las etiquetas firmadas en cualquiera de los repositorios cuyas etiquetas se firmaron con esa clave. Azure Container Registry no puede restaurar el acceso a las etiquetas de imagen firmadas con una clave de raíz perdida. Para eliminar todos los datos de confianza (firmas) del registro, deshabilite y vuelva a habilitar la confianza en el contenido para el registro.
 
 > [!WARNING]
-> Deshabilitar y volver a habilitar la confianza en el contenido en el registro **elimina todos los datos de confianza de todas las etiquetas firmadas de cada repositorio del registro** . Esta acción es irreversible: Azure Container Registry no puede recuperar los datos de confianza eliminados. La deshabilitación de la confianza en el contenido no elimina las imágenes en sí.
+> Deshabilitar y volver a habilitar la confianza en el contenido en el registro **elimina todos los datos de confianza de todas las etiquetas firmadas de cada repositorio del registro**. Esta acción es irreversible: Azure Container Registry no puede recuperar los datos de confianza eliminados. La deshabilitación de la confianza en el contenido no elimina las imágenes en sí.
 
-Para deshabilitar la confianza en el contenido para el registro, vaya al registro en Azure Portal. En **Directivas** , seleccione **Confianza del contenido** > **Deshabilitada** > **Guardar** . Se le advertirá de la pérdida de todas las firmas del registro. Seleccione **Aceptar** para eliminar permanentemente todas las firmas del registro.
+Para deshabilitar la confianza en el contenido para el registro, vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Deshabilitada** > **Guardar**. Se le advertirá de la pérdida de todas las firmas del registro. Seleccione **Aceptar** para eliminar permanentemente todas las firmas del registro.
 
 ![Deshabilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-03-portal]
 

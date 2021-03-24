@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842910"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: creación de la infraestructura de AWS para hospedar un clúster de Service Fabric
@@ -25,7 +25,7 @@ En la primera parte de la serie, se aprende a:
 > * Iniciar sesión en una de las instancias
 > * Preparar la instancia para Service Fabric
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, deberá tener una cuenta de AWS.  Si aún no tiene una, vaya a la [consola de AWS](https://aws.amazon.com/) para crearla.
 
@@ -69,7 +69,7 @@ Por último, seleccione **Launch Instances** (Iniciar instancias) y **View Insta
 
 Service Fabric requiere un número de puertos abiertos entre los hosts del clúster. Para abrir estos puertos en la infraestructura de AWS, seleccione una de las instancias que ha creado. A continuación, seleccione el nombre del grupo de seguridad, por ejemplo, **launch-wizard-1**. Ahora, seleccione la pestaña **Inbound** (Entrante).
 
-Para evitar que se abran estos puertos a todo el mundo, en su lugar, ábralos solo para los hosts del mismo grupo de seguridad. Tome nota del identificador de grupo de seguridad, en el ejemplo, **sg-c4fb1eba**.  Después, seleccione **Edit** (Editar).
+Para evitar que se abran estos puertos a todo el mundo, en su lugar, ábralos solo para los hosts del mismo grupo de seguridad. Tome nota del identificador de grupo de seguridad, en el ejemplo, **sg-c4fb1eba**.  Después, seleccione **Editar**.
 
 A continuación, agregue cuatro reglas al grupo de seguridad para las dependencias del servicio y tres más para el propio servicio Service Fabric. La primera regla es para permitir el tráfico ICMP, para las comprobaciones de conectividad básicas. Las demás reglas abren los puertos necesarios para habilitar SMB y el registro remoto.
 

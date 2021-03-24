@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
 ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420774"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxis de consulta de búsqueda de Graph
@@ -36,7 +36,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
 
  
 - Y/O
-- Coincidencia de caracteres comodín con **?** y * *\** _.
+- Coincidencia de caracteres comodín con **?** y operadores **\*** .
 
 ### <a name="examples"></a>Ejemplos
 
@@ -49,7 +49,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
  
 - Coincidencia de caracteres comodín: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > No se puede iniciar una consulta de Lucene con un carácter "*".

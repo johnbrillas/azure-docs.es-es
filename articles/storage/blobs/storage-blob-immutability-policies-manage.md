@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a09dbd7d778a4f7ea2a9aac9ca07b9e6d06bc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84463644"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs
@@ -41,7 +41,7 @@ En este artículo se explica cómo establecer y administrar directivas de inmuta
 
     El estado inicial de la directiva es desbloqueada, lo que permite probar la característica y realizar cambios en la directiva antes de bloquearla. El bloqueo es esencial para el cumplimiento de normas como SEC 17a-4.
 
-5. Bloquee la directiva. Haga clic con el botón derecho en los puntos suspensivos ( **...** ) y aparecerá el siguiente menú con acciones adicionales:
+5. Bloquee la directiva. Haga clic con el botón derecho en los puntos suspensivos (**...**) y aparecerá el siguiente menú con acciones adicionales:
 
     !["Directiva de bloqueo" en el menú](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 

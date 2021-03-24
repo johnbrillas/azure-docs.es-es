@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001117"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
@@ -36,7 +36,7 @@ En esta guía, se utiliza el SDK de Voz para desarrollar una aplicación de cons
 > - Reconocer la voz a partir de un archivo
 > - Usar el reconocimiento asincrónico, continuo y controlado por eventos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de disponer de los siguientes elementos antes de empezar esta guía:
 
@@ -82,7 +82,7 @@ En la página **Keys and Endpoint settings** (Configuración de claves y puntos 
 
 [!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
-## <a name="add-the-code"></a>Adición del código
+## <a name="add-the-code"></a>Agregar el código
 
 Después, agregue al código al proyecto.
 
@@ -119,7 +119,7 @@ Después, agregue al código al proyecto.
 
    | Marcador de posición | Reemplazar por |
    | ----------- | ------------ |
-   | `YourLanguageUnderstandingSubscriptionKey` | La clave de punto de conexión de LUIS. Una vez más, este elemento se debe obtener en el panel de Azure, no una "clave de inicio". Se puede encontrar en la página **Keys and Endpoints** (Claves y puntos de conexión), (en **Manage [Administrar]** ) en el [portal de LUIS](https://www.luis.ai/home). |
+   | `YourLanguageUnderstandingSubscriptionKey` | La clave de punto de conexión de LUIS. Una vez más, este elemento se debe obtener en el panel de Azure, no una "clave de inicio". Se puede encontrar en la página **Keys and Endpoints** (Claves y puntos de conexión), (en **Manage [Administrar]**) en el [portal de LUIS](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | El identificador corto para la región en la que se encuentra la suscripción a LUIS, como `westus` para Oeste de EE. UU. Consulte [Regiones](regions.md). |
    | `YourLanguageUnderstandingAppId` | El id. de la aplicación LUIS. Se puede encontrar en la página **Settings** (Configuración) del [portal de LUIS](https://www.luis.ai/home). |
 

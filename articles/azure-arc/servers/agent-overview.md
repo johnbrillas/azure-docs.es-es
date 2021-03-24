@@ -1,14 +1,14 @@
 ---
 title: Información general del agente Connected Machine de Windows
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558501"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651100"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -41,7 +41,7 @@ La información de los metadatos sobre la máquina conectada se recopila despué
 * Nombre del equipo
 * Nombre de dominio completo (FQDN) del equipo
 * Versión del agente Connected Machine
-* Active Directory y el nombre de dominio completo (FQDN) de DNS
+* Active Directory y nombre de dominio completo (FQDN) de DNS
 * UUID (IDENTIFICADOR DE BIOS)
 * Latido del agente de Connected Machine
 * Versión del agente Connected Machine
@@ -68,6 +68,10 @@ Puede descargar el paquete del agente de Azure Connected Machine para Windows y 
 El agente de Azure Connected Machine para Windows y Linux se puede actualizar a la versión más reciente de forma manual o automática según sus necesidades. Para más información, consulte [esta página](manage-agent.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
+
+### <a name="supported-environments"></a>Entornos admitidos
+
+Los servidores habilitados para Arc admiten la instalación del agente de equipo conectado en cualquier servidor físico y máquina virtual hospedado *fuera* de Azure. Esto incluye las máquinas virtuales que se ejecutan en plataformas como VMware, Azure Stack HCI y otros entornos en la nube. Los servidores habilitados para Arc no admiten la instalación del agente en las máquinas virtuales que se ejecutan en Azure ni en las máquinas virtuales que se ejecutan en Azure Stack Hub o Azure Stack Edge, porque ya están modelados como máquinas virtuales Azure.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -110,7 +114,7 @@ Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomiend
 El agente de Connected Machine para Linux y Windows se comunica de forma segura con la salida de Azure Arc a través del puerto TCP 443. Si la máquina se conecta mediante un servidor proxy o un firewall para comunicarse a través de Internet, consulte la siguiente información para comprender qué configuración de red es necesaria.
 
 > [!NOTE]
-> Los servidores con ARC habilitado no admiten el uso de una puerta de enlace de [Log Analytics](../../azure-monitor/platform/gateway.md) como proxy para el agente de máquina conectado.
+> Los servidores con ARC habilitado no admiten el uso de una puerta de enlace de [Log Analytics](../../azure-monitor/agents/gateway.md) como proxy para el agente de máquina conectado.
 >
 
 Si la conectividad saliente está restringida por el firewall o el servidor proxy, asegúrese de que las direcciones URL que se muestran a continuación no estén bloqueadas. Si solo permite los intervalos IP o los nombres de dominio necesarios para que el agente se comunique con el servicio, también debe permitir el acceso a las siguientes etiquetas y direcciones URL del servicio.

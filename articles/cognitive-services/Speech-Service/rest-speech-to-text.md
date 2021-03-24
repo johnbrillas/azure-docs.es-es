@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032830"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606912"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -51,7 +51,8 @@ Consulte la referencia completa de la API de REST de conversión de voz en texto
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API de REST de conversión de voz en texto para audios breves
 
-Como alternativa al [SDK de voz](speech-sdk.md), el servicio de voz le permite convertir la voz en texto mediante una API de REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar. La API de REST para audios breves es muy limitada y solo se debe usar en aquellos casos en que no pueda utilizarse el [SDK de voz](speech-sdk.md).
+Como alternativa al [SDK de voz](speech-sdk.md), el servicio de voz le permite convertir la voz en texto mediante una API de REST.
+La API de REST para audios breves es muy limitada y solo se debe usar en aquellos casos en que no pueda utilizarse el [SDK de voz](speech-sdk.md).
 
 Antes de usar la API de REST de conversión de voz en texto, tenga en cuenta lo siguiente:
 
@@ -341,3 +342,4 @@ La siguiente es una respuesta típica de reconocimiento con evaluación de pronu
 - [Personalización de modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalización de modelos de lenguaje](./how-to-custom-speech-train-model.md)
 - [Familiarícese con la transcripción por lotes](batch-transcription.md)
+

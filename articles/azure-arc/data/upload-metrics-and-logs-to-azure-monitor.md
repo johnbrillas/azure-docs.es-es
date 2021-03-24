@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a522a650413be056ff64d26e90b6c15cf88d9a7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183437"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643497"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carga de datos de uso, métricas y registros en Azure Monitor
 
@@ -29,7 +29,7 @@ Puede exportar periódicamente la información de uso con fines de facturación,
 Antes de poder cargar datos, métricas o registros de uso, debe completar lo siguiente:
 
 * Instalación de herramientas 
-* [Registro del `Microsoft.AzureData`proveedor de recursos](#register-the-resource-provider) 
+* [Registro del `Microsoft.AzureArcData`proveedor de recursos](#register-the-resource-provider) 
 * [Creación de la entidad de servicio](#create-service-principal)
 
 ## <a name="install-tools"></a>Instalación de herramientas
@@ -42,18 +42,18 @@ Consulte [Instalación de herramientas](./install-client-tools.md).
 
 ## <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
 
-Antes de cargar métricas o datos de usuario en Azure, debe asegurarse de que su suscripción de Azure tiene registrado el proveedor de recursos `Microsoft.AzureData`.
+Antes de cargar métricas o datos de usuario en Azure, debe asegurarse de que su suscripción de Azure tiene registrado el proveedor de recursos `Microsoft.AzureArcData`.
 
 Para comprobar el proveedor de recursos, ejecute el siguiente comando:
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 Si el proveedor de recursos no está registrado actualmente en la suscripción, puede registrarlo. Para registrarlo, ejecute el siguiente comando:  Este comando puede tardar un minuto o dos en completarse.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## <a name="create-service-principal"></a>Creación de una entidad de servicio
@@ -65,11 +65,11 @@ Use estos comandos para crear la entidad de servicio de carga de métricas:
 > [!NOTE]
 > Para crear una entidad de servicio se necesitan [determinados permisos en Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Para crear una entidad de servicio, actualice el siguiente ejemplo. Reemplace `<ServicePrincipalName>` por el nombre de la entidad de servicio y ejecute el comando:
+Para crear una entidad de servicio, actualice el siguiente ejemplo. Remplace `<ServicePrincipalName>`, `SubscriptionId` y `resourcegroup` por sus valores y ejecute el comando:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+```
 
 Si ha creado la entidad de servicio anteriormente y solo necesita obtener las credenciales actuales, ejecute el siguiente comando para restablecer las credenciales.
 
@@ -79,8 +79,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 Por ejemplo, para crear una entidad de servicio denominada `azure-arc-metrics`, ejecute el comando siguiente:
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Salida de ejemplo:
@@ -137,16 +137,15 @@ Ejecute este comando para asignar la entidad de servicio al rol `Monitoring Metr
 > Debe usar comillas dobles para los nombres de rol cuando se ejecuta desde un entorno de Windows.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -154,8 +153,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -193,7 +191,7 @@ Las operaciones de creación, lectura, actualización y eliminación (CRUD) en l
 
 Durante la versión preliminar, este proceso se produce por la noche. Las instrucciones generales es cargar el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
 
-En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
+En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91652047"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
@@ -272,7 +272,7 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
    ![Captura de pantalla que resalta el icono Agregar mensaje.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. En el cuadro de diálogo **Agregar mensaje**, escriba *¡Hola mundo!* como **Texto del mensaje**y, a continuación, seleccione **Aceptar**. Ahora hay un mensaje en la cola.
+1. En el cuadro de diálogo **Agregar mensaje**, escriba *¡Hola mundo!* como **Texto del mensaje** y, a continuación, seleccione **Aceptar**. Ahora hay un mensaje en la cola.
 
    ![Crear cola](./media/webjobs-sdk-get-started/hello-world-text.png)
 
