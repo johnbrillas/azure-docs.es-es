@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 3cfe75edcf338f5248baf396147a5b77803fbfb3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97655941"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consulta de datos de Avro con Azure Data Lake Analytics
@@ -175,4 +175,4 @@ Para ver ejemplos de soluciones completas que usen IoT Hub, consulte la [Documen
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 
-Para más información sobre el enrutamiento de mensajes en IoT Hub, consulte [Envío y recepción de mensajes con IoT Hub](iot-hub-devguide-messaging.md).
+Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, consulte [Envío y recepción de mensajes con IoT Hub](iot-hub-devguide-messaging.md).

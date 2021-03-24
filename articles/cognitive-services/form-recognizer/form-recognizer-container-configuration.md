@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86538010"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
@@ -78,7 +78,7 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|Requerido| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obligatorio| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Obligatorio| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`.  <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run

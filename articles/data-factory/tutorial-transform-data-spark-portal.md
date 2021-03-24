@@ -7,10 +7,10 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 01/10/2018
 ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377795"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
@@ -193,7 +193,7 @@ En esta sección, deberá crear dos servicios vinculados:
 
    ![Especificar el script de Spark en la pestaña "Script/Jar"](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    
-   c. Vaya a la carpeta **adftutorial/spark/script** , seleccione **WordCount_Spark.py** y seleccione **Finalizar**.      
+   c. Vaya a la carpeta **adftutorial/spark/script**, seleccione **WordCount_Spark.py** y seleccione **Finalizar**.      
 
 1. Para comprobar la canalización, seleccione el botón **Validate** (Comprobar) en la barra de herramientas. Seleccione el botón **>>** (flecha derecha) para cerrar la ventana de comprobación. 
     

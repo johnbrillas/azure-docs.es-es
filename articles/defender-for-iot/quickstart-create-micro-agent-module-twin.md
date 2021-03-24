@@ -1,5 +1,5 @@
 ---
-title: Creación de un módulo gemelo del microagente de Defender para IoT
+title: Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)
 titleSuffix: Azure Defender for IoT
 description: Aprenda a crear módulos gemelos DefenderIotMicroAgent individuales para dispositivos nuevos.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123010"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489886"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Creación de un módulo gemelo del microagente de Defender para IoT 
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Creación de un módulo gemelo del microagente de Defender para IoT (versión preliminar)
 
 Puede crear módulos gemelos  **DefenderIotMicroAgent** individuales para dispositivos nuevos. También puede crear módulos gemelos por lotes para todos los dispositivos de una instancia de IoT Hub. 
 
@@ -27,9 +27,9 @@ Defender para IoT se integra completamente con la plataforma de administración 
 
 Más información sobre el concepto de [dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) en Azure IoT Hub. 
 
-## <a name="security-module-twins"></a>Módulos de seguridad gemelos 
+## <a name="defender-iot-micro-agent-twins"></a>Módulos gemelos de Defender-IoT-micro-agent 
 
-Defender para IoT usa un módulo gemelo de seguridad por cada dispositivo. Este módulo contiene toda la información pertinente relativa a la seguridad de cada dispositivo específico de la solución. Mediante un módulo de seguridad gemelo dedicado se configuran las propiedades de seguridad del dispositivo para que la comunicación sea más segura y para permitir unas actualizaciones y un mantenimiento que requieran menos recursos. 
+Defender para IoT utiliza un módulo gemelo de Defender-IoT-micro-agent para cada dispositivo. Este módulo gemelo contiene toda la información pertinente para la seguridad de cada dispositivo específico de la solución. Mediante un módulo gemelo de Defender-IoT-micro-agent dedicado se configuran las propiedades de seguridad del dispositivo para que la comunicación sea más segura y para permitir unas actualizaciones y un mantenimiento que requieran menos recursos. 
 
 ## <a name="understanding-defenderiotmicroagent-module-twins"></a>Descripción de los módulos gemelos DefenderIotMicroAgent 
 
@@ -39,9 +39,9 @@ Defender para IoT ofrece la funcionalidad de integración completa con la plataf
 
 Para más información acerca del concepto general de los módulos gemelos en Azure IoT Hub, consulte  [Módulos gemelos de IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-Defender para IoT usa el mecanismo de módulos gemelos y mantiene un módulo gemelo de seguridad llamado `DefenderIotMicroAgent` para cada uno de los dispositivos. 
+Defender para IoT usa el mecanismo de módulos gemelos y mantiene un módulo gemelo de Defender-IoT-micro-agent llamado `DefenderIotMicroAgent` para cada uno de los dispositivos. 
 
-Para aprovechar al máximo las características de Defender para IoT, estos módulos gemelos de seguridad deben crearse, configurarse y usarse en todos los dispositivos del servicio. 
+Para aprovechar al máximo las características de Defender para IoT, tiene que crear, configurar y utilizar los módulos gemelos de Defender-IoT-micro-agent en todos los dispositivos del servicio. 
 
 ## <a name="create-defenderiotmicroagent-module-twin"></a>Creación de un módulo gemelo DefenderIotMicroAgent 
 
@@ -49,7 +49,7 @@ Los módulos gemelos **DefenderIotMicroAgent** se puede crear mediante la edici�
 
 Para crear manualmente un nuevo módulo gemelo  **DefenderIotMicroAgent** para un dispositivo: 
 
-1. En IoT Hub, busque y seleccione el dispositivo donde desea crear el módulo gemelo de seguridad. 
+1. En IoT Hub, busque y seleccione el dispositivo en el que desee crear el módulo gemelo de Defender-IoT-micro-agent. 
 
 1. Seleccione **Add module identity** (Agregar identidad de módulo). 
 
@@ -59,7 +59,7 @@ Para crear manualmente un nuevo módulo gemelo  **DefenderIotMicroAgent** para
 
 ## <a name="verify-the-creation-of-a-module-twin"></a>Comprobación de la creación de un módulo gemelo 
 
-Para comprobar si existe un módulo gemelo de seguridad en un dispositivo concreto: 
+Para comprobar si existe un módulo gemelo de Defender-IoT-micro-agent para un dispositivo concreto: 
 
 1. En su instancia de Azure IoT Hub, seleccione **IoT devices** (Dispositivos IoT) en el menú **Explorers** (Exploradores). 
 

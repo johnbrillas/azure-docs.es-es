@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738198"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491255"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -57,7 +57,7 @@ Los demás resultados probablemente sean peores y puede que no tengan aplicado e
 
 **P: ¿Por qué hay diferentes modelos base?**
 
-**R.** : Puede elegir entre varios modelos base en el servicio de Voz. Cada nombre de modelo contiene la fecha en que se agregó. Cuando empiece a entrenar un modelo personalizado, use el modelo más reciente para obtener la mejor precisión. Cuando un nuevo modelo está disponible, los modelos base más antiguos siguen estando disponibles durante algún tiempo. Puede seguir usando el modelo con el que ha trabajado hasta que se retire (consulte [Ciclo de vida del modelo](custom-speech-overview.md#model-lifecycle)). Aun así, se recomienda cambiar al modelo base más reciente para mejorar la precisión.
+**R.** : Puede elegir entre varios modelos base en el servicio de Voz. Cada nombre de modelo contiene la fecha en que se agregó. Cuando empiece a entrenar un modelo personalizado, use el modelo más reciente para obtener la mejor precisión. Cuando un nuevo modelo está disponible, los modelos base más antiguos siguen estando disponibles durante algún tiempo. Puede seguir usando el modelo con el que ha trabajado hasta que se retire (consulte [Ciclo de vida del modelo y el punto de conexión](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Aun así, se recomienda cambiar al modelo base más reciente para mejorar la precisión.
 
 **P: ¿Puedo actualizar el modelo existente (apilamiento del modelo)?**
 
@@ -71,7 +71,7 @@ El conjunto de datos antiguo y el nuevo se deben combinar en un único archivo Z
 
 Si ha adaptado e implementado un modelo, esa implementación permanecerá como está. El modelo implementado se puede retirar, volverse a adaptar con la versión más reciente del modelo base e implementarse de nuevo para mejorar la precisión.
 
-Los modelos base y los modelos personalizados se retirarán después de un tiempo (consulte [Ciclo de vida del modelo](custom-speech-overview.md#model-lifecycle)).
+Los modelos base y los modelos personalizados se retirarán después de un tiempo (consulte [Ciclo de vida del modelo y del punto de conexión](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
 
 **P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
 

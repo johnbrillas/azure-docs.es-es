@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: 0ed085a161ced22efb1e5022e34b6f9b0344f942
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b59f8343c9dff07a32accd471f70ddf9f5309b8d
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721436"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463092"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>Tutorial: Configuración de un dispositivo IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 En este artículo, se configurará una máquina virtual de Azure que ejecuta Linux para que sea un dispositivo Azure IoT Edge que actúa como puerta de enlace transparente. La configuración de una puerta de enlace transparente permite que los dispositivos se conecten a Azure IoT Hub a través de la puerta de enlace sin necesidad de saber que dicha puerta existe. Al mismo tiempo, un usuario que interactúa con los dispositivos de IoT Hub no es consciente del dispositivo de puerta de enlace intermedio. En última instancia, se agregará análisis perimetral al sistema mediante la adición de módulos de IoT Edge a la puerta de enlace transparente.
+
+>[!NOTE]
+>Los conceptos de este tutorial se aplican a todas las versiones de IoT Edge, pero el dispositivo de ejemplo que se crea para probar el escenario utiliza la versión 1.1 de IoT Edge.
 
 Los pasos descritos en este artículo los realiza normalmente un desarrollador en la nube.
 
@@ -34,7 +39,7 @@ En esta sección del tutorial, aprenderá a:
 
 Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Cada artículo de la serie se basa en el trabajo del artículo anterior. Si ha llegado a este artículo directamente, consulte el [primer artículo](tutorial-machine-learning-edge-01-intro.md) de la serie.
 
-## <a name="create-certificates"></a>Crear certificados
+## <a name="create-certificates"></a>Creación de certificados
 
 Para que un dispositivo funcione como puerta de enlace, debe poder conectarse de forma segura a dispositivos de bajada. Con IoT Edge puede usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre dispositivos. En este caso, vamos a permitir que un dispositivo IoT de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo IoT Edge. Para obtener más información acerca de cómo los dispositivos IoT Edge usan certificados, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 

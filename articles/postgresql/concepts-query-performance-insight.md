@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710267"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
@@ -40,7 +40,7 @@ La tabla debajo del gráfico proporciona más información sobre las consultas d
 
 Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de larga ejecución de Query Performance Insight":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estadísticas de espera de Información de rendimiento de consultas":::
 
 ## <a name="considerations"></a>Consideraciones
 * Información de rendimiento de consultas no está disponible para las [réplicas de lectura](concepts-read-replicas.md).

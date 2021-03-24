@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358219"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configuración de Concur para el aprovisionamiento automático de usuarios
@@ -62,7 +62,7 @@ Al crear el perfil que se usará para habilitar la aplicación, escriba el nombr
 
 Por las siguientes razones, esta acción no debe realizarse con el perfil que se usa en la administración normal de tiempo y gastos.
 
-* El cliente tiene que ser el que hace clic en " *Sí* " en la ventana de cuadro de diálogo que aparece después de la habilitación de la aplicación. Este clic confirma que el cliente está autorizado por la aplicación asociada a tener acceso a sus datos, por lo que usted o el asociado no pueden hacer clic en el botón Sí.
+* El cliente tiene que ser el que hace clic en "*Sí*" en la ventana de cuadro de diálogo que aparece después de la habilitación de la aplicación. Este clic confirma que el cliente está autorizado por la aplicación asociada a tener acceso a sus datos, por lo que usted o el asociado no pueden hacer clic en el botón Sí.
 
 * Si un administrador de cliente que ha habilitado una aplicación mediante el perfil de administrador de tiempo y gastos abandona la empresa (lo que da lugar a la desactivación del perfil), las aplicaciones habilitadas mediante ese perfil no funcionarán hasta que la aplicación se habilite con otro perfil de administrador de servicios web activo. Es por este motivo por lo hay que crear distintos perfiles de administrador servicios web.
 
@@ -72,15 +72,15 @@ Por las siguientes razones, esta acción no debe realizarse con el perfil que se
 
 1. Inicie sesión en el inquilino de **Concur**.
 
-2. En el menú **Administración** , seleccione **Servicios web**.
+2. En el menú **Administración**, seleccione **Servicios web**.
    
     ![Inquilino de Concur](./media/concur-provisioning-tutorial/IC721729.png "Inquilino de Concur")
 
-3. En el lado izquierdo, en el panel **Servicios web** , seleccione **Habilitar aplicación de asociado**.
+3. En el lado izquierdo, en el panel **Servicios web**, seleccione **Habilitar aplicación de asociado**.
    
     ![Habilitar aplicación de asociado](./media/concur-provisioning-tutorial/ic721730.png "Habilitar aplicación de asociado")
 
-4. En la lista **Habilitar aplicación** , seleccione **Azure Active Directory** y después haga clic en **Habilitar**.
+4. En la lista **Habilitar aplicación**, seleccione **Azure Active Directory** y después haga clic en **Habilitar**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
@@ -98,7 +98,7 @@ Por las siguientes razones, esta acción no debe realizarse con el perfil que se
  
     ![Captura de pantalla de la pestaña Aprovisionamiento de Concur en Azure Portal. El modo de aprovisionamiento se establece en Automático y el botón Probar conexión se resalta.](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. En la sección **Credenciales de administrador** , escriba el **nombre de usuario** y la **contraseña** del administrador de Concur.
+10. En la sección **Credenciales de administrador**, escriba el **nombre de usuario** y la **contraseña** del administrador de Concur.
 
 11. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Concur. Si la conexión no se establece, asegúrese de que la cuenta de Concur tiene permisos de administrador de equipo.
 

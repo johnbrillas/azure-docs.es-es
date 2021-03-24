@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83123701"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
@@ -42,7 +42,7 @@ Para configurar la implementación continua de una aplicación de funciones exis
 
 3. En GitHub, seleccione **Autorizar AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Centro de implementación de Azure App Service":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizar Azure App Service":::
 
     Escriba la contraseña de GitHub y, a continuación, seleccione **Continuar**.
 
@@ -55,7 +55,7 @@ Para configurar la implementación continua de una aplicación de funciones exis
 
 5. Configure información específica de la opción de control de origen que haya indicado. En GitHub, debe escribir o seleccionar valores de **Organización**, **Repositorio** y **Rama**. Los valores se basan en la ubicación del código. Después, seleccione **Continuar**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Centro de implementación de Azure App Service":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configuración de GitHub":::
 
 6. Revise todos los detalles y seleccione **Finalizar** para completar la configuración de la implementación.
 

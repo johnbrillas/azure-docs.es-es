@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91743342"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutorial: Conexión, configuración y activación de Azure Stack Edge Pro 
@@ -69,7 +69,7 @@ En el panel se muestran los distintos valores necesarios para configurar y regis
    
 ![Página "Panel" de la interfaz de usuario web local](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-1. En el panel izquierdo, seleccione **Nombre de dispositivo**y escriba un nombre descriptivo para el dispositivo.  
+1. En el panel izquierdo, seleccione **Nombre de dispositivo** y escriba un nombre descriptivo para el dispositivo.  
     Dicho nombre debe tener entre 1 y 15 caracteres, así como letras, números y guiones.
 
     ![Página de "Nombre de dispositivo" de la interfaz de usuario web local](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-2.png)

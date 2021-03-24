@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99591946"
 ---
 # <a name="pbr-materials"></a>Materiales de PBR
@@ -37,7 +37,7 @@ Estas propiedades son comunes para todos los materiales:
 
 * **textureCoordinateScale** y **textureCoordinateOffset:** la escala se multiplica en las coordenadas de textura UV y se le agrega el desplazamiento. Se puede usar para ajustar y desplazar las texturas. La escala predeterminada es (1, 1) y el desplazamiento es (0, 0).
 
-* **useVertexColor:** si la malla contiene colores de :::no-loc text="vertex"::: y esta opción está habilitada, el color de los :::no-loc text="vertex"::: de las mallas se multiplica en *albedoColor* y *albedoMap*. De forma predeterminada *useVertexColor* está deshabilitado.
+* **useVertexColor:** si la malla contiene colores de :::no-loc text="vertex"::: y esta opción está habilitada, el color de los :::no-loc text="vertex"::: de las mallas se multiplica en *albedoColor* y *albedoMap*. De forma predeterminada, *useVertexColor* está deshabilitado.
 
 * **isDoubleSided:** Si el valor de doble cara está establecido en true, los triángulos con este material se representan aunque la cámara apunte a sus caras posteriores. En el caso de la iluminación de materiales de PBR también se calcula correctamente para las caras posteriores. Esta opción está deshabilitada de manera predeterminada. Consulte también [Representación :::no-loc text="Single-sided":::](single-sided-rendering.md).
 

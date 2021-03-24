@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627389"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656557"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Durante una interrupción de la región de lectura, las cuentas de Azure Cosmos mediante un nivel de coherencia o coherencia alta con tres o más regiones de lectura seguirán teniendo una alta disponibilidad para lecturas y escrituras.
 
-* Las cuentas de Azure Cosmos que usen una coherencia alta con tres regiones en total (una de escritura y dos de lectura), o menos, perderán la disponibilidad de escritura durante las interrupciones de la región de lectura. Sin embargo, los clientes que con un total de cuatro regiones, o más, pueden optar por usar cuórum de lectura dinámica mediante el envío de una incidencia de soporte técnico. Las cuentas que mantienen al menos dos regiones de lectura en esta configuración conservarán la disponibilidad de escritura.
+* Las cuentas de Azure Cosmos que usen una coherencia alta con tres regiones (una de escritura y dos de lectura), mantendrán la disponibilidad de escritura durante las interrupciones de la región de lectura. En el caso de las cuentas con dos regiones y la conmutación automática por error habilitada, la cuenta dejará de aceptar escrituras hasta que la región se marque como con errores y se produzca la conmutación automática por error.
 
 * La región afectada se desconecta automáticamente y se marcará como sin conexión. Los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigirán las llamadas de lectura a la siguiente región disponible en la lista de regiones preferidas.
 
@@ -110,7 +110,7 @@ En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varia
 |Contrato de Nivel de Servicio de disponibilidad de lectura  | 99,99% | 99,995 % | 99,995 % | 99,999 % |
 |Errores de zona: pérdida de datos | Pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos |
 |Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
-|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md).
+|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](./consistency-levels.md).
 |Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | Sin pérdida de disponibilidad |
 |Precio (***1** _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x 1,25 (_*_2_**) | Velocidad de operaciones de escritura en varias regiones |
 

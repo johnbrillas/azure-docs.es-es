@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec101786f33aa6f2525d685993d6b6c891ab2e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936323"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definición y uso de trabajos de moderación (. NET)
@@ -27,7 +27,7 @@ Un trabajo de moderación actúa como un tipo de contenedor para la funcionalida
 - Realizar un seguimiento de la revisión y obtener su estado final
 - Enviar los resultados de revisión a la dirección URL de devolución de llamada
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 

@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618036"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
@@ -22,7 +22,7 @@ ms.locfileid: "91618036"
 
 La configuración de subred asistida por servicio proporciona administración de la configuración de red automatizada para las subredes que hospedan instancias administradas. Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el acceso a datos (flujos de tráfico de TDS) mientras que la instancia administrada asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.
 
-Los grupos de seguridad de red y las reglas de tabla de enrutamiento configurados automáticamente son visibles para el cliente y se anotan con el prefijo _Microsoft.Sql-managedInstances_UseOnly__.
+Los grupos de seguridad de red y las reglas de tabla de enrutamiento configurados automáticamente son visibles para el cliente y se anotan con el prefijo _Microsoft.Sql-managedInstances_UseOnly_ _.
 
 La configuración asistida por servicio se habilita automáticamente cuando se activa la [delegación de subred](../../virtual-network/subnet-delegation-overview.md) para el proveedor de recursos `Microsoft.Sql/managedInstances`.
 

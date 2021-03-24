@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99584997"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
@@ -303,7 +303,7 @@ Devuelve el límite inferior para los valores del **Conjunto de columnas** con l
 
 ### <a name="mod"></a>Mod
 
-Devuelve la parte fraccionaria de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
+Devuelve la parte fraccionaria de los valores del **Conjunto de columnas** con la precisión especificada.  
 
 ### <a name="quotient"></a>Cociente
 

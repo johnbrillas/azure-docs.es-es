@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001118"
 ---
 Para crear un proyecto de Visual Studio para el desarrollo de Windows, debe crear el proyecto, configurar Visual Studio para el desarrollo de escritorio de .NET, instalar el SDK de Voz y elegir la arquitectura de destino.
@@ -23,7 +23,7 @@ Para empezar, cree el proyecto en Visual Studio y asegúrese de que Visual Stu
 
 1. En la ventana **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
 
-1. En la ventana **Configure su nuevo proyecto**, escriba *helloworld* en **Nombre del proyecto** , elija o cree la ruta de acceso del directorio en **Ubicación** y seleccione **Crear**.
+1. En la ventana **Configure su nuevo proyecto**, escriba *helloworld* en **Nombre del proyecto**, elija o cree la ruta de acceso del directorio en **Ubicación** y seleccione **Crear**.
 
 1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Obtener herramientas y características**, que abre el Instalador de Visual Studio y muestra el cuadro de diálogo **Modificando**.
 
@@ -41,7 +41,7 @@ El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https:/
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **helloworld** y seleccione **Administrar paquetes NuGet** para mostrar el Administrador de paquetes NuGet.
 
-   ![Administrador de paquetes NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![Administrador de paquetes de NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. En la esquina superior derecha, busque el cuadro desplegable **Origen del paquete** y asegúrese de que **nuget.org** está seleccionado.
 

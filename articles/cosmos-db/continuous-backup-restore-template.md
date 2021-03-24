@@ -8,10 +8,10 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381824"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>Configuración y administración de la copia de seguridad continua y la restauración a un momento dado (versión preliminar) mediante plantillas de Azure Resource Manager
@@ -22,7 +22,7 @@ ms.locfileid: "100381824"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La característica de restauración a un momento dado (versión preliminar) de Azure Cosmos DB ayuda a recuperarse de un cambio accidental en un contenedor, a restaurar una cuenta, una base de datos o un contenedor eliminados o a restaurar en cualquier región (donde hubiera copias de seguridad). El modo de copia de seguridad continua permite realizar la restauración en cualquier punto temporal de los últimos 30 días.
+La característica de restauración a un momento dado (versión preliminar) de Azure Cosmos DB ayuda a recuperarse de un cambio accidental en un contenedor, a restaurar una cuenta, una base de datos o un contenedor eliminados o a realizar una restauración en cualquier región (donde existan copias de seguridad). El modo de copia de seguridad continua permite realizar la restauración en cualquier punto temporal de los últimos 30 días.
 
 En este artículo se describe el aprovisionamiento de una cuenta con datos de copia de seguridad continua y restauración mediante plantillas de Azure Resource Manager.
 
