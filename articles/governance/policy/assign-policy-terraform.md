@@ -4,10 +4,10 @@ description: En este inicio rápido se usan Terraform y la sintaxis de HCL para 
 ms.date: 10/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93104926"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Inicio rápido: Creación de una asignación de directivas para identificar los recursos no compatibles mediante Terraform
@@ -147,7 +147,7 @@ Los resultados deben tener una apariencia similar al ejemplo siguiente:
 }
 ```
 
-Son comparables a lo que normalmente vería en **Recursos no compatibles** , en la vista de Azure Portal.
+Son comparables a lo que normalmente vería en **Recursos no compatibles**, en la vista de Azure Portal.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

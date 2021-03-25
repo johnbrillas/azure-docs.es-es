@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696243"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registro y examen de Azure Cosmos Database (SQL API)
@@ -24,8 +24,8 @@ Azure Cosmos Database (SQL API) admite exámenes completos e incrementales para 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal](create-catalog-portal.md).
-- Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
+- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
+- Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
@@ -65,7 +65,7 @@ En la pantalla **Register sources (Azure Cosmos DB (SQL API))** (Registrar orí
 1. Elija cómo quiere apuntar a la cuenta de almacenamiento elegida:
    1. Seleccione **From Azure subscription** (Desde la suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Azure subscription** (Suscripción de Azure) y la cuenta de Cosmos DB correspondiente en el cuadro desplegable **Cosmos DB account name** (Nombre de la cuenta de Cosmos DB).
    1. O bien, puede seleccionar **Enter manually** (Escribir manualmente) y especificar un punto de conexión de servicio (dirección URL).
-1. Seleccione **Finish** (Finalizar) para registrar el origen de datos.
+1. **Finalice** el proceso para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 

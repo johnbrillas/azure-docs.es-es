@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 33b55afb7796b197f7130ec9288abb01cc115651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86085657"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Exploración de los datos de una máquina virtual de SQL Server en Azure
@@ -35,7 +35,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 1. Obtener el número de observaciones por día
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obtención de los niveles de una columna de categorías
+2. Obtención de los niveles de una columna de categorías 
    
     `select  distinct <column_name> from <databasename>`
 3. Obtener el número de niveles de combinación de dos columnas de categorías 

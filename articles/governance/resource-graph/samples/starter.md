@@ -4,10 +4,10 @@ description: Use Azure Resource Graph para ejecutar consultas de inicio, como el
 ms.date: 02/04/2021
 ms.topic: sample
 ms.openlocfilehash: f3ff78f52f84ad4fac74fa6e7b04de3e645a2fff
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99557976"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Ejemplos de consultas de inicio de Resource Graph
@@ -16,14 +16,14 @@ El primer paso para entender las consultas con Azure Resource Graph es el recono
 
 Le guiaremos por las siguientes consultas de inicio:
 
-- [Recuento de recursos de Azure](#count-resources)
+- [Count Azure resources](#count-resources)
 - [Recuento de recursos de Key Vault](#count-keyvaults)
-- [Enumerar los recursos ordenados por nombre](#list-resources)
+- [List resources sorted by name](#list-resources)
 - [Mostrar todas las máquinas virtuales ordenadas por nombre de forma descendente](#show-vms)
-- [Mostrar las cinco primeras máquinas virtuales por nombre y tipo de sistema operativo](#show-sorted)
-- [Recuento de máquinas virtuales por tipo de sistema operativo](#count-os)
-- [Mostrar los recursos que contienen almacenamiento](#show-storage)
-- [Enumerar todas las direcciones IP públicas](#list-publicip)
+- [Show first five virtual machines by name and their OS type](#show-sorted)
+- [Count virtual machines by OS type](#count-os)
+- [Show resources that contain storage](#show-storage)
+- [List all public IP addresses](#list-publicip)
 - [Número de recursos que tienen direcciones IP configuradas por suscripción](#count-resources-by-ip)
 - [Enumerar los recursos con un valor de etiqueta específico](#list-tag)
 - [Enumerar todas las cuentas de almacenamiento con un valor de etiqueta específico](#list-specific-tag)

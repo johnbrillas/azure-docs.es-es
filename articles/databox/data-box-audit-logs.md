@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209176"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registros de auditoría para Azure Data Box y Azure Data Box Heavy
@@ -65,9 +65,9 @@ Los siguientes id. de eventos del registro de seguridad se recopilan como regist
 
 Los siguientes id. de eventos del registro de aplicaciones se recopilan como parte de los registros de auditoría de paquetes en su instancia de Data Box.     
 
-- **Microsoft-Azure-DataBox-OOBE-Auditing**: contiene los eventos que se producen en la interfaz de usuario local. 
+- **Microsoft-Azure-DataBox-OOBE-Auditing**: contiene los eventos que se producen en la interfaz de usuario local. 
 - **Microsoft-Azure-DataBox-Reprovision-Audit**: contiene los eventos relacionados con volver a aprovisionar el dispositivo de Data Box. El proceso de volver a aprovisionar la instancia de Data Box se produce cuando se restablece el dispositivo a través de la interfaz de usuario local. Elija esta opción si quiere borrar los datos copiados al quitar los recursos compartidos existentes y volver a crearlos como parte de volver a provisionar o restablecer el dispositivo.
-- **Microsoft-Azure-DataBox-HcsMgmt-Audit**: contiene eventos relacionados únicamente con el paso **Preparar para enviar** antes de que el dispositivo se envíe de vuelta al centro de datos de Azure. 
+- **Microsoft-Azure-DataBox-HcsMgmt-Audit**: contiene eventos relacionados únicamente con el paso **Preparar para enviar** antes de que el dispositivo se envíe de vuelta al centro de datos de Azure. 
 - **Microsoft-Azure-DataBox-IfxAudit**: contiene los mensajes registrados por diferentes entidades del producto acerca de los trabajos; estos registros incluyen más información sobre lo que está ocurriendo en algunos de los flujos.
 
 Esta es una tabla que resume los distintos proveedores de eventos y los id. de evento correspondientes que se recopilarán en cada caso.

@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 32d91f01fcebec3e1ae0d19b1bff29a71f41c0d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050433"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
@@ -26,7 +26,7 @@ ms.locfileid: "102050433"
 
 Utilice las herramientas de la línea de comandos para crear una función de Java que responda a solicitudes HTTP. Pruebe el código localmente y, a continuación, impleméntelo en el entorno sin servidor de Azure Functions.
 
-Si completa este inicio rápido, incurrirá en un pequeño costo de unos céntimos, o menos, en su cuenta de Azure. <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">Cuenta de Azure</abbr>.
+Este inicio rápido supone un pequeño costo en su <abbr title="El perfil que mantiene la información de facturación en relación con el uso de Azure.">cuenta de Azure</abbr>.
 
 Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [Visual Studio Code](create-first-function-vs-code-java.md).
 
@@ -91,7 +91,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 1. Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.
     Indique los siguientes valores cuando se le solicite:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9e626d08e7fd315ca70765477c5dae56030521c6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945591"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866410"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 
@@ -33,15 +33,15 @@ El [Analizador de portabilidad de .NET](https://marketplace.visualstudio.com/ite
 
 2. En Visual Studio 2015, seleccione __Analyze__ > __Portability Analyzer Settings__ (Analizar > Configuración del analizador de portabilidad) y asegúrese de que esté marcado __4.5__ en la sección __Mono__.
 
-    ![4.5 marcado en la sección de Mono para la configuración del analizador](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 marcado en la sección de Mono para la configuración del analizador":::
 
-    Haga clic en __OK__ (Aceptar) para guardar la configuración.
+    Seleccione __Aceptar__ para guardar la configuración.
 
 3. Seleccione __Analyze__ > __Analyze Assembly Portability__ (Analizar > Analizar portabilidad de ensamblado). Seleccione el ensamblado que contiene su solución y, después, seleccione __Open__ (Abrir) para iniciar el análisis.
 
 4. Una vez completado el análisis, seleccione __Analyze__ > __View analysis reports__ (Analizar > Ver informes de análisis). En __Portability Analysis Results__ (Resultados de análisis de portabilidad), seleccione __Open report__ (Abrir informe) para abrir un informe.
 
-    ![Cuadro de diálogo de resultados del analizador de portabilidad](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Cuadro de diálogo de resultados del analizador de portabilidad":::
 
 > [!IMPORTANT]  
 > El analizador no puede detectar todos los problemas de su solución. Por ejemplo, la ruta del archivo `c:\temp\file.txt` se considera correcta si Mono se ejecuta en Windows. Sin embargo, la misma ruta de acceso no es válida en una plataforma Linux.

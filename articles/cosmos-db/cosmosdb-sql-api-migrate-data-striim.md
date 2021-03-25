@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339615"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migración de los datos a una cuenta de SQL API de Azure Cosmos DB mediante Striim
@@ -36,7 +36,7 @@ En este artículo se muestra cómo usar Striim para migrar datos desde una insta
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Búsqueda del elemento de Marketplace de Striim":::
 
-1. A continuación, escriba las propiedades de configuración de la instancia de Striim. El entorno de Striim se implementa en una máquina virtual. En el panel **Básico** , escriba el **nombre de usuario de máquina virtual** , **Contraseña de máquina virtual** (esta contraseña se usa para SSH en la máquina virtual). Seleccione su **Suscripción** , **Grupo de recursos** y **Detalles de ubicación** allí donde desee implementar Striim. Cuando haya terminado, seleccione **Aceptar**.
+1. A continuación, escriba las propiedades de configuración de la instancia de Striim. El entorno de Striim se implementa en una máquina virtual. En el panel **Básico**, escriba el **nombre de usuario de máquina virtual**, **Contraseña de máquina virtual** (esta contraseña se usa para SSH en la máquina virtual). Seleccione su **Suscripción**, **Grupo de recursos** y **Detalles de ubicación** allí donde desee implementar Striim. Cuando haya terminado, seleccione **Aceptar**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configuración de las opciones básicas para Striim":::
 
@@ -78,7 +78,7 @@ En esta sección, va a configurar la cuenta de SQL API de Azure Cosmos DB como 
 
 1. Ahora, volvamos a Striim. Antes de interactuar con Striim, instale el controlador JDBC de Oracle que descargó anteriormente.
 
-1. Vaya a la instancia de Striim que implementó en Azure Portal. Seleccione el botón **Conectar** en la barra de menús superior y, en la pestaña **SSH** , copie la dirección URL en el campo **Iniciar sesión con la cuenta local de VM**.
+1. Vaya a la instancia de Striim que implementó en Azure Portal. Seleccione el botón **Conectar** en la barra de menús superior y, en la pestaña **SSH**, copie la dirección URL en el campo **Iniciar sesión con la cuenta local de VM**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Obtención de la dirección URL de SSH":::
 
@@ -124,15 +124,15 @@ En esta sección, va a configurar la cuenta de SQL API de Azure Cosmos DB como 
 
 1. Ahora, vuelva a Azure y copie la dirección IP pública de su máquina virtual de Striim. 
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copia de la dirección IP de la máquina virtual de Striim":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copia de la dirección IP de la máquina virtual de Striim":::
 
-1. Para ir a la interfaz de usuario web de Striim, abra una nueva pestaña en un explorador y copie la IP pública seguida de: 9080. Inicie sesión con el nombre de usuario **administrador** , junto con la contraseña de administrador que especificó en Azure Portal.
+1. Para ir a la interfaz de usuario web de Striim, abra una nueva pestaña en un explorador y copie la IP pública seguida de: 9080. Inicie sesión con el nombre de usuario **administrador**, junto con la contraseña de administrador que especificó en Azure Portal.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Inicio de sesión en Striim":::
 
-1. Ahora llegará a la página principal de Striim. Hay tres paneles diferentes: **Dashboards** , **Apps** y **SourcePreview**. El panel Dashboards le permite mover datos en tiempo real y visualizarlos. En el panel Apps se incluyen sus canalizaciones de streaming de datos o flujos de datos. En el lado derecho de la página se encuentra SourcePreview, donde puede obtener una versión preliminar de sus datos antes de moverlos.
+1. Ahora llegará a la página principal de Striim. Hay tres paneles diferentes: **Dashboards**, **Apps** y **SourcePreview**. El panel Dashboards le permite mover datos en tiempo real y visualizarlos. En el panel Apps se incluyen sus canalizaciones de streaming de datos o flujos de datos. En el lado derecho de la página se encuentra SourcePreview, donde puede obtener una versión preliminar de sus datos antes de moverlos.
 
-1. Seleccione el panel **Apps** , por ahora nos centraremos en este panel. Existen numerosas aplicaciones de ejemplo que puede usar para aprender sobre Striim. De todas formas, en este artículo creará las suyas propias. Seleccione el botón **Agregar aplicación** en la esquina superior derecha.
+1. Seleccione el panel **Apps**, por ahora nos centraremos en este panel. Existen numerosas aplicaciones de ejemplo que puede usar para aprender sobre Striim. De todas formas, en este artículo creará las suyas propias. Seleccione el botón **Agregar aplicación** en la esquina superior derecha.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Incorporación de la aplicación Striim":::
 
@@ -144,9 +144,9 @@ En esta sección, va a configurar la cuenta de SQL API de Azure Cosmos DB como 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Selección de Oracle CDC a Cosmos DB":::
 
-1. En la página siguiente, dele un nombre a la aplicación. Puede proporcionar un nombre como **oraToCosmosDB** , después seleccione **Guardar**.
+1. En la página siguiente, dele un nombre a la aplicación. Puede proporcionar un nombre como **oraToCosmosDB**, después seleccione **Guardar**.
 
-1. A continuación, escriba la configuración de origen de la instancia de origen de Oracle. Escriba un valor para el **Nombre de origen**. El nombre de origen es simplemente una convención de nomenclatura para la aplicación Striim. Puede usar un nombre como **src_onPremOracle**. Escriba los valores para el resto de los parámetros de origen **URL** , **Nombre de usuario** y **Contraseña** , elija **LogMiner** como lector para leer los datos de Oracle. Seleccione **Next** (Siguiente) para continuar.
+1. A continuación, escriba la configuración de origen de la instancia de origen de Oracle. Escriba un valor para el **Nombre de origen**. El nombre de origen es simplemente una convención de nomenclatura para la aplicación Striim. Puede usar un nombre como **src_onPremOracle**. Escriba los valores para el resto de los parámetros de origen **URL**, **Nombre de usuario** y **Contraseña**, elija **LogMiner** como lector para leer los datos de Oracle. Seleccione **Next** (Siguiente) para continuar.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configuración de parámetros de origen":::
 
@@ -165,8 +165,8 @@ En esta sección, va a configurar la cuenta de SQL API de Azure Cosmos DB como 
    * **Target Name** (Nombre de destino): proporcione un nombre descriptivo para el destino. 
    * **Input From** (Origen de la entrada): en la lista desplegable, seleccione el flujo de entrada de la que ha creado en la configuración de origen de Oracle. 
    * **Collections** (Colecciones): especifique las propiedades de configuración de Azure Cosmos DB de destino. La sintaxis de las colecciones es **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. En este ejemplo, el valor sería "SYSTEM.ORDERS, StriimDemo.Orders". 
-   * **AccessKey** : el valor PrimaryKey de la cuenta de Azure Cosmos.
-   * **ServiceEndpoint** : el URI de la cuenta de Azure Cosmos, que puede encontrarse en la sección **Claves** de Azure Portal. 
+   * **AccessKey**: el valor PrimaryKey de la cuenta de Azure Cosmos.
+   * **ServiceEndpoint**: el URI de la cuenta de Azure Cosmos, que puede encontrarse en la sección **Claves** de Azure Portal. 
 
    Seleccione **Guardar** y **Siguiente**.
 

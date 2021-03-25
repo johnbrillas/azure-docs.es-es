@@ -4,10 +4,10 @@ description: Aquí se describe cómo puede usar los centros de eventos como cont
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 446fef6df65f59206519e282c74d59c2ed1bfa9d
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005643"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centro de eventos como controlador de eventos para eventos de Azure Event Grid

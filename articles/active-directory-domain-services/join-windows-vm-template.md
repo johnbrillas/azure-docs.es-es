@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: e7245e8e468ea051ee095d97cc250ad303aa80a5
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619443"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Una una máquina virtual con Windows Server a un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
@@ -86,7 +86,7 @@ Para crear una VM con Windows Server y, a continuación, unirla a un dominio ad
 
     | Configuración                   | Value |
     |---------------------------|-------|
-    | Suscripción              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
+    | Subscription              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
     | Resource group            | Elija el grupo de recursos para su máquina virtual. |
     | Location                  | Seleccione la ubicación de la máquina virtual. |
     | Nombre de red virtual existente        | El nombre de la red virtual existente a la que conectar la máquina virtual, como *myVnet*. |
@@ -119,7 +119,7 @@ Para unir una VM con Windows Server existente a un dominio administrado, comple
 
     | Configuración                   | Value |
     |---------------------------|-------|
-    | Suscripción              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
+    | Subscription              | Elija la misma suscripción de Azure en la que ha habilitado Azure AD Domain Services. |
     | Resource group            | Elija el grupo de recursos con su máquina virtual existente. |
     | Location                  | Seleccione la ubicación de su máquina virtual existente. |
     | Lista de máquinas virtuales                   | Escriba la lista separada por comas de las VM existentes que unir al dominio administrado, como *myVM1,myVM2*. |

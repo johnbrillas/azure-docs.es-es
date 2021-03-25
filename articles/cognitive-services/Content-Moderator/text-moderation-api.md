@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912912"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
@@ -49,7 +49,7 @@ Si la API detecta un término soez en cualquiera de los [idiomas admitidos](./la
 > [!NOTE]
 > Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver la respuesta **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
 >
-> Para la detección de **palabras soeces** , use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
+> Para la detección de **palabras soeces**, use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
 
 ## <a name="classification"></a>clasificación
 

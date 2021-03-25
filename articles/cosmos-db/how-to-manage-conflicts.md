@@ -9,10 +9,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339349"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
@@ -136,10 +136,10 @@ En estos ejemplos se muestran cómo configurar un contenedor con una directiva d
 
 Los procedimientos almacenados de resolución de conflictos personalizada deben implementarse mediante la signatura de función que se muestra a continuación. No es necesario que el nombre de la función coincida con el nombre usado al registrar el procedimiento almacenado con el contenedor, pero simplifica la nomenclatura. A continuación, se muestra una descripción de los parámetros que se deben implementar para este procedimiento almacenado.
 
-- **incomingItem** : el elemento insertado o actualizado en la confirmación que está generando los conflictos. Es nulo para las operaciones de eliminación.
-- **existingItem** : el elemento confirmado actualmente. Este valor no es NULL en una actualización ye s NULL en una inserción o eliminaciones.
-- **isTombstone** : valor booleano que indica si incomingItem está en conflicto con un elemento eliminado anteriormente. Cuando es verdadero, existingItem también es nulo.
-- **conflictingItems** : Matriz de la versión confirmada de todos los elementos del contenedor que están en conflicto con incomingItem en el identificador o cualquier otra propiedad de índice único.
+- **incomingItem**: el elemento insertado o actualizado en la confirmación que está generando los conflictos. Es nulo para las operaciones de eliminación.
+- **existingItem**: el elemento confirmado actualmente. Este valor no es NULL en una actualización ye s NULL en una inserción o eliminaciones.
+- **isTombstone**: valor booleano que indica si incomingItem está en conflicto con un elemento eliminado anteriormente. Cuando es verdadero, existingItem también es nulo.
+- **conflictingItems**: Matriz de la versión confirmada de todos los elementos del contenedor que están en conflicto con incomingItem en el identificador o cualquier otra propiedad de índice único.
 
 > [!IMPORTANT]
 > Al igual que con cualquier procedimiento almacenado, un procedimiento de resolución de conflictos personalizado puede acceder a los datos con la misma clave de partición y puede realizar cualquier operación de inserción, actualización o eliminación para resolver los conflictos.

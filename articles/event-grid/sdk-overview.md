@@ -3,12 +3,12 @@ title: SDK de Azure Event Grid
 description: Se describen los SDK de Azure Event Grid. Estos SDK proporcionan administración, publicación y consumo.
 ms.topic: reference
 ms.date: 07/07/2019
-ms.openlocfilehash: c5b79f7cb7ae0112e2dacd077289786fc7b5c956
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: aa53aaa89a703bb88df6611cdb0dd38341248a55
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516768"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955931"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK de Event Grid para administración y publicación
 
@@ -30,13 +30,13 @@ Los SDK de administración permiten crear, actualizar y eliminar suscripciones y
 Los SDK de planos de datos permiten publicar eventos en temas, y se aseguran de autenticar, formar el evento y publicarlo de forma asincrónica en el punto de conexión especificado. También permiten consumir eventos de primera entidad. En la actualidad, están disponibles los siguientes SDK:
 
 | Lenguaje de programación | SDK | 
-| -------------------- | ---------- | ---------- | 
+| -------------------- | ---------- | 
 | .NET | SDK estable: [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)<p>SDK de versión preliminar: [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/) |
 | Java | SDK estable: [azure-eventgrid](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)<p>SDK de versión preliminar: [azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid/)</p> |  
 | Python | [azure-eventgrid](https://pypi.org/project/azure-eventgrid/#history) (consulte las versiones preliminares y estables más recientes en la página **Historial de versiones**) |
 | JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid/) (vaya a la pestaña **Versiones** para ver los paquetes de versión beta y estable más recientes). | 
-| Go | [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) | | 
-| Ruby | [azure_event_grid](https://rubygems.org/gems/azure_event_grid) | | 
+| Go | [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) |
+| Ruby | [azure_event_grid](https://rubygems.org/gems/azure_event_grid) |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

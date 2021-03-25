@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f82883b68ab911fb0b89fc117d9a9d77e05a781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245898"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -17,7 +17,7 @@ Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
 
 ## <a name="commands"></a>Comandos:
 
-|Get-Help|Descripción|
+|Comando|Descripción|
 | --- | --- |
 | invoke-api | Invoca la API de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado. |
 | logs | Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric. |

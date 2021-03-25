@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: En este artículo se proporciona información general de los agentes de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121905"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953075"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Arquitectura de agentes de Kubernetes habilitado para Azure Arc
 
@@ -93,5 +93,5 @@ La mayoría de los centros de datos locales aplican estrictas reglas de red que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Siga el inicio rápido para [conectar un clúster de Kubernetes a Azure Arc](./connect-cluster.md).
+* Siga el inicio rápido para [conectar un clúster de Kubernetes a Azure Arc](./quickstart-connect-cluster.md).
 * Obtenga más información sobre la creación de conexiones entre el clúster y un repositorio de GIT como un [recurso de configuración con Kubernetes habilitado para Azure Arc](./conceptual-configurations.md).

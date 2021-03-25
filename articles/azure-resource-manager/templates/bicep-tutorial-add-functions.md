@@ -2,16 +2,16 @@
 title: 'Tutorial: Adición de funciones a archivos de Bicep de Azure Resource Manager'
 description: Agregue funciones a archivos de Bicep para construir valores.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743029"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633162"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>Tutorial: Adición de funciones a un archivo de Bicep de Azure Resource Manager
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a agregar [funciones de plantilla](template-functio
 
 Aunque no es obligatorio, se recomienda realizar el [tutorial sobre parámetros](bicep-tutorial-add-parameters.md).
 
-Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte el apartado relativo a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
+Debe tener Visual Studio Code con la extensión Bicep y Azure PowerShell o la CLI de Azure. Para más información, consulte la sección relativa a las [herramientas de Bicep](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## <a name="review-bicep-file"></a>Examen de un archivo de Bicep
 
@@ -37,7 +37,7 @@ La ubicación de la cuenta de almacenamiento está codificada de forma rígida e
 
 Las funciones agregan flexibilidad a cualquier archivo de Bicep mediante la obtención dinámica de valores durante la implementación. En este tutorial, usará una función para obtener la ubicación del grupo de recursos que está usando para la implementación.
 
-En el ejemplo siguiente se resaltan los cambios para agregar un parámetro denominado `location`. El valor predeterminado del parámetro llama a la función [resourceGroup](template-functions-resource.md#resourcegroup). Esta función devuelve un objeto con información sobre el grupo de recursos que se utiliza para la implementación. Una de las propiedades del objeto es una propiedad de ubicación. Cuando se usa el valor predeterminado, la cuenta de almacenamiento tiene la misma ubicación que el grupo de recursos. No es necesario que los recursos incluidos en un grupo de recursos compartan la misma ubicación. También puede proporcionar una ubicación diferente cuando sea necesario.
+En el ejemplo siguiente se muestran los cambios que hay que realizar para agregar un parámetro denominado `location`. El valor predeterminado del parámetro llama a la función [resourceGroup](template-functions-resource.md#resourcegroup). Esta función devuelve un objeto con información sobre el grupo de recursos que se utiliza para la implementación. Una de las propiedades del objeto es una propiedad de ubicación. Cuando se usa el valor predeterminado, la cuenta de almacenamiento tiene la misma ubicación que el grupo de recursos. No es necesario que los recursos incluidos en un grupo de recursos compartan la misma ubicación. También puede proporcionar una ubicación diferente cuando sea necesario.
 
 Copie el archivo completo y reemplace el archivo de Bicep por su contenido.
 

@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371620"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Activación de un rol personalizado de Azure AD en Privileged Identity Management
@@ -47,16 +47,16 @@ Cuando necesite activar un rol personalizado de Azure AD, seleccione la opción
 > Antes de asignar un rol, debe crearlo o configurarlo. Para más información sobre la configuración de roles personalizados de AAD, consulte [Configuración de roles personalizados de Azure AD en Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. En la página **Roles personalizados de Azure AD (versión preliminar)** , busque la asignación que necesite.
-1. Seleccione **Activar el rol** para abrir la página **Activar** .
-1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder** . Se le requiere que se autentique solo una vez por sesión.
+1. Seleccione **Activar el rol** para abrir la página **Activar**.
+1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder**. Se le requiere que se autentique solo una vez por sesión.
 1. Seleccione **Comprobar mi identidad** y siga las instrucciones para realizar cualquier comprobación de seguridad adicional.
 1. Para especificar un ámbito de aplicación personalizado, seleccione **Ámbito** para abrir el panel de filtro. Debe solicitar acceso a un rol en el ámbito mínimo necesario. Si la asignación está en un ámbito de aplicación, solo la puede activar en ese ámbito.
 
    ![Asignación de un ámbito de recurso de Azure AD a la asignación de roles](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
 1. Si es necesario, especifique una hora de inicio de activación personalizada. Cuando se usa, el miembro del rol se activa en el momento especificado.
-1. En el campo **Razón** , escriba el motivo de la solicitud de activación. Se pueden hacer obligatorios o no en la configuración del rol.
-1. Seleccione **Activar** .
+1. En el campo **Razón**, escriba el motivo de la solicitud de activación. Se pueden hacer obligatorios o no en la configuración del rol.
+1. Seleccione **Activar**.
 
 Si el rol no requiere aprobación, se activa según la configuración y se agrega a la lista de roles activos. Si quiere usar el rol activado, comience con los pasos que se describen en [Asignación de un rol personalizado de Azure AD en Privileged Identity Management](azure-ad-custom-roles-assign.md).
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integración de Azure Active Directory con iQualify LMS
@@ -30,7 +30,7 @@ La integración de iQualify LMS con Azure AD ofrece las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con iQualify LMS, necesita lo siguiente:
 
@@ -74,10 +74,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con iQualify LMS, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de iQualify LMS](#configure-iqualify-lms-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de iQualify LMS](#configure-iqualify-lms-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de iQualify LMS](#create-iqualify-lms-test-user)** : para tener un homólogo de Britta Simon en iQualify LMS que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de iQualify LMS](#create-iqualify-lms-test-user)**: para tener un homólogo de Britta Simon en iQualify LMS que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -181,7 +181,7 @@ Para configurar el inicio de sesión único de Azure AD con iQualify LMS, siga e
 
 1. Una vez que haya iniciado sesión, haga clic en su avatar en la esquina superior derecha y, después, en **Account settings** (Configuración de la cuenta)
 
-    ![Configuración de cuenta](./media/iqualify-tutorial/setting1.png)
+    ![Configuración de la cuenta](./media/iqualify-tutorial/setting1.png)
 
 1. En el área de configuración de cuenta, haga clic en el menú de la cinta de opciones de la izquierda y luego en **INTEGRATIONS** (INTEGRACIONES)
 

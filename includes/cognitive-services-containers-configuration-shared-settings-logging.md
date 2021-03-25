@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 2bfb700ac5c220b780c05c8d415a4506c7a2f871
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001226"
 ---
 La opción de configuración `Logging` administra la compatibilidad con el registro de ASP.NET Core del contenedor. Puede usar los mismos valores y opciones de configuración para el contenedor que los que usa para una aplicación ASP.NET Core. 
@@ -17,8 +17,8 @@ Los siguientes proveedores de registro son compatibles con el contenedor:
 
 |Proveedor|Propósito|
 |--|--|
-|[Console](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Proveedor de registro de `Console` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
-|[Depuración](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Proveedor de registro de `Debug` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
+|[Consola](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Proveedor de registro de `Console` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
+|[Depurar](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Proveedor de registro de `Debug` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
 |[Disco](#disk-logging)|Proveedor de registro JSON. Este proveedor de registro escribe datos de registro para el montaje de salida.|
 
 Este comando de contenedor almacena información de registro en formato JSON en el montaje de salida:

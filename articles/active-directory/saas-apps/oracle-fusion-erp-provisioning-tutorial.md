@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: da6e1a8ba31f8f4991bde4803191598a015a68b3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358447"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configuración de Oracle Fusion ERP para el aprovisionamiento automático de usuarios
@@ -114,17 +114,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` en la **URL de inquilino**. Escriba el nombre de usuario y la contraseña de administrador recuperados anteriormente en los campos **Nombre de usuario de administrador** y **Contraseña de administrador**. Haga clic en **Probar conexión** entre Azure AD y Oracle Fusion ERP. 
+5. En la sección **Credenciales de administrador**, escriba `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` en la **URL de inquilino**. Escriba el nombre de usuario y la contraseña de administrador recuperados anteriormente en los campos **Nombre de usuario de administrador** y **Contraseña de administrador**. Haga clic en **Probar conexión** entre Azure AD y Oracle Fusion ERP. 
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Captura de pantalla de la sección de credenciales de administrador. Aparecen un botón para probar la conexión y los campos para la dirección URL de inquilino, el nombre de usuario de administrador y la contraseña de administrador." border="false":::
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Fuze** (Sincronizar usuarios de Azure Active Directory con Oracle Fusion ERP).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Fuze** (Sincronizar usuarios de Azure Active Directory con Oracle Fusion ERP).
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la opción para sincronizar los usuarios de Azure Active Directory con Oracle Fusion ERP." border="false":::
 
@@ -132,7 +132,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Captura de pantalla de la página Asignaciones de atributos. En una tabla se enumeran los atributos de Azure Active Directory y Oracle Fusion ERP y la precedencia coincidente." border="false":::
 
-10. En la sección **Asignaciones** , seleccione **Sincronización de grupos de Azure Active Directory con Oracle Fusion ERP**.
+10. En la sección **Asignaciones**, seleccione **Sincronización de grupos de Azure Active Directory con Oracle Fusion ERP**.
 
     ![Asignaciones de grupos de Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
 
@@ -146,7 +146,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Oracle Fusion ERP.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Oracle Fusion ERP.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

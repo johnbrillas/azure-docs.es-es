@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040255"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del Firewall de aplicaciones web
@@ -38,7 +38,7 @@ Puede especificar una coincidencia exacta con un atributo de cadena de consulta,
 
 Estos son los operadores de criterios de coincidencia admitidos:
 
-- **Equals** (es igual a):  este operador se usa para una coincidencia exacta. Por ejemplo, para seleccionar el encabezado denominado **bearerToken** , utilice el operador de igualdad con el selector definido como **bearerToken**.
+- **Equals** (es igual a):  este operador se usa para una coincidencia exacta. Por ejemplo, para seleccionar el encabezado denominado **bearerToken**, utilice el operador de igualdad con el selector definido como **bearerToken**.
 - **Starts with** (empieza por): este operador coincide con todos los campos que comienzan por el valor del selector especificado.
 - **Ends with** (termina en):  este operador coincide con todos los campos de solicitud que terminan con el valor del selector especificado.
 - **Contains** (contiene): este operador coincide con todos los campos de solicitud que contienen el valor del selector especificado.
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Por tanto, si la dirección URL `http://www.contoso.com/?user%281%29=fdafdasfda` se pasa a WAF, no evaluará la cadena **fdafdasfda** , pero sí el nombre de parámetro **user%281%29**. 
+Por tanto, si la dirección URL `http://www.contoso.com/?user%281%29=fdafdasfda` se pasa a WAF, no evaluará la cadena **fdafdasfda**, pero sí el nombre de parámetro **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Límites de tamaño de solicitud del WAF
 

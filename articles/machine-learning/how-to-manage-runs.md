@@ -12,23 +12,27 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d142c523862d61bf56723726be50cd6f095c5ee9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520343"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634783"
 ---
-# <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
+# <a name="start-monitor-and-track-runs"></a>Inicio, supervisión y seguimiento de ejecuciones 
 
 El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Microsoft Azure Machine Learning Studio](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
 
 En este artículo se muestran ejemplos de las tareas siguientes:
 
 * Supervisión del rendimiento de la ejecución.
+* Supervisión del estado de la ejecución mediante notificaciones por correo electrónico.
+* Etiquetado y búsqueda de ejecuciones.
+* Incorporación de la descripción de una ejecución. 
+* Búsqueda de una ejecución. 
 * Cancelación o ejecuciones erróneas.
 * Creación de ejecuciones secundarias.
-* Etiquetado y búsqueda de ejecuciones.
+ 
 
 > [!TIP]
 > Si busca información sobre cómo supervisar Azure Machine Learning Service y los servicios de Azure asociados, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -50,7 +54,8 @@ Necesitará los siguientes elementos:
     print(azureml.core.VERSION)
     ```
 
-* La [CLI de Azure](/cli/azure/) y la [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* La [CLI de Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest) y la [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
 
 ## <a name="monitor-run-performance"></a>Supervisión del rendimiento de la ejecución
 
@@ -96,7 +101,7 @@ Necesitará los siguientes elementos:
     
         Este comando crea un subdirectorio `.azureml` que contiene archivos de entorno de conda y runconfig de ejemplo. También contiene un archivo `config.json` que se usa para comunicarse con el área de trabajo de Azure Machine Learning.
     
-        Para obtener más información, consulte [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
+        Para obtener más información, consulte [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
     2. Para iniciar la ejecución, use el comando siguiente. Cuando use este comando, especifique el nombre del archivo runconfig (el texto que va antes de \*.runconfig, si mira el sistema de archivo) con respecto al parámetro -c.
     
@@ -111,7 +116,7 @@ Necesitará los siguientes elementos:
         >
         > Para ver más archivos runconfig de ejemplo, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        Para obtener más información, consulte [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+        Para obtener más información, consulte [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -162,7 +167,7 @@ Necesitará los siguientes elementos:
     
         Este comando devuelve un documento JSON que muestra información sobre las ejecuciones de este experimento.
     
-        Para obtener más información, consulte [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
+        Para obtener más información, consulte [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
     
     * Para ver información sobre una ejecución concreta, use el siguiente comando. Reemplace `runid` por el identificador de la ejecución:
     
@@ -172,7 +177,7 @@ Necesitará los siguientes elementos:
     
         Este comando devuelve un documento JSON que muestra información sobre la ejecución.
     
-        Para obtener más información, consulte [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show).
+        Para obtener más información, consulte [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
     
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
@@ -192,6 +197,29 @@ Necesitará los siguientes elementos:
     1. Para ver los registros de ejecución, seleccione una ejecución específica y, en la pestaña **Resultados y registros**, puede encontrar registros de diagnóstico y errores para la ejecución.
     
     ---
+
+## <a name="monitor-the-run-status-by-email-notification"></a>Supervisión del estado de la ejecución mediante notificaciones por correo electrónico
+
+1. En la barra de navegación de la izquierda de [Azure Portal](https://ms.portal.azure.com/), seleccione la pestaña **Supervisar**. 
+
+1. Seleccione **Configuración de diagnóstico** y, luego, seleccione **+ Agregar configuración de diagnóstico**.
+
+    ![Captura de pantalla de la configuración de diagnóstico para la notificación por correo electrónico](./media/how-to-manage-runs/diagnostic-setting.png)
+
+1. En la Configuración de diagnóstico, 
+    1. en **Detalles de categoría**, seleccione **AmlRunStatusChangedEvent**. 
+    1. En **Detalles de categoría**, seleccione **Enviar a área de trabajo de Log Analytics** y especifique la **suscripción** y el **área de trabajo de Log Analytics**. 
+
+    > [!NOTE]
+    > El **área de trabajo de Azure Log Analytics** es un tipo de recurso de Azure distinto del **área de trabajo de Azure Machine Learning Service**. Si no hay opciones en esa lista, puede [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    
+    ![Dónde guardar la notificación por correo electrónico](./media/how-to-manage-runs/log-location.png)
+
+1. En la pestaña **Registros**, agregue una **Nueva regla de alertas**. 
+
+    ![Nueva alerta de reglas](./media/how-to-manage-runs/new-alert-rule.png)
+
+1. Consulte [cómo crear y administrar las alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
 
 ## <a name="run-description"></a>Descripción de la ejecución 
 
@@ -253,7 +281,7 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Para obtener más información, consulte [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update).
+    Para obtener más información, consulte [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
@@ -287,17 +315,17 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    Para obtener más información sobre la consulta de resultados de la CLI de Azure, vea [Resultados de los comandos de consulta de la CLI de Azure](/cli/azure/query-azure-cli).
+    Para obtener más información sobre la consulta de resultados de la CLI de Azure, vea [Resultados de los comandos de consulta de la CLI de Azure](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
-    1. Vaya a la lista **Todas las ejecuciones**.
+    Para buscar ejecuciones específicas, vaya a la lista **Todas las ejecuciones**. Cuenta con dos opciones:
     
-    1. Utilice la barra de búsqueda para filtrar los metadatos de la ejecución, como las etiquetas, las descripciones, los nombres de los experimentos y el nombre del remitente. El filtro de etiquetas también se puede usar para filtrar por las etiquetas. 
+    1. Puede usar el botón **Agregar filtro** y seleccione filtrar por etiquetas a fin de filtrar las ejecuciones en función de la etiqueta que se les asignó. <br><br>
+    O BIEN
     
-    ---
-
-
+    1. Puede usar la barra de búsqueda para filtrar rápidamente las ejecuciones mediante la búsqueda de metadatos de la ejecución, como su estado, las descripciones, los nombres de los experimentos y el nombre del remitente. 
+    
 ## <a name="cancel-or-fail-runs"></a>Cancelación o ejecuciones erróneas
 
 Si detecta un error o si la ejecución tarda demasiado en finalizar, puede cancelarla.
@@ -331,7 +359,7 @@ Para cancelar una ejecución con la CLI, use el siguiente comando. Reemplace `ru
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Para obtener más información, consulte [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel).
+Para obtener más información, consulte [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
 
 # <a name="studio"></a>[Estudio](#tab/azure-studio)
 
@@ -375,7 +403,7 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 ### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
 
-Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. No se puede crear una ejecución secundaria sin elemento primario: aunque la ejecución primaria no hace más que iniciar ejecuciones secundarias, sigue siendo necesario crear la jerarquía. El estado de todas las ejecuciones es independiente: un elemento primario puede estar en el estado `"Completed"` correcto aunque una o varias ejecuciones secundarias se hayan cancelado o hayan dado error.  
+Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. No se puede crear una ejecución secundaria sin elemento primario: aunque la ejecución primaria no hace más que iniciar ejecuciones secundarias, sigue siendo necesario crear la jerarquía. Los estados de todas las ejecuciones son independientes: una ejecución primaria puede tener el estado `"Completed"` correcto aunque una o varias ejecuciones secundarias se hayan cancelado o hayan dado error.  
 
 Es posible que desee que las ejecuciones secundarias utilicen una configuración de ejecución diferente de la ejecución primaria. Por ejemplo, puede utilizar una configuración menos potente basada en CPU para el elemento primario, mientras usa configuraciones basadas en GPU para los elementos secundarios. Otro deseo habitual es pasar a cada ejecución secundaria argumentos y datos distintos. Para personalizar una ejecución secundaria, cree un objeto de `ScriptRunConfig` para la ejecución secundaria. El código que se muestra a continuación hace lo siguiente:
 

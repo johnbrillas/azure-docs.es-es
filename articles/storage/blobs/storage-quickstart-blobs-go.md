@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544656"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Go
@@ -149,9 +149,9 @@ Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los b
 
 Para cargar un archivo en un blob, abra el archivo con **os.Open**. Luego puede cargar el archivo en la ruta de acceso especificada mediante una de las API REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-Como alternativa, el SDK ofrece [API de alto nivel](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que se basan en las API de REST de bajo nivel. Por ejemplo, la función **_UploadFileToBlockBlob_* _ utiliza las operaciones de StageBlock (PutBlock) para cargar simultáneamente un archivo en fragmentos para optimizar el rendimiento. Si el archivo tiene menos de 256 MB, usa Upload (PutBlob) para completar la transferencia en una sola transacción.
+Como alternativa, el SDK ofrece [API de alto nivel](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que se basan en las API de REST de bajo nivel. Por ejemplo, la función ***UploadFileToBlockBlob*** utiliza las operaciones de StageBlock (PutBlock) para cargar simultáneamente un archivo en fragmentos para optimizar el rendimiento. Si el archivo tiene menos de 256 MB, usa Upload (PutBlob) para completar la transferencia en una sola transacción.
 
-En el ejemplo siguiente se carga el archivo en el contenedor denominado _*quickstartblobs-[randomstring]**.
+En el ejemplo siguiente se carga el archivo en el contenedor denominado **quickstartblobs-[randomstring]** .
 
 ```go
 // Create a file to test the upload and download.

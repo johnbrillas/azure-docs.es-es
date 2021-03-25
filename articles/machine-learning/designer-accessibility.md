@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90893427"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Uso del diseñador de Azure Machine Learning mediante el teclado
@@ -67,7 +67,7 @@ Use los siguientes accesos directo con la clave de acceso. Para más informació
 
 | Pulsación de tecla | Acción |
 |-|-|
-| Clave de acceso + R | Ejecute |
+| Clave de acceso + R | Ejecutar |
 | Clave de acceso + P | Publicar |
 | Clave de acceso + C | Clonar |
 | Clave de acceso + D | Implementación |

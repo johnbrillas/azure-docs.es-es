@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b5682ff58ad827f5a165342f11f03fb49bbe6d2d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946554"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867889"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use las funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight.
 
@@ -21,7 +21,7 @@ Aprenda a usar funciones definidas por el usuario (UDF) de C# con [Apache Hive](
 
 Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesamiento. Este proceso se conoce como _streaming_. Cuando se usa una aplicación .NET, los datos se pasan a la aplicación en STDIN y la aplicación devuelve los resultados en STDOUT. Para leer y escribir en STDIN y STDOUT, puede usar `Console.ReadLine()` y `Console.WriteLine()` desde una aplicación de la consola.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Estar familiarizado con la escritura y la compilación del código C# orientado a .NET Framework 4.5.
 
@@ -171,9 +171,9 @@ A continuación, cargue las aplicaciones UDF de Hive y Pig que se van a almacena
 
 1. Expanda el clúster de HDInsight en el que desee implementar esta aplicación. Aparecerá una entrada con el texto **(Cuenta de almacenamiento predeterminada)** en la lista.
 
-    ![Cuenta de almacenamiento predeterminada, clúster de HDInsight, Explorador de servidores](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="Cuenta de almacenamiento predeterminada, clúster de HDInsight, Explorador de servidores" border="true":::
 
-    * Si se puede expandir esta entrada, significa que está utilizando una **cuenta de Azure Storage** como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en **(Contenedor predeterminado)** .
+    * Si se puede expandir esta entrada, significa que está utilizando una **cuenta de Azure Storage** como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en **(Contenedor predeterminado)**.
 
     * Si esta entrada no se puede expandir, quiere decir que está usando **Azure Data Lake Storage** como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada **(Cuenta de almacenamiento predeterminada)** .
 
@@ -181,7 +181,7 @@ A continuación, cargue las aplicaciones UDF de Hive y Pig que se van a almacena
 
     * Si está usando una **cuenta de Azure Storage**, seleccione el icono **Cargar blob**.
 
-        ![HDInsight: icono de carga para el proyecto nuevo](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="HDInsight: icono de carga para el proyecto nuevo" border="true":::
 
         En el cuadro de diálogo **Cargar nuevo archivo**, en **Nombre de archivo**, seleccione **Examinar**. En el cuadro de diálogo **Cargar blob**, vaya a la carpeta *bin\debug* del proyecto *HiveCSharp* y, a continuación, elija el archivo *HiveCSharp.exe*. Por último, seleccione **Abrir** y, a continuación, **Aceptar** para completar la carga.
 
