@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 4c3308ff9b1ffeb0f14c5808e0d4cdd71dabf335
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518116"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780130"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configuración de la suscripción y del inicio de sesión con un id. de Apple mediante Azure Active Directory B2C (versión preliminar)
 
@@ -57,8 +57,8 @@ Para habilitar el inicio de sesión para los usuarios con un id. de Apple en Azu
 1. En **Identificadores**, seleccione el identificador que ha creado.
 1. Seleccione **Iniciar sesión con Apple** y, a continuación, seleccione **Configurar**.
     1. Seleccione **Primary App ID** (Identificador de aplicación principal) con el que quiere configurar el inicio de sesión con Apple.
-    1. En **Domains and Subdomains** (Dominios y subdominios), escriba `your-tenant-name.b2clogin.com`. Especifique el nombre del inquilino en el campo de nombre.
-    1. En **Return URLs** (Direcciones URL de retorno), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Especifique el nombre del inquilino en el campo de nombre.
+    1. En **Domains and Subdomains** (Dominios y subdominios), escriba `your-tenant-name.b2clogin.com`. Especifique el nombre del inquilino en el campo de nombre. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name`.
+    1. En **Return URLs** (Direcciones URL de retorno), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino, y `your-domain-name` por el dominio personalizado.
     1. Seleccione **Siguiente** y después **Listo**.
     1. Cuando se cierre la ventana emergente, seleccione **Continuar** y, a continuación, seleccione **Guardar**.
 
@@ -206,8 +206,8 @@ Puede definir un identificador de Apple como proveedor de notificaciones; para e
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

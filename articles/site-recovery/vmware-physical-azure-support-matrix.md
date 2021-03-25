@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7f2d6ecd01959e239a1ab048018452b2ae5fc20
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449261"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495222"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -250,6 +250,7 @@ Varias rutas (MPIO) de invitado/servidor | No
 Particiones GPT de invitado/servidor | Se admiten cinco particiones desde el [paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/) (versión 9.25 de Mobility Service) y versiones posteriores. Antes se admitían cuatro.
 ReFS | El sistema de archivos resistente es compatible con Mobility Service versión 9.23 o posterior
 Arranque de EFI/UEFI de invitado/servidor | - Compatible con todos los [sistemas operativos de Azure Marketplace UEFI](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) con la versión 9.30 del agente de movilidad de Site Recovery y posteriores. <br/> - No se admite el tipo de arranque seguro de UEFI. [Más información.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Disco RAID| No
 
 ## <a name="replication-channels"></a>Canales de replicación
 

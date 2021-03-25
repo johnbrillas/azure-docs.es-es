@@ -8,10 +8,10 @@ ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
 ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91301208"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Cómo integrar RabbitMQ con Azure Service Bus
@@ -20,7 +20,7 @@ En esta guía, vamos aprenderemos a enviar mensajes desde RabbitMQ hasta Azure S
 
 Estos son algunos escenarios en los que podemos hacer uso de estas funcionalidades:
 
-- **Configuración perimetral**: Tenemos una configuración perimetral en la que enviamos mensajes a RabbitMQ, pero queremos reenviar esos mensajes a [Azure Service Bus](./service-bus-messaging-overview.md) para un procesamiento posterior, de modo que podamos usar muchas de las [funciones de macrodatos de Azure ](/azure/architecture/guide/architecture-styles/big-data).
+- **Configuración perimetral**: Tenemos una configuración perimetral en la que enviamos mensajes a RabbitMQ, pero queremos reenviar esos mensajes a [Azure Service Bus](./service-bus-messaging-overview.md) para un procesamiento posterior, de modo que podamos usar muchas de las [funciones de macrodatos de Azure](/azure/architecture/guide/architecture-styles/big-data).
 - **Nube híbrida**: Su empresa acaba de adquirir un tercero que usa RabbitMQ para sus necesidades de mensajería. Se encuentran en una nube diferente. Mientras realizan la transición a Azure, ya puede empezar a compartir datos mediante el puente de RabbitMQ con Azure Service Bus.
 - **Integración de terceros**: Un tercero usa RabbitMQ como agente y desea enviarnos sus datos, pero están fuera de la organización. Podemos proporcionarles una clave SAS que les permita acceder a un conjunto limitado de colas de Azure Service Bus a las que pueden reenviar sus mensajes.
 
@@ -38,27 +38,27 @@ En Azure Portal, haga clic en el botón más grande para agregar un nuevo recurs
 
 Después, seleccione Integración y haga clic en Azure Service Bus para crear un espacio de nombres de mensajería:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Seleccione Azure Service Bus":::
 
 Se le pedirá que ingrese la información del espacio de nombres. Seleccione la suscripción de Azure que quiere usar. Si no tiene un [grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md) existente, puede crear uno.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crear un espacio de nombres":::
 
 Use `rabbitmq` para `Namespace name`, pero podría ser todo lo que desee. A continuación, establezca `East US` para la ubicación. Elija `Basic` como el plan de tarifa.
 
 Si todo ha salido bien, debería ver la siguiente pantalla de confirmación:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Confirmación de crear espacio de nombres":::
 
 Al volver a Azure Portal, verá el nuevo espacio de nombres `rabbitmq` en la lista. Haga clic en él para tener acceso al recurso, de modo que pueda agregarle una cola.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Lista de recursos con nuevo espacio de nombres":::
 
 ## <a name="creating-our-azure-service-bus-queue"></a>Crear nuestra cola de Azure Service Bus
 
 Ahora que tiene su espacio de nombres de Azure Service Bus, haga clic en el botón `Queues` de la izquierda, debajo de `Entities`, para agregar una nueva cola:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Crear cola":::
 
 El nombre de la cola será `from-rabbitmq` como un recordatorio de dónde proceden los mensajes. Puede dejar las demás opciones como valores predeterminados, pero puede cambiarlas para adaptarlas a las necesidades de su aplicación.
 
@@ -78,21 +78,21 @@ Ahora es el momento de obtener las credenciales necesarias para conectar RabbitM
 
 Tendrá que crear una [política de acceso compartido](../storage/common/storage-sas-overview.md) (SAS) para la cola, de modo que RabbitMQ pueda publicar mensajes en ella. Una directiva SAS le permite especificar qué entidad externa se puede hacer con el recurso. La idea es que RabbitMQ puede enviar mensajes, pero no escuchar ni administrar la cola.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Agregar directiva SAS":::
 
 Marque el cuadro `Send` y haga clic en `Create` para tener la directiva de SAS establecida.
 
 Una vez creada la Directiva, haga clic en ella para ver la **cadena de conexión principal**. Lo usaremos para permitir que RabbitMQ se comunique con Azure Service Bus:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Obtener directiva SAS":::
 
 Antes de poder utilizar esa cadena de conexión, tendrá que convertirla al formato de conexión AMQP de RabbitMQ. Así que, vaya a la [herramienta de conversión de cadena de conexión](https://red-mushroom-0f7446a0f.azurestaticapps.net/) y pegue la cadena de conexión en el formulario. Haga clic en Convertir. Obtendrá una cadena de conexión RabbitMQ lista. (Ese sitio web ejecuta todo lo que sea local en el explorador, por lo que los datos no se envían a través del cable). Puede acceder a su código fuente en [GitHub](https://github.com/videlalvaro/connstring_to_amqp).
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convertir cadena de conexión":::
 
 Ahora, abra el complemento de administración de RabbitMQ en nuestros exploradores `http://localhost:15672/#/dynamic-shovels` y vaya a `Admin -> Shovel Management`, donde puede agregar el nuevo Shovel que se encargará de enviar mensajes desde una cola de RabbitMQ hasta la cola de Azure Service Bus.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Agregar RabbitMQ Shovel":::
 
 Aquí, llame a Shovel `azure` y elija `AMQP 0.9.1` como el protocolo de origen. En la captura de pantalla, tenemos `amqp://`, que es el URI predeterminado que nos conecta con un servidor de RabbitMQ local. Asegúrese de adaptarse a la implementación actual.
 
@@ -110,15 +110,15 @@ En el campo `Address` escribiremos el nombre de la **cola de Azure Service Bus**
 
 En la interfaz de administración de RabbitMQ, podemos ir a `Queues`, seleccionar la cola de `azure` y buscar el panel de `Publish message`. Aparecerá un formulario que le permitirá publicar mensajes directamente en la cola. En nuestro ejemplo, agregaremos `fist message` como `Payload` y seleccionaremos `Publish Message`:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publicar el primer mensaje":::
 
 Vuelva a Azure e inspeccione la cola. Haga clic en `Service Bus Explorer` en el panel izquierdo y, luego, haga clic en el botón _Inspeccionar_. Si todo ha ido bien, verá que la cola tiene ahora un mensaje. ¡Enhorabuena!
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Cola de Azure Service Bus":::
 
 Pero vamos a asegurarnos de que el mensaje es el que envió desde RabbitMQ. Seleccione la pestaña `Peek` y haga clic en el botón `Peek` para recuperar los últimos mensajes de la cola. Haga clic en el mensaje para inspeccionar su contenido. Debería ver algo parecido a la imagen siguiente, donde aparece el `first message`.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Crear recurso":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Peek de cola":::
 
 ## <a name="lets-recap"></a>Recapitulemos
 

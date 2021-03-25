@@ -1,7 +1,7 @@
 ---
 title: Creación de un recurso de Cognitive Services con la CLI de Azure
 titleSuffix: Azure Cognitive Services
-description: Comience a usar Azure Cognitive Services mediante la creación y suscripción a un recurso con la interfaz de la línea de comandos de Azure.
+description: Comience a usar Azure Cognitive Services mediante la creación de un recurso y la suscripción a él con la interfaz de la línea de comandos de Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, ser
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050076"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472109"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
@@ -98,16 +98,6 @@ Al crear un nuevo recurso, deberá conocer el "tipo" de servicio que quiere usar
 | Caras                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
-
-### <a name="search"></a>Search
-
-| Servicio            | Clase                  |
-|--------------------|-----------------------|
-| Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 

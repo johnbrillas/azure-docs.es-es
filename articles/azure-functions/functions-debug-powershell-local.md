@@ -7,10 +7,10 @@ ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422967"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
@@ -111,7 +111,7 @@ PowerShell Core se instala en paralelo con Windows PowerShell. Establezca PowerS
 
 1. Elija **PowerShell: Show Session Menu** (PowerShell: Mostrar menú de sesión).
 
-1. Si su **sesión actual** no es **PowerShell Core 6** , elija **Cambiar a: PowerShell Core 6**.
+1. Si su **sesión actual** no es **PowerShell Core 6**, elija **Cambiar a: PowerShell Core 6**.
 
 Cuando haya abierto un archivo de PowerShell, la versión se muestra en verde en la parte inferior derecha de la ventana. Al seleccionar este texto, también se muestra el menú de sesiones. Para obtener más información, consulte [Elección de una versión de PowerShell para usarla con la extensión](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 

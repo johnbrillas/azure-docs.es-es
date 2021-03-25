@@ -1,14 +1,14 @@
 ---
 title: 'Mensajería de Azure Service Bus: colas, temas y suscripciones'
 description: En este artículo se proporciona información general sobre las entidades de mensajería (colas, temas y suscripciones) de Azure Service Bus.
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791605"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096326"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 Azure Service Bus admite un conjunto de tecnologías middleware orientadas a mensajes basadas en la nube, entre las que se incluyen una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas funcionalidades de mensajería asincrónica pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante la carga de trabajo de mensajería de Service Bus. La comunicación desacoplada ofrece muchas ventajas. Por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de manera asincrónica.
@@ -26,19 +26,19 @@ El uso de colas para intermediar entre los consumidores y productores de mensaje
 Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). A continuación, envíe y reciba mensajes mediante clientes escritos en [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md) y [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modos de recepción
-Puede especificar dos nodos distintos en los que Service Bus recibe los mensajes: **ReceiveAndDelete** o **PeekLock**. Al usar el modo [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), cuando Service Bus recibe la solicitud del consumidor, marca el mensaje como consumido y lo devuelve a la aplicación del consumidor. Este modo es el modelo más sencillo. Funciona mejor para los escenarios en los que la aplicación puede tolerar no procesar un mensaje en caso de error. Para entender este escenario, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Ya que Service Bus marca el mensaje como consumido, la aplicación comienza a consumir mensajes al reiniciarse. Se omitirá el mensaje que se consumió antes del bloqueo.
+Puede especificar dos modos distintos en los que Service Bus recibe los mensajes.
 
-En el modo [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), la operación de recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe la solicitud, realiza las siguientes operaciones:
+- **Recepción y eliminación**. En este modo, cuando Service Bus recibe la solicitud del consumidor, marca el mensaje como consumido y lo devuelve a la aplicación del consumidor. Este modo es el modelo más sencillo. Funciona mejor para los escenarios en los que la aplicación puede tolerar no procesar un mensaje en caso de error. Para entender este escenario, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Ya que Service Bus marca el mensaje como consumido, la aplicación comienza a consumir mensajes al reiniciarse. Se omitirá el mensaje que se consumió antes del bloqueo.
+- **Inspección y bloqueo**. En este modo, la operación de recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. 
+    1. Busca el siguiente mensaje que se va a consumir, lo **bloquea** para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. 
+    1. Una vez que la aplicación termina de procesar el mensaje, solicita al servicio Service Bus que complete la segunda fase del proceso de recepción. A continuación, el servicio **marca el mensaje como consumido**. 
 
-1. Busca el siguiente mensaje que se va a consumir.
-1. Lo bloquea para impedir que otros consumidores lo reciban.
-1. Después, devuelve el mensaje a la aplicación. 
+        Si la aplicación no puede procesar el mensaje por alguna razón, puede solicitar al servicio Service Bus que **abandone** el mensaje. Service Bus **desbloquea** el mensaje y hace que esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay un **tiempo de espera** asociado con el bloqueo. Si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera de bloqueo, Service Bus desbloquea el mensaje y hace que esté disponible para que pueda volver a recibirse.
 
-Una vez que la aplicación termina de procesar el mensaje o lo almacena de manera fiable para su procesamiento futuro, completa la segunda fase del proceso de recepción al llamar a [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) en el mensaje. Cuando Service Bus recibe la solicitud **CompleteAsync**, marca el mensaje como consumido.
+        Si la aplicación se bloquea tras procesar el mensaje, pero antes de solicitar al servicio Service Bus que complete el mensaje, Service Bus volverá a entregar el mensaje a la aplicación cuando se reinicie. Este proceso se suele denominar procesamiento de **al menos una vez**. Es decir, cada mensaje se procesa al menos una vez. Sin embargo, en determinadas situaciones, es posible que se vuelva a entregar el mismo mensaje. Si el escenario no tolera el procesamiento duplicado, agregue lógica adicional en la aplicación para detectar duplicados. Para más información, consulte [Detección de duplicados](duplicate-detection.md). Esta característica se conoce como procesamiento **exactamente una vez**.
 
-Si la aplicación no puede procesar el mensaje por alguna razón, puede llamar al método [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) en el mensaje (en lugar de [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)). Este método permite que Service Bus desbloquee el mensaje y esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay un tiempo de espera asociado con el bloqueo. Si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera de bloqueo, Service Bus desbloquea el mensaje y hace que esté disponible para que pueda volver a recibirse.
-
-Si la aplicación se bloquea tras procesar el mensaje, pero antes de llamar a [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync), Service Bus volverá a entregar el mensaje a la aplicación cuando se reinicie. Este proceso se suele denominar procesamiento de **al menos una vez**. Es decir, cada mensaje se procesa al menos una vez. Sin embargo, en determinadas situaciones, es posible que se vuelva a entregar el mismo mensaje. Si el escenario no tolera el procesamiento duplicado, agregue lógica adicional en la aplicación para detectar duplicados. Para ello, use la propiedad [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) del mensaje, que permanece constante en todos los intentos de entrega. Esta característica se conoce como procesamiento **exactamente una vez**.
+        > [!NOTE]
+        > Para más información acerca de estos dos modos, consulte [Liquidación de las operaciones de recepción](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Temas y suscripciones
 Una cola permite que un único consumidor procese un mensaje. En comparación con las colas, los temas y suscripciones proporcionan una vía de comunicación uno a varios en un patrón de **publicación y suscripción**. Resulta útil para escalar a un gran número de destinatarios. Cada mensaje publicado se pone a disposición de todas las suscripciones registradas en el tema. El publicador envía un mensaje a un tema y uno o varios suscriptores reciben una copia del mensaje, en función de las reglas de filtro establecidas en las suscripciones. Las suscripciones pueden usar filtros adicionales para restringir los mensajes que desean recibir. Los publicadores envían mensajes a un tema de la misma manera en que envían mensajes a una cola. No obstante, los consumidores no reciben mensajes directamente del tema. En su lugar, los reciben de las suscripciones del tema. Una suscripción al tema se parece a una cola virtual en que recibe copias de los mensajes que se envían al tema. Los consumidores reciben los mensajes de una suscripción exactamente de la misma manera en que se reciben de una cola.
@@ -55,7 +55,7 @@ Si desea ver un ejemplo funcional completo, consulte el [ejemplo TopicSubscripti
 
 Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) y [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Entidades de Java Message Service (JMS) 2.0 (versión preliminar)
+## <a name="java-message-service-jms-20-entities"></a>Entidades de Java Message Service (JMS) 2.0
 Se puede acceder a las siguientes entidades a través de la API de Java Message Service (JMS) 2.0.
 
   * Colas temporales

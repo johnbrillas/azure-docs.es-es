@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995291"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -140,7 +140,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -152,7 +152,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforPostgreSQL/servers**. |
     | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *postgresqlServer*|

@@ -2,21 +2,21 @@
 title: Mejora del rendimiento del índice de almacén de columnas para el grupo de SQL dedicado
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas en cada grupo de filas del grupo de SQL dedicado.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b15f71698af8c340b58f3399390857790313b8ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676169"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585492"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximización de la calidad del grupo de filas para los índices de almacén de columnas en el grupo de SQL dedicado 
 

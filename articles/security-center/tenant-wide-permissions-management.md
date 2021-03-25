@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107217"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617495"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Concesión y solicitud de visibilidad para todos los inquilinos
 
 Un usuario con el rol de **administrador global** de Azure Active Directory (AD) puede tener responsabilidades en todo el inquilino, pero carecer de los permisos de Azure para ver la información de toda la organización en Azure Security Center. La elevación de permisos es necesaria porque las asignaciones de roles de Azure AD no conceden acceso a los recursos de Azure. 
-
-> [!TIP]
-> Aprenda más sobre la elevación de permisos del rol de administrador global en [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concesión de permisos de todo el inquilino a uno mismo
 
@@ -45,6 +42,14 @@ Para asignarse a uno mismo permisos de nivel de inquilino:
 1. Cierre sesión en Azure Portal y vuelva a iniciarla.
 
 1. Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Center para comprobar que tiene visibilidad en todas las suscripciones del inquilino de Azure AD. 
+
+El proceso sencillo anterior realiza una serie de operaciones automáticamente:
+
+1. Los permisos del usuario se elevan temporalmente.
+1. Con los nuevos permisos, se asigna al usuario el rol de Azure RBAC deseado en el grupo de administración raíz.
+1. Se quitan los permisos elevados.
+
+Para más información sobre el proceso de elevación de Azure AD, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicitud de permisos para todo el inquilino cuando el suyo sea insuficiente

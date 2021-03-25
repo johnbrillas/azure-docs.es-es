@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131180"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
@@ -64,7 +64,7 @@ Para autorizar a los asociados, seleccione **Select CSP Partners** (Seleccionar 
 
 ![Menú para seleccionar el CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Puede aplicar filtros de búsqueda, como **País** , **Competencia** o **Aptitud**.
+Puede aplicar filtros de búsqueda, como **País**, **Competencia** o **Aptitud**.
 
 ![Filtros de país o región, competencia y aptitud para la búsqueda de partners](media/marketplace-publishers-guide/csp-add-resellers.png)
 
@@ -134,7 +134,7 @@ Si la oferta es actualmente **Opción 1: cualquier asociado del programa CSP** y
 
 ### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Navegación desde la opción 2: asociados específicos del programa CSP que selecciono
 
-Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP que selecciono** y quisiera navegar a la **Opción 1: cualquier asociado del programa CSP** , use estas instrucciones para crea una solicitud:
+Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP que selecciono** y quisiera navegar a la **Opción 1: cualquier asociado del programa CSP**, use estas instrucciones para crea una solicitud:
 
 1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
@@ -147,7 +147,7 @@ Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP
 5. Seleccione **Siguiente** para ir a la **página de detalles de la incidencia** para escribir más detalles sobre el problema.
 6. Use **Deauthorize CSP** (Quitar autorización de CSP) como el título de la incidencia y rellene el resto de las secciones obligatorias.
 
- Si la oferta es actualmente **Opción 2: asociados específicos en el programa CSP que selecciono** y quisiera navegar a la **Opción 3: ningún asociado del programa CSP** , solo podrá navegar a esa opción si los asociados del programa CSP a los que autorizó anteriormente todavía no revenden la oferta a los clientes finales. Use estas instrucciones para crear una solicitud:
+ Si la oferta es actualmente **Opción 2: asociados específicos en el programa CSP que selecciono** y quisiera navegar a la **Opción 3: ningún asociado del programa CSP**, solo podrá navegar a esa opción si los asociados del programa CSP a los que autorizó anteriormente todavía no revenden la oferta a los clientes finales. Use estas instrucciones para crear una solicitud:
 
 1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
@@ -162,7 +162,7 @@ Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP
 
 ### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Navegación desde la opción 3: ningún asociado del programa CSP
 
-Si la oferta es actualmente **Opción 3: ningún asociado del programa CSP** , puede navegar a cualquiera de las otras opciones en cualquier momento.
+Si la oferta es actualmente **Opción 3: ningún asociado del programa CSP**, puede navegar a cualquiera de las otras opciones en cualquier momento.
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Uso compartido de materiales de ventas y soporte técnico con asociados en el programa CSP
 

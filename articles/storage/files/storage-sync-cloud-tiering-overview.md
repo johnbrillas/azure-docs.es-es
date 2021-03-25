@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204274"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576465"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles, una característica opcional de Azure File Sync, reduce la cantidad de almacenamiento local necesario al tiempo que mantiene el rendimiento de un servidor de archivos local.
@@ -39,7 +39,7 @@ Con la **directiva de fecha**, los archivos pasivos se organizan por niveles en 
 Para ver más ejemplos de cómo funcionan conjuntamente la directiva de fecha y la directiva de espacio disponible del volumen, consulte [Selección de las directivas de nube por niveles de Azure File Sync](storage-sync-choose-cloud-tiering-policies.md).
 
 ### <a name="windows-server-data-deduplication"></a>Desduplicación de datos de Windows Server
-La desduplicación de datos se admite en volúmenes que tienen habilitada la nube por niveles a partir de Windows Server 2016. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+La desduplicación de datos se admite en volúmenes que tienen habilitada la nube por niveles a partir de Windows Server 2016. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Mapa término de la nube por niveles
 Azure File Sync supervisa el acceso a archivos (operaciones de lectura y escritura) a lo largo del tiempo y, en función de lo reciente y frecuente que sea, asigna una puntuación térmica a cada archivo. Estas puntuaciones se usan para crear un "mapa térmico" del espacio de nombres en cada punto de conexión de servidor. Este mapa térmico es una lista de todos los archivos de sincronización en una ubicación que tiene habilitada la nube por niveles, ordenados por su puntuación térmica. Los archivos a los que se accede con frecuencia se consideran activos, mientras que los archivos que apenas se han modificado y a los que no se ha tenido acceso durante algún tiempo se consideran pasivos. 
@@ -109,4 +109,3 @@ También es posible que un archivo se encuentre parcialmente organizado en nivel
 ## <a name="next-steps"></a>Pasos siguientes
 * [Selección de directivas de nube por niveles de Azure File Sync](storage-sync-choose-cloud-tiering-policies.md)
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
-

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573925"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluciones para la transferencia de datos periódica
@@ -45,7 +45,7 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | Capacidad                  | AzCopy                                 | API REST de Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Factor de forma                 | Herramienta de línea de comandos de Microsoft       | Los clientes desarrollan en Storage <br> API REST que usan las bibliotecas de cliente de Azure |
-| Instalación única inicial     | mínimo                                | Esfuerzo de desarrollo moderado, variable    |
+| Instalación única inicial     | Minimal                                | Esfuerzo de desarrollo moderado, variable    |
 | Formato de datos                 | Azure Blobs, Azure Files, Azure Tables | Azure Blobs, Azure Files, Azure Tables   |
 | Rendimiento                 | Ya se ha optimizado                      | Se optimiza durante el desarrollo                  |
 | Precios                     | Gratis, se aplican los cargos de salida      | Gratis, se aplican los cargos de salida        |

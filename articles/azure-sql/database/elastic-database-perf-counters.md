@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781267"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creación de contadores de rendimiento para realizar el seguimiento del rendimiento del administrador de mapa de particiones
@@ -26,12 +26,12 @@ Los contadores de rendimiento se usan para realizar el seguimiento del rendimien
 Puede capturar el rendimiento de una instancia de [Shard Map Manager](elastic-scale-shard-map-management.md), en especial cuando se utiliza el [enrutamiento dependiente de los datos](elastic-scale-data-dependent-routing.md). Los contadores se crean con métodos de la clase Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
 
-**En la versión más reciente** : vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte también [Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente](elastic-scale-upgrade-client-library.md).
+**En la versión más reciente**: vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte también [Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente](elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Para crear la categoría y los contadores de rendimiento, el usuario debe formar parte del grupo **Administradores** local en el equipo que hospeda la aplicación.  
-* Para crear una instancia de contador de rendimiento y actualizar los contadores, el usuario debe ser miembro del grupo **Administradores** o del grupo **Usuarios del monitor de sistema** .
+* Para crear una instancia de contador de rendimiento y actualizar los contadores, el usuario debe ser miembro del grupo **Administradores** o del grupo **Usuarios del monitor de sistema**.
 
 ## <a name="create-performance-category-and-counters"></a>Creación de la categoría y los contadores de rendimiento
 
@@ -42,12 +42,12 @@ Para crear los contadores, llame al método CreatePerformanceCategoryAndCounters
 También puede usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script de PowerShell para ejecutar el método.
 El método crea los siguientes contadores de rendimiento:  
 
-* **Asignaciones en caché** : número de asignaciones almacenadas en caché para el mapa de particiones.
-* **Operaciones de DDR/s** : tasa de operaciones de enrutamiento dependientes de los datos para el mapa de particiones. Este contador se actualiza cuando una llamada a [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) da lugar a una conexión correcta con la partición de destino.
-* **Aciertos/s de caché de búsqueda de asignaciones** : tasa de operaciones correctas de búsqueda en la caché de asignaciones en el mapa de particiones.
-* **Errores/s de caché de búsqueda de asignaciones** : tasa de operaciones erróneas de búsqueda en la caché de asignaciones en el mapa de particiones.
-* **Asignaciones agregadas o actualizadas en la caché/s** : velocidad a la que se agregan o actualizan las asignaciones en la caché en el mapa de particiones.
-* **Asignaciones eliminadas de la caché/s** : velocidad a la que se eliminan las asignaciones de la caché en el mapa de particiones.
+* **Asignaciones en caché**: número de asignaciones almacenadas en caché para el mapa de particiones.
+* **Operaciones de DDR/s**: tasa de operaciones de enrutamiento dependientes de los datos para el mapa de particiones. Este contador se actualiza cuando una llamada a [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) da lugar a una conexión correcta con la partición de destino.
+* **Aciertos/s de caché de búsqueda de asignaciones**: tasa de operaciones correctas de búsqueda en la caché de asignaciones en el mapa de particiones.
+* **Errores/s de caché de búsqueda de asignaciones**: tasa de operaciones erróneas de búsqueda en la caché de asignaciones en el mapa de particiones.
+* **Asignaciones agregadas o actualizadas en la caché/s**: velocidad a la que se agregan o actualizan las asignaciones en la caché en el mapa de particiones.
+* **Asignaciones eliminadas de la caché/s**: velocidad a la que se eliminan las asignaciones de la caché en el mapa de particiones.
 
 Los contadores de rendimiento se crean para cada mapa de particiones en caché por proceso.  
 

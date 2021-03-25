@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b57d675003c1ebeb29927b86338f95cf7dd68090
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574470"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Eliminación masiva de usuarios en Azure Active Directory
@@ -35,12 +35,12 @@ Descargue y rellene la plantilla CSV para facilitar la eliminación en bloque co
 Las filas de una plantilla CSV descargada son las siguientes:
 
 - **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
-- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre de elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `User name [userPrincipalName] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
-- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `User name [userPrincipalName] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
-- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar o no se podrá procesar la carga.
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar, o no se podrá procesar la carga.
 - Las columnas necesarias se enumeran en primer lugar.
 - No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
 - Se recomienda que descargue la última versión de la plantilla CSV tan a menudo como sea posible.

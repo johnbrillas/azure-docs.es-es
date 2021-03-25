@@ -4,10 +4,10 @@ description: Aprenda a crear un recurso compartido de archivos en un laboratorio
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282252"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
@@ -78,7 +78,7 @@ En esta sección, publicará la aplicación desde Visual Studio en una máquina 
 3. Seleccione **Conectar**.
 
     ![Página de máquina virtual](media/test-app-in-azure/virtual-machine-page.png)
-4. Dentro de la máquina virtual, inicie el **Explorador de archivos**y seleccione **Este equipo** para encontrar el recurso compartido de archivos.
+4. Dentro de la máquina virtual, inicie el **Explorador de archivos** y seleccione **Este equipo** para encontrar el recurso compartido de archivos.
 
     ![Buscar el recurso compartido en la máquina virtual](media/test-app-in-azure/find-share-on-vm.png)
 

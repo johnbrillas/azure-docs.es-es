@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 977cd79de629670cef526f072340f8897fa6446e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92316495"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
@@ -47,7 +47,7 @@ Configuramos un repositorio de GitHub para informar problemas con Service Fabric
 
 ### <a name="github-repo"></a>Repositorio de GitHub 
 
-Informe de los problemas de Azure Service Fabric en el [GitHub de Service Fabric](https://github.com/microsoft/service-fabric/issues). Este repositorio está diseñado para informar y rastrear problemas con Azure Service Fabric y para generar solicitudes de funciones pequeñas. **No use este medio para informar problemas con el sitio activo** .
+Informe de los problemas de Azure Service Fabric en el [GitHub de Service Fabric](https://github.com/microsoft/service-fabric/issues). Este repositorio está diseñado para informar y rastrear problemas con Azure Service Fabric y para generar solicitudes de funciones pequeñas. **No use este medio para informar problemas con el sitio activo**.
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow y foros de MSDN
 

@@ -1,18 +1,18 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876335"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101742235"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
-Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se consigue indicando a Azure Policy que ejecute el efecto **deployIfNotExists** o las **operaciones de modificación** de la directiva asignada en los recursos existentes, independientemente de que la asignación sea a un grupo de administración, una suscripción, un grupo de recursos o un recurso individual. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
+Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se consigue indicando a Azure Policy que ejecute el efecto **deployIfNotExists** o las **operaciones de modificación** de la directiva asignada en los recursos y las suscripciones existentes, independientemente de que la asignación sea a un grupo de administración, una suscripción, un grupo de recursos o un recurso individual. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
@@ -123,17 +123,18 @@ Para agregar un rol a la identidad administrada de la asignación, siga estos pa
 
 ### <a name="create-a-remediation-task-through-portal"></a>Creación de una tarea de corrección a través del portal
 
-Durante la evaluación, la asignación de directiva con los efectos **deployIfNotExists** o **modify** determina si hay recursos no conformes. Cuando se encuentran los recursos no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos no página. Esta opción crea una implementación a partir de la plantilla de **deployIfNotExists** o de las operaciones de **modify**.
+Durante la evaluación, la asignación de directiva con los efectos **deployIfNotExists** o **modify** determina si hay recursos o suscripciones no conformes. Cuando se encuentran los recursos o suscripciones no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos o suscripciones no conformes.
+Esta opción crea una implementación a partir de la plantilla de **deployIfNotExists** o de las operaciones de **modify**.
 
 Para crear un **tarea de corrección**, siga estos pasos:
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de pantalla de búsqueda de Directiva en Todos los servicios." border="false":::
 
 1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de pantalla del nodo Corrección en la página Directiva." border="false":::
 
 1. Todas las asignaciones de directiva de **deployIfNotExists** y **modify** con recursos no conformes se incluyen en la pestaña y la tabla de datos **Directivas que se van a corregir**. Seleccione una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
 
@@ -142,17 +143,17 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de pantalla del nodo Corrección y la cuadrícula de los recursos que se van a corregir." border="false":::
 
 1. Inicie la tarea de corrección cuando se hayan filtrado los recursos; para ello, seleccione **Corregir**. Se abre la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas. Las implementaciones que ha creado la tarea de corrección se inician inmediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de pantalla de la pestaña Tareas de corrección y progreso de las tareas de corrección existentes." border="false":::
 
 1. Seleccione la **tarea de corrección** en la página de cumplimiento de directivas para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 
 1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, seleccione **Eventos relacionados** para ver detalles, como un mensaje de error.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de pantalla del menú contextual de un recurso en la pestaña Corregir tarea." border="false":::
 
 Los recursos implementados mediante una **tarea de corrección** se agregan a la pestaña **Recursos implementados** en la página de cumplimiento de la directiva.
 

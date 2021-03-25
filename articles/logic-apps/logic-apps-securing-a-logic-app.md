@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104508"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556390"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -203,20 +203,24 @@ En [Azure Portal](https://portal.azure.com), agregue una o varias directivas de 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
-   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a un [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a un [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **Id. de JWT** (identificador de JSON Web Token) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
    |||
 
 1. Para agregar otra notificación, seleccione una de estas opciones:
 
    * Para agregar otro tipo de notificaciones, seleccione **Add standard claim** (Agregar notificación estándar), seleccione el tipo de notificación y especifique su valor.
 
-   * Para agregar su propia notificación, seleccione **Add custom claim** (Agregar notificación personalizada) y especifique su valor.
+   * Para agregar su propia notificación, seleccione **Agregar notificación personalizada**. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación](../active-directory/develop/active-directory-optional-claims.md). La notificación personalizada se almacena después como parte del id. de JWT; por ejemplo, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
 
 1. Para agregar otra directiva de autorización, seleccione **Agregar directiva**. Repita los pasos anteriores para configurar la directiva.
 
 1. Cuando finalice, seleccione **Guardar**.
 
 1. Para incluir el encabezado `Authorization` del token de acceso en las salidas del desencadenador basado en la solicitud, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud](#include-auth-header).
+
+
+Las propiedades de flujo de trabajo, como las directivas, no aparecen en la vista de código de la aplicación lógica en Azure Portal. Para acceder a las directivas mediante programación, llame a la siguiente API a través de Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Asegúrese de reemplazar los valores de marcador de posición para el identificador de suscripción de Azure, el nombre del grupo de recursos y el nombre del flujo de trabajo.
+
 
 <a name="define-authorization-policy-template"></a>
 
@@ -349,9 +353,9 @@ En [Azure Portal](https://portal.azure.com), este filtro afecta a los desencaden
 
 En la plantilla de ARM, especifique los intervalos de direcciones IP de entrada permitidos en la definición de recurso de la aplicación lógica mediante la sección `accessControl`. En esta parte, use las secciones `triggers`, `actions` y la sección `contents` opcional según corresponda, incluida la sección `allowedCallerIpAddresses` con la propiedad `addressRange` y establezca el valor de propiedad en el intervalo IP permitido con el formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
 
-* Si la aplicación lógica anidada usa la opción **Cualquier otra aplicación lógica**, que permite llamadas entrantes solo desde otras aplicaciones lógicas que usan la acción de Azure Logic Apps, establezca la propiedad `addressRange` en una matriz vacía ( **[]** ).
+* Si la aplicación lógica anidada usa la opción **Cualquier otra aplicación lógica**, que permite llamadas entrantes solo desde otras aplicaciones lógicas que usan la acción integrada de Azure Logic Apps, establezca la propiedad `allowedCallerIpAddresses` en una matriz vacía ( **[]** ) y *omita* la propiedad `addressRange`.
 
-* Si la aplicación lógica anidada usa la opción **Intervalos IP específicos** para otras llamadas entrantes, como otras aplicaciones lógicas que usan la acción HTTP, establezca la propiedad `addressRange` en el intervalo de direcciones IP permitido.
+* Si la aplicación lógica anidada usa la opción **Intervalos IP específicos** para otras llamadas entrantes, como otras aplicaciones lógicas que usan la acción HTTP, incluya la sección `allowedCallerIpAddresses` y establezca la propiedad `addressRange` en el intervalo de direcciones IP permitido.
 
 En este ejemplo se muestra una definición de recursos para una aplicación lógica anidada que permite las llamadas entrantes solo desde aplicaciones lógicas que usan la acción integrada de Azure Logic Apps:
 
@@ -378,18 +382,14 @@ En este ejemplo se muestra una definición de recursos para una aplicación lóg
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -933,7 +933,7 @@ En esta tabla se identifican los tipos de autenticación que están disponibles 
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Sin formato](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
-| [Identidad administrada](#managed-identity-authentication) | **Acciones y desencadenadores integrados** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Conectores administrados** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instances, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, registros de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: La compatibilidad con conectores administrados está actualmente en versión preliminar. |
+| [Identidad administrada](#managed-identity-authentication) | **Acciones y desencadenadores integrados** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Conectores administrados** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instances, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: La compatibilidad con conectores administrados está actualmente en versión preliminar. |
 |||
 
 <a name="basic-authentication"></a>
@@ -944,7 +944,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
+| **Autenticación** | `type` | Sí | Básico | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||

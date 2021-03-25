@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123027"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589334"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -197,13 +197,13 @@ Para obtener detalles específicos, consulte la documentación del servidor prox
 
 ## <a name="blocking-consumer-applications-public-preview"></a>Bloqueo de aplicaciones de consumidor (versión preliminar pública)
 
-Las aplicaciones de Microsoft que admiten tanto cuentas de consumidor como cuentas de la organización, como [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](https://docs.microsoft.com/learn/), a veces se pueden hospedar en la misma dirección URL.  Esto significa que los usuarios que tienen que acceder a esa dirección URL en el trabajo también tienen acceso a ella para uso personal, lo que puede que no se permita en las pautas de actuación.
+Las aplicaciones de Microsoft que admiten tanto cuentas de consumidor como cuentas de la organización, como [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](/learn/), a veces se pueden hospedar en la misma dirección URL.  Esto significa que los usuarios que tienen que acceder a esa dirección URL en el trabajo también tienen acceso a ella para uso personal, lo que puede que no se permita en las pautas de actuación.
 
 Para solucionar este error, algunas organizaciones bloquean `login.live.com` para impedir que las cuentas personales se autentiquen.  Esta solución presenta una serie de inconvenientes:
 
 1. El bloqueo de `login.live.com` impide el uso de cuentas personales en escenarios de invitados B2B, lo que puede interponerse con los visitantes y la colaboración.
-1. [Autopilot requiere el uso de `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) para implementarse. Los escenarios de Intune y Autopilot pueden producir errores cuando se bloquea `login.live.com`.
-1. La telemetría de la organización y las actualizaciones de Windows en las que los identificadores de dispositivo dependen del servicio login.live.com [dejarán de funcionar](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot requiere el uso de `login.live.com` ](/mem/autopilot/networking-requirements) para implementarse. Los escenarios de Intune y Autopilot pueden producir errores cuando se bloquea `login.live.com`.
+1. La telemetría de la organización y las actualizaciones de Windows en las que los identificadores de dispositivo dependen del servicio login.live.com [dejarán de funcionar](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Configuración para aplicaciones de consumidor
 
@@ -216,7 +216,7 @@ En este momento, la autenticación en las aplicaciones de consumidor no aparece 
 La directiva `restrict-msa` bloquea el uso de las aplicaciones de consumidor, pero lo permite a través de otros tipos de tráfico y autenticación:
 
 1. Tráfico sin usuario en dispositivos.  Esto incluye el tráfico de Autopilot, Windows Update y la telemetría de la organización.
-1. Autenticación B2B de cuentas de consumidor. Los usuarios con cuentas Microsoft que están [invitados a colaborar con un inquilino](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) se autentican en login.live.com para tener acceso a un inquilino de recursos.
+1. Autenticación B2B de cuentas de consumidor. Los usuarios con cuentas Microsoft que están [invitados a colaborar con un inquilino](../external-identities/redemption-experience.md#invitation-redemption-flow) se autentican en login.live.com para tener acceso a un inquilino de recursos.
     1. Este acceso se controla mediante el encabezado `Restrict-Access-To-Tenants` para permitir o denegar el acceso a ese inquilino de recursos.
 1. Autenticación "de paso a través", que usan muchas aplicaciones de Azure, así como Office.com, donde las aplicaciones emplean Azure AD para iniciar la sesión de los usuarios consumidores en un contexto de consumidor.
     1. Este acceso también se controla mediante el encabezado `Restrict-Access-To-Tenants` para permitir o denegar el acceso al inquilino "de paso a través" especial (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  Si este inquilino no aparece en la lista `Restrict-Access-To-Tenants` de dominios permitidos, Azure AD impedirá que las cuentas de consumidor inicien sesión en estas aplicaciones.

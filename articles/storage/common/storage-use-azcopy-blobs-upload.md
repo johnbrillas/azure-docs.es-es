@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358765"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Carga de archivos en Azure Blob Storage con AzCopy v10
@@ -188,9 +188,9 @@ Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-copy.md#o
 
 Encuentre más ejemplos en estos artículos:
 
-- [Ejemplos: Descargar](storage-use-azcopy-blobs-download.md)
+- [Ejemplos: descarga](storage-use-azcopy-blobs-download.md)
 - [Ejemplos: Copia entre cuentas](storage-use-azcopy-blobs-copy.md)
-- [Ejemplos: Sincronizar](storage-use-azcopy-blobs-synchronize.md)
+- [Ejemplos: Sincronización](storage-use-azcopy-blobs-synchronize.md)
 - [Ejemplos: Cubos de Amazon S3](storage-use-azcopy-s3.md)
 - [Ejemplos: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

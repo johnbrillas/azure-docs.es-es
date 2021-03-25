@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578029"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory
 
@@ -95,16 +95,16 @@ Revise los siguientes campos y asegúrese de que tengan los valores esperados:
 
 #### <a name="domainjoined--yes"></a>DomainJoined: SÍ
 
-Este campo indica si el dispositivo está unido o no a una implementación local de Active Directory. Si el valor es **NO** , el dispositivo no puede realizar una unión a Azure AD híbrido.
+Este campo indica si el dispositivo está unido o no a una implementación local de Active Directory. Si el valor es **NO**, el dispositivo no puede realizar una unión a Azure AD híbrido.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: No
 
-Este campo indica si el dispositivo está registrado con Azure AD, pero como un dispositivo personal (marcado como *Unido al área de trabajo* ). Este valor debe ser **NO** para un equipo unido a un dominio que esté también unido a Azure AD híbrido. Si el valor es **SÍ** , se agrega una cuenta profesional o educativa antes de la finalización de la unión a Azure AD híbrido. En este caso, la cuenta se omite cuando se usa Windows 10, versión 1607 o posterior.
+Este campo indica si el dispositivo está registrado con Azure AD, pero como un dispositivo personal (marcado como *Unido al área de trabajo*). Este valor debe ser **NO** para un equipo unido a un dominio que esté también unido a Azure AD híbrido. Si el valor es **SÍ**, se agrega una cuenta profesional o educativa antes de la finalización de la unión a Azure AD híbrido. En este caso, la cuenta se omite cuando se usa Windows 10, versión 1607 o posterior.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : SÍ
 
 Este campo indica si el dispositivo está unido. El valor será **SÍ** si el dispositivo es un dispositivo unido a un Azure AD o un dispositivo híbrido de Azure AD Unido.
-Si el valor es **NO** , aún no ha finalizado la unión a Azure AD.
+Si el valor es **NO**, aún no ha finalizado la unión a Azure AD.
 
 Continúe con los pasos siguientes para más información.
 
@@ -162,7 +162,7 @@ Posibles motivos del error:
    - El dispositivo debe tener acceso a `https://login.microsoftonline.com` en el contexto del sistema para detectar dominio para el dominio Kerberos del dominio comprobado y determinar el tipo de dominio (administrado o federado).
    - Si el entorno local requiere un proxy de salida, el administrador de TI debe asegurarse de que el contexto del sistema del dispositivo detecte el proxy de salida y se autentique en él en modo silencioso.
 
-**Códigos de error comunes** :
+**Códigos de error comunes**:
 
 - **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
    - Motivo: No se puede leer el objeto SCP y obtener la información del inquilino de Azure AD.
@@ -177,7 +177,7 @@ Posibles motivos del error:
    - Motivo: Error de detección de dominio Kerberos genérico. No se pudo determinar el tipo de dominio (administrado o federado) desde STS.
    - Resolución: Busque el suberror a continuación para investigar más.
 
-**Códigos de suberror comunes** :
+**Códigos de suberror comunes**:
 
 Para buscar el código de suberror del código de error de detección, use uno de los métodos siguientes.
 
@@ -248,7 +248,7 @@ Motivos del error:
 - No se puede obtener un token de acceso en modo silencioso para el recurso de DRS.
    - Los dispositivos de Windows 10 adquieren el token de autenticación del servicio de federación mediante la autenticación integrada de Windows en un punto de conexión activo de WS-Trust. Detalles: [Configuración del servicio de federación](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
-**Códigos de error comunes** :
+**Códigos de error comunes**:
 
 Use los registros de Visor de eventos para buscar el código de error, el código de suberror, el código de error del servidor y el mensaje de error del servidor.
 
@@ -387,7 +387,7 @@ Use registros de Visor de eventos para buscar la fase y el código de error para
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Paso 5: Recopilación de los registros y contacto con el soporte técnico de Microsoft
 
-Descargue el archivo Auth.zip desde [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH).
+Descargue el archivo Auth.zip desde [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth).
 
 1. Descomprima los archivos y cambie el nombre de los archivos incluidos **start-auth.txt** y **stop-auth.txt** a **start-auth.cmd** y **stop-auth.cmd**.
 1. En un símbolo del sistema con privilegios elevados, ejecute **start-auth.cmd**.
@@ -404,7 +404,7 @@ Descargue el archivo Auth.zip desde [https://github.com/CSS-Windows/WindowsDiag/
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: YES y AzureADPrt: SÍ
 
 Estos campos indican que el usuario se ha autenticado correctamente en Azure AD al iniciar sesión en el dispositivo.
-Si los valores son **NO** , podría ser debido:
+Si los valores son **NO**, podría ser debido:
 
 - Clave de almacenamiento incorrecta en TPM asociada con el dispositivo tras el registro (compruebe KeySignTest mientras se ejecuta con privilegios elevados).
 - Id. de inicio de sesión alternativo

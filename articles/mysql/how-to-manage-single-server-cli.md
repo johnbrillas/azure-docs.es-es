@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: bd068f0cf76a8edefca854d72d5240c0becaf8fc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542072"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Administración de un servidor de Azure Database for MySQL mediante la CLI de Azure
@@ -48,7 +48,7 @@ Estos son los detalles de los argumentos anteriores:
 name | mydemoserver | Escriba un nombre único para el servidor de Azure Database for MySQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | myresourcegroup | Especifique el nombre del grupo de recursos de Azure.
 sku-name|GP_Gen5_2|Escriba el nombre del plan de tarifa y la configuración del proceso. Sigue la convención {plan de tarifa} _{generación de procesos}_ {núcleos virtuales} en forma abreviada. Para más información, consulte los [planes de tarifa](./concepts-pricing-tiers.md).
-storage-size | 6144 | La capacidad de almacenamiento del servidor (la unidad es megabytes). Mínimo de 5120 y aumenta en incrementos de 1024.
+storage-size | 6144 | La capacidad de almacenamiento del servidor (la unidad es megabytes). El mínimo es 5120 y aumenta en incrementos de 1024.
 
 > [!Important]
 > - El almacenamiento se puede escalar verticalmente, pero no reducir.
@@ -72,8 +72,8 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 ```
 
 > [!Important]
->  Asegúrese de que tenga un mínimo de 8 caracteres y un máximo de 128 caracteres de longitud.
-> La contraseña debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
+>  Asegúrese de que tiene su longitud oscila entre 8 y 128 caracteres.
+> Debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor
 Si solo quiere eliminar el servidor único de MySQL, puede ejecutar el comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).

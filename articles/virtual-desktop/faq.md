@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108514"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720280"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -136,3 +136,7 @@ Azure Lighthouse no es totalmente compatible con la administración de entornos 
 Tampoco puede usar las suscripciones de espacio aislado de CSP con el servicio Windows Virtual Desktop. Para obtener más información, consulte [Cuenta de espacio aislado de integración](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Por último, si ha habilitado el proveedor de recursos de la cuenta de propietario de CSP, las cuentas de cliente de CSP no podrán modificar el proveedor de recursos.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>¿Con qué frecuencia debo activar mis máquinas virtuales para evitar problemas de registro?
+
+Después de registrar una máquina virtual en un grupo de hosts en el servicio Windows Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda iniciar las máquinas virtuales cada 90 días. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.

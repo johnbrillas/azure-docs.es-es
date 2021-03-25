@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: ff3f3ab65df2d801b7c962de7cce645e9fc00b30
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358616"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configuración de Visitly para el aprovisionamiento automático de usuarios
@@ -83,7 +83,7 @@ Para agregar Visitly desde la galería de aplicaciones de Azure AD, siga estos 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Visitly** , seleccione **Visitly** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Visitly**, seleccione **Visitly** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
 
     ![Visitly en la lista de resultados](common/search-new-app.png)
 
@@ -116,13 +116,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el cuadro **Dirección de correo electrónico para notificaciones** , escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el cuadro **Dirección de correo electrónico para notificaciones**, escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Dirección de correo electrónico para notificaciones](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Visitly).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Visitly).
 
     ![Asignaciones de usuario de Visitly](media/visitly-provisioning-tutorial/usermapping.png)
 
@@ -136,7 +136,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Visitly.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Visitly.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

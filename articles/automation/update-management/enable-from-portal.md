@@ -7,10 +7,10 @@ ms.date: 01/07/2021
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 089c5fea6ac4a6fc4fb25af2d631335ef51cf4cc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054913"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitación de Update Management desde Azure Portal
@@ -22,7 +22,7 @@ El número de grupos de recursos que puede usar para administrar las máquinas v
 > [!NOTE]
 > Al habilitar Update Management, solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](../how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](../automation-security-overview.md) para administrar máquinas.

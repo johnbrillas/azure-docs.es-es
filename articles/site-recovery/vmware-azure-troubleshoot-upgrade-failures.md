@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84434375"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solución de problemas de actualización del proveedor de Microsoft Azure Site Recovery
@@ -74,7 +74,7 @@ Al actualizar el proveedor de Microsoft Azure Site Recovery (DRA), se produce un
 Esto puede deberse a un valor NULL para un parámetro en la clave del Registro. Para resolver el problema:
 
 1. Inicie el Editor del Registro (regedit.exe) y abra la rama HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
-1. Inspeccione el valor de la clave "InstallDirectory". Si es NULL, agregue el valor del directorio de instalación actual.
+1. Inspeccione el valor de la clave "InstallDirectory".  Si es NULL, agregue el valor del directorio de instalación actual.
 1. De forma similar, abra la rama HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 en el Editor del Registro.
 1. Inspeccione el valor de clave "InstallDirectory" y agregue el valor del directorio de instalación actual.
 1. Vuelva a ejecutar el instalador de la instalación unificada.

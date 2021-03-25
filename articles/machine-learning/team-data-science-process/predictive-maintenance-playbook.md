@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880665"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
@@ -235,10 +235,10 @@ Los esfuerzos de preparación de los datos descritos hasta el momento deben impl
 | ---- | ---- | --- | --- |
 | A123 |Día 1 | . . . | . |
 | A123 |Día 2 | . . . | . |
-| …  |…   | . . . | . |
+| ...  |...   | . . . | . |
 | B234 |Día 1 | . . . | . |
 | B234 |Día 2 | . . . | . |
-| …  |…   | . . . | . |
+| ...  |...   | . . . | . |
 
 El último paso en la ingeniería de características es el **etiquetado** de la variable de destino. Este proceso depende de la técnica de modelado. A su vez, la técnica de modelado depende del problema empresarial y de la naturaleza de los datos disponibles. El etiquetado se describe en la sección siguiente.
 

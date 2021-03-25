@@ -2,13 +2,13 @@
 title: 'Tutorial: Lista de comprobación del planeamiento de red'
 description: Obtenga información sobre los requisitos de red en relación con la conectividad de red y los puertos de red para Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918592"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103462072"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de comprobación del planeamiento de red para Azure VMware Solution 
 
@@ -89,13 +89,12 @@ Las aplicaciones y cargas de trabajo que se ejecutan en un entorno de nube priva
 
 Utilice el servicio DHCP integrado en NSX o un servidor DHCP local en la nube privada en lugar de enrutar el tráfico DHCP de difusión sobre la WAN de nuevo al entorno local.
 
+Para obtener más información, consulte el artículo [Proporcionar servicios DHCP al segmento de red NSX-T](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido acerca de las consideraciones y los requisitos para implementar una nube privada de Azure VMware Solution. 
-
-
-Una vez que tenga la red adecuada en su lugar, continúe con el siguiente tutorial para crear la nube privada de Azure VMware Solution.
+En este tutorial ha aprendido acerca de las consideraciones y los requisitos para implementar una nube privada de Azure VMware Solution. Una vez que tenga la red adecuada en su lugar, continúe con el siguiente tutorial para crear la nube privada de Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Creación de una nube privada de Azure VMware Solution](tutorial-create-private-cloud.md)

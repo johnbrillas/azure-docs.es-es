@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020225"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419598"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
 
@@ -213,6 +213,77 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
             return original;
         }
 ```
+## <a name="passing-images-to-custom-skills"></a>Paso de imágenes a habilidades personalizadas
+
+En los casos en los que se requiera que una habilidad personalizada trabaje con imágenes, se pueden pasar imágenes a la habilidad personalizada y hacer que esta devuelva texto o imágenes. En el procesamiento de imágenes del [ejemplo de Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) se muestra el flujo de trabajo. El siguiente conjunto de habilidades es del ejemplo.
+
+El siguiente conjunto de habilidades toma la imagen normalizada (obtenida durante el descifrado de documentos) y genera los segmentos de la imagen.
+
+#### <a name="sample-skillset"></a>Conjunto de habilidades de ejemplo
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### <a name="custom-skill"></a>Habilidad personalizada
+
+La habilidad personalizada en sí es externa al conjunto de habilidades. En este caso, se trata de código de Python que primero recorre en iteración el lote de registros de solicitud en el formato de habilidad personalizada y, después, convierte la cadena con codificación en base64 en una imagen.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Del mismo modo, para devolver una imagen, devuelve una cadena codificada en base64 dentro de un objeto JSON con una propiedad `$type` de `file`.
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
 
 ## <a name="see-also"></a>Consulte también
 + [Create indexer (REST)](/rest/api/searchservice/create-indexer)
@@ -221,3 +292,4 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
 + [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)
++ [Paso de imágenes a habilidades personalizadas](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

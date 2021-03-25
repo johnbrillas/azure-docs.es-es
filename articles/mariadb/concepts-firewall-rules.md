@@ -3,14 +3,14 @@ title: 'Reglas de firewall: Azure Database for MariaDB'
 description: Obtenga información sobre el uso de reglas de firewall para habilitar conexiones a su servidor de Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 2a200f25a42bc10b2e986fb710d1e7bc27a48880
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 452ef4787812dbdf88eb541cf5a164f2888dddcc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662566"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for MariaDB
