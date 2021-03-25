@@ -9,12 +9,12 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: a94064be54c1d957d6e7acb030ffae6a39634f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d0bee3229bb397fcceb219d506feadb5c542db65
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101194"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595656"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Java: notas de la versión y recursos
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "93101194"
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Vínculos  |
 |---|---|
 |**Descarga del SDK**|[Opciones de descarga](https://github.com/azure/azure-storage-java#download)|
 |**Documentación de la API**|[Documentación de referencia de API](https://azure.github.io/azure-storage-java/)|

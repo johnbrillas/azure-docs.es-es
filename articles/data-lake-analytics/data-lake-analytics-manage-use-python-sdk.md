@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: fda09047d138e404eeca87ed3eba9bb72ff62d56
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220234"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Administración de Azure Data Lake Analytics con Python
@@ -98,7 +98,7 @@ Ejecute este script para comprobar que se pueden importar los módulos.
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Autenticación interactiva de usuarios con elemento emergente
 
-Este método no se admite.
+No se admite este método.
 
 ### <a name="interactive-user-authentication-with-a-device-code"></a>Autenticación interactiva de usuarios con código de dispositivo
 
@@ -118,7 +118,7 @@ credentials = ServicePrincipalCredentials(
 
 ### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Autenticación no interactiva con API y certificado
 
-Este método no se admite.
+No se admite este método.
 
 ## <a name="common-script-variables"></a>Variables de script comunes
 

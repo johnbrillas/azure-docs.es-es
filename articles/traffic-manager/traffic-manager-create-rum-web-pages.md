@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98184565"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
@@ -26,7 +26,7 @@ Para configurar las páginas web para enviar medidas de usuarios reales a Traffi
 
 ## <a name="obtain-a-real-user-measurements-key"></a>Obtención de una clave de Real User Measurements
 
-El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)** . Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
+El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)**. Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
 
 Para obtener la clave RUM con Azure Portal:
 1. En un explorador, inicie sesión en Azure Portal. Si aún no tiene una cuenta, puede registrarse para disfrutar de una evaluación gratuita de un mes.

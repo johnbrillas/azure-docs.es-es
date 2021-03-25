@@ -4,10 +4,10 @@ description: En este artículo se ofrecen instrucciones sobre cómo configurar e
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97400563"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparación para la producción y procedimientos recomendados

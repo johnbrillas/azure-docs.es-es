@@ -3,12 +3,12 @@ title: Aplicaciones de representación
 description: Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
 ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362240"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635343"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación de Batch
 
@@ -20,7 +20,7 @@ Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con 
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicaciones en la imagen de representación de CentOS 7 más reciente
 
-La lista siguiente se aplica a la imagen de representación de CentOS, versión 1.1.7.
+La lista siguiente se aplica a la imagen de representación de CentOS, versión 1.2.0.
 
 * Autodesk Maya I/O 2020 Actualización 4.6
 * Autodesk Arnold para Maya 2020 (Arnold versión 6.2.0.0) MtoA-4.2.0-2020

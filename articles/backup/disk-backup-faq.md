@@ -4,16 +4,16 @@ description: Obtenga respuestas a las preguntas más frecuentes sobre Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734569"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Preguntas frecuentes sobre Azure Disk Backup (en versión preliminar)
 
 >[!IMPORTANT]
->Azure Disk Backup está en versión preliminar y se ofrece sin Acuerdo de Nivel de Servicio, por lo que no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para ver la disponibilidad de las regiones, consulte la [matriz de compatibilidad](disk-backup-support-matrix.md).
+>Azure Disk Backup está en versión preliminar y se ofrece sin Acuerdo de Nivel de Servicio, por lo que no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para ver la disponibilidad de la región, consulte la [matriz de compatibilidad](disk-backup-support-matrix.md).
 >
 >[Rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para suscribirse y obtener la versión preliminar.
 

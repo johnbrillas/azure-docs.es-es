@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95818544"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Functions
@@ -124,7 +124,7 @@ Si no ve ninguna invocación de la función después de esperar un tiempo y de a
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/topic-incoming-messages.png" alt-text="Página Tema de Service Bus: mensajes entrantes":::    
 1. Confirme que **no hay mensajes activos** en la suscripción de Service Bus. 
-    Si no ve ningún evento en esta página, compruebe si el valor de **Recuento de mensajes activos** es cero en la página **Service Bus Subscription** (Suscripción de Service Bus). Si es superior a cero, por alguna razón, los mensajes de la suscripción no se están reenviando a la función del controlador (el controlador de la suscripción de eventos). Compruebe que la suscripción de eventos esté configurada correctamente. 
+    Si no ve ningún evento en esta página, compruebe si el valor de **Recuento de mensajes activos** es cero en la página **Service Bus Subscription** (Suscripción de Service Bus). Si es mayor que cero, por alguna razón, los mensajes de la suscripción no se están reenviando a la función del controlador (el controlador de la suscripción de eventos). Compruebe que la suscripción de eventos esté configurada correctamente. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Recuento de mensajes activos en la suscripción de Service Bus":::    
 1. También puede ver los **eventos entregados** en la página **Eventos** del espacio de nombres de Service Bus. 

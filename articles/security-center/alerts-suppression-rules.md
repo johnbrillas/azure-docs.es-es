@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920450"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634177"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
 
@@ -60,9 +60,7 @@ Para crear una regla directamente en Azure Portal:
 
 1. En la página de alertas de seguridad de Security Center:
 
-    - Busque la alerta específica que ya no desee ver y, en el menú de puntos suspensivos (...) de la alerta, seleccione **Crear regla de eliminación**:
-
-        [![Opción **Crear regla de eliminación**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Seleccione la alerta específica que ya no desea ver y, en el panel de detalles, elija **Realizar acción**.
 
     - O bien, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página y, en la página de reglas de eliminación, seleccione **Create new suppression rule** (Crear nueva regla de eliminación):
 
@@ -85,7 +83,7 @@ Para crear una regla directamente en Azure Portal:
 1. Guarde la regla. 
 
 
-## <a name="edit-a-suppression-rules"></a>Edición de reglas de eliminación
+## <a name="edit-a-suppression-rule"></a>Edición de reglas de eliminación
 
 Para editar las reglas que ha creado, use la página de reglas de eliminación.
 
@@ -106,20 +104,6 @@ Para eliminar una o varias reglas que haya creado, use la página de reglas de e
 1. Para eliminar una sola regla, abra el menú de puntos suspensivos (...) de la regla y seleccione **Eliminar**.
 1. Para eliminar varias reglas, active las casillas de las reglas que se vayan a eliminar y seleccione **Eliminar**.
     ![Eliminación de una o varias reglas de eliminación](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>Visualización de alertas suprimidas
-
-Todavía se generarán alertas que coincidan con las reglas de eliminación habilitadas, pero su estado se establecerá en **descartada**. Puede ver el estado en Azure Portal o en cualquier lugar donde acceda a las alertas de seguridad Security Center. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) no creará incidentes para las alertas eliminadas. En el caso de otros SIEM, puede filtrar las alertas eliminadas mediante el estado de las alertas ("descartadas").
-
-Use el filtro de Security Center para ver las alertas descartadas por las reglas.
-
-* En la página de alertas de seguridad de Security Center, abra las opciones de filtro y seleccione **Descartada**.  
-
-   [![Visualización de las alertas descartadas](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Creación y administración de reglas de eliminación con la API
 

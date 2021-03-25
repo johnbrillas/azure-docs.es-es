@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418188"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587906"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gobernanza de las cuentas de servicio de Azure AD
 
@@ -53,7 +53,7 @@ Se recomiendan los siguientes procedimientos para los privilegios de la cuenta d
 
 * No asigne roles integrados a las cuentas de servicio. En su lugar, use el [modelo de concesión de permisos OAuth2 para Microsoft Graph](/graph/api/resources/oauth2permissiongrant).
 
-* Si a la entidad de servicio se le debe asignar un rol con privilegios, considere la posibilidad de asignar un [rol personalizado](https://docs.microsoft.com/azure/active-directory/roles/custom-create) con privilegios específicos y necesarios en un modo tiempo limitado.
+* Si a la entidad de servicio se le debe asignar un rol con privilegios, considere la posibilidad de asignar un [rol personalizado](../roles/custom-create.md) con privilegios específicos y necesarios en un modo tiempo limitado.
 
 * No incluya cuentas de servicio como miembros de un grupo con permisos elevados. 
 
@@ -63,10 +63,10 @@ Se recomiendan los siguientes procedimientos para los privilegios de la cuenta d
    o bien, use  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Use los ámbitos de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) para limitar la funcionalidad a la que una cuenta de servicio puede tener acceso en un recurso.
+* [Use los ámbitos de OAuth 2.0](../develop/v2-permissions-and-consent.md) para limitar la funcionalidad a la que una cuenta de servicio puede tener acceso en un recurso.
 * Las entidades de servicio y las identidades administradas pueden usar ámbitos de OAuth 2.0 en un contexto delegado que suplanta a un usuario que ha iniciado sesión o como cuenta de servicio en el contexto de la aplicación. En el contexto de la aplicación no se inicia sesión.
 
-* Compruebe la solicitud de cuentas de servicio de ámbito para recursos para asegurarse de que son adecuadas. Por ejemplo, si una cuenta solicita Files.ReadWrite.All, valore si realmente solo necesita File.Read.All. Para obtener más información sobre los permisos, vea para la [referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+* Compruebe la solicitud de cuentas de servicio de ámbito para recursos para asegurarse de que son adecuadas. Por ejemplo, si una cuenta solicita Files.ReadWrite.All, valore si realmente solo necesita File.Read.All. Para obtener más información sobre los permisos, vea para la [referencia de permisos de Microsoft Graph](/graph/permissions-reference).
 
 * Asegúrese de que confía en el desarrollador de la aplicación o la API con el acceso solicitado a sus recursos.
 
@@ -78,9 +78,9 @@ Se recomiendan los siguientes procedimientos para los privilegios de la cuenta d
 
 Una vez que tenga claro el propósito, el alcance y los permisos necesarios, cree su cuenta de servicio. 
 
-[Creación y uso de identidades administradas](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Creación y uso de identidades administradas](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Creación y uso de entidades de servicio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Creación y uso de entidades de servicio](../develop/howto-create-service-principal-portal.md)
 
 Use una identidad administrada siempre que sea posible. Si no puede usar una identidad administrada, use una entidad de servicio. Si no puede utilizar una entidad de servicio, entonces y solo entonces utilice una cuenta de usuario de Azure AD.
 
@@ -100,7 +100,7 @@ Supervise de forma proactiva las cuentas de servicio para asegurarse de que los 
 
 * Con los registros de inicio de sesión de Azure AD en el portal de Azure AD.
 
-* Mediante la exportación de los registros de inicio de sesión de Azure AD a [Azure Storage](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Mediante la exportación de los registros de inicio de sesión de Azure AD a [Azure Storage](../../storage/index.yml), [Azure Event Hubs](../../event-hubs/index.yml) o [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Captura de pantalla que muestra la pantalla de inicio de sesión de la entidad de servicio.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Establezca un proceso de revisión para asegurarse de que las cuentas de servici
 
 **Los procesos de desaprovisionamiento deben incluir las siguientes tareas.**
 
-1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) y el acceso a los recursos de la cuenta de servicio.
+1. Después de desaprovisionar la aplicación o el script asociado, [supervise los inicios de sesión](../reports-monitoring/concept-sign-ins.md#sign-ins-report) y el acceso a los recursos de la cuenta de servicio.
 
    * Si la cuenta aún está activa, determine cómo se está usando antes de realizar los pasos siguientes.
  
@@ -196,4 +196,3 @@ Para obtener más información sobre la protección de las cuentas de servicio d
 
  
 
- 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373477"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101737552"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal
 
@@ -36,6 +36,7 @@ Esto es lo que necesita para configurar la asociación de aplicaciones en format
 - Una aplicación empaquetada en formato MSIX expandida en una imagen MSIX que se carga en un recurso compartido de archivos.
 - Un recurso compartido de archivos en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.
 - El recurso compartido de archivos en el que cargó la imagen MSIX también debe ser accesible para todas las máquinas virtuales (VM) del grupo de hosts. Los usuarios necesitarán permisos de solo lectura para acceder a la imagen.
+- Si el certificado no es de confianza pública, siga las instrucciones de [Instalación de certificados](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Desactivación de las actualizaciones automáticas para las aplicaciones de asociación de aplicaciones en formato MSIX
 

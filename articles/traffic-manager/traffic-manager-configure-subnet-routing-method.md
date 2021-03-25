@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994900"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
@@ -26,7 +26,7 @@ En el escenario que se trata en este artículo, con la subred de enrutamiento, s
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para ver a Traffic Manager en acción, este tutorial requiere que implemente lo siguiente:
 - Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Oeste de Europa** (actúa como sitio web de producción).
 - Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Oeste de Europa**).
@@ -64,7 +64,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Configuración|Value|
     |---|---|
     |Virtual network| Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet1*, para cada subred, escriba *mySubnet*.|
-    |Grupo de seguridad de red (NSG)|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
+    |Grupo de seguridad de red|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
     |Diagnósticos de arranque|Seleccione **Deshabilitado**.|
     |||
 
@@ -149,7 +149,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
     |Configuración|Value|
     |---|---|
     |Virtual network| Seleccione **Red virtual**, en **Crear red virtual**; en **Nombre**, escriba *myVNet3*; para cada subred, escriba *mySubnet3*.|
-    |Grupo de seguridad de red (NSG)|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
+    |Grupo de seguridad de red|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
     |Diagnósticos de arranque|Seleccione **Deshabilitado**.|
     |||
 

@@ -3,12 +3,12 @@ title: Gobernanza de recursos para contenedores y servicios
 description: Azure Service Fabric le permite especificar los límites y las solicitudes de recursos de los servicios que se ejecutan como procesos o contenedores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 889fce77c1a3a743e9805ec482a9c87b9bf8da65
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172862"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101735665"
 ---
 # <a name="resource-governance"></a>Regulación de recursos
 
@@ -45,7 +45,7 @@ A partir de la versión 7.2, el entorno de ejecución de Service Fabric admite 
 
 * *Límites:* los valores de límite de memoria y CPU representan los límites de recursos reales que se aplican cuando se activa un proceso o un contenedor en un nodo.
 
-Service Fabric permite tanto las especificaciones **RequestsOnly y LimitsOnly** como ambas ( **RequestsAndLimits** ) para la CPU y la memoria.
+Service Fabric permite tanto las especificaciones **RequestsOnly y LimitsOnly** como ambas (**RequestsAndLimits**) para la CPU y la memoria.
 * Cuando se usa la especificación RequestsOnly, Service Fabric también usa los valores de solicitud como límites.
 * Cuando se usa la especificación LimitsOnly, Service Fabric considera que los valores de solicitud son 0.
 * Cuando se usa la especificación RequestsAndLimits, los valores de límite deben ser mayores o iguales que los valores de solicitud.
@@ -58,23 +58,23 @@ Para comprender mejor el mecanismo de gobernanza de recursos, echemos un vistazo
 
 En este momento, la suma de las solicitudes es igual a la capacidad del nodo. CRM no colocará más contenedores ni procesos de servicio con solicitudes de CPU en este nodo. En el nodo, un proceso y un contenedor se ejecutan con un núcleo cada uno y no compiten entre sí para la CPU.
 
-Vamos a consultar de nuevo nuestro ejemplo con la especificación **RequestsAndLimits** . Esta vez, el paquete de servicio basado en contenedor especifica una solicitud de un núcleo de CPU y un límite de dos núcleos de CPU. El paquete de servicio basado en proceso especifica una solicitud y un límite de un núcleo de CPU.
+Vamos a consultar de nuevo nuestro ejemplo con la especificación **RequestsAndLimits**. Esta vez, el paquete de servicio basado en contenedor especifica una solicitud de un núcleo de CPU y un límite de dos núcleos de CPU. El paquete de servicio basado en proceso especifica una solicitud y un límite de un núcleo de CPU.
   1. En primer lugar, el paquete de servicio basado en contenedor se coloca en el nodo. El entorno de ejecución activa el contenedor y establece el límite de CPU en dos núcleos. El contenedor no podrá usar más de dos núcleos.
   2. A continuación, el paquete de servicio basado en proceso se coloca en el nodo. El entorno de ejecución activa el proceso de servicio y establece su límite de CPU en un núcleo.
 
   En este momento, la suma de las solicitudes de CPU de los paquetes de servicio que se colocan en el nodo es igual a la capacidad de CPU del nodo. CRM no colocará más contenedores ni procesos de servicio con solicitudes de CPU en este nodo. Sin embargo, en el nodo, la suma de los límites (dos núcleos para el contenedor y un núcleo para el proceso) supera la capacidad de dos núcleos. Si el contenedor y el proceso se expanden al mismo tiempo, existe la posibilidad de realizar una contención del recurso de la CPU. El sistema operativo subyacente de la plataforma administra ese tipo de contención. En este ejemplo, el contenedor podría expandirse en un total de dos núcleos de CPU, por lo que la solicitud del proceso de un núcleo de CPU no se garantiza.
 
 > [!NOTE]
-> Como se muestra en el ejemplo anterior, los valores de solicitud de CPU y memoria **no dan lugar a la reserva de recursos en un nodo** . Estos valores representan el consumo de recursos que Cluster Resource Manager tiene en cuenta al tomar decisiones de selección de ubicación. Los valores de límite representan los límites de los recursos reales que se aplican cuando se activa un proceso o un contenedor en un nodo.
+> Como se muestra en el ejemplo anterior, los valores de solicitud de CPU y memoria **no dan lugar a la reserva de recursos en un nodo**. Estos valores representan el consumo de recursos que Cluster Resource Manager tiene en cuenta al tomar decisiones de selección de ubicación. Los valores de límite representan los límites de los recursos reales que se aplican cuando se activa un proceso o un contenedor en un nodo.
 
 
 Existen algunas situaciones en las que puede haber contención de la CPU. En estas situaciones, el proceso y el contenedor del ejemplo pueden experimentar el problema del entorno ruidoso:
 
-* *Combinación de servicios con gobierno y sin gobierno y contenedores* : si el usuario crea un servicio sin especificar una gobernanza de recursos, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones para este problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
+* *Combinación de servicios con gobierno y sin gobierno y contenedores*: si el usuario crea un servicio sin especificar una gobernanza de recursos, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones para este problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
 
 * *Cuando se inicia otro proceso en el nodo, fuera de Service Fabric (por ejemplo, un servicio de sistema operativo)* : En esta situación, el proceso fuera de Service Fabric también competirá por la CPU con los servicios existentes. La solución a este problema consiste en configurar correctamente las capacidades del nodo en la cuenta para la sobrecarga del sistema operativo, tal como se muestra en la sección siguiente.
 
-* *Cuando las solicitudes no son iguales a los límites* : Tal y como se describe en el ejemplo de RequestsAndLimits anterior, las solicitudes no dan lugar a la reserva de recursos en un nodo. Cuando se coloca un servicio con límites superiores a las solicitudes en un nodo, es posible que este consuma recursos (si están disponibles) hasta sus límites. En tales casos, es posible que otros servicios del nodo no puedan consumir recursos hasta sus valores de solicitud.
+* *Cuando las solicitudes no son iguales a los límites*: Tal y como se describe en el ejemplo de RequestsAndLimits anterior, las solicitudes no dan lugar a la reserva de recursos en un nodo. Cuando se coloca un servicio con límites superiores a las solicitudes en un nodo, es posible que este consuma recursos (si están disponibles) hasta sus límites. En tales casos, es posible que otros servicios del nodo no puedan consumir recursos hasta sus valores de solicitud.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuración del clúster para habilitar la gobernanza de recursos
 
@@ -156,13 +156,13 @@ Los límites y las solicitudes de la gobernanza de recursos se especifican en el
   </ServiceManifestImport>
 ```
 
-En este ejemplo, el atributo `CpuCores` se usa para especificar una solicitud de un núcleo de CPU para **ServicePackageA** . Dado que no se especifica el límite de CPU (atributo `CpuCoresLimit`), Service Fabric también utiliza el valor de solicitud especificado de un núcleo como límite de CPU del paquete de servicio.
+En este ejemplo, el atributo `CpuCores` se usa para especificar una solicitud de un núcleo de CPU para **ServicePackageA**. Dado que no se especifica el límite de CPU (atributo `CpuCoresLimit`), Service Fabric también utiliza el valor de solicitud especificado de un núcleo como límite de CPU del paquete de servicio.
 
-**ServicePackageA** solo se colocará en un nodo en el que la capacidad restante de la CPU sea mayor o igual que un núcleo después de restar la **suma de las solicitudes de CPU de todos los paquetes de servicio colocados en ese nodo** . En el nodo, el paquete de servicio se limitará a un núcleo. El paquete de servicio contiene dos paquetes de código ( **CodeA1** y **CodeA2** ), y ambos especifican el atributo `CpuShares`. La proporción de CpuShares 512:256 se usa para calcular los límites de CPU para los paquetes de código individuales. Por lo tanto, CodeA1 se limitará a dos tercios de un núcleo y CodeA2 se limitará a un tercio de un núcleo. Si no se especifican las proporciones de CpuShares de todos los paquetes de código, Service Fabric dividirá el límite de la CPU equitativamente entre ellos.
+**ServicePackageA** solo se colocará en un nodo en el que la capacidad restante de la CPU sea mayor o igual que un núcleo después de restar la **suma de las solicitudes de CPU de todos los paquetes de servicio colocados en ese nodo**. En el nodo, el paquete de servicio se limitará a un núcleo. El paquete de servicio contiene dos paquetes de código (**CodeA1** y **CodeA2**), y ambos especifican el atributo `CpuShares`. La proporción de CpuShares 512:256 se usa para calcular los límites de CPU para los paquetes de código individuales. Por lo tanto, CodeA1 se limitará a dos tercios de un núcleo y CodeA2 se limitará a un tercio de un núcleo. Si no se especifican las proporciones de CpuShares de todos los paquetes de código, Service Fabric dividirá el límite de la CPU equitativamente entre ellos.
 
-Aunque las proporciones de CpuShares especificadas para los paquetes de código representan su proporción relativa del límite total de CPU del paquete de servicio, los valores de memoria de los paquetes de código se especifican en términos absolutos. En este ejemplo, el atributo `MemoryInMB` se usa para especificar solicitudes de memoria de 1024 MB para CodeA1 y CodeA2. Dado que no se especifica el límite de memoria (atributo `MemoryInMBLimit`), Service Fabric también utiliza los valores de solicitud especificados como límites para los paquetes de código. La solicitud de memoria (y el límite) del paquete de servicio se calcula como la suma de los valores de solicitud de memoria (y límite) de sus paquetes de código constituyentes. Por lo tanto, para **ServicePackageA** , la solicitud de memoria y el límite se calculan como 2048 MB.
+Aunque las proporciones de CpuShares especificadas para los paquetes de código representan su proporción relativa del límite total de CPU del paquete de servicio, los valores de memoria de los paquetes de código se especifican en términos absolutos. En este ejemplo, el atributo `MemoryInMB` se usa para especificar solicitudes de memoria de 1024 MB para CodeA1 y CodeA2. Dado que no se especifica el límite de memoria (atributo `MemoryInMBLimit`), Service Fabric también utiliza los valores de solicitud especificados como límites para los paquetes de código. La solicitud de memoria (y el límite) del paquete de servicio se calcula como la suma de los valores de solicitud de memoria (y límite) de sus paquetes de código constituyentes. Por lo tanto, para **ServicePackageA**, la solicitud de memoria y el límite se calculan como 2048 MB.
 
-**ServicePackageA** solo se colocará en un nodo en el que la capacidad de memoria restante sea mayor o igual que 2048 MB después de restar la **suma de las solicitudes de memoria de todos los paquetes de servicio colocados en ese nodo** . En el nodo, ambos paquetes de código se limitarán a 1024 MB de memoria cada uno. Los paquetes de código (contenedores o procesos) no podrán asignar más memoria de la que establece este límite y, si se intenta, el resultado serán excepciones de memoria insuficiente.
+**ServicePackageA** solo se colocará en un nodo en el que la capacidad de memoria restante sea mayor o igual que 2048 MB después de restar la **suma de las solicitudes de memoria de todos los paquetes de servicio colocados en ese nodo**. En el nodo, ambos paquetes de código se limitarán a 1024 MB de memoria cada uno. Los paquetes de código (contenedores o procesos) no podrán asignar más memoria de la que establece este límite y, si se intenta, el resultado serán excepciones de memoria insuficiente.
 
 **Ejemplo 2: Especificación RequestsOnly**
 ```xml
@@ -177,7 +177,7 @@ Aunque las proporciones de CpuShares especificadas para los paquetes de código 
     </Policies>
   </ServiceManifestImport>
 ```
-En este ejemplo se utilizan los atributos `CpuCoresLimit` y `MemoryInMBLimit` , que solo están disponibles en las versiones de SF 7.2 y posteriores. El atributo CpuCoresLimit se usa para especificar un límite de CPU de 1 núcleo para **ServicePackageA** . Puesto que no se especifica la solicitud de CPU (atributo `CpuCores`), se considera que su valor es 0. El atributo `MemoryInMBLimit` se usa para especificar los límites de memoria de 1024 MB para CodeA1 y CodeA2 y, dado que no se especifican las solicitudes (atributo `MemoryInMB`), se considera que su valor es 0. El límite y la solicitud de memoria de **ServicePackageA** se calculan como 0 y 2048, respectivamente. Dado que las solicitudes de CPU y memoria de **ServicePackageA** son 0, no presenta ninguna carga que CRM deba tener en cuenta para la selección de ubicación, en el caso de las métricas `servicefabric:/_CpuCores` y `servicefabric:/_MemoryInMB` . Por lo tanto, desde la perspectiva de la gobernanza de recursos, **ServicePackageA** se puede colocar en cualquier nodo **independientemente de la capacidad restante** . Al igual que en el ejemplo 1, en el nodo, CodeA1 se limitará a dos tercios de un núcleo y 1024 MB de memoria, mientras que CodeA2 se limitará a un tercio de un núcleo y 1024 MB de memoria.
+En este ejemplo se utilizan los atributos `CpuCoresLimit` y `MemoryInMBLimit` , que solo están disponibles en las versiones de SF 7.2 y posteriores. El atributo CpuCoresLimit se usa para especificar un límite de CPU de 1 núcleo para **ServicePackageA**. Puesto que no se especifica la solicitud de CPU (atributo `CpuCores`), se considera que su valor es 0. El atributo `MemoryInMBLimit` se usa para especificar los límites de memoria de 1024 MB para CodeA1 y CodeA2 y, dado que no se especifican las solicitudes (atributo `MemoryInMB`), se considera que su valor es 0. El límite y la solicitud de memoria de **ServicePackageA** se calculan como 0 y 2048, respectivamente. Dado que las solicitudes de CPU y memoria de **ServicePackageA** son 0, no presenta ninguna carga que CRM deba tener en cuenta para la selección de ubicación, en el caso de las métricas `servicefabric:/_CpuCores` y `servicefabric:/_MemoryInMB` . Por lo tanto, desde la perspectiva de la gobernanza de recursos, **ServicePackageA** se puede colocar en cualquier nodo **independientemente de la capacidad restante**. Al igual que en el ejemplo 1, en el nodo, CodeA1 se limitará a dos tercios de un núcleo y 1024 MB de memoria, mientras que CodeA2 se limitará a un tercio de un núcleo y 1024 MB de memoria.
 
 **Ejemplo 3: Especificación RequestsAndLimits**
 ```xml
@@ -249,7 +249,7 @@ Si bien la aplicación de la gobernanza de recursos a los servicios de Service F
 * Nodos que terminan en un estado incorrecto
 * API de administración de clústeres de Service Fabric sin capacidad de respuesta
 
-Para evitar que se produzcan estas situaciones, Service Fabric le permite  *aplicar los límites de recursos para todos los servicios de usuario de Service Fabric que se ejecutan en el nodo* (tanto controlados como no controlados) para garantizar que los servicios de usuario nunca usen más que la cantidad de recursos especificada. Para ello, el valor de la configuración EnforceUserServiceMetricCapacities de la sección PlacementAndLoadBalancing de ClusterManifest se establece en true. De manera predeterminada, esta configuración está desactivada.
+Para evitar que se produzcan estas situaciones, Service Fabric le permite *aplicar los límites de recursos para todos los servicios de usuario de Service Fabric que se ejecutan en el nodo* (tanto controlados como no controlados) para garantizar que los servicios de usuario nunca usen más que la cantidad de recursos especificada. Para ello, el valor de la configuración EnforceUserServiceMetricCapacities de la sección PlacementAndLoadBalancing de ClusterManifest se establece en true. De manera predeterminada, esta configuración está desactivada.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -260,18 +260,18 @@ Para evitar que se produzcan estas situaciones, Service Fabric le permite  *apl
 Comentarios adicionales:
 
 * La aplicación de límites para los recursos solo se aplica a las métricas de recursos `servicefabric:/_CpuCores` y `servicefabric:/_MemoryInMB`.
-* La aplicación de límites para los recursos solo funciona si las capacidades de nodo para las métricas de recursos están disponibles para Service Fabric, ya sea a través de un mecanismo de detección automática como mediante usuarios que especifican de manera manual las capacidades de nodo (tal como se explicó en la sección [Configuración del clúster para habilitar la gobernanza de recursos](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)).  Si las capacidades de nodo no están configuradas, no se puede usar la funcionalidad de aplicación de límites para los recursos ya que Service Fabric no puede saber cuántos recursos reservar para los servicios de usuario.  Service Fabric emitirá una advertencia de estado si el valor de "EnforceUserServiceMetricCapacities" es true, pero las capacidades de nodo no están configuradas.
+* La aplicación de límites para los recursos solo funciona si las capacidades de nodo para las métricas de recursos están disponibles para Service Fabric, ya sea a través de un mecanismo de detección automática como mediante usuarios que especifican de manera manual las capacidades de nodo (tal como se explicó en la sección [Configuración del clúster para habilitar la gobernanza de recursos](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)). Si las capacidades de nodo no están configuradas, no se puede usar la funcionalidad de aplicación de límites para los recursos ya que Service Fabric no puede saber cuántos recursos reservar para los servicios de usuario. Service Fabric emitirá una advertencia de estado si el valor de "EnforceUserServiceMetricCapacities" es true, pero las capacidades de nodo no están configuradas.
 
 ## <a name="other-resources-for-containers"></a>Otros recursos para los contenedores
 
 Además de la CPU y de la memoria, es posible especificar otros límites de recursos para los contenedores. Estos límites se especifican en el nivel del paquete de código y se aplican cuando se inicia el contenedor. A diferencia de con la CPU y la memoria, Cluster Resource Manager no tiene en cuenta estos recursos y no realiza ninguna comprobación de capacidad ni de equilibrio de carga para ellos.
 
-* *MemorySwapInMB* : la cantidad de memoria de intercambio que puede usar un contenedor.
-* *MemoryReservationInMB* : el límite flexible para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo.
-* *CpuPercent* : porcentaje de CPU que puede usar el contenedor. Si se especifican los límites y las solicitudes de CPU para el paquete de servicio, este parámetro se omite de forma efectiva.
-* *MaximumIOps* : E/S máximas que puede usar un contenedor (lectura y escritura).
-* *MaximumIOBytesps* : E/S máxima (bytes por segundo) que puede usar un contenedor (lectura y escritura).
-* *BlockIOWeight* : peso de E/S de bloque en relación con otros contenedores.
+* *MemorySwapInMB*: la cantidad de memoria de intercambio que puede usar un contenedor.
+* *MemoryReservationInMB*: el límite flexible para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo.
+* *CpuPercent*: porcentaje de CPU que puede usar el contenedor. Si se especifican los límites y las solicitudes de CPU para el paquete de servicio, este parámetro se omite de forma efectiva.
+* *MaximumIOps*: E/S máximas que puede usar un contenedor (lectura y escritura).
+* *MaximumIOBytesps*: E/S máxima (bytes por segundo) que puede usar un contenedor (lectura y escritura).
+* *BlockIOWeight*: peso de E/S de bloque en relación con otros contenedores.
 
 Estos recursos se pueden combinar con la CPU y la memoria. Este es un ejemplo de cómo se especifican recursos adicionales para los contenedores:
 

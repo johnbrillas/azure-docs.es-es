@@ -4,10 +4,10 @@ description: En este inicio rápido, dará los pasos necesarios para habilitar e
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 4949801b3dc97904680d09e685fd225812a0e14d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920069"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Go

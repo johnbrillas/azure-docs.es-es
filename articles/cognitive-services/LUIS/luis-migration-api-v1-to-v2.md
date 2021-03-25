@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018759"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
@@ -26,7 +26,7 @@ LUIS tiene nuevas [regiones](./luis-reference-regions.md) que proporciona para l
 La ruta de API de creación ha pasado de usar la ruta **prog** a usar la ruta **api**.
 
 
-| version | ruta |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -105,17 +105,17 @@ Respuesta correcta de punto de conexión de v2:
 ## <a name="key-management-no-longer-in-api"></a>Administración de claves no incluida en la API
 Las API de clave de punto de conexión de suscripción están en desuso y devuelven el error 410 "Desaparecido".
 
-| version | ruta |
+| version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)** . No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación.
+Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)**. No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación.
 
 ## <a name="new-versioning-route"></a>Nueva ruta de control de versiones
 El modelo de v2 se encuentra ahora en una [versión](luis-how-to-manage-versions.md). Un nombre de versión tiene 10 caracteres en la ruta. La versión predeterminada es "0.1".
 
-| version | ruta |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -134,7 +134,7 @@ Varias API que devuelven metadatos de LUIS tienen nombres nuevos.
 ## <a name="sample-renamed-to-suggest"></a>"Sample" cambia de nombre a "suggest".
 LUIS sugiere expresiones a partir de [expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) existentes que podrían mejorar el modelo. En la versión anterior, esto se llamaba **sample**. En la nueva versión, el nombre ha cambiado de sample a **suggest**. Esto se denomina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Revisar las expresiones de punto de conexión) en el sitio web de LUIS.
 
-| version | ruta |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

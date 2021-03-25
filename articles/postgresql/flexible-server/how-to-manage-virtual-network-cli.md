@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: eb22946bb3f0858a545d5b854afe48b2e1e61927
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109239"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Creación y administración de redes virtuales en Azure Database for PostgreSQL: Servidor flexible mediante la CLI de Azure
@@ -61,7 +61,7 @@ Consulte la documentación de referencia de la CLI de Azure <!--FIXME --> para o
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-- Cree un servidor flexible mediante la red virtual y la subred ya existentes. Si la red virtual y la subred proporcionadas no existen, se crearán con el prefijo de dirección predeterminado.
+- Cree un servidor flexible mediante la red virtual existente y la subred. Si la red virtual y la subred proporcionadas no existen, se creará la red virtual y la subred con prefijo de dirección predeterminado.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
     ```

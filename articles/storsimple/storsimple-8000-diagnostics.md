@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954076"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
@@ -416,7 +416,7 @@ Esta es una tabla que describe cuáles, de los diversos parámetros de Windows P
 
 | Parámetro de PowerShell    | Descripción  |
 |-------------------------|------------------|
-| Id. de instancia             | Cada controlador lleva asociado un identificador único o un GUID.|
+| Instance ID             | Cada controlador lleva asociado un identificador único o un GUID.|
 | Nombre                    | El nombre descriptivo del dispositivo, tal y como se configuró mediante el portal de Azure durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo. |
 | Modelo                   | El modelo de su dispositivo StorSimple de la serie 8000. Puede ser 8100 o 8600.|
 | SerialNumber            | El número de serie del dispositivo se asigna en la fábrica y tiene una longitud de 15 caracteres. Por ejemplo, 8600-SHX0991003G44HT indica:<br> 8600: es el modelo del dispositivo.<br>SHX: es el sitio de fabricación.<br> 0991003: indica un producto específico. <br> G44HT: los 5 últimos dígitos se incrementan para crear números de serie únicos. Es posible que no sea un conjunto secuencial.|

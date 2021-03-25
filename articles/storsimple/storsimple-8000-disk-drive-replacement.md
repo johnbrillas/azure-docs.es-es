@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014880"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Reemplazo de una unidad de disco en un dispositivo de la serie StorSimple 8000
@@ -53,7 +53,7 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
 2. Gire la clave hacia la derecha hasta que el indicador rojo no esté visible en el orificio por encima de la clave.
 3. Quite la llave.
    
-    ![Unidad de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ Unidad de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unidad de disco desbloqueada
 4. Ahora se puede quitar la unidad de disco.

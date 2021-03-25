@@ -9,13 +9,13 @@ ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 071f2849a877f4ea1e8a84eff6ccfb8343be3ec7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734071"
 ---
-| Resource | Límite predeterminado | Límite máximo |
+| Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Alertas de métricas (clásico) |100 reglas de alertas activas por suscripción. | Llame al soporte técnico. |
 | Alertas de métricas |5000 reglas de alertas activas por suscripción tanto en la nube pública de Azure, como en las nubes de Azure China 21Vianet y Azure Government. Si alcanza este límite, examine si puede usar [alertas de varios recursos del mismo tipo](../articles/azure-monitor/alerts/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).<br/>5000 series temporales de métricas por regla de alertas. | Llame al soporte técnico. |

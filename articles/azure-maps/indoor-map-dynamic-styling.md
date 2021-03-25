@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726326"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementación de estilos dinámicos para mapas de interiores de Creator (versión preliminar)
 
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST**, escriba el siguiente JSON con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
+3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST**, escriba el siguiente JSON sin formato con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
 
     ```json
     {
@@ -108,9 +108,11 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualización de estilos dinámicos en un mapa
 
-La aplicación web que abrió anteriormente en un explorador debería reflejar ahora el estado actualizado de las características del mapa. `UNIT27`(151) debería aparecer en verde y `UNIT26`(157) debería aparecer en rojo.
+La aplicación web que abrió anteriormente en un explorador debería reflejar ahora el estado actualizado de las características del mapa. `UNIT27`(142) debería aparecer en verde y `UNIT26`(143) debería aparecer en rojo.
 
 ![Sala libre en verde y sala ocupada en rojo](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Ver demo en vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

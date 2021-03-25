@@ -7,16 +7,16 @@ ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652303"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Actualice la aplicación de Java de Service Fabric anterior para capturar las bibliotecas de Java desde Maven
 Los archivos binarios de Java de Service Fabric se han movido desde el SDK de Java de Service Fabric al hospedaje de Maven. Puede usar **mavencentral** para capturar las dependencias de Java de Service Fabric más recientes. Esta guía le ayudará a actualizar las aplicaciones de Java existentes creadas para el SDK de Java de Service Fabric, utilizando cualquier plantilla Yeoman o Eclipse, para que sean compatibles con la compilación basada en Maven.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. En primer lugar, desinstale el SDK de Java existente.
 

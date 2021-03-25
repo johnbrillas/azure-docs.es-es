@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714500"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede configurar las copias de seguridad de modo que se conserven durante un período de tiempo indefinido. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación.
@@ -44,10 +44,10 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 * La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **Estándar**, **Premium** o **Aislado**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](manage-scale-up.md). Los niveles **Premium** y **Aislado** permiten realizar un mayor número de copias de seguridad diarias que el nivel **Estándar**.
 * Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para más información sobre las cuentas de almacenamiento de Azure, consulte [Azure storage account overview](../storage/common/storage-account-overview.md) (Introducción a la cuenta de almacenamiento de Azure).
 * Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Si el tamaño de la copia de seguridad supera este límite, obtendrá un error.
-* No se admiten las copias de seguridad de instancias de Azure Database for MySQL habilitadas para TLS. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
-* No se admiten las copias de seguridad de instancias de Azure Database for PostgreSQL habilitadas para TLS. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
+* No se admiten las copias de seguridad de instancias de Azure Database for MySQL habilitadas para TLS. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
+* No se admiten las copias de seguridad de instancias de Azure Database for PostgreSQL habilitadas para TLS. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
 * Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
-* No se admite el uso de una cuenta de almacenamiento habilitada para firewall como destino para las copias de seguridad. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
+* No se admite el uso de una cuenta de almacenamiento habilitada para firewall como destino para las copias de seguridad. Si se configura una copia de seguridad, se producirán errores de copia de seguridad.
 
 
 <a name="manualbackup"></a>
@@ -70,18 +70,18 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 
 3. En la página **Configuración de copia de seguridad**, haga clic en **Almacenamiento no configurado** para configurar una cuenta de almacenamiento.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de pantalla de un banner con un mensaje para actualizar el plan de App Service para tener acceso a la característica Copia de seguridad y restauración.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de pantalla de la sección Almacenamiento de copia de seguridad con la opción Almacenamiento no configurado seleccionada.":::
 
 4. Elija el destino de copia de seguridad; para ello, seleccione una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una nueva cuenta de almacenamiento o un nuevo contenedor en las páginas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
 
 5. En la página **Configuración de copia de seguridad** que sigue abierta, puede configurar **Copia de seguridad de la base de datos**, seleccionar las bases de datos que desee incluir en las copias de seguridad (SQL Database o MySQL) y después haga clic en **Aceptar**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de pantalla de un banner con un mensaje para actualizar el plan de App Service para tener acceso a la característica Copia de seguridad y restauración.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de pantalla de la sección Copia de seguridad de la base de datos que muestra la opción Incluir en copia de seguridad seleccionada.":::
 
     > [!NOTE]
     > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la página **Configuración de la aplicación** de la aplicación. 
     >
-    > Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
+    > Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si configura manualmente las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
     > 
     > 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0cf89a755090010bb80507c52f90baa2a4e804a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289450"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617631"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Códecs y formatos de Standard Encoder
 
@@ -98,7 +98,7 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 
 | Formato de archivo | Códec de vídeo | Códec de audio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de línea de base), HEVC (H.265) de 8 bits |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Pasos siguientes

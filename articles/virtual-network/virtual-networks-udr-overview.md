@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
 ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221021"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
@@ -32,7 +32,7 @@ Azure crea automáticamente rutas del sistema y las asigna a todas las subredes 
 
 Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando el tráfico que sale de una subred se envía a una dirección IP que está dentro del prefijo de la dirección de ruta, la ruta que contiene el prefijo es la que utiliza Azure. Obtenga más información acerca de [la selección de rutas por parte de Azure](#how-azure-selects-a-route) cuando varias rutas contienen los mismos prefijos o cuando los prefijos se solapan. Cuando se crea una red virtual, Azure crea automáticamente los siguientes rutas del sistema predeterminadas para cada subred de la red virtual:
 
-|Source |Prefijos de dirección                                        |Tipo de próximo salto  |
+|Source |Prefijos de dirección                                        |Tipo del próximo salto  |
 |-------|---------                                               |---------      |
 |Valor predeterminado|Único para la red virtual                           |Virtual network|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
@@ -137,7 +137,7 @@ Si varias rutas contienen el mismo prefijo de dirección, Azure selecciona el ti
 Por ejemplo, una tabla de rutas contiene las rutas siguientes:
 
 
-|Source   |Prefijos de dirección  |Tipo de próximo salto           |
+|Source   |Prefijos de dirección  |Tipo del próximo salto           |
 |---------|---------         |-------                 |
 |Valor predeterminado  | 0.0.0.0/0        |Internet                |
 |Usuario     | 0.0.0.0/0        |Puerta de enlace de red virtual |
@@ -248,9 +248,9 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.2.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
-|Valor predeterminado |Active |10.0.0.0/8          |None                      |                   |
+|Valor predeterminado |Activo |10.0.0.0/8          |None                      |                   |
 |Valor predeterminado |Active |100.64.0.0/10       |None                      |                   |
-|Valor predeterminado |Active |192.168.0.0/16      |None                      |                   |
+|Valor predeterminado |Activo |192.168.0.0/16      |None                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 

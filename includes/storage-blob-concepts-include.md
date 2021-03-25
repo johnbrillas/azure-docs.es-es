@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 0914cf9515930e23e4134181ffe8332e36eacffe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98612961"
 ---
 Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados. Los datos no estructurados son datos que no se ciñen a ningún un modelo de datos o definición concretos, como texto o datos binarios.
@@ -21,7 +21,7 @@ Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft par
 
 Blob Storage está diseñado para:
 
-* Servicio de imágenes o documentos directamente a un explorador.
+* Visualización de imágenes o documentos directamente en un explorador.
 * Almacenamiento de archivos para acceso distribuido.
 * Streaming de audio y vídeo.
 * Escribir en archivos de registro.
@@ -44,7 +44,7 @@ Blob Storage es compatible con Azure Data Lake Storage Gen2, solución de análi
 
 * Almacenamiento en niveles de bajo costo
 * Alta disponibilidad
-* Coherencia máxima
+* Coherencia fuerte
 * Funcionalidades de recuperación ante desastres
 
 Para más información acerca de Data Lake Storage Gen2, consulte [Introduction to Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) (Introducción a Azure Data Lake Storage Gen2).

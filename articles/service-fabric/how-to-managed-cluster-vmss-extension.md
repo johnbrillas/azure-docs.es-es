@@ -4,10 +4,10 @@ description: Aquí le mostramos cómo agregar una extensión de conjunto de esca
 ms.topic: article
 ms.date: 09/28/2020
 ms.openlocfilehash: a47908b511f79c18482e9d21e623f1cb4dc70ed1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101737773"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Incorporación de una extensión de conjunto de escalado de máquinas virtuales a un tipo de nodo de clúster administrado de Service Fabric (versión preliminar)

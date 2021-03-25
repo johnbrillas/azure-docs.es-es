@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 9c192a5f84f36fbdea0dd1d280928aa40186d4ee
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386992"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
@@ -30,7 +30,7 @@ Puede copiar datos de un almacén de datos de SAP HANA local a cualquier almacé
 Este conector es compatible con cualquier versión de base de datos de SAP HANA. Admite la copia de datos de modelos de información de HANA (como las vistas de análisis y cálculo) y las tablas de fila o columna mediante consultas SQL.
 
 Para habilitar la conectividad a la instancia de SAP HANA, instale los componentes siguientes:
-- **Data Management Gateway** el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP HANA) mediante un componente denominado puerta de enlace de administración de datos. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria incluso si SAP HANA se hospeda en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
+- **Data Management Gateway**: el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP HANA) mediante un componente denominado Data Management Gateway. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria incluso si SAP HANA se hospeda en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 - **Controlador ODBC de SAP HANA** en la máquina de puerta de enlace. Puede descargar el controlador ODBC de SAP HANA desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque con la palabra clave **SAP HANA CLIENT for Windows** (Cliente SAP HANA para Windows). 
 
 ## <a name="getting-started"></a>Introducción
@@ -45,7 +45,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de una plataforma de SAP HANA local, consulte la sección [Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de un almacén de datos de SAP HANA local, consulte la sección [Ejemplo con definiciones de JSON: copia de datos de SAP HANA a un blob de Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) de este artículo. 
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de SAP HANA:
 
@@ -78,7 +78,7 @@ Si el origen es de tipo **RelationalSource** (que incluye SAP HANA), están disp
 | --- | --- | --- | --- |
 | Query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | Sí |
 
-## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure
+## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo con definiciones de JSON: copia de datos de SAP HANA a un blob de Azure
 En el siguiente ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP HANA local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
 
 > [!IMPORTANT]

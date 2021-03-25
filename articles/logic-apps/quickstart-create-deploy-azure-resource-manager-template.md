@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
 ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214004"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
@@ -64,7 +64,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 
 1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla**, escriba o seleccione estos valores:
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar |
    | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre de un grupo de recursos de Azure nuevo o existente. En este ejemplo se usa `Check-Azure-Status-RG`. |
@@ -186,7 +186,7 @@ Para más información, consulte los temas siguientes:
    }
    ```
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | `location`| <*Azure-region*> | Región de Azure que se usará para la implementación. En este ejemplo se usa `West US`. |
    | `templateLink` : `uri` | <*quickstart-template-URL*> | Ubicación URL de la plantilla de inicio rápido que se va a usar para la implementación: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |

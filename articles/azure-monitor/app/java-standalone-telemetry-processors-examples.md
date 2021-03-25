@@ -1,35 +1,36 @@
 ---
 title: 'Ejemplos de procesadores de telemetría: Azure Monitor Application Insights para Java'
-description: Ejemplos que ilustran a los procesadores de telemetría en Azure Monitor Application Insights para Java
+description: Vea ejemplos que muestran procesadores de telemetría en Azure Monitor Application Insights para Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696319"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101734594"
 ---
-# <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Ejemplos de procesadores de telemetría: Azure Monitor Application Insights para Java
+# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Ejemplos de procesadores de telemetría: Azure Monitor Application Insights para Java
 
-## <a name="includeexclude-samples"></a>Ejemplos de inclusión o exclusión
+En este artículo se proporcionan ejemplos de procesadores de telemetría en Application Insights para Java. Encontrará ejemplos de configuraciones de inclusión y exclusión. También encontrará ejemplos de procesadores de atributos y procesadores de intervalos.
+## <a name="include-and-exclude-samples"></a>Ejemplos de inclusión y exclusión
 
-### <a name="1-include-spans"></a>1. Intervalos de inclusión
+En esta sección, verá cómo incluir y excluir intervalos. También verá cómo excluir varios intervalos y aplicar un procesamiento selectivo.
+### <a name="include-spans"></a>Inclusión de intervalos
 
-A continuación se muestra cómo incluir intervalos para este procesador de atributos. Este procesador no procesará el resto de los intervalos cuyas propiedades no coincidan.
+En esta sección se muestra cómo incluir intervalos para un procesador de atributos. El procesador no procesa los intervalos que no coinciden con las propiedades.
 
-A continuación se indican las condiciones que se deben cumplir para lograr una coincidencia:
-* El nombre del intervalo debe ser igual a "spanA" o "spanB". 
+Una coincidencia requiere que el nombre del intervalo sea igual a `spanA` o `spanB`. 
 
-Los siguientes son intervalos que coinciden con las propiedades include y se aplican acciones del procesador.
+Los siguientes intervalos coinciden con las propiedades de inclusión, por lo que se aplican las acciones del procesador:
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-El siguiente intervalo no coincide con las propiedades include y no se aplican las acciones del procesador.
+Este intervalo no coincide con las propiedades de inclusión, de modo que las acciones del procesador no se aplican:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -58,19 +59,18 @@ El siguiente intervalo no coincide con las propiedades include y no se aplican l
 }
 ```
 
-### <a name="2-exclude-spans"></a>2. Intervalos de exclusión
+### <a name="exclude-spans"></a>Exclusión de intervalos
 
-A continuación se muestra cómo excluir intervalos para este procesador de atributos. Este procesador no procesará todos los intervalos cuyas propiedades coincidan.
+En esta sección se muestra cómo excluir intervalos para un procesador de atributos. Este procesador no procesará aquellos intervalos que coincidan con las propiedades.
 
-A continuación se indican las condiciones que se deben cumplir para lograr una coincidencia:
-* El nombre del intervalo debe ser igual a "spanA" o "spanB". 
+Una coincidencia requiere que el nombre del intervalo sea igual a `spanA` o `spanB`.
 
-Los siguientes son intervalos que coinciden con las propiedades exclude y no se aplican las acciones del procesador.
+Los siguientes intervalos coinciden con las propiedades de exclusión, por lo que no se aplican las acciones del procesador:
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-El siguiente intervalo no coincide con las propiedades exclude y se aplican las acciones del procesador.
+Este intervalo no coincide con las propiedades de exclusión, de modo que se aplican las acciones del procesador:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -99,19 +99,19 @@ El siguiente intervalo no coincide con las propiedades exclude y se aplican las 
 }
 ```
 
-### <a name="3-excludemulti-spans"></a>3. Intervalos ExcludeMulti
+### <a name="exclude-spans-by-using-multiple-criteria"></a>Exclusión de intervalos mediante varios criterios
 
-A continuación se muestra cómo excluir intervalos para este procesador de atributos. Este procesador no procesará todos los intervalos cuyas propiedades coincidan.
+En esta sección se muestra cómo excluir intervalos para un procesador de atributos. Este procesador no procesará aquellos intervalos que coincidan con las propiedades.
 
-A continuación se indican las condiciones que se deben cumplir para lograr una coincidencia:
-* Debe existir un atributo ("env", "dev") en el intervalo para una coincidencia.
-* Siempre que haya un atributo con la clave "test_request" en el intervalo, habrá una coincidencia.
+Una coincidencia requiere que se cumplan las siguientes condiciones:
+* Debe haber un atributo (por ejemplo, `env` o `dev`) en el intervalo.
+* El intervalo debe tener un atributo con la clave `test_request`.
 
-Los siguientes son intervalos que coinciden con las propiedades exclude y no se aplican las acciones del procesador.
+Los siguientes intervalos coinciden con las propiedades de exclusión, por lo que no se aplican las acciones del procesador:
 * Span1 Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanA' Attributes: {env: dev, test_request: false}
 
-El siguiente intervalo no coincide con las propiedades exclude y se aplican las acciones del procesador.
+El siguiente intervalo no coincide con las propiedades de exclusión, de modo que se aplican las acciones del procesador:
 * Span3 Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 * Span4 Name: 'spanC' Attributes: {env: dev, dev_request: false}
 
@@ -151,16 +151,16 @@ El siguiente intervalo no coincide con las propiedades exclude y se aplican las 
 }
 ```
 
-### <a name="4-selective-processing"></a>4. Procesamiento selectivo
+### <a name="selective-processing"></a>Procesamiento selectivo
 
-A continuación, se muestra cómo especificar el conjunto de propiedades de intervalo para indicar los intervalos a los que se debe aplicar este procesador. Las propiedades `include` indican cuáles deben incluirse y las propiedades `exclude` filtran aún más los intervalos que no se deben procesar.
+En esta sección se muestra cómo especificar el conjunto de propiedades de los intervalos que indican a qué intervalos se debe aplicar este procesador. Las propiedades de inclusión indican qué intervalos se deben procesar. Las propiedades de exclusión filtran los intervalos que no se deben procesar.
 
-Con la siguiente configuración, los siguientes intervalos coinciden con las propiedades y se aplican las acciones del procesador:
+Con la siguiente configuración, estos intervalos coinciden con las propiedades y se aplican las acciones del procesador:
 
 * Span1 Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 * Span2 Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
 
-Los siguientes intervalos no coinciden con las propiedades de inclusión y no se aplican acciones del procesador:
+Estos intervalos no coinciden con las propiedades de inclusión, de modo que las acciones del procesador no se aplican:
 * Span3 Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
@@ -206,7 +206,7 @@ Los siguientes intervalos no coinciden con las propiedades de inclusión y no se
 
 ### <a name="insert"></a>Insertar
 
-El siguiente código inserta un nuevo atributo {"attribute1": "attributeValue1"} en los intervalos en los que la clave "attribute1" no existe.
+En el ejemplo siguiente se inserta el nuevo atributo `{"attribute1": "attributeValue1"}` en intervalos en los que la clave `attribute1` no existe.
 
 ```json
 {
@@ -230,7 +230,7 @@ El siguiente código inserta un nuevo atributo {"attribute1": "attributeValue1"}
 
 ### <a name="insert-from-another-key"></a>Inserción desde otra clave
 
-El siguiente código usa el valor del atributo "anotherkey" para insertar un nuevo atributo {"newKey": valor del atributo "anotherkey"} en los intervalos en los que la clave "newKey" no existe. Si el atributo "anotherkey" no existe, no se inserta ningún atributo nuevo en los intervalos.
+En el ejemplo siguiente se usa el valor del atributo `anotherkey` para insertar el nuevo atributo `{"newKey": "<value from attribute anotherkey>"}` en intervalos en los que la clave `newKey` no existe. Si el atributo `anotherkey` no existe, no se inserta ningún atributo nuevo en los intervalos.
 
 ```json
 {
@@ -254,7 +254,7 @@ El siguiente código usa el valor del atributo "anotherkey" para insertar un nue
 
 ### <a name="update"></a>Actualizar
 
-El siguiente código actualiza el atributo a { "db.secret": "redacted"} y actualiza el atributo "boo" con el valor del atributo "foo". Los intervalos sin el atributo "boo" no cambiarán.
+En el ejemplo siguiente se actualiza el atributo a `{"db.secret": "redacted"}`. El atributo `boo` se actualiza con el valor del atributo `foo`. Los intervalos que no tienen el atributo `boo` no cambian.
 
 ```json
 {
@@ -283,7 +283,7 @@ El siguiente código actualiza el atributo a { "db.secret": "redacted"} y actual
 
 ### <a name="delete"></a>Eliminar
 
-A continuación se muestra la eliminación de un atributo con la clave "credit_card".
+En el ejemplo siguiente se muestra cómo eliminar un atributo que tiene la clave `credit_card`.
 
 ```json
 {
@@ -306,7 +306,7 @@ A continuación se muestra la eliminación de un atributo con la clave "credit_c
 
 ### <a name="hash"></a>Hash
 
-A continuación se muestran los valores de atributo existentes de hash.
+En el ejemplo siguiente se muestra cómo aplicar un algoritmo hash a los valores de atributo existentes.
 
 ```json
 {
@@ -327,15 +327,15 @@ A continuación se muestran los valores de atributo existentes de hash.
 }
 ```
 
-### <a name="extract"></a>Extract
+### <a name="extract"></a>Extracción
 
-En el ejemplo siguiente se muestra cómo usar expresiones regulares para crear nuevos atributos basados en el valor de otro atributo.
-Por ejemplo, con el valor http.url = 'http://example.com/path?queryParam1=value1, queryParam2=value2' se insertarán los siguientes atributos:
-* httpProtocol: http
-* httpDomain: example.com
-* httpPath: path
-* httpQueryParams: queryParam1=value1,queryParam2=value2
-* El valor de http.url no cambia.
+En el ejemplo siguiente se muestra cómo usar una expresión regular (regex) para crear nuevos atributos basados en el valor de otro atributo.
+Por ejemplo, si tenemos `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2`, se insertarán los siguientes atributos:
+* httpProtocol: `http`
+* httpDomain: `example.com`
+* httpPath: `path`
+* httpQueryParams: `queryParam1=value1,queryParam2=value2`
+* http.url: *sin* cambios
 
 ```json
 {
@@ -357,8 +357,8 @@ Por ejemplo, con el valor http.url = 'http://example.com/path?queryParam1=value1
 }
 ```
 
-En el ejemplo siguiente se muestra cómo procesar intervalos que tienen un nombre de intervalo que coincide con los patrones regexp.
-Este procesador quitará el atributo "token" y ofuscará el atributo "password" en intervalos donde el nombre del intervalo coincide con "auth.\*" y donde el nombre del intervalo no coincide con "login.\*".
+En el ejemplo siguiente se muestra cómo procesar intervalos que tienen un nombre de intervalo que coincide con los patrones de la expresión regular.
+Este procesador quita el atributo `token`. Ofusca el atributo `password` en intervalos en los que el nombre del intervalo coincide con `auth.*` y donde no coincide con `login.*`.
 
 ```json
 {
@@ -401,7 +401,7 @@ Este procesador quitará el atributo "token" y ofuscará el atributo "password" 
 
 ### <a name="name-a-span"></a>Asignación de un nombre para un intervalo
 
-En el siguiente ejemplo se especifican los valores de atributo "db.svc", "operation" e "id", que formarán el nuevo nombre del intervalo, en ese orden, separado por el valor "::".
+En el ejemplo siguiente se especifican los valores de los atributos `db.svc`, `operation` y `id`. Forma el nuevo nombre del intervalo mediante esos atributos, en ese orden, separados por el valor `::`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -423,9 +423,9 @@ En el siguiente ejemplo se especifican los valores de atributo "db.svc", "operat
 }
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extracción de atributos del nombre del intervalo
+### <a name="extract-attributes-from-a-span-name"></a>Extracción de atributos del nombre de un intervalo
 
-Supongamos que el nombre del intervalo de entrada es /api/v1/document/12345678/update. La aplicación de los siguientes resultados en el nombre del intervalo de salida /api/v1/document/{documentId}/update agregará un nuevo atributo "documentId"="12345678" al intervalo.
+Supongamos que el nombre del intervalo de entrada es `/api/v1/document/12345678/update`. En el ejemplo siguiente se obtiene el nombre del intervalo de salida `/api/v1/document/{documentId}/update`. Agrega el nuevo atributo `documentId=12345678` al intervalo.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -446,11 +446,11 @@ Supongamos que el nombre del intervalo de entrada es /api/v1/document/12345678/u
 }
 ```
 
-### <a name="extract-attributes-from-span-name-with-include-and-exclude"></a>Extracción de atributos del nombre de intervalo con include y exclude
+### <a name="extract-attributes-from-a-span-name-by-using-include-and-exclude"></a>Extracción de atributos del nombre de un intervalo con inclusión y exclusión
 
-A continuación se muestra cómo cambiar el nombre del intervalo por "{operation_website}" y agregar el atributo {Key: operation_website, Value: oldSpanName } cuando el intervalo tiene las siguientes propiedades:
-- El nombre del intervalo contiene '/' en cualquier parte de la cadena.
-- El nombre del intervalo no es 'donot/change '.
+En el ejemplo siguiente se muestra cómo cambiar el nombre del intervalo a `{operation_website}`. Agrega un atributo con la clave `operation_website` y el valor `{oldSpanName}` cuando el intervalo tiene las siguientes propiedades:
+- El nombre del intervalo contiene `/` en cualquier parte de la cadena.
+- El nombre del intervalo no es `donot/change`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",

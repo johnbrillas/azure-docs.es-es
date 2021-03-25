@@ -10,10 +10,10 @@ ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
 ms.openlocfilehash: b12715e299f523d7ace56a72b0098b5d7ffac0ab
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683061"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
@@ -21,9 +21,9 @@ Al crear el conjunto de escalado, se especifica la imagen que se usará cuando s
 
 > [!div class="checklist"]
 > * Creación de una instancia de Shared Image Gallery
-> * Crear una definición de imagen especializada
+> * Creación de una definición de imagen especializada
 > * Creación de la versión de una imagen
-> * Crear un conjunto de escalado a partir de una imagen especializada
+> * Creación de un conjunto de escalado a partir de una imagen especializada
 > * Compartir una galería de imágenes
 
 
@@ -116,13 +116,13 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
 
-Cree una versión de la imagen desde la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Cree una versión de la imagen a partir de la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
 En este ejemplo, la versión de la imagen es *1.0.0* y vamos a crear una réplica en la región *Centro-sur de EE. UU.* y otra réplica en la región *Este de EE. UU. 2*. Las regiones de replicación deben incluir la región donde se encuentra la máquina virtual de origen.
 
-Reemplace el valor de `--managed-image` de este ejemplo por el identificador de la máquina virtual del paso anterior.
+Reemplace el valor de `--managed-image` en este ejemplo por el identificador de la máquina virtual del paso anterior.
 
 ```azurecli-interactive 
 az sig image-version create \

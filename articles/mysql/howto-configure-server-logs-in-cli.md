@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998556"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas con la CLI de Azure
@@ -26,7 +26,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging"></a>registro
 Puede configurar el servidor para acceder al registro de consultas lentas de MySQL con los pasos siguientes:
 1. Active el registro de consultas lentas al establecer el parámetro **slow\_query\_log** en ON.
-2. Seleccione la ubicación en la que se van a generar los registros con **log\_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **Archivo**. Para enviar registros solo a los registros de Azure Monitor, seleccione **Ninguno**.
+2. Seleccione la ubicación en la que se van a generar los registros con **log\_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **File** (Archivo). Para enviar registros solo a los registros de Azure Monitor, seleccione **Ninguno**.
 3. Ajuste otros parámetros, como **long\_query\_time** y **log\_slow\_admin\_statements**.
 
 Para aprender a establecer el valor de estos parámetros mediante la CLI de Azure, consulte [Cómo configurar parámetros del servidor](howto-configure-server-parameters-using-cli.md).

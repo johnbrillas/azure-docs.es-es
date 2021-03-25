@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434209"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574584"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo mediante Azure Digital Twins Explorer
 
@@ -93,13 +93,15 @@ Abra una ventana de la consola en la ubicación de la carpeta **Azure_Digital_Tw
 
 1. Escriba la dirección URL de la instancia de Azure Digital Twins que recopiló anteriormente en la sección [Configuración de una instancia de Azure Digital Twins](#set-up-an-azure-digital-twins-instance), con el formato *https://{nombre de host de instancia}* .
 
->[!NOTE]
-> Puede revisar o editar esta información en cualquier momento; solo tiene que seleccionar el mismo icono para volver a abrir el cuadro **Sign In** (Iniciar sesión). Mantendrá los valores que ha especificado.
-
 > [!TIP]
 > Si aparece un mensaje de error de `SignalRService.subscribe` al conectarse, asegúrese de que la dirección URL de Azure Digital Twins comienza por *https://* .
+>
+> Si aparece un error de autenticación, es posible que quiera comprobar las **variables de entorno** para asegurarse de que las credenciales incluidas allí son válidas para Azure Digital Twins. Los intentos de `DefaultAzureCredential` de autenticación con tipos de credenciales en un [orden específico](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) y las variables de entorno se evalúan primero.
 
 Si ve la ventana emergente **Permisos solicitados** de Microsoft, conceda el consentimiento para esta aplicación y acepte para continuar.
+
+>[!NOTE]
+> Puede revisar o editar esta información en cualquier momento; solo tiene que seleccionar el mismo icono para volver a abrir el cuadro **Sign In** (Iniciar sesión). Mantendrá los valores que ha especificado.
 
 ## <a name="add-the-sample-data"></a>Adición de los datos de ejemplo
 

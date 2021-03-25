@@ -5,10 +5,10 @@ ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824419"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Supervisión de las copias de seguridad con el Explorador de Backup
@@ -66,7 +66,7 @@ Seleccione la pestaña **Trabajos** para ver los detalles de todos los trabajos 
 
 ### <a name="the-alerts-tab"></a>Pestaña Alertas
 
-Seleccione la pestaña **alertas** para ver los detalles de todas las alertas que se han generado en los almacenes durante los últimos 7 días. Puede filtrar las alertas por tipo (*Error de Backup* o *Error de restauración*), el estado actual (*Activo* o *Resuelto*) y la gravedad (*Crítica*, *Advertencia*o *Información*). También puede seleccionar un vínculo para ir a la VM de Azure y realizar las acciones necesarias.
+Seleccione la pestaña **alertas** para ver los detalles de todas las alertas que se han generado en los almacenes durante los últimos 7 días. Puede filtrar las alertas por tipo (*Error de Backup* o *Error de restauración*), el estado actual (*Activo* o *Resuelto*) y la gravedad (*Crítica*, *Advertencia* o *Información*). También puede seleccionar un vínculo para ir a la VM de Azure y realizar las acciones necesarias.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 

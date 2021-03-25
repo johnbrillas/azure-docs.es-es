@@ -1,19 +1,19 @@
 ---
 title: Protección contra la filtración de datos en áreas de trabajo de Azure Synapse Analytics
 description: En este artículo se explica la protección contra la filtración de datos en Azure Synapse Analytics.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e4067d5acf55f94cd46e629792312af1547c5901
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518267"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489380"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Protección contra la filtración de datos en áreas de trabajo de Azure Synapse Analytics
 En este artículo se explica la protección contra la filtración de datos en Azure Synapse Analytics.
@@ -25,7 +25,7 @@ Las áreas de trabajo de Azure Synapse Analytics admiten la habilitación de la 
 >Una vez creado el área de trabajo, no se puede cambiar su configuración de la red virtual administrada y de la protección contra la filtración de datos.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Administración de la salida de datos del área de trabajo de Synapse a destinos aprobados
-Una vez que se ha creado el área de trabajo con la filtración de datos habilitada, los propietarios del recurso de área de trabajo pueden administrar la lista de inquilinos de Azure AD aprobados del área de trabajo. Los usuarios con los [permisos adecuados](./synapse-workspace-access-control-overview.md) en el área de trabajo pueden usar Synapse Studio para crear solicitudes de conexión de punto de conexión privado administrado a los recursos de los inquilinos de Azure AD aprobados del área de trabajo. La creación de puntos de conexión privados administrados se bloqueará si el usuario intenta crear una conexión de punto de conexión privado a un recurso de un inquilino no aprobado.
+Una vez que se ha creado el área de trabajo con la protección frente a la filtración de datos habilitada, los propietarios del recurso de área de trabajo pueden administrar la lista de inquilinos de Azure AD aprobados del área de trabajo. Los usuarios con los [permisos adecuados](./synapse-workspace-access-control-overview.md) en el área de trabajo pueden usar Synapse Studio para crear solicitudes de conexión de punto de conexión privado administrado a los recursos de los inquilinos de Azure AD aprobados del área de trabajo. La creación de puntos de conexión privados administrados se bloqueará si el usuario intenta crear una conexión de punto de conexión privado a un recurso de un inquilino no aprobado.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Área de trabajo de ejemplo con la protección contra la filtración de datos habilitada
 Vamos a usar un ejemplo para ilustrar la protección contra la filtración de datos en las áreas de trabajo de Synapse. Contoso tiene recursos de Azure en el inquilino A y el inquilino B, y es necesario que estos recursos se conecten de forma segura. Se ha creado un área de trabajo de Synapse en el inquilino A y se ha agregado el inquilino B como inquilino de Azure AD aprobado. En el diagrama se muestran las conexiones de punto de conexión privado a cuentas de Azure Storage en el inquilino A y el inquilino B que han aprobado los propietarios de la cuenta de almacenamiento. En el diagrama también se muestra la creación de puntos de conexión privados bloqueados. La creación de este punto de conexión privado se bloqueó dado que el destino era una cuenta de Azure Storage en el inquilino de Azure AD de Fabrikam, que no es un inquilino de Azure AD aprobado en el área de trabajo de Contoso. 

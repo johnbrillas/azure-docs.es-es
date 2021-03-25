@@ -3,14 +3,15 @@ title: 'Componentes y versiones de Apache Hadoop: Azure HDInsight 4.0'
 description: Obtenga información sobre los componentes y las versiones de Apache Hadoop disponibles en Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: deshriva
+author: deshriva
+ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: 2baa210a293c0351c079ba545fc46d51f4fd7251
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0283779e10ac3e6070e9fd73d186af35972cad22
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743598"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582891"
 ---
 # <a name="hdinsight-40-component-versions"></a>Versiones de componentes de HDInsight 4.0
 
@@ -28,7 +29,7 @@ En la tabla siguiente se enumeran las versiones de los componentes de software d
 | Apache Hive            | 3.1.0         |
 | Apache Ranger          | 1.1.0         |
 | HBase Apache           | 2.1.6         |
-| Apache Sqoop           | 1.4.7         |
+| Apache Sqoop           | 1.5.0         |
 | Apache Oozie           | 4.3.1         |
 | Apache Zookeeper       | 3.4.6         |
 | Apache Phoenix         | 5             |
@@ -45,7 +46,7 @@ En esta tabla se enumeran ciertos tipos de clúster de HDInsight 4.0 que se han
 | Tipo de clúster                    | Versión del marco | Fecha de expiración del soporte técnico      | Fecha de retirada |
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | 30 de junio de 2020                | 30 de junio de 2020   |
-| HDInsight 4.0 Kafka             | 1.1               | 31 de diciembre de 2020                 | 31 de diciembre de 2020    |
+| HDInsight 4.0 Kafka             | 1,1               | 31 de diciembre de 2020                 | 31 de diciembre de 2020    |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

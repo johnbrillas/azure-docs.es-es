@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593210"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -247,7 +247,7 @@ No deben utilizarse otras soluciones HSM deben utilizarse con Azure File Sync.
 
 Dado que el agente de Azure File Sync se ejecuta en una máquina con Windows Server que se conecta a los recursos compartidos de archivos de Azure, el rendimiento de sincronización efectivo depende de una serie de factores de su infraestructura: Windows Server y la configuración del disco subyacente, el ancho de banda de la red entre el servidor y Azure Storage, el tamaño del archivo, el tamaño total del conjunto de datos y la actividad en el conjunto de datos. Dado que Azure File Sync funciona en el nivel de archivos, las características de rendimiento de una solución basada en Azure File Sync se mide mejor en el número de objetos (archivos y directorios) que se procesan por segundo.
 
-Los cambios realizados en el recurso compartido de archivos de Azure mediante Azure Portal o SMB no se detectan y replican de forma inmediata como cambios en el punto de conexión del servidor. Azure Files aún no dispone de registros en diario o notificaciones, por lo que no hay manera de iniciar automáticamente una sesión de sincronización cuando se cambian los archivos. En Windows Server, Azure File Sync usa el [registro en diario de USN de Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automáticamente una sesión de sincronización cuando cambian los archivos.
+Los cambios realizados en el recurso compartido de archivos de Azure mediante Azure Portal o SMB no se detectan y replican de forma inmediata como cambios en el punto de conexión del servidor. Azure Files aún no dispone de registros en diario o notificaciones, por lo que no hay manera de iniciar automáticamente una sesión de sincronización cuando se cambian los archivos. En Windows Server, Azure File Sync usa el [registro en diario de USN de Windows](/windows/win32/fileio/change-journals) para iniciar automáticamente una sesión de sincronización cuando cambian los archivos.
 
 Para detectar cambios en el recurso compartido de archivos de Azure, Azure File Sync tiene un trabajo programado que se denomina trabajo de detección de cambios. Un trabajo de detección de cambios enumera todos los archivos del recurso compartido de archivos y, a continuación, los compara con la versión de sincronización correspondiente. Cuando el trabajo de detección de cambios determina qué archivos han cambiado, Azure File Sync inicia una sesión de sincronización. El trabajo de detección de cambios se inicia cada 24 horas. Dado que el trabajo de detección de cambios enumera todos los archivos del recurso compartido de archivos de Azure, la detección de cambios tarda más en los espacios de nombres más largos que los espacios de nombres más cortos. En el caso de los espacios de nombres largos, es posible que sea necesario determinar más de una vez cada 24 horas qué archivos han cambiado.
 

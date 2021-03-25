@@ -1,41 +1,62 @@
 ---
-title: Referencia para desarrolladores de C# de Azure Functions
-description: Cómo desarrollar funciones de Azure con C#.
+title: Desarrollo de funciones de la biblioteca de clases de C# con Azure Functions
+description: Aprenda a usar C# para desarrollar y publicar código como bibliotecas de clases que se ejecutan en proceso con el tiempo de ejecución de Azure Functions.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806320"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563887"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
+# <a name="develop-c-class-library-functions-using-azure-functions"></a>Desarrollo de funciones de la biblioteca de clases de C# con Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 Este artículo es una introducción al desarrollo de Azure Functions mediante el uso de C# en las bibliotecas de clases .NET.
 
+>[!IMPORTANT]
+>En este artículo se admiten las funciones de la biblioteca de clases .NET que se ejecutan en proceso con el entorno en tiempo de ejecución. Functions también admite .NET 5.x ejecutando las funciones de C# fuera de proceso y aisladas del entorno en tiempo de ejecución. Para obtener más información, vea [Funciones de procesos aislados de .NET](dotnet-isolated-process-guide.md).
+
 Como desarrollador de C#, puede que también le interese uno de los artículos siguientes:
 
 | Introducción | Conceptos| Ejemplos o aprendizaje guiado |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Uso de Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso de Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso de herramientas de línea de comandos](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones&nbsp;sobre el rendimiento](functions-best-practices.md)</li><li>[Desarrollo de Visual Studio](functions-develop-vs.md)</li><li>[Inserción de dependencias](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Ejemplos de C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions es compatible con C# y con los lenguajes de programación de scripts de C#. Si busca orientación sobre cómo [usar C# en Azure Portal](functions-create-function-app-portal.md), vea la [referencia para desarrolladores de scripts de C#](functions-reference-csharp.md).
 
 ## <a name="supported-versions"></a>Versiones compatibles
 
-Las versiones del entorno en tiempo de ejecución de Functions funcionan con versiones específicas de .NET. En la tabla siguiente se muestra el nivel más alto de .NET Core y .NET Framework que se puede usar con una versión específica de Functions en el proyecto. 
+Las versiones del entorno en tiempo de ejecución de Functions funcionan con versiones específicas de .NET. Para más información sobre las versiones de Functions, vea [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
+
+En la tabla siguiente se muestra el nivel más alto de .NET Core o .NET Framework que se puede usar con una versión específica de Functions. 
 
 | Versiones del entorno en tiempo de ejecución de Functions | Versión máxima de .NET |
 | ---- | ---- |
-| Functions 3.x | .NET Core 3.1 |
-| Functions 2.x | .NET Core 2.2 |
+| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
+| Functions 2.x | .NET Core 2.2<sup>2</sup> |
 | Functions 1.x | .NET Framework 4.7 |
 
-Para obtener más información, consulte [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
+<sup>1</sup> Debe ejecutarse [fuera de proceso](dotnet-isolated-process-guide.md).  
+<sup>2</sup> Para más información, consulte [Consideraciones sobre Functions v2.x](#functions-v2x-considerations).   
+
+Para obtener las últimas noticias sobre las versiones de Azure Functions, incluida la eliminación de versiones secundarias específicas anteriores, revise los [anuncios de Azure App Service](https://github.com/Azure/app-service-announcements/issues).
+
+### <a name="functions-v2x-considerations"></a>Consideraciones sobre Functions v2.x
+
+Las aplicaciones de funciones que tienen como destino la versión 2.x más reciente (`~2`) se actualizan automáticamente para que se ejecuten en .NET Core 3.1. Debido a cambios importantes entre las versiones de .NET Core, no todas las aplicaciones desarrolladas y compiladas con .NET Core 2.2 se pueden actualizar de forma segura a .NET Core 3.1. Para optar por no recibir esta actualización mediante el anclaje de la aplicación de funciones a `~2.0`. Functions también detecta API incompatibles y puede anclar la aplicación a `~2.0` para evitar la ejecución incorrecta en .NET Core 3.1. 
+
+>[!NOTE]
+>Si la aplicación de funciones está anclada a `~2.0` y cambia esta versión de destino a `~2`, es posible que la aplicación de funciones se interrumpa. Si implementa mediante plantillas de ARM, compruebe la versión de las plantillas. Si esto ocurre, vuelva a cambiar la versión al destino `~2.0` y corrija los problemas de compatibilidad. 
+
+Las aplicaciones de función que tienen como destino `~2.0` continúan ejecutándose en .NET Core 2.2. Esta versión de .NET Core ya no recibe seguridad ni otras actualizaciones de mantenimiento. Para más información, vea esta [página de anuncio](https://github.com/Azure/app-service-announcements/issues/266). 
+
+Debe trabajar para que las funciones sean compatibles con .NET Core 3.1 lo antes posible. Una vez resueltos estos problemas, vuelva a cambiar la versión a `~2` o actualice a`~3`. Para obtener más información sobre cómo establecer como destino las versiones del tiempo de ejecución de Functions, consulte [Cómo seleccionar un destino para versiones de tiempo de ejecución de Azure Functions](set-runtime-version.md).
+
+Cuando se ejecuta en Linux en un plan prémium o dedicado (App Service), puede anclar su versión en lugar de seleccionar una imagen específica estableciendo el valor de configuración `linuxFxVersion` del sitio en `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice`. Para obtener información sobre cómo establecer `linuxFxVersion`, consulte [Actualizaciones manuales de versiones en Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## <a name="functions-class-library-project"></a>Proyecto de biblioteca de clases de Functions
 
@@ -85,7 +106,7 @@ El atributo desencadenador especifica el tipo de desencadenador y enlaza los dat
 
 ## <a name="method-signature-parameters"></a>Parámetros de la firma del método
 
-La firma del método puede contener parámetros distintos del usado con el atributo desencadenador. Estos son algunos de los parámetros adicionales que puede incluir:
+La firma del método puede contener parámetros distintos del usado con el atributo desencadenador. Estos son algunos de los otros parámetros que puede incluir:
 
 * [Enlaces de entrada y salida](functions-triggers-bindings.md) marcados como tales con atributos.  
 * Un parámetro `ILogger` o `TraceWriter` ([versión 1.x](functions-versions.md#creating-1x-apps) exclusivamente) para el [registro](#logging).
@@ -94,9 +115,11 @@ La firma del método puede contener parámetros distintos del usado con el atrib
 
 El orden de los parámetros en la signatura de función no es importante. Por ejemplo, puede colocar los parámetros de desencadenador antes o después de otros enlaces y puede colocar el parámetro de registrador antes o después de los parámetros de desencadenador o enlace.
 
-### <a name="output-binding-example"></a>Ejemplo de enlace de salida
+### <a name="output-bindings"></a>Enlaces de salida
 
-En el ejemplo siguiente se modifica el ejemplo anterior mediante la adición de un enlace de la cola de salida. La función escribe el mensaje de la cola que desencadena la función en un nuevo mensaje de cola de una cola distinta.
+Una función puede tener uno o ningún enlace de salida definido mediante parámetros de salida. 
+
+En el ejemplo siguiente se modifica el ejemplo anterior mediante la adición de un enlace de la cola de salida llamado `myQueueItemCopy`. La función escribe el contenido del mensaje que desencadena la función en un nuevo mensaje de una cola distinta.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +135,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Los valores asignados a los enlaces de salida se escriben cuando finaliza la función. Puede usar más de un enlace de salida en una función simplemente asignando valores a varios parámetros de salida. 
 
 En los artículos de referencia de enlace ([colas de almacenamiento](functions-bindings-storage-queue.md), por ejemplo) se explica qué tipos de parámetros puede usar con los atributos de enlace de entrada o salida y desencadenador.
 
@@ -163,9 +188,9 @@ El archivo *function.json* generado incluye una propiedad `configurationSource` 
 
 El archivo *function.json* se genera mediante el paquete NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-Se usa el mismo paquete para las versiones 1.x y 2.x de Functions Runtime. La plataforma de destino es lo que diferencia un proyecto 1.x de un proyecto 2.x. Estas son las partes relevantes de los archivos *.csproj* que muestran distintas plataformas de destino y el mismo paquete `Sdk`:
+Se usa el mismo paquete para las versiones 1.x y 2.x de Functions Runtime. La plataforma de destino es lo que diferencia un proyecto 1.x de un proyecto 2.x. Estas son las partes relevantes de los archivos *.csproj* que muestran distintas plataformas de destino con el mismo paquete `Sdk`:
 
-# <a name="v2x"></a>[v2.x+](#tab/v2)
+# <a name="v2x"></a>[v2.x y posteriores](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -361,7 +386,7 @@ Esta es una representación de JSON de ejemplo de los datos `customDimensions`:
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>Registrar telemetría personalizada en funciones de C#
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>Registro de la telemetría personalizada
 
 Hay una versión específica de funciones del SDK de Application Insights que puede usar para enviar datos de telemetría personalizados desde las funciones a Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use el comando siguiente desde el símbolo del sistema para instalar este paquete:
 
@@ -616,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](/dotnet/api/system.io.textwriter) es un tipo de enlace de salida admitido.
 
-### <a name="multiple-attribute-example"></a>Ejemplo de varios atributos
+### <a name="multiple-attributes-example"></a>Ejemplo de varios atributos
 
 En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo:
 
