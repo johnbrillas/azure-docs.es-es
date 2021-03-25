@@ -3,16 +3,16 @@ title: 'Transformación de datos: proceso y transformación de datos '
 description: Obtenga información sobre cómo transformar o procesar datos en Azure Data Factory mediante Hadoop, Estudio de Azure Machine Learning (clásico) o Azure Data Lake Analytics.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c9818bfd2a9519cd14d34ecc810179d66aa57e52
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 422acbaab097182b800e3bad35b0121284db9cd8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363991"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782935"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformación de datos en Azure Data Factory versión 1
 > [!div class="op_single_selector"]
@@ -74,8 +74,8 @@ Puede crear una actividad personalizada para ejecutar scripts de R en su clúste
 ## <a name="compute-environments"></a>Entornos de proceso
 Deberá crear un servicio vinculado para el entorno de proceso y después usar el servicio vinculado al definir una actividad de transformación. La Factoría de datos admite dos tipos de entornos de proceso. 
 
-1. **A petición**:  en este caso, Data Factory administra completamente el entorno informático. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
-2. **Traiga el suyo propio**: en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en Data Factory. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
+1. **A petición**: en este caso, el entorno informático es completamente administrado por Data Factory. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
+2. **Traiga el suyo propio**: en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
 
 Vea el artículo [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para obtener información sobre los servicios vinculados de proceso compatibles con Data Factory. 
 

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96746444"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Creación de planes para la oferta de SaaS
@@ -89,7 +89,7 @@ Esta opción solo está disponible si se han seleccionado precios de tarifa plan
 Para establecer precios personalizados en un mercado individual, exporte, modifique e importe la hoja de cálculo de precios. El usuario es responsable de validar estos precios y de poseer estos valores. Para obtener información detallada, consulte [Precios personalizados](plans-pricing.md#custom-prices).
 
 1. Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios. Cerca de la parte inferior de la pestaña **Precios y disponibilidad**, seleccione **Guardar borrador**.
-1. En **Precios**, seleccione el vínculo **Export pricing data** (Exportar datos de precios).
+1. En **Precio**, seleccione el vínculo **Export pricing data** (Exportar datos de precios).
 1. Abra el archivo exportedPrice.xlsx en Microsoft Excel.
 1. En la hoja de cálculo, realice las actualizaciones que desee en la información de los precios y, después, guarde el archivo .CSV.<br> Para poder actualizar el archivo, es posible que tenga que habilitar la edición en Excel.
 2. En la pestaña **Precios y disponibilidad**, en **Precios**, seleccione el vínculo **Import pricing data** (Importar datos de precios).

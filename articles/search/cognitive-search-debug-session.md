@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057627"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
@@ -51,11 +51,11 @@ La vista del **gráfico de aptitudes** proporciona una representación visual je
 
 Al seleccionar una aptitud en el gráfico, se resaltarán los conocimientos conectados a ella, los nodos que crean sus entradas y los nodos que aceptan sus salidas. Cada nodo de aptitud muestra su tipo, errores o advertencias y recuentos de ejecución. En el **gráfico de aptitudes** puede seleccionar la aptitud que se depurará o mejorará. Al seleccionar una aptitud, sus detalles se mostrarán en el panel de detalles de la aptitud, a la derecha del gráfico.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Creación de una sesión de depuración":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Gráfico de aptitudes":::
 
 ## <a name="skill-details"></a>Detalles de aptitud
 
-En el panel de detalles de la aptitud se muestra un conjunto de áreas para trabajar con una aptitud específica cuando esa aptitud está resaltada en el **gráfico de aptitudes**. Puede revisar y editar los detalles de la configuración de la aptitud. Se proporciona la definición JSON de la aptitud. También se muestran los detalles de la ejecución de la aptitud y los errores y advertencias. La pestaña**Configuración de las aptitudes** y la **Aptitud relativa al editor de JSON** permiten la edición directa de la aptitud. [`</>`](#expression-evaluator) abre una ventana para ver y editar las expresiones de las entradas y salidas de las aptitudes.
+En el panel de detalles de la aptitud se muestra un conjunto de áreas para trabajar con una aptitud específica cuando esa aptitud está resaltada en el **gráfico de aptitudes**. Puede revisar y editar los detalles de la configuración de la aptitud. Se proporciona la definición JSON de la aptitud. También se muestran los detalles de la ejecución de la aptitud y los errores y advertencias. La pestaña **Configuración de las aptitudes** y la **Aptitud relativa al editor de JSON** permiten la edición directa de la aptitud. [`</>`](#expression-evaluator) abre una ventana para ver y editar las expresiones de las entradas y salidas de las aptitudes.
 
 Los controles de entrada anidados en la ventana de configuración de aptitudes se pueden usar para crear formas complejas para proyecciones, asignaciones de campos de salida para un campo de tipo complejo o una entrada a una aptitud. Cuando se usa con el **Evaluador de expresiones**, las entradas anidadas proporcionan una prueba sencilla y validan el generador de expresiones.
 
@@ -73,7 +73,7 @@ Al crear una aptitud personalizada o depurar un error con una aptitud personaliz
 
 En el panel **Estructura de datos enriquecidos** se muestran los enriquecimientos del documento mediante el conjunto de aptitudes y se detalla el contexto de cada enriquecimiento, así como la aptitud de origen. También se puede usar el **evaluador de expresiones** para ver el contenido de cada enriquecimiento.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Creación de una sesión de depuración":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Estructura de datos enriquecidos":::
 
 ## <a name="expression-evaluator"></a>Evaluador de expresiones
 

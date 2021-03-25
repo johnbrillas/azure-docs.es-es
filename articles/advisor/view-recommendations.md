@@ -4,10 +4,10 @@ description: Vea y filtre las recomendaciones de Azure Advisor para reducir el r
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90986863"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visualización de recomendaciones de Azure Advisor interesantes para usted
@@ -47,7 +47,7 @@ Azure Advisor le permite descartar o posponer recomendaciones en un único recur
 1. Seleccione una recomendación de la lista de recomendaciones.
 1. Seleccione Posponer o Descartar para la recomendación que desee posponer o descartar.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de pantalla de la ventana Usar discos administrados que muestra la columna de selección y las acciones Posponer y Descartar en una sola recomendación resaltada.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Posponer o descartar varias recomendaciones en Azure Portal
 
@@ -57,7 +57,7 @@ Azure Advisor le permite descartar o posponer recomendaciones en un único recur
 1. Active la casilla en la parte izquierda de la fila para todos los recursos para los que desee posponer o descartar la recomendación.
 1. Seleccione **Posponer** o **Descartar** en la parte superior izquierda de la tabla.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de pantalla de la ventana Usar discos administrados que muestra la columna de selección y las acciones Posponer y Descartar en la parte superior izquierda de la tabla resaltada.":::
 
 > [!NOTE]
 > Necesita el permiso de un colaborador o propietario para descartar o posponer una recomendación. Más información sobre permisos en Azure Advisor.
@@ -73,7 +73,7 @@ Puede activar una recomendación pospuesta o descartada. Esta acción se puede r
 
 1. Cambie el filtro del panel Información general a **Pospuestas**. Advisor le mostrará a continuación las recomendaciones pospuestas o descartadas.
 
-    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de pantalla de la ventana de Azure Advisor que muestra el menú desplegable Pospuesto seleccionado.":::
 
 1. Seleccione una categoría para ver recomendaciones **Pospuestas** y **Descartadas**.
 
@@ -81,7 +81,7 @@ Puede activar una recomendación pospuesta o descartada. Esta acción se puede r
 
 1. Haga clic en **Activar** al final de la fila. Una vez que haya hecho clic, la recomendación estará activa para ese recurso y, por lo tanto, se eliminará de la tabla. La recomendación aparecerá ahora en la pestaña **Activo**.
  
-     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de pantalla de la ventana Habilitar eliminación temporal que muestra la pestaña Pospuestas y descartadas con la acción Activar resaltada.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

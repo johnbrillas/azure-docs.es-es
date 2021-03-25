@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: adc80cf579ce3086abd4171b065f859acd0b9294
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546512"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migración de usuarios con licencias individuales a grupos de licencias
@@ -85,5 +85,5 @@ Más información sobre otros escenarios de administración de licencias de grup
 - [Asignación de licencias a un grupo en Azure Active Directory](licensing-groups-assign.md)
 - [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](licensing-groups-resolve-problems.md)
 - [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](licensing-groups-change-licenses.md)
-- [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+- [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](licensing-group-advanced.md)
 - [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](licensing-ps-examples.md)

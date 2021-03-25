@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo Lab Services puede facilitar la cr
 ms.topic: overview
 ms.date: 09/16/2020
 ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333943"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introducción a Azure Lab Services
@@ -27,9 +27,9 @@ En las siguientes secciones, se proporcionan más detalles de estos laboratorios
 ## <a name="managed-lab-types"></a>Tipos de laboratorio administrado
 Azure Lab Services permite crear laboratorios cuya infraestructura la administra Azure. En este artículo se hace referencia a ellos como tipos de laboratorios administrados. Los tipos de laboratorios administrados ofrecen diferentes tipos de laboratorio que se ajustan a sus necesidades. Actualmente, el único tipo de laboratorio administrado que se admite es el **laboratorio educativo**. 
 
-Los tipos de laboratorios administrados le permiten ponerse en marcha inmediatamente, con una configuración mínima. El servicio controla toda la administración de la infraestructura para el laboratorio, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras. Para crear un tipo de laboratorio administrado, como puede ser un laboratorio educativo, debe crear antes una cuenta de laboratorio para la organización. La cuenta de laboratorio actúa como cuenta central en la que se administran todos los laboratorios de la organización. 
+Los tipos de laboratorios administrados le permiten ponerse en marcha inmediatamente, con una configuración mínima. El servicio controla toda la administración de la infraestructura para el laboratorio, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras.  Para crear un tipo de laboratorio administrado, como puede ser un laboratorio educativo, debe crear antes una cuenta de laboratorio para la organización. La cuenta de laboratorio actúa como cuenta central en la que se administran todos los laboratorios de la organización. 
 
-Al crear y usar recursos de Azure en estos tipos de laboratorios administrados, el servicio crea y administra los recursos en las suscripciones internas de Microsoft. No se crean en su propia suscripción de Azure. El servicio realiza un seguimiento del uso de estos recursos en las suscripciones internas de Microsoft. Este uso se factura a la suscripción de Azure que contiene la cuenta de laboratorio.   
+Al crear y usar recursos de Azure en estos tipos de laboratorios administrados, el servicio crea y administra los recursos en las suscripciones internas de Microsoft. No se crean en su propia suscripción de Azure. El servicio realiza un seguimiento del uso de estos recursos en las suscripciones internas de Microsoft. Este uso se factura a la suscripción de Azure que contiene la cuenta de laboratorio.   
 
 Estos son algunos de los **casos de uso de los tipos de laboratorios administrados**: 
 

@@ -4,10 +4,10 @@ description: Puede usar Azure Data Box para propagar datos de copia de segurid
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752556"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
@@ -30,8 +30,8 @@ La copia de seguridad sin conexión basada en Azure Data Box proporciona dos ven
 
 Se admiten las siguientes plataformas:
 
-- Windows Server 2019 64 bits (Standard, Datacenter y Essentials)
-- Windows Server 2016 64 bits (Standard, Datacenter y Essentials)
+- Windows Server 2019 64 bits (Standard, Datacenter, Essentials)
+- Windows Server 2016 64 bits (Standard, Datacenter, Essentials)
 
 ## <a name="backup-data-size-and-supported-data-box-skus"></a>Tamaño de los datos de copia de seguridad y SKU de Data Box admitidas
 
@@ -39,10 +39,10 @@ Se admiten las siguientes SKU de Data Box:
 
 | Tamaño de los datos de copia de seguridad (tras compresión por MARS)\* por servidor | SKU de Azure Data Box admitidas |
 | --- | --- |
-| \<= 7,2 TB | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
-| > 7,2 TB y <= 80 TB\*\* | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
+| \<= 7,2 TB | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 TB y <= 80 TB\*\* | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
-\*Las tasas de compresión típicas varían entre el 10 y el 20 % <br>
+\*Las tasas de compresión típicas varían entre el 10 y 20 % <br>
 \*\*Póngase en contacto con [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) si espera tener más de 80 TB de datos de copia de seguridad inicial de un único origen de datos.
 
 > [!IMPORTANT]
@@ -112,19 +112,19 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
 
 1. En el servidor de DPM o MABS, siga los pasos para [crear un nuevo grupo de protección](/system-center/dpm/create-dpm-protection-groups). Si va a agregar una protección en línea al grupo de protección existente, haga clic con el botón derecho en el grupo de protección existente, seleccione **Agregar protección en línea** y comience desde el **paso 8**.
 2. En la página **Seleccionar miembros del grupo**, especifique los equipos y orígenes cuya copia de seguridad quiere realizar.
-3. En la página **Seleccionar método de protección de datos**, especifique cómo quiere controlar la copia de seguridad a corto y largo plazo. Asegúrese de seleccionar **Deseo protección en línea**.
+3. En la página **Seleccionar método de protección de datos**, especifique cómo quiere tratar las copias de seguridad a corto y largo plazo. Asegúrese de que selecciona **Deseo protección en línea**.
 
-   ![Creación de nuevo grupo de protección](./media/offline-backup-azure-data-box-dpm-mabs/create-new-protection-group.png)
+   ![Crear nuevo grupo de protección](./media/offline-backup-azure-data-box-dpm-mabs/create-new-protection-group.png)
 
-4. En la página **Especificar objetivos a corto plazo**, especifique cómo quiere realizar la copia de seguridad en el almacenamiento a corto plazo en disco.
-5. En la página **Revisar asignación de disco**, revise el espacio en disco del bloque de almacenamiento asignado para el grupo de protección.
-6. En la página **Seleccionar método de creación de réplicas**, seleccione **Automáticamente a través de la red**.
+4. En la página **Especificar objetivos a corto plazo**, especifique cómo quiere hacer la copia de seguridad en el almacenamiento a corto plazo en el disco.
+5. En la página **Revisar asignación de disco**, revise el espacio en disco del bloque de almacenamiento asignado al grupo de protección.
+6. En la página **Seleccionar método de creación de réplicas**, seleccione **Automáticamente a través de la red.**
 7. En la página **Elegir las opciones de la comprobación de coherencia**, seleccione cómo quiere automatizar las comprobaciones de coherencia.
 8. En la página **Especificar datos de protección en línea**, seleccione el miembro para el que quiere habilitar la protección en línea.
 
     ![Especificar datos de protección en línea](./media/offline-backup-azure-data-box-dpm-mabs/specify-online-protection-data.png)
 
-9. En la página **Especificar la programación de copia de seguridad en línea**, especifique con qué frecuencia se deberían realizar copias de seguridad incrementales en Azure.
+9. En la página **Especificar la programación de copia de seguridad en línea**, especifique la frecuencia con la que se deben hacer las copias de seguridad incrementales en Azure.
 10. En la página **Especificar la directiva de retención en línea**, especifique cómo se conservan en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
 11. En la pantalla **Elegir replicación en línea** del asistente, seleccione la opción **Transferir mediante discos propiedad de Microsoft** y luego **Siguiente**.
 
@@ -191,9 +191,9 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
 
 ## <a name="post-backup-steps"></a>Pasos posteriores a la copia de seguridad
 
-Siga estos pasos una vez que la copia de seguridad de los datos en Azure Data Box Disk sea correcta.
+Siga estos pasos una vez que la copia de seguridad de los datos en el dispositivo Azure Data Box Disk se haya realizado correctamente.
 
-- Siga los pasos de [este artículo](../databox/data-box-disk-deploy-picked-up.md) para enviar Azure Data Box Disk a Azure. Si ha usado un dispositivo Azure Data Box de 100 TB, siga [estos pasos](../databox/data-box-deploy-picked-up.md) para enviar Azure Data Box a Azure.
+- Siga los pasos que se describen en [este artículo](../databox/data-box-disk-deploy-picked-up.md) para enviar el disco de Azure Data Box a Azure. Si ha usado un dispositivo Azure Data Box de 100 TB, siga [estos pasos](../databox/data-box-deploy-picked-up.md) para enviar Azure Data Box a Azure.
 - [Supervise el trabajo de Data Box](../databox/data-box-disk-deploy-upload-verify.md) en Azure Portal Una vez que el trabajo de Azure Data Box está *Completo*, el servidor de DPM o MABS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services en el momento de la siguiente copia de seguridad programada. Luego marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
 
   > [!NOTE]
@@ -213,7 +213,7 @@ En el momento de configurar la copia de seguridad sin conexión, debido a un def
 
 ### <a name="verify-if-the-issue-is-caused-by-this-specific-root-cause"></a>Verificación de que el problema se debe a esta causa principal concreta
 
-Para asegurarse de que el error se debe a la [Incidencia](#issue) anterior, siga uno de estos pasos:
+Para asegurarse de que el error se debe al [problema](#issue) anterior, realice uno de los pasos siguientes:
 
 #### <a name="step-1"></a>Paso 1
 
@@ -223,7 +223,7 @@ Compruebe si aparece el siguiente mensaje de error en la consola de DPM o MABS e
 
 #### <a name="step-2"></a>Paso 2
 
-1. Abra la carpeta **Temp** en la ruta de instalación (la ruta de acceso predeterminada de la carpeta Temp es *C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Temp*. Busque el archivo *CBUICurr* y ábralo.
+1. Abra la carpeta **Temp** en la ruta de instalación (la ruta de acceso predeterminada de la carpeta Temp es *C:\Archivos de Programa\Agente de Microsoft Azure Recovery Services\Temp*. Busque el archivo *CBUICurr* y ábralo.
 2. En el archivo *CBUICurr*, vaya a la última línea y compruebe si el error se debe a "No se puede crear una credencial de aplicación Azure AD en la cuenta del cliente. Excepción: no se permite actualizar a una credencial existente con KeyId \<some guid>".
 
 ### <a name="workaround"></a>Solución alternativa

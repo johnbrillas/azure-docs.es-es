@@ -4,10 +4,10 @@ description: Aprenda a diseñar flujos de trabajo para implementar sus definicio
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359687"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Diseño de flujos de trabajo de Azure Policy as Code

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92543821"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor único de Azure Database for MySQL
@@ -24,7 +24,7 @@ En este artículo, se proporcionará información general y una introducción a 
 
 ## <a name="overview"></a>Información general
 
-Servidor único es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de MySQL 5.6, 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/). 
+Servidor único es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de aplicación de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de MySQL 5.6, 5.7 y 8.0. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/). 
 
 Los servidores únicos son los más adecuados para las aplicaciones nativas en la nube diseñadas para controlar la aplicación de revisiones automatizada sin necesidad de un control granular sobre la programación de aplicación de revisiones ni de una configuración personalizada de MySQL. 
 
@@ -73,15 +73,15 @@ Para más información acerca de las características de seguridad de Azure Data
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-El servicio de servidor único está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio permite configurar registros de consultas lentas e incluye la característica diferenciada [Almacén de consultas](concepts-query-store.md). El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el máximo rendimiento. Consulte [Supervisión](concepts-monitoring.md) para obtener más información.
+El servicio de servidor único está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio permite configurar registros de consultas lentas e incluye la característica diferenciada [Almacén de consultas](concepts-query-store.md). El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el mejor rendimiento. Consulte [Supervisión](concepts-monitoring.md) para obtener más información.
 
 ## <a name="migration"></a>Migración
 
 El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de MySQL a un servicio de servidor único. La migración al servidor único se puede realizar mediante una de las siguientes opciones:
 
-- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte [Migración mediante volcado y restauración](concepts-migrate-dump-restore.md) para más información. 
-- **Azure Database Migration Service** : puede aprovechar [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
-- **Replicación de datos de entrada** : este servicio, que depende de la replicación basada en registros binarios, también se puede aprovechar para las migraciones con un tiempo de inactividad mínimo. Los expertos prácticos que buscan más control sobre la migración prefieren la replicación de datos de entrada para conseguir migraciones con un tiempo de inactividad mínimo. Consulte [Replicación de datos de entrada](concepts-data-in-replication.md) para obtener más información.
+- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte [Migración mediante volcado y restauración](concepts-migrate-dump-restore.md) para más información. 
+- **Azure Database Migration Service**: puede aprovechar [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
+- **Replicación de datos de entrada**: este servicio, que depende de la replicación basada en registros binarios, también se puede aprovechar para las migraciones con un tiempo de inactividad mínimo. Los expertos prácticos que buscan más control sobre la migración prefieren la replicación de datos de entrada para conseguir migraciones con un tiempo de inactividad mínimo. Consulte [Replicación de datos de entrada](concepts-data-in-replication.md) para obtener más información.
 
 ## <a name="contacts"></a>Contactos
 Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.

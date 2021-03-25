@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87081923"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
@@ -40,12 +40,19 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 
 3. En la consola de Kudu, seleccione **Consola de depuración** y, a continuación, **CMD**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Selección de Kudu en las características de la plataforma de funciones"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Consola de depuración de Kudu":::
+
+3. Debería aparecer la estructura de directorios de archivos de la aplicación de funciones. Vaya a la carpeta `site/wwwroot`. Desde allí, puede cargar un archivo `package.json` al arrastrarlo y colocarlo en la ventana del directorio de archivo. A continuación se muestra el ejemplo `package.json`:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.3.1"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Selección de Kudu en las características de la plataforma de funciones":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="package.json cargado en Kudu":::
 
 4. Una vez cargado el archivo `package.json`, ejecute el comando `npm install` en la consola de ejecución remota de Kudu.
 
@@ -57,7 +64,7 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 
 1. En el campo de búsqueda de la página **Nueva función**, escriba `durable` y elija la plantilla **Inicio HTTP de Durable Functions**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selección de Kudu en las características de la plataforma de funciones":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selección de Inicio de HTTP de Durable Functions":::
 
 1. Para el nombre de la **Nueva función**, escriba `HttpStart` y seleccione **Crear función**.
 

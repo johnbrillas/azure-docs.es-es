@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754296"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Storage.StorageBlobSelector
@@ -22,7 +22,7 @@ Al usuario se le presenta la opción de buscar blobs de almacenamiento disponibl
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-browse.png" alt-text="Microsoft.Storage.StorageBlobSelector: examinar":::
 
-Después de seleccionar **Examinar** , el usuario puede seleccionar una cuenta de almacenamiento.
+Después de seleccionar **Examinar**, el usuario puede seleccionar una cuenta de almacenamiento.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft.Storage.StorageBlobSelector: seleccionar almacenamiento":::
 

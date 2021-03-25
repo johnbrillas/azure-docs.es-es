@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358906"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
@@ -64,9 +64,9 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En la sección Credenciales de administración, realice los pasos siguientes:
    
-    a. En el cuadro de texto **Nombre de usuario de administrador de GoToMeeting** , escriba el nombre de usuario de un administrador.
+    a. En el cuadro de texto **Nombre de usuario de administrador de GoToMeeting**, escriba el nombre de usuario de un administrador.
 
-    b. En el cuadro de texto **Contraseña de administrador de GoToMeeting** , escriba la contraseña del administrador.
+    b. En el cuadro de texto **Contraseña de administrador de GoToMeeting**, escriba la contraseña del administrador.
 
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GoToMeeting. Si se produce un error de conexión, asegúrese de que su cuenta de GoToMeeting tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"** .
 
@@ -76,7 +76,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En la sección Asignaciones seleccione **Synchronize Azure Active Directory Users to GoToMeeting** (Sincronizar usuarios de Azure Active Directory con GoToMeeting).
 
-1. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizarán entre Azure AD y GoToMeeting. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de GoToMeeting con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizarán entre Azure AD y GoToMeeting. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de GoToMeeting con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para GoToMeeting, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
 

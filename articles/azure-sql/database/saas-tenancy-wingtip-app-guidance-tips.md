@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780332"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
@@ -25,7 +25,7 @@ Este artículo contiene las instrucciones generales para ejecutar la aplicación
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Descargar y desbloquear los scripts SaaS de vales de Wingtip
 
-Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) cuando se descarguen y extraigan archivos ZIP desde un origen externo. Al extraer los scripts de un archivo ZIP, **siga los pasos siguientes para desbloquear el archivo .zip antes de extraerlo** . Esto garantiza que se puedan ejecutar los scripts.
+Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) cuando se descarguen y extraigan archivos ZIP desde un origen externo. Al extraer los scripts de un archivo ZIP, **siga los pasos siguientes para desbloquear el archivo .zip antes de extraerlo**. Esto garantiza que se puedan ejecutar los scripts.
 
 1. Navegue al repositorio de GitHub de SaaS de vales de Wingtip y busque el patrón de inquilino de base de datos que quiere explorar:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -33,9 +33,9 @@ Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) c
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Haga clic en **Clone or download** (Clonar o descargar).
 3. Haga clic en **Download ZIP** (Descargar archivo ZIP) y guarde el archivo.
-4. Haga clic con el botón derecho en el archivo ZIP y seleccione **Propiedades** . El nombre del archivo ZIP se corresponderá con el nombre de repositorio. (Ejemplo: _WingtipTicketsSaaS-DbPerTenant-master.zip_ )
-5. En la pestaña **General** , seleccione **Desbloquear** .
-6. Haga clic en **OK** .
+4. Haga clic con el botón derecho en el archivo ZIP y seleccione **Propiedades**. El nombre del archivo ZIP se corresponderá con el nombre de repositorio. (Ejemplo: _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+5. En la pestaña **General**, seleccione **Desbloquear**.
+6. Haga clic en **OK**.
 7. Extraiga los archivos.
 
 Los scripts se encuentran en la carpeta *..\\Learning Modules* (módulos de aprendizaje).
@@ -57,7 +57,7 @@ Al establecer estos valores aquí simplemente evita tener que actualizar estos v
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Ejecutar los scripts al presionar F5
 
-Varios scripts usan *$PSScriptRoot* para la navegación por las carpetas y *$PSScriptRoot* solo se evalúa cuando se ejecutan los scripts presionando **F5** .    Resaltar y ejecutar una selección ( **F8** ) puede dar lugar a errores, por tanto, presione **F5** al ejecutar los scripts.
+Varios scripts usan *$PSScriptRoot* para la navegación por las carpetas y *$PSScriptRoot* solo se evalúa cuando se ejecutan los scripts presionando **F5**.    Resaltar y ejecutar una selección (**F8**) puede dar lugar a errores, por tanto, presione **F5** al ejecutar los scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Siga paso a paso los scripts para examinar la implementación
 
@@ -67,10 +67,10 @@ Sugerencias para explorar y recorrer los scripts de PowerShell:
 
 - Abra los scripts **Demo-** en PowerShell ISE.
 - Ejecute o continúe con **F5** (no se recomienda el uso de **F8** porque *$PSScriptRoot* no se evalúa cuando se ejecutan las selecciones de un script).
-- Para colocar puntos de interrupción, haga clic o seleccione una línea y presione **F9** .
-- Salte una llamada de función o script con **F10** .
-- Vaya a una llamada de función o script con **F11** .
-- Salga de la llamada de función o script actual con **MAYÚS + F11** .
+- Para colocar puntos de interrupción, haga clic o seleccione una línea y presione **F9**.
+- Salte una llamada de función o script con **F10**.
+- Vaya a una llamada de función o script con **F11**.
+- Salga de la llamada de función o script actual con **MAYÚS + F11**.
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Exploración del esquema de base de datos y ejecución de consultas SQL con SSMS
@@ -87,7 +87,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
 
 1. Abra *SSMS* y conéctese a los inquilinos. El nombre del servidor depende del patrón de inquilino de base de datos que seleccionó (vea a continuación para obtener información específica).
-    - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net* )
+    - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net*)
     - **Base de datos por inquilino:** *tenants1-dpt-&lt;Usuario&gt;.database.windows.net*
     - **Base de datos multiinquilino:** *tenants1-MT-&lt;Usuario&gt;.database.windows.net*
 2. Haga clic en **Conectar** > **Motor de base de datos...** :
@@ -96,7 +96,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
 3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P\@ssword1*
 
-    En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino* .
+    En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*.
     ![connection](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
@@ -109,7 +109,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
 Después de conectarse correctamente, debería ver todos los servidores. La lista de bases de datos podría ser diferente, dependiendo de los inquilinos que haya aprovisionado.
 
-En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino* .
+En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*.
 
 ![Explorador de objetos](./media/saas-tenancy-wingtip-app-guidance-tips/object-explorer.png)
 

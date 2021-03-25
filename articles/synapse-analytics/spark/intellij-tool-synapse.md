@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675812"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Creación de una aplicación Apache Spark con IntelliJ mediante un área de trabajo de Synapse
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > - Desarrollar aplicaciones de Apache Spark
 > - Envío de una aplicación a grupos de Spark
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [IntelliJ IDEA Community Version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Complemento de Azure Toolkit 3.27.0-2019.2: instalación desde el [Repositorio de complementos de IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation)

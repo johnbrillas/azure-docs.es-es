@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536766"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
@@ -364,10 +364,10 @@ Se puede usar `Set-AzRedisCache` para escalar una instancia de Azure Cache for R
 > El escalado de una caché con PowerShell está sujeto a los mismos límites y directrices que el escalado de una caché desde el Portal de Azure. Puede escalar a un nivel de precios diferente con las siguientes restricciones.
 > 
 > * No se puede escalar desde un plan de tarifa superior a un plan de tarifa inferior.
-> * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica** .
-> * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica** .
-> * Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar** , pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
-> * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium** . Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
+> * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica**.
+> * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica**.
+> * Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
+> * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
 > * No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
 > 
 > Para más información, vea [How to Scale Azure Cache for Redis](cache-how-to-scale.md) (Cómo escalar una instancia de Azure Cache for Redis).

@@ -4,10 +4,10 @@ description: Pasos de implementación para el ejemplo de plano técnico de nivel
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 6136136eef5d405ae0849e5ce8c8faede138fb00
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98034907"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel de impacto 5 del DoD

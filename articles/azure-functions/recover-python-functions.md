@@ -7,10 +7,10 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87846044"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Solución de errores de Python en Azure Functions
@@ -69,7 +69,7 @@ Consulte [Habilitación de la compilación remota](#enable-remote-build) o [Crea
 
 Vaya a `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` o `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Con un editor de texto, abra el archivo METADATA y compruebe la sección **Classifiers:** . Si esta sección no contiene `Python :: 3`, `Python :: 3.6`, `Python :: 3.7` o `Python :: 3.8`, la versión del paquete es demasiado antigua o, probablemente, el paquete ya no recibe mantenimiento.
 
-Puede comprobar la versión de Python de la aplicación de funciones en [Azure Portal](https://portal.azure.com). Vaya a la aplicación de funciones, elija **Resource Explorer**y seleccione **Ir**.
+Puede comprobar la versión de Python de la aplicación de funciones en [Azure Portal](https://portal.azure.com). Vaya a la aplicación de funciones, elija **Resource Explorer** y seleccione **Ir**.
 
 :::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Abra Resource Explorer para la aplicación de funciones en el portal":::
 

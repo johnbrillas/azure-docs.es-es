@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778172"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Supervisión del estado de los recursos de Azure CDN
@@ -34,16 +34,16 @@ El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recur
 
 1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de la red CDN.
 
-2. Haga clic en el botón **Configuración** .
+2. Haga clic en el botón **Configuración**.
 
     ![Botón Configuración](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. En *Soporte y solución de problemas* , haga clic en **Estado de los recursos** .
+3. En *Soporte y solución de problemas*, haga clic en **Estado de los recursos**.
 
     ![Estado de los recursos de la red CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->También encontrará los recursos de la red CDN en el icono *Estado de los recursos* de la hoja *Ayuda y soporte técnico* .  Para acceder rápidamente a *Ayuda y soporte técnico* , haga clic en el círculo con un signo de interrogación ( **?** ) en la esquina superior derecha del portal.
+>También encontrará los recursos de la red CDN en el icono *Estado de los recursos* de la hoja *Ayuda y soporte técnico*.  Para acceder rápidamente a *Ayuda y soporte técnico*, haga clic en el círculo con un signo de interrogación (**?**) en la esquina superior derecha del portal.
 >
 > ![Ayuda y soporte técnico](./media/cdn-resource-health/cdn-help-support.png)
 

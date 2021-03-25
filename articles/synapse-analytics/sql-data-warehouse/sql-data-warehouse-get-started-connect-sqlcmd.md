@@ -1,6 +1,6 @@
 ---
 title: Conexión con sqlcmd
-description: Use la utilidad de línea de comandos sqlcmd para conectarse a un grupo de SQL de Synapse y consultarlo.
+description: Use la utilidad de línea de comandos sqlcmd para conectarse a un grupo de SQL dedicado en Azure Synapse Analytics y realizar consultas en él.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676242"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675729"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conexión con el grupo de SQL en Azure Synapse Analytics con sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conexión a un grupo de SQL dedicado en Azure Synapse Analytics mediante sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676242"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a un grupo de SQL y realizar consultas en él.  
+Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a un grupo de SQL dedicado y realizar consultas en él.  
 
 ## <a name="1-connect"></a>1. Conectar
 
-Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión del grupo de SQL. La cadena de conexión requiere los siguientes parámetros:
+Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión del grupo de SQL dedicado. La cadena de conexión requiere los siguientes parámetros:
 
 * **Server (-S):** servidor con el formato `<`Nombre de servidor`>`.database.windows.net
-* **Database (-d):** Nombre del grupo de SQL.
-* **Enable Quoted Identifiers (-I):** Los identificadores entre comillas tienen que estar habilitados para poder conectarse a una instancia del grupo de SQL.
+* **Database (-d):** nombre de grupo de SQL dedicado.
+* **Enable Quoted Identifiers (-I):** los identificadores entre comillas tienen que estar habilitados para poder conectarse a una instancia del grupo de SQL dedicado.
 
 Para utilizar la autenticación de SQL Server, debe agregar los parámetros de nombre de usuario y contraseña:
 

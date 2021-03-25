@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92542971"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL: servidor flexible
@@ -50,7 +50,7 @@ A continuación puede ver algunos escenarios de mantenimiento planeado. Normalme
 | <b>Nueva implementación de software (iniciada por Azure) | La implementación de nuevas características o las correcciones de errores se producen automáticamente como parte del mantenimiento planeado del servicio, y es posible programar cuándo se realizan estas actividades. Para obtener más información, consulte su [portal](https://aka.ms/servicehealthpm). | 
 | <b>Actualizaciones de versiones secundarias (iniciadas por Azure) | Azure Database for PostgreSQL revisa automáticamente los servidores de bases de datos según la versión secundaria determinada por Azure. Se produce como parte del mantenimiento planeado del servicio. El servidor de base de datos se reinicia automáticamente con la nueva versión secundaria. Para obtener más información, vea la [documentación](../concepts-monitoring.md#planned-maintenance-notification). También puede comprobar su [portal](https://aka.ms/servicehealthpm).| 
 
- Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona** , este realiza las operaciones de escalado y mantenimiento en el servidor en espera en primer lugar. Para obtener más información, consulte [Conceptos: alta disponibilidad](./concepts-high-availability.md).
+ Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona**, este realiza las operaciones de escalado y mantenimiento en el servidor en espera en primer lugar. Para obtener más información, consulte [Conceptos: alta disponibilidad](./concepts-high-availability.md).
 
 ##  <a name="unplanned-downtime-mitigation"></a>Mitigación del tiempo de inactividad no planeado
 
@@ -74,5 +74,5 @@ A continuación puede ver algunos escenarios de error no planeados y el proceso 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md).
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
 -   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

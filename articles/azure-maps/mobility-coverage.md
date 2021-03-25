@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904761"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Cobertura de los servicios de Mobility de Azure Maps (versión preliminar)
@@ -88,7 +88,7 @@ En la siguiente tabla se proporciona información sobre la cobertura de los serv
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Austria        | Viena |
-| Bielorrusia        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa |
+| Belarús        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa |
 | Bélgica        | Bélgica* |
 | Bolivia        | La Paz, Santa Cruz de la Sierra |
 | Bosnia y Herzegovina | Sarajevo |

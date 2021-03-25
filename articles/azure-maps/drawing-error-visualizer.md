@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903588"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Uso del visualizador de errores de dibujo de Azure Maps con Creator (versión preliminar)
@@ -24,7 +24,7 @@ ms.locfileid: "96903588"
 
 El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](/rest/api/maps/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de poder descargar el visualizador de errores de dibujo, deberá:
 

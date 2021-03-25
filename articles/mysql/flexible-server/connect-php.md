@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545113"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for MySQL con la opción Servidor flexible
@@ -56,9 +56,9 @@ Instale PHP en su propio servidor o cree una [aplicación web](../../app-service
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL con la opción Servidor flexible. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, seleccione **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver** .
+2. En el menú izquierdo de Azure Portal, seleccione **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
 3. Seleccione el nombre del servidor.
-4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor** . Si olvida la contraseña, puede restablecerla en este panel.
+4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## <a name="connecting-to-flexible-server-using-tlsssl-in-php"></a>Conexión a un servidor flexible mediante TLS/SSL en PHP
@@ -76,7 +76,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 
-Use el código siguiente para crear una tabla y conectarla mediante la instrucción SQL **CREATE TABLE** .
+Use el código siguiente para crear una tabla y conectarla mediante la instrucción SQL **CREATE TABLE**.
 
 El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código llama a los métodos [mysqli_init](https://secure.php.net/manual/mysqli.init.php) y [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) para conectarse a MySQL. A continuación, llama al método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para ejecutar la consulta. A continuación, llama al método [mysqli_close](https://secure.php.net/manual/mysqli.close.php) para cerrar la conexión.
 
@@ -116,7 +116,7 @@ mysqli_close($conn);
 
 ## <a name="insert-data"></a>Insertar datos
 
-Use el código siguiente para conectarse e insertar datos mediante la instrucción SQL **INSERT** .
+Use el código siguiente para conectarse e insertar datos mediante la instrucción SQL **INSERT**.
 
 El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código usa el método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para crear una instrucción insert preparada y enlaza los parámetros para cada valor de columna insertado mediante el método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). El código ejecuta la instrucción mediante el método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) y después la cierra mediante el método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -154,7 +154,7 @@ mysqli_close($conn);
 
 ## <a name="read-data"></a>Lectura de datos
 
-Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT** .  El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código usa el método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para realizar la consulta sql y el método [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) para capturar las filas resultantes.
+Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**.  El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código usa el método [mysqli_query](https://secure.php.net/manual/mysqli.query.php) para realizar la consulta sql y el método [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) para capturar las filas resultantes.
 
 Reemplace los parámetros de host, username, password y db_name con sus propios valores.
 
@@ -186,7 +186,7 @@ mysqli_close($conn);
 
 ## <a name="update-data"></a>Actualización de datos
 
-Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE** .
+Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE**.
 
 El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código usa el método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para crear una instrucción update preparada y enlaza los parámetros para cada valor de columna actualizado mediante el método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). El código ejecuta la instrucción mediante el método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) y después la cierra mediante el método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -224,7 +224,7 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Eliminación de datos
-Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **DELETE** .
+Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **DELETE**.
 
 El código usa la clase **MySQL Improved extension** (mysqli) incluida en PHP. El código usa el método [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) para crear una instrucción delete preparada y enlaza los parámetros para la cláusula where de la instrucción mediante el método [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). El código ejecuta la instrucción mediante el método [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) y después la cierra mediante el método [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 

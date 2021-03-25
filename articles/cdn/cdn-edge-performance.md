@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778660"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en Microsoft Azure CDN
@@ -55,7 +55,7 @@ Este panel consta de:
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge** .  Haga clic en **Panel** .
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Panel**.
    
     Se muestra el panel de análisis de nodo perimetral.
 
@@ -81,7 +81,7 @@ El propósito de estas métricas es ver si se puede mejorar la eficiencia de la 
 
 * Reducción de la carga en el servidor de origen que a su vez puede dar lugar a:
   * Mejor rendimiento del servidor web
-  * Reducción de los costos operacionales.
+  * Costos operativos más bajos.
 * Mejora en la aceleración de la entrega de datos ya que atenderá más solicitudes directamente desde la red CDN.
 
 | Campo | Descripción |
@@ -111,7 +111,7 @@ El propósito de estas métricas es proporcionar información sobre las siguient
 | Bytes de entrada |Indica la cantidad de datos, en bytes, que se enviaron desde el solicitante (por ejemplo, un explorador web) a la red CDN (servidores perimetrales). |
 | Bytes remotos |Indica la cantidad de datos, en bytes, que se enviaron desde la red CDN y los servidores de origen del cliente a la red CDN (servidores perimetrales). |
 
-#### <a name="performance-metrics"></a>Métricas de rendimiento.
+#### <a name="performance-metrics"></a>Métricas de rendimiento
 El propósito de estas métricas es realizar un seguimiento del rendimiento general para el tráfico de red CDN.
 
 | Campo | Descripción |
@@ -143,7 +143,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge** .  Haga clic en **Objeto grande HTTP** .
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Objeto grande HTTP**.
    
     Se muestra la pantalla de informes de análisis de nodo perimetral.
 
@@ -153,7 +153,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 | Hourly Summary |Permite ver tendencias de tráfico por horas durante un período de tiempo especificado. Cada barra de este gráfico representa una sola hora de una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa hora. |
 | Protocolos |Muestra el desglose del tráfico entre los protocolos HTTP y HTTPS. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de protocolo. |
 | HTTP Methods |Le permite obtener una impresión rápida de cuáles son los métodos HTTP que se están usando para solicitar los datos. Normalmente, los métodos de solicitud HTTP más comunes son GET, HEAD y POST. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de método de solicitud HTTP. |
-| URLs |Contiene un gráfico que muestra las 10 URL más solicitadas. Se muestra una barra para cada dirección URL. La altura de la barra indica cuántos aciertos generó la dirección URL en particular durante el período de tiempo que cubre el informe. Las estadísticas de las 100 direcciones URL más solicitadas se muestran directamente debajo de este gráfico. |
+| Direcciones URL |Contiene un gráfico que muestra las 10 URL más solicitadas. Se muestra una barra para cada dirección URL. La altura de la barra indica cuántos aciertos generó la dirección URL en particular durante el período de tiempo que cubre el informe. Las estadísticas de las 100 direcciones URL más solicitadas se muestran directamente debajo de este gráfico. |
 | CNAMEs |Contiene un gráfico que muestra los 10 CNAME más usados para solicitar recursos durante el periodo de tiempo que abarca un informe. Las estadísticas de los 100 CNAME más solicitados se muestran directamente debajo de este gráfico. |
 | Origins |Contiene un gráfico que muestra las 10 principales redes CDN o servidores de origen de cliente desde los que se solicitaron activos durante un período de tiempo especificado. Las estadísticas de las 100 redes CDN o servidores de origen de cliente más solicitados, se muestran directamente debajo de este gráfico. Los servidores de origen de cliente se identifican mediante el nombre definido en la opción de nombre de directorio. |
 | Geo POPs |Muestra la cantidad del tráfico que se enruta a través de un determinado punto de presencia (POP). La abreviatura de tres letras representa un POP en nuestra red CDN. |
@@ -185,6 +185,6 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 
 ## <a name="see-also"></a>Consulte también
 * [Información general de Azure CDN](cdn-overview.md)
-* [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
+* [Estadísticas en tiempo real en Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](./cdn-verizon-premium-rules-engine.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)

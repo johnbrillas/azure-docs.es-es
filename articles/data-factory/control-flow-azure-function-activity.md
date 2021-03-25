@@ -3,16 +3,16 @@ title: Actividad de función de Azure en Azure Data Factory
 description: Obtenga información sobre cómo usar la actividad de las funciones de Azure para ejecutar una función de Azure en una canalización de Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383412"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783802"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,8 +41,8 @@ El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JOb
 | type  | El tipo de actividad es “AzureFunctionActivity” | String | sí |
 | Servicio vinculado | El servicio vinculado de la función de Azure para la instancia correspondiente de Azure Function App  | Referencia al servicio vinculado | sí |
 | nombre de función  | Nombre de la función de la instancia de Azure Function App al que esta actividad llama | String | sí |
-| method  | Método de API de REST para llamar a la función | Tipos de cadenas admitidos: "GET", "POST", "PUT"   | sí |
-| encabezado  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | No |
+| method  | Método de API de REST para llamar a la función | Tipos de cadena admitidos: "GET", "POST" y "PUT"   | sí |
+| header  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | No |
 | body  | Cuerpo que se envía junto con la solicitud al método de API de la función  | Cadena (o expresión con un valor resultType de cadena) u objeto.   | Necesario para los métodos POST o PUT |
 |   |   |   | |
 

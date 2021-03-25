@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827045"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
@@ -65,7 +65,7 @@ Encontrará más ejemplos de plantillas de Azure Container Registry en la [galer
 
 1. Cuando el registro se haya creado correctamente, recibirá una notificación:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propiedades de la plantilla":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificación de Azure Portal":::
 
  Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,11 +77,11 @@ Use Azure Portal o una herramienta como la CLI de Azure para examinar las propie
 
 1. En la página **Información general**, observe el valor del campo **Servidor de inicio de sesión** del registro. Use este identificador URI cuando utilice Docker para etiquetar e insertar imágenes en el registro. Para obtener información al respecto, consulte [Inserción de la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propiedades de la plantilla":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Información general del registro":::
 
 1. En la página **Replicaciones**, confirme las ubicaciones de la réplica principal y de la réplica agregada a través de la plantilla. Si lo desea, agregue más réplicas en esta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propiedades de la plantilla":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicaciones del registro":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -99,4 +99,4 @@ En este inicio rápido ha creado una instancia de Azure Container Registry con u
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> Creación e implementación de su primera plantilla de Resource Manager[
+> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
