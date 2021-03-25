@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240620"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la CLI de Azure
@@ -49,7 +49,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 * La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
   * No deshabilitado
-  * Realización de operaciones **get** , **wrap** y **unwrap**
+  * Realización de operaciones **get**, **wrap** y **unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
@@ -67,7 +67,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Establezca el valor de **Permisos de claves** ( **Get** [Obtener], **Wrap** [Encapsular], **Unwrap** [Desencapsular]) de **Entidad de seguridad** , que es el nombre del servidor único de PostgreSQL.
+2. Establezca el valor de **Permisos de claves** (**Get** [Obtener], **Wrap** [Encapsular], **Unwrap** [Desencapsular]) de **Entidad de seguridad**, que es el nombre del servidor único de PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
@@ -83,7 +83,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 
     URL de clave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos para servidores de restauración o réplica
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos con servidores de restauración o réplica
 
 Después de cifrar un servidor único de Azure Database for PostgreSQL con la clave administrada de un cliente almacenada en Key Vault, también se cifra cualquier copia recién creada del servidor. Puede crear esta nueva copia mediante una operación de restauración local o geográfica, o por medio de una operación de réplica (local o entre regiones). De modo que, con un servidor único de PostgreSQL cifrado, puede usar los siguientes pasos para crear un servidor restaurado cifrado.
 

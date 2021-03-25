@@ -1,9 +1,9 @@
 ---
 title: Información general sobre la API de REST de operaciones de Media Services | Microsoft Docs
-description: La API REST "Media Services Operations" se usa para crear trabajos, recursos, canales en vivo y otros recursos en una cuenta de Media Services. En este artículo se proporciona información general sobre la API REST de Azure Media Services v2.
+description: La API REST de operaciones de Media Services se usa para crear trabajos, recursos, canales en vivo y otros recursos en una cuenta de Media Services. En este artículo se proporciona información general sobre la API REST de Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696234"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010055"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services
 

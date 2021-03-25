@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: dc8db3f1eccce2bb85f03d51fcfd1c4113823d49
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222677"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
@@ -161,7 +161,7 @@ Si su cuenta no está asignada a uno de los roles anteriores, se debe asignar a 
 
 - Un emparejamiento de redes virtuales se crea entre redes virtuales creadas mediante el mismo modelo de implementación o mediante modelos distintos que existen en la misma suscripción o en cualquier suscripción diferente. Realice el tutorial para uno de los siguientes escenarios:
 
-  |Modelo de implementación de Azure             | Suscripción  |
+  |Modelo de implementación de Azure             | Subscription  |
   |---------                          |---------|
   |Ambas mediante Resource Manager              |[La misma](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|

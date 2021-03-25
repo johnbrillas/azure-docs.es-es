@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102739"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Gestión de los tiempos de espera de los procedimientos almacenados en el conector de SQL para Azure Logic Apps
@@ -40,7 +40,7 @@ END
 En lugar de llamar directamente al procedimiento almacenado, puede ejecutar el procedimiento de forma asincrónica en segundo plano mediante un *agente de trabajo*. Puede almacenar las entradas y salidas en una tabla de estados, con la que luego pueda interactuar a través de la aplicación lógica. Si no necesita las entradas y salidas, o si ya está escribiendo los resultados en una tabla en el procedimiento almacenado, puede simplificar este enfoque.
 
 > [!IMPORTANT]
-> Asegúrese de que el procedimiento almacenado y todos los trabajos son *idempotentes* , lo que significa que se pueden ejecutar varias veces sin que ello afecte a los resultados. Si se produce un error en el procesamiento asincrónico o se agota el tiempo de espera, el agente de trabajo podría reintentar el paso y, por tanto, el procedimiento almacenado, varias veces. Para evitar la duplicación de la salida, antes de crear ningún objeto, revise estos [procedimientos recomendados y enfoques](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> Asegúrese de que el procedimiento almacenado y todos los trabajos son *idempotentes*, lo que significa que se pueden ejecutar varias veces sin que ello afecte a los resultados. Si se produce un error en el procesamiento asincrónico o se agota el tiempo de espera, el agente de trabajo podría reintentar el paso y, por tanto, el procedimiento almacenado, varias veces. Para evitar la duplicación de la salida, antes de crear ningún objeto, revise estos [procedimientos recomendados y enfoques](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
 
 En la sección siguiente se describe cómo puede usar el agente de trabajos elásticos de Azure para Azure SQL Database. Para SQL Server y Azure SQL Managed Instance, puede usar el Agente SQL Server. Algunos detalles de administración variarán, pero los pasos fundamentales seguirán siendo los mismos que para la configuración de un agente de trabajo para Azure SQL Database.
 

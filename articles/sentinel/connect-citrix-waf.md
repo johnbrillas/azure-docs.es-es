@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
 ms.openlocfilehash: 475e04ad3dd8c7cc51d6345b4b51dd68cff5b597
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102746"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Conexión de Citrix WAF a Azure Sentinel
@@ -44,7 +44,7 @@ Citrix WAF envía mensajes de Syslog en formato CEF a un servidor de reenvío de
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 
-Una vez establecida una conexión correcta, los datos aparecen en **Registros** , debajo de la sección **Azure Sentinel** en la tabla *CommonSecurityLog*.
+Una vez establecida una conexión correcta, los datos aparecen en **Registros**, debajo de la sección **Azure Sentinel** en la tabla *CommonSecurityLog*.
 
 Para consultar los registros de Citrix WAF en Log Analytics, escriba `CommonSecurityLog` en la parte superior de la ventana de consulta.
 

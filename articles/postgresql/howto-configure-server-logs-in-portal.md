@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999253"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de Azure Database for PostgreSQL con un único servidor desde Azure Portal
 
 Puede configurar, enumerar y descargar los [registros de Azure Database for PostgreSQL](concepts-server-logs.md) de Azure Portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Los pasos descritos en este artículo requieren que tenga un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md).
 
 ## <a name="configure-logging"></a>registro
@@ -44,7 +44,7 @@ Desde la página **Parámetros de servidor**, puede volver a la lista de los reg
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
 Una vez que comienza el registro, puede ver una lista de los registros disponibles y descargar archivos de registro individuales. 
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 
 2. Seleccione su servidor de Azure Database for PostgreSQL.
 

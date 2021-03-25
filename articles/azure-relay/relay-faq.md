@@ -4,10 +4,10 @@ description: En este artículo se responden algunas de las preguntas más frecue
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98250067"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay

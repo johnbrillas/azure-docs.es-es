@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93310677"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en un grupo de SQL dedicado
@@ -33,7 +33,7 @@ Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados
 
 Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. Con el grupo de SQL dedicado, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
 
-## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en un grupo de SQL dedicado
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tablas temporales en el grupo de SQL dedicado
 
 En el recurso de grupo de SQL dedicado, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local, en lugar de en el remoto.
 

@@ -4,10 +4,10 @@ description: En este artículo se proporciona información sobre cómo autentica
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913320"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una aplicación con Azure Active Directory para acceder a recursos de Event Hubs
@@ -48,7 +48,7 @@ En las imágenes siguientes se muestran los pasos para registrar una aplicación
 > [!Note]
 > Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el URI de redirección. Para las aplicaciones nativas, no es necesario que este valor sea una dirección URL real. Para las aplicaciones web, el URI de redirección debe ser un URI válido, ya que especifica la dirección URL a la que se proporcionan los tokens.
 
-Una vez que ha registrado su aplicación, verá el **id. de la aplicación (o id. de cliente)** en **Configuración** :
+Una vez que ha registrado su aplicación, verá el **id. de la aplicación (o id. de cliente)** en **Configuración**:
 
 ![Id. de aplicación de la aplicación registrada](./media/authenticate-application/application-id.png)
 
@@ -60,7 +60,7 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
 1. Seleccione la configuración de **Certificados y secretos**.
-1. En **Secretos de cliente** , seleccione **Nuevo secreto de cliente** para crear un nuevo secreto.
+1. En **Secretos de cliente**, seleccione **Nuevo secreto de cliente** para crear un nuevo secreto.
 1. Proporcione una descripción para el secreto y elija el intervalo de expiración deseado.
 1. Copie inmediatamente el valor del nuevo secreto en una ubicación segura. El valor completo se le muestra solo una vez.
 
@@ -71,14 +71,14 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 Después de registrar la aplicación, asigne la entidad de servicio de la aplicación a un rol de Azure AD de Event Hubs como se describe en la sección [Roles integrados para Azure Event Hubs](#built-in-roles-for-azure-event-hubs). 
 
 1. En [Azure Portal](https://portal.azure.com/), vaya al espacio de nombres de Event Hubs.
-2. En la página **Información general** , seleccione el centro de eventos para el que desea asignar un rol.
+2. En la página **Información general**, seleccione el centro de eventos para el que desea asignar un rol.
 
     ![Selección del centro de eventos](./media/authenticate-application/select-event-hub.png)
 1. Seleccione **Access Control (IAM)** para mostrar la configuración del control de acceso del centro de eventos. 
 1. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles. Seleccione el botón **Agregar** de la barra de herramientas y luego seleccione **Agregar asignación de roles**. 
 
     ![Botón Agregar de la barra de herramientas](./media/authenticate-application/role-assignments-add-button.png)
-1. En la página **Agregar asignación de roles** , siga estos pasos:
+1. En la página **Agregar asignación de roles**, siga estos pasos:
     1. Seleccione el **rol Event Hubs** que quiere asignar. 
     1. Realice una búsqueda para localizar la **entidad de seguridad** (usuario, grupo, entidad de servicio) a la que quiere asignar el rol. Seleccione la **aplicación registrada** en la lista. 
     1. Seleccione **Guardar** para guardar la asignación de roles. 
@@ -99,7 +99,7 @@ Para ver una lista de escenarios en los que se admite la adquisición de tokens,
 ## <a name="samples"></a>Ejemplos
 - [Ejemplos de Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs** , pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs**, pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Ejemplos de Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Este ejemplo se ha actualizado para usar la biblioteca **Azure.Messaging.EventHubs** más reciente.

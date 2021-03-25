@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998199"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad
@@ -33,32 +33,32 @@ Use el procedimiento siguiente para ver los trabajos de copia de seguridad progr
 
 #### <a name="to-view-scheduled-jobs"></a>Para ver los trabajos programados
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
-2. En el panel **Ámbito**, expanda el nodo **Trabajos** y, después, haga clic en **Programado**. La siguiente información aparece en el panel **Resultados** :
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y luego haga clic en **Programado**. La siguiente información aparece en el panel **Resultados**:
    
-   * **Nombre** : el nombre de la instantánea programada
-   * **Siguiente ejecución** : la fecha y hora de la siguiente instantánea programada
-   * **Última ejecución** : la fecha y hora de la instantánea programada más reciente
+   * **Nombre**: el nombre de la instantánea programada
+   * **Siguiente ejecución**: la fecha y hora de la siguiente instantánea programada
+   * **Última ejecución**: la fecha y hora de la instantánea programada más reciente
      
      > [!NOTE]
-     > En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales.
+     > Solo para las instantáneas de un solo uso, **Siguiente ejecución** y **Última ejecución** serán iguales.
      
      ![Trabajos de copia de seguridad programados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
 
-## <a name="view-recent-jobs"></a>Visualización de los trabajos recientes
+## <a name="view-recent-jobs"></a>Visualización de trabajos recientes
 Utilice el procedimiento siguiente para ver la copia de seguridad y restaurar trabajos que se completaron en las últimas 24 horas.
 
 #### <a name="to-view-recent-jobs"></a>Para ver los trabajos recientes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Trabajos** y, luego, haga clic en **Últimas 24 horas**. El panel **Resultados** muestra los trabajos de copia de seguridad de las últimas 24 horas (hasta un máximo de 64 trabajos). La siguiente información aparece en el panel **Resultados**, según las opciones de **Vista** que se hayan especificado:
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y haga clic en **Últimas 24 horas**. El panel **Resultados** muestra los trabajos de copia de seguridad de las últimas 24 horas (hasta un máximo de 64 trabajos). La siguiente información aparece en el panel **Resultados**, según las opciones de **Ver** que especifique:
    
-   * **Nombre** : el nombre de la instantánea programada.
-   * **Iniciado** : fecha y hora del comienzo de la instantánea.
-   * **Detenido** : fecha y hora de la finalización o la interrupción de la instantánea.
-   * **Transcurrido**: la cantidad de tiempo entre los horarios de **Iniciado** y **Detenido**.
-   * **Estado** : el estado del trabajo completado recientemente. **Éxito** indica que la copia de seguridad se creó correctamente. **Error** indica que el trabajo no se ejecutó correctamente.
-   * **Información** : el motivo del error.
-   * **Bytes procesados (MB)** : la cantidad de datos del grupo de volúmenes que se procesó (en MB). 
+   * **Nombre**: el nombre de la instantánea programada.
+   * **Iniciado**: la fecha y hora en que comenzó la instantánea.
+   * **Detenido**: la fecha y hora en las que se finalizó o canceló la instantánea.
+   * **Transcurrido**: la cantidad de tiempo entre las horas **Iniciado** y **Detenido**.
+   * **Estado**: el estado del trabajo completado recientemente. **Correcto** indica que la copia de seguridad se creó correctamente. **Error** indica que el trabajo no se ejecutó correctamente.
+   * **Información**: el motivo del error.
+   * **Bytes procesados (MB)**: la cantidad de datos del grupo de volúmenes que se procesó (en MB) 
      
      ![Trabajos ejecutados en las últimas 24 horas](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
@@ -70,13 +70,13 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 
 #### <a name="to-view-currently-running-jobs"></a>Para ver los trabajos en ejecución
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Trabajos** y haga clic en **En ejecución**. Dependiendo de las opciones de **Vista** que se especifiquen, aparece la siguiente información en el panel **Resultados**:
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y luego haga clic en **En ejecución**. Según las opciones de **Ver** que especifique, la siguiente información aparece en el panel **Resultados**:
    
-   * **Nombre** : el nombre de la instantánea programada.
-   * **Iniciado** : fecha y hora del comienzo de la instantánea.
-   * **Punto de control** : la acción actual de la copia de seguridad.
-   * **Estado** : el porcentaje de finalización.
-   * **Transcurrido** : la cantidad de tiempo que ha transcurrido desde que comenzó la copia de seguridad. 
+   * **Nombre**: el nombre de la instantánea programada.
+   * **Iniciado**: la fecha y hora en que comenzó la instantánea.
+   * **Punto de control**: la acción actual de la copia de seguridad.
+   * **Estado**: el porcentaje de finalización.
+   * **Transcurrido**: la cantidad de tiempo transcurrido desde que comenzó la copia de seguridad 
    * **Rendimiento medio (MB)** : la relación del total de bytes de datos procesados con el tiempo total necesario para realizar el procesamiento (MB).
    * **Bytes procesados (MB)** : total de bytes de los datos procesados (en MB).
    * **Bytes escritos (MB)** : total de bytes de los datos escritos (en MB). Incluye los datos, así como los metadatos y, por tanto, es normalmente mayor que los bytes procesados.

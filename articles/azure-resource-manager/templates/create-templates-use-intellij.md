@@ -6,10 +6,10 @@ ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905968"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
@@ -22,7 +22,7 @@ Tras completar el tutorial implemente una cuenta de Azure Storage. El mismo proc
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo, necesitará lo siguiente:
 

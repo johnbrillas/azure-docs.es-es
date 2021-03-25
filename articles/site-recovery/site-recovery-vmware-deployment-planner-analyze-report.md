@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: ramamill
 ms.openlocfilehash: 7e2db720bb37a25b8511bd1c42c0c18e139aa216
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93186610"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Análisis del informe de Deployment Planner para la recuperación ante desastres de VMware en Azure
@@ -132,13 +132,13 @@ Puede ver el costo mensual o anual. Obtenga más información sobre las [regione
 
 **Cost by components** (Costo por componentes): el costo total de recuperación ante desastres se divide en cuatro componentes: costo de proceso, almacenamiento, red y licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
 
-**Cost by states** : el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
+**Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
 
 **Replication cost** (Costo de replicación):  costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery.
 
 **DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
 
-**Azure storage cost per Month/Year** : muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
+**Azure storage cost per Month/Year**: muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
 Puede ver el análisis detallado de los costos por máquina virtual en la hoja [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Estimación de costos).
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Factor de crecimiento y valores de percentil utilizados
@@ -161,11 +161,11 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo de almacenamiento de replicación** : disco administrado estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
+**Tipo de almacenamiento de replicación**: disco administrado estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Tipo de cuenta de almacenamiento de registros** : todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar.
+**Tipo de cuenta de almacenamiento de registros**: todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar.
 
-**Prefijo sugerido para la cuenta de almacenamiento** : el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento en caché. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](/en-in/azure/storage/blobs/storage-performance-checklist).
+**Prefijo sugerido para la cuenta de almacenamiento**: el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento en caché. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
@@ -190,7 +190,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Storage Type** (Tipo de almacenamiento): estándar o premium.
 
-**Asrseeddisk (disco administrado) creado para la replicación** : el nombre del disco que se crea al habilitar la replicación. Almacena los datos y sus instantáneas en Azure.
+**Asrseeddisk (disco administrado) creado para la replicación**: el nombre del disco que se crea al habilitar la replicación. Almacena los datos y sus instantáneas en Azure.
 
 **Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de lectura/escritura de la carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 

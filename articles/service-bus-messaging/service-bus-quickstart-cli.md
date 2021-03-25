@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95810629"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Uso de la CLI de Azure para crear un espacio de nombres de Service Bus y una cola
@@ -27,7 +27,7 @@ En este inicio rápido, usará Azure Cloud Shell, que puede iniciar después de 
 2. Para iniciar Azure Cloud Shell, seleccione el icono que se muestra en la siguiente imagen. Cambie al modo **Bash** si Cloud Shell está en modo **PowerShell**. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Iniciar Cloud Shell":::
-3. Ejecute el siguiente comando para crear un grupo de recursos de Azure. Si lo desea, actualice el nombre del grupo de recursos y la ubicación. 
+3. Ejecute el siguiente comando para crear un grupo de recursos de Azure. Actualice el nombre del grupo de recursos y la ubicación si lo desea. 
 
     ```azurecli-interactive
     az group create --name ContosoRG --location eastus

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93124924"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD y ofertas de SaaS comercializable en el marketplace comercial
@@ -25,9 +25,9 @@ Seguir las instrucciones de este artículo le ayudará a certificar su oferta de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Al [crear una oferta de SaaS](./create-new-saas-offer.md) en el Centro de partners, puede elegir entre un conjunto de opciones específicas de descripción que se muestran en el listado de ofertas. Su elección determina cómo se realiza la transacción de la oferta en el marketplace comercial. Las ofertas vendidas a través de Microsoft se denominan ofertas comercializables. Facturamos al cliente en su nombre por todas las ofertas comercializables. Si opta por vender a través de Microsoft y que realicemos las transacciones en su nombre (la opción **Sí** ), ha elegido crear una oferta comercializable y este artículo es para usted. Le recomendamos que lo lea en su totalidad.
+Al [crear una oferta de SaaS](./create-new-saas-offer.md) en el Centro de partners, puede elegir entre un conjunto de opciones específicas de descripción que se muestran en el listado de ofertas. Su elección determina cómo se realiza la transacción de la oferta en el marketplace comercial. Las ofertas vendidas a través de Microsoft se denominan ofertas comercializables. Facturamos al cliente en su nombre por todas las ofertas comercializables. Si opta por vender a través de Microsoft y que realicemos las transacciones en su nombre (la opción **Sí**), ha elegido crear una oferta comercializable y este artículo es para usted. Le recomendamos que lo lea en su totalidad.
 
-Si decide publicar solo la oferta en el marketplace comercial y procesar las transacciones de forma independiente (la opción **No** ), tiene tres opciones para la forma en que los clientes potenciales accederán a su oferta: Obténgalo ahora (de forma gratuita), Evaluación gratuita y Ponerse en contacto conmigo. Si selecciona **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita** , este artículo no es para usted. En su lugar, consulte [Creación de la página de aterrizaje de su oferta de SaaS gratuita o de prueba en el marketplace comercial](./azure-ad-free-or-trial-landing-page.md) para obtener más información. Si selecciona **Ponerse en contacto conmigo** , no hay responsabilidades directas del editor. Siga creando su oferta en el Centro de partners.
+Si decide publicar solo la oferta en el marketplace comercial y procesar las transacciones de forma independiente (la opción **No**), tiene tres opciones para la forma en que los clientes potenciales accederán a su oferta: Obténgalo ahora (de forma gratuita), Evaluación gratuita y Ponerse en contacto conmigo. Si selecciona **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita**, este artículo no es para usted. En su lugar, consulte [Creación de la página de aterrizaje de su oferta de SaaS gratuita o de prueba en el marketplace comercial](./azure-ad-free-or-trial-landing-page.md) para obtener más información. Si selecciona **Ponerse en contacto conmigo**, no hay responsabilidades directas del editor. Siga creando su oferta en el Centro de partners.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Cómo funciona Azure AD con el marketplace comercial para las ofertas de SaaS
 
@@ -35,7 +35,7 @@ Azure AD permite la adquisición, el cumplimiento y la administración sin probl
 
 Como se muestra en la figura 1, cuando un comprador selecciona su oferta, inicia una cadena de flujos de trabajo que incluyen la compra, la suscripción y la administración de usuarios. Dentro de esta cadena, usted como editor es responsable de ciertos requisitos y Microsoft proporciona soporte técnico en los puntos clave.
 
-**_Ilustración 1: Uso de Azure AD para ofertas de SaaS en el marketplace comercial_* _
+***Figura 1: Uso de Azure AD para ofertas de SaaS en el marketplace comercial***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow.png" alt-text="Muestra los pasos del proceso de administración de compras, administración de suscripciones y administración de usuarios opcionales.":::
 
@@ -52,7 +52,7 @@ En esta tabla se proporcionan los detalles de los pasos del proceso de administr
 | Paso del proceso | Acción del editor | Recomendado o requerido para los editores |
 | ------------ | ------------- | ------------- |
 | 1. El comprador inicia sesión en el marketplace comercial con su identificador de Azure y selecciona una oferta de SaaS. | No se requiere ninguna acción por parte del editor. | No aplicable |
-| 2. Después de la compra, el comprador selecciona _ *Configurar cuenta* * en Azure Marketplace o **Configurar ahora** en AppSource, que le dirige a la página de aterrizaje del anunciante de esta oferta. El comprador debe poder iniciar sesión en la aplicación SaaS del editor con el inicio de sesión único de Azure AD y solo se le debe solicitar el consentimiento mínimo que no requiera la aprobación del administrador de Azure AD. | Diseñe una [página de aterrizaje](azure-ad-transactable-saas-landing-page.md) para la oferta, de modo que reciba un usuario con su identidad de Azure AD o cuenta de Microsoft (MSA) y facilite el aprovisionamiento o la configuración adicional necesarios. | Obligatorio |
+| 2. Después de la compra, el comprador selecciona **Configurar cuenta** en Azure Marketplace o **Configurar ahora** en AppSource, que dirige al comprador a la página de aterrizaje del anunciante para esta oferta. El comprador debe poder iniciar sesión en la aplicación SaaS del editor con el inicio de sesión único de Azure AD y solo se le debe solicitar el consentimiento mínimo que no requiera la aprobación del administrador de Azure AD. | Diseñe una [página de aterrizaje](azure-ad-transactable-saas-landing-page.md) para la oferta, de modo que reciba un usuario con su identidad de Azure AD o cuenta de Microsoft (MSA) y facilite el aprovisionamiento o la configuración adicional necesarios. | Obligatorio |
 | 3. El editor solicita los detalles de la compra a la API de cumplimiento de SaaS. | Mediante un [token de acceso](./partner-center-portal/pc-saas-registration.md) generado a partir del identificador de aplicación de la página de aterrizaje, [llama al punto de conexión de resolución](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) para recuperar los detalles de la compra. | Obligatorio |
 | 4. A través de Azure AD y de la API de Microsoft Graph, el editor recopila los detalles de la empresa y del usuario necesarios para aprovisionar al comprador en la aplicación de SaaS del editor.  | Descomponga el token de usuario de Azure AD para buscar el nombre y el correo electrónico, o [llame a la API de Microsoft Graph](/graph/use-the-api) y use permisos delegados para [recuperar información](/graph/api/user-get) sobre el usuario que ha iniciado sesión. | Obligatorio |
 ||||

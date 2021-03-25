@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968815"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
@@ -35,14 +35,14 @@ MPIO es una característica opcional en Windows Server y no se instala de forma 
 
 Siga estos pasos para configurar MPIO en un dispositivo StorSimple:
 
-* Paso 1: Instalación de MPIO en el host de Windows Server
-* Paso 2: Configuración de MPIO para volúmenes de StorSimple
-* Paso 3: Montaje de volúmenes de StorSimple en el host
-* Paso 4: Configuración de MPIO para alta disponibilidad y equilibrio de carga
+* Paso 1: instalar MPIO en el host de Windows Server
+* Paso 2: configurar MPIO para volúmenes de StorSimple
+* Paso 3: montar los volúmenes de StorSimple en el host
+* Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 
 En las siguientes secciones se detallan todos los pasos anteriores.
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Paso 1: Instalación de MPIO en el host de Windows Server
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Paso 1: instalar MPIO en el host de Windows Server
 
 Haga lo siguiente para instalar esta característica en el host de Windows Server.
 
@@ -50,19 +50,19 @@ Haga lo siguiente para instalar esta característica en el host de Windows Serve
 
 1. Abra el Administrador del servidor en el host de Windows Server. El Administrador del servidor se inicia de forma predeterminada cuando un miembro del grupo Administradores inicia sesión en un equipo que ejecuta Windows Server 2012 R2 o Windows Server 2012. Si el Administrador del servidor no está abierto, haga clic en **Inicio > Administrador del servidor**.
    
-   ![Administrador del servidor](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+   ![Administrador de servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 
-2. Haga clic en **Administrador del servidor > Panel > Agregar roles y características**. De esta forma, se abre el **Asistente para agregar roles y características** .
+2. Haga clic en **Administrador del servidor > Panel > Agregar roles y características**. Esto iniciará el asistente para **agregar roles y características**.
    
    ![Asistente para agregar roles y características 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. En el Asistente para **agregar roles y características**, siga estos pasos:
    
-   1. En la página **Antes de comenzar**, haga clic en **Siguiente**.
+   1. En la página **Antes de comenzar** , haga clic en **Siguiente**.
    2. En la página **Seleccionar tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Next**.
    
        ![Asistente para agregar roles y características 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. En la página **Seleccionar servidor de destino** y elija **Seleccionar un servidor del grupo de servidores**. El servidor host debería detectarse automáticamente. Haga clic en **Next**.
-   4. En la página **Seleccionar roles de servidor**, haga clic en **Siguiente**.
+   3. En la página **Seleccionar servidor de destino**, elija **Seleccionar un servidor del grupo de servidores)**. El servidor host debería detectarse automáticamente. Haga clic en **Next**.
+   4. En la página **Seleccionar roles de servidor**, haz clic en **Siguiente**.
    5. En la página **Seleccionar características**, seleccione **E/S de múltiples rutas** y haga clic en **Siguiente**.
    
        ![Asistente para agregar roles y características 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
@@ -73,15 +73,15 @@ Haga lo siguiente para instalar esta característica en el host de Windows Serve
    
        ![Asistente para agregar roles y características 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Paso 2: Configuración de MPIO para volúmenes de StorSimple
+## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Paso 2: configurar MPIO para volúmenes de StorSimple
 
 MPIO se debe configurar para identificar los volúmenes de StorSimple. Haga lo siguiente para configurar MPIO para reconocer volúmenes de StorSimple.
 
 #### <a name="to-configure-mpio-for-storsimple-volumes"></a>Para configurar MPIO para volúmenes de StorSimple
 
 1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
-2. En el cuadro de diálogo **MPIO Properties** (Propiedades de MPIO), seleccione la pestaña **Detectar múltiples rutas**.
-3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**.  
+2. En el cuadro de diálogo **Propiedades MPIO**, seleccione la pestaña **Detectar múltiples rutas de acceso**.
+3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y haga clic en **Agregar**.  
    ![Propiedades de MPIO &gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie el servidor cuando se le pida.
 5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**.
@@ -91,7 +91,7 @@ MPIO se debe configurar para identificar los volúmenes de StorSimple. Haga lo s
     ![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicie el servidor cuando se le pida.
 
-## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Paso 3: Montaje de volúmenes de StorSimple en el host
+## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Paso 3: montar los volúmenes de StorSimple en el host
 
 Después de configurar MPIO en Windows Server, los volúmenes creados en el dispositivo StorSimple se pueden montar para que puedan usar MPIO para la redundancia. Haga lo siguiente para montar un volumen.
 
@@ -108,35 +108,35 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
       > **Si está usando una red privada para las conexiones iSCSI, escriba la dirección IP del puerto DATA que esté conectado a la red privada.**
     
 4. Repita los pasos 2 y 3 para una segunda interfaz de red (por ejemplo, DATA 1) en el dispositivo. No olvide que estas interfaces deben estar habilitadas para iSCSI. Para más información, consulte [Modificar las interfaces de red](storsimple-8000-modify-device-config.md#modify-network-interfaces).
-5. Seleccione la pestaña **Destinos** del cuadro de diálogo **Propiedades del iniciador iSCSI**. Debería ver el destino de dispositivo StorSimple IQN en **Destinos detectados**.
+5. Seleccione la pestaña **Destinos** en el cuadro de diálogo **Propiedades del iniciador iSCSI**. Debería ver el destino de dispositivo StorSimple IQN en **Destinos detectados**.
 
    ![Propiedades del iniciador iSCSI > pestaña Destinos](./media/storsimple-configure-mpio-windows-server/IC741007.png)
    
 6. Haga clic en **Conectar** para establecer una sesión iSCSI con el dispositivo StorSimple. Aparecerá el cuadro de diálogo **Conectarse al destino**.
-7. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
+7. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas de acceso**. Haga clic en **Avanzadas**.
 8. En el cuadro de diálogo **Configuración avanzada**, siga estos pasos:
    
    1. En la lista desplegable **Adaptador local**, seleccione **Iniciador iSCSI de Microsoft**.
-   2. En la lista desplegable **IP de iniciador** , seleccione la dirección IP del host.
+   2. En la lista desplegable **IP del iniciador**, seleccione la dirección IP del host.
    3. En la lista desplegable **IP del portal de destino** , seleccione la dirección IP de la interfaz de dispositivo.
    4. Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
 9. Haga clic en **Propiedades**. En el cuadro de diálogo **Propiedades**, haga clic en **Agregar sesión**.
-10. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
+10. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas de acceso**. Haga clic en **Avanzadas**.
 11. En el cuadro de diálogo **Configuración avanzada** :
 
     1. En la lista desplegable **Adaptador local** , seleccione Iniciador iSCSI de Microsoft.
-    2. En la lista desplegable **IP de iniciador** , seleccione la dirección IP correspondiente al host. En este caso, estamos conectando dos interfaces de red en el dispositivo a una única interfaz de red en el host. Por lo tanto, esta interfaz es la misma que la proporcionada para la primera sesión.
+    2. En la lista desplegable **IP del iniciador**, seleccione la dirección IP correspondiente del host. En este caso, estamos conectando dos interfaces de red en el dispositivo a una única interfaz de red en el host. Por lo tanto, esta interfaz es la misma que la proporcionada para la primera sesión.
     3. En la lista desplegable **IP del portal de destino** , seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
     4. Haga clic en **Aceptar** para volver al cuadro de diálogo Propiedades del iniciador iSCSI. Agregó una segunda sesión al destino.
 12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en el dispositivo StorSimple que ve este host aparecerá en **Administración de discos** como discos nuevos.
 13. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de bloque de 64 KB.
     
-    ![Administración del disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
-14. En **Administración de discos**, haga clic con el botón derecho en el **disco** y seleccione **Propiedades**.
-15. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas** del número de modelo de StorSimple pertinente, haga clic en la pestaña **MPIO**.
+    ![Administración de discos](./media/storsimple-configure-mpio-windows-server/IC741008.png)
+14. En **Administración de discos**, haga clic con el botón secundario en el **Disco** y seleccione **Propiedades**.
+15. En el cuadro de diálogo del modelo de StorSimple #### **Propiedades del dispositivo de disco de múltiples rutas**, haga clic en la pestaña **MPIO**.
     
     ![DeviceProp del disco de múltiples rutas StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
-16. En la sección **Nombre DSM**, haga clic en **Detalles** y compruebe que los parámetros están establecidos en los valores predeterminados. Los parámetros predeterminados son los siguientes:
+16. En la sección **Nombre del DSM**, haga clic en **Detalles** y compruebe que los parámetros están establecidos en los parámetros predeterminados. Los parámetros predeterminados son los siguientes:
     
     * Período de comprob. de ruta = 30
     * Número de reintentos = 3
@@ -148,7 +148,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 > **No modifique los parámetros predeterminados.**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Paso 4: Configuración de MPIO para alta disponibilidad y equilibrio de carga
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 
 En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la red iSCSI y el dispositivo también tiene otras dos interfaces conectadas a la red iSCSI, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas (solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable).
 
@@ -164,11 +164,11 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 1. Realice una detección en el destino; para ello, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, en la pestaña **Detección**, haga clic **Detectar portal**.
 2. En el cuadro de diálogo **Conectarse al destino** , escriba la dirección IP de una de las interfaces de red del dispositivo.
 3. Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
-4. En el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione la pestaña **Destinos**, resalte el destino detectado y, después, haga clic en **Conectar**. Aparecerá el cuadro de diálogo **Conectarse al destino** .
-5. En el cuadro de diálogo **Conectarse al destino** :
+4. En el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione la pestaña **Destinos**, resalte el destino detectado y haga clic en **Conectar**. Aparecerá el cuadro de diálogo **Conectarse al destino**.
+5. En el cuadro de diálogo **Conectarse al destino**:
    
    1. Deje seleccionada la configuración de destino predeterminada en **Agregar esta conexión** a la lista de destinos favoritos. De esta forma el dispositivo intenta reiniciar la conexión automáticamente cada vez que el equipo se reinicia.
-   2. Active la casilla **Habilitar múltiples rutas** .
+   2. Active la casilla **Habilitar múltiples rutas de acceso**.
    3. Haga clic en **Avanzadas**.
 6. En el cuadro de diálogo **Configuración avanzada** :
    
@@ -176,8 +176,8 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
    2. En la lista desplegable **IP de iniciador**, seleccione la dirección IP correspondiente a la primera interfaz en el host (interfaz iSCSI).
    3. En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la primera interfaz de datos habilitada en el dispositivo.
    4. Haga clic en **Aceptar** para volver al cuadro de diálogo Propiedades del iniciador iSCSI.
-7. Haga clic en **Propiedades** y, en el cuadro de diálogo **Propiedades**, haga clic en **Agregar sesión**.
-8. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas** y, luego, haga clic en **Avanzadas**.
+7. Haga clic en **Propiedades** y, en el cuadro de diálogo the **Propiedades**, haga clic en **Agregar sesión**.
+8. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas de acceso**, y luego haga clic en **Avanzadas**.
 9. En el cuadro de diálogo **Configuración avanzada** :
    
    1. En la lista desplegable **Adaptador local**, seleccione **Iniciador iSCSI de Microsoft**.
@@ -185,8 +185,8 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
    3. En la lista desplegable **IP del portal de destino** , seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
    4. Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**. Agregó una segunda sesión al destino.
 10. Repita los pasos 8, 9 y 10 para agregar más sesiones (rutas de acceso) al destino. Con dos interfaces en el host y dos en el dispositivo, puede agregar un total de cuatro sesiones.
-11. Después de agregar las sesiones (rutas de acceso) que quiera, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades** , fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla situada junto a un identificador de sesión y, luego, haga clic en **Desconectar**.
-12. Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos** . Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo **Detalles del dispositivo**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
+11. Tras agregar las sesiones (rutas) deseadas, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades** , fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla de un identificador de sesión y haga clic en **Desconectar**.
+12. Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos** . Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparece el cuadro de diálogo de **Detalles del dispositivo**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** correspondiente. También puede ver el tipo de ruta **Activa** o **En espera**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

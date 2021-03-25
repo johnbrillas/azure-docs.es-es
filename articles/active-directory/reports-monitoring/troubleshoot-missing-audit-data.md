@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93123071"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
@@ -43,7 +43,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -64,7 +64,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -87,7 +87,7 @@ En función de su licencia, las acciones de Azure Active Directory almacenan los
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar las [API de generación de informes de Azure AD](concept-reporting-api.md) para recuperar los datos mediante programación y almacenarlos en una base de datos. Como alternativa, puede integrar los registros de auditoría en un sistema SIEM de terceros como Splunk o SumoLogic.
 

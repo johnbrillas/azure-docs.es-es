@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661160"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010174"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -50,7 +50,7 @@ Por lo tanto, el flujo de migración de conexión directa tiene dos fases: *migr
 ### <a name="phase-1-pre-migration"></a>Fase 1: Migración previa
 
 1. La aplicación de migración lee las cuentas de usuario del proveedor de identidades anterior.
-1. La aplicación de migración crea las cuentas de usuario correspondientes en el directorio de Azure AD B2C, pero *no establece las contraseñas*.
+1. La aplicación de migración crea las cuentas de usuario correspondientes en el directorio de Azure AD B2C, pero *establece contraseñas aleatorias* que usted genera.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: Establecer credenciales
 

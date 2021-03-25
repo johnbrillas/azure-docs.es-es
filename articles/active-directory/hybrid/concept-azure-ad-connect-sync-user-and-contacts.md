@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861789"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
@@ -56,7 +56,7 @@ Puntos importantes para tener en cuenta durante la sincronización de grupos de 
       * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* estará habilitado también para correo electrónico en Azure AD.
 
 ## <a name="contacts"></a>Contactos
-Tras una fusión o una adquisición donde la solución GALSync actúa como puente entre dos o más bosques de Exchange, es habitual que los contactos representen a un usuario en un bosque diferente. El objeto de contacto siempre se une desde el espacio del conector al metaverso mediante el atributo de correo. Si ya existe un objeto de contacto o un objeto de usuario con la misma dirección de correo, los objetos se unen. Esto se configura en la regla **In from AD – Contact Join**. Existe también una regla llamada **In from AD – Contact Common** con un flujo de atributos al atributo de metaverso **sourceObjectType** con la constante **Contact**. Esta regla tiene una precedencia muy baja, por lo que si algún objeto de usuario se une al mismo objeto de metaverso, la regla **In from AD – User Common** aportará el valor User a este atributo. Con esta regla, este atributo tendrá el valor Contact si no se ha unido ningún usuario y el valor User si se ha encontrado por lo menos un usuario.
+Tras una fusión o una adquisición donde la solución GALSync actúa como puente entre dos o más bosques de Exchange, es habitual que los contactos representen a un usuario en un bosque diferente. El objeto de contacto siempre se une desde el espacio del conector al metaverso mediante el atributo de correo. Si ya existe un objeto de contacto o un objeto de usuario con la misma dirección de correo, los objetos se unen. Esto se configura en la regla **In from AD – Contact Join**. Existe también una regla llamada **In from AD – Contact Common** con un flujo de atributos al atributo de metaverso **sourceObjectType** con la constante **Contact**. Esta regla tiene una precedencia muy baja, por lo que si un objeto de usuario se une al mismo objeto de metaverso, la regla **In from AD – User Common** aportará el valor User a este atributo. Con esta regla, este atributo tendrá el valor Contact si no se ha unido ningún usuario y el valor User si se ha encontrado por lo menos un usuario.
 
 Para aprovisionar un objeto en Azure AD, la regla saliente **Out to AAD – Contact Join** creará un objeto de contacto si el atributo de metaverso **sourceObjectType** se establece en **Contact**. En cambio, si este atributo se establece en **User**, la regla **Out to AAD – User Join** creará un objeto de usuario.
 Es posible que un objeto se promueva de Contact a User si se importan o sincronizan más directorios de Active Directory de origen.

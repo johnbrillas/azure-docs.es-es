@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: cherylmc
 ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964854"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
@@ -80,7 +80,7 @@ Puede usar los valores del ejemplo para crear un entorno de prueba o hacer refer
 * **Nombre de subred: GatewaySubnet**<br>El nombre de subred *GatewaySubnet* es obligatorio para que VPN Gateway funcione.
   * **Intervalo de direcciones de GatewaySubnet: 192.168.200.0/24** 
 * **Grupo de direcciones de clientes de VPN: 172.16.201.0/24**<br>Los clientes de VPN que se conectan a la red virtual mediante esta conexión de punto a sitio reciben una dirección IP del grupo de clientes de VPN.
-* **Suscripción:** si tiene más de una suscripción, compruebe que usa la correcta.
+* **Subscription** (Suscripción): si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupo de recursos: TestRG**
 * **Ubicación: Este de EE. UU.**
 * **Servidor DNS: dirección IP** del servidor DNS que desea usar para la resolución de nombres en la red virtual (opcional).

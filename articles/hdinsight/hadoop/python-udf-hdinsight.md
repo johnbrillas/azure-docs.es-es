@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944273"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
@@ -22,7 +22,7 @@ Python 2.7 se instala de forma predeterminada en HDInsight 3.0 y posteriores. Ap
 
 HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Jython se ejecuta directamente en la Máquina virtual Java y no utiliza streaming. Jython es el intérprete de Python recomendado cuando se usa Python con Pig.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).

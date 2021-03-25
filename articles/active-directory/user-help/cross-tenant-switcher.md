@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913252"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Cambio de organización en un portal
@@ -30,11 +30,11 @@ El conmutador de organizaciones está disponible en los siguientes portales:
 - [**Mi acceso**](https://myaccess.microsoft.com)
 - [**Mi personal**](https://mystaff.microsoft.com)
 
-El cambio de organizaciones no está disponible para **Mis inicios de sesión** , **Información de seguridad** o **Mis grupos**.
+El cambio de organizaciones no está disponible para **Mis inicios de sesión**, **Información de seguridad** o **Mis grupos**.
 
 ## <a name="switch-organizations"></a>Cambio de organizaciones
 
-A continuación, se muestra cómo cambiar a otra organización. En este ejemplo se usa el portal **Mi cuenta** , pero el icono del conmutador y la selección de ubicación también son similares en otros portales.
+A continuación, se muestra cómo cambiar a otra organización. En este ejemplo se usa el portal **Mi cuenta**, pero el icono del conmutador y la selección de ubicación también son similares en otros portales.
 
 1. Inicie sesión en su cuenta profesional o educativa y abra la página [Mi cuenta](https://myaccount.microsoft.com).
 1. Seleccione el conmutador de organizaciones (:::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="el icono del conmutador de organizaciones"::: se encuentra en la parte superior de la página, junto a la foto de la cuenta).
@@ -53,4 +53,4 @@ Después de cambiar de organización, todas las páginas del portal reflejarán 
 >La contraseña que usa para iniciar sesión en su organización principal es la que se usa para iniciar sesión en otras organizaciones. Tenga en cuenta lo siguiente:
 >
 >- Si ha iniciado sesión en una organización que no es su organización principal y selecciona **Contraseña** en la página de información general de **Mi cuenta** u otros lugares en los que aparezca, volverá a cambiar inmediatamente a la organización principal.
->- En el portal **Mi personal** , si cambia a otra organización, solo tendrá acceso a Mi personal si está habilitado para Mi personal en esa organización.
+>- En el portal **Mi personal**, si cambia a otra organización, solo tendrá acceso a Mi personal si está habilitado para Mi personal en esa organización.

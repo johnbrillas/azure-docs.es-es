@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101228"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.KeyVault.KeyVaultCertificateSelector
@@ -22,7 +22,7 @@ Al usuario se le presenta la opción de seleccionar un certificado disponible.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-select.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector":::
 
-Después de seleccionar la opción **Seleccionar un certificado** , el usuario puede especificar un almacén de claves y un certificado del almacén de claves.
+Después de seleccionar la opción **Seleccionar un certificado**, el usuario puede especificar un almacén de claves y un certificado del almacén de claves.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Seleccionar certificado con Microsoft.KeyVault.KeyVaultCertificateSelector":::
 

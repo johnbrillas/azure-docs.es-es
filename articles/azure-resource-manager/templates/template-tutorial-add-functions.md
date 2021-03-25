@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97107114"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
@@ -74,7 +74,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información acerca de los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

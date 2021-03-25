@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131197"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada en Azure Kubernetes Service (AKS)
@@ -72,9 +72,9 @@ No se han creado reglas de entrada aún, por lo que aparece la página 404 prede
 
 ## <a name="run-demo-applications"></a>Ejecución de aplicaciones de demostración
 
-Para ver el controlador de entrada en acción, ejecute dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, usará `kubectl apply` para implementar dos instancias de una aplicación *Hola mundo* sencilla.
+Para ver el controlador de entrada en acción, ejecute dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, use `kubectl apply` para implementar dos instancias de una aplicación *Hola mundo* sencilla.
 
-Cree un archivo *aks-helloworld.yaml* y cópielo en el ejemplo siguiente de YAML:
+Cree un archivo *aks-helloworld-one.yaml* y cópielo en el ejemplo siguiente de YAML:
 
 ```yml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
     app: aks-helloworld-one
 ```
 
-Cree un archivo *aks-helloworld.yaml* y cópielo en el ejemplo siguiente de YAML:
+Cree un archivo *aks-helloworld-two.yaml* y cópielo en el ejemplo siguiente de YAML:
 
 ```yml
 apiVersion: apps/v1
@@ -245,7 +245,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Eliminación de recursos individualmente
 
-Como alternativa, un enfoque más pormenorizado consiste en eliminar los recursos individuales creados. Despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress* y *aks-helloworld* , tal y como se muestra en la salida del ejemplo siguiente:
+Como alternativa, un enfoque más pormenorizado consiste en eliminar los recursos individuales creados. Despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx-ingress* y *aks-helloworld*, tal y como se muestra en la salida del ejemplo siguiente:
 
 ```
 $ helm list --namespace ingress-basic

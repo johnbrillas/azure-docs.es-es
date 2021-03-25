@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 2c0416e2787bc69465e18a71f6b9912f7571c24d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98956096"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Cómo codificar con una transformación personalizada: REST
@@ -32,7 +32,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 * Todos los valores de alto y ancho del contenido de AVC deben ser un múltiplo de 4.
 * En Azure Media Services v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto difiere de los valores preestablecidos en las API v2, en donde se usaban kilobits por segundo como unidad. Por ejemplo, si la velocidad de bits de v2 se especificaba como 128 (kilobits/segundo), en v3 se establecería en 128 000 (bits/segundo).
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 - [Cree una cuenta de Media Services](./create-account-howto.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
 - [Configuración de Postman para llamadas API REST de Azure Media Services](media-rest-apis-with-postman.md).<br/>Asegúrese de seguir el último paso en el tema [Obtención del token de Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 

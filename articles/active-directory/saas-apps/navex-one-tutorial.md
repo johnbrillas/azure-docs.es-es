@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: jeedes
 ms.openlocfilehash: c6eac316a8d1849e193add2d74e81f8652c7a676
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99090593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-navex-one"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NAVEX One
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar NAVEX One con Azure Active Directory (Az
 * Permitir que los usuarios puedan iniciar sesión automáticamente en NAVEX One con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

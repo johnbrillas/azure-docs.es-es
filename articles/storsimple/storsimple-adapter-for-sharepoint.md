@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966299"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar y configurar el adaptador de StorSimple para SharePoint
@@ -97,7 +97,7 @@ El adaptador de StorSimple para SharePoint funciona con el siguiente hardware y 
 
 * Sistema operativo compatible: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
 * Versiones de SharePoint compatibles: SharePoint Server 2010 o SharePoint Server 2013
-* Versiones de SQL Server compatibles: SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition o SQL Server 2012 Enterprise Edition
+* Versiones de SQL Server compatibles: SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition o SQL Server 2012 Enterprise Edition 
 * Dispositivos StorSimple compatibles: serie StorSimple 8000, serie StorSimple 7000 o serie StorSimple 5000.
 
 ### <a name="storsimple-device-configuration-prerequisites"></a>Requisitos previos de configuración del dispositivo StorSimple
@@ -138,7 +138,7 @@ Asegúrese de que su granja de servidores de SharePoint está configurada correc
   1. Cierre todas las instancias de Internet Explorer.
   2. Inicie el Administrador de servidores.
   3. En el panel izquierdo, haga clic en **Servidor local**.
-  4. En el panel derecho, junto a **Configuración de seguridad mejorada de IE**, haga clic en **Activar**.
+  4. En el panel derecho, junto a **Configuración de seguridad mejorada (ESC) de Internet Explorer**, haga clic en **Activar**.
   5. En **Administradores**, haga clic en **Desactivar**.
   6. Haga clic en **OK**.
 
@@ -223,7 +223,7 @@ Antes de desinstalar el adaptador de StorSimple para el software de SharePoint, 
 1. Descargue cada objeto externalizado.
 2. Abra la página **Administración central de SharePoint** y vaya a **Configuración del sistema**.
 3. En **Azure StorSimple**, haga clic en **Configurar el adaptador de StorSimple**.
-4. En la página **Configurar el adaptador de StorSimple**, haga clic en el botón **Deshabilitar** debajo de cada una de las bases de datos de contenido que quiere quitar del almacenamiento de blobs externo. 
+4. En la página **Configurar el adaptador de StorSimple**, haga clic en el botón **Deshabilitar** que se encuentra debajo de las bases de datos de contenido que desea extraer del almacenamiento de BLOBS externo. 
 5. Elimine los objetos de SharePoint y luego vuelva a cargarlos.
 
 También puede usar el cmdlet de Microsoft `RBS Migrate()` PowerShell incluido con SharePoint. Para obtener más información, vea [migrar contenido dentro o fuera de RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
@@ -247,11 +247,11 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 5. Haga clic en **Quitar** para confirmar la eliminación. Aparece la siguiente página de progreso.
    
     ![Página de progreso del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp5.png)
-6. Cuando se completa la desinstalación, aparece la página de finalización. Haga clic en **Finalizar** para cerrar el Asistente para la instalación.
+6. Cuando se completa la desinstalación, aparece la página de finalización. Haga clic en **Finalizar** para cerrar el Asistente para instalación.
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>Para usar el Panel de Control para desinstalar el adaptador
-1. Abra el Panel de Control y luego haga clic en **Programas y características**.
-2. Seleccione **Adaptador de StorSimple para SharePoint** y luego haga clic en **Desinstalar**.
+1. Abra el Panel de control y, a continuación, haga clic en **Programas y características**.
+2. Seleccione **Adaptador de StorSimple para SharePoint** y, a continuación, haga clic en **Desinstalar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtenga más información sobre StorSimple](storsimple-overview.md).

@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
 ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724184"
 ---
 * Después de seleccionar la plataforma adecuada en el paso 4 de [Configuración de la plataforma](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings), configure los valores de **URI de redirección** y **Tokens de acceso** en el panel lateral a la derecha de la interfaz de usuario.

@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240977"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
@@ -30,7 +30,7 @@ ms.locfileid: "93240977"
 
 Los archivos de servidores web de origen accesible públicamente se pueden almacenar en caché en Azure Content Delivery Network (CDN) hasta que transcurra su tiempo de vida (TTL). El período de vida viene determinado por el encabezado `Cache-Control` en la respuesta HTTP del servidor de origen. En este artículo se describe cómo establecer los encabezados `Cache-Control` para la característica Web Apps de Microsoft Azure App Service, Azure Cloud Services, las aplicaciones de ASP.NET y los sitios de Internet Information Services (IIS), ya que todos ellos se configuran de forma parecida. Puede establecer el encabezado `Cache-Control` mediante el uso de archivos de configuración o mediante programación. 
 
-También puede controlar la configuración de caché desde Azure Portal estableciendo [reglas de almacenamiento en caché de la red CDN](cdn-caching-rules.md). Si crea una o más reglas de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché** , se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, consulte [Funcionamiento del almacenamiento en caché](cdn-how-caching-works.md).
+También puede controlar la configuración de caché desde Azure Portal estableciendo [reglas de almacenamiento en caché de la red CDN](cdn-caching-rules.md). Si crea una o más reglas de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché**, se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, consulte [Funcionamiento del almacenamiento en caché](cdn-how-caching-works.md).
 
 > [!TIP]
 > Puede optar por no configurar ningún TTL en un archivo. En este caso, Azure CDN aplica automáticamente un TTL predeterminado de siete días, a menos que haya configurado reglas de almacenamiento en caché en Azure Portal. Este TTL predeterminado solo se aplica a las optimizaciones de entrega web general. Para las optimizaciones de archivos de gran tamaño, el TTL predeterminado es un día, y para las optimizaciones de streaming multimedia, el TTL predeterminado es un año.
@@ -42,9 +42,9 @@ También puede controlar la configuración de caché desde Azure Portal establec
 El método preferido para establecer el encabezado `Cache-Control` de un servidor web consiste en usar las reglas de almacenamiento en caché en Azure Portal. Para más información sobre las reglas de almacenamiento en caché de CDN, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de almacenamiento en caché](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para perfiles **Azure CDN premium de Verizon** , debe usar el [motor de reglas de Azure CDN](./cdn-verizon-premium-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para perfiles **Azure CDN premium de Verizon**, debe usar el [motor de reglas de Azure CDN](./cdn-verizon-premium-rules-engine.md) en el portal **Administrar** para una funcionalidad similar.
 
-**Para navegar a la página de reglas de almacenamiento en caché de CDN** :
+**Para navegar a la página de reglas de almacenamiento en caché de CDN**:
 
 1. En Azure Portal, seleccione un perfil de CDN y luego seleccione un punto de conexión para el servidor web.
 
@@ -59,9 +59,9 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 **Para establecer encabezados Cache-Control de un servidor web con reglas de almacenamiento en caché globales:**
 
-1. En **Reglas de almacenamiento en caché globales** , establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta** , y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
+1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**, y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
-1. Para **Duración de expiración de caché** , escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas**. 
+1. Para **Duración de expiración de caché**, escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas**. 
 
    ![Ejemplo de reglas de almacenamiento en caché globales de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
@@ -71,7 +71,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 **Para establecer encabezados Cache-Control del archivo de servidor web con reglas de almacenamiento en caché personalizadas:**
 
-1. En **Reglas de almacenamiento en caché personalizadas** , cree dos condiciones de coincidencia:
+1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
      a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el campo **Días**.
 
@@ -91,7 +91,7 @@ Para el contenido estático, como imágenes y hojas de estilos, puede controlar 
 El archivo **ApplicationHost.config** es el archivo raíz del sistema de configuración de IIS. El valor de la configuración del archivo **ApplicationHost.config** afecta a todas las aplicaciones del sitio, pero se reemplaza por la configuración de cualquier archivo **Web.config** existente en una aplicación web.
 
 ### <a name="using-webconfig-files"></a>Uso de archivos Web.config
-Con un archivo **Web.config** , puede personalizar el comportamiento de toda la aplicación web o de un directorio específico en la aplicación web. Por lo general, tiene al menos un archivo **Web.config** en la carpeta raíz de la aplicación web. Para cada archivo **Web.config** de una carpeta específica, el valor de la configuración afecta a todo lo que haya en dicha carpeta y en sus subcarpetas, a menos que se invaliden en el nivel de subcarpeta por otro archivo **Web.config**. 
+Con un archivo **Web.config**, puede personalizar el comportamiento de toda la aplicación web o de un directorio específico en la aplicación web. Por lo general, tiene al menos un archivo **Web.config** en la carpeta raíz de la aplicación web. Para cada archivo **Web.config** de una carpeta específica, el valor de la configuración afecta a todo lo que haya en dicha carpeta y en sus subcarpetas, a menos que se invaliden en el nivel de subcarpeta por otro archivo **Web.config**. 
 
 Por ejemplo, puede establecer un elemento `<clientCache>` de un archivo **Web.config** en la carpeta raíz de la aplicación web para almacenar en caché todo el contenido estático en la aplicación web durante tres días. También puede agregar un archivo **Web.config** a una subcarpeta con contenido más variable (por ejemplo, `\frequent`) y establecer el elemento `<clientCache>` para almacenar en caché contenido de la subcarpeta durante seis horas. El resultado neto es que el contenido de todo el sitio web se almacenará en caché durante tres días, excepto el contenido del directorio `\frequent`, que se almacenará en caché solo durante seis horas.  
 
@@ -107,10 +107,10 @@ En el archivo de configuración XML de ejemplo siguiente se muestra cómo establ
 </configuration>
 ```
 
-Para usar el atributo **cacheControlMaxAge** , debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache\<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache\<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Establecimiento de los encabezados Cache-Control mediante programación
-Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenamiento en caché de CDN mediante programación al establecer la propiedad **HttpResponse.Cache** de la API de .NET. Para más información sobre la propiedad **HttpResponse.Cache** , consulte [Propiedad HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) y [Clase HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
+Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenamiento en caché de CDN mediante programación al establecer la propiedad **HttpResponse.Cache** de la API de .NET. Para más información sobre la propiedad **HttpResponse.Cache**, consulte [Propiedad HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) y [Clase HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
 
 Para almacenar en caché mediante programación el contenido de la aplicación de ASP.NET, siga estos pasos:
    1. Compruebe que el contenido esté marcado como almacenable en caché. Para ello, establezca `HttpCacheability` en `Public`. 
@@ -129,7 +129,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Prueba del encabezado Cache-Control
-Puede comprobar fácilmente la configuración de TTL de su contenido web. Con las [herramientas para desarrollador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el contenido web incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como **wget** , [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
+Puede comprobar fácilmente la configuración de TTL de su contenido web. Con las [herramientas para desarrollador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el contenido web incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtener información sobre el elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)

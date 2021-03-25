@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308779"
 ---
 # <a name="publisher-verification"></a>Verificación del editor
@@ -33,11 +33,11 @@ Esta característica es principalmente para desarrolladores que compilan aplicac
 
 ## <a name="benefits"></a>Ventajas
 La verificación del publicador proporciona las ventajas siguientes:
-- **Mayor transparencia y reducción de riesgos para los clientes** : esta funcionalidad ayuda a los clientes a comprender cuáles de las aplicaciones que se usan en sus organizaciones están publicadas por desarrolladores en los que confían. 
+- **Mayor transparencia y reducción de riesgos para los clientes**: esta funcionalidad ayuda a los clientes a comprender cuáles de las aplicaciones que se usan en sus organizaciones están publicadas por desarrolladores en los que confían. 
 
-- **Personalización de marca mejorada** : aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
+- **Personalización de marca mejorada**: aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
 
-- **Adopción empresarial más fluida** : los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
+- **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
 
 > [!NOTE]
 > A partir de noviembre de 2020, los usuarios finales ya no podrán conceder consentimiento a la mayoría de las aplicaciones de varios inquilinos recién registradas sin publicadores comprobados. Esto será efectivo para las aplicaciones registradas después del 8 de noviembre de 2020. Use OAuth 2.0 para solicitar permisos más allá del inicio de sesión básico y la lectura del perfil de usuario, y solicite consentimiento a los usuarios de inquilinos que no sean aquellos en los que está registrada la aplicación. Se mostrará una advertencia en la pantalla de consentimiento que informa a los usuarios de que estas aplicaciones son peligrosas porque proceden de publicadores no comprobados.    

@@ -6,23 +6,23 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942661"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/overview.md).
 
-Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)* . En un escenario BYOL, un proveedor de aplicaciones es responsable de conceder a los usuarios licencia para una aplicación. Los usuarios de la aplicación solo pagan por los recursos de Azure que crean, como el clúster de HDInsight y las máquinas virtuales y los nodos del clúster. Actualmente, la facturación de la aplicación no se realiza en Azure.
+Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)*. En un escenario BYOL, un proveedor de aplicaciones es responsable de conceder a los usuarios licencia para una aplicación. Los usuarios de la aplicación solo pagan por los recursos de Azure que crean, como el clúster de HDInsight y las máquinas virtuales y los nodos del clúster. Actualmente, la facturación de la aplicación no se realiza en Azure.
 
 Para más información, consulte estos artículos relacionados con la aplicación de HDInsight:
 
 * [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md) Aprenda a instalar una aplicación de HDInsight en sus clústeres.
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) Aprenda a instalar y probar aplicaciones de HDInsight personalizadas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para enviar la aplicación personalizada a Marketplace, primero [cree y pruebe su aplicación personalizada](hdinsight-apps-install-custom-applications.md).
 
 También debe registrar la cuenta de desarrollador. Para más información, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/overview.md) y [Crear una cuenta de desarrollador de Microsoft](../marketplace/overview.md).

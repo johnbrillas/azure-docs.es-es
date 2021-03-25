@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996617"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selección del tipo de instalación que se usará para Azure AD Connect
@@ -50,7 +50,7 @@ Opciones en las que puede continuar utilizando la instalación rápida:
 ## <a name="custom"></a>Personalizado
 La ruta de acceso personalizada admite muchas más opciones que la instalación rápida. Se debe usar en todos los casos donde la configuración descrita en la sección anterior para la instalación rápida no es representativa para su organización.
 
-Se debe utilizar si:
+Úsala en estos casos:
 
 - No tiene acceso a una cuenta de administrador de empresa en Active Directory.
 - Tiene más de un bosque o pretende sincronizar más de un bosque en el futuro.

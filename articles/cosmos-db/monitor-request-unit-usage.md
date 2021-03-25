@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: d6f0f30d7437b6f8ecc1d915eb3d3195f2504fec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098253"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Cómo supervisar el rendimiento o el uso de unidades de solicitud de una operación en Azure Cosmos DB
@@ -41,7 +41,7 @@ Si observa que algunas consultas están tomando más unidades de solicitud, pued
 
    :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
-1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción** , y el **grupo de recursos** requeridos. En **Tipo de recurso** , seleccione **Cuentas de Azure Cosmos DB** , elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
+1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
    :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Elección de la cuenta de Azure Cosmos DB para ver métricas":::
 
@@ -51,9 +51,9 @@ Si observa que algunas consultas están tomando más unidades de solicitud, pued
 
 ## <a name="filters-for-request-unit-usage"></a>Filtros para el uso de unidades de solicitud
 
-También puede filtrar las métricas y hacer que se muestren grafos para una propiedad **CollectionName** , **DatabaseName** , **OperationType** , **Region** , **Status** y **StatusCode** concreta. Las opciones **Agregar filtro** y **Aplicar división** permiten filtrar el uso de unidades de solicitud y agrupar las métricas.
+También puede filtrar las métricas y hacer que se muestren grafos para una propiedad **CollectionName**, **DatabaseName**, **OperationType**, **Region**, **Status** y **StatusCode** concreta. Las opciones **Agregar filtro** y **Aplicar división** permiten filtrar el uso de unidades de solicitud y agrupar las métricas.
 
-Para obtener el uso de la unidad de solicitud de cada operación en total (suma) o promedio, seleccione **Aplicar división** y elija **Tipo de operación** , y el valor de filtro tal como se muestra en la siguiente imagen:
+Para obtener el uso de la unidad de solicitud de cada operación en total (suma) o promedio, seleccione **Aplicar división** y elija **Tipo de operación**, y el valor de filtro tal como se muestra en la siguiente imagen:
 
    :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Unidades de solicitud de Cosmos DB para operaciones en Azure Monitor":::
 

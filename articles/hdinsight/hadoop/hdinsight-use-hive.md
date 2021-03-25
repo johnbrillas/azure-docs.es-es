@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944287"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
@@ -89,7 +89,7 @@ Para más información, consulte la entrada de blog [Hive Internal and External 
 
 ## <a name="user-defined-functions-udf"></a>Funciones definidas por el usuario (UDF)
 
-Hive también puede extenderse a través de **funciones definidas por el usuario (UDF)** . Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL. Para obtener un ejemplo del uso de UDF con Hive, vea los siguientes documentos:
+Hive también puede extenderse a través de **funciones definidas por el usuario (UDF)**. Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL. Para obtener un ejemplo del uso de UDF con Hive, vea los siguientes documentos:
 
 * [Utilización de una función definida por el usuario de Java con Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -132,9 +132,9 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 |---|---|
 |DROP TABLE|si la tabla ya existe, la elimina.|
 |CREATE EXTERNAL TABLE|crea una nueva tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación y formato originales.|
-|ROW FORMAT|indica a Hive cómo se da formato a los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
+|FORMATO DE FILA|indica a Hive cómo se da formato a los datos. En este caso, los campos de cada registro se separan mediante un espacio.|
 |STORED AS TEXTFILE LOCATION|indica a Hive dónde se almacenan los datos (el directorio `example/data`) y que se almacenen como texto. Los datos pueden estar en un archivo o distribuidos en varios archivos dentro del directorio.|
-|SELECT|selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]** . Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.|
+|SELECT|selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]**. Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.|
 |INPUT__FILE__NAME LIKE '%.log'|Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.|
 
 > [!NOTE]  
@@ -165,7 +165,7 @@ Estas instrucciones realizan las acciones siguientes:
 |---|---|
 |CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
 |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
-|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.|
+|INSERT OVERWRITE ... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.|
 
 > [!NOTE]  
 > A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
@@ -198,7 +198,7 @@ Puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Hi
 
 * [Administrador de conexiones de suscripción de Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para más información, consulte la documentación del [Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Para más información, consulte la documentación del [Paquete de características de Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
