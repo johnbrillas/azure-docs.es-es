@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85505603"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover datos al clúster de vFXT: ingesta paralela de datos
@@ -168,7 +168,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Crear manifiestos de archivos
 
-Después de comprender la información anterior (esto es, varios subprocesos de copia por destino, varios destinos por cliente, varios clientes por sistema de archivos de origen accesible a través de la red), tenga en cuenta esta recomendación: compile manifiestos de archivo y úselos con comandos de copia en varios clientes.
+Después de comprender la información anterior (esto es, varios subprocesos de copia por destino, varios destinos por cliente, varios clientes por sistema de archivos de origen accesible a través de la red), tenga en cuenta esta recomendación: cree manifiestos de archivos y úselos con comandos de copia en varios clientes.
 
 En este escenario se usa el comando UNIX ``find`` para crear manifiestos de archivos o directorios:
 

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo usar Azure Portal para agregar una
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270986"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creación y administración de VM reclamables en Azure DevTest Labs
@@ -44,7 +44,7 @@ Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como
    En la página del laboratorio se muestra el estado de creación de la máquina virtual; primero como **Creating** (En creación) y luego como **Running** (En ejecución), una vez que se haya iniciado la máquina virtual.
 
 > [!NOTE]
-> Si implementa máquinas virtuales de laboratorio mediante las  [plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md), puede crear máquinas virtuales reclamables estableciendo la propiedad **allowClaim** en "true" en la sección de propiedades.
+> Si implementa máquinas virtuales de laboratorio a través de [plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md), puede crear máquinas virtuales reclamables estableciendo la propiedad **allowClaim** en "true" en la sección de propiedades.
 
 
 ## <a name="using-a-claimable-vm"></a>Uso de una máquina virtual reclamable

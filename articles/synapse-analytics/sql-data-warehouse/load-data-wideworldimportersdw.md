@@ -2,21 +2,21 @@
 title: 'Tutorial: carga de datos mediante Azure Portal y SSMS'
 description: En este tutorial se utilizan Azure Portal y SQL Server Management Studio para cargar el almacenamiento de datos WideWorldImportersDW de un blob de Azure global en un grupo de SQL de Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/12/2021
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bd9d477ed20122b0706e7997ab8922dcce7a59ba
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f41d7359b8273d685d0ab3c962697ca45ff7d18f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685432"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598038"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carga de datos en un grupo de SQL de Azure Synapse Analytics
 

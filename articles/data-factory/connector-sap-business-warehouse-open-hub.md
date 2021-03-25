@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2020
 ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386686"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
@@ -21,7 +21,7 @@ ms.locfileid: "100386686"
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una instancia de SAP Business Warehouse (BW) con Open Hub. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 >[!TIP]
->Para obtener información sobre la compatibilidad general de ADF con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y guía sobre cada conector de SAP.
+>Para obtener información sobre la compatibilidad general de ADF con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y una guía sobre cada conector de SAP.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -71,7 +71,7 @@ Por lo general, el Identificador de solicitud copiado máximo se almacena en la 
 
 Para una correcta administración de la diferencia, no está permitido disponer de identificadores de solicitud de diferentes DTP en la misma tabla de Open Hub. Por lo tanto, no debe crear más de un DTP para cada destino de Open Hub (OHD). Cuando necesite la extracción completa y diferencial del mismo InfoProvider, debe crear dos OHD para el mismo InfoProvider. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector de Open Hub para SAP Business Warehouse, necesita:
 

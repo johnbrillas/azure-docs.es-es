@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741844"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863418"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -42,7 +42,7 @@ Este artículo le guía a lo largo del proceso de configuración en [Azure Porta
 
 ## <a name="basics"></a>Aspectos básicos
 
-![opciones de creación rápida personalizada de hdinsight](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="opciones de creación rápida personalizada de hdinsight":::
 
 ### <a name="project-details"></a>Detalles del proyecto
 
@@ -107,7 +107,7 @@ El nombre de usuario de SSH tiene las siguientes restricciones:
 
 ## <a name="storage"></a>Storage
 
-![Configuración de almacenamiento de clúster: Puntos de conexión compatibles con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Configuración de almacenamiento de clúster: Puntos de conexión compatibles con HDFS":::
 
 Aunque una instalación local de Hadoop usa el sistema de archivos distribuido de Hadoop (HDFS) para el almacenamiento en el clúster, en la nube se usan puntos de conexión de almacenamiento conectados al clúster. El empleo de almacenamiento en la nube significa que puede eliminar con seguridad los clústeres de HDInsight usados para el cálculo y, al mismo tiempo, conservar los datos.
 
@@ -165,7 +165,7 @@ Ambari se usa para supervisar clústeres de HDInsight, realizar cambios en la co
 
 ## <a name="security--networking"></a>Seguridad y redes
 
-![Opciones de creación de hdinsight para elegir el paquete de seguridad de la empresa](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="Opciones de creación de hdinsight para elegir el paquete de seguridad de la empresa":::
 
 ### <a name="enterprise-security-package"></a>Paquete de seguridad de la empresa
 
@@ -201,7 +201,7 @@ Para obtener más información, consulte [Identidades administradas en Azure HDI
 
 ## <a name="configuration--pricing"></a>Configuración y precios
 
-![Selección del tamaño de nodo de HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="Selección del tamaño de nodo de HDInsight":::
 
 Mientras que exista el clúster, se le facturará por el uso de nodos. La facturación se inicia una vez creado el clúster y se detiene cuando se elimina el clúster. Los clústeres no se puede desasignar ni ponerse en espera.
 
@@ -211,10 +211,10 @@ Cada tipo de clúster tiene su propio número de nodos, terminología para los n
 
 | Tipo | Nodos | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nodo principal (2), nodo de trabajo (1+) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |![Configuración del tipo de clúster de HBase en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo ZooKeeper (3) |![Configuración del tipo de clúster de Storm en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Configuración del tipo de clúster de Spark en HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Nodo principal (2), nodo de trabajo (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Nodos de clúster de Hadoop en HDInsight" border="false"::: |
+| HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Configuración del tipo de clúster de HBase en HDInsight" border="false"::: |
+| Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configuración del tipo de clúster de Storm en HDInsight" border="false"::: |
+| Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Configuración del tipo de clúster de Spark en HDInsight" border="false"::: |
 
 Para más información, vea [Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres](hdinsight-supported-node-configuration.md) en "¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?"
 
@@ -222,7 +222,7 @@ El costo de los clústeres de HDInsight viene determinado por el número de nodo
 
 Los distintos tipos de clúster tienen distintos tipos, número y tamaños de nodos:
 * Tipo de clúster predeterminado de Hadoop:
-    * Dos *nodos principales*  
+    * Dos *nodos principales*
     * Cuatro *nodos de trabajo*
 * Tipo de clúster predeterminado de Storm:
     * Dos *nodos Nimbus*

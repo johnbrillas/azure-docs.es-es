@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ae447a9577feba8b43b5b03a757ec4095ee2cb4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f5c189e63a8be3c9c46c406ab7bd0250dc75ec5
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177987"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharingcloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SharingCloud
 
@@ -26,14 +26,13 @@ En este tutorial, aprenderá a integrar SharingCloud con Azure Active Directory
 * Permitir que los usuarios puedan iniciar sesión automáticamente en SharingCloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el inicio de sesión único (SSO)?](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción, puede obtener la evaluación gratuita de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en SharingCloud.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Sapient.
+
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -46,30 +45,19 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Para configurar la integración de SharingCloud en Azure AD, será preciso que agregue SharingCloud desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-
-    ![Botón Azure Active Directory](common/select-azuread.png)
-    
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-    
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-
-    ![Botón Nueva aplicación](common/add-new-app.png)
-    
 1. En la sección **Agregar desde la galería**, escriba **SharingCloud** en el cuadro de búsqueda.
-
-    ![SharingCloud en la lista de resultados](common/search-new-app.png)
-    
 1. Seleccione **SharingCloud** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharingcloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para SharingCloud
+
+## <a name="configure-and-test-azure-ad-sso-for-sharingcloud"></a>Configuración y prueba del inicio de sesión único de Azure AD para SharingCloud
 
 Configure y pruebe el inicio de sesión único de Azure AD con SharingCloud mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SharingCloud.
 
-Para configurar y probar el inicio de sesión único de Azure AD con SharingCloud, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con SharingCloud, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -82,15 +70,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con SharingClo
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SharingCloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-    
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-    
+1. En Azure Portal, en la página de integración de la aplicación **SharingCloud**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** de **Configuración básica de SAML** para editar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -98,15 +80,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     Cargue el archivo de metadatos con el archivo XML proporcionado por SharingCloud. Póngase en contacto con el [equipo de soporte técnico de SharingCloud](mailto:support@sharingcloud.com) para obtener el archivo.
 
-    ![imagen](common/upload-metadata.png)
+    ![Captura de pantalla de la interfaz de usuario de Configuración básica de SAML con el vínculo **Cargar el archivo de metadatos** resaltado.](common/upload-metadata.png)
     
     Seleccione el archivo de metadatos proporcionado y haga clic en **Cargar**.
 
-    ![imagen](common/browse-upload-metadata.png)
+    ![Captura de pantalla de la interfaz de usuario proporcionada por el archivo de metadatos, con el icono Seleccionar archivo y el botón **Cargar** resaltados.](common/browse-upload-metadata.png)
 
 1. La aplicación SharingCloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/edit_attribute.png)
+    ![Captura de pantalla de la interfaz de usuario de Atributos de usuario con el icono de edición resaltado.](common/edit_attribute.png)
 
 1. Además de lo anterior, la aplicación SharingCloud espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -119,10 +101,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de **copia** para copiar la **dirección URL de metadatos de federación** de las opciones proporcionadas según sus requisitos.
 
     ![Dirección URL de metadatos que se va a copiar](common/copy_metadataurl.png)
-
-## <a name="configure-sharingcloud-sso"></a>Configuración del inicio de sesión único de SharingCloud
-
-Para configurar el inicio de sesión único en **SharingCloud**, debe enviar la **dirección URL de metadatos de federación** que ha copiado de Azure Portal al [equipo de soporte técnico de SharingCloud](mailto:support@sharingcloud.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -143,16 +121,14 @@ En esta sección va a permitir que B.Simon acceda a SharingCloud mediante el ini
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **SharingCloud**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-   ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-sharingcloud-sso"></a>Configuración del inicio de sesión único de SharingCloud
+
+Para configurar el inicio de sesión único en **SharingCloud**, debe enviar la **dirección URL de metadatos de federación** que ha copiado de Azure Portal al [equipo de soporte técnico de SharingCloud](mailto:support@sharingcloud.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-sharingcloud-test-user"></a>Creación de un usuario de prueba de SharingCloud
 
@@ -160,7 +136,20 @@ En esta sección se crea un usuario llamado Britta Simon en SharingCloud. Sharin
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-* Vaya directamente a la dirección URL de SharingCloud e inicie el flujo de inicio de sesión desde allí.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
+
+#### <a name="sp-initiated"></a>Iniciado por SP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de SharingCloud, donde podrá iniciar el flujo de inicio de sesión.  
+
+* Vaya directamente a la dirección URL de inicio de sesión de SharingCloud e inicie el flujo de inicio de sesión desde allí.
+
+#### <a name="idp-initiated"></a>Iniciado por IDP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de SharingCloud para la que configuró el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de SharingCloud de Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de SharingCloud para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

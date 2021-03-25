@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702511"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -29,7 +29,7 @@ Estos son los tipos de directivas de reintentos:
 
 | Tipo | Descripción |
 |------|-------------|
-| **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. |
+| **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos de *aumento exponencial* con una escala de 7,5 segundos, pero que están limitados entre 5 y 45 segundos. |
 | **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. |
 | **Intervalo fijo**  | Esta directiva espera el intervalo especificado antes de enviar la solicitud siguiente. |
 | **None**  | No volver a enviar la solicitud. |
@@ -176,7 +176,7 @@ Para asegurarse de que una acción se pueda seguir ejecutando a pesar del estado
 
 Puede personalizar el comportamiento de "ejecución posterior" de una acción para que la acción se ejecute cuando el estado de la predecesora sea `Succeeded`, `Failed`, `Skipped`, `TimedOut` o cualquiera de estos estados. Por ejemplo, para enviar un correo electrónico después de que la acción predecesora `Add_a_row_into_a_table` de Excel Online se marque como `Failed`, en lugar de `Succeeded`, siga uno de estos pasos para cambiar el comportamiento de "ejecución posterior":
 
-* En la vista de diseño, seleccione el botón de puntos suspensivos ( **...** ) y después **Configurar ejecución posterior**.
+* En la vista de diseño, seleccione el botón de puntos suspensivos (**...**) y después **Configurar ejecución posterior**.
 
   ![Configuración del comportamiento de "ejecución posterior" para una acción](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
 
@@ -263,13 +263,14 @@ Para conocer los límites en los ámbitos, consulte [Límites y configuración](
 
 ### <a name="get-context-and-results-for-failures"></a>Obtención del contexto y resultados de errores
 
-Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto.
+Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto. La [función `result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) devuelve los resultados de las acciones de nivel superior en una acción de ámbito aceptando un solo parámetro, que es el nombre del ámbito, y devolviendo una matriz que contiene los resultados de esas acciones de primer nivel. Estos objetos de acción incluyen los mismos atributos que los devueltos por la función `actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. 
 
-La función [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) proporciona contexto sobre los resultados de todas las acciones de un ámbito. La función `result()` acepta un único parámetro, que es el nombre del ámbito, y devuelve una matriz que contiene todos los resultados de acción de dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto `actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una expresión `@result()` con la propiedad `runAfter`.
+> [!NOTE]
+> La función `result()` devuelve los resultados *solo* de las acciones de primer nivel y no de acciones anidadas más profundas, como las acciones Switch o Condition.
 
-Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado de `Failed`, y para filtrar la matriz de resultados por las acciones con error, puede emparejar una expresión `@result()` con una acción [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) y un bucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle `For_each`.
+Para obtener contexto sobre las acciones que produjeron un error en un ámbito, puede usar la expresión `@result()` con el nombre del ámbito y la propiedad `runAfter`. Para filtrar la matriz devuelta a acciones cuyo estado es `Failed`, puede agregar la [acción **Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action). Para ejecutar una acción para una acción errónea devuelta, tome la matriz filtrada devuelta y use un [bucle **For each**](../logic-apps/logic-apps-control-flow-loops.md).
 
-En este ejemplo, seguido de una explicación detallada, se envía una solicitud HTTP POST con el cuerpo de respuesta de todas las acciones que produjeron un error dentro del ámbito "My_Scope":
+En este ejemplo, seguido de una explicación detallada, se envía una solicitud HTTP POST con el cuerpo de respuesta de todas las acciones que produjeron un error dentro de la acción de ámbito llamada "My_Scope":
 
 ```json
 "Filter_array": {
@@ -362,7 +363,7 @@ Para poner en práctica diferentes patrones de control de excepciones, puede usa
 
 ## <a name="set-up-azure-monitor-logs"></a>Configuración de los registros de Azure Monitor
 
-Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. [Azure Monitor](../azure-monitor/overview.md) ofrece un método sencillo de enviar todos los eventos del flujo de trabajo (incluidos todos los estados de ejecución y acción) a un [área de trabajo de Log Analytics](../azure-monitor/platform/data-platform-logs.md), a una [cuenta de almacenamiento de Azure](../storage/blobs/storage-blobs-overview.md) o a [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. [Azure Monitor](../azure-monitor/overview.md) ofrece un método sencillo de enviar todos los eventos del flujo de trabajo (incluidos todos los estados de ejecución y acción) a un [área de trabajo de Log Analytics](../azure-monitor/logs/data-platform-logs.md), a una [cuenta de almacenamiento de Azure](../storage/blobs/storage-blobs-overview.md) o a [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante Event Hubs a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo de anomalías, promedios o errores de los registros de diagnóstico. Asimismo, puede usar Stream Analytics para enviar información a otros orígenes de datos, como colas, temas, SQL, Azure Cosmos DB o Power BI.
 

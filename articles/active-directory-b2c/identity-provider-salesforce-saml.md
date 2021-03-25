@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63288bca124959463dc6ea16cb9d681c68ad00da
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448207"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488727"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante el protocolo SAML en Azure Active Directory B2C
 
@@ -60,11 +60,24 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
+      Cuando use un [dominio personalizado](custom-domain.md), use el siguiente formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      ```
+
 6. En el campo **ACS URL** (Dirección URL de ACS), escriba la siguiente dirección URL. Asegúrese de reemplazar el valor de `your-tenant` con el nombre del inquilino de Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
+
+      Cuando use un [dominio personalizado](custom-domain.md), use el siguiente formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      ```
+
 7. Desplácese hasta la parte inferior de la lista y, después, haga clic en **Guardar**.
 
 ### <a name="get-the-metadata-url"></a>Obtener la dirección URL de metadatos

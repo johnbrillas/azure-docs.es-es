@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087832"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendaciones automatizadas para Azure Cosmos DB

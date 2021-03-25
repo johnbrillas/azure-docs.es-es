@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 995956e23e211d2182159f6e61abbbf184983ab0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87101272"
 ---
 # <a name="accessing-the-azure-education-hub"></a>Acceso al Centro de Education de Azure
@@ -32,7 +32,7 @@ Para acceder al Centro de Education de Azure, ya debería haber recibido una not
    > [!IMPORTANT]
    > Confirme que está iniciando sesión con una cuenta profesional (por ejemplo, una @domain.edu de su institución). Si es correcto, seleccione primero esta opción en el lado izquierdo de la ventana. Esto abrirá una pantalla de inicio de sesión diferente.
 
-    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Abra una ventana privada del explorador." border="false":::
+    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Cuadro de diálogo de inicio de sesión de la organización." border="false":::
 
 1. Una vez que haya iniciado sesión, se le redirigirá a Azure Portal. Para buscar el Centro de Education, vaya al menú **Todos los servicios** y busque **Education**.
    La primera vez que inicie sesión, se mostrará la página Introducción.

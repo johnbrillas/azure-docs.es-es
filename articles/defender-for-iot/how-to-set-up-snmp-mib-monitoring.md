@@ -1,18 +1,14 @@
 ---
 title: Configuración de la supervisión de MIB del protocolo simple de administración de redes
 description: Puede realizar la supervisión del estado del sensor mediante SNMP. El sensor responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523828"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781677"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Configuración de la supervisión de MIB del protocolo simple de administración de redes
 
@@ -84,6 +80,6 @@ Para definir la supervisión del estado de SNMP v3:
 
 5. Seleccione **Guardar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Exportación de registros de la solución de problemas](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

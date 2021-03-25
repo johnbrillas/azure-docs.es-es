@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659631"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Uso compartido de datos mediante Azure Data Share  
@@ -112,7 +112,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Suscripción | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
+    | Subscription | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
     | Grupo de recursos | *testresourcegroup* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | Nombre | *datashareaccount* | Especifique un nombre para la cuenta del recurso compartido de datos. |

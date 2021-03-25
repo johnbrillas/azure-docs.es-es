@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.openlocfilehash: 2c693c9e972cdfc66cce0d52323c113b6006bd97
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102444771"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Go. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.

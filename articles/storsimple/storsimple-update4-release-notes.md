@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 060a52b61dcd43fe0d05b2a8ef594c0ab9f2cc9e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954059"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 4
@@ -66,7 +66,7 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 4
 
 En las tablas siguientes se proporciona un resumen de los problemas corregidos en Update 4.    
 
-| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No | Característica | Incidencia | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Conmutación por error |En la versión anterior, después de la conmutación por error, existía un error relacionado con la limpieza que se observaba en el sitio del cliente. Este problema está corregido en esta versión. |Sí |Sí |
 | 2 |Volúmenes anclados localmente |En la versión anterior, se producía un error relacionado con la creación de los volúmenes anclados localmente que podía generar errores al crear los volúmenes. La causa raíz de este problema se corrigió en esta versión. |Sí |No |

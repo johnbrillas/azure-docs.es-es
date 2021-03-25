@@ -5,22 +5,22 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c7b265118e395dde2b4b5f3959ba397d75ddac5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703412"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232195"
 ---
 # <a name="precise-answering"></a>Respuestas precisas
 
 La característica de respuestas precisas introducida en QnA Maker administrado (versión preliminar) permite que, al realizar una consulta de usuario, se obtenga la respuesta corta precisa del pasaje de mejor respuesta presente en la base de conocimiento. Esta característica utiliza un modelo de aprendizaje profundo que en tiempo de ejecución, que entiende la intención de la consulta de usuario y detecta la respuesta corta precisa en el pasaje de la respuesta, si hay una respuesta corta presente como hecho en el pasaje de la respuesta. 
 
-Esta característica está activada de forma predeterminada en el panel de pruebas, con el fin de que pueda probar la funcionalidad específica de su escenario. Esta característica es muy útil para tanto para los desarrolladores de contenido como para los usuarios finales. Ahora, no es preciso que los desarrolladores de contenido mantengan manualmente pares de QnA específicos para cada hecho presente en la knowledge base ni que el usuario final tenga que examinar todo el pasaje de la respuesta devuelto por el servicio para encontrar el hecho real que responde a la consulta del usuario. 
+Esta característica está activada de forma predeterminada en el panel de pruebas, con el fin de que pueda probar la funcionalidad específica de su escenario. Esta característica es muy útil para tanto para los desarrolladores de contenido como para los usuarios finales. Ahora, no es preciso que los desarrolladores de contenido mantengan manualmente pares de QnA específicos para cada hecho presente en la knowledge base ni que el usuario final tenga que examinar todo el pasaje de la respuesta devuelto por el servicio para encontrar el hecho real que responde a la consulta del usuario. Puede obtener [respuestas precisas a través de GenerateAnswer API](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## <a name="precise-answering-on-qna-maker-portal"></a>Respuestas precisas en el portal de QnA Maker
 
-En el portal de QnA Maker, al abrir el panel de pruebas, verá en la parte superior una opción para **mostrar la respuesta corta**. Esta opción estará seleccionada de forma predeterminada. Si escribe una consulta en el panel de pruebas, verá una respuesta corta junto con el pasaje de la respuesta, en caso de que haya una respuesta corta en el pasaje de la respuesta. 
+En el portal de QnA Maker, al abrir el panel de pruebas, verá en la parte superior una opción para **mostrar la respuesta corta**. Esta opción estará seleccionada de forma predeterminada. Si escribe una consulta en el panel de pruebas, verá una respuesta corta junto con el pasaje de la respuesta, en caso de que haya una respuesta corta en el pasaje de la respuesta.
  
 ![Panel de pruebas administrado habilitado](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515621"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Uso del servicio StorSimple Device Manager de Azure Portal para administrar directivas de copia de seguridad
@@ -38,7 +38,7 @@ La hoja **Directiva de copia de seguridad** del dispositivo StorSimple le permit
 
 La lista tabular de directivas de copia de seguridad también permite filtrar las directivas de copia de seguridad existentes por uno, o varios, de los siguientes campos:
 
-* **Nombre de directiva** : el nombre asociado con la directiva. Los distintos tipos de directivas incluyen:
+* **Nombre de la directiva**: el nombre asociado a la directiva. Los distintos tipos de directivas incluyen:
 
   * Directivas programadas, que las crea explícitamente el usuario.
   * Directivas importadas, que se crearon originalmente en el Administrador de instantáneas de StorSimple. Dichas directivas tienen una etiqueta que describe el host de Administrador de instantáneas StorSimple del que se importaron las directivas.
@@ -46,13 +46,13 @@ La lista tabular de directivas de copia de seguridad también permite filtrar la
   > [!NOTE]
   > La directivas de copia de seguridad automáticas o predeterminadas han dejado de habilitarse en el momento de la creación del volumen.
 
-* **Última copia de seguridad correcta** : la fecha y hora de la última copia de seguridad correcta que se ha realizado con esta directiva.
+* **Última copia de seguridad correcta**: la fecha y la hora de la última copia de seguridad correcta realizada con esta directiva.
 
-* **Siguiente copia de seguridad** : la fecha y hora de la siguiente copia de seguridad programada que iniciará esta directiva.
+* **Siguiente copia de seguridad**: la fecha y la hora de la siguiente copia de seguridad programada iniciada por esta directiva.
 
-* **Volúmenes** : los volúmenes asociados a la directiva. Cuando se crean copias de seguridad se agrupan todos los volúmenes asociados a una directiva de copia de seguridad.
+* **Volúmenes**: los volúmenes asociados a la directiva. Cuando se crean copias de seguridad se agrupan todos los volúmenes asociados a una directiva de copia de seguridad.
 
-* **Programaciones** : el número de programaciones asociadas a la directiva de copia de seguridad.
+* **Programaciones**: el número de programaciones asociadas a la directiva de copia de seguridad.
 
 Estas son las operaciones utilizadas con frecuencia que se pueden realizar con las directivas de copia de seguridad:
 

@@ -16,10 +16,10 @@ ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712324"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
@@ -139,9 +139,9 @@ Todos los orígenes, destinos y configuraciones de prueba que se agregan a un gr
 
 | Número de prueba | Source | Destination | Configuración de prueba |
 | --- | --- | --- | --- |
-| 1 | A | D | Config 1 |
+| 1 | Un | D | Config 1 |
 | 2 | A | D | Config 2 |
-| 3 | A | E | Config 1 |
+| 3 | Un | E | Config 1 |
 | 4 | A | E | Config 2 |
 | 5 | B | D | Config 1 |
 | 6 | B | D | Config 2 |

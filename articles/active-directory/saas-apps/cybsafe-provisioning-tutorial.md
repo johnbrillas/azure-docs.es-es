@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
 ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100527129"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: Configuración de CybSafe para el aprovisionamiento automático de usuarios
@@ -47,7 +47,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determine qué datos quiere [asignar entre Azure AD y CybSafe](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-cybsafe-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de CybSafe para admitir el aprovisionamiento con Azure AD
+## <a name="step-2-configure-cybsafe-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de CybSafe para admitir el aprovisionamiento con Azure AD
 
 1. La **URL de inquilino** para CybSafe es: `https://app.cybsafe.com/scim/v2/`. Este valor se escribe en la pestaña Aprovisionamiento de la aplicación CybSafe en Azure Portal.
 2. Inicie sesión en [CybSafe](https://app.cybsafe.com/login) con su cuenta de administrador.

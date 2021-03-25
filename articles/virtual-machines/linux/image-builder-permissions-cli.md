@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201488"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607541"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configuración de permisos del servicio Azure Image Builder mediante la CLI de Azure
 
@@ -239,7 +239,7 @@ Reemplace la configuración del marcador de posición siguiente:
 | \<Storage account container\> | El nombre del contenedor de la cuenta de almacenamiento |
 | \<Subscription ID\> | Suscripción de Azure |
 
-Para obtener más información sobre el uso de una identidad administrada asignada por el usuario, consulte [Creación de una imagen personalizada que usará una identidad administrada asignada por el usuario de Azure para tener acceso sin problemas a los archivos de Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). En la guía de inicio rápido se explica cómo crear y configurar la identidad administrada asignada por el usuario para acceder a una cuenta de almacenamiento.
+Para obtener más información sobre el uso de una identidad administrada asignada por el usuario, consulte [Creación de una imagen personalizada que usará una identidad administrada asignada por el usuario de Azure para tener acceso sin problemas a los archivos de Azure Storage](./image-builder-user-assigned-identity.md). En la guía de inicio rápido se explica cómo crear y configurar la identidad administrada asignada por el usuario para acceder a una cuenta de almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

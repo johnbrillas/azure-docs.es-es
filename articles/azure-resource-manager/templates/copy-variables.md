@@ -4,10 +4,10 @@ description: Utilice la operación de copia en una plantilla de Azure Resource M
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905900"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteración de variables en las plantillas de ARM
@@ -38,12 +38,12 @@ La propiedad `input` especifica las propiedades que desea repetir. Tiene que cre
 
 El valor de count no puede superar 800.
 
-El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API REST. Específicamente, se debe usar:
+El valor de count no puede ser un número negativo. Puede ser cero si implementa la plantilla con una versión reciente de la CLI de Azure, PowerShell o la API de REST. Concretamente, se debe usar:
 
 * Azure PowerShell **2.6** o posterior
 * CLI de Azure **2.0.74** o posterior
-* API REST versión **2019-05-10** o posterior
-* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación.
+* API de REST versión **2019-05-10** o posterior
+* Las [implementaciones vinculadas](linked-templates.md) deben usar la versión **10-05-2019** o posterior de la API para el tipo de recurso de implementación
 
 Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 

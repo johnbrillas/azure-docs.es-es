@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85980096"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copia de datos de Azure Storage Blobs a Azure Data Lake Storage Gen1
@@ -31,14 +31,14 @@ Además, puede usar la herramienta AdlCopy en dos modos diferentes:
 * **Independiente**, donde la herramienta usa recursos de Data Lake Storage Gen1 para realizar la tarea.
 * **Con una cuenta de Análisis de Data Lake**, donde las unidades asignadas a la cuenta de Análisis de Data Lake se usan para realizar la operación de copia. Puede que desee usar esta opción cuando quiera realizar las tareas de copia de forma predecible.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un contenedor de **blobs de Azure Storage** con algunos datos.
 * **Cuenta de Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* **Cuenta de Azure Data Lake Analytics (opcional)** : consulte la [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obtener instrucciones acerca de cómo crear una cuenta de Azure Data Lake Analytics.
+* **Cuenta de Azure Data Lake Analytics (opcional)**: consulte la [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obtener instrucciones acerca de cómo crear una cuenta de Azure Data Lake Analytics.
 * **Herramienta AdlCopy**. Instale la [herramienta AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxis de la herramienta AdlCopy

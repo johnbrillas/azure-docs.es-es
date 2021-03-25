@@ -4,10 +4,10 @@ description: Obtenga información sobre los pasos necesarios para habilitar los 
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578345"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo

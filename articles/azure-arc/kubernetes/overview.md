@@ -10,10 +10,10 @@ description: En este artículo se proporciona información general de Kubernetes
 keywords: Kubernetes, Arc, Azure, containers
 ms.custom: references_regions
 ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121599"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>¿Qué es Kubernetes habilitado para Azure Arc?

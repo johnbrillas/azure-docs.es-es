@@ -1,18 +1,14 @@
 ---
 title: Configuración de la alta disponibilidad
 description: Aumente la resistencia de la implementación de Defender para IoT mediante la instalación de un dispositivo de alta disponibilidad de la consola de administración local. Las implementaciones de alta disponibilidad garantizan que los sensores administrados informen continuamente a una consola de administración local activa.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 8b647d5e97439db4805a7346a02db3f845dc9e37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523896"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781660"
 ---
 # <a name="about-high-availability"></a>Acerca de la alta disponibilidad
 
@@ -149,6 +145,6 @@ Para actualizar con alta disponibilidad:
 
 3. Actualice los sensores.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Activación y configuración de la consola de administración local](how-to-activate-and-set-up-your-on-premises-management-console.md)

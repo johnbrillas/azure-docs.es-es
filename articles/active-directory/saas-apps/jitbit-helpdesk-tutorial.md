@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 26d9321f028bc8b9293e9d7d46616fff2f3b60ce
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b3fbf73ab51092f614a416355477fc552a404fd3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486877"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Jitbit Helpdesk con Azure Active Directo
 * Permitir que los usuarios inicien sesión automáticamente en Jitbit Helpdesk con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -191,8 +191,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la URL de inicio de sesión de Jitbit Helpdesk y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de Jitbit Helpdesk de Aplicaciones, accederá automáticamente a la URL de inicio de sesión de Jitbit Helpdesk. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de Jitbit Helpdesk de Aplicaciones, accederá automáticamente a la URL de inicio de sesión de Jitbit Helpdesk. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Jitbit Helpdesk, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Jitbit Helpdesk, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

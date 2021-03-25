@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938950"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865475"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Introducción a Azure Storage en HDInsight
 
@@ -24,7 +24,7 @@ Si decide proteger la cuenta de almacenamiento con las restricciones de **firewa
 
 El diagrama siguiente proporciona una panorámica de la arquitectura de HDInsight de Azure Storage:
 
-!["Arquitectura de almacenamiento para HDInsight"](./media/overview-azure-storage/storage-architecture.png "Arquitectura de almacenamiento para HDInsight")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Arquitectura de almacenamiento para HDInsight" border="false":::
 
 HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Se puede acceder a este sistema de archivos usando el URI completo, por ejemplo:
 
@@ -40,7 +40,7 @@ A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es ne
 
 * **Contenedores públicos o blobs públicos de las cuentas de almacenamiento que no se conectan a un clúster:** tiene permiso de solo lectura de los blobs de los contenedores.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Los contenedores públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Contenedores privados de las cuentas de almacenamiento que no se conectan a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat.

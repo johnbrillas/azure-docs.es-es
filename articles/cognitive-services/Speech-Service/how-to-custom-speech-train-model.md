@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373375"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491119"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 
@@ -61,7 +61,7 @@ La tabla **Entrenamiento** muestra una nueva entrada que corresponde al modelo n
 Consulte el [procedimiento](how-to-custom-speech-evaluate-data.md) para evaluar y mejorar la precisión de los modelos de Habla personalizada. Si elige probar la precisión, es importante seleccionar un conjunto de datos acústico diferente del usado para la creación del modelo para obtener una idea realista del rendimiento del modelo.
 
 > [!NOTE]
-> Los modelos base y los modelos personalizados solo se pueden usar hasta una fecha determinada (consulte [Ciclo de vida del modelo](custom-speech-overview.md#model-lifecycle)). Speech Studio muestra esta fecha en la columna **Expiración** de cada modelo y punto de conexión. Después de esa fecha, la solicitud a un punto de conexión o a la transcripción por lotes podría producir un error o revertir al modelo base.
+> Los modelos base y los modelos personalizados solo se pueden usar hasta una fecha determinada (consulte [Ciclo de vida del modelo y el punto de conexión](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio muestra esta fecha en la columna **Expiración** de cada modelo y punto de conexión. Después de esa fecha, la solicitud a un punto de conexión o a la transcripción por lotes podría producir un error o revertir al modelo base.
 >
 > Vuelva a entrenar el modelo con el modelo base más reciente para beneficiarse de las mejoras de precisión y evitar que el modelo expire.
 

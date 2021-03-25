@@ -1,70 +1,62 @@
 ---
 title: 'Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java'
-description: Configuración de los procesadores de telemetría en Azure Monitor Application Insights para Java
+description: Más información sobre cómo configurar los procesadores de telemetría en Azure Monitor Application Insights para Java
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632587"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101734577"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java
 
 > [!NOTE]
-> Esta característica aún sigue en la fase de versión preliminar.
+> La característica de procesadores de telemetría se encuentra en versión preliminar.
 
-Actualmente, el agente 3.0 de Java para Application Insights tiene las funcionalidades necesarias para procesar los datos de telemetría antes de que estos se exporten.
+Actualmente, el agente 3.0 de Java para Application Insights puede procesar los datos de telemetría antes de que estos se exporten.
 
 Estos son algunos casos de uso de los procesadores de telemetría:
- * Enmascaran datos confidenciales
- * Agregan dimensiones personalizadas condicionalmente
- * Actualizan el nombre que se usa para la agregación y la visualización en Azure Portal
- * Quitan atributos de intervalo para controlar el costo de ingestas
+ * Creación de datos confidenciales
+ * Adición de dimensiones personalizadas condicionalmente
+ * Actualizar el nombre del intervalo, que se usa para agregar telemetría similar en Azure Portal
+ * Eliminar atributos de intervalo para controlar los costos de ingestas
 
 ## <a name="terminology"></a>Terminología
 
-Antes de pasar a los procesadores de telemetría, es importante entender a qué hace referencia el término intervalo.
-
-Un intervalo es un término general para cualquiera de estas tres cosas:
+Antes de obtener información sobre los procesadores de telemetría, debe comprender el término *intervalo*. Un intervalo es un término general para:
 
 * Un solicitud entrante
 * Una dependencia saliente (por ejemplo, una llamada remota a otro servicio)
 * Una dependencia en proceso (por ejemplo, trabajo realizado por los subcomponentes del servicio)
 
-En el contexto de los procesadores de telemetría, los componentes importantes de un intervalo son:
+En el caso de los procesadores de telemetría, estos componentes de intervalo son importantes:
 
 * Nombre
 * Atributos
 
-El nombre del intervalo es el elemento mostrado principal que se usa para solicitudes y dependencias en Azure Portal.
-
-Los atributos de intervalo representan tanto propiedades estándar como personalizadas de una determinada solicitud o dependencia.
+El nombre del intervalo es el elemento mostrado principal para solicitudes y dependencias en Azure Portal. Los atributos de intervalo representan tanto propiedades estándar como personalizadas de una determinada solicitud o dependencia.
 
 ## <a name="telemetry-processor-types"></a>Tipos de procesadores de telemetría
 
-Actualmente existen dos tipos de procesadores de telemetría.
+Actualmente, los dos tipos de procesadores de telemetría son procesadores de atributos y procesadores de intervalos.
 
-#### <a name="attribute-processor"></a>Procesador de atributos
+Un procesador de atributos puede insertar, actualizar, eliminar o aplicar algoritmos hash a atributos.
+También puede usar una expresión regular para extraer uno o más atributos nuevos de un atributo existente.
 
-Un procesador de atributos tiene la capacidad de insertar, actualizar, eliminar o aplicar algoritmos hash a atributos.
-También puede extraer (mediante una expresión regular) uno o más atributos nuevos de un atributo existente.
-
-#### <a name="span-processor"></a>Procesador de intervalos
-
-Un procesador de intervalos tiene la capacidad de actualizar el nombre de la telemetría.
-También puede extraer (mediante una expresión regular) uno o más atributos nuevos del nombre del intervalo.
+Un procesador de intervalos puede actualizar el nombre de la telemetría.
+También puede usar una expresión regular para extraer uno o más atributos nuevos del nombre del intervalo.
 
 > [!NOTE]
-> Tenga en cuenta que actualmente los procesadores de telemetría solo procesan atributos de tipo cadena y no de tipo booleano o numérico.
+> Actualmente, los procesadores de telemetría solo procesan atributos de tipo cadena. No procesan atributos de tipo booleano o numérico.
 
 ## <a name="getting-started"></a>Introducción
 
-Cree un archivo de configuración denominado `applicationinsights.json` y colóquelo en el mismo directorio que `applicationinsights-agent-*.jar`, con la siguiente plantilla.
+Para empezar, cree un archivo de configuración denominado *applicationinsights.json*. Guárdelo en el mismo directorio que *applicationinsights-agent-\*.jar*. Use la siguiente plantilla.
 
 ```json
 {
@@ -88,29 +80,27 @@ Cree un archivo de configuración denominado `applicationinsights.json` y colóq
 }
 ```
 
-## <a name="includeexclude-criteria"></a>Criterios de inclusión o exclusión
+## <a name="include-criteria-and-exclude-criteria"></a>Criterios de inclusión y de exclusión
 
 Tanto los procesadores de atributos como los procesadores de intervalos admiten criterios opcionales `include` y `exclude`.
-Un procesador solo se aplicará a los intervalos que coincidan con sus criterios `include` (si se proporcionan) _y_ que no coincidan con sus criterios `exclude` (si se proporcionan).
+Un procesador solo se aplica a los intervalos que coincidan con sus criterios `include` (si se proporcionan) _y_ que no coincidan con sus criterios `exclude` (si se proporcionan).
 
-Para configurar esta opción, en `include` o `exclude`, al menos son necesarios un elemento `matchType` y uno de estos dos: `spanNames` o `attributes`.
-La configuración de inclusión o exclusión permite especificar más de una condición.
+Para configurar esta opción, en `include` o `exclude` (o ambos), especifique al menos un `matchType` y `spanNames` o `attributes`.
+La configuración de inclusión-exclusión permite más de una condición especificada.
 Todas las condiciones especificadas deben evaluarse en true para que se produzca una coincidencia. 
 
-**Campo obligatorio**: 
-* `matchType` controla cómo se interpretan los elementos de las matrices `spanNames` y `attributes`. Los valores posibles son `regexp` o `strict`. 
+* **Campo obligatorio**: `matchType` controla cómo se interpretan los elementos de las matrices `spanNames` y `attributes`. Los valores posibles son `regexp` y `strict`. 
 
-**Campos opcionales**: 
-* `spanNames` debe coincidir con al menos uno de los elementos. 
-* `attributes` especifica la lista de atributos con la que coincidir. Todos estos atributos deben coincidir exactamente para que se produzca una coincidencia.
-
+* **Campos opcionales**: 
+    * `spanNames` debe coincidir con al menos uno de los elementos. 
+    * `attributes` especifica la lista de atributos con la que hay que coincidir. Todos estos atributos deben coincidir exactamente para que se produzca una coincidencia.
+    
 > [!NOTE]
 > Si se especifican `include` y `exclude`, se comprobarán las propiedades `include` antes que las propiedades `exclude`.
 
-#### <a name="sample-usage"></a>Ejemplo de uso
+### <a name="sample-usage"></a>Ejemplo de uso
 
 ```json
-
 "processors": [
   {
     "type": "attribute",
@@ -143,15 +133,20 @@ Todas las condiciones especificadas deben evaluarse en true para que se produzca
   }
 ]
 ```
-Para más información, consulte la documentación sobre [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
+Para más información, consulte los [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="attribute-processor"></a>Procesador de atributos
 
-El procesador de atributos modifica los atributos de un intervalo. Opcionalmente, admite la capacidad de incluir o excluir intervalos. Toma una lista de acciones que se realizan en el orden especificado en el archivo de configuración. Las acciones admitidas son:
+El procesador de atributos modifica los atributos de un intervalo. Puede admitir la posibilidad de incluir o excluir intervalos. Toma una lista de acciones que se realizan en el orden especificado en el archivo de configuración. El procesador admite estas acciones:
 
+- `insert`
+- `update`
+- `delete`
+- `hash`
+- `extract`
 ### `insert`
 
-Inserta un nuevo atributo en intervalos en los que la clave aún no existe.   
+La acción `insert` inserta un nuevo atributo en intervalos en los que la clave aún no existe.   
 
 ```json
 "processors": [
@@ -167,14 +162,14 @@ Inserta un nuevo atributo en intervalos en los que la clave aún no existe.
   }
 ]
 ```
-Se requieren los siguientes elementos para la acción `insert`:
-  * `key`
-  * uno de estos valores: `value`o `fromAttribute`
-  * `action`:`insert`
+La acción `insert` requiere la siguiente configuración:
+* `key`
+* `value` o `fromAttribute`
+* `action`: `insert`
 
 ### `update`
 
-actualiza un atributo en intervalos en los que la clave existe
+La acción `update` actualiza un atributo en intervalos en los que la clave ya existe.
 
 ```json
 "processors": [
@@ -190,15 +185,15 @@ actualiza un atributo en intervalos en los que la clave existe
   }
 ]
 ```
-Se requieren los siguientes elementos para la acción `update`.
-  * `key`
-  * uno de estos valores: `value`o `fromAttribute`
-  * `action`:`update`
+La acción `update` requiere la siguiente configuración:
+* `key`
+* `value` o `fromAttribute`
+* `action`: `update`
 
 
 ### `delete` 
 
-elimina un atributo de un intervalo
+La acción `delete` elimina un atributo de un intervalo.
 
 ```json
 "processors": [
@@ -213,13 +208,13 @@ elimina un atributo de un intervalo
   }
 ]
 ```
-Se requieren los siguientes elementos para la acción `delete`.
-  * `key`
-  * `action`: `delete`
+La acción `delete` requiere la siguiente configuración:
+* `key`
+* `action`: `delete`
 
 ### `hash`
 
-aplica el algoritmo hash (SHA1) a un valor de atributo existente
+La acción `hash` aplica un algoritmo hash (SHA1) a un valor de atributo existente.
 
 ```json
 "processors": [
@@ -234,16 +229,16 @@ aplica el algoritmo hash (SHA1) a un valor de atributo existente
   }
 ]
 ```
-Se requieren los siguientes elementos para la acción `hash`.
+La acción `hash` requiere la siguiente configuración:
 * `key`
-* `action` : `hash`
+* `action`: `hash`
 
 ### `extract`
 
 > [!NOTE]
-> Esta característica solo está disponible en la versión 3.0.2 y versiones posteriores.
+> La característica `extract` solo está disponible en la versión 3.0.2 y posteriores.
 
-Usa una regla de expresión regular para extraer valores de la clave de entrada a las claves de destino especificadas en la regla. Si ya existe una de las claves de destino, se anulará. Se comporta de manera similar a la configuración `toAttributes` del [procesador de intervalo](#extract-attributes-from-span-name) con el atributo existente como origen.
+La acción `extract` extrae valores mediante una regla de expresión regular de la clave de entrada a las claves de destino especificadas en la regla. Si ya existe una de las claves de destino, se anula. Esta acción se comporta como la configuración del [procesador de intervalo](#extract-attributes-from-the-span-name) `toAttributes`, donde el atributo existente es el origen.
 
 ```json
 "processors": [
@@ -259,28 +254,24 @@ Usa una regla de expresión regular para extraer valores de la clave de entrada 
   }
 ]
 ```
-Se requieren los siguientes elementos para la acción `extract`.
+La acción `extract` requiere la siguiente configuración:
 * `key`
 * `pattern`
-* `action` : `extract`
+* `action`: `extract`
 
-Para más información, consulte la documentación sobre [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
+Para más información, consulte los [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="span-processor"></a>Procesador de intervalos
 
-El procesador de intervalos modifica el nombre del intervalo o los atributos de un intervalo en función del nombre del intervalo. Opcionalmente, admite la capacidad de incluir o excluir intervalos.
+El procesador de intervalos modifica el nombre del intervalo o los atributos de un intervalo en función del nombre del intervalo. Puede admitir la posibilidad de incluir o excluir intervalos.
 
 ### <a name="name-a-span"></a>Asignación de un nombre para un intervalo
 
-Se requiere la configuración siguiente como parte de la sección de nombre:
+La sección `name` requiere la configuración `fromAttributes`. Los valores de estos atributos se utilizan para crear un nuevo nombre, concatenado en el orden que la configuración especifica. El procesador cambiará el nombre del intervalo solo si todos estos atributos están presentes en él.
 
-* `fromAttributes`: el valor de atributo de las claves se usa para crear un nuevo nombre en el orden especificado en la configuración. Todas las claves de atributo deben especificarse en el intervalo para que el procesador cambie su nombre.
-
-La configuración siguiente se puede configurar de forma opcional:
-
-* `separator`: una cadena, que se especifica, se usará para dividir los valores
+La configuración `separator` es opcional. Esta configuración es una cadena. Se especifica para dividir los valores.
 > [!NOTE]
-> Si el cambio de nombre depende de los atributos modificados por el procesador de atributos, asegúrese de que el procesador de intervalos se especifica después del procesador de atributos en la especificación de canalización.
+> Si el cambio de nombre depende del procesador de atributos para modificar los atributos, asegúrese de que el procesador de intervalos se especifica después del procesador de atributos en la especificación de canalización.
 
 ```json
 "processors": [
@@ -297,16 +288,26 @@ La configuración siguiente se puede configurar de forma opcional:
 ] 
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extracción de atributos del nombre del intervalo
+### <a name="extract-attributes-from-the-span-name"></a>Extracción de atributos del nombre del intervalo
 
-Toma una lista de expresiones regulares con las que va a coincidir el nombre del intervalo y para extraer atributos de la misma en función de las subexpresiones. Se debe especificar en la sección `toAttributes`.
+En la sección `toAttributes` se enumeran las expresiones regulares con las que tiene que coincidir el nombre del intervalo. Extrae los atributos basados en subexpresiones.
 
-Se requiere la siguiente configuración:
+La configuración `rules` es obligatoria. Esta configuración muestra las reglas que se usan para extraer valores de atributo del nombre del intervalo. 
 
-`rules`: una lista de reglas para extraer valores de atributo del nombre del intervalo. Los valores del nombre del intervalo se reemplazan por los nombres de atributo extraídos. Cada regla de la lista es una cadena de patrón de expresión regular. El nombre del intervalo se comprueba con la expresión regular. Si la expresión regular coincide, todas las subexpresiones con nombre de la expresión regular se extraen como atributos y se agregan al intervalo. Cada nombre de subexpresión se convierte en un nombre de atributo y la parte que coincide con la subexpresión se convierte en el valor de atributo. La parte coincidente del nombre del intervalo se reemplaza por el nombre de atributo extraído. Si los atributos ya existen en el intervalo, se sobrescribirán. El proceso se repite para todas las reglas en el orden en que se especifican. Cada regla subsiguiente funciona en el nombre del intervalo que es la salida después de procesar la regla anterior.
+Los valores del nombre del intervalo se reemplazan por los nombres de atributo extraídos. Cada regla de la lista es una cadena de patrón de expresión regular (regex). 
+
+Aquí se muestra cómo se reemplazan los valores por los nombres de atributo extraídos:
+
+1. El nombre del intervalo se comprueba con la expresión regular. 
+1. Si la expresión regular coincide, todas las subexpresiones con nombre de la expresión regular se extraen como atributos y se agregan al intervalo. 
+1. Los atributos extraídos se agregan al intervalo. 
+1. Cada nombre de subexpresión se convierte en un nombre de atributo. 
+1. La parte que coincide con la subexpresión se convierte en el valor de atributo. 
+1. La parte coincidente del nombre del intervalo se reemplaza por el nombre de atributo extraído. Si los atributos ya existen en el intervalo, se sobrescriben. 
+ 
+El proceso se repite para todas las reglas en el orden en que se especifican. Cada regla subsiguiente funciona en el nombre del intervalo que es la salida después de procesar la regla anterior.
 
 ```json
-
 "processors": [
   {
     "type": "span",
@@ -324,18 +325,18 @@ Se requiere la siguiente configuración:
 
 ```
 
-## <a name="list-of-attributes"></a>Lista de atributos
+## <a name="common-span-attributes"></a>Atributos de intervalo comunes
 
-A continuación se muestra una lista de algunos atributos de intervalo comunes que se pueden usar en los procesadores de telemetría.
+En esta sección se enumeran algunos atributos de intervalo comunes que los procesadores de telemetría pueden usar.
 
 ### <a name="http-spans"></a>Intervalos HTTP
 
 | Atributo  | Tipo | Descripción | 
 |---|---|---|
 | `http.method` | string | Método de solicitud HTTP.|
-| `http.url` | string | URL de solicitud HTTP completa con el formato `scheme://host[:port]/path?query[#fragment]`. Normalmente, el fragmento no se transmite a través de HTTP, aunque si se conoce, debe estar incluido.|
+| `http.url` | string | URL de solicitud HTTP completa con el formato `scheme://host[:port]/path?query[#fragment]`. Normalmente, el fragmento no se transmite a través de HTTP. Pero si el fragmento es conocido, se debe incluir.|
 | `http.status_code` | number | [Código de estado de respuesta HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Tipo de protocolo HTTP usado. |
+| `http.flavor` | string | Tipo de protocolo HTTP. |
 | `http.user_agent` | string | Valor del encabezado [User-Agent de HTTP](https://tools.ietf.org/html/rfc7231#section-5.5.3) enviado por el cliente. |
 
 ### <a name="jdbc-spans"></a>Intervalos de JDBC
@@ -343,7 +344,7 @@ A continuación se muestra una lista de algunos atributos de intervalo comunes q
 | Atributo  | Tipo | Descripción  |
 |---|---|---|
 | `db.system` | string | Identificador del producto del sistema de administración de bases de datos (DBMS) que se va a usar. |
-| `db.connection_string` | string | Cadena de conexión usada para conectarse a la base de datos. Se recomienda quitar las credenciales incrustadas.|
+| `db.connection_string` | string | Cadena de conexión que se usa para conectarse a la base de datos. Se recomienda quitar las credenciales insertadas.|
 | `db.user` | string | Nombre de usuario para acceder a la base de datos. |
-| `db.name` | string | Este atributo se usa para informar sobre el nombre de la base de datos a la que se accederá. En el caso de los comandos que cambian la base de datos, debe establecerse en la base de datos de destino (incluso si se produce un error en el comando).|
-| `db.statement` | string | Instrucción de base de datos que se ejecutará.|
+| `db.name` | string | La cadena se usa para informar sobre el nombre de la base de datos a la que se va a acceder. En el caso de los comandos que cambian la base de datos, esta cadena debe establecerse en la base de datos de destino, incluso si se produce un error en el comando.|
+| `db.statement` | string | Instrucción de base de datos que se está ejecutando.|

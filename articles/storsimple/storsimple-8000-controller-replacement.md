@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514084"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Reemplazar un módulos de controladores en el dispositivo StorSimple
@@ -120,7 +120,7 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
    2. ¿Es parte del clúster?
    3. ¿Se está ejecutando el controlador del mismo nivel y está en el clúster?
       
-      Si ninguna de estas condiciones se cumple, el controlador busca la última copia de seguridad diaria más reciente (ubicada en **nonDOMstorage** de la unidad S). El controlador copia la instantánea más reciente del VHD de la copia de seguridad.
+      Si no se cumple ninguna de estas condiciones, el controlador busca la última copia de seguridad diaria (ubicada en **nonDOMstorage** en la unidad S). El controlador copia la instantánea más reciente del VHD de la copia de seguridad.
 2. El controlador en la ranura 0 utiliza la instantánea para crear una imagen propia.
 3. Mientras tanto, el controlador en la ranura 1 espera el controlador 0 para completar la creación de imágenes e iniciarse.
 4. Una vez que se inicia el controlador 0, el controlador 1 detecta el clúster creado por el controlador 0, que activa la lógica de reemplazo de un único controlador. Para más información, consulte la [lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
@@ -153,7 +153,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
    4. Después de que el primer controlador se reinicie y se encuentre en un estado correcto, el sistema estará en ejecución.
       
       > [!NOTE]
-      > Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en 2,5 horas después de haber iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
+      > Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en el plazo de 2,5 horas a partir del comienzo de la sustitución del controlador, [póngase en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
      
 ## <a name="remove-a-controller"></a>Quitar un controlador
 Utilice el siguiente procedimiento para quitar un módulo defectuoso del controlador del dispositivo StorSimple.
@@ -166,7 +166,7 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
 1. Sujete el pestillo del módulo entre el pulgar y el índice.
 2. Apriete suavemente el pulgar y el índice juntos para liberar el pestillo del controlador.
    
-    ![Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![ Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberación del pestillo del controlador
 3. Use el pestillo como asa para deslizar el controlador hacia afuera del chasis.

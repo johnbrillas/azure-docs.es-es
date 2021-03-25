@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: b72538c61d1a68bca655b0d9529f654068727f86
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101696067"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>Registro y examen de un origen de SAP ECC (versión preliminar)
@@ -29,7 +29,7 @@ El origen de SAP ECC admite un **examen completo** para extraer metadatos de un
 
 2.  Asegúrese de que el [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4.  Descargue el [conector de SAP para Microsoft.NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) de 64 bits del sitio web de SAP\' e instálelo en la máquina del entorno de ejecución de integración autohospedado. Al instalarlo, asegúrese de seleccionar la opción **Install Assemblies to GAC** (Instalar ensamblados en GAC) en la ventana **Optional setup steps** (Pasos de configuración opcionales).
 

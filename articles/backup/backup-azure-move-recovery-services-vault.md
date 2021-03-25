@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4f75bec533181b29625fb0a10cc26d03f2875036
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325781"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466378"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -23,7 +23,7 @@ Se admiten todas las regiones públicas y soberanas, excepto el Centro de Franci
 
 - Durante el traslado de almacén entre grupos de recursos, los grupos de recursos de origen y destino están bloqueados para evitar las operaciones de escritura y eliminación. Para más información, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Solo la suscripción del administrador tiene los permisos para mover un almacén.
-- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado.
+- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado. Para trasladar un almacén a un directorio de Azure AD diferente, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md) y [Preguntas frecuentes del almacén de Recovery Services](backup-azure-backup-faq.md#recovery-services-vault).
 - Debe tener permiso para realizar operaciones de escritura en el grupo de recursos de destino.
 - El traslado del almacén solo cambia el grupo de recursos. El almacén de Recovery Services existirá en la misma ubicación y no se puede cambiar.
 - Solo puede trasladar un almacén de Recovery Services por región cada vez.

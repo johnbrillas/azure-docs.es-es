@@ -4,10 +4,10 @@ description: En este artículo se describe cómo puede configurar Container Insi
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: d2692b4a634d60ef62339f68277591d711260712
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711253"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>Configuración de clústeres híbridos de Kubernetes con Container Insights

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
 ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121532"
 ---
 # <a name="visualize-data"></a>Visualización de datos
@@ -38,7 +38,7 @@ Para obtener acceso a las opciones del gráfico:
    |--|--| 
    | Tipo de gráfico | La función ```display``` admite una amplia gama de tipos de gráficos, como gráficos de barras, gráficos de dispersión, gráficos de líneas, etc. |
    | Clave | Especificar el rango de valores para el eje x.|
-   | Valor | Especificar el rango de valores para los valores del eje y. |
+   | Value | Especificar el rango de valores para los valores del eje y. |
    | Grupo de series | Se usa para determinar los grupos de la agregación. | 
    | Agregación | Método para agregar datos en la visualización.| 
    

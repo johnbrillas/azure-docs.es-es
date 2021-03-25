@@ -3,14 +3,15 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104814"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702885"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
+
 
 Azure Policy puede auditar la configuración dentro de un equipo, tanto para las máquinas que se ejecutan en Azure como para las [conectadas a Arc](../../../azure-arc/servers/overview.md). La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
 
@@ -20,13 +21,15 @@ Azure Policy puede auditar la configuración dentro de un equipo, tanto para las
 
 En este momento, la mayoría de definiciones de directivas de configuración de invitado de Azure Policy solo realiza la auditoría de la configuración dentro de la máquina. No se aplica a configuraciones. La excepción es una directiva integrada [a la que se hace referencia a continuación](#applying-configurations-using-guest-configuration).
 
+[Hay disponible un tutorial de vídeo de este documento](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Habilitar configuración de invitado
 
 Para auditar el estado de las máquinas de su entorno, incluidas las de Azure y las conectadas a Arc, revise los detalles siguientes.
 
 ## <a name="resource-provider"></a>Proveedor de recursos
 
-Para poder usar Guest Configuration debe registrar el proveedor de recursos. El proveedor de recursos se registra automáticamente si la asignación de una directiva de configuración de invitado se realiza a través del portal. Puede registrarse manualmente mediante el [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o la [CLI de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Para poder usar Guest Configuration debe registrar el proveedor de recursos. Si la asignación de una directiva de configuración de invitado se realiza en el portal, o si la suscripción está inscrita en Azure Security Center, el proveedor de recursos se registra automáticamente. Puede registrarse manualmente mediante el [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o la [CLI de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Requisitos de implementación de Azure Virtual Machines
 
@@ -62,13 +65,13 @@ Las definiciones de directivas de configuración de invitado son inclusivas de n
 
 |Publicador|Nombre|Versiones|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 y versiones posteriores|
-|Microsoft|Windows Server|2012 y versiones posteriores|
+|Canonical|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Cliente Windows|Windows 10|
-|OpenLogic|CentOS|7.3 y versiones posteriores|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Las definiciones de directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
 
@@ -116,7 +119,24 @@ Las definiciones de directivas **AuditIfNotExists** no devolverán resultados de
 > [!IMPORTANT]
 > En una versión anterior de Guest Configuration, una iniciativa debía combinar las definiciones **DeployIfNoteExists** y **AuditIfNotExists**. Las definiciones **DeployIfNotExists** ya no son necesarias. Las definiciones e iniciativas se etiquetan como `[Deprecated]`, pero las asignaciones existentes seguirán funcionando. Para obtener más información, consulte la entrada de blog: [Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy usa la propiedad **complianceStatus** de los proveedores de recursos de Guest Configuration para notificar el cumplimiento en el nodo **Compliance**. Para más información, vea [Obtención de datos de cumplimiento](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>¿Qué es una asignación de invitado?
+
+Cuando se asigna una instancia de Azure Policy, si se encuentra en la categoría "Configuración de invitado", se incluyen metadatos para describir una asignación de invitado.
+Puede pensar en una asignación de invitado como un vínculo entre una máquina y un escenario de Azure Policy.
+Por ejemplo, el fragmento de código siguiente asocia la configuración de línea de base de Windows de Azure con la versión mínima `1.0.0` a cualquier máquina en el ámbito de la directiva. De forma predeterminada, la asignación de invitado solo realizará una auditoría de la máquina.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+El servicio de configuración de invitado crea automáticamente las asignaciones de invitado por cada máquina. El tipo de recurso es `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy usa la propiedad **complianceStatus** del recurso de asignación de invitado para informar del estado de cumplimiento. Para más información, vea [Obtención de datos de cumplimiento](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoría de la configuración del sistema operativo siguiendo las líneas de base del sector
 
@@ -201,6 +221,12 @@ Hay ejemplos de directivas integradas de la configuración de invitado disponibl
 - [Definiciones de directivas integradas: configuración de invitado](../samples/built-in-policies.md#guest-configuration)
 - [Iniciativas integradas: configuración de invitado](../samples/built-in-initiatives.md#guest-configuration)
 - [Repositorio de GitHub de ejemplos de Azure Policy](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Introducción en vídeo
+
+La siguiente información general de la configuración de invitado de Azure Policy es de las charlas de ITOps de 2021.
+
+[Control de las líneas de base en entornos de servidor híbridos con la configuración de invitado de Azure Policy](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

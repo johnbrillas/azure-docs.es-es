@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9ae06565039e53c0096ff0541f7b28a5b041d9e8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940472"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864557"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Análisis de registros de telemetría de Application Insights con Apache Spark en HDInsight
 
@@ -18,7 +18,7 @@ Aprenda a usar [Apache Spark](https://spark.apache.org/) en HDInsight para anali
 
 [Application Insights de Visual Studio](../../azure-monitor/app/app-insights-overview.md) es un servicio de análisis que supervisa sus aplicaciones web. Los datos de telemetría que Application Insights genera se pueden exportar a Azure Storage. Una vez que los datos se encuentren en Azure Storage, se puede usar HDInsight para analizarlos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una aplicación configurada para usar Application Insights.
 
@@ -36,7 +36,7 @@ Se han utilizado los siguientes recursos para el desarrollo y pruebas de este do
 
 El siguiente diagrama muestra la arquitectura de servicio de este ejemplo:
 
-![Los datos fluyen desde Application Insights al almacenamiento de blobs y después a Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Los datos fluyen desde Application Insights al almacenamiento de blobs y después a Spark" border="false":::
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -372,9 +372,9 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 Para más ejemplos de uso de Apache Spark para trabajar con datos y servicios de Azure, consulte los siguientes documentos:
 
-* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Para obtener información sobre cómo crear y ejecutar aplicaciones de Spark, consulte los siguientes documentos:

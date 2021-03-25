@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92544535"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Proveedor de estado de sesión de ASP.NET para Azure Cache for Redis
@@ -22,7 +22,7 @@ No suele ser práctico evitar almacenar algún tipo de estado para una sesión d
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Almacenamiento del estado de sesión ASP.NET en la memoria caché
 
-Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet de estado de sesión de Azure Cache for Redis, en el menú **Herramientas** , haga clic en **Administrador de paquetes NuGet** y en **Consola del Administrador de paquetes** .
+Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet de estado de sesión de Azure Cache for Redis, en el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y en **Consola del Administrador de paquetes**.
 
 Ejecute el siguiente comando desde la ventana `Package Manager Console`.
     
@@ -83,9 +83,9 @@ En la sección comentada se proporciona un ejemplo de los atributos y la configu
 Configure los atributos con los valores de la hoja de la caché en el Portal de Microsoft Azure y configure los demás valores según prefiera. Para obtener instrucciones acerca de cómo acceder a las propiedades de la caché, consulte [Configuración de Azure Cache for Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** : especifique el punto de conexión de la caché.
-* **puerto** : use el puerto no TLS/SSL o el puerto TLS/SSL, según la configuración de TLS.
+* **puerto**: use el puerto no TLS/SSL o el puerto TLS/SSL, según la configuración de TLS.
 * **accessKey** : use la clave primaria o secundaria para la caché.
-* **ssl** : true si desea proteger las comunicaciones de la caché o el cliente con TLS; de lo contrario, false. Asegúrese de especificar el puerto correcto.
+* **ssl**: true si desea proteger las comunicaciones de la caché o el cliente con TLS; de lo contrario, false. Asegúrese de especificar el puerto correcto.
   * El puerto no TLS está deshabilitado de forma predeterminada para las cachés nuevas. Especifique true en este valor para usar el puerto TLS. Para más información sobre cómo habilitar el puerto no TLS, vea la sección [Puertos de acceso](cache-configure.md#access-ports) del tema de [Configuración de caché](cache-configure.md).
 * **throwOnError** : true si quiere que se produzca una excepción en caso de error; false si quiere que la operación devuelva un error silencioso. Para comprobar si hay un error, revise la propiedad estática Microsoft.Web.Redis.RedisSessionStateProvider.LastException. El valor predeterminado es true.
 * **retryTimeoutInMilliseconds** : durante este intervalo, especificado en milisegundos, se reintenta realizar las operaciones que generan errores. El primer reintento se produce transcurridos 20 milisegundos y, después, se reintenta cada segundo hasta que el intervalo retryTimeoutInMilliseconds expira. Inmediatamente después de este intervalo, la operación se reintenta una última vez. Si aun así no funciona, se devuelve una excepción al autor de la llamada, en función de la configuración de throwOnError. El valor predeterminado es 0, lo que significa que no hay reintentos.
@@ -93,7 +93,7 @@ Configure los atributos con los valores de la hoja de la caché en el Portal de 
 * **applicationName`{<Application Name>_<Session ID>}_Data`: las claves se almacenan en Redis como** . Este esquema de nomenclatura permite que varias aplicaciones compartan la misma instancia de Redis. Este parámetro es opcional y, si no se especifica, se usa un valor predeterminado.
 * **connectionTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de connectTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de connectTimeout, que es 5000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de syncTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de syncTimeout, que es 1000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType** : esta opción permite especificar la serialización personalizada del contenido de la sesión que se envía a Redis. El tipo especificado debe implementar `Microsoft.Web.Redis.ISerializer` y debe declarar el constructor sin parámetros público. De forma predeterminada, se usa `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`.
+* **redisSerializerType**: esta opción permite especificar la serialización personalizada del contenido de la sesión que se envía a Redis. El tipo especificado debe implementar `Microsoft.Web.Redis.ISerializer` y debe declarar el constructor sin parámetros público. De forma predeterminada, se usa `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`.
 
 Para obtener más información sobre estas propiedades, consulte el anuncio de entrada de blog original en [Announcing ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)(Anuncio de proveedor de estado de sesión de ASP.NET para Redis).
 
