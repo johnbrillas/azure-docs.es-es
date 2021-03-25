@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo Azure DevTest Labs usa direcciones
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484101"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Direcciones IP compartidas en Azure DevTest Labs
@@ -20,7 +20,7 @@ Cuando se crea un laboratorio, lo hace en una subred de una red virtual.  De for
 
 ![Nueva subred de laboratorio](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Para habilitar esta opción en laboratorios existentes, seleccione **Configuration and policies (Directivas y configuración) > Redes virtuales**. Después, seleccione una red virtual de la lista y elija **HABILITAR IP PÚBLICA COMPARTIDA**  para la subred seleccionada. También puede deshabilitar esta opción en cualquier laboratorio si no quiere compartir una dirección IP pública en las máquinas virtuales del laboratorio.
+Para habilitar esta opción en laboratorios existentes, seleccione **Configuration and policies (Directivas y configuración) > Redes virtuales**. Después, seleccione una red virtual de la lista y elija **HABILITAR IP PÚBLICA COMPARTIDA** para la subred seleccionada. También puede deshabilitar esta opción en cualquier laboratorio si no quiere compartir una dirección IP pública en todas las máquinas virtuales del laboratorio.
 
 Las máquinas virtuales creadas en este laboratorio usarán una dirección IP compartida de forma predeterminada.  Al crear la máquina virtual, este valor se puede encontrar en la página **Configuración avanzada**, en **Configuración de dirección IP**.
 
@@ -30,7 +30,7 @@ Las máquinas virtuales creadas en este laboratorio usarán una dirección IP co
 - **Público:** todas las máquinas virtuales que se crean tienen su propia dirección IP y se crean en su propio grupo de recursos.
 - **Privado:** todas las máquinas virtuales que se crean usan una dirección IP privada. No es posible conectarse a estas máquinas virtuales directamente desde Internet con Escritorio remoto.
 
-Siempre que se agrega una máquina virtual con dirección IP compartida habilitada a la subred, DevTest Labs la agrega automáticamente a un equilibrador de carga y asigna un número de puerto TCP en la dirección IP pública, que se reenvía al puerto RDP de la máquina virtual.  
+Siempre que se agrega una máquina virtual con la dirección IP compartida a la subred, DevTest Labs agrega automáticamente la máquina virtual a un equilibrador de carga y le asigna un número de puerto TCP en la dirección IP pública, que se reenvía al puerto RDP de la máquina virtual.  
 
 ## <a name="using-the-shared-ip"></a>Uso de la dirección IP compartida
 

@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fa1b542c54fc962f8c12a2142884c677afb259
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081243"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674655"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Anotación de orígenes de datos en Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>Introducción
 
@@ -60,5 +62,5 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con Data Catalog, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal de Data Catalog.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.

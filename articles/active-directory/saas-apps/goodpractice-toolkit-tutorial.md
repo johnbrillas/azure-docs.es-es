@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92448459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutorial: Integración de Azure Active Directory con Mind Tools Toolkit
@@ -50,15 +50,15 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 Para configurar la integración de Mind Tools Toolkit en Azure AD, será preciso que agregue Mind Tools Toolkit desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Mind Tools Toolkit** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Mind Tools Toolkit** en el cuadro de búsqueda.
 1. Seleccione **Mind Tools Toolkit** en los resultados de la búsqueda y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección configurará y probará el inicio de sesión único de Azure AD con Mind Tools Toolkit mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Mind Tools Toolkit.
+En esta sección configurará y probará el inicio de sesión único de Azure AD con Mind Tools Toolkit mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Mind Tools Toolkit.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mind Tools Toolkit, complete los siguientes bloques de creación:
 
@@ -73,28 +73,28 @@ Para configurar y probar el inicio de sesión único de Azure AD con Mind Tools
 
 En esta sección, va a configurar el inicio de sesión único de Azure AD con Mind Tools Toolkit mediante estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Mind Tools Toolkit** , seleccione **Inicio de sesión único** .
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Mind Tools Toolkit**, seleccione **Inicio de sesión único**.
 
     ![Sección Administrar, con Inicio de sesión único resaltado](common/select-sso.png)
 
-1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , seleccione **SAML/WS-Fed** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Seleccione un método de inicio de sesión único, con SAML resaltado](common/select-saml-option.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
     ![Página Configuración del inicio de sesión único con SAML con el icono de lápiz de Configuración básica de SAML resaltado](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , en el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el patrón `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
+1. En la sección **Configuración básica de SAML**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el patrón `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!NOTE]
     > El valor de **URL de inicio de sesión** no es real. Actualícelo con la dirección URL de inicio de sesión real. Pónganse en contacto con el [equipo de soporte técnico de Mind Tools Toolkit](mailto:support@goodpractice.com) para obtener este valor.
 
-1. En la página **Configuración del inicio de sesión único con SAML** , vaya a la sección **Certificado de firma de SAML** . A la derecha de **XML de metadatos de federación** , seleccione **Descargar** para descargar el texto XML y guardarlo en el equipo. El contenido XML depende de las opciones que seleccione.
+1. En la página **Configuración del inicio de sesión único con SAML**, vaya a la sección **Certificado de firma de SAML**. A la derecha de **XML de metadatos de federación**, seleccione **Descargar** para descargar el texto XML y guardarlo en el equipo. El contenido XML depende de las opciones que seleccione.
 
     ![Sección Certificado de firma de SAML, con Descargar resaltado junto a XML de metadatos de federación](common/metadataxml.png)
 
-1. En la sección **Configurar Mind Tools Toolkit** , copie cualquiera de las siguientes direcciones URL según sus necesidades.
+1. En la sección **Configurar Mind Tools Toolkit**, copie cualquiera de las siguientes direcciones URL según sus necesidades.
 
     * **Dirección URL de inicio de sesión**
 
@@ -108,35 +108,35 @@ En esta sección, va a configurar el inicio de sesión único de Azure AD con M
 
 En esta sección, se crea un usuario llamado B.Simon en Azure Portal:
 
-1. En Azure Portal, en el lado izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
-1. En la parte superior de la pantalla, seleccione **Nuevo usuario** .
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba **B.Simon** .  
-   1. En el campo **Nombre de usuario** , escriba **B.Simon@** _dominioDeEmpresa_ **.** _extensión_ . Por ejemplo, B.Simon@contoso.com.
-   1. Seleccione la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Seleccione **Crear** .
+1. En Azure Portal, en el lado izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. En la parte superior de la pantalla, seleccione **Nuevo usuario**.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba **B.Simon**.  
+   1. En el campo **Nombre de usuario**, escriba **B.Simon@** _dominioDeEmpresa_ **.** _extensión_. Por ejemplo, B.Simon@contoso.com.
+   1. Seleccione la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección va a permitir que B.Simon acceda a Mind Tools Toolkit mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Mind Tools Toolkit** .
-1. En la página de información general de la aplicación, vaya a la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Mind Tools Toolkit**.
+1. En la página de información general de la aplicación, vaya a la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Sección Administrar, con la opción Usuarios y grupos resaltada](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . En el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
    ![Ventana Usuarios y grupos, con Agregar usuario resaltado](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista de usuarios. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ## <a name="configure-mind-tools-toolkit-sso"></a>Configuración del inicio de sesión único de Mind Tools Toolkit
 
-Para configurar el inicio de sesión único en **Mind Tools Toolkit** , es preciso enviar el texto **XML de metadatos de federación** descargado y las direcciones URL copiadas previamente de Azure Portal al [equipo de soporte técnico de Mind Tools Toolkit](mailto:support@goodpractice.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Mind Tools Toolkit**, es preciso enviar el texto **XML de metadatos de federación** descargado y las direcciones URL copiadas previamente de Azure Portal al [equipo de soporte técnico de Mind Tools Toolkit](mailto:support@goodpractice.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-a-mind-tools-toolkit-test-user"></a>Creación de un usuario de prueba de Mind Tools Toolkit
 

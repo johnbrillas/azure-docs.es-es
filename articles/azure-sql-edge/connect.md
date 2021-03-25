@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395213"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Conexión a Azure SQL Edge y consulta
@@ -36,8 +36,8 @@ Puede conectarse a una instancia de Azure SQL Edge desde cualquiera de las sigui
 
 Para conectarse a un motor de base de datos de Azure SQL Edge desde un equipo de red, necesitará lo siguiente:
 
-- **Dirección IP o nombre de red del equipo host** : Este es el equipo host en el que se ejecuta el contenedor de Azure SQL Edge.
-- **Asignación de puertos de host del contenedor de Azure SQL Edge** : Esta es la asignación de un puerto de contenedor de Docker a un puerto en el host. Dentro del contenedor, Azure SQL Edge siempre se asigna al puerto 1433. Si quiere, puede cambiarlo. Para cambiar el número de puerto, actualice las **Opciones de creación de contenedores** para el módulo de Azure SQL Edge en Azure IoT Edge. En el siguiente ejemplo, el puerto 1433 del contenedor está asignado al puerto 1600 en el host.
+- **Dirección IP o nombre de red del equipo host**: Este es el equipo host en el que se ejecuta el contenedor de Azure SQL Edge.
+- **Asignación de puertos de host del contenedor de Azure SQL Edge**: Esta es la asignación de un puerto de contenedor de Docker a un puerto en el host. Dentro del contenedor, Azure SQL Edge siempre se asigna al puerto 1433. Si quiere, puede cambiarlo. Para cambiar el número de puerto, actualice las **Opciones de creación de contenedores** para el módulo de Azure SQL Edge en Azure IoT Edge. En el siguiente ejemplo, el puerto 1433 del contenedor está asignado al puerto 1600 en el host.
 
     ```JSON
     {
@@ -51,7 +51,7 @@ Para conectarse a un motor de base de datos de Azure SQL Edge desde un equipo de
     }
     ```
 
-- **Contraseña de administrador del sistema para la instancia de Azure SQL Edge** : Este es el valor especificado para la variable de entorno `SA_PASSWORD` durante la implementación de Azure SQL Edge.
+- **Contraseña de administrador del sistema para la instancia de Azure SQL Edge**: Este es el valor especificado para la variable de entorno `SA_PASSWORD` durante la implementación de Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Conexión al motor de base de datos dentro del contenedor
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Conexión a Azure SQL Edge desde otro equipo de red
 
-Es posible que quiera conectarse a la instancia de Azure SQL Edge desde otro equipo de la red. Para ello, use la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor perimetral de Azure SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx* y el contenedor de Azure SQL Edge está asignado al puerto de host *1600* , la dirección del servidor para la instancia de Azure SQL Edge sería *xxx.xxx.xxx.xxx,1600*. El script de Python actualizado es:
+Es posible que quiera conectarse a la instancia de Azure SQL Edge desde otro equipo de la red. Para ello, use la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor perimetral de Azure SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx* y el contenedor de Azure SQL Edge está asignado al puerto de host *1600*, la dirección del servidor para la instancia de Azure SQL Edge sería *xxx.xxx.xxx.xxx,1600*. El script de Python actualizado es:
 
 ```python
 

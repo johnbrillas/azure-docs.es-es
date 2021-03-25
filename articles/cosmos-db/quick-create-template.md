@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339672"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
@@ -63,20 +63,20 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
     A menos que se especifique, utilice el valor predeterminado para crear los recursos de Azure Cosmos.
 
-    * **Suscripción** : seleccione una suscripción de Azure.
-    * **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
-    * **Ubicación** : seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
-    * **Nombre de cuenta** : escriba un nombre para la cuenta de Azure Cosmos. Debe ser único globalmente.
-    * **Ubicación** : escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
-    * **Región primaria** : la región de la réplica principal de la cuenta de Azure Cosmos.
-    * **Región secundaria** : la región de la réplica secundaria de la cuenta de Azure Cosmos.
-    * **Nivel de coherencia predeterminado** : nivel de coherencia predeterminado de la cuenta de Azure Cosmos.
-    * **Prefijo de obsolescencia máxima** : número máximo de solicitudes obsoletas. Necesario para BoundedStaleness.
-    * **Intervalo máximo en segundos** : tiempo máximo de retardo. Necesario para BoundedStaleness.
-    * **Nombre de base de datos** : el nombre de la base de datos de Azure Cosmos.
-    * **Nombre del contenedor** : el nombre del contenedor de Azure Cosmos.
-    * **Rendimiento** :  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
-    * **Acepto los términos y condiciones anteriores** : Seleccionar.
+    * **Suscripción**: seleccione una suscripción de Azure.
+    * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
+    * **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
+    * **Nombre de cuenta**: escriba un nombre para la cuenta de Azure Cosmos. Debe ser único globalmente.
+    * **Ubicación**: escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
+    * **Región primaria**: la región de la réplica principal de la cuenta de Azure Cosmos.
+    * **Región secundaria**: la región de la réplica secundaria de la cuenta de Azure Cosmos.
+    * **Nivel de coherencia predeterminado**: nivel de coherencia predeterminado de la cuenta de Azure Cosmos.
+    * **Prefijo de obsolescencia máxima**: número máximo de solicitudes obsoletas. Necesario para BoundedStaleness.
+    * **Intervalo máximo en segundos**: tiempo máximo de retardo. Necesario para BoundedStaleness.
+    * **Nombre de base de datos**: el nombre de la base de datos de Azure Cosmos.
+    * **Nombre del contenedor**: el nombre del contenedor de Azure Cosmos.
+    * **Rendimiento**:  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
+    * **Acepto los términos y condiciones anteriores**: Seleccionar.
 
 3. Seleccione **Comprar**. Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
 

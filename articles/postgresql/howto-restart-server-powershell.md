@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97706973"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Reinicio de un servidor de Azure Database for PostgreSQL mediante PowerShell.
@@ -23,7 +23,7 @@ Si el servicio está ocupado, se bloquea el reinicio del servidor. Por ejemplo, 
 > [!NOTE] 
 > El tiempo necesario para completar un reinicio depende del proceso de recuperación de PostgreSQL. Para reducir el tiempo de reinicio, se recomienda que minimice la cantidad de actividades que se ejecutan en el servidor antes del reinicio. También puede aumentar la frecuencia de los puntos de comprobación. También puede ajustar los valores de los parámetros relacionados con el punto de comprobación, entre los que se incluye `max_wal_size`. También se recomienda ejecutar el comando `CHECKPOINT` antes de reiniciar el servidor.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 

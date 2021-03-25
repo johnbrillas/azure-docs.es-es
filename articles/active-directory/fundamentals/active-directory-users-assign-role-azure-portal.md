@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370940"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory
@@ -39,39 +39,39 @@ Comúnmente, se asignan roles de Azure AD a los usuarios desde la página **Rol
 
 1. Vaya a [Azure Portal](https://portal.azure.com/) e inicie sesión con una cuenta de administrador global para el directorio.
 
-2. Busque y seleccione **Azure Active Directory** .
+2. Busque y seleccione **Azure Active Directory**.
 
       ![Búsqueda de Azure Active Directory en Azure Portal](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
-3. Seleccione **Usuarios** .
+3. Seleccione **Usuarios**.
 
-4. Busque y seleccione el usuario que obtiene la asignación de roles. Por ejemplo, _Alain Charon_ .
+4. Busque y seleccione el usuario que obtiene la asignación de roles. Por ejemplo, _Alain Charon_.
 
       ![Página Todos los usuarios, selección del usuario](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-5. En la página **Alain Charon - Perfil** , seleccione **Roles asignados** .
+5. En la página **Alain Charon - Perfil**, seleccione **Roles asignados**.
 
-    Aparece la página **Alain Charon - Roles administrativos** .
+    Aparece la página **Alain Charon - Roles administrativos**.
 
-6. Seleccione **Agregar asignaciones** , seleccione el rol que asignará a Alain (por ejemplo, _Administrador de aplicaciones_ ) y, a continuación, elija **Seleccionar** .
+6. Seleccione **Agregar asignaciones**, seleccione el rol que asignará a Alain (por ejemplo, _Administrador de aplicaciones_) y, a continuación, elija **Seleccionar**.
 
     ![Página Roles asignados, se muestra el rol seleccionado](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    El rol Administrador de aplicaciones se asigna a Alain Charon y se muestra en la página **Alain Charon - Roles administrativos** .
+    El rol Administrador de aplicaciones se asigna a Alain Charon y se muestra en la página **Alain Charon - Roles administrativos**.
 
 ## <a name="remove-a-role-assignment"></a>Eliminación de una asignación de rol
 
-Si necesita quitar la asignación de roles de un usuario, también puede hacerlo desde la página **Alain Charon - Roles administrativos** .
+Si necesita quitar la asignación de roles de un usuario, también puede hacerlo desde la página **Alain Charon - Roles administrativos**.
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>Para quitar una asignación de rol a un usuario
 
-1. Seleccione **Azure Active Directory** , seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que quitará una asignación de roles. Por ejemplo, _Alain Charon_ .
+1. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que quitará una asignación de roles. Por ejemplo, _Alain Charon_.
 
-2. Seleccione **Roles asignados** , seleccione **Administrador de aplicaciones** y, luego, **Quitar asignación** .
+2. Seleccione **Roles asignados**, seleccione **Administrador de aplicaciones** y, luego, **Quitar asignación**.
 
     ![Página Roles asignados, se muestra el rol seleccionado y la opción para quitarlo](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    El rol Administrador de aplicaciones se quita de Alain Charon y ya no se muestra en la página **Alain Charon - Roles administrativos** .
+    El rol Administrador de aplicaciones se quita de Alain Charon y ya no se muestra en la página **Alain Charon - Roles administrativos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

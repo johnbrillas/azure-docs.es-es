@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92424737"
 ---
 # <a name="scenario-isolating-vnets"></a>Escenario: Aislamiento de redes virtuales
@@ -42,7 +42,7 @@ Las redes virtuales se asociarán a la tabla de enrutamiento **RT_VNET**. Como n
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de enrutamiento: **RT_VNET** y **Valor predeterminado**
 
-Tenga en cuenta que, puesto que las ramas son los únicos elementos que se propagan a la tabla de enrutamiento **RT_VNET** , serán los únicos prefijos que aprenderán las redes virtuales y no las de otras redes virtuales.
+Tenga en cuenta que, puesto que las ramas son los únicos elementos que se propagan a la tabla de enrutamiento **RT_VNET**, serán los únicos prefijos que aprenderán las redes virtuales y no las de otras redes virtuales.
 
 Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
@@ -51,10 +51,10 @@ Para obtener información sobre el enrutamiento de centros virtuales, consulte [
 Para poder configurar este escenario, tenga en cuenta los siguientes pasos:
 
 1. Cree una tabla de enrutamiento personalizada en cada centro. En el ejemplo, la tabla de ruta es **RT_VNet**. Para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Para obtener más información sobre las tablas de rutas, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
-2. Cuando cree la tabla de rutas **RT_VNet** , configure las siguientes opciones:
+2. Cuando cree la tabla de rutas **RT_VNet**, configure las siguientes opciones:
 
-   * **Asociación** : Seleccione las redes virtuales que desea aislar.
-   * **Propagación** : Seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de rutas.
+   * **Asociación**: Seleccione las redes virtuales que desea aislar.
+   * **Propagación**: Seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de rutas.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Redes virtuales aisladas":::
 

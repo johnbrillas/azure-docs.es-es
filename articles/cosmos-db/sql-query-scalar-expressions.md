@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339638"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expresiones escalares en consultas SQL de Azure Cosmos DB
@@ -52,12 +52,12 @@ La [cláusula SELECT](sql-query-select.md) admite expresiones escalares. Una exp
   
 - `<constant>`  
   
-   Representa un valor constante. Consulte la sección [Constantes](sql-query-constants.md) para más información.  
+   Representa un valor constante. Vea la sección [Constantes](sql-query-constants.md) para obtener más información.  
   
 - `input_alias`  
   
    Representa un valor definido por `input_alias`, introducido en la cláusula `FROM`.  
-  Este valor nunca será **undefined** , los valores **undefined** se omiten de la entrada.  
+  Este valor nunca será **undefined**, los valores **undefined** se omiten de la entrada.  
   
 - `<scalar_expression>.property_name`  
   

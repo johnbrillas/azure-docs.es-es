@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
 ms.openlocfilehash: b0afcf00a95b46472c902b24c6d4b287c1c6a482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181029"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CheckProof
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar CheckProof con Azu
 * Permitir que los usuarios puedan iniciar sesión automáticamente en CheckProof con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

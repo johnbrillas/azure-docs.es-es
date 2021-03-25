@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280220"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
@@ -62,10 +62,10 @@ El conector de Active Directory proporcionó los siguientes parámetros para las
 | Forest.FQDN |El formato FQDN del nombre de bosque importado actualmente, por ejemplo, fabrikam.com |
 | Forest.LDAP |El formato LDAP del nombre de bosque importado actualmente, por ejemplo, DC=fabrikam,DC=com |
 
-El sistema proporciona el parámetro siguiente, que se usa para obtener el identificador del conector que se ejecuta actualmente:  
+El sistema proporciona el parámetro siguiente, que se usa para obtener el identificador del conector que se ejecuta actualmente:   
 `Connector.ID`
 
-Este es un ejemplo en el que se llena el dominio del atributo de metaverso con el nombre netbios del dominio en el que se encuentra el usuario:  
+Este es un ejemplo en el que se llena el dominio del atributo de metaverso con el nombre netbios del dominio en el que se encuentra el usuario:   
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operadores
@@ -74,7 +74,7 @@ Pueden utilizarse los siguientes operadores:
 * **Comparación**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matemáticos**: +, -, \*, -
 * **Cadena**: &amp; (concatenar)
-* **Lógico**: &amp;&amp; (and), || (or)
+* **Lógico**: &&amp;amp; (and), || (or)
 * **Orden de evaluación**: ( )
 
 Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, \* (multiplicador) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: bbac6eade634ffcfdc47ae3d22b32e0bd429b7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85513171"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
@@ -47,7 +47,7 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 5](storsim
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 5 (6.3.9600.17845)** . También se debe modificar la **fecha de última actualización**.
+Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 5 (6.3.9600.17845)**. También se debe modificar la **fecha de última actualización**.
 
 Ahora también verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones). Los pasos para instalar actualizaciones en modo de mantenimiento se detallan en la sección siguiente.
 
@@ -76,19 +76,19 @@ El método de revisión implica los tres pasos siguientes:
 
 Debe descargar e instalar las revisiones siguientes en el orden indicado y las carpetas sugeridas:
 
-| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Actualización de software<br> Descargar _HcsSoftwareUpdate.exe_ y _CisMSDAgent.exe_ |Normal <br></br>Sin interrupciones |~ 25 min |FirstOrderUpdate|
 
 Si actualiza desde un dispositivo que ejecuta Update 4, basta con instalar las actualizaciones acumulativas del sistema operativo como actualizaciones de segundo orden.
 
-| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Paquete de actualizaciones acumulativas de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
 
 Si la instalación se realiza desde un dispositivo que ejecuta Update 3 o versiones anteriores, instale los siguientes elementos además de las actualizaciones acumulativas.
 
-| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Actualizaciones de firmware y controlador LSI <br> Actualización de firmware de USM (versión 3.38) |Normal <br></br>Sin interrupciones |~ 3 horas <br> (incluye 2A. + 2B. + 2C).|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Paquete de actualizaciones de seguridad de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Si la instalación se realiza desde un dispositivo que ejecuta Update 3 o versio
 
 Es posible que también necesite instalar actualizaciones de firmware de disco en la parte superior de todas las actualizaciones que se muestran en las tablas anteriores. Puede comprobar si las necesita actualizaciones de firmware de disco ejecutando el cmdlet `Get-HcsFirmwareVersion` . Si ejecuta estas versiones de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, no necesita instalar estas actualizaciones.
 
-| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación | Carpeta de instalación|
+| Pedido | KB | Descripción | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware del disco |Mantenimiento <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 

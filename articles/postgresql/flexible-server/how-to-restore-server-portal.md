@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90932178"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauración de un servidor flexible a un momento dado
@@ -30,7 +30,7 @@ Para completar esta guía, necesita:
 
 Siga estos pasos para restaurar un servidor flexible mediante la copia de seguridad más antigua.
 
-1.  En  [Azure Portal](https://portal.azure.com/), elija el servidor flexible desde el que desea restaurar la copia de seguridad.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible cuya copia de seguridad quiera restaurar.
 
 2.  Haga clic en **Información general** en el panel izquierdo y, después, haga clic en **Restaurar**.
    
@@ -40,7 +40,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 4.  Seleccione **Punto de restauración más antiguo** y especifique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. Se muestra la marca de tiempo más antigua a la que se puede realizar la restauración. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Introducción a la restauración":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Punto de restauración más antiguo":::
 
 5.  Haga clic en **Aceptar**.
 
@@ -50,9 +50,9 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 Siga estos pasos para restaurar un servidor flexible mediante la copia de seguridad más antigua.
 
-1.  En  [Azure Portal](https://portal.azure.com/), elija el servidor flexible desde el que desea restaurar la copia de seguridad.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible cuya copia de seguridad quiera restaurar.
 
-2.  En la página de información general, haga clic en **Restaurar**.
+2.  En la página Información general, haga clic en **Restaurar**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Introducción a la restauración":::
     
 3.  La página de restauración se mostrará con una opción para elegir entre el punto de restauración más antiguo y un punto de restauración personalizado.
@@ -61,7 +61,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 5.  Seleccione la fecha y hora, y especifique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Introducción a la restauración":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Hora de restauración personalizada":::
  
 6.  Haga clic en **Aceptar**.
 
@@ -69,6 +69,6 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md).
--   Más información sobre la  [alta disponibilidad con redundancia de zona](./concepts-high-availability.md).
--   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md).
+-   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+-   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo usar los servicios de plataforma c
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478746"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
@@ -34,7 +34,7 @@ En organizaciones grandes, los equipos de desarrollo suelen proporcionan entorno
 El propietario del laboratorio puede personalizar los entornos de laboratorio para cambiar el rol del usuario de **lector** a **colaborador** dentro del grupo de recursos. Esta funcionalidad está en la página **Configuración del laboratorio** en **Configuración y directivas** del laboratorio. Este cambio en el rol permite que el usuario agregue o quite recursos dentro de ese entorno. Si quiere restringir aún más el acceso, use las directivas de Azure. Esta funcionalidad le permite personalizar los recursos o la configuración sin el acceso en el nivel de suscripción.
 
 #### <a name="custom-tokens"></a>Tokens personalizados
-Hay cierta información de laboratorio personalizada que está fuera del grupo de recursos y es específica para los entornos a los que puede tener acceso la plantilla. Esta información incluye lo siguiente: 
+Hay cierta información de laboratorio personalizada que está fuera del grupo de recursos y es específica para los entornos a los que puede tener acceso la plantilla. Estas son algunas de ellas: 
 
 - Identificación de la red del laboratorio
 - Location
@@ -75,7 +75,7 @@ Consulte estos artículos para obtener detalles sobre los entornos:
 - [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
 - [Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs](create-environment-service-fabric-cluster.md)
-- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
 - [Integración de entornos en las canalizaciones CI/CD de Azure DevOps](integrate-environments-devops-pipeline.md)
  
 

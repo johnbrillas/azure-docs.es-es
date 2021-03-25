@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358463"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
@@ -191,7 +191,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Establecer propiedades de las variables](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    | -------- | ----- | ----------- |
    | **Nombre** | Límite | El nombre de la variable | 
    | **Tipo** | Entero | El tipo de datos de la variable | 
@@ -232,7 +232,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propiedad | Valor | Descripción |
+      | Propiedad | Value | Descripción |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Subject** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
@@ -253,7 +253,7 @@ El bucle "Until" detiene la ejecución en función de estas propiedades, por lo 
 
 * **Recuento**: Este valor es el número máximo de bucles que se ejecutan antes de salir del bucle. Para conocer los límites predeterminados y máximos del número de bucles "Until" que puede tener la ejecución de una aplicación lógica, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Timeout**: Este valor es la cantidad máxima de tiempo que el bucle se ejecuta antes de salir y se especifica en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obtener los límites predeterminados y máximos en el valor **Timeout**, consulte[Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Timeout**: Este valor es la cantidad máxima de tiempo que el bucle se ejecuta antes de salir y se especifica en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obtener los límites predeterminados y máximos en el valor **Timeout**, consulte [Límites de simultaneidad, bucle y anulación de procesamiento por lotes](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite.
 

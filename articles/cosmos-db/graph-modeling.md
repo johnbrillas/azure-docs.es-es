@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: chrande
 ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93357052"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
@@ -36,7 +36,7 @@ Una solución de base de datos de grafos se puede aplicar de forma óptima si la
 * Existen **relaciones de varios a varios** entre entidades.
 * Hay **requisitos de lectura y escritura en ambas entidades y relaciones**. 
 
-Si se cumple los criterios mencionados anteriormente, es probable que un enfoque de base de datos de grafos proporcionará ventajas para **complejidad de las consultas** , **escalabilidad del modelo de datos** y **rendimiento de las consultas**.
+Si se cumple los criterios mencionados anteriormente, es probable que un enfoque de base de datos de grafos proporcionará ventajas para **complejidad de las consultas**, **escalabilidad del modelo de datos** y **rendimiento de las consultas**.
 
 El siguiente paso es determinar si el grafo se va a usar para fines analíticos o transaccionales. Si el grafo está pensado para usarse para pesadas cargas de trabajo de procesamiento de datos y cálculo, vale la pena explorar el [conector de Cosmos DB Spark](./spark-connector.md) y el uso de la [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
@@ -72,11 +72,11 @@ El primer paso para un modelo de datos de grafo es asignar cada entidad identifi
 
 Un problema común consiste en asignar propiedades de una sola entidad como vértices independientes. Tenga en cuenta el ejemplo siguiente, donde se representa la misma entidad de dos maneras diferentes:
 
-* **Propiedades basadas en vértice** : En este enfoque, la entidad usa tres vértices independientes y dos bordes para describir sus propiedades. Aunque este enfoque podría reducir la redundancia, aumenta la complejidad del modelo. El aumento de la complejidad del modelo puede dar como resultado latencia agregada, complejidad de las consultas y costo de cálculo. Este modelo también puede presentar desafíos en la creación de particiones.
+* **Propiedades basadas en vértice**: En este enfoque, la entidad usa tres vértices independientes y dos bordes para describir sus propiedades. Aunque este enfoque podría reducir la redundancia, aumenta la complejidad del modelo. El aumento de la complejidad del modelo puede dar como resultado latencia agregada, complejidad de las consultas y costo de cálculo. Este modelo también puede presentar desafíos en la creación de particiones.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
-* **Vértices insertados en propiedad** : Este enfoque aprovecha las ventajas de la lista de par clave-valor para representar todas las propiedades de la entidad dentro de un vértice. Este enfoque proporciona una complejidad reducida del modelo, lo que dará lugar a consultas más sencillas y más recorridos rentables.
+* **Vértices insertados en propiedad**: Este enfoque aprovecha las ventajas de la lista de par clave-valor para representar todas las propiedades de la entidad dentro de un vértice. Este enfoque proporciona una complejidad reducida del modelo, lo que dará lugar a consultas más sencillas y más recorridos rentables.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagrama que muestra el vértice de Luis del diagrama anterior con su id., etiqueta y propiedades." border="false":::
 

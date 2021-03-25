@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054949"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
@@ -36,57 +36,57 @@ Use el procedimiento siguiente para crear una nueva directiva de copia de seguri
 
 #### <a name="to-create-a-backup-policy"></a>Para crear una directiva de copia de seguridad
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, haga clic con el botón derecho en **Directivas de copia de seguridad** y haga clic en **Crear directiva de copia de seguridad**.
+2. En el panel **Ámbito**, haga clic con el botón secundario en **Directivas de copia de seguridad** y haga clic en **Crear directiva de copia de seguridad**.
 
     ![Crear una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    Aparecerá el cuadro de diálogo **Crear una directiva** .
+    Aparecerá el cuadro de diálogo **Crear una directiva**.
 
     ![Creación de una directiva - pestaña General](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
-3. En la pestaña **General** , complete la siguiente información:
+3. En la pestaña **General**, complete la información siguiente:
 
-   1. En el cuadro de texto **Nombre** , escriba un nombre para la directiva.
-   2. En el cuadro de texto **Grupo de volúmenes** , escriba el nombre del grupo de volúmenes asociado con la directiva.
-   3. Seleccione **Instantánea local** o **Instantánea de nube**.
-   4. Seleccione el número de instantáneas que desea retener. Si selecciona **Todas**, se retendrán 64 instantáneas (el número máximo).
-4. Haga clic en la pestaña **Programar** .
+   1. En el cuadro de texto **Nombre**, escriba un nombre para la directiva.
+   2. En el cuadro de texto **Grupo de volúmenes**, escriba el nombre del grupo de volúmenes asociado a la directiva.
+   3. Seleccione **Instantánea local** o **Instantánea en la nube**.
+   4. Seleccione el número de instantáneas que desea retener. Si selecciona **Todos**, se conservarán 64 instantáneas (el máximo).
+4. Haga clic en la pestaña **Programa**.
 
     ![Creación de una directiva - pestaña Programación](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
-5. En la pestaña **Programación** , complete la siguiente información:
+5. En la pestaña **Programa**, complete la información siguiente:
 
    1. Haga clic en la casilla **Habilitar** para programar la siguiente copia de seguridad.
    2. En **Configuración**, seleccione **Una vez**, **Diario**, **Semanal** o **Mensual**.
-   3. En el cuadro de texto **Inicio** , haga clic en el icono de calendario y seleccione una fecha de inicio.
-   4. En **Configuración avanzada**, puede establecer programaciones de repetición opcionales y una fecha de finalización.
+   3. En el cuadro de texto **Inicio**, haga clic en el icono de calendario y seleccione una fecha de inicio.
+   4. En **Configuración avanzada**, puede establecer programaciones opcionales de repetición y una fecha de finalización.
    5. Haga clic en **OK**.
 
-Después de crear una directiva de copia de seguridad, aparece la siguiente información en el panel **Resultados** :
+Después de crear una directiva de copia de seguridad, aparecerá la siguiente información en el panel **Resultados**:
 
-* **Nombre** : nombre de la directiva de copia de seguridad.
-* **Tipo** : instantánea local o instantánea de nube.
-* **Grupo de volúmenes** : grupo de volúmenes asociado a la directiva.
-* **Retención** : número de instantáneas retenidas; el número máximo es 64.
-* **Creado** : fecha en que se creó esta directiva.
-* **Habilitado** : indica si la directiva está actualmente en vigor. **True** indica que está en vigor; **False** indica que no está en vigor.
+* **Nombre**: el nombre de la directiva de copia de seguridad.
+* **Tipo**: instantánea local o instantánea en la nube.
+* **Grupo de volúmenes**: el grupo de volúmenes asociado a la directiva.
+* **Retención**: el número de instantáneas que se conservan; el valor máximo es 64.
+* **Creado**: la fecha en que se creó esta directiva.
+* **Habilitado**: si la directiva está actualmente en vigor. **True** indica que está en vigor; **False** indica que no está en vigor.
 
 ## <a name="edit-a-backup-policy"></a>Edición de una directiva de copia de seguridad
 Use el procedimiento siguiente para editar una directiva de copia de seguridad existente.
 
 #### <a name="to-edit-a-backup-policy"></a>Para editar una directiva de copia de seguridad
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados** .
-3. Haga clic con el botón derecho en la directiva que desee editar y después haga clic en **Editar**.
+2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados**.
+3. Haga clic con el botón secundario en la directiva que desee editar y haga clic en **Editar**.
 
     ![Edición de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. Cuando aparezca la ventana **Crear una directiva**, escriba los cambios y, después, haga clic en **Aceptar**.
+4. Cuando aparezca la ventana **Crear una directiva**, escriba los cambios y luego haga clic en **Aceptar**.
 
 ## <a name="delete-a-backup-policy"></a>Eliminación de una directiva de copia de seguridad
 Use el procedimiento siguiente para eliminar una directiva de copia de seguridad.
 
 #### <a name="to-delete-a-backup-policy"></a>Para eliminar una directiva de copia de seguridad
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados** .
-3. Haga clic con el botón derecho en la directiva de copia de seguridad que desee eliminar y después haga clic en **Eliminar**.
+2. En el panel **Ámbito**, haga clic en el nodo **Directivas de copia de seguridad**. Todas las directivas de copia de seguridad aparecen en el panel **Resultados**.
+3. Haga clic con el botón secundario en la directiva de copia de seguridad que quiere eliminar y haga clic en **Eliminar**.
 4. Cuando aparezca el mensaje de confirmación, haga clic en **Sí**.
 
     ![Eliminación de la confirmación de una directiva de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)

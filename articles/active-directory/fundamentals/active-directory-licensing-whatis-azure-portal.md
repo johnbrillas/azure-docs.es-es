@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369818"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>¿En qué consisten las licencias basadas en grupos de Azure Active Directory?
@@ -69,5 +69,5 @@ Para más información sobre otros escenarios de administración de licencias ba
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
 * [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](../enterprise-users/licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 * [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](../enterprise-users/licensing-ps-examples.md)

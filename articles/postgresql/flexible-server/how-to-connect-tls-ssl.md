@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90932189"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Conectividad cifrada con Seguridad de la capa de transporte en Azure Database for PostgreSQL: Servidor flexible
@@ -44,6 +44,6 @@ En el ejemplo siguiente se muestra cómo conectarse al servidor mediante la inte
 Algunos marcos de trabajo de aplicaciones que usan PostgreSQL en los servicios de bases de datos no habilitan TLS de manera predeterminada durante la instalación. El servidor PostgreSQL establece conexiones TLS, pero si la aplicación no está configurada para dicho protocolo, esta puede presentar un error al conectarse al servidor de bases de datos. Consulte la documentación de la aplicación para aprender a habilitar las conexiones TLS.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación y administración de redes virtuales en Azure Database for PostgreSQL: Servidor flexible mediante la CLI de Azure](./how-to-manage-virtual-network-cli.md).
+- [Creación y administración de redes virtuales en Servidor flexible de Azure Database for PostgreSQL mediante la CLI de Azure](./how-to-manage-virtual-network-cli.md).
 - Obtenga más información acerca de las [redes en Azure Database for PostgreSQL: Servidor flexible](./concepts-networking.md).
 - Información más detallada sobre las [Reglas de firewall de Azure Database for PostgreSQL: Servidor flexible](./concepts-networking.md#public-access-allowed-ip-addresses).

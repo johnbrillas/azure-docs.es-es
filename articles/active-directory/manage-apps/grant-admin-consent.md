@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258327"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643565"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
 
-Aprenda a simplificar la experiencia del usuario mediante la concesión del consentimiento del administrador para todo el inquilino a una aplicación. En este artículo se proporcionan las distintas formas de lograrlo. Estos métodos se aplican a todos los usuarios finales del inquilino de Azure Active Directory (Azure AD).
+  Obtenga información acerca de cómo conceder el consentimiento del administrador para todo el inquilino a una aplicación. En este artículo se proporcionan las distintas formas de lograrlo.
 
 Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para conceder el consentimiento del administrador para todo el inquilino, debe iniciar sesión como [Administrador global](../roles/permissions-reference.md#global-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
-
-> [!IMPORTANT]
-> Cuando a una aplicación se le concede consentimiento del administrador para todo el inquilino, todos los usuarios podrán iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios. Para restringir qué usuarios pueden iniciar sesión en una aplicación, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
->
-> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para los permisos de aplicación en Microsoft Graph API.
+La concesión del consentimiento del administrador para todo el inquilino requiere que inicie sesión como un usuario que esté autorizado para dar su consentimiento en nombre de la organización. Esto incluye a los roles de [administrador global](../roles/permissions-reference.md#global-administrator) y [administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator) y, para algunas aplicaciones, [administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) y [administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator). También se puede autorizar a un usuario para conceder consentimiento para todo el inquilino si se le asigna un [rol de directorio personalizado](../roles/custom-create.md) que incluya el [permiso para conceder permisos a las aplicaciones](../roles/custom-consent-permissions.md).
 
 > [!WARNING]
 > La concesión del consentimiento del administrador para todo el inquilino a una aplicación concederá acceso a la aplicación y al publicador de la aplicación a los datos de la organización. Antes de conceder el consentimiento, revise con atención los permisos que solicita la aplicación.
->
-> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para los permisos de aplicación en Microsoft Graph API.
+
+> [!IMPORTANT]
+> Cuando a una aplicación se le concede consentimiento del administrador para todo el inquilino, todos los usuarios podrán iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios. Para restringir qué usuarios pueden iniciar sesión en una aplicación, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](./assign-user-or-group-access-portal.md).
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Concesión del consentimiento del administrador desde Azure Portal
 
@@ -101,4 +97,4 @@ Como siempre, antes de conceder el consentimiento, revise con atención los perm
 
 [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD en Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD en Microsoft Q&A](/answers/topics/azure-active-directory.html)

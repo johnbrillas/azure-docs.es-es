@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/02/2020
 ms.author: Zhchia
 ms.openlocfilehash: 6b00067e7f13e609c2999d6949429038e9a7dfd8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181754"
 ---
 # <a name="tutorial-configure-printerlogic-saas-for-automatic-user-provisioning"></a>Tutorial: Configuración de PrinterLogic SaaS para el aprovisionamiento automático de usuarios
@@ -48,7 +48,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determine qué datos quiere [asignar entre Azure AD y PrinterLogic SaaS](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-printerlogic-saas-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de PrinterLogic SaaS para admitir el aprovisionamiento con Azure AD
+## <a name="step-2-configure-printerlogic-saas-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de PrinterLogic SaaS para admitir el aprovisionamiento con Azure AD
 
 1. En PrinterLogic, vaya a **Tools (Herramientas) > Settings (Configuración) > General**.
 

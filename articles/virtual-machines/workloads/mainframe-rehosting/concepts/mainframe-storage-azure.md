@@ -5,13 +5,14 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: storage
-ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095362"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954367"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover el almacenamiento del sistema central a Azure
 
@@ -54,7 +55,7 @@ El almacenamiento de Azure está disponible como [Azure Disks](../../../managed-
     <tr><th>Tipo</th><th>Descripción</th><th>Úselo cuando quiera:</th></tr>
 </thead>
 <tbody>
-<tr><td>Archivos de Azure
+<tr><td>Azure Files
 </td>
 <td>
 Proporciona una interfaz de SMB, bibliotecas de cliente y una interfaz de <a href="/rest/api/storageservices/file-service-rest-api">REST</a> que permite acceder desde cualquier lugar a los archivos almacenados.
@@ -96,7 +97,7 @@ Las SSD ofrecen el máximo rendimiento de almacenamiento en Azure. Las siguiente
 
 | Tipo         | Size           | E/S                  |
 |--------------|----------------|-----------------------|
-| SSD ultra    | De 4 GB a 64 TB  | De 1200 a 160.000 IOPS |
+| SSD Ultra    | De 4 GB a 64 TB  | De 1200 a 160.000 IOPS |
 | SSD Premium  | De 32 GB a 32 TB | De 12 a 15.000 IOPS     |
 | SSD estándar | De 32 GB a 32 TB | De 12 a 2.000 IOPS      |
 
@@ -106,7 +107,7 @@ El almacenamiento de blobs proporciona el mayor volumen de almacenamiento en Azu
 
 - [Migración del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Rehospedaje del sistema central en Azure Virtual Machines](../overview.md)
-- [Mover el proceso del sistema central a Azure](mainframe-compute-Azure.md)
+- [Movimiento del proceso del sistema central a Azure](mainframe-compute-Azure.md)
 - [Decidir cuándo usar Azure Blobs, Azure Files o Azure Disks](../../../../storage/common/storage-introduction.md)
 - [Discos administrados SSD estándar para cargas de trabajo de la máquina virtual de Azure](../../../disks-types.md#standard-ssd)
 

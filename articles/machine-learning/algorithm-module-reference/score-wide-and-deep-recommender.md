@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
 ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905160"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Puntuación del recomendador ancho y profundo
@@ -96,7 +96,7 @@ Para recomendar elementos para los usuarios, debe proporcionar una lista de usua
 3. **Selección de recomendador de elemento**: Indique si está usando el módulo de puntuación en producción o para la evaluación de modelos; para ello, elija uno de estos valores:
 
     - **De los elementos clasificados (para la evaluación de modelos)** : Seleccione esta opción si va a desarrollar o probar un modelo. Esta opción habilita el **modo de evaluación** y el módulo hace recomendaciones solo de los elementos del conjunto de datos de entrada que se han clasificado.
-    - **De todos los elementos**: Seleccione esta opción si va a configurar un experimento que se va a usar en un servicio web o en un entorno de producción.  Esta opción habilita el **modo de producción**y el módulo hace recomendaciones de todos los elementos que se han detectado durante la formación.
+    - **De todos los elementos**: Seleccione esta opción si va a configurar un experimento que se va a usar en un servicio web o en un entorno de producción.  Esta opción habilita el **modo de producción** y el módulo hace recomendaciones de todos los elementos que se han detectado durante la formación.
     - **De elementos sin clasificación (para sugerir nuevos elementos a los usuarios)** : Seleccione esta opción si quiere que el módulo haga recomendaciones solo de los elementos del conjunto de datos de entrenamiento que no se han clasificado. 
 4. Agregue los conjuntos de datos para los que quiere crear predicciones y conéctela al **Conjunto de datos para puntuar**.
 

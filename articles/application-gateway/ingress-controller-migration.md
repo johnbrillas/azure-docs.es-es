@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
 ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050841"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>Migración de Helm de AGIC al complemento de AGIC 
 
 Si ya tiene AGIC implementado a través de Helm pero quiere migrar a AGIC implementado como complemento de AKS, los siguientes pasos le ayudarán en el proceso de migración. 
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 Antes de comenzar el proceso de migración, hay algunas cosas que debe comprobar. 
   - ¿Usará alguna característica con AGIC Helm que [actualmente no sea compatible con el complemento de AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)?
   - ¿Usará más de una implementación de AGIC Helm por clúster de AKS? 

@@ -1,33 +1,33 @@
 ---
-title: 'Inicio rápido: Pausa y reanudación del proceso en el grupo de SQL de Synapse con Azure PowerShell'
-description: Azure PowerShell se puede usar para pausar y reanudar los recursos de proceso del grupo de SQL de Synapse (almacenamiento de datos).
+title: 'Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell'
+description: Puede utilizar Azure PowerShell para pausar y reanudar un grupo de SQL dedicado (anteriormente SQL DW). (almacenamiento de datos).
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 03/20/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121046"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602186"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Pausa y reanudación del proceso en el grupo de SQL de Synapse con Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 
-Azure PowerShell se puede usar para pausar y reanudar los recursos de proceso del grupo de SQL de Synapse (almacenamiento de datos).
+Puede utilizar Azure PowerShell para pausar y reanudar los recursos de proceso del un grupo de SQL dedicado (anteriormente SQL DW).
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este inicio rápido se da por supuesto que ya tiene un grupo de SQL que puede pausar y reanudar. Si tiene que crear uno, puede usar el artículo sobre la [creación y conexión desde el portal](create-data-warehouse-portal.md) para crear un grupo de SQL llamado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya tiene un grupo de SQL dedicado (anteriormente SQL DW) que puede pausar y reanudar. Si tiene que crearlo, puede seguir las instrucciones del artículo sobre [creación y conexión desde Azure Portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado (anteriormente SQL DW) llamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -49,11 +49,11 @@ Si necesita usar una suscripción diferente de la predeterminada, ejecute [Set-A
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-sql-pool-information"></a>Búsqueda de información del grupo de SQL
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Búsqueda de información del grupo de SQL dedicado (anteriormente SQL DW)
 
-Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos del grupo de SQL que tiene previsto pausar y reanudar.
+Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos del grupo de SQL dedicado (anteriormente SQL DW) que tiene previsto pausar y reanudar.
 
-Siga estos pasos para buscar la información de ubicación del grupo de SQL:
+Siga estos pasos para encontrar información de ubicación de un grupo de SQL dedicado (anteriormente SQL DW):
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Haga clic en **Azure Synapse Analytics (formerly SQL DW)** a la izquierda de la página de Azure Portal.
@@ -61,7 +61,7 @@ Siga estos pasos para buscar la información de ubicación del grupo de SQL:
 
     ![Nombre del servidor y grupo de recursos](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. Anote el nombre del grupo de SQL, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos.
+1. Escriba el nombre del grupo de SQL dedicado (anteriormente SQL DW), que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos.
 1. Use solo la primera parte del nombre del servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es sqlpoolservername.database.windows.net. Se usará **sqlpoolservername** como nombre del servidor en el cmdlet de PowerShell.
 
 ## <a name="pause-compute"></a>Pausa del proceso
@@ -75,7 +75,7 @@ Para pausar una base de datos, use el cmdlet [Suspend-AzSqlDatabase](/powershell
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
-–ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
+–ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 En el ejemplo siguiente se recupera la base de datos en el objeto $database. A continuación, canaliza el objeto a [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Los resultados se almacenan en el objeto resultDatabase. El comando final muestra los resultados.
@@ -107,7 +107,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>Comprobación del estado de una operación del grupo de SQL
 
-Para comprobar el estado del grupo de SQL, use el cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Para comprobar el estado del grupo de SQL dedicado (anteriormente SQL DW), utilice el cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -115,7 +115,7 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el grupo de SQL. Estos recursos de proceso y de almacenamiento se facturan por separado.
+Se le cobran las unidades de almacenamiento de datos y los datos almacenados en el grupo de SQL dedicado (anteriormente SQL DW). Estos recursos de proceso y de almacenamiento se facturan por separado.
 
 - Si quiere conservar los datos de almacenamiento, pause el proceso.
 - Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL.
@@ -136,4 +136,4 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca del grupo de SQL, diríjase al artículo [Carga de datos en un grupo de SQL](./load-data-from-azure-blob-storage-using-copy.md). Para más información acerca de la administración de funcionalidades de proceso, consulte el artículo sobre [introducción a la administración de proceso](sql-data-warehouse-manage-compute-overview.md).
+Para más información sobre el grupo de SQL, diríjase al artículo sobre [carga de datos en un grupo de SQL dedicado (anteriormente SQL DW)](./load-data-from-azure-blob-storage-using-copy.md). Para más información acerca de la administración de funcionalidades de proceso, consulte el artículo sobre [introducción a la administración de proceso](sql-data-warehouse-manage-compute-overview.md).

@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397508"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante el portal
@@ -49,11 +49,11 @@ Para más información, consulte [Habilitación de la terminación TLS durante l
 
 3. Seleccione **appGatewayBackendHttpSettings**.
 
-4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**.
+4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**.
 
 5. Seleccione **Crear nuevo**.
 
-6. En el campo **Nombre** , escriba un nombre adecuado.
+6. En el campo **Nombre**, escriba un nombre adecuado.
 
 7. Seleccione el archivo de certificado en el cuadro **Cargar certificado CER**.
 
@@ -82,16 +82,16 @@ Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
 
 2. Seleccione **Clientes de escucha** en el menú de la izquierda.
 
-3. Seleccione **Básico** o **Multisitio** , en función de sus requisitos.
+3. Seleccione **Básico** o **Multisitio**, en función de sus requisitos.
 
-4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para **Certificado**.
+4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para **Certificado**.
 
 5. Cargue el certificado PFX que va a usar para la terminación TLS entre el cliente y la puerta de enlace de aplicaciones.
 
    > [!NOTE]
    > Para fines de prueba, puede usar un certificado autofirmado. Sin embargo, estos certificados no se recomiendan para las cargas de trabajo de producción, ya que son más difíciles de administrar y no son completamente seguros. Para más información, consulte [Creación de un certificado autofirmado](./create-ssl-portal.md#create-a-self-signed-certificate).
 
-6. Agregue otras opciones necesarias para el **Cliente de escucha** , en función de sus requisitos.
+6. Agregue otras opciones necesarias para el **Cliente de escucha**, en función de sus requisitos.
 
 7. Seleccione **Aceptar** para guardar.
 
@@ -103,11 +103,11 @@ Si elige la segunda opción, aplique los pasos del siguiente procedimiento.
 
 3. Seleccione **appGatewayBackendHttpSettings**.
 
-4. En **Protocolo** , seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**. 
+4. En **Protocolo**, seleccione **HTTPS**. Aparece un panel para los **Certificados de autenticación back-end o Certificados raíz de confianza**. 
 
 5. Seleccione **Crear nuevo**.
 
-6. En el campo **Nombre** , escriba un nombre adecuado.
+6. En el campo **Nombre**, escriba un nombre adecuado.
 
 7. Seleccione el archivo de certificado en el cuadro **Cargar certificado CER**.
 

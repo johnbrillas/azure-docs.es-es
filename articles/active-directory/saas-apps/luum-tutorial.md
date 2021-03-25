@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 4dee9f391ffe918eb17c6aebc578c399dae3eeed
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96176637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-luum"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Luum
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Luum con Azure Active Directory (Azure A
 * Permitir que los usuarios inicien sesión automáticamente en Luum con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

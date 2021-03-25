@@ -78,7 +78,7 @@ Las guías paso a paso contienen ejemplos de código que muestran cómo realizar
 * [Creación de una cuenta: CLI](./create-account-howto.md)
 * [Acceso a las API: CLI](./access-api-howto.md)
 * [Codificación con HTTPS como entrada de trabajo: .NET](job-input-from-http-how-to.md)  
-* [Supervisión de eventos: Portal](monitor-events-portal-how-to.md)
+* [Supervisión de eventos: Portal](monitoring/monitor-events-portal-how-to.md)
 * [Cifrado dinámico con varias soluciones de DRM: .NET](protect-with-drm.md) 
 * [Procedimiento de codificación con una transformación personalizada: CLI](custom-preset-cli-howto.md)
 

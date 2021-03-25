@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514578"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
@@ -67,7 +67,7 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para habilitar la administración remota a través de la consola en serie del dispositivo
 1. En el menú de la consola serie, seleccione la opción 1. Para obtener más información sobre el uso de la consola serie en el dispositivo, vaya a [Conéctese a Windows PowerShell para StorSimple mediante la consola serie del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
 2. En el símbolo del sistema, escriba: `Enable-HcsRemoteManagement –AllowHttp`
-3. Se le notificará acerca de las vulnerabilidades de seguridad del uso de HTTP para conectarse al dispositivo. Cuando se le solicite, confirme escribiendo **S**.
+3. Se le notificará acerca de las vulnerabilidades de seguridad del uso de HTTP para conectarse al dispositivo. Cuando se le solicite, confirme pulsando **Y**.
 4. Compruebe que está habilitado HTTP escribiendo: `Get-HcsSystem`
 5. Compruebe que el campo **RemoteManagementMode** muestre **HttpsAndHttpEnabled**. La ilustración siguiente muestra esta configuración en PuTTY.
    
@@ -143,7 +143,7 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para habilitar la administración remota a través de la consola en serie del dispositivo
 1. En el menú de la consola serie, seleccione la opción 1. Para obtener más información sobre el uso de la consola serie en el dispositivo, vaya a [Conéctese a Windows PowerShell para StorSimple mediante la consola serie del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. En el símbolo del sistema, escriba:
+2. En el símbolo del sistema, escriba: 
    
      `Enable-HcsRemoteManagement`
    
@@ -195,8 +195,8 @@ A continuación se describe cada uno de los procedimientos anteriores.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para agregar números de serie del dispositivo con el host remoto
 1. Inicie el Bloc de notas como administrador y, a continuación, abra el archivo de hosts que se encuentra en \Windows\System32\Drivers\etc.
-2. Agregue las tres entradas siguientes al archivo hosts: **Dirección IP DATA 0**, **dirección IP fija del controlador 0** y **dirección IP fija del controlador 1**.
-3. Escriba el número de serie del dispositivo que guardó anteriormente. Asigne esto a la dirección IP como se muestra en la siguiente imagen. Para Controlador 0 y 1, anexe **Controller0** y **Controller1** al final del número de serie (nombre CN).
+2. Agregue las siguientes tres entradas al archivo de hosts: **Dirección IP de DATA 0**, **Dirección IP fija del Controlador 0** y **Dirección IP fija del Controlador 1**.
+3. Escriba el número de serie del dispositivo que guardó anteriormente. Asigne esto a la dirección IP como se muestra en la siguiente imagen. Para Controller 0 y Controller 1, anexe **Controller0** y **Controller1** al final del número de serie (nombre CN).
    
     ![Adición de nombre CN a archivo de hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 4. Guarde el archivo de hosts.

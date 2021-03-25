@@ -14,10 +14,10 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86254663"
 ---
 # <a name="about-api-management"></a>Acerca de API Management
@@ -44,7 +44,7 @@ El sistema consta de los siguientes componentes:
   * Comprueba las claves de API, los tokens JWT, los certificados y otras credenciales.
   * Aplica cuotas de uso y límites de frecuencia.
   * Transforma la API sobre la marcha sin modificaciones de código.
-  * Almacena en caché las respuestas de back-end donde se instalaron.
+  * Almacena en caché respuestas de back-end si esto está configurado.
   * Registra los metadatos de llamada para fines de análisis.
 * **Azure Portal** es la interfaz administrativa donde se configura el programa de API. Utilícelo para:
   
@@ -56,11 +56,11 @@ El sistema consta de los siguientes componentes:
 * El **portal para desarrolladores** actúa como la presencia web principal para desarrolladores, donde estos pueden:
   
   * leer documentación de la API
-  * probar una API a través de la consola interactiva
-  * crear una cuenta y suscribirse para obtener claves de API
+  * Probar una API a través de la consola interactiva.
+  * Crear una cuenta y suscribirse para obtener claves de API.
   * obtener acceso a análisis sobre su propio uso
 
-Para más información, consulte las notas del producto en formato PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) (API Management basado en la nube: aprovechamiento de la versatilidad de las API. Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
+Para más información, consulte las notas del producto en PDF [API Management basada en la nube: aprovechamiento de la capacidad de las API](https://j.mp/ms-apim-whitepaper). Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
  
  * Desafíos y requisitos comunes de API
  * Desacoplamiento de API y presentación de fachadas
@@ -71,7 +71,7 @@ Para más información, consulte las notas del producto en formato PDF [Cloud-ba
  * Uso de soluciones de nube frente a locales
  * Azure API Management
  
-## <a name="apis-and-operations"></a><a name="apis"> </a> API y operaciones
+## <a name="apis-and-operations"></a><a name="apis"> </a>API y operaciones
 Las API son el fundamento de una instancia del servicio Administración de API. Cada API representa un conjunto de operaciones disponibles para los desarrolladores. Cada API contiene una referencia a un servicio back-end que implementa la API y sus operaciones se asignan a las operaciones implementadas por dicho servicio. Las operaciones de API Management son altamente configurables, con control sobre asignación de direcciones URL, parámetros de consulta y ruta de acceso, contenidos de solicitudes y respuestas y almacenamiento en caché de respuestas de operaciones. En la API o en el ámbito de operación individual, también se pueden implementar directivas de límite de tasa, cuotas y restricción de direcciones IP.
 
 Para más información, consulte [Creación de API][How to create APIs] e [Incorporación de operaciones a una API][How to add operations to an API].
@@ -84,8 +84,8 @@ Los grupos se usan para administrar la visibilidad de productos a los desarrolla
 ## <a name="groups"></a><a name="groups"> </a> Grupos
 Los grupos se usan para administrar la visibilidad de productos a los desarrolladores. API Management tiene los siguientes grupos invariables del sistema:
 
-* **Administradores** : los administradores de la suscripción de Azure son miembros de este grupo. Los administradores controlan las instancias del servicio Administración de API y crean las API, las operaciones y los productos que usan los desarrolladores.
-* **Desarrolladores** : los usuarios del portal para desarrolladores autenticados se incluyen en este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
+* **Administradores**. Los administradores de suscripciones de Azure son miembros de este grupo. Los administradores controlan las instancias del servicio Administración de API y crean las API, las operaciones y los productos que usan los desarrolladores.
+* **Desarrolladores**. Los usuarios autenticados del portal para desarrolladores forman este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
 * **Invitados** : a este grupo pertenecen los usuarios del portal para desarrolladores no autenticados como, por ejemplo, clientes potenciales que visitan el portal para desarrolladores de una instancia de API Management. Se les concede determinado acceso de solo lectura, como por ejemplo la posibilidad de ver API pero no llamarlas.
 
 Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados](api-management-howto-aad.md). Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.

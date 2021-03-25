@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392255"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Paquetes DACPAC y BACPAC de SQL Database en SQL Edge
@@ -47,19 +47,19 @@ Para implementar (o importar) un paquete DAC de SQL Database `(*.dacpac)` o un 
 
     2. En el panel izquierdo, seleccione **IoT Edge**.
 
-    3. En la página de **IoT Edge** , busque y seleccione la instancia de IoT Edge en la que se implementa el módulo de SQL Edge.
+    3. En la página de **IoT Edge**, busque y seleccione la instancia de IoT Edge en la que se implementa el módulo de SQL Edge.
 
-    4. En la página de **Dispositivo de IoT Edge** , seleccione **Establecer módulo**.
+    4. En la página de **Dispositivo de IoT Edge**, seleccione **Establecer módulo**.
 
-    5. En la página **Establecer módulos** , haga clic en el módulo Azure SQL Edge.
+    5. En la página **Establecer módulos**, haga clic en el módulo Azure SQL Edge.
 
-    6. En el panel **Actualizar módulo IoT Edge** , seleccione **Variables de entorno**. Agregue la variable de entorno `MSSQL_PACKAGE` y especifique la dirección URL de SAS generada en el paso 3 anterior como el valor de la variable de entorno. 
+    6. En el panel **Actualizar módulo IoT Edge**, seleccione **Variables de entorno**. Agregue la variable de entorno `MSSQL_PACKAGE` y especifique la dirección URL de SAS generada en el paso 3 anterior como el valor de la variable de entorno. 
 
     7. Seleccione **Actualizar**.
 
-    8. En la página **Establecer módulos** , seleccione **Revisar y crear**.
+    8. En la página **Establecer módulos**, seleccione **Revisar y crear**.
 
-    9. En la página **Establecer módulos** , seleccione **Crear**.
+    9. En la página **Establecer módulos**, seleccione **Crear**.
 
 5. Después de actualizar el módulo, los archivos de paquete se descargan, se descomprimen y se implementan en la instancia de SQL Edge.
 

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo realizar una copia de seguridad de
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738159"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Copia de seguridad de Azure Managed Disks (en versión preliminar)
@@ -115,7 +115,7 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
 
    - Puede usar este grupo de recursos para almacenar instantáneas en varios discos que se vayan a incluir (o que tenga planeado incluir) en la copia de seguridad.  
 
-   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por lo tanto, elija el grupo de recursos de la misma suscripción que el disco del que se va a realizar la copia de seguridad. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados.
+   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por consiguiente, elija el grupo de recursos en la misma suscripción que el disco del que se va a realizar la copia de seguridad. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados.
 
    Siga estos pasos para asignar un rol:
 

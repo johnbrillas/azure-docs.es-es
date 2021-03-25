@@ -4,12 +4,12 @@ description: Aprenda a instrumentar una aplicación .NET de Azure Batch con la b
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933569"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605790"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Supervisión y depuración de una aplicación .NET de Azure Batch con Application Insights
 
@@ -23,7 +23,7 @@ Hay una solución de C# de ejemplo con código que acompaña este artículo disp
 > Como alternativa, configure la solución de Batch para mostrar datos de Application Insights, como los contadores de rendimiento de máquina virtual en Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchExplorer/) para Mac, Linux o Windows. Consulte el [repositorio batch-insights](https://github.com/Azure/batch-insights) para ver los pasos rápidos para habilitar los datos de Application Insights en Batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/vs)
 
 * [Una cuenta de Batch y una cuenta de Storage vinculada](batch-account-create-portal.md)
@@ -32,7 +32,7 @@ Hay una solución de C# de ejemplo con código que acompaña este artículo disp
   
    * Cree un nuevo *recurso* de Application Insights mediante Azure Portal. Seleccione el **Tipo de aplicación** *General*.
 
-   * Copie la [clave de instrumentación](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) del portal. Se necesita más adelante en este artículo.
+   * Copie la [clave de instrumentación](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) del portal. Se necesita más adelante en este artículo.
   
   > [!NOTE]
   > Es posible que se le [cobre](https://azure.microsoft.com/pricing/details/application-insights/) por los datos almacenados en Application Insights. Esto incluye el diagnóstico y la supervisión de los datos descritos en este artículo.

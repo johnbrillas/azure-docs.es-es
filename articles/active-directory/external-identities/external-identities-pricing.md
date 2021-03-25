@@ -12,10 +12,10 @@ manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442072"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de facturación para Azure AD for External Identities
@@ -51,20 +51,20 @@ Se debe vincular un inquilino de Azure AD a una suscripción de Azure para una 
 
     ![Selección del icono de directorio y suscripción](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. En **Servicios de Azure** , seleccione **Azure Active Directory** .
+3. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 
-4. En el menú de la izquierda, seleccione **External Identities** .
+4. En el menú de la izquierda, seleccione **External Identities**.
 
-5. En **Suscripciones** , seleccione **Suscripciones vinculadas** .
+5. En **Suscripciones**, seleccione **Suscripciones vinculadas**.
 
-6. En la lista de inquilinos, active la casilla situada junto al inquilino y, a continuación, seleccione **Vinculación de la suscripción** .
+6. En la lista de inquilinos, active la casilla situada junto al inquilino y, a continuación, seleccione **Vinculación de la suscripción**.
 
     ![Selección del inquilino y vinculación de una suscripción](media/external-identities-pricing/linked-subscriptions.png)
 
-7. En el panel Vinculación de una suscripción, seleccione una **suscripción** y un **grupo de recursos** . Luego, seleccione **Aplicar** .
+7. En el panel Vinculación de una suscripción, seleccione una **suscripción** y un **grupo de recursos**. Luego, seleccione **Aplicar**.
 
    > [!NOTE]
-   > Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí** .
+   > Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí**.
 
     ![Selección de una suscripción y un grupo de recursos](media/external-identities-pricing/link-subscription-resource.png)
 
