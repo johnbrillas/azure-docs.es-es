@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
 ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841468"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configuración de Always Encrypted con Azure Key Vault 
@@ -41,7 +41,7 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted en su b
 
 
 - Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Una base de datos de [Azure SQL Database](single-database-create-quickstart.md) o [Instancia administrada de Azure SQL](../managed-instance/instance-create-quickstart.md).
+- Una base de datos de [Azure SQL Database](single-database-create-quickstart.md) o [Instancia administrada de Azure SQL](../managed-instance/instance-create-quickstart.md).
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) versión 13.0.700.242 o posterior.
 - [.NET Framework 4.6](/dotnet/framework/) o posterior (en el equipo cliente).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
@@ -108,7 +108,7 @@ az keyvault set-policy --name $vaultName --key-permissions get list sign unwrapK
 
 ## <a name="connect-with-ssms"></a>Conectarse con SSMS
 
-Abra SQL Server Management Studio (SSMS) y conéctese al servidor o instancia administrada con la base de datos.
+Abra SQL Server Management Studio (SSMS) y conéctese al servidor o administre con la base de datos.
 
 1. Abra SSMS. (Vaya a **Conectar** > **Motor de base de datos** para abrir la ventana **Conectar con el servidor** si no está abierta).
 

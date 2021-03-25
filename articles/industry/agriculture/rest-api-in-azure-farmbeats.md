@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674516"
 ---
 # <a name="azure-farmbeats-apis"></a>API de Azure FarmBeats
@@ -143,23 +143,23 @@ En este ejemplo, cuando se creó una granja, el campo obligatorio "Name" no se e
 
 Se puede acceder a las API de Azure FarmBeats mediante un usuario o un registro de aplicación en Azure Active Directory. Para crear un registro de aplicación en Azure Active Directory, siga estos pasos:
 
-1. Vaya a [Azure Portal](https://portal.azure.com) y seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro** . También puede usar una cuenta existente.
+1. Vaya a [Azure Portal](https://portal.azure.com) y seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**. También puede usar una cuenta existente.
 2. Para una cuenta nueva, haga lo siguiente:
 
     - Escriba un nombre.
     - Seleccione **Cuentas de este directorio organizativo solo (inquilino único)** .
     - Use los valores predeterminados en el resto de campos.
-    - Seleccione **Registrar** .
+    - Seleccione **Registrar**.
 
-3. En el registro de aplicación nuevo o existente, panel **Información general** , haga lo siguiente:
+3. En el registro de aplicación nuevo o existente, panel **Información general**, haga lo siguiente:
 
-    - Capture el **Id. de cliente** y el **Id. de inquilino** .
-    - Vaya a **Certificados y secretos** para generar un secreto de cliente nuevo y capturar el **Secreto de cliente** .
-    - Vuelva a **Información general** y seleccione el vínculo situado junto a **Administrar la aplicación en el directorio local** .
-    - Vaya a **Propiedades** para capturar el **Id. de objeto** .
+    - Capture el **Id. de cliente** y el **Id. de inquilino**.
+    - Vaya a **Certificados y secretos** para generar un secreto de cliente nuevo y capturar el **Secreto de cliente**.
+    - Vuelva a **Información general** y seleccione el vínculo situado junto a **Administrar la aplicación en el directorio local**.
+    - Vaya a **Propiedades** para capturar el **Id. de objeto**.
 
 4. Vaya a la instancia de Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) y haga lo siguiente:
-    - Vaya a **RoleAssignment API** .
+    - Vaya a **RoleAssignment API**.
     - Realice una operación POST con el fin de crear un objeto **RoleAssignment** para el **Id. de objeto** que se acaba de crear.
  
 ```json

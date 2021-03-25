@@ -4,10 +4,10 @@ description: En este artículo se indican los pasos para crear alertas del regis
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: f774e3291961c58f55a9ed24026535e076235b98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588760"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Creación de alertas del registro de actividad para laboratorios en Azure DevTest Labs

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546354"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
@@ -29,7 +29,7 @@ La licencia que se proporciona con la plantilla de OVF es una licencia de evalua
 Puede acceder al servidor de configuración como se indica a continuación:
 
 * Inicie sesión en la máquina virtual en la que está implementado e inicie el **administrador de configuración de Azure Site Recovery** desde el acceso directo del escritorio.
-* Como alternativa, puede acceder al servidor de configuración de forma remota desde https:// *NombreDeServidorDeConfiguración* /:44315/. Inicie sesión con las credenciales de administrador.
+* Como alternativa, puede acceder al servidor de configuración de forma remota desde https://*NombreDeServidorDeConfiguración*/:44315/. Inicie sesión con las credenciales de administrador.
 
 ## <a name="modify-vmware-server-settings"></a>Modificación de la configuración del servidor de VMware
 
@@ -103,7 +103,7 @@ La fecha de expiración aparece en **Configuration Server health** (Mantenimient
 
 - Cuando la fecha de expiración es dos meses o menos, el servicio comienza a enviar notificaciones en el portal y por correo electrónico (si está suscrito a las notificaciones de Azure Site Recovery).
 - Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
-- Si ve el botón **Actualizar ahora** , quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
+- Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
 
 ### <a name="if-certificates-are-yet-to-expire"></a>Si los certificados aún no han expirado
 
@@ -128,7 +128,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
 1. En el almacén, abra **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
 2. En **Servers** (Servidores), seleccione **Download registration key** (Descargar clave de registro) para descargar el archivo de credenciales de almacén.
 3. Inicie sesión en la máquina del servidor de configuración.
-4. En **%ProgramData%\ASR\home\svsystems\bin** , abra **cspsconfigtool.exe**.
+4. En **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
 5. En la pestaña **Vault Registration** (Registro del almacén), seleccione **Browse** (Examinar) y busque el archivo de credenciales de almacén que ha descargado.
 6. Si lo necesita, proporcione los detalles del servidor proxy. Después, seleccione **Register** (Registrar).
 7. Abra la ventana de comandos de administrador de PowerShell y ejecute el comando siguiente:

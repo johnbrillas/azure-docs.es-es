@@ -4,10 +4,10 @@ description: Obtenga información acerca de cómo actualizar la configuración q
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 3cb1d40f5b32415588d3fd5a108967cfb4c0e534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842621"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Actualización de la configuración de un clúster independiente 
@@ -62,13 +62,13 @@ Se utiliza un certificado de clúster para la autenticación entre nodos de clú
 
 Se admiten cuatro opciones:  
 
-* Actualización del certificado único: La ruta de actualización es Certificado A (principal) -> Certificado B (principal) -> Certificado C (principal) ->...
+* Actualización de un solo certificado: la ruta de actualización es "Certificado A (principal) -> Certificado B (principal) -> Certificado C (principal) ->...".
 
-* Actualización de dos certificados: la ruta de actualización es Certificado A (principal) -> Certificado A (principal) y B (secundario) -> Certificado B (principal) -> Certificado B (principal) y C (secundario) -> Certificado C (principal) ->...
+* Actualización de dos certificados: la ruta de actualización es "Certificado A (principal) -> Certificado A (principal) y B (secundario) -> Certificado B (principal) -> Certificado B (principal) y C (secundario) -> Certificado C (principal) ->....".
 
 * Actualización del tipo de certificado: configuración de certificado basada en huella digital <-> Configuración de certificado basada en CommonName. Por ejemplo, Huella digital del certificado A (principal) y Huella digital B (secundaria) -> Certificado CommonName C.
 
-* Actualización de la huella digital del emisor de certificado: la ruta de actualización de software es Certificado CN=A,Emisor huella digital=IT1 (principal) -> Certificado CN=A,Emisor huella digital=IT1,IT2 (principal) -> Certificado CN=A,Emisor huella digital=IT2 (principal)".
+* Actualización de la huella digital del emisor de certificado: la ruta de actualización de software es "Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)".
 
 
 ## <a name="next-steps"></a>Pasos siguientes

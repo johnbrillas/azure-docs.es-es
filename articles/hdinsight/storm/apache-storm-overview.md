@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 867f042332457ebc5fdd6b1f10ce7fb636309ba8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928896"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865339"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
@@ -42,7 +42,7 @@ Para comenzar a usar Storm, consulte [Create and monitor an Apache Storm topolog
 
 Storm ejecuta topologías en lugar de los trabajos de [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) que puede que ya conozca. Las topologías de Storm están formadas por varios componentes que se organizan en un grafo acíclico dirigido (DAG). Los datos fluyen entre los componentes del grafo. Cada componente consume uno o varios flujos de datos y, opcionalmente, puede emitir uno o varios flujos. En el siguiente diagrama, se ilustra cómo fluyen los datos entre componentes de una topología básica de recuento de palabras:
 
-![Ejemplo de cómo se organizan los componentes en una topología de Storm](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+:::image type="content" source="./media/apache-storm-overview/example-apache-storm-topology-diagram.png" alt-text="Ejemplo de cómo se organizan los componentes en una topología de Storm" border="false":::
 
 * Los componentes spout introducen los datos en una topología y emiten uno o varios flujos en la topología.
 
@@ -56,7 +56,7 @@ El nodo Nimbus proporciona una funcionalidad similar a la de la Apache Hadoop Jo
 
 La configuración predeterminada de los clústeres de Apache Storm es que solo tenga un nodo Nimbus. Storm en HDInsight proporciona dos nodos Nimbus. Si se produce un error en el nodo principal, el clúster de Storm cambia al nodo secundario mientras se recupera el nodo principal. En el diagrama siguiente se muestra la configuración de flujo de tareas para Storm en HDInsight:
 
-![Diagrama de nimbus, zookeeper y supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
+:::image type="content" source="./media/apache-storm-overview/storm-diagram-nimbus.png" alt-text="Diagrama de nimbus, zookeeper y supervisor" border="false":::
 
 ## <a name="ease-of-use"></a>Facilidad de uso
 

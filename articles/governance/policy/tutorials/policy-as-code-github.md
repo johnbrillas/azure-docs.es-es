@@ -4,10 +4,10 @@ description: En este tutorial, implementará un flujo de trabajo de directiva de
 ms.date: 10/20/2020
 ms.topic: tutorial
 ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92325900"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Tutorial: Implementación de Azure Policy as Code con GitHub
@@ -30,31 +30,31 @@ Si desea asignar una directiva para identificar el estado de cumplimiento actual
 
 Para exportar una definición de directiva desde Azure Portal, siga estos pasos:
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva** .
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
 1. Seleccione **Definiciones** en el lado izquierdo de la página de Azure Policy.
 
-1. Use el botón **Exportar definiciones** , o bien seleccione el botón de los puntos suspensivos que encontrará en la fila de la definición de una directiva y, a continuación, seleccione **Exportar definición** .
+1. Use el botón **Exportar definiciones**, o bien seleccione el botón de los puntos suspensivos que encontrará en la fila de la definición de una directiva y, a continuación, seleccione **Exportar definición**.
 
-1. Seleccione el botón **Iniciar sesión con GitHub** . Si aún no se ha autenticado en GitHub para autorizar a Azure Policy a exportar el recurso, revise el acceso que [Acciones de GitHub](https://github.com/features/actions) requiere en la nueva ventana que se abre y seleccione **Autorizar AzureGitHubActions** para continuar con el proceso de exportación. Una vez completado este paso, la nueva ventana se cerrará automáticamente.
+1. Seleccione el botón **Iniciar sesión con GitHub**. Si aún no se ha autenticado en GitHub para autorizar a Azure Policy a exportar el recurso, revise el acceso que [Acciones de GitHub](https://github.com/features/actions) requiere en la nueva ventana que se abre y seleccione **Autorizar AzureGitHubActions** para continuar con el proceso de exportación. Una vez completado este paso, la nueva ventana se cerrará automáticamente.
 
-1. En la pestaña **Aspectos básicos** , establezca las siguientes opciones y,a continuación, seleccione la pestaña **Directivas** o el botón **Siguiente: Directivas** situado en la parte inferior de la página.
+1. En la pestaña **Aspectos básicos**, establezca las siguientes opciones y,a continuación, seleccione la pestaña **Directivas** o el botón **Siguiente: Directivas** situado en la parte inferior de la página.
 
-   - **Filtro del repositorio** : establezca esta opción en _Mis repositorios_ si solo quiere ver los repositorios que posee, o bien en _Todos los repositorios_ para ver todos aquellos a los que concedió acceso a Acciones de GitHub.
-   - **Repositorio** : establezca esta opción en el repositorio en el que quiera exportar los recursos de Azure Policy.
-   - **Rama** : establezca la rama del repositorio. Usar una rama distinta de la predeterminada es una buena manera de validar las actualizaciones antes de combinarlas en el código fuente.
-   - **Directorio** : se trata de la _carpeta de nivel raíz_ en la que se exportarán los recursos de Azure Policy. Las subcarpetas de este directorio se crean en función de los recursos que se exportan.
+   - **Filtro del repositorio**: establezca esta opción en _Mis repositorios_ si solo quiere ver los repositorios que posee, o bien en _Todos los repositorios_ para ver todos aquellos a los que concedió acceso a Acciones de GitHub.
+   - **Repositorio**: establezca esta opción en el repositorio en el que quiera exportar los recursos de Azure Policy.
+   - **Rama**: establezca la rama del repositorio. Usar una rama distinta de la predeterminada es una buena manera de validar las actualizaciones antes de combinarlas en el código fuente.
+   - **Directorio**: se trata de la _carpeta de nivel raíz_ en la que se exportarán los recursos de Azure Policy. Las subcarpetas de este directorio se crean en función de los recursos que se exportan.
 
-1. En la pestaña **Directivas** , establezca el ámbito de búsqueda; para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
+1. En la pestaña **Directivas**, establezca el ámbito de búsqueda; para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
    
 1. Use el botón **Agregar definiciones de directiva** para realizar la búsqueda en el ámbito cuyos objetos se van a exportar. En la ventana lateral que se abre, seleccione cada uno de los objetos que quiera exportar. Filtre la selección mediante el cuadro de búsqueda o el tipo. Una vez que haya seleccionado todos los objetos que se van a exportar, use el botón **Agregar** de la parte inferior de la página.
 
-1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_ , para una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.
+1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_, para una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.
 
    > [!NOTE]
-   > Si se elige la opción _Definición y asignaciones_ , solo se exportarán las asignaciones de directiva comprendidas en el ámbito establecido por el filtro al agregar la definición de directiva.
+   > Si se elige la opción _Definición y asignaciones_, solo se exportarán las asignaciones de directiva comprendidas en el ámbito establecido por el filtro al agregar la definición de directiva.
 
-1. En la pestaña **Revisar y exportar** , compruebe que los detalles coincidan y, luego, use el botón **Exportar** situado en la parte inferior de la página.
+1. En la pestaña **Revisar y exportar**, compruebe que los detalles coincidan y, luego, use el botón **Exportar** situado en la parte inferior de la página.
 
 1. Compruebe el repositorio de GitHub, la rama y la _carpeta de nivel raíz_ para ver que los recursos seleccionados se hayan exportado en el control de código fuente.
 
@@ -88,11 +88,11 @@ Los recursos de Azure Policy se exportan en la siguiente estructura dentro del r
 
 1. El flujo de trabajo sincroniza los cambios realizados en los objetos de directivas con Azure y le proporciona el estado en los registros.
 
-   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Captura de pantalla de la pestaña de la acción, el flujo de trabajo y los botones para ejecutar el flujo de trabajo en la interfaz web de GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Captura de pantalla del flujo de trabajo en acción y los detalles registrados en los registros.":::
 
 1. El flujo de trabajo también agrega los detalles en el elemento `properties.metadata` de los objetos de Azure Policy para el seguimiento.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Captura de pantalla de la pestaña de la acción, el flujo de trabajo y los botones para ejecutar el flujo de trabajo en la interfaz web de GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Captura de pantalla de la definición de directiva de Azure en Azure Portal actualizada con los metadatos específicos de la acción de GitHub.":::
 
 ### <a name="trigger-compliance-scans-using-github-action"></a>Desencadenado de exámenes de cumplimiento mediante la acción de GitHub
 

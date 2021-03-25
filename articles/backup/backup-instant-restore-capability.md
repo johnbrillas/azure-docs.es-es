@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014455"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618583"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -112,7 +112,13 @@ El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué mi instantánea existe todavía incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
 
-Si el punto de recuperación tiene una instantánea y es el más reciente disponible, se conserva hasta que se realice correctamente la siguiente copia de seguridad. Esto se debe a la directiva de "recolección de elementos no utilizados" (GC) designada. Esta determina que siempre esté presente, como mínimo, el punto de recuperación más reciente, en caso de que se produzca un error en todas las copias de seguridad posteriores debido a un problema en la máquina virtual. En los escenarios normales, los puntos de recuperación se limpian a lo sumo 24 horas después de que expiran.
+Si el punto de recuperación tiene una instantánea y es el más reciente disponible, se conserva hasta que se realice correctamente la siguiente copia de seguridad. Esto se debe a la directiva de "recolección de elementos no utilizados" (GC) designada. Esta determina que siempre esté presente, como mínimo, el punto de recuperación más reciente, en caso de que se produzca un error en todas las copias de seguridad posteriores debido a un problema en la máquina virtual. En los escenarios normales, los puntos de recuperación se limpian a lo sumo 24 horas después de que expiran. En escenarios poco comunes, puede haber una o dos instantáneas adicionales basadas en la carga más pesada en el recolector de elementos no utilizados (GC).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>¿Por qué veo más instantáneas que lo que indica mi directiva de retención?
+
+En un escenario en el que una directiva de retención está establecida como "1", puede encontrar dos instantáneas. Esto obliga a que siempre exista l menos un punto de recuperación más reciente, ante la eventualidad de que todas las copias de seguridad subsiguientes produzcan un error debido a un problema en la máquina virtual. Esto puede generar la presencia de dos instantáneas.<br></br>Por lo tanto, si la directiva indica "n" instantáneas, a veces puede encontrar "n+1" instantáneas. Además, incluso puede encontrar "n+1+2" instantáneas si se produce un retraso en la recolección de elementos no utilizados. Esto puede ocurrir en las escasas ocasiones en que ocurre lo siguiente:
+- Limpia las instantáneas, que son retenciones anteriores.
+- El recolector de elementos no utilizados (GC) del back-end está sobrecargado.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 
@@ -120,5 +126,5 @@ La característica de restauración instantánea está habilitada para todos los
 
 ### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>¿Es seguro reiniciar la máquina virtual durante el proceso de transferencia (que puede tardar muchas horas)? ¿Reiniciar la máquina virtual interrumpirá o ralentizará la transferencia?
 
-Sí, es seguro, y no hay ningún efecto sobre la velocidad de transferencia de datos.
+Sí, es seguro, y no tiene ningún impacto en la velocidad de la transferencia de datos.
 

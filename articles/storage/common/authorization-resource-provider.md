@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789682"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
@@ -53,7 +53,7 @@ Los roles integrados que conceden permisos para llamar a las operaciones de admi
 | **Administrador de acceso de usuario** | Puede administrar el acceso a la cuenta de almacenamiento.   | Sí, permite a una entidad de seguridad asignar cualquier permiso tanto a ella misma como a otras. |
 | **Colaborador de la máquina virtual** | Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento a la que están conectadas.   | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
 
-La tercera columna de la tabla indica si el rol integrado admite **Microsoft.Storage/storageAccounts/listkeys/action** . Esta acción concede los permisos necesarios para leer y volver a generar las claves de la cuenta de almacenamiento. Los permisos para acceder a los recursos de administración de Azure Storage no incluyen los permisos para acceder a los datos. Sin embargo, si un usuario tiene acceso a las claves de la cuenta, puede usarlas para acceder a los datos de Azure Storage mediante la autorización de claves compartidas.
+La tercera columna de la tabla indica si el rol integrado admite **Microsoft.Storage/storageAccounts/listkeys/action**. Esta acción concede los permisos necesarios para leer y volver a generar las claves de la cuenta de almacenamiento. Los permisos para acceder a los recursos de administración de Azure Storage no incluyen los permisos para acceder a los datos. Sin embargo, si un usuario tiene acceso a las claves de la cuenta, puede usarlas para acceder a los datos de Azure Storage mediante la autorización de claves compartidas.
 
 ### <a name="custom-roles-for-management-operations"></a>Roles personalizados para las operaciones de administración
 

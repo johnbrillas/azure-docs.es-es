@@ -4,15 +4,15 @@ description: Aprenda a acceder a una máquina virtual (vista de alumno) en un la
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 31195cc7c8b4bc0e579f8aeb9107b14229dd8877
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218279"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Acceso a una máquina virtual (vista de alumno) en un laboratorio de Azure desde Teams
 
-Cuando se crea un laboratorio en Teams, los usuarios pueden ver todas las máquinas virtuales aprovisionadas por el propietario del equipo y acceder a ellas. Una vez que se publica el laboratorio y se crean las máquinas virtuales, los usuarios se registrarán automáticamente en el laboratorio y se les asignará una máquina virtual en su primer inicio de sesión en Azure Lab Services. Los usuarios pueden ver las máquinas virtuales que tienen asignadas, así como acceder a ellas. Para ello, deben seleccionar la pestaña que contiene la aplicación **Azure Lab Services** .
+Cuando se crea un laboratorio en Teams, los usuarios pueden ver todas las máquinas virtuales aprovisionadas por el propietario del equipo y acceder a ellas. Una vez que se publica el laboratorio y se crean las máquinas virtuales, los usuarios se registrarán automáticamente en el laboratorio y se les asignará una máquina virtual en su primer inicio de sesión en Azure Lab Services. Los usuarios pueden ver las máquinas virtuales que tienen asignadas, así como acceder a ellas. Para ello, deben seleccionar la pestaña que contiene la aplicación **Azure Lab Services**.
 
 Si el laboratorio aún no se ha publicado o aún no se ha activado una sincronización después de agregarlos al equipo, se mostrarán mensajes similares a los alumnos.
 

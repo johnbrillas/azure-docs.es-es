@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591202"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101738708"
 ---
 # <a name="msix-app-attach-faq"></a>Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX
 
@@ -61,7 +61,7 @@ Todas las máquinas virtuales (VM) de un grupo de hosts que usa la conexión de 
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>¿Puedo usar la conexión de aplicaciones en formato MSIX para HTTP o HTTPS?
 
-Todas las máquinas virtuales que forman parte de un grupo de hosts que usa la conexión de aplicaciones en formato MSIX deben tener permisos de lectura en el recurso compartido de archivos en el que se almacenan las imágenes MSIX. Si se utiliza Azure Files, se deben conceder los permisos de RBAC y NTFS.
+Actualmente, no se admite la conexión de aplicaciones en formato MSIX a través de HTTP o HTTPS.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>¿Puedo realizar una copia intermedia de la misma aplicación MSIX?
 
@@ -69,7 +69,7 @@ Sí. Puede realizar una copia intermedia de las aplicaciones para las que ya la 
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>¿La conexión de aplicaciones en formato MSIX admite certificados autofirmados?
 
-Actualmente, no se admite la conexión de aplicaciones en formato MSIX a través de HTTP o HTTPS.
+Sí. Debe instalar el certificado autofirmado en todas las máquinas virtuales de host de sesión donde se usa la asociación de aplicaciones en formato MSIX para hospedar la aplicación autofirmada.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

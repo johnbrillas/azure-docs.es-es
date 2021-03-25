@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103227"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
@@ -38,7 +38,7 @@ La conexión de una red virtual a otra (de red virtual a red virtual) en el mode
 
 Las redes virtuales que se conecten pueden estar en suscripciones y regiones distintas. Puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagrama que muestra la arquitectura de red virtual a red virtual clásica":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagrama que muestra las conexiones":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>¿Por qué debería conectarse a redes virtuales?
 
@@ -110,17 +110,17 @@ En este paso, crea dos redes virtuales clásicas, TestVNet1 y TestVNet4. Si util
 
 **Cuando cree las redes virtuales, recuerde la siguiente configuración:**
 
-* **Espacios de direcciones de la red virtual** : en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
+* **Espacios de direcciones de la red virtual**: en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
 
-* **Ubicación** : al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
+* **Ubicación**: al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
 
 **Después de crear las redes virtuales, puede agregar la configuración siguiente:**
 
-* **Espacio de direcciones** : no se requiere espacio de direcciones adicional para esta configuración, pero puede agregar espacio de direcciones adicional después de crear la red virtual.
+* **Espacio de direcciones**: no se requiere espacio de direcciones adicional para esta configuración, pero puede agregar espacio de direcciones adicional después de crear la red virtual.
 
-* **Subredes** : no se requieren subredes adicionales para esta configuración, pero puede que quiera que las máquinas virtuales estén en una subred independiente de las otras instancias de rol.
+* **Subredes**: no se requieren subredes adicionales para esta configuración, pero puede que quiera que las máquinas virtuales estén en una subred independiente de las otras instancias de rol.
 
-* **Servidores DNS** : escriba el nombre del servidor DNS y la dirección IP. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
+* **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
 
 ### <a name="to-create-a-classic-virtual-network"></a>Para crear una red virtual clásica
 
@@ -145,9 +145,9 @@ Tenga en cuenta que el sitio local para cada red virtual es la otra red virtual.
 
 Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene la dirección IP del dispositivo VPN al que se creará una conexión y los intervalos de direcciones IP que se enrutarán a través de la puerta de enlace VPN en el dispositivo VPN.
 
-1. En la página de la red virtual, en **Configuración** , seleccione **Conexiones de sitio a sitio** .
-1. En la página Conexiones de sitio a sitio, seleccione **+ Agregar** .
-1. En la página **Configurar una conexión VPN y una puerta de enlace** , para **Tipo de conexión** , deje seleccionado **De sitio a sitio** .
+1. En la página de la red virtual, en **Configuración**, seleccione **Conexiones de sitio a sitio**.
+1. En la página Conexiones de sitio a sitio, seleccione **+ Agregar**.
+1. En la página **Configurar una conexión VPN y una puerta de enlace**, para **Tipo de conexión**, deje seleccionado **De sitio a sitio**.
 
    * **Dirección IP de la puerta de enlace de VPN:** es la dirección IP pública del dispositivo VPN en la red local. Para este ejercicio, puede incluir una dirección ficticia porque todavía no tiene la dirección IP de VPN Gateway del otro sitio. Por ejemplo: 5.4.3.2. Más adelante, una vez configurada la puerta de enlace de la otra red virtual, puede ajustar este valor.
 
@@ -156,11 +156,11 @@ Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene 
 
 ### <a name="to-configure-a-virtual-network-gateway"></a><a name="sku"></a>Configuración de una puerta de enlace de red virtual
 
-1. En la página **Puerta de enlace** , seleccione los siguientes valores:
+1. En la página **Puerta de enlace**, seleccione los siguientes valores:
 
    * **Size:** Es la SKU de la puerta de enlace que va a usa para crear la puerta de enlace de red virtual. Las puertas de enlace de VPN clásicas utilizan las SKU antiguas (heredadas). Para más información acerca de las SKU antiguas de puerta de enlace, consulte [Funcionamiento de SKU de puerta de enlace de red virtual (SKU antigua)](vpn-gateway-about-skus-legacy.md). Puede seleccionar **Estándar** para este ejercicio.
 
-   * **Tipo de enrutamiento:** Seleccione el tipo de enrutamiento de la puerta de enlace. Esto también se conoce como tipo de VPN. Es importante seleccionar el tipo correcto porque la puerta de enlace no se puede convertir de un tipo a otro. El dispositivo VPN debe ser compatible con el tipo de enrutamiento que seleccione. Para más información acerca del tipo de enrutamiento, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Verá que muchos artículos hacen referencia a los tipos de VPN 'RouteBased' y 'PolicyBased'. 'Dynamic' corresponde a 'RouteBased' y 'Static' corresponde a 'PolicyBased'. Para esta configuración, seleccione **Dynamic** .
+   * **Tipo de enrutamiento:** Seleccione el tipo de enrutamiento de la puerta de enlace. Esto también se conoce como tipo de VPN. Es importante seleccionar el tipo correcto porque la puerta de enlace no se puede convertir de un tipo a otro. El dispositivo VPN debe ser compatible con el tipo de enrutamiento que seleccione. Para más información acerca del tipo de enrutamiento, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Verá que muchos artículos hacen referencia a los tipos de VPN 'RouteBased' y 'PolicyBased'. 'Dynamic' corresponde a 'RouteBased' y 'Static' corresponde a 'PolicyBased'. Para esta configuración, seleccione **Dynamic**.
 
    * **Subred de puerta de enlace:** El tamaño de la subred de la puerta de enlace que especifique depende de la configuración de la puerta de enlace VPN que desea crear. Aunque es posible crear una puerta de enlace tan pequeña como /29, le recomendamos que use /27 o /28. Esto crea una subred mayor que incluye más direcciones. El uso de una subred de la puerta de enlace mayor permite suficientes direcciones IP para dar cabida a posibles configuraciones futuras.
 
@@ -188,9 +188,9 @@ Una vez que se crean las puertas de enlace de red virtual para ambas redes virtu
 ### <a name="part-2---modify-the-local-site-properties"></a>Parte 2: Modificación de las propiedades de sitios locales
 
 1. En Conexiones de sitio a sitio, seleccione la conexión. Por ejemplo, SiteVNet4.
-1. En la página **Propiedades** de Conexión de sitio a sitio, seleccione **Editar el sitio local** .
-1. En el campo **Dirección IP de la puerta de enlace de VPN** , pegue la dirección IP de la puerta de enlace de VPN que copió en la sección anterior.
-1. Seleccione **Aceptar** .
+1. En la página **Propiedades** de Conexión de sitio a sitio, seleccione **Editar el sitio local**.
+1. En el campo **Dirección IP de la puerta de enlace de VPN**, pegue la dirección IP de la puerta de enlace de VPN que copió en la sección anterior.
+1. Seleccione **Aceptar**.
 1. El campo se actualiza en el sistema. También puede usar este método para agregar la dirección IP adicional que quiere enrutar a este sitio.
 
 ### <a name="part-3---repeat-steps-for-the-other-vnet"></a>Parte 3: Repetición de los pasos para la otra red virtual

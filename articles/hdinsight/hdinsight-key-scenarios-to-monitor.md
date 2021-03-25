@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e6bec71c44d7fbcf2841e087af9887d99c94e6f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945336"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867583"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
@@ -33,11 +33,11 @@ Para obtener una visión de alto nivel de los nodos de un clúster y su carga, i
 
 También verá columnas que muestra el número de núcleos y la cantidad de RAM de cada host, así como el uso del disco y el promedio de carga.
 
-![Información general de la pestaña Hosts de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png" alt-text="Información general de la pestaña Hosts de Apache Ambari":::
 
 Seleccione cualquiera de los nombres de host para tener una vista detallada de los componentes que se ejecutan en el host y su métrica. La métrica se muestra como una escala de tiempo seleccionable de uso de la CPU, carga, uso del disco, uso de la memoria, uso de la red y números de procesos.
 
-![Información general de los detalles de host de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png" alt-text="Información general de los detalles de host de Apache Ambari":::
 
 Para más información acerca del establecimiento de alertas y visualización de métricas, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -53,19 +53,19 @@ Cuando varios inquilinos comparten un clúster grande, compiten por sus recursos
 
 YARN nos permite asignar recursos a estas colas y muestra si todos los recursos disponibles están asignados. Para ver información acerca de las colas, inicie sesión en la interfaz de usuario web de Ambari y, después, seleccione **YARN Queue Manager** (Administrador de colas de YARN) en el menú superior.
 
-![Administrador de la cola de YARN de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png" alt-text="Administrador de la cola de YARN de Apache Ambari":::
 
 La página YARN Queue Manager (Administrador de colas de YARN) muestra una lista de las colas, a la izquierda, y el porcentaje de la capacidad que se asigna a cada una.
 
-![Página de detalles de YARN Queue Manager (Administrador de colas de YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png" alt-text="Página de detalles de YARN Queue Manager (Administrador de colas de YARN)":::
 
 Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Vínculos rápidos**, seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
 
-![Vínculos del menú de la interfaz de usuario del Administrador de recursos](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png" alt-text="Vínculos del menú de la interfaz de usuario del Administrador de recursos":::
 
 En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Programador) en el menú de la izquierda. Se ve una lista de las colas debajo de *Application Queues* (Colas de aplicación). Aquí puede ver la capacidad que se usa para cada una de las colas, cómo se distribuyen los trabajos entre ellas y si alguno de los trabajos tiene los recursos restringidos.
 
-![Menú de la interfaz de usuario del Administrador de recursos de Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Menú de la interfaz de usuario del Administrador de recursos de Apache HAdoop":::
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 
@@ -94,7 +94,7 @@ En algunos casos, puede producirse una lentitud debido a que hay poco espacio en
 
 1. Revise la salida y compruebe si hay archivos de gran tamaño en la carpeta `mnt` u otras carpetas. Normalmente, las carpetas `usercache` y `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) contienen archivos grandes.
 
-1. Si hay archivos grandes, o bien un trabajo actual está causando el aumento del archivo o bien un trabajo anterior con errores ha contribuido a este problema. Para comprobar si este comportamiento se debe a un trabajo actual, ejecute el siguiente comando:
+1. Si hay archivos grandes, o bien un trabajo actual está causando el aumento del archivo o bien un trabajo anterior con errores ha contribuido a este problema. Para comprobar si este comportamiento se debe a un trabajo actual, ejecute el siguiente comando: .
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/

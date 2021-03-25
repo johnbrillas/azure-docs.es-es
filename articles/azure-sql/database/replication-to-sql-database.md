@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780961"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicación en Azure SQL Database
@@ -127,7 +127,7 @@ Las siguientes opciones no se admiten para las suscripciones de Azure SQL Databa
 Cree una publicación y una suscripción de inserción. Para más información, consulte:
   
 - [Create a Publication](/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
-- [Cree una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription/) con el nombre del servidor como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'** ) y el nombre de la instancia de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks** ).  
+- [Cree una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription/) con el nombre del servidor como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'** ) y el nombre de la instancia de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
 
 ## <a name="see-also"></a>Consulte también  
 

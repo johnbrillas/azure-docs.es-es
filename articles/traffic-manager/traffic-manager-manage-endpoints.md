@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98184261"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
@@ -37,7 +37,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
     1. En **Tipo**, haga clic en **Punto de conexión de Azure**.
     2. Proporcione un **nombre** con el que desea reconocer este punto de conexión.
     3. En **Tipo de recurso de destino**, en la lista desplegable, elija el tipo de recurso apropiado.
-    4. Para el **Recurso de destino**, haga clic en el selector **Elegir...**  para enumerar los recursos de la lista bajo la misma suscripción en la **hoja de recursos**. En la hoja **Recursos** que aparece, elija el servicio de aplicaciones que desea agregar como primer punto de conexión.
+    4. Para el **Recurso de destino**, haga clic en el selector **Elegir...** para enumerar los recursos de la lista bajo la misma suscripción en la **hoja de recursos**. En la hoja **Recursos** que aparece, elija el servicio de aplicaciones que desea agregar como primer punto de conexión.
     5. En **Prioridad**, seleccione **1**. Esto hace que todo el tráfico vaya a este punto de conexión si funciona correctamente.
     6. No active la opción **Agregar como deshabilitado**.
     7. Haga clic en **Aceptar**
