@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746633"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Consulta de informes y registros en la administración de derechos de Azure AD
@@ -101,7 +101,7 @@ Azure AD escribirá registros de auditoría adicionales mientras la solicitud es
 | `EntitlementManagement` | `Approve access package assignment request` | Solicitud aprobada |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Solicitud aprobada o no requiere aprobación |
 
-Cuando se asigna el acceso a un usuario, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con el valor **Actividad**`Fulfill access package assignment`.  El usuario que recibe el acceso se identifica mediante el campo **ActorUserPrincipalName**.
+Cuando se asigna el acceso a un usuario, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con el valor **Actividad** `Fulfill access package assignment`.  El usuario que recibe el acceso se identifica mediante el campo **ActorUserPrincipalName**.
 
 Si no se ha asignado el acceso, Azure AD escribe un registro de auditoría para la categoría `EntitlementManagement` con **Actividad** establecido en `Deny access package assignment request`, si un aprobador ha denegado la solicitud, o en `Access package assignment request timed out (no approver action taken)`, si la solicitud ha agotado el tiempo de espera antes de un aprobador pueda aprobarla.
 

@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425896"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954877"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -27,8 +27,8 @@ También estamos introduciendo el nuevo rol de [operador de clústeres de HDInis
 
 | Role                                  | Anteriormente                                                                                       | A partir de ahora       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Lector                                | - Acceso de lectura, incluidos secretos.                                                                   | - Acceso de lectura, **excluidos** secretos |           |   |   |
-| Operador de clústeres de HDInsight<br>(Nuevo rol) | N/D                                                                                              | - Acceso de lectura/escritura, incluidos secretos         |   |   |
+| Lector                                | - Acceso de lectura, incluidos secretos.                                                                   | - Acceso de lectura, **excluidos** secretos | 
+| Operador de clústeres de HDInsight<br>(Nuevo rol) | N/D                                                                                              | - Acceso de lectura/escritura, incluidos secretos         | 
 | Colaborador                           | - Acceso de lectura/escritura, incluidos secretos.<br>- Creación y administración de todos los tipos de recursos de Azure.<br>- Ejecución de acciones de script.     | Sin cambios |
 | Propietario                                 | - Acceso de lectura/escritura, incluidos secretos.<br>- Acceso total a todos los recursos<br>- Delegación del acceso a otros usuarios.<br>- Ejecución de acciones de script. | Sin cambios |
 

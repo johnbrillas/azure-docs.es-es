@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361526"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
@@ -88,7 +88,7 @@ En la tabla siguiente se enumeran los requisitos del contenido JSON:
 
 | Tipo de valor | Cuerpo de la solicitud | Response body |
 |---|---|---|
-|Objeto JSON | Compatible. | Compatible |
+|Objeto JSON | Compatible | Compatible |
 |Matriz JSON | Compatible <br/>(En la actualidad, las matrices JSON no funcionan como resultado un error. La corrección está en curso). | No compatible |
 | Valor JSON | Compatible | No compatible |
 | Tipo distinto de JSON | No compatible | No compatible |

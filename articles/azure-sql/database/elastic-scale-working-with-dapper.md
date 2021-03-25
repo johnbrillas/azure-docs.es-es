@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793371"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Uso de la biblioteca cliente de bases de datos elásticas con Dapper
@@ -23,7 +23,7 @@ ms.locfileid: "92793371"
 
 Este documento está dirigido a desarrolladores que utilizan Dapper para compilar aplicaciones, pero que también desean adaptar las [herramientas de bases de datos elásticas](elastic-scale-introduction.md) para crear aplicaciones que implementen el particionamiento para escalar horizontalmente su capa de datos.  Este documento muestra los cambios que es necesario realizar en las aplicaciones basadas en Dapper para su integración con las herramientas de bases de datos elásticas. Nuestro enfoque se centra en componer la administración de particiones de bases de datos elásticas y el enrutamiento dependiente de los datos con Dapper. 
 
-**Código de ejemplo** : [Herramientas de bases de datos elásticas para Azure SQL Database: integración con Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de ejemplo**: [Herramientas de bases de datos elásticas para Azure SQL Database: integración con Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 La integración de **Dapper** y **DapperExtensions** con la biblioteca de cliente de bases de datos elásticas para Azure SQL Database es sencilla. Las aplicaciones pueden usar el enrutamiento dependiente de los datos cambiando la creación y apertura de nuevos objetos [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) para que usen la llamada [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) desde la [biblioteca de cliente](/previous-versions/azure/dn765902(v=azure.100)). Esto limita los cambios en la aplicación a solo cuando se crean y se abren conexiones nuevas. 
 
@@ -39,7 +39,7 @@ Otra ventaja de Dapper y también de DapperExtensions es que la aplicación cont
 Para obtener los ensamblados de Dapper, consulte [Dapper punto net](https://www.nuget.org/packages/Dapper/). Para las extensiones de Dapper, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Una vista rápida a la biblioteca cliente de bases de datos elásticas
-Con la biblioteca de cliente de bases de datos elásticas, define las particiones de los datos de aplicación llamadas *shardlets* , las asigna a bases de datos y las identifica mediante *claves de particionamiento* . Puede tener tantas bases de datos como necesite y distribuir los shardlets por dichas bases de datos. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de la biblioteca. Esta funcionalidad se llama **administración de mapas de particiones** . El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. Esta funcionalidad se conoce como **enrutamiento dependiente de los datos** .
+Con la biblioteca de cliente de bases de datos elásticas, define las particiones de los datos de aplicación llamadas *shardlets*, las asigna a bases de datos y las identifica mediante *claves de particionamiento*. Puede tener tantas bases de datos como necesite y distribuir los shardlets por dichas bases de datos. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de la biblioteca. Esta funcionalidad se llama **administración de mapas de particiones**. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. Esta funcionalidad se conoce como **enrutamiento dependiente de los datos**.
 
 ![Mapas de particiones y enrutamiento dependiente de los datos][1]
 
@@ -50,11 +50,11 @@ En lugar de usar la forma tradicional de crear conexiones para Dapper, hay que u
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para la integración de Dapper
 Cuando se trabaja con la biblioteca de cliente de bases de datos elásticas y las API de Dapper, conviene conservar las propiedades siguientes:
 
-* **Escalado horizontal** : es necesario poder agregar o quitar bases de datos de la capa de datos de la aplicación particionada cuando las demandas de capacidad de la aplicación lo requieran. 
-* **Coherencia** : dado que la aplicación se amplía mediante particionamiento, es necesario realizar el enrutamiento dependiente de datos. Para ello, queremos usar las funciones de enrutamiento dependiente de los datos de la biblioteca. En particular, queremos conservar las garantías de coherencia y validación que proporcionan las conexiones administradas mediante el administrador de mapas de particiones para evitar daños o que se generen unos resultados incorrectos de la consulta. Esto garantiza que las conexiones a un shardlet determinado se rechazan o se detienen si, por ejemplo, el shardlet se mueve actualmente a una partición diferente mediante las API de división y combinación.
-* **Asignación de objetos** : queremos conservar la comodidad de las asignaciones de Dapper para traducir entre las clases de la aplicación y las estructuras de base de datos subyacentes. 
+* **Escalado horizontal**: es necesario poder agregar o quitar bases de datos de la capa de datos de la aplicación particionada cuando las demandas de capacidad de la aplicación lo requieran. 
+* **Coherencia**: dado que la aplicación se amplía mediante particionamiento, es necesario realizar el enrutamiento dependiente de datos. Para ello, queremos usar las funciones de enrutamiento dependiente de los datos de la biblioteca. En particular, queremos conservar las garantías de coherencia y validación que proporcionan las conexiones administradas mediante el administrador de mapas de particiones para evitar daños o que se generen unos resultados incorrectos de la consulta. Esto garantiza que las conexiones a un shardlet determinado se rechazan o se detienen si, por ejemplo, el shardlet se mueve actualmente a una partición diferente mediante las API de división y combinación.
+* **Asignación de objetos**: queremos conservar la comodidad de las asignaciones de Dapper para traducir entre las clases de la aplicación y las estructuras de base de datos subyacentes. 
 
-La siguiente sección proporciona orientación sobre estos requisitos para aplicaciones basadas en **Dapper** y **DapperExtensions** .
+La siguiente sección proporciona orientación sobre estos requisitos para aplicaciones basadas en **Dapper** y **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Orientación técnica
 ### <a name="data-dependent-routing-with-dapper"></a>Enrutamiento dependiente de los datos con Dapper

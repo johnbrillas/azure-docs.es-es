@@ -3,12 +3,12 @@ title: Entrega de eventos mediante el servicio Private Link
 description: En este artículo se describe cómo solucionar la limitación de no poder enviar eventos mediante el servicio Private Link.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548628"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722334"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entrega de eventos mediante el servicio Private Link
 Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Es decir, no hay compatibilidad si tiene requisitos de aislamiento de red estrictos por los que el tráfico de eventos entregados no debe abandonar el espacio de la IP privada. 
@@ -36,7 +36,7 @@ Para enviar eventos a Event Hubs en el espacio de nombres de Event Hubs mediante
 Para enviar eventos a Service Bus colas o temas del espacio de nombres de Service Bus mediante identidad administrada, siga estos pasos:
 
 1. [Habilite una identidad asignada por el sistema para un tema o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Agregue la identidad al rol [Remitente de datos de Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) en el espacio de nombres de Service Bus.
+1. Agregue la identidad al rol [Remitente de datos de Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) en el espacio de nombres de Service Bus.
 1. [Habilite el valor **Allow trusted Microsoft services to bypass this firewall** (Permitir que servicios de Microsoft de confianza omitan este firewall) en el espacio de nombres de Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea una cola o tema de Service Bus como punto de conexión para usar la identidad asignada por el sistema.
 

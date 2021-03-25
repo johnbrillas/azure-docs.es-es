@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92429293"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Inicio rápido: Aprovisionamiento de un dispositivo con claves simétricas mediante C#
@@ -47,19 +47,19 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 2. Seleccione la pestaña **Administrar inscripciones** y, después, seleccione el botón **Agregar inscripción individual** de la parte superior. 
 
-3. En el panel **Agregar inscripción** , escriba la siguiente información y presione el botón **Guardar**.
+3. En el panel **Agregar inscripción**, escriba la siguiente información y presione el botón **Guardar**.
 
    - **Mecanismo:** seleccione **Clave simétrica** como *mecanismo* de atestación de identidad.
 
-   - **Generar claves automáticamente** : marque esta casilla.
+   - **Generar claves automáticamente**: marque esta casilla.
 
-   - **Identificador de registro** : escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-csharp-device-01**.
+   - **Identificador de registro**: escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-csharp-device-01**.
 
    - **Id. de dispositivo de IoT Hub:** escriba un identificador de dispositivo. Por ejemplo, **csharp-device-01**.
 
      ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-device-symmetric-key-csharp/create-individual-enrollment-csharp.png)
 
-4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria** , y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-csharp-device-01** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
+4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria**, y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-csharp-device-01** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
 
 5. Abra la inscripción y copie el valor de la **clave principal** y la **clave secundaria** que ha generado. Usará estos valores de clave e **Id. de registro** más adelante cuando agregue variables de entorno para usarlas con el código de ejemplo de aprovisionamiento de dispositivos.
 
@@ -98,7 +98,7 @@ El código de aprovisionamiento se pondrá en contacto con la instancia de DPS e
     cd provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. En la carpeta *SymmetricKeySample* , abra *Program.cs* en un editor de texto y busque las líneas de código que establecen las cadenas `individualEnrollmentPrimaryKey` y `individualEnrollmentSecondaryKey`. Actualice las líneas de código como se indica a continuación para que se usen variables de entorno, en lugar de codificar las claves de forma rígida.
+3. En la carpeta *SymmetricKeySample*, abra *Program.cs* en un editor de texto y busque las líneas de código que establecen las cadenas `individualEnrollmentPrimaryKey` y `individualEnrollmentSecondaryKey`. Actualice las líneas de código como se indica a continuación para que se usen variables de entorno, en lugar de codificar las claves de forma rígida.
  
     ```csharp
         //These are the two keys that belong to your individual enrollment. 

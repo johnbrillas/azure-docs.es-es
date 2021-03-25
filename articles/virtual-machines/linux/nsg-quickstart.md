@@ -11,10 +11,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91975134"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Apertura de puertos y puntos de conexión para una máquina virtual Linux en Azure con la CLI de Azure 2.0
@@ -61,7 +61,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Aplicar el grupo de seguridad de red a la máquina virtual
-Asocie el grupo de seguridad de red con la interfaz de red (NIC) de la máquina virtual con [az network nic update](/cli/azure/network/nic). En el ejemplo siguiente, se asocia una NIC existente denominada *myNic* con el grupo de seguridad de red llamado*myNetworkSecurityGroup*:
+Asocie el grupo de seguridad de red con la interfaz de red (NIC) de la máquina virtual con [az network nic update](/cli/azure/network/nic). En el ejemplo siguiente, se asocia una NIC existente denominada *myNic* con el grupo de seguridad de red llamado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \

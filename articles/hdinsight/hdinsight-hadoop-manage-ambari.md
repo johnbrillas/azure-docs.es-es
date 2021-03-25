@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945694"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866495"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
@@ -44,7 +44,7 @@ Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se a
 
 Cuando se abra la página, observe la barra que se encuentra en la parte superior. Esta barra contiene la siguiente información y controles:
 
-![Información general acerca de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png" alt-text="Información general acerca de Apache Ambari":::
 
 |Elemento |Descripción |
 |---|---|
@@ -73,15 +73,15 @@ Las alertas, con la excepción de **OK**, hacen que la entrada **# alerts** en l
 
 Las alertas se organizan en varios grupos predeterminados, que se pueden ver desde la página **Alertas** .
 
-![Resumen de la página de alertas de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png" alt-text="Resumen de la página de alertas de Apache Ambari":::
 
 Para administrar los grupos, use el menú **Actions** (Acciones) y seleccione **Manage Alert Groups** (Administración de grupos de alertas).
 
-![Administrar grupos de alertas de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png" alt-text="Administrar grupos de alertas de Apache Ambari":::
 
 Para administrar métodos de alerta y crear notificaciones de alerta, en el menú **Acciones**, seleccione __Administrar notificaciones__. Se muestran las notificaciones actuales. Cree notificaciones desde aquí. Se pueden enviar notificaciones a través de **CORREO ELECTRÓNICO** o **SNMP** cuando se producen combinaciones de alerta/gravedad específicas. Por ejemplo, puede enviar un mensaje de correo electrónico cuando alguna de las alertas del grupo **YARN Default** (Predeterminado de YARN) está definida en **Critical** (Crítica).
 
-![Crear una notificación de alerta en Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png" alt-text="Crear una notificación de alerta en Apache Ambari":::
 
 Por último, al seleccionar __Manage Alert Settings__ (Administrar configuración de alerta) en el menú __Actions__ (Acciones) podrá probar el número de veces que debe aparecer una alerta antes de enviar una notificación. Esta opción puede usarse para evitar notificaciones de errores transitorios.
 
@@ -91,29 +91,29 @@ Para ver un tutorial de una notificación de alerta con una [cuenta de SendGrid]
 
 La pestaña **Metrics** (Métricas) del panel contiene una serie de widgets que facilitan la supervisión del estado del clúster de un solo vistazo. Varios widgets, como **CPU Usage**(Uso de CPU), proporcionan información adicional al hacer clic en ellos.
 
-![Panel de Apache Ambari con métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png" alt-text="Panel de Apache Ambari con métricas":::
 
 La pestaña **Heatmaps** (Mapas térmicos) muestran las métricas como mapas térmicos coloreados, desde el verde hasta el rojo.
 
-![Panel de Apache Ambari con mapas térmicos](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png" alt-text="Panel de Apache Ambari con mapas térmicos":::
 
 Para más información sobre los nodos del clúster, seleccione **Hosts**. A continuación, seleccione el nodo específico que le interesa.
 
-![Detalles de resumen del host de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png" alt-text="Detalles de resumen del host de Apache Ambari":::
 
 ### <a name="services"></a>Servicios
 
 La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se deben realizar. Por ejemplo, si es necesario reciclar un servicio, se muestra un símbolo de reciclaje amarillo.
 
 
-![Barra lateral de servicios de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png" alt-text="Barra lateral de servicios de Apache Ambari":::
 
 > [!NOTE]  
 > Los servicios mostrados difieren entre las versiones y los tipos de clúster de HDInsight. Los servicios mostrados aquí pueden ser diferentes de los servicios que se muestran para el clúster.
 
 Al seleccionar un servicio se muestra información más detallada sobre el mismo.
 
-![información de resumen de servicio de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png" alt-text="información de resumen de servicio de Apache Ambari":::
 
 #### <a name="quick-links"></a>Vínculos rápidos
 
@@ -142,7 +142,7 @@ Se admite el trabajo con usuarios, grupos y permisos. Para la administración lo
 
 La página **Hosts** muestra todos los hosts existentes en el clúster. Siga estos pasos para administrar los hosts.
 
-![Información general de la página de hosts de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png" alt-text="Información general de la página de hosts de Apache Ambari":::
 
 > [!NOTE]  
 > No se debe agregar, retirar o volver a programar un host con los clústeres de HDInsight.
@@ -179,7 +179,7 @@ A pesar de que el botón **Actions** puede reiniciar todos los servicios, con fr
 
 2. En la parte superior de la pestaña **Summary** (Resumen), use el botón **Service Actions** (Acciones de servicio) y seleccione la acción que se realizará. Con esta acción se reinicia el servicio en todos los nodos.
 
-    ![Acciones de un servicio individual de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png" alt-text="Acciones de un servicio individual de Apache Ambari":::
 
    > [!NOTE]  
    > Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes del reinicio.
@@ -195,7 +195,7 @@ Para configurar un servicio, use los siguientes pasos:
 
 2. Seleccione la pestaña **Configs** (Configuraciones). Aparecerá la configuración actual. También aparecerá una lista de las configuraciones anteriores.
 
-    ![Configuración de un servicio de Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png" alt-text="Configuración de un servicio de Apache Ambari":::
 
 3. Use los campos que aparecen para modificar la configuración y, a continuación, seleccione **Save**(Guardar). O bien, seleccione una configuración anterior y, a continuación, seleccione **Make current** (Convertir en actual) para volver a la configuración anterior.
 

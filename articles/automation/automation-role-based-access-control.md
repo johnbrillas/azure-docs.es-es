@@ -7,10 +7,10 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895924"
 ---
 # <a name="manage-role-permissions-and-security"></a>Administración de seguridad y permisos de roles
@@ -220,7 +220,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso**  |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
-|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Suscripción          |
+|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Vincular área de trabajo y cuenta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabajo</br>Cuenta de Automation
@@ -242,7 +242,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso** |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
-|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Suscripción        |
+|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Hoja AutomationOnboarding: leer área de trabajo vinculada     | Microsoft.Automation/automationAccounts/read        | Cuenta de Automation       |
 |Hoja AutomationOnboarding: leer solución     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solución        |

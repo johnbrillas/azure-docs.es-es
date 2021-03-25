@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792181"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Creación, configuración y administración de trabajos elásticos (versión preliminar)
@@ -50,11 +50,11 @@ Los trabajos usan [credenciales de ámbito de base de datos](/sql/t-sql/statemen
 
 La configuración de las credenciales adecuadas para ejecutar un trabajo puede ser un poco confusa, por lo que debe tener en cuenta los puntos siguientes:
 
-- Las credenciales de ámbito de base de datos se deben crear en la *base de datos del trabajo* .
+- Las credenciales de ámbito de base de datos se deben crear en la *base de datos del trabajo*.
 - **Todas las bases de datos de destino deben tener un inicio de sesión con [permisos suficientes](/sql/relational-databases/security/permissions-database-engine) para que el trabajo se complete correctamente** (`jobuser` en el siguiente diagrama).
 - Las credenciales se pueden reutilizar en los trabajos y las contraseñas de las credenciales se cifran y protegen para los usuarios que tienen acceso de solo lectura a los objetos del trabajo.
 
-La siguiente imagen está diseñada para ayudar a comprender y configurar las credenciales del trabajo adecuadas. **Recuerde que debe crear el usuario en cada base de datos (todas las *bases de datos de usuario de destino* ) en las que se debe ejecutar el trabajo** .
+La siguiente imagen está diseñada para ayudar a comprender y configurar las credenciales del trabajo adecuadas. **Recuerde que debe crear el usuario en cada base de datos (todas las *bases de datos de usuario de destino*) en las que se debe ejecutar el trabajo**.
 
 ![Credenciales de trabajos elásticos](./media/elastic-jobs-overview/job-credentials.png)
 

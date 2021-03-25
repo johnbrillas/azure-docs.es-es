@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
 ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92740367"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse mediante una plantilla de Resource Manager
@@ -48,15 +48,15 @@ La plantilla define dos recursos:
 
 1. Escriba o actualice los siguientes valores:
 
-   - **Suscripción** : Seleccione una suscripción de Azure.
-   - **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y seleccione **Aceptar**. Un grupo de recursos nuevo facilitará la limpieza de los recursos.
-   - **Región** : Seleccione una región.  Por ejemplo, **Centro de EE. UU**.
-   - **Name** : Escriba un nombre del área de trabajo.
-   - **Inicio de sesión de administrador de SQL** : escriba el nombre de usuario del administrador del servidor de SQL Server.
-   - **Contraseña de administrador de SQL** : escriba la contraseña del administrador del servidor de SQL Server.
-   - **Valores de etiqueta** : Acepte el valor predeterminado.
-   - **Revisar y crear** : Seleccionar.
-   - **Crear** : Seleccionar.
+   - **Suscripción**: Seleccione una suscripción de Azure.
+   - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y seleccione **Aceptar**. Un grupo de recursos nuevo facilitará la limpieza de los recursos.
+   - **Región**: Seleccione una región.  Por ejemplo, **Centro de EE. UU**.
+   - **Name**: Escriba un nombre del área de trabajo.
+   - **Inicio de sesión de administrador de SQL**: escriba el nombre de usuario del administrador del servidor de SQL Server.
+   - **Contraseña de administrador de SQL**: escriba la contraseña del administrador del servidor de SQL Server.
+   - **Valores de etiqueta**: Acepte el valor predeterminado.
+   - **Revisar y crear**: Seleccionar.
+   - **Crear**: Seleccionar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

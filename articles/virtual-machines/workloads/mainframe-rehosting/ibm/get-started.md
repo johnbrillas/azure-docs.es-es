@@ -3,7 +3,7 @@ title: Cargas de trabajo de IBM en Azure | Microsoft Docs
 description: Use un emulador del sistema central y otros servicios de asociados de Microsoft para volver a hospedar las cargas de trabajo de IBM z/OS con Microsoft Azure.
 services: virtual-machines
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 1bc8dcbf05847c4d1ce6dd6a39af7bd3674a0669
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d834b1fccf2951fffa8d00f4deb21434b9fea4ac
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561609"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955221"
 ---
 # <a name="ibm-workloads-on-azure"></a>Cargas de trabajo de IBM en Azure
 

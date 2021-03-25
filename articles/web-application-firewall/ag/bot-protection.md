@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 10/31/2019
 ms.author: victorh
 ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73511525"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Configure la protección contra bots para el Firewall de aplicaciones web en Azure Application Gateway (versión preliminar)
@@ -23,7 +23,7 @@ Puede habilitar un conjunto de reglas de protección contra bots administrado pa
 > [!NOTE]
 > El conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte  [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Cree una directiva de WAF básica para Application Gateway siguiendo las instrucciones descritas en [Crear directivas de Firewall de aplicaciones web para Application Gateway](create-waf-policy-ag.md).
 
@@ -31,7 +31,7 @@ Cree una directiva de WAF básica para Application Gateway siguiendo las instruc
 
 1. En la página de la Directiva **básica** que creó anteriormente, en de **Configuración**, seleccione **Reglas**.  
 
-2. En la página detalles, en la sección **Administrar reglas** , en el menú desplegable, active la casilla de la regla de protección contra bots y luego seleccione **Guardar**.
+2. En la página detalles, en la sección  **Administrar reglas** , en el menú desplegable, active la casilla de la regla de protección contra bots y luego seleccione **Guardar**.
 
 > [!div class="mx-imgBorder"]
 > ![Protección contra bots](../media/bot-protection/bot-protection.png)

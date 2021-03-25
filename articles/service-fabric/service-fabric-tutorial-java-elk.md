@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 5faf26230618161a5b908c9a544a43ec5c33b807
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532029"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Supervisión de las aplicaciones de Service Fabric mediante ELK
@@ -29,7 +29,7 @@ En esta serie de tutoriales, se aprende a:
 > * Configurar la supervisión y el diagnóstico para la aplicación
 > * [Configure CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 

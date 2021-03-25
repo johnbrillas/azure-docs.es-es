@@ -4,12 +4,12 @@ description: Obtenga información acerca de la memoria caché de E/S de Azure HD
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940128"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866308"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight
 
@@ -37,7 +37,7 @@ La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterm
 
 1. Seleccione **Acciones** (**Acciones de servicio** en HDI 3.6) y **Activar**.
 
-    ![Habilitación del servicio de la memoria caché de E/S en Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitación del servicio de la memoria caché de E/S en Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Habilitación del servicio de la memoria caché de E/S en Ambari" border="true":::
 
 1. Confirme el reinicio de todos los servicios afectados en el clúster.
 
@@ -52,7 +52,7 @@ Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spa
 
 1. Seleccione las pestañas **Configs** (Configuraciones) y **Advanced** (Opciones avanzadas).
 
-    ![Edición de la configuración avanzada de HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edición de la configuración avanzada de HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edición de la configuración avanzada de HDFS" border="true":::
 
 1. Desplácese hacia abajo y expanda el área **Custom core-site** (Personalizar sitio principal).
 
@@ -60,13 +60,13 @@ Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spa
 
 1. Cambie el valor en el cuadro.
 
-    ![Edición del porcentaje de completado de la memoria caché de E/S](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edición del porcentaje de completado de la memoria caché de E/S")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edición del porcentaje de completado de la memoria caché de E/S" border="true":::
 
 1. Seleccione **Save** (Guardar) en la esquina superior derecha.
 
 1. Seleccione **Restart** (Reiniciar)  > **Restart All Affected** (Reiniciar todos los servicios afectados).
 
-    ![Se reinician todos los elementos afectados en Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicio de todas las entradas afectadas")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Se reinician todos los elementos afectados en Apache Ambari" border="true":::
 
 1. Seleccione **Confirm Restart All** (Confirmar reinicio de todo).
 

@@ -16,10 +16,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5cd7a5737b2d13e63eabbbddd076cfc7aff83ac
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746803"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos y las aplicaciones en las revisiones de acceso de Azure AD
@@ -129,7 +129,7 @@ Puede acceder a la nueva experiencia de revisor con la interfaz de usuario actua
 ### <a name="email"></a>Email
 
   >[!IMPORTANT]
-> Puede que haya retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
+> Podría haber retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
 
    1. Busque un correo electrónico de Microsoft en el que se le pide que revise el acceso. Puede ver un mensaje de correo electrónico de ejemplo a continuación:
 
@@ -146,7 +146,7 @@ También puede ver las revisiones de acceso pendientes mediante el explorador pa
 
 1. Inicie sesión en Mi acceso en https://myaccess.microsoft.com/.
 
-2. Seleccione **Revisiones de acceso** en el menú de la barra del lateral izquierdo para ver una lista de las revisiones de acceso pendientes que tiene asignadas.
+2. Seleccione **Revisiones de acceso** en el menú de la barra del lateral izquierda para ver una lista de las revisiones de acceso pendientes que tiene asignadas.
 
    ![Revisiones de acceso en el menú](./media/perform-access-review/access-review-menu.png)
 

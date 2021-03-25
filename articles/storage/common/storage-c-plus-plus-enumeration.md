@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784105"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
@@ -59,8 +59,8 @@ Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respue
 
 La respuesta para una operación de enumeración segmentada incluye:
 
-* *_segment* , que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
-* *continuation_token* , que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
+* *_segment*, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
+* *continuation_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
 
 Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -95,7 +95,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Si no se especifica el parámetro *max_results* , se devolverá el valor máximo predeterminado de hasta 5000 resultados en una sola página.
+Si no se especifica el parámetro *max_results*, se devolverá el valor máximo predeterminado de hasta 5000 resultados en una sola página.
 
 Tenga en cuenta también que una consulta en Azure Table Storage puede no devolver ningún registro o menos registros que el valor del parámetro *max_results* especificado, incluso si el token de continuación no está vacío. Una razón podría ser que la consulta no se pudo completar en cinco segundos. Siempre y cuando el token de continuación no esté vacío, la consulta debe continuar y el código no debe suponer el tamaño del resultado del segmento.
 
@@ -185,7 +185,7 @@ Las API de enumeración diferida se incluyen en la biblioteca de cliente de alma
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo, hemos tratado diferentes sobrecargas para API de enumeración de varios objetos de la biblioteca de cliente de almacenamiento de C++. Resumiendo:
+En este artículo, hemos tratado diferentes sobrecargas para API de enumeración de varios objetos de la biblioteca de cliente de almacenamiento de C++. En resumen:
 
 * Se recomiendan encarecidamente las API asincrónicas en escenarios de varios subprocesos.
 * La enumeración segmentada es recomendable para la mayoría de los escenarios.

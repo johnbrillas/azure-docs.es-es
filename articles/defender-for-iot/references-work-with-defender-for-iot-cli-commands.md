@@ -1,35 +1,35 @@
 ---
 title: Uso de los comandos de la CLI de Defender para IoT
 description: En este artículo se describen los comandos de la CLI de Defender para IoT de sensores y consolas de administración locales.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523148"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778685"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Uso de los comandos de la CLI de Defender para IoT
 
-En este artículo se describen los comandos de la CLI de sensores y consolas de administración locales. Los comandos son accesibles para los administradores, los usuarios de CyberX y los usuarios de soporte técnico.
+En este artículo se describen los comandos de la CLI de sensores y consolas de administración locales. Los comandos son accesibles para los siguientes usuarios:
 
-Defina reglas de exclusión al planear actividades de mantenimiento o cualquier actividad que no requiera una alerta.
+- Administrador
+- CyberX 
+- Soporte técnico
+
+Para empezar a trabajar en la CLI, conéctese mediante un terminal. Por ejemplo, nombre de terminal `Putty` y usuario `Support`. 
 
 ## <a name="create-local-alert-exclusion-rules"></a>Creación de reglas de exclusión de alertas locales
 
-Puede crear una regla de exclusión si especifica el siguiente comando en la CLI:
+Puede crear una regla de exclusión de alerta local si especifica el siguiente comando en la CLI:
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Los atributos que se pueden definir en las reglas de exclusión de alertas son los siguientes:
+Se pueden usar los siguientes atributos con las reglas de exclusión de alertas:
 
 | Atributo | Descripción |
 |--|--|
@@ -42,18 +42,18 @@ Los atributos que se pueden definir en las reglas de exclusión de alertas son l
 
 ## <a name="append-local-alert-exclusion-rules"></a>Anexión de reglas de exclusión de alertas locales
 
-Puede agregar nuevas reglas a las reglas de exclusión de alertas actuales si especifica el siguiente comando en la CLI:
+Para anexar reglas de exclusión de alertas locales, especifique el siguiente comando en la CLI:
 
 ```azurecli-interactive
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Los atributos que se usan aquí son similares a los descritos para crear reglas de exclusión de alertas locales. En este uso, los atributos se aplican a las reglas existentes.
+Los atributos que se usan aquí son los mismos que los que se explican en la sección Creación de reglas de exclusión de alertas locales. La diferencia en el uso es que aquí los atributos se aplican a las reglas existentes.
 
 ## <a name="show-local-alert-exclusion-rules"></a>Visualización de reglas de exclusión de alertas locales
 
-Especifique el siguiente comando para ver todas las reglas de exclusión existentes:
+Escriba el siguiente comando para presentar la lista de reglas de exclusión existente:
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -69,7 +69,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Puede usar el siguiente atributo con las reglas de exclusión de alertas:
+Se puede usar el siguiente atributo con las reglas de exclusión de alertas:
 
 | Atributo | Descripción|
 | --------- | ---------------------------------- |
@@ -77,11 +77,11 @@ Puede usar el siguiente atributo con las reglas de exclusión de alertas:
 
 ## <a name="sync-time-from-the-ntp-server"></a>Hora de sincronización desde el servidor NTP
 
-Puede habilitar y deshabilitar una sincronización de hora desde un servidor NTP.
+Puede habilitar o deshabilitar una sincronización de hora desde un servidor NTP especificado.
 
 ### <a name="enable-ntp-sync"></a>Habilitación de sincronización NTP
 
-Al especificar el siguiente comando, se habilita una recuperación periódica de la hora actual desde un servidor NTP especificado:
+Escriba el siguiente comando para recuperar periódicamente la hora del servidor NTP especificado:
 
 ```azurecli-interactive
 ntp enable IP
@@ -91,7 +91,7 @@ El atributo que se puede definir en el comando es la dirección IP del servidor 
 
 ### <a name="disable-ntp-sync"></a>Deshabilitación de sincronización NTP
 
-Al especificar el siguiente comando, se deshabilita la sincronización de hora con el servidor NTP especificado:
+Especifique el siguiente comando para deshabilitar la sincronización de hora con el servidor NTP especificado:
 
 ```azurecli-interactive
 ntp disable IP
@@ -99,14 +99,14 @@ ntp disable IP
 
 El atributo que se puede definir en el comando es la dirección IP del servidor NTP.
 
-## <a name="configure-the-network"></a>Configuración de la red
+## <a name="network-configuration"></a>Network configuration (Configuración de red)
 
 En la tabla siguiente se describen los comandos disponibles para configurar las opciones de red de Azure Defender para IoT:
 
 |Nombre|Get-Help|Descripción|
 |-----------|-------|-----------|
-|Ping|`ping IP `| Hace ping a direcciones de fuera de la plataforma Defender para IoT.|
-|Blink|`network blink`|Permite cambiar los parámetros de configuración de red.|
+|Ping|`ping IP`| Hace ping a una dirección de fuera de la plataforma Defender para IoT.|
+|Blink|`network blink`| Busca una conexión haciendo que las luces de la interfaz parpadeen. |
 |Volver a configurar la red |`network edit-settings`| Permite cambiar los parámetros de configuración de red. |
 |Mostrar la configuración de red |`network list`|Muestra los parámetros del adaptador de red. |
 |Validar la configuración de red |`network validate` |Presenta la configuración de red de salida. <br /> <br />Por ejemplo: <br /> <br />Configuración de red actual: <br /> interfaz: eth0 <br /> ip: 10.100.100.1 <br />subred: 255.255.255.0 <br />puerta de enlace predeterminada: 10.100.100.254 <br />dns: 10.100.100.254 <br />interfaces de supervisión: eth1|
@@ -115,7 +115,7 @@ En la tabla siguiente se describen los comandos disponibles para configurar las 
 
 ## <a name="filter-network-configurations"></a>Filtrado de configuraciones de red
 
-El comando `network capture-filter` permite a los administradores eliminar el tráfico de red que no es necesario analizar. Filtre el tráfico mediante una lista de inclusión o exclusión.
+El comando `network capture-filter` permite a los administradores eliminar el tráfico de red que no es necesario analizar. Puede filtrar el tráfico mediante una lista de inclusión o exclusión.
 
 ```azurecli-interactive
 network capture-filter
@@ -256,6 +256,7 @@ En la tabla siguiente se describen los comandos disponibles para realizar varias
 
 |Nombre|Código|Descripción|
 |----|----|-----------|
+|Mostrar la fecha|`date`|Devuelve la fecha actual del host en formato GMT.|
 |Reiniciar el host|`system reboot`|Reinicia el dispositivo host.|
 |Apagar el host|`system shutdown`|Apaga el host.|
 |Copia de seguridad del sistema|`system backup`|Inicia una copia de seguridad inmediata (una copia de seguridad no programada).|
@@ -282,7 +283,7 @@ El comando admite las marcas de entrada siguientes:
 | --key | Archivo \*.key. La longitud de la clave debe ser de 2048 bits como mínimo. |
 | --chain | Ruta de acceso al archivo de cadena de certificados (opcional). |
 | --pass | Frase de contraseña usada para cifrar el certificado (opcional). |
-| --passphrase-set | El valor predeterminado es **False**, **unused**. <br />Establezca en **True** para usar la frase de contraseña anterior proporcionada con el certificado previo (opcional). |  |
+| --passphrase-set | El valor predeterminado es **False**, **unused**. <br />Establezca en **True** para usar la frase de contraseña anterior proporcionada con el certificado previo (opcional). | 
 
 Cuando use la herramienta:
 
@@ -290,6 +291,6 @@ Cuando use la herramienta:
 
 - Confirme con TI el dominio del dispositivo (tal como aparece en el certificado) con el servidor DNS y la dirección IP correspondiente. 
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [API del sensor y la consola de administración de Defender para IoT](references-work-with-defender-for-iot-apis.md)

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a3ab3a801872cc20b4e41bbff02ad6474c3bab8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566386"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655213"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure PowerShell
 
@@ -40,8 +40,8 @@ Este artículo le ayuda a configurar Azure Route Server para su emparejamiento c
 Para poder crear una instancia de Azure Route Server, necesitará una red virtual para hospedar la implementación. Use el comando siguiente para crear un grupo de recursos y una red virtual. Si ya tiene una red virtual, puede ir directamente a la sección siguiente.
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name “RouteServerRG” -Location “West US”
-New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US” -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
+New-AzResourceGroup –Name "RouteServerRG” -Location “West US"
+New-AzVirtualNetwork –ResourceGroupName "RouteServerRG" -Location "West US" -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
 ```
 
 ### <a name="add-a-subnet"></a>Incorporación de una subred
@@ -49,15 +49,15 @@ New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US�
 1. Agregue una subred llamada *RouteServerSubnet* para implementar la instancia de Azure Route Server en ella. Esta subred es una subred dedicada solo para Azure Route Server. La subred RouteServerSubnet debe ser /27 o un prefijo más corto, (como /26 o /25). De lo contrario, recibirá un mensaje de error al agregar la instancia de Azure Route Server.
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “myVirtualNetwork” - ResourceGroupName “RouteServerRG”
-    Add-AzVirtualNetworkSubnetConfig –Name “RouteServerSubnet” -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
+    $vnet = Get-AzVirtualNetwork –Name "myVirtualNetwork" - ResourceGroupName "RouteServerRG"
+    Add-AzVirtualNetworkSubnetConfig –Name "RouteServerSubnet" -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
     $vnet | Set-AzVirtualNetwork
     ```
 
 1. Obtenga el identificador de la subred RouteServerSubnet. Para ver el identificador de recurso de todas las subredes de la red virtual, use este comando:
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
+    $vnet = Get-AzVirtualNetwork –Name "vnet_name" -ResourceGroupName "RouteServerRG"
     $vnet.Subnets
     ```
 
@@ -70,7 +70,7 @@ El identificador de RouteServerSubnet tiene un aspecto similar al siguiente:
 Cree la instancia de Route Server con este comando:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US" -HostedSubnet "RouteServerSubnet_ID"
 ```
 
 La ubicación debe coincidir con la ubicación de la red virtual. HostedSubnet es el identificador de RouteServerSubnet que obtuvo en la sección anterior.
@@ -137,7 +137,7 @@ Si ya no necesita la instancia de Azure Route Server, use estos comandos para qu
 1. Elimine el emparejamiento de BGP entre Azure Route Server y una NVA con este comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Elimine la instancia de Azure Route Server con este comando:

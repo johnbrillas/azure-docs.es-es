@@ -4,10 +4,10 @@ description: Obtenga información sobre las funcionalidades de seguridad de Azur
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325662"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup

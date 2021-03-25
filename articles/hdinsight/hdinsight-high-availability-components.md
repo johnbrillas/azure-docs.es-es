@@ -4,12 +4,12 @@ description: Información general de los diversos componentes de alta disponibil
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945304"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863724"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servicios de alta disponibilidad admitidos en Azure HDInsight
 
@@ -34,7 +34,7 @@ Esta infraestructura consta de una serie de servicios y componentes de software,
 - Servicio de alta disponibilidad subordinado
 - Servicio de alta disponibilidad maestro
 
-![infraestructura de alta disponibilidad](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="infraestructura de alta disponibilidad" border="false":::
 
 También hay otros servicios de alta disponibilidad, que son compatibles con los componentes de confiabilidad de Apache de código abierto. Estos componentes también están presentes en los clústeres de HDInsight:
 
@@ -91,7 +91,7 @@ El componente master-ha-service solo se ejecuta en el nodo principal activo, det
 
 ### <a name="the-failover-process"></a>Proceso de conmutación por error
 
-![proceso de conmutación por error](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="proceso de conmutación por error" border="false":::
 
 En cada nodo principal se ejecuta un monitor de estado junto con el controlador de conmutación por error maestro para enviar notificaciones de latido al cuórum de Zookeeper. En este escenario, el nodo principal se considera un servicio de alta disponibilidad. El monitor de estado comprueba si cada servicio de alta disponibilidad está en buen estado y si está listo para unirse a la elección del liderazgo. En caso afirmativo, este nodo principal competirá en la elección. Si no, saldrá de la elección hasta que vuelva a estar listo.
 

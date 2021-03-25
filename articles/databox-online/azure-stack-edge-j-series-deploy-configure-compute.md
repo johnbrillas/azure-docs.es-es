@@ -10,10 +10,10 @@ ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935506"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
 - Ha activado un dispositivo Azure Stack Edge Pro como se describe en [Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
@@ -54,22 +54,22 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
 
 3. En **Create IoT Edge service** (Crear servicio IoT Edge), escriba la configuración del recurso de IoT Hub:
 
-   |Campo   |Valor    |
+   |Campo   |Value    |
    |--------|---------|
-   |Suscripción      | Suscripción utilizada por el recurso de Azure Stack Edge. |
-   |Grupo de recursos    | Grupo de recursos utilizado por el recurso de Azure Stack Edge. |
-   |IoT Hub           | Elija entre **Create new** (Crear nuevo) o **Use existing** (Usar existente). <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
+   |Subscription      | Suscripción utilizada por el recurso de Azure Stack Edge. |
+   |Resource group    | Grupo de recursos utilizado por el recurso de Azure Stack Edge. |
+   |IoT Hub           | Elija entre **Crear nuevo** o **Usar existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
    |Nombre              | Si no desea usar el nombre predeterminado proporcionado para el nuevo recurso de IoT Hub, escriba un nombre diferente. |
 
     ![Introducción al proceso 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Cuando termine la configuración, seleccione **Review + Create** (Revisar y crear). Revise la configuración del recurso de IoT Hub y seleccione **Create** (Crear).
 
-   La creación del recurso de IoT Hub tarda varios minutos. Una vez creado el recurso, la página **Overview** (Información general) indica que el servicio IoT Edge ahora está en ejecución.
+   La creación del recurso de IoT Hub tarda varios minutos. Una vez creado el recurso, la página **Información general** indica que el servicio IoT Edge ahora está en ejecución.
 
     ![Introducción al proceso 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Para confirmar que se ha configurado el rol de proceso de Edge, seleccione **Properties** (Propiedades).
+5. Para confirmar que se ha configurado el rol de proceso de Edge, seleccione **Propiedades**.
 
    ![Introducción al proceso 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
@@ -124,7 +124,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |

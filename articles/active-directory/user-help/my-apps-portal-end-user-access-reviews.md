@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100095025"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
@@ -30,9 +30,9 @@ Si no tiene acceso al portal **Aplicaciones**, póngase en contacto con su depar
 >[!Important]
 >Este contenido está pensado para usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).
 >
-> Si observa un error al iniciar sesión con una cuenta Microsoft personal, puede acudir a su administrador para iniciar sesión con el nombre de dominio (por ejemplo, contoso.com) o el **identificador de inquilino** de la organización en una de las siguientes direcciones URL:
+> Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
 >
->   - https://myapplications.microsoft.com?tenantId=*su_nombre_de_dominio*
+>   - https://myapplications.microsoft.com?tenantId=*nombre_de_dominio*
 >   - https://myapplications.microsoft.com?tenant=*su_identificador_de_inquilino*
 
 ## <a name="manage-access-reviews"></a>Administración de revisiones del acceso

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo eliminar y exportar datos personal
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483523"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportación y eliminación de datos personales de Azure DevTest Labs
@@ -51,7 +51,7 @@ Puede exportar datos de uso del laboratorio y personales mediante el Azure Porta
 - **disks.csv**: contiene información sobre los discos que usan las diferentes máquinas virtuales
 - **virtualmachines.csv**: contiene información sobre las máquinas virtuales del laboratorio.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 Como usuario del laboratorio, puede solicitar una exportación de los datos personales que almacena el servicio de DevTest Labs. Para solicitar una exportación, vaya a la opción **Datos personales** en la página **Introducción** del laboratorio. Al seleccionar el botón **Solicitar exportación** se inicia la creación de un archivo de Excel descargable en la cuenta de almacenamiento del administrador del laboratorio. A continuación, puede ponerse en contacto con él para ver los datos.
 
 1. Seleccione **Datos personales** en el menú de la izquierda. 

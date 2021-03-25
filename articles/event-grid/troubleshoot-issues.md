@@ -3,12 +3,12 @@ title: Solución de problemas de Event Grid
 description: En este artículo se proporcionan diferentes formas de solucionar problemas de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 9c52ba8561c10dd94ec6ef51c78b8534c6c58e96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d30b8464de90474ad74853cc423de700b41226a4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416775"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720566"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Solución de problemas de Azure Event Grid
 En este artículo se proporciona información que lo ayuda a solucionar problemas de Azure Event Grid. 
@@ -32,7 +32,7 @@ Hay varias razones por las que las aplicaciones cliente no pueden conectarse a u
 Si recibe mensajes de error con códigos de error como 400, 409 y 403, consulte [Solución de problemas de Azure Event Grid](troubleshoot-errors.md). 
 
 ## <a name="distributed-tracing-net"></a>Seguimiento distribuido (.NET)
-La biblioteca .NET de Event Grid admite la distribución del seguimiento. Para adherirse a la [Guía de la especificación de CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sobre la distribución del seguimiento, la biblioteca establece `traceparent` y `tracestate` en el valor [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization/CloudEvent.cs#L126) de `CloudEvent` cuando está habilitado el seguimiento distribuido. Para obtener más información sobre cómo habilitar el seguimiento distribuido en la aplicación, eche un vistazo a la [documentación de seguimiento distribuido](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing) de Azure SDK.
+La biblioteca .NET de Event Grid admite la distribución del seguimiento. Para adherirse a la [Guía de la especificación de CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sobre la distribución del seguimiento, la biblioteca establece `traceparent` y `tracestate` en el valor [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) de `CloudEvent` cuando está habilitado el seguimiento distribuido. Para obtener más información sobre cómo habilitar el seguimiento distribuido en la aplicación, eche un vistazo a la [documentación de seguimiento distribuido](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing) de Azure SDK.
 
 ### <a name="sample"></a>Muestra
 Vea el [ejemplo de contador de líneas](/samples/azure/azure-sdk-for-net/line-counter/). En esta aplicación de ejemplo se muestra el uso de los clientes Storage, Event Hubs, y Event Grid junto con la integración de ASP.NET Core, el seguimiento distribuido y los servicios hospedados. Permite a los usuarios cargar un archivo en un blob, lo que desencadena un evento de Event Hubs que contiene el nombre de archivo. El procesador de Event Hubs recibe el evento y, a continuación, la aplicación descarga el blob y cuenta el número de líneas del archivo. La aplicación muestra un vínculo a una página que contiene el recuento de líneas. Cuando se hace clic en el vínculo, se publica un evento CloudEvent que contiene el nombre del archivo mediante Event Grid.
