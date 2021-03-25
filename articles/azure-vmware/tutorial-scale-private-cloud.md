@@ -2,13 +2,13 @@
 title: 'Tutorial: Escalado de una nube privada'
 description: En este tutorial, usará Azure Portal para escalar una nube privada de la versión preliminar de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: d49d973cc6d97280dc0c7ea6681f2602b871e1ba
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 03/13/2021
+ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791246"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463636"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutorial: Escalado de una nube privada de Azure VMware Solution
 
@@ -22,11 +22,11 @@ En este tutorial, usará Azure Portal para:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesita una nube privada. Si no ha creado una nube privada, use el tutorial para la [creación de una nube privada](tutorial-create-private-cloud.md) con el fin de crear una. Configure las redes para que la nube privada de VMware en Azure establezca la red virtual necesaria.
+Para completar este tutorial, necesitará una nube privada existente. Si no ha creado una nube privada, use el tutorial para la [creación de una nube privada](tutorial-create-private-cloud.md) con el fin de crear una. 
 
 ## <a name="add-a-new-cluster"></a>Incorporación de un nuevo clúster
 
-1. En la página de información general de una nube privada existente, en **Administrar** , seleccione **Scale private cloud** (Escalar la nube privada). A continuación, seleccione **+ Agregar un clúster**.
+1. En la página de información general de una nube privada existente, en **Administrar**, seleccione **Scale private cloud** (Escalar la nube privada). A continuación, seleccione **+ Agregar un clúster**.
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="selección de Agregar un clúster" border="true":::
 
@@ -46,7 +46,7 @@ Para completar este tutorial, necesita una nube privada. Si no ha creado una nub
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="En la página Edit Cluster (Editar clúster), use el control deslizante para seleccionar el número de hosts. Seleccione Guardar." border="true":::
 
-   Empezarán a agregarse hosts al clúster.
+   Empiezan a agregarse hosts al clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

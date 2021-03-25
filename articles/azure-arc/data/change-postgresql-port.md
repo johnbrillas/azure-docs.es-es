@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 11/02/2020
 ms.topic: how-to
 ms.openlocfilehash: 45424408c790e4921be48464818c55fe74313fd3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93328660"
 ---
 # <a name="change-the-port-on-which-the-server-group-is-listening"></a>Cambio del puerto donde escucha el grupo de servidores 
@@ -23,7 +23,7 @@ Cambiar el puerto es una operación de edición estándar del grupo de servidore
  azdata arc postgres server edit -n <server group name> --port <desired port number>
 ```
 
-Por ejemplo, supongamos que el nombre del grupo de servidores es _postgres01_ , y quiere que escuche en el puerto _866_. Ejecutaría el comando siguiente:
+Por ejemplo, supongamos que el nombre del grupo de servidores es _postgres01_, y quiere que escuche en el puerto _866_. Ejecutaría el comando siguiente:
 ```console
  azdata arc postgres server edit -n postgres01 --port 866
 ```

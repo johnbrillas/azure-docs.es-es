@@ -12,23 +12,23 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793218"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Las [herramientas de bases de datos elásticas](elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework** . Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](./saas-tenancy-app-design-patterns.md).
+Las [herramientas de bases de datos elásticas](elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework**. Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](./saas-tenancy-app-design-patterns.md).
 
 - Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos con prácticas de particionamiento estándar, mediante el uso de bibliotecas de .NET y plantillas de servicios de Azure. La administración de particiones mediante la [Biblioteca cliente de Elastic Database][s-d-elastic-database-client-library] le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento.
 - La **seguridad de nivel de fila** permite a los desarrolladores almacenar de forma segura los datos de varios inquilinos en la misma base de datos. Las directivas de seguridad RLS filtran y eliminan las filas que no pertenecen al inquilino que ejecuta una consulta. La centralización de la lógica de filtro en la propia base de datos simplifica el mantenimiento y reduce el riesgo de un error de seguridad. La alternativa de confiar en todo el código de cliente para reforzar la seguridad es arriesgada.
 
 Si estas características se usan conjuntamente, una aplicación puede almacenar los datos para varios inquilinos en la misma base de datos de la partición. El costo por inquilino es menor cuando los inquilinos comparten una base de datos. La misma aplicación puede ofrecen también a sus inquilinos premium la opción de pagar su propia partición dedicada para un único inquilino. Una de las ventajas de este aislamiento es que aporta una mayor garantía de rendimiento. En una base de datos de un único inquilino, no hay otros inquilinos que compitan por los recursos.
 
-El objetivo es usar las API de [enrutamiento dependiente de los datos](elastic-scale-data-dependent-routing.md) de la Biblioteca de cliente de Elastic Database para conectar automáticamente cada inquilino dado a la base de datos de la partición correcta. Solo una partición contiene el valor de TenantId concreto para el inquilino determinado. El valor de TenantId es la *clave de particionamiento* . Una vez establecida la conexión, una directiva de seguridad de RLS dentro de la base de datos garantiza que el inquilino dado puede acceder solo a las filas de datos que contienen su TenantId.
+El objetivo es usar las API de [enrutamiento dependiente de los datos](elastic-scale-data-dependent-routing.md) de la Biblioteca de cliente de Elastic Database para conectar automáticamente cada inquilino dado a la base de datos de la partición correcta. Solo una partición contiene el valor de TenantId concreto para el inquilino determinado. El valor de TenantId es la *clave de particionamiento*. Una vez establecida la conexión, una directiva de seguridad de RLS dentro de la base de datos garantiza que el inquilino dado puede acceder solo a las filas de datos que contienen su TenantId.
 
 > [!NOTE]
 > El identificador del inquilino puede constar de más de una columna. Por comodidad, vamos a asumir de manera informal que el valor de TenantId tiene una sola columna.
@@ -54,8 +54,8 @@ Compile y ejecute la aplicación. Esta ejecución arranca el administrador de ma
 
 Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos de la partición, cada una de estas pruebas revela un problema: los inquilinos pueden consultar los blogs que no pertenecen a ellos y la aplicación no impide insertar un blog del inquilino incorrecto. El resto de este artículo describe cómo resolver estos problemas mediante la imposición de aislamiento de inquilinos con RLS. Hay dos pasos:
 
-1. **Capa de aplicación** : modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo.
-2. **Capa de datos** : cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar.
+1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo.
+2. **Capa de datos**: cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Mantenimiento
 
-- **Agregar particiones nuevas** : ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
-- **Agregar tabla nuevas** : agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
+- **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
+- **Agregar tabla nuevas**: agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
 
 ## <a name="summary"></a>Resumen
 

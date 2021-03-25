@@ -1,32 +1,34 @@
 ---
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573024"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419361"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
-Un escenario muy común de [Azure Lighthouse](../overview.md) es un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory (Azure AD) de sus clientes. De todas formas, las funcionalidades de Azure Lighthouse también se pueden usar para simplificar la administración entre inquilinos dentro de las empresas que usan varios inquilinos de Azure AD.
+Un escenario muy común de [Azure Lighthouse](../overview.md) es un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory (Azure AD) de sus clientes. Las funcionalidades de Azure Lighthouse también se pueden usar para simplificar la administración entre inquilinos dentro de las empresas que usan varios inquilinos de Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Un solo inquilino frente a varios inquilinos
 
-En la mayoría de las organizaciones, la administración es más fácil cuando hay un solo inquilino de Azure AD. Si todos los recursos se encuentran en un solo inquilino, tanto los usuarios designados, como los grupos de usuarios o las entidades de servicio del inquilino pueden centralizar las tareas de administración. Siempre que sea posible, se recomienda usar un inquilino en cada organización. Aun así, algunas organizaciones pueden tener varios inquilinos de Azure AD. A veces, puede tratarse de una situación temporal, como por ejemplo si se han realizado adquisiciones y nos se ha definido todavía una estrategia de consolidación de inquilinos a largo plazo. También se puede dar el caso de que una organización necesite mantener varios inquilinos de forma continuada, debido a subsidiarias totalmente independientes, requisitos geográficos o legales, u otras consideraciones.
+En la mayoría de las organizaciones, la administración es más fácil cuando hay un solo inquilino de Azure AD. Si todos los recursos se encuentran en un solo inquilino, tanto los usuarios designados, como los grupos de usuarios o las entidades de servicio del inquilino pueden centralizar las tareas de administración. Siempre que sea posible, se recomienda usar un inquilino en cada organización.
+
+Es posible que algunas organizaciones necesiten usar varios inquilinos de Azure AD. Puede tratarse de una situación temporal, como por ejemplo si se han realizado adquisiciones y nos se ha definido todavía una estrategia de consolidación de inquilinos a largo plazo. También se puede dar el caso de que una organización necesite mantener varios inquilinos de forma continuada, debido a subsidiarias totalmente independientes, requisitos geográficos o legales, u otras consideraciones.
 
 En los casos en los que se requiere una arquitectura de multiinquilino, Azure Lighthouse se puede ayudar a centralizar y simplificar las operaciones de administración. Al usar [administración de recursos delegados de Azure](azure-delegated-resource-management.md), los usuarios de un inquilino de administración pueden realizar [funciones de administración entre inquilinos](cross-tenant-management-experience.md) de una manera centralizada y escalable.
 
 ## <a name="tenant-management-architecture"></a>Arquitectura de administración de inquilinos
 
-Para usar Azure Lighthouse en una empresa, tendrá que determinar qué inquilino incluirá a los usuarios que realicen operaciones de administración en los demás inquilinos. En otras palabras, es preciso determinar qué inquilino será el que administre los otros inquilinos.
+Para usar Azure Lighthouse en una empresa, tendrá que determinar qué inquilino incluirá a los usuarios que realicen operaciones de administración en los demás inquilinos. En otras palabras, tendrá que designar a un inquilino como administrador de los demás inquilinos.
 
-Por ejemplo, suponga que su organización tiene un solo inquilino, al que denominaremos *Inquilino A*. Posteriormente, la organización adquiere *Inquilino B* e *Inquilino C* y, por motivos empresariales, ambos deben mantenerse como inquilinos independientes.
+Por ejemplo, suponga que su organización tiene un solo inquilino, al que denominaremos *Inquilino A*. Posteriormente, la organización adquiere *Inquilino B* e *Inquilino C* y, por motivos empresariales, ambos deben mantenerse como inquilinos independientes Sin embargo, le gustaría utilizar las mismas definiciones de directiva, procedimientos de copia de seguridad y procesos de seguridad para todos ellos, con las tareas de administración realizadas por el mismo conjunto de usuarios.
 
-Su organización quiere usar las mismas definiciones de directiva, prácticas de copia de seguridad y procesos de seguridad en todos los inquilinos. Puesto que el inquilino A ya incluye usuarios responsables de estas tareas, puede incorporar suscripciones dentro del inquilino B y el inquilino C, que permitan a los mismos usuarios del inquilino A realizar dichas tareas.
+Dado que el Inquilino A ya incluye usuarios en su organización que han estado realizando esas tareas para el Inquilino A, puede incorporar suscripciones en el Inquilino B y el Inquilino C, lo que permite que los mismos usuarios del Inquilino A realicen esas tareas en todos los inquilinos.
 
 ![Diagrama en el que se muestra a los usuarios del inquilino A administrando los recursos del inquilino B y el inquilino C.](../media/enterprise-azure-lighthouse.jpg)
 
@@ -54,7 +56,7 @@ En el caso de la administración entre inquilinos dentro de la empresa, se puede
 
 Por ejemplo, en el ejemplo descrito anteriormente, el Inquilino A se puede considerar el inquilino del proveedor de servicios (el inquilino que realiza la administración), mientras que tanto el Inquilino B como el Inquilino C se pueden considerar inquilinos del cliente.
 
-En ese ejemplo, los usuarios del Inquilino A con los permisos adecuados pueden [ver y administrar los recursos delegados](../how-to/view-manage-customers.md) en la página **Mis clientes** de Azure Portal. Del mismo modo, los usuarios del Inquilino B y del Inquilino C con los permisos adecuados pueden [ver y administrar los recursos que se han delegado](../how-to/view-manage-service-providers.md) al Inquilino A en la página **Proveedores de servicios** de Azure Portal.
+En ese ejemplo, los usuarios del Inquilino A con los permisos adecuados pueden [ver y administrar los recursos delegados](../how-to/view-manage-customers.md) en la página **Mis clientes** de Azure Portal. Del mismo modo, los usuarios del Inquilino B y del Inquilino C con los permisos adecuados pueden [ver y administrar los recursos que se han delegado](../how-to/view-manage-service-providers.md) al Inquilino A en la página **Proveedores de servicios** de Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

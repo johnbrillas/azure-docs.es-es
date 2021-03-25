@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520717"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102610491"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Uso de kubectl para ejecutar una aplicación con estado de Kubernetes con PersistentVolume en el dispositivo Azure Stack Edge Pro
 
@@ -21,7 +21,7 @@ ms.locfileid: "102520717"
 
 En este artículo se muestra cómo implementar una aplicación con estado de una sola instancia en Kubernetes con PersistentVolume (PV) y una implementación. La implementación usa comandos `kubectl` en un clúster de Kubernetes existente e implementa la aplicación MySQL. 
 
-Este procedimiento está dirigido a los usuarios que han revisado [Almacenamiento de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) y están familiarizados con los conceptos de [almacenamiento de Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Este procedimiento está dirigido a los usuarios que han revisado [Almacenamiento de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) y están familiarizados con los conceptos de [almacenamiento de Kubernetes](https://kubernetes.io/docs/concepts/storage/). 
 
 Azure Stack Edge Pro también admite la ejecución de contenedores de Azure SQL Edge y se pueden implementar de forma similar a como se detalla aquí para MySQL. Para más información, consulte [Azure SQL Edge](../azure-sql-edge/overview.md).
 
@@ -62,7 +62,8 @@ Está listo para implementar una aplicación con estado en el dispositivo Azure 
 Para aprovisionar de forma estática un PV, debe crear un recurso compartido en el dispositivo. Siga estos pasos para aprovisionar un PV en un recurso compartido de archivos SMB. 
 
 > [!NOTE]
-> El ejemplo específico que se usa en este artículo no funciona con recursos compartidos de archivos NFS. En general, los recursos compartidos de archivos NFS se pueden aprovisionar en un dispositivo de Azure Stack Edge con aplicaciones que no son base de datos.
+> - El ejemplo específico que se usa en este artículo no funciona con recursos compartidos de archivos NFS. En general, los recursos compartidos de archivos NFS se pueden aprovisionar en un dispositivo de Azure Stack Edge con aplicaciones que no son base de datos.
+> - Para implementar aplicaciones con estado que usan volúmenes de almacenamiento para proporcionar almacenamiento persistente, se recomienda usar `StatefulSet`. Este ejemplo usa `Deployment` con una sola réplica y es adecuado para desarrollo y pruebas. 
 
 1. Elija si quiere crear un recurso compartido de Edge o un recurso compartido de Edge local. Siga las instrucciones de [Adición de un recurso compartido](azure-stack-edge-manage-shares.md#add-a-share) para crear un recurso compartido. Asegúrese de seleccionar la casilla **Usar el recurso compartido con el proceso perimetral**.
 

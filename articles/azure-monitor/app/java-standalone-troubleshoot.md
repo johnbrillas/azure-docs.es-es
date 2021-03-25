@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas del agente de
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199618"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225581"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guía de solución de problemas: Application Insights de Azure Monitor para Java
 
@@ -41,7 +41,9 @@ Entre estos cambios se incluyen los siguientes:
 
 ## <a name="some-logging-is-not-auto-collected"></a>Algunos registros no se recopilan automáticamente
 
-Los registros solo se capturan si cumple primero el umbral configurado de las plataformas de registro, y si el segundo también cumple el umbral configurado de Application Insights.
+El registro solo se captura si primero cumple el nivel que está configurado para la plataforma de registro, y segundo, también cumple el nivel configurado para Application Insights.
+
+Por ejemplo, si la plataforma de registro está configurada para registrar `WARN` (y versiones posteriores) del paquete `com.example`, y Application Insights está configurado para capturar `INFO` (y superiores), Application Insights solo capturará `WARN` (y superiores) del paquete `com.example`.
 
 La mejor manera de saber si una instrucción de registro determinada cumple el umbral configurado de las plataformas de registro es confirmar que se muestra en el registro de aplicaciones normal (por ejemplo, archivo o consola).
 

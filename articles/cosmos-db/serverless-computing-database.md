@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334083"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
@@ -51,7 +51,7 @@ Los casos de uso siguientes muestran algunas formas en las que puede aprovechar 
 
 En las implementaciones de IoT, puede invocar una función cuando la luz de comprobación del motor se muestra en un automóvil conectado.
 
-**Implementación** : uso de un desencadenador de Azure Functions y un enlace de salida para Cosmos DB
+**Implementación**: uso de un desencadenador de Azure Functions y un enlace de salida para Cosmos DB
 
 1. Un **desencadenador de Azure Functions para Cosmos DB** se usa para desencadenar eventos relacionados con alertas de automóviles, como la luz de comprobación del motor que aparece en un automóvil conectado.
 2. Cuando aparece la luz de comprobación del motor, los datos del sensor se envían a Azure Cosmos DB.
@@ -69,7 +69,7 @@ La imagen siguiente muestra el código escrito en Azure Portal para este desenca
 
 En implementaciones financieras, puede invocar una función cuando el saldo de una cuenta bancaria cae por debajo de cierto importe.
 
-**Implementación** : desencadenador de temporizador con un enlace de entrada de Azure Cosmos DB
+**Implementación**: desencadenador de temporizador con un enlace de entrada de Azure Cosmos DB
 
 1. Con un [desencadenador de temporizador](../azure-functions/functions-bindings-timer.md), puede recuperar la información del saldo de la cuenta bancaria almacenada en un contenedor de Azure Cosmos a intervalos de tiempo con un **enlace de entrada**.
 2. Si el saldo está por debajo del umbral de saldo mínimo que establece el usuario, debe hacer seguimiento con una acción desde Azure Function.
@@ -85,7 +85,7 @@ En las imágenes siguientes se muestra el código de Azure Portal para este esce
 
 En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Azure Cosmos DB Gremlin API](graph-introduction.md). Luego, puede escribir los resultados en una base de datos SQL o de Azure Cosmos DB  para poder recuperarlos fácilmente.
 
-**Implementación** : uso de un desencadenador de Azure Functions y un enlace de salida para Cosmos DB
+**Implementación**: uso de un desencadenador de Azure Functions y un enlace de salida para Cosmos DB
 
 1. Con una [base de datos de gráficos](graph-introduction.md) de Azure para almacenar a todos los usuarios, puede crear una función nueva con un desencadenador de Azure Functions para Cosmos DB. 
 2. Cada vez que se inserta un usuario nuevo, se invoca la función y, luego, el resultado se almacena con un **enlace de salida**.
@@ -96,7 +96,7 @@ En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros
 
 En implementaciones de venta minorista, cuando un usuario agrega un elemento a su cesta, ahora se tiene la flexibilidad de crear e invocar funciones para componentes opcionales de la canalización comercial.
 
-**Implementación** : varios desencadenadores de Azure Functions para Cosmos DB que escuchan un contenedor
+**Implementación**: varios desencadenadores de Azure Functions para Cosmos DB que escuchan un contenedor
 
 1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Functions para Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed-processor.md).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.
@@ -124,7 +124,7 @@ Azure Functions ofrece la capacidad de crear unidades de trabajo escalables, o p
 
 Azure Cosmos DB es la base de datos recomendada para la arquitectura de informática sin servidor por los motivos siguientes:
 
-* **Acceso instantáneo a todos los datos** : tiene acceso pormenorizado a cada valor almacenado porque Azure Cosmos DB [indexa automáticamente](index-policy.md) todos los datos de manera predeterminada y permite que esos índices estén disponibles de inmediato. Esto significa que puede consultar, actualizar y agregar elementos nuevos constantemente a la base de datos y tiene acceso instantánea vía Azure Functions.
+* **Acceso instantáneo a todos los datos**: tiene acceso pormenorizado a cada valor almacenado porque Azure Cosmos DB [indexa automáticamente](index-policy.md) todos los datos de manera predeterminada y permite que esos índices estén disponibles de inmediato. Esto significa que puede consultar, actualizar y agregar elementos nuevos constantemente a la base de datos y tiene acceso instantánea vía Azure Functions.
 
 * **Sin esquema**. Azure Cosmos DB no tiene esquemas, por lo que es capaz de forma exclusiva de controlar cualquier salida de datos de una instancia de Azure Function. Este enfoque de "controlar todo" permite que el proceso de crear una variedad de instancias de Functions que tengan salida a Azure Cosmos DB sea sencillo.
 

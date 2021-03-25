@@ -10,10 +10,10 @@ ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789733"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Inicio rápido: Creación de un circuito ExpressRoute con emparejamiento privado mediante una plantilla de Resource Manager
@@ -22,7 +22,7 @@ En este inicio rápido se describe cómo usar una plantilla de Azure Resource Ma
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-En este inicio rápido va a crear un circuito de ExpressRoute con *Equinix* como proveedor de servicios. El circuito usará una *SKU Premium* con un ancho de banda de *50 Mbps* y la ubicación de emparejamiento de *Washington DC* . El emparejamiento privado se habilitará con una subred principal y secundaria de  *192.168.10.16/30* y  *192.168.10.20/30* respectivamente. También se creará una red virtual,junto con una puerta de enlace de *ExpressRoute de alto rendimiento* .
+En este inicio rápido va a crear un circuito de ExpressRoute con *Equinix* como proveedor de servicios. El circuito usará una *SKU Premium* con un ancho de banda de *50 Mbps* y la ubicación de emparejamiento de *Washington DC*. El emparejamiento privado se habilitará con una subred principal y secundaria de *192.168.10.16/30* y *192.168.10.20/30* respectivamente. También se creará una red virtual,junto con una puerta de enlace de *ExpressRoute de alto rendimiento*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
@@ -70,7 +70,7 @@ Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantill
 
 1. Seleccione **Copiar** en el bloque de código anterior para copiar el script de PowerShell.
 
-1. Haga clic con el botón derecho en el panel de consola del shell y, a continuación, seleccione **Pegar** .
+1. Haga clic con el botón derecho en el panel de consola del shell y, a continuación, seleccione **Pegar**.
 
 1. Escriba los valores.
 
@@ -92,11 +92,11 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
 1. El grupo de recursos debe contener los recursos que se ven aquí:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupo de recursos de implementación de ExpressRoute":::
 
-1. Seleccione el circuito ExpressRoute **er-ck01** para comprobar que su estado es **Habilitado** , que el estado del proveedor es **No aprovisionado** y que el emparejamiento privado tiene el estado **Aprovisionado** .
+1. Seleccione el circuito ExpressRoute **er-ck01** para comprobar que su estado es **Habilitado**, que el estado del proveedor es **No aprovisionado** y que el emparejamiento privado tiene el estado **Aprovisionado**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuito de implementación de ExpressRoute":::
 
 > [!NOTE]
 > Deberá llamar al proveedor para completar el proceso de aprovisionamiento antes de poder vincular la red virtual al circuito.

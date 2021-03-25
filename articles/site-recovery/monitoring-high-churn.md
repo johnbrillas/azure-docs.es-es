@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359873"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Supervisión de patrones de renovación en máquinas virtuales
@@ -29,13 +29,13 @@ También hay algunas herramientas específicas del sistema operativo que puede u
 
 En caso de que tenga una máquina, ya sea local o no, que ejecute el sistema operativo Windows, tiene a su disposición algunas herramientas más.
 
-Además de comprobar el uso de disco en el administrador de tareas, consulte siempre el **monitor de recursos** y el **monitor de rendimiento** . Estas herramientas ya están presentes en las máquinas Windows.
+Además de comprobar el uso de disco en el administrador de tareas, consulte siempre el **monitor de recursos** y el **monitor de rendimiento**. Estas herramientas ya están presentes en las máquinas Windows.
 
 ### <a name="resource-monitor"></a>Monitor de recursos
 
 El **monitor de recursos** muestra información sobre el uso de recursos de hardware y software en tiempo real. Para ejecutar el monitor de recursos en una máquina Windows, siga estos pasos:
 
-1. Presione Win + R y escriba _resmon_ .
+1. Presione Win + R y escriba _resmon_.
 1. Una vez que se abre la ventana de resmon (es decir, el monitor de recursos), cambie a la pestaña Disco. Obtendrá la siguiente vista:
 
     ![Pestaña Disco del monitor de recursos](./media/monitoring-high-churn/resmon-disk-tab.png)
@@ -48,7 +48,7 @@ Una vez que haya identificado las aplicaciones que causan una gran actividad en 
 
 El **monitor de rendimiento** supervisa varias actividades de un equipo, como el uso de la CPU o la memoria. Para ejecutar el monitor de rendimiento en una máquina Windows, siga estos pasos:
 
-1. Presione Win + R y escriba _perfmon_ .
+1. Presione Win + R y escriba _perfmon_.
 1. Una vez que se abre la ventana perfmon (es decir, el monitor de rendimiento), se muestra la siguiente vista:
 
     ![Paso 1 del monitor de rendimiento](./media/monitoring-high-churn/perfmon-step1.png)
@@ -70,7 +70,7 @@ En caso de que tenga una máquina, ya sea local o no, que ejecute el sistema ope
 
 ### <a name="iotop"></a>Iotop
 
-Una de las herramientas más usadas es _iotop_ . Se trata de una utilidad para mostrar la actividad del disco en tiempo real. Puede enumerar los procesos que realizan operaciones de E/S, junto con el ancho de banda de disco que están usando.
+Una de las herramientas más usadas es _iotop_. Se trata de una utilidad para mostrar la actividad del disco en tiempo real. Puede enumerar los procesos que realizan operaciones de E/S, junto con el ancho de banda de disco que están usando.
 
 Abra el símbolo del sistema y ejecute este comando: `iotop`.
 

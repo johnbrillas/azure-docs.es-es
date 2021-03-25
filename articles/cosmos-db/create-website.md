@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333586"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implementación de Azure Cosmos DB y Azure App Service con una aplicación web desde GitHub con una plantilla de Azure Resource Manager
@@ -44,15 +44,15 @@ Una vez en el Azure Portal, seleccione la suscripción en la que desea realizar 
 
 :::image type="content" source="./media/create-website/template-deployment.png" alt-text="Captura de pantalla de la interfaz de usuario de implementación de plantillas":::
 
-* **Región** : es necesario para el Resource Manager. Escriba la misma región utilizada por el parámetro de ubicación donde se encuentran los recursos.
-* **Nombre de la aplicación** : todos los recursos de esta implementación usan este nombre. Asegúrese de elegir un nombre único para evitar conflictos con las cuentas de App Service y Azure Cosmos DB existentes.
-* **Ubicación** : la región donde se implementan los recursos.
-* **El plan de tarifa de App Service** : plan de tarifa de plan de App Service.
-* **Instancias de plan de App Service** : el número de trabajadores para el plan de App Service.
-* **URL del repositorio** : el repositorio a la aplicación web en GitHub.
-* **Rama** : la rama para el repositorio de GitHub.
-* **Nombre de la base de datos** : nombre de la base de datos de Azure Cosmos.
-* **Nombre del contenedor** : el nombre del contenedor de Cosmos de Azure.
+* **Región**: es necesario para el Resource Manager. Escriba la misma región utilizada por el parámetro de ubicación donde se encuentran los recursos.
+* **Nombre de la aplicación**: todos los recursos de esta implementación usan este nombre. Asegúrese de elegir un nombre único para evitar conflictos con las cuentas de App Service y Azure Cosmos DB existentes.
+* **Ubicación**: la región donde se implementan los recursos.
+* **El plan de tarifa de App Service**: plan de tarifa de plan de App Service.
+* **Instancias de plan de App Service**: el número de trabajadores para el plan de App Service.
+* **URL del repositorio**: el repositorio a la aplicación web en GitHub.
+* **Rama**: la rama para el repositorio de GitHub.
+* **Nombre de la base de datos**: nombre de la base de datos de Azure Cosmos.
+* **Nombre del contenedor**: el nombre del contenedor de Cosmos de Azure.
 
 Después de rellenar los valores, seleccione el botón **Crear** para iniciar la implementación. Este paso debe completarse entre 5 y 10 minutos.
 

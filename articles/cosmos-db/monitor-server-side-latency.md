@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
 ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074736"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Cómo supervisar la latencia del servidor para las operaciones en una cuenta o en un contenedor de Azure Cosmos DB
@@ -34,7 +34,7 @@ Puede realizar búsquedas en el registro de diagnóstico para ver el tamaño de 
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
-1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción** , y el **grupo de recursos** requeridos. En **Tipo de recurso** , seleccione **Cuentas de Azure Cosmos DB** , elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
+1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Elección de la cuenta de Azure Cosmos DB para ver las métricas":::
 
@@ -44,7 +44,7 @@ Puede realizar búsquedas en el registro de diagnóstico para ver el tamaño de 
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para la latencia del servidor
 
-También puede filtrar las métricas y hacer que el gráfico se muestre por una propiedad específica, como **CollectionName** , **ConnectionMode** , **DatabaseName** , **OperationType** , **Region** o **PublicAPIType**. 
+También puede filtrar las métricas y hacer que el gráfico se muestre por una propiedad específica, como **CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region** o **PublicAPIType**. 
 
 Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como por ejemplo **PublicAPIType** y seleccione el valor **sql**. Agregue otro filtro para **OperationType**. A continuación, el gráfico muestra la latencia del servidor para distintas operaciones durante el período seleccionado. Las operaciones ejecutadas a través del procedimiento almacenado no se registran, por lo que no están disponibles en la métrica OperationType.
 

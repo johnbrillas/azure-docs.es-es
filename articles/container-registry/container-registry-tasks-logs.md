@@ -4,10 +4,10 @@ description: Cómo ver y administrar registros de ejecución generados por ACR T
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027183"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualización de registros de ejecución de tareas
@@ -65,14 +65,14 @@ Si una tarea se desencadena automáticamente, por ejemplo, mediante una actualiz
 Para ver registros de ejecución en el portal:
 
 1. Vaya al registro de contenedor.
-1. En **Servicios** , seleccione **Tareas** > **Ejecuciones**.
+1. En **Servicios**, seleccione **Tareas** > **Ejecuciones**.
 1. Seleccione un **Identificador de ejecución** para ver el estado de la ejecución y los registros de ejecución. El registro contiene la misma información que un registro transmitido, si se genera uno.
 
 ![Portal de inicio de sesión para visualización de ejecución de tareas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Para ver un registro mediante la CLI de Azure, ejecute [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) y especifique un identificador de ejecución, un nombre de tarea o una imagen específica creada por una tarea de compilación. Si se especifica un nombre de tarea, el comando muestra el registro de la última ejecución creada.
 
-En el ejemplo siguiente se genera el registro de la ejecución con el identificador *cf4* :
+En el ejemplo siguiente se genera el registro de la ejecución con el identificador *cf4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \

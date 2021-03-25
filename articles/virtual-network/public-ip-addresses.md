@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806974"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103418069"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -162,14 +162,17 @@ Para más información sobre las SKU de los equilibradores de carga de Azure, co
 * Redes virtuales de Azure
 * Redes locales. 
 
-Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. Solo puede asignar una dirección IP pública *dinámica* de nivel básico a una puerta de enlace de VPN.
+Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. 
+
+* Asigne una dirección IP pública básica **dinámica** a una configuración de front-end de SKU de VPNGw 1-5.
+* Asigne una dirección IP pública estándar **estática** a una configuración de front-end de SKU de VPNGwAZ 1-5.
 
 ## <a name="application-gateways"></a>Puertas de enlace de aplicaciones
 
 Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. 
 
 * Asigne una dirección IP pública **dinámica** de nivel básico a una configuración front-end V1 de la puerta de enlace de aplicaciones. 
-* Asigne un dirección de SKU estándar **estática** a una configuración de front-end V2.
+* Asigne un dirección de SKU estándar **estática** a una configuración de front-end V2.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 

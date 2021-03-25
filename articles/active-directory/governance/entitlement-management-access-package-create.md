@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903537"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103011092"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -149,3 +149,4 @@ También puede crear un paquete de acceso mediante Microsoft Graph.  Un usuario 
 - [Uso compartido de un vínculo para solicitar un paquete de acceso](entitlement-management-access-package-settings.md)
 - [Cambio de los roles de recursos de un paquete de acceso](entitlement-management-access-package-resources.md)
 - [Asignación directa de un usuario al paquete de acceso](entitlement-management-access-package-assignments.md)
+- [Creación de una revisión de acceso de un paquete de acceso](entitlement-management-access-reviews-create.md)

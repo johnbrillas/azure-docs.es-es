@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249901"
 ---
 # <a name="delete-volume-replications-or-volumes"></a>Eliminación de volúmenes o replicaciones de volúmenes
@@ -34,10 +34,10 @@ Puede finalizar la conexión de replicación entre los volúmenes de origen y de
     1. Seleccione el volumen de *destino*. Haga clic en **Replicación** en el servicio de almacenamiento.  
 
     2.  Antes de continuar, compruebe los campos siguientes:  
-        * Asegúrese de que en Estado del reflejo aparezca ***Reflejado** _.   
-            No intente romper el emparejamiento de la replicación si el Estado del reflejo es _No inicializado*.
-        * Asegúrese de que el Estado de la relación es ***Inactivo** _.   
-            No intente romper el emparejamiento de la replicación si el Estado de la relación es _Transfiriendo*.   
+        * Asegúrese de que en Estado del reflejo aparece ***Reflejado***.   
+            No intente romper el emparejamiento de la replicación si el Estado del reflejo es *No inicializado*.
+        * Asegúrese de que el Estado de la relación es ***Inactivo***.   
+            No intente romper el emparejamiento de la replicación si el Estado de la relación es *Transfiriendo*.   
 
         Consulte [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md). 
 

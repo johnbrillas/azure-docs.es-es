@@ -4,12 +4,12 @@ description: Uso de Azure Container Registry para crear, importar, almacenar e i
 ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
-ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 520518a275e0a9d191ae770e560a0e6e8278eae2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012285"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802461"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Imágenes de arquitectura múltiple en Azure Container Registry
 
@@ -165,7 +165,7 @@ steps:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) para compilar imágenes de contenedor para distintas arquitecturas.
+* Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para compilar imágenes de contenedor para distintas arquitecturas.
 * Obtenga información sobre cómo crear imágenes multiplataforma con el complemento experimental [buildx](https://docs.docker.com/buildx/working-with-buildx/) de Docker.
 
 <!-- LINKS - external -->

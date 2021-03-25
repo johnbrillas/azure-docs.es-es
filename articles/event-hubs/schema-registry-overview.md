@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330502"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de esquema de Azure en Event Hubs (versión preliminar)
@@ -18,7 +18,7 @@ El **registro de esquema de Azure** es una característica de Event Hubs, que pr
 
 > [!NOTE]
 > - La característica de **registro de esquema** se encuentra actualmente en **versión preliminar** y no se recomienda para las cargas de trabajo de producción.
-> - La característica solo está disponible en los niveles **estándar** y **dedicado** , no en el nivel **básico** .
+> - La característica solo está disponible en los niveles **estándar** y **dedicado**, no en el nivel **básico**.
 
 Con marcos de serialización orientados a esquemas, como Apache Avro, la externalización de los metadatos de serialización en esquemas compartidos también puede ayudar a reducir drásticamente la sobrecarga por mensaje de información de tipo y nombres de campo incluidos con cada conjunto de datos, como es el caso de los formatos etiquetados como JSON. Al almacenar los esquemas junto con los eventos y dentro de la infraestructura de eventos se garantiza que los metadatos necesarios para la serialización o la deserialización estén siempre al alcance y los esquemas no se puedan perder. 
 
@@ -65,7 +65,7 @@ Para obtener instrucciones sobre cómo crear el registro de una aplicación medi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información sobre cómo crear un registro de esquema mediante Azure Portal, vea [Creación de un registro de esquema de Event Hubs con Azure Portal](create-schema-registry.md).
-- Vea los siguientes ejemplos de la **biblioteca de cliente Avro del registro de esquema** .
+- Vea los siguientes ejemplos de la **biblioteca de cliente Avro del registro de esquema**.
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )

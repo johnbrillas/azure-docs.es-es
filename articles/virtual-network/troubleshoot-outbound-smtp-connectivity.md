@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054861"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102607618"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -76,6 +76,10 @@ Para las suscripciones de los tipos siguientes creadas después del 15 de noviem
 Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede realizar una solicitud mediante la apertura de un caso de soporte técnico con el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada. Las solicitudes se revisarán y aprobarán a discreción de Microsoft. Las solicitudes se pueden conceder solo después de completar comprobaciones antifraudes adicionales. 
 
 Después de que una suscripción quede exenta y se hayan detenido e iniciado las máquinas virtuales en Azure Portal, todas las máquinas virtuales de esa suscripción estarán exentas en el futuro. La exención solo se aplica a la suscripción solicitada y al tráfico de la máquina virtual que se enruta directamente a Internet.
+
+## <a name="changing-subscription-type"></a>Cambio del tipo de suscripción
+
+Si cambia el tipo de suscripción o el proveedor de soluciones de nube o la suscripción de pago por uso está aprobada, debe detener, desasignar y luego reiniciar la máquina virtual para que la nueva directiva surta efecto. Del mismo modo, si tiene un tipo de suscripción permitido de forma predeterminada y, luego, cambia a un tipo de suscripción no permitido, el puerto 25 podría bloquearse después de los cambios en la implementación.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

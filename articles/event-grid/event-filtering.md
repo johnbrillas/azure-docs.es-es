@@ -3,12 +3,12 @@ title: Filtrado de eventos para Azure Event Grid
 description: Se describe cómo filtrar eventos al crear una suscripción de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197782"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419854"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -355,6 +355,7 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
+Consulte la sección [Limitaciones](#limitations) para ver las limitaciones actuales de este operador.
 
 ## <a name="stringbeginswith"></a>StringBeginsWith
 El operador **StringBeginsWith** se evalúa en true si el valor de la **clave** **comienza por** cualquiera de los valores de **filtro** especificados. En el ejemplo siguiente, comprueba si el valor del atributo `key1` de la sección `data` comienza por `event` o `grid`. Por ejemplo, `event hubs` comienza por `event`.  
@@ -634,6 +635,7 @@ El filtrado avanzado tiene las siguientes limitaciones:
 * 5 filtros avanzados y 25 valores de filtro en todos los filtros por suscripción de Event Grid
 * 512 caracteres por valor de cadena
 * 5 valores para los operadores **in** y **not in**
+* El operador `StringNotContains` no está disponible actualmente en el portal.
 * Claves que incluyen el carácter **`.` (punto)** . Por ejemplo, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Actualmente, las claves no admiten caracteres de escape. 
 
 La misma clave se puede usar en más de un filtro.
