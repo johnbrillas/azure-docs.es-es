@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: jeedes
 ms.openlocfilehash: cd6ba1da92a19a1f73fc67c0165bfb19b3bb77aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeter-81"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Perimeter 81
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Perimeter 81 con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en Perimeter 81 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

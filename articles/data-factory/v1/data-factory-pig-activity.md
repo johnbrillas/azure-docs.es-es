@@ -3,16 +3,16 @@ title: Transformación de datos mediante la actividad de Pig en Azure Data Facto
 description: Aprenda a usar la actividad de Pig en Azure Data Factory v1 para ejecutar scripts de Pig en un clúster de HDInsight propio o a petición.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2f59734b5452b5a06b49583954f8851e84e8f84d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 85c34bfc306b49bb826a342846bf5e4557e3052f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387179"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786369"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
 > [!div class="op_single_selector" title1="Actividades de transformación"]

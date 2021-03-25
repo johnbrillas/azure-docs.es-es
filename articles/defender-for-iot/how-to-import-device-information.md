@@ -1,18 +1,14 @@
 ---
 title: Importación de la información del dispositivo
 description: Los sensores de Defender para IoT supervisan y analizan el tráfico reflejado. En estos casos, se recomienda importar datos para enriquecer la información en los dispositivos que ya se han detectado.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 53c342005d2c33e2ee18057fe0e667ebdec5166c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522247"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785637"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importación de la información del dispositivo al sensor
 
@@ -188,7 +184,7 @@ Para importar el estado de autorización, haga lo siguiente:
 
 Cuando se importa la información, recibe alertas sobre dispositivos no autorizados para todos aquellos que no aparecen en esta lista.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Control del tráfico que se supervisa](how-to-control-what-traffic-is-monitored.md)
 

@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101696066"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Registro y examen de un origen de SAP S/4HANA (versión preliminar)
@@ -27,23 +27,23 @@ El origen de SAP S/4HANA admite un **examen completo** para extraer metadatos de
 1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
     Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
-2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
+2.  Asegúrese de que el [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) esté instalado en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
 
-3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no lo está, descárguelo desde [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Asegúrese de que \"Visual C++ Redistributable 2012 Update 4\" está instalado en la máquina del entorno de ejecución de integración autohospedado. Si aún no está instalado, descárguelo [aquí](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4.  Descargue el [conector de SAP para Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) de 64 bits del sitio web de SAP e instálelo en la máquina del entorno de ejecución de integración autohospedado. Al instalarlo, asegúrese de seleccionar la opción **Install Assemblies to GAC** (Instalar ensamblados en GAC) en la ventana **Optional setup steps** (Pasos de configuración opcionales).
 
     :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="Requisito previo" border="true":::
 
-5.  El conector lee los metadatos de SAP mediante la API del conector Java (JCo) 3.0. Asegúrese de que el conector Java esté disponible en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
-    Asegúrese de que está usando la distribución de JCo correcta para el entorno. Por ejemplo, en una máquina de Microsoft Windows, asegúrese de que los archivos sapjco3.jar y sapjco3.dll estén disponibles.
+5.  El conector lee los metadatos de SAP mediante la API del conector de Java (JCo) 3.0. Asegúrese de que el conector de Java esté disponible en la máquina virtual donde está instalado el entorno de ejecución de integración autohospedado.
+    Asegúrese de que usa la distribución de JCo correcta para su entorno. Por ejemplo, en una máquina de Microsoft Windows, asegúrese de que los archivos sapjco3.jar y sapjco3.dll estén disponibles.
 
     > [!Note] 
     >Todas las cuentas de la máquina virtual deben poder acceder al controlador. No lo instale en una cuenta de usuario.
 
-6.  Implemente el módulo de funciones de ABAP de extracción de metadatos en el servidor SAP mediante los pasos indicados en la [guía de implementación de funciones de ABAP](abap-functions-deployment-guide.md). Va a necesitar una cuenta de desarrollador de ABAP para crear el módulo de funciones de RFC en el servidor SAP. La cuenta de usuario necesita permisos suficientes para conectarse al servidor SAP y ejecutar los siguientes módulos de funciones de RFC:
-    -   STFC_CONNECTION (comprobación de conectividad)
-    -   RFC_SYSTEM_INFO (comprobación de información del sistema)
+6.  Implemente el módulo de función de ABAP de extracción de metadatos en el servidor SAP mediante los pasos indicados en la [guía de implementación de funciones de ABAP](abap-functions-deployment-guide.md). Necesitará una cuenta de desarrollador de ABAP para crear el módulo de función de RFC en el servidor SAP. La cuenta de usuario necesita los permisos suficientes para conectarse al servidor SAP y ejecutar los siguientes módulos de función de RFC:
+    -   STFC_CONNECTION (comprobación de la conectividad)
+    -   RFC_SYSTEM_INFO (comprobación de la información del sistema)
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
@@ -66,7 +66,7 @@ En la pantalla **Register sources (SAP S/4HANA)** (Registrar orígenes (SAP S/4H
 
 2.  Escriba el nombre del **Application server** (Servidor de aplicaciones) para conectarse al origen de SAP S/4HANA. También puede ser una dirección IP del host del servidor de aplicaciones de SAP.
 
-3.  Escriba el **System number** (Número del sistema) de SAP. Se trata de un entero de dos dígitos entre 00 y 99.
+3.  Escriba el **número del sistema** de SAP. Se trata de un entero de dos dígitos comprendido entre 00 y 99.
 
 4.  Seleccione una colección o cree una nueva (opcional).
 
@@ -88,15 +88,15 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 5.  Especifique los detalles siguientes:
 
-    a.  **Name** (Nombre): nombre del examen.
+    a.  **Name** (Nombre): el nombre del examen.
 
     b.  **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración): seleccione el entorno de ejecución de integración autohospedado configurado.
 
     c.  **Credential** (Credencial): seleccione la credencial para conectarse al origen de datos. Asegúrese de que:
 
     -   Selecciona la autenticación básica al crear una credencial.
-    -   Proporciona un id. de usuario para conectarse al servidor SAP en el campo de entrada de nombre de usuario.
-    -   Almacena la contraseña de usuario que se usa para conectarse al servidor SAP en la clave secreta.
+    -   Proporciona un identificador de usuario para conectarse al servidor SAP en el campo de entrada de nombre de usuario.
+    -   Almacena la contraseña de usuario usada para conectarse al servidor SAP en la clave secreta.
 
     d.  **Client ID** (Id. de cliente): escriba aquí el identificador de cliente del sistema SAP. El cliente se identifica con un número de tres dígitos comprendido entre 000 y 999.
 
@@ -108,7 +108,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
 6.  Haga clic en **Continuar**.
 
-7.  Seleccione el **desencadenador de examen**. Puede configurar una programación o ejecutar el examen una vez.
+7.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
 8.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
 

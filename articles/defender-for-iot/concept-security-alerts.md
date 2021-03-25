@@ -1,24 +1,14 @@
 ---
 title: Lista de alertas integradas y personalizadas
 description: Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante las características y el servicio de Defender para IoT Hub.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: ef33851600c576494e4e0903c6ab8ffefc9a1a59
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 73b3a1ca3e52f571ab7b531235650b6bda870691
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636499"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784567"
 ---
 # <a name="defender-for-iot-hub-security-alerts"></a>Alertas de seguridad de Defender para IoT Hub
 

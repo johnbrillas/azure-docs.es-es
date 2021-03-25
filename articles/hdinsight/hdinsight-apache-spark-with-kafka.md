@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: d14b96843b489b28fc7d83348e39638272c06da5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6ef11e9c7907f57b3b8de0a042e1035bce638cf4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942766"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863282"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Apache Kafka en HDInsight
 
@@ -28,7 +28,7 @@ Aprenda a usar [Apache Spark](https://spark.apache.org/) para transmitir datos d
 
 Apache Kafka en HDInsight no proporciona acceso a los agentes de Kafka a través de Internet. Cualquier comunicación con Kafka debe realizarse en la misma red virtual de Azure que utilizan los nodos del clúster Kafka. En este ejemplo, los clústeres Kafka y Spark se encuentran en una red virtual de Azure. En el diagrama siguiente, se muestra cómo fluye la comunicación entre los clústeres:
 
-![Diagrama de clústeres Spark y Kafka en una red virtual de Azure](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png" alt-text="Diagrama de clústeres Spark y Kafka en una red virtual de Azure" border="false":::
 
 > [!NOTE]  
 > Aunque Kafka tiene limitadas la comunicación en la red virtual, se puede acceder a otros servicios del clúster, como SSH y Ambari, a través de Internet. Para más información sobre los puertos públicos disponibles en HDInsight, consulte [Puertos e identificadores URI usados en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -37,28 +37,28 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 1. Utilice el siguiente botón para iniciar sesión en Azure y abrir la plantilla en Azure Portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    La plantilla de Azure Resource Manager se encuentra en **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** .
+   La plantilla de Azure Resource Manager se encuentra en **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** .
 
-    > [!WARNING]  
-    > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Esta plantilla crea un clúster de Kafka que contiene tres nodos de trabajo.
+   > [!WARNING]
+   > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Esta plantilla crea un clúster de Kafka que contiene tres nodos de trabajo.
 
-    Esta plantilla crea un clúster de HDInsight 3.6 para Kafka y Spark.
+   Esta plantilla crea un clúster de HDInsight 3.6 para Kafka y Spark.
 
 1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
 
-    |Propiedad |Value |
-    |---|---|
-    |Resource group|cree un grupo o seleccione uno existente.|
-    |Location|seleccione una ubicación geográfica próxima a usted.|
-    |Nombre del clúster base|este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **hdistreaming**, creará un clúster Spark denominado __spark-hdistreaming__ y un clúster Kafka denominado **kafka-hdistreaming**.|
-    |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|nombre de usuario del administrador de los clústeres Spark y Kafka.|
-    |Cluster Login Password (Contraseña de inicio de sesión del clúster)|contraseña de usuario del administrador de los clústeres Spark y Kafka.|
-    |SSH User Name (Nombre de usuario de SSH)|usuario de SSH que se va a crear para los clústeres Spark y Kafka.|
-    |SSH Password (Contraseña de SSH)|contraseña del usuario de SSH para los clústeres Spark y Kafka.|
+   |Propiedad |Value |
+   |---|---|
+   |Resource group|cree un grupo o seleccione uno existente.|
+   |Location|seleccione una ubicación geográfica próxima a usted.|
+   |Nombre del clúster base|este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **hdistreaming**, creará un clúster Spark denominado __spark-hdistreaming__ y un clúster Kafka denominado **kafka-hdistreaming**.|
+   |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|nombre de usuario del administrador de los clústeres Spark y Kafka.|
+   |Cluster Login Password (Contraseña de inicio de sesión del clúster)|contraseña de usuario del administrador de los clústeres Spark y Kafka.|
+   |SSH User Name (Nombre de usuario de SSH)|usuario de SSH que se va a crear para los clústeres Spark y Kafka.|
+   |SSH Password (Contraseña de SSH)|contraseña del usuario de SSH para los clústeres Spark y Kafka.|
 
-    ![Parámetros de implementación personalizada de HDInsight](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+   :::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png" alt-text="Parámetros de implementación personalizada de HDInsight":::
 
 1. Consulte los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 
@@ -66,7 +66,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 Cuando se crean los recursos, aparece una página de resumen.
 
-![Resumen del grupo de recursos de la red virtual y los clústeres](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png" alt-text="Resumen del grupo de recursos de la red virtual y los clústeres":::
 
 > [!IMPORTANT]  
 > Observe que los nombres de los clústeres de HDInsight son **spark-BASENAME** y **kafka-BASENAME**, donde BASENAME es el nombre que indicó en la plantilla. Estos nombres se utilizarán más adelante al establecer la conexión con los clústeres.

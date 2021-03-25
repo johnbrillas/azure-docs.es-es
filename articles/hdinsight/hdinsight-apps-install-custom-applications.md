@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 19dd5bf94b524ff3eb6eb601c77b503a0040bd75
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867651"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop propias en Azure HDInsight
 
@@ -106,13 +106,13 @@ Si se produce algún error al instalar la aplicación, puede consultar los mensa
 
     Abra el clúster desde el portal y seleccione Aplicaciones en Configuración:
 
-    ![error de instalación de aplicaciones de hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="error de instalación de aplicaciones de hdinsight":::
 
 * Acción de script de HDInsight: si el mensaje de error de las aplicaciones de HDInsight indica que se ha producido un problema en una acción del script, aparecerá más información sobre este error en el panel de acciones del script.
 
     Seleccione Acción de script en Configuración. En el historial de acciones de script aparecen los mensajes de error.
 
-    ![error de acción de script de aplicaciones de hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="error de acción de script de aplicaciones de hdinsight":::
 
 * Interfaz de usuario web de Apache Ambari: si el script de instalación fue la causa del error, utilice la interfaz de usuario web de Ambari para consultar los registros completos de los scripts de instalación.
 

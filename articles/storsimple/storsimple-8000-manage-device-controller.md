@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94957000"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Administrar controladores de su dispositivo StorSimple
@@ -71,7 +71,7 @@ Para administrar los controladores de su dispositivo desde Azure Portal, lleve a
 Lleve a cabo los siguientes pasos para apagar o reiniciar un único controlador de su dispositivo StorSimple desde Windows PowerShell para StorSimple.
 
 1. Acceda al dispositivo desde la consola serie o mediante una sesión de telnet desde un equipo remoto. Para conectarse al Controlador 0 o al Controlador 1, siga los pasos que se describen en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**.
+2. En el menú de la consola serie, elija la opción 1, **Iniciar sesión con acceso total**.
 3. En el mensaje de pancarta que aparece, anote el controlador al que está conectado (Controlador 0 o Controlador 1) y si es el controlador activo o el pasivo (en espera).
    
    * Para apagar un solo controlador, en el símbolo del sistema, escriba:
@@ -112,7 +112,7 @@ Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azur
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Para restablecer el dispositivo a los valores predeterminados de fábrica en Windows PowerShell para StorSimple
 1. Acceda al dispositivo mediante su consola serie. Consulte el mensaje del banner que aparece para asegurarse de que está conectado al controlador **activo**.
-2. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**.
+2. En el menú de la consola serie, elija la opción 1, **Iniciar sesión con acceso total**.
 3. En el símbolo del sistema, escriba el comando siguiente para restablecer todo el clúster, quitando toda la configuración de datos, metadatos y controlador:
    
     `Reset-HcsFactoryDefault`
@@ -124,37 +124,37 @@ Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azur
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Preguntas y respuestas sobre cómo administrar los controladores de dispositivo
 En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre la administración de los controladores de dispositivo de StorSimple.
 
-**P.** ¿Qué ocurre si los dos controladores de mi equipo están activados y figuran como correctos y reinicio o apago el controlador activo?
+**P.**  ¿Qué ocurre si los dos controladores de mi equipo están activados y figuran como correctos y reinicio o apago el controlador activo?
 
 **R.** Si los dos controladores del dispositivo están activados y figuran como correctos, se le solicitará confirmación. Puede elegir:
 
 * **Reiniciar el controlador activo**: se le notifica que reiniciar un controlador activo provocará la conmutación por error del dispositivo al controlador pasivo. El controlador se reinicia.
 * **Apagar un controlador activo**: se le notifica que apagar un controlador activo dará lugar a tiempo de inactividad. También deberá presionar el botón de encendido en el dispositivo para activar el controlador.
 
-**P.** ¿Qué ocurre si el controlador pasivo del dispositivo no está disponible o está apagado y reinicio o apago el controlador activo?
+**P.**  ¿Qué ocurre si el controlador pasivo del dispositivo no está disponible o está apagado y reinicio o apago el controlador activo?
 
-**R.** Si el controlador pasivo del dispositivo no está disponible o está desactivado y decide:
+**R.**  Si el controlador pasivo del dispositivo no está disponible o está desactivado y decide:
 
 * **Reiniciar el controlador activo**: se le notifica que continuar con la operación provocará una interrupción temporal del servicio y se le solicita confirmación.
 * **Apagar un controlador activo**: se le notifica que continuar con la operación dará lugar a tiempo de inactividad. También debe presionar el botón de encendido en uno o ambos controladores para activar el dispositivo. Se le pedirá confirmación.
 
-**P.** ¿Cuándo se produce un error en el reinicio o el apagado del controlador?
+**P.**  ¿Cuándo se produce un error en el reinicio o el apagado del controlador?
 
-**R.** El reinicio o apagado de un controlador puede producir un error si:
+**R.**  El reinicio o apagado de un controlador puede producir un error si:
 
 * Ye está en curso una actualización del dispositivo.
 * Ya está en curso un reinicio del controlador.
 * Ya está en curso un apagado del controlador.
 
-**P.** ¿Cómo se puede saber si se ha reiniciado o apagado un controlador?
+**P.**  ¿Cómo se puede saber si se ha reiniciado o apagado un controlador?
 
 **R.** Puede comprobar el estado del controlador en la hoja Controlador. El estado del controlador indicará si un controlador está en proceso de reiniciarse o de apagarse. Además, la hoja **Alertas** contendrá una alerta informativa si el controlador se reinicia o se apaga. También se registran las operaciones de reinicio y apagado del controlador en los registros de actividad. Para más información sobre los registros de actividad, vaya a [Visualizar los registros de actividad](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **P.** ¿Qué impacto tiene para las operaciones de E/S una conmutación por error del controlador?
 
-**R.** Las conexiones TCP entre los iniciadores y el controlador activo se reiniciarán como resultado de la conmutación por error del controlador, pero se restablecerán cuando el controlador pasivo asuma la operación. Puede haber una pausa temporal (de menos de 30 segundos) en la actividad de E/S entre los iniciadores y el dispositivo en el transcurso de esta operación.
+**R.**  Las conexiones TCP entre los iniciadores y el controlador activo se reiniciarán como resultado de la conmutación por error del controlador, pero se restablecerán cuando el controlador pasivo asuma la operación. Puede haber una pausa temporal (de menos de 30 segundos) en la actividad de E/S entre los iniciadores y el dispositivo en el transcurso de esta operación.
 
-**P.** ¿Cómo puedo volver a poner en servicio mi controlador después de haberlo apagado y quitado?
+**P.**  ¿Cómo puedo volver a poner en servicio mi controlador después de haberlo apagado y quitado?
 
 **R.** Para que un controlador vuelva a funcionar, se debe insertar en el chasis tal como se describe en [Reemplazar un módulo de controlador en el dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 

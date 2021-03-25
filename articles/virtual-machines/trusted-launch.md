@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 1af1593074363673ff2e3f8bc804998ddd63d432
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 5e500eca601d21f106dbe31236e9b5c2aa76b0d2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564431"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801934"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicio seguro para máquinas virtuales de Azure (versión preliminar)
 
@@ -40,7 +40,6 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 **Compatibilidad de tamaño**: todos los tamaños de máquina virtual de [generación 2](generation-2.md), excepto:
 
-- HBv3 
 - Serie Lsv2 
 - Serie M 
 - Serie Mv2 
@@ -55,7 +54,8 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 - Windows Server 2019
 - Windows Server 2016
 - Windows 10 Pro
-- Windows 10 Enterprise
+- Windows 10 Enterprise
+- Sesión múltiple de Windows 10 Enterprise
 
 **Regiones**: 
 - Centro-sur de EE. UU.
@@ -74,7 +74,7 @@ Azure ofrece el inicio seguro como una manera continua de mejorar la seguridad d
 
 ## <a name="secure-boot"></a>Arranque seguro
 
-La raíz del inicio seguro es el arranque seguro para la máquina virtual. Este modo, que se implementa en el firmware de la plataforma, protege frente a la instalación de rootkits y kits de arranque basados en malware. El arranque seguro funciona para asegurarse de que solo se puedan arrancar los sistemas operativos y controladores firmados. Establece una "raíz de confianza" para la pila de software en la máquina virtual. Con el arranque seguro habilitado, todos los componentes de arranque del sistema operativo (cargador de arranque, kernel y controladores de kernel) deben estar firmados por editores de confianza. Tanto Windows como las distribuciones de Linux seleccionadas admiten el arranque seguro. Si el arranque seguro no puede autenticar si la imagen está firmada por un editor de confianza, no se permitirá el arranque de la máquina virtual. Para obtener más información, consulta [Arranque seguro](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+La raíz del inicio seguro es el arranque seguro para la máquina virtual. Este modo, que se implementa en el firmware de la plataforma, protege frente a la instalación de rootkits y kits de arranque basados en malware. El arranque seguro funciona para asegurarse de que solo se puedan arrancar los sistemas operativos y controladores firmados. Establece una "raíz de confianza" para la pila de software en la máquina virtual. Con el arranque seguro habilitado, todos los componentes de arranque del sistema operativo (cargador de arranque, kernel y controladores de kernel) deben estar firmados por editores de confianza. Tanto Windows como las distribuciones de Linux seleccionadas admiten el arranque seguro. Si el arranque seguro no puede autenticar si la imagen está firmada por un editor de confianza, no se permitirá el arranque de la máquina virtual. Para obtener más información, consulta [Arranque seguro](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -88,7 +88,7 @@ La [seguridad basada en virtualización](/windows-hardware/design/device-experie
 
 HVCI es una mitigación del sistema eficaz que protege los procesos del modo kernel de Windows contra la inyección y la ejecución de código malintencionado o no comprobado. Comprueba los controladores y los archivos binarios del modo kernel antes de que se ejecuten, evitando que los archivos sin firmar se carguen en la memoria. Esto garantiza que el código ejecutable no se puede modificar una vez se permita su caga. Para obtener más información sobre VBS y HVCI, consulte [Seguridad basada en virtualización (SBV) e integridad de código aplicada por el hipervisor (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Con el inicio seguro y SBV, puede habilitar Credential Guard de Windows Defender. Esta característica aísla y protege los secretos para que solo el software del sistema con privilegios pueda acceder a ellos. Ayuda a evitar el acceso no autorizado a secretos y ataques de robo de credenciales, como ataques Pass-the-Hash (PtH). Para obtener más información, consulte [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+Con el inicio seguro y SBV, puede habilitar Credential Guard de Windows Defender. Esta característica aísla y protege los secretos para que solo el software del sistema con privilegios pueda acceder a ellos. Ayuda a evitar el acceso no autorizado a secretos y ataques de robo de credenciales, como ataques Pass-the-Hash (PtH). Para obtener más información, consulte [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## <a name="security-center-integration"></a>Integración en Security Center
@@ -135,7 +135,7 @@ En la cadena de arranque seguro, cada paso del proceso de arranque comprueba una
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>¿Qué ocurre cuando se detecta un error de integridad?
 
-El inicio seguro para máquinas virtuales de Azure se supervisa para detectar amenazas avanzadas. Si se detectan estas amenazas, se desencadenará una alerta. Las alertas solo están disponibles en el [nivel Estándar](/azure/security-center/security-center-pricing) de Azure Security Center.
+El inicio seguro para máquinas virtuales de Azure se supervisa para detectar amenazas avanzadas. Si se detectan estas amenazas, se desencadenará una alerta. Las alertas solo están disponibles en el [nivel Estándar](../security-center/security-center-pricing.md) de Azure Security Center.
 Azure Security Center realiza la atestación periódicamente. Si se produce un error en la atestación, se desencadena una alerta de gravedad media. La atestación del inicio seguro puede producir un error por las razones siguientes: 
 - La información atestada, que incluye un registro de la base de cálculo de confianza (TCB), se desvía de una línea base de confianza (como cuando el arranque seguro está habilitado). Esto puede indicar que los módulos que no son de confianza se han cargado y que el sistema operativo puede estar en peligro.
 - No se pudo comprobar que la oferta de atestación se originó en el vTPM de la máquina virtual atestada. Esto puede indicar que el malware está presente y puede estar interceptando tráfico a vTPM. 

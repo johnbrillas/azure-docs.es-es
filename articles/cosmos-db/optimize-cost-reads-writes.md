@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 3f4c33a88d9a8fbf2c3d64135d93da54cf75fab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 36ecef007e10f9a090dbabc8b5a91fd473930141
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097517"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102633859"
 ---
 # <a name="optimize-request-cost-in-azure-cosmos-db"></a>Optimización del costo de las solicitudes en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ Las operaciones de lectura en Azure Cosmos DB se suelen ordenar de la más rápi
 
 ### <a name="role-of-the-consistency-level"></a>Rol del nivel de coherencia
 
-Cuando se usan los [niveles de coherencia](consistency-levels.md) **fuerte** u **obsolescencia limitada** , se duplica el costo de RU de cualquier operación de lectura (lectura o consulta puntual).
+Cuando se usan los [niveles de coherencia](consistency-levels.md) **fuerte** u **obsolescencia limitada**, se duplica el costo de RU de cualquier operación de lectura (lectura o consulta puntual).
 
 ### <a name="point-reads"></a>Lecturas puntuales
 
@@ -105,7 +105,7 @@ El costo de RU de escribir un elemento depende de:
 - El tamaño del elemento.
 - El número de propiedades que se incluyen en la [directiva de indexación](index-policy.md) y que es necesario indexar.
 
-La inserción de un elemento de 1 KB con menos de 5 propiedades para indexar cuesta en torno a 5 RU. El reemplazo un elemento cuesta el doble que la inserción del mismo elemento.
+La inserción de un elemento de 1 KB sin indexación cuesta en torno a 5,5 RU. El reemplazo un elemento cuesta el doble que la inserción del mismo elemento.
 
 ### <a name="optimizing-writes"></a>Optimización de escrituras
 

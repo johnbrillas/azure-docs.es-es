@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366060"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Solución de problemas de limitación (429 - "Demasiadas solicitudes") en Azure Logic Apps
@@ -35,11 +35,11 @@ Para buscar eventos de limitación en este nivel, consulte el panel **Métricas*
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
-1. En el menú de la aplicación lógica, en **Supervisión** , seleccione **Métricas**.
+1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Métricas**.
 
-1. En **Título del gráfico** , seleccione **Agregar métrica** para agregar otra métrica a la existente.
+1. En **Título del gráfico**, seleccione **Agregar métrica** para agregar otra métrica a la existente.
 
-1. En la primera barra de métricas, en la lista **MÉTRICA** , seleccione **Eventos limitados de acciones**. En la segunda barra de métricas, en la lista **MÉTRICA** , seleccione **Eventos limitados del desencadenador**.
+1. En la primera barra de métricas, en la lista **MÉTRICA**, seleccione **Eventos limitados de acciones**. En la segunda barra de métricas, en la lista **MÉTRICA**, seleccione **Eventos limitados del desencadenador**.
 
 Para controlar la limitación en este nivel, tiene estas opciones:
 

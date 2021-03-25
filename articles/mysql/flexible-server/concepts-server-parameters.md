@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 58978f120578afeca129b0d8928713835def8418
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94496316"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parámetros del servidor en Azure Database for MySQL: servidor flexible
@@ -52,7 +52,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/in
 |Ampliable (B1s)|1|1|134217728|33554432|134217728|
 |Ampliable (B1ms)|1|2|536870912|134217728|536870912|
 |Flexible|2|4|2147483648|134217728|2147483648|
-|De uso general|2|8|6442450944|134217728|6442450944|
+|Uso general|2|8|6442450944|134217728|6442450944|
 |De uso general|4|16|12884901888|134217728|12884901888|
 |De uso general|8|32|25769803776|134217728|25769803776|
 |De uso general|16|64|51539607552|134217728|51539607552|

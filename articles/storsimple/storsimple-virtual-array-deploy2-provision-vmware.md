@@ -9,14 +9,14 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87021484"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
-![Diagrama que muestra los pasos necesarios para implementar una matriz virtual. La segunda parte del segundo paso está etiquetada como Aprovisionamiento en VMware y está resaltada.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![Diagrama que muestra los pasos necesarios para implementar una matriz virtual.  La segunda parte del segundo paso está etiquetada como Aprovisionamiento en VMware y está resaltada.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Información general
 
@@ -202,10 +202,10 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
    ![Captura de pantalla de la pestaña Consola del cliente de vSphere. El texto de la página indica que la contraseña se ha cambiado.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. Tras cambiar la contraseña correctamente, puede que se reinicie el dispositivo virtual. Espere a que se complete el reinicio. La consola de Windows PowerShell del dispositivo puede mostrarse junto a una barra de progreso.
 
-   ![Captura de pantalla que muestra una ventana de la consola con una barra de progreso. El texto de la ventana indica que la instalación inicial está en curso y pide al usuario que espere.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
+   ![Captura de pantalla que muestra una ventana de la consola con una barra de progreso. El texto de la ventana indica que la configuración inicial está en curso y pide al usuario que espere.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
 6. Los pasos 6 a 8 solo se aplican cuando se arranca en un entorno sin DHCP. Si se encuentra en un entorno de DHCP, omita estos pasos y vaya al paso 9. Si ha arrancado el dispositivo en un entorno sin DHCP, verá la siguiente pantalla.
 
-   ![Captura de pantalla que muestra una ventana de la consola con texto que describe el dispositivo. El símbolo del sistema dice "Controller" y aparece listo para la entrada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
+   ![Captura de pantalla que muestra una ventana de la consola con el texto que describe el dispositivo. El símbolo del sistema dice "Controller" y aparece listo para la entrada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
    A continuación, configure la red.
 7. Utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.

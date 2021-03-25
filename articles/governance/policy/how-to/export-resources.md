@@ -5,10 +5,10 @@ ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94919572"
 ---
 # <a name="export-azure-policy-resources"></a>Exportación de recursos de Azure Policy
@@ -21,24 +21,24 @@ Para exportar una definición de directiva de Azure Portal, siga estos pasos:
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-1. Seleccione **Definiciones** en el panel izquierdo de la página de Azure Policy.
+1. Seleccione **Definiciones** en el lado izquierdo de la página de Azure Policy.
 
-1. Use el botón **Exportar definiciones**, o bien seleccione el botón de los puntos suspensivos que encontrará en la fila de la definición de una directiva y elija **Exportar definición**.
+1. Use el botón **Exportar definiciones**, o bien seleccione el botón de los puntos suspensivos que encontrará en la fila de la definición de una directiva y, a continuación, seleccione **Exportar definición**.
 
 1. Seleccione el botón **Iniciar sesión con GitHub**. Si aún no se ha autenticado en GitHub para autorizar a Azure Policy a exportar el recurso, revise el acceso que [Acciones de GitHub](https://github.com/features/actions) requiere en la nueva ventana que se abre y seleccione **Autorizar AzureGitHubActions** para continuar con el proceso de exportación. Una vez completado este paso, la nueva ventana se cerrará automáticamente.
 
-1. En la pestaña **Aspectos básicos**, establezca las siguientes opciones, y seleccione la pestaña **Directivas** o el botón **Siguiente: Directivas** situado en la parte inferior de la página.
+1. En la pestaña **Aspectos básicos**, establezca las siguientes opciones y,a continuación, seleccione la pestaña **Directivas** o el botón **Siguiente: Directivas** situado en la parte inferior de la página.
 
    - **Filtro del repositorio**: establezca esta opción en _Mis repositorios_ si solo quiere ver los repositorios que posee, o bien en _Todos los repositorios_ para ver todos aquellos a los que concedió acceso a Acciones de GitHub.
    - **Repositorio**: establezca esta opción en el repositorio en el que quiera exportar los recursos de Azure Policy.
    - **Rama**: establezca la rama del repositorio. Usar una rama distinta de la predeterminada es una buena manera de validar las actualizaciones antes de combinarlas en el código fuente.
    - **Directorio**: se trata de la _carpeta de nivel raíz_ en la que se exportarán los recursos de Azure Policy. Las subcarpetas de este directorio se crean en función de los recursos que se exportan.
 
-1. En la pestaña **Directivas**, establezca el ámbito de búsqueda. Para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
+1. En la pestaña **Directivas**, establezca el ámbito de búsqueda; para ello, seleccione el botón de los puntos suspensivos y elija una combinación de grupos de administración, suscripciones o grupos de recursos.
    
 1. Use el botón **Agregar definiciones de directiva** para realizar la búsqueda en el ámbito cuyos objetos se van a exportar. En la ventana lateral que se abre, seleccione cada uno de los objetos que quiera exportar. Filtre la selección mediante el cuadro de búsqueda o el tipo. Una vez que haya seleccionado todos los objetos que se van a exportar, use el botón **Agregar** de la parte inferior de la página.
 
-1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_, para obtener una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.
+1. Para cada objeto seleccionado, seleccione las opciones de exportación que prefiera, como _Solo definición_ o _Definición y asignaciones_, para una definición de directiva. Luego, seleccione la pestaña **Revisar y exportar** o el botón **Siguiente: Revisar y exportar** situado en la parte inferior de la página.
 
    > [!NOTE]
    > Si se elige la opción _Definición y asignaciones_, solo se exportarán las asignaciones de directiva comprendidas en el ámbito establecido por el filtro al agregar la definición de directiva.

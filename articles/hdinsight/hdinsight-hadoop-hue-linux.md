@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945689"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865135"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Hue en clústeres de Hadoop para HDInsight
 
@@ -80,17 +80,17 @@ Solo puede tener una cuenta de usuario con matiz en clústeres normales. Para el
    > [!NOTE]  
    > Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
 
-    ![Ventana de inicio de sesión del portal de Hue en HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Especificación de credenciales para el portal de Hue")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="Ventana de inicio de sesión del portal de Hue en HDInsight":::
 
 ### <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
 1. En el portal de Hue, seleccione **Query Editors** (Editores de consultas), y, a continuación, seleccione **Hive** para abrir el editor de Hive.
 
-    ![Uso del editor de Hive del portal de Hue de HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Uso de Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="Uso del editor de Hive del portal de Hue de HDInsight":::
 
 2. En la pestaña **Assist** (Asistencia), en **Database** (Base de datos), debería de ver **hivesampletable**. Se trata de una tabla de ejemplo que se incluye con todos los clústeres de Hadoop en HDInsight. Escriba una consulta de ejemplo en el panel derecho y vea el resultado en la pestaña **Results** (resultados) en el panel debajo, como se muestra en la captura de pantalla.
 
-    ![Consulta de Hive del portal de Hue de HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Ejecución de consultas de Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="Consulta de Hive del portal de Hue de HDInsight":::
 
     También puede usar la pestaña **Chart** para ver una representación visual del resultado.
 
@@ -99,7 +99,7 @@ Solo puede tener una cuenta de usuario con matiz en clústeres normales. Para el
 1. En el portal de Hue, seleccione **File Browser** (explorador de archivos) en la esquina superior derecha de la barra de menús.
 2. De forma predeterminada se abre el explorador de archivos en el directorio **/user/myuser** . Seleccione la barra oblicua que se encuentra antes del directorio del usuario en la ruta de acceso para ir a la raíz del contenedor de Azure Storage asociado con el clúster.
 
-    ![Explorador de archivos del portal de Hue en HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Uso del explorador de archivos")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="Explorador de archivos del portal de Hue en HDInsight":::
 
 3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear nuevos archivos o directorios.
 
@@ -118,7 +118,7 @@ Solo puede tener una cuenta de usuario con matiz en clústeres normales. Para el
 
 1. Con los clústeres de Linux, se puede dar el caso de que los servicios se ejecutan en el nodo principal primario mientras Resource Manager se ejecuta en el secundario. Este escenario podría producir errores (que se muestra a continuación) cuando se usa Hue para ver detalles de trabajos de ejecución en el clúster. De todas formas, puede ver los detalles del trabajo una vez que el trabajo se complete.
 
-   ![Mensaje de error de ejemplo del portal de Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Error en el portal de Hue")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Mensaje de error de ejemplo del portal de Hue":::
 
    Este es un problema conocido. Como alternativa, modifique Ambari para que la instancia de Resource Manager que está activa también se ejecute en el nodo principal primario.
 

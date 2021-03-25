@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/08/2020
 ms.author: dnb
 ms.openlocfilehash: 46956afc0962b9f0c868b491cd198dbdb9e3f30f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91873054"
 ---
 # <a name="site-reliability-engineering-sre-books"></a>Libros de ingeniería de fiabilidad de sitios (SRE)
@@ -40,8 +40,8 @@ Dado que estos libros describen la experiencia, los entornos y la cultura de org
 
 Después de leer los libros mencionados anteriormente, si desea profundizar en la práctica de los indicadores de nivel de servicio (SLI)/Objetivos de nivel de servicio (SLO), el siguiente libro es un recurso excelente:
 
-[_Implementing Service Level Objectives (Implementación de objetivos de nivel de servicio)_ ](https://www.oreilly.com/library/view/implementing-service-level/9781492076803/)
+[_Implementing Service Level Objectives (Implementación de objetivos de nivel de servicio)_](https://www.oreilly.com/library/view/implementing-service-level/9781492076803/)
 
 Si desea explorar la intersección de la ingeniería de seguridad y fiabilidad, este libro proporciona una gran variedad de observaciones adecuadas sobre el tema:
 
-[_Building Secure and Reliable Systems (Creación de sistemas seguros y fiables)_ ](https://www.oreilly.com/library/view/building-secure-and/9781492083115/)
+[_Building Secure and Reliable Systems (Creación de sistemas seguros y fiables)_](https://www.oreilly.com/library/view/building-secure-and/9781492083115/)

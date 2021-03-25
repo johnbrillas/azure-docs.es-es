@@ -8,10 +8,10 @@ author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91858179"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
@@ -117,7 +117,7 @@ Los precios establecidos en dólares estadounidenses se convierten en la moneda 
 1. Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios. Cerca de la parte inferior de la pestaña **Precios y disponibilidad**, seleccione **Guardar borrador**.
 1. En **Precio**, seleccione el vínculo **Export pricing data** (Exportar datos de precios).
 1. Abra el archivo exportedPrice.xlsx en Microsoft Excel.
-1. En la hoja de cálculo, realice las actualizaciones que desee en la información de los precios y, después, guarde el archivo .csv.
+1. En la hoja de cálculo, realice las actualizaciones que desee en la información de los precios y, después, guarde el archivo .CSV.
     > [!NOTE]
     > Para poder actualizar el archivo, es posible que tenga que habilitar la edición en Excel.
 1. En la pestaña **Precios y disponibilidad**, en **Precio**, seleccione el vínculo **Import pricing data** (Importar datos de precios).

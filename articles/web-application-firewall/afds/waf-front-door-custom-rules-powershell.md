@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94563416"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configuración de una directiva del firewall de aplicaciones web con Azure PowerShell
@@ -21,7 +21,7 @@ En este artículo se muestra cómo configurar una directiva del WAF que se compo
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar a configurar una directiva de limitación de velocidad, configure el entorno de PowerShell y cree un perfil de Front Door.
 

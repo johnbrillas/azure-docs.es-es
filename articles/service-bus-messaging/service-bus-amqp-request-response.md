@@ -4,10 +4,10 @@ description: En este artículo se define la lista de operaciones de respuesta/so
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88064424"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
@@ -117,7 +117,7 @@ Las direcciones de las entidades de Service Bus deben tener el siguiente formato
 
 Extiende el bloqueo de un mensaje cuando se especifique en la descripción de la entidad.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -155,7 +155,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el valor de 
 
 Inspecciona los mensajes sin bloquearlos.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -196,7 +196,7 @@ La asignación que representa un mensaje debe contener las siguientes entradas:
 
 Programa mensajes. Esta operación admite transacciones.
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -240,7 +240,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el **valor d
 
 Cancela mensajes programados.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -270,7 +270,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 
 Extiende el bloqueo de un mensaje cuando se especifique en la descripción de la entidad.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -304,7 +304,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el **valor d
 
 Inspecciona mensajes de sesiones sin bloquear.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -346,7 +346,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el **valor d
 
 Establece el estado de una sesión.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -375,7 +375,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 
 Obtiene el estado de una sesión.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -409,7 +409,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el **valor d
 
 Enumera las sesiones de una entidad de mensajería.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -446,7 +446,7 @@ El cuerpo del mensaje de respuesta debe constar de una sección con el **valor d
   
 ### <a name="add-rule"></a>Agregar regla  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
@@ -488,11 +488,11 @@ La asignación **correlation-filter** debe incluir, al menos, una de las siguien
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) a Service Bus.|  
+|properties|mapa|No|Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) a Service Bus.|  
   
-La asignación**sql-rule-action** debe incluir las siguientes entradas:  
+La asignación **sql-rule-action** debe incluir las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |expresión|string|Sí|Expresión de acción SQL.|  
   
@@ -500,25 +500,25 @@ La asignación**sql-rule-action** debe incluir las siguientes entradas:
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |statusDescription|string|No|Descripción del estado.|  
   
 ### <a name="remove-rule"></a>Eliminación de reglas  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Sí|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |rule-name|string|Sí|Nombre de la regla, sin incluir los nombres de las suscripciones y los temas.|  
   
@@ -526,25 +526,25 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |statusDescription|string|No|Descripción del estado.|  
   
 ### <a name="get-rules"></a>Obtener reglas
 
-#### <a name="request"></a>Solicitud
+#### <a name="request"></a>Request
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:
 
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Sí|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
 
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |top|int|Sí|El número de reglas que se capturan en la página.|  
 |skip|int|Sí|El número de reglas que se omiten. Define el índice inicial (+ 1) en la lista de reglas. | 
@@ -553,20 +553,20 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 
 El mensaje de respuesta incluye las siguientes propiedades:
 
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |reglas| matriz de asignación|Sí|Matriz de reglas. Cada regla se representa mediante un mapa.|
 
 Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |rule-description|matriz de objetos descritos|Sí|`com.microsoft:rule-description:list` con el código descrito de AMQP 0x0000013700000004| 
 
 `com.microsoft.rule-description:list` es una matriz de objetos descritos. La matriz incluye lo siguiente:
 
-|Índice|Tipo de valor|Obligatorio|Contenido del valor|  
+|Índice|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 | 0 | matriz de objetos descritos | Sí | `filter` como se especifica a continuación. |
 | 1 | matriz de objetos descritos | Sí | `ruleAction` como se especifica a continuación. |
@@ -583,7 +583,7 @@ Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 
 `com.microsoft:sql-filter:list` es una matriz descrita que incluye:
 
-|Índice|Tipo de valor|Obligatorio|Contenido del valor|  
+|Índice|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 | 0 | string | Sí | Expresión de filtro SQL |
 
@@ -593,7 +593,7 @@ Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 |---------|----------------|--------------|
 | 0 | string | Id. de correlación |
 | 1 | string | Id. del mensaje |
-| 2 | string | A |
+| 2 | string | En |
 | 3 | string | Responder a |
 | 4 | string | Etiqueta |
 | 5 | string | Identificador de sesión |
@@ -616,18 +616,18 @@ Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 
 Recibe mensajes diferidos por número de secuencia.  
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Sí|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |sequence-numbers|Matriz de long|Sí|Número de secuencias.|  
 |receiver-settle-mode|ubyte|Sí|Modo de **liquidación de receptor** tal y como se especifica en AMQP Core 1.0.|  
@@ -636,20 +636,20 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |statusDescription|string|No|Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |messages|Lista de asignaciones|Sí|Lista de mensajes donde cada asignación representa un mensaje.|  
   
 La asignación que representa un mensaje debe contener las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |lock-token|uuid|Sí|Token de bloqueo si el valor de `receiver-settle-mode` es 1.|  
 |message|Matriz de byte|Sí|Mensaje codificado con AMQP 1.0.|  
@@ -658,30 +658,30 @@ La asignación que representa un mensaje debe contener las siguientes entradas:
 
 Actualiza el estado de disposición de los mensajes diferidos. Esta operación admite transacciones.
   
-#### <a name="request"></a>Solicitud  
+#### <a name="request"></a>Request  
 
 El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Sí|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|No|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |disposition-status|string|Sí|completed<br /><br /> abandoned<br /><br /> suspended|  
 |lock-tokens|Matriz de UUID|Sí|Tokens de bloqueo de mensajes para actualizar el estado de disposición.|  
 |deadletter-reason|string|No|Puede establecerse si el estado de disposición es **suspended**.|  
 |deadletter-description|string|No|Puede establecerse si el estado de disposición es **suspended**.|  
-|properties-to-modify|map|No|Lista de propiedades de mensajes asincrónicos de Service Bus que se van a modificar.|  
+|properties-to-modify|mapa|No|Lista de propiedades de mensajes asincrónicos de Service Bus que se van a modificar.|  
   
 #### <a name="response"></a>Response  
 
 El mensaje de respuesta debe incluir las siguientes propiedades de la aplicación:  
   
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|Clave|Tipo de valor|Requerido|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |statusDescription|string|No|Descripción del estado.|

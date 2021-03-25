@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92092892"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas
@@ -39,7 +39,7 @@ Las plantillas se usan para personalizar el contenido de las páginas del portal
 
 La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para desarrolladores** en la barra de herramientas de servicios de su instancia de API Management.
 
-Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas** .
+Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas**.
 
 ![Captura de pantalla que resalta el icono Personalizar para mostrar el menú de personalización.][api-management-customize-menu]
 
@@ -47,7 +47,7 @@ La lista de plantillas muestra varias categorías de plantillas que abarcan las 
 
 ![Plantillas del portal para desarrolladores][api-management-templates-menu]
 
-Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos** . La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
+Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos**. La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
 
 ![Plantilla de lista de productos][api-management-developer-portal-templates-overview]
 
@@ -147,7 +147,7 @@ Haga clic en **Sí** para confirmar y hacer que la plantilla se active en el por
 
 ![Captura de pantalla que muestra dónde debe seleccionar Sí para activar la plantilla.][api-management-publish-template-confirm]
 
-Para publicar todas las versiones de plantillas actualmente sin publicar, haga clic en **Publicar** en la lista de plantillas. Las plantillas no publicadas se indican con un asterisco después del nombre de la plantilla. En este ejemplo, se van a publicar las plantillas **Lista de productos** y **Producto** .
+Para publicar todas las versiones de plantillas actualmente sin publicar, haga clic en **Publicar** en la lista de plantillas. Las plantillas no publicadas se indican con un asterisco después del nombre de la plantilla. En este ejemplo, se van a publicar las plantillas **Lista de productos** y **Producto**.
 
 ![Publicar plantillas][api-management-publish-templates]
 

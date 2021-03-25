@@ -4,10 +4,10 @@ description: Describe las propiedades y los esquemas que se proporcionan para lo
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363693"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como origen de Event Grid

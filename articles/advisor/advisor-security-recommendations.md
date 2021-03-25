@@ -4,10 +4,10 @@ description: Utilice Azure Advisor para mejorar la seguridad de las implementaci
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: f130135ed53dc2ba87f46cbf6f9faf0f07cc0654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87057657"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Refuerzo de la seguridad de los recursos con Azure Advisor
@@ -30,7 +30,7 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
-* [Recomendaciones sobre el rendimiento de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
 * [API REST de Advisor](/rest/api/advisor/)

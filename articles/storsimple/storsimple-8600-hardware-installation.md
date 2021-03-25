@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91871820"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
@@ -164,7 +164,7 @@ El siguiente paso es la colocación de los cables de alimentación, red y acceso
 ## <a name="cable-your-storsimple-8600-device"></a>Instalación de cables del dispositivo StorSimple 8600
 En los siguientes procedimientos se explica cómo pasar los cables del dispositivo StorSimple 8600 de alimentación, red y conexiones en serie.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 * Desempaquetar por completo el receptáculo y EBOD.

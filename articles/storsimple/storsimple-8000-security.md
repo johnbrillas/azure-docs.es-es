@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966214"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
@@ -29,8 +29,8 @@ ms.locfileid: "94966214"
 
 La seguridad es una preocupación clave para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. A medida que evalúa distintas tecnologías, debe considerar mayores riesgos y costes para la protección de datos. Microsoft Azure StorSimple proporciona una solución de seguridad y privacidad para la protección de datos, lo que le ayuda a garantizar:
 
-* **Confidencialidad** solo las entidades autorizadas pueden ver los datos.
-* **Integridad** : solo las entidades autorizadas pueden modificar o eliminar los datos.
+* **Confidencialidad**: solo las entidades autorizadas pueden ver sus datos.
+* **Integridad**: solo las entidades autorizadas modificar o eliminar sus datos.
 
 La solución de Microsoft Azure StorSimple consta de cuatro componentes principales que interactúan entre sí:
 
@@ -57,7 +57,7 @@ Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servi
 
 ![Clave de registro del servicio](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Para obtener información sobre cómo obtener una clave de registro del servicio, vaya al [Paso 2: Obtener la clave de registro del servicio](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Para obtener información sobre cómo obtener una clave de registro del servicio, vaya al [Paso 2: Obtención de la clave de registro del servicio](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 La clave de registro del servicio es una clave larga que contiene más de 100 caracteres. Puede copiar la clave y guardarla en un archivo de texto en una ubicación segura para que pueda utilizarla para autorizar dispositivos adicionales según sea necesario. Si se pierde la clave de registro del servicio una vez que registra el primer dispositivo, puede generar una clave nueva desde el servicio StorSimple Device Manager. Esto no afectará la operación de los dispositivos existentes.
 
@@ -238,17 +238,17 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué puedo hacer?
 
-**R:** Póngase en contacto con el soporte técnico de Microsoft Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave (siempre que haya al menos un dispositivo en línea). Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
+**R:** Póngase en contacto con el soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave (siempre que haya al menos un dispositivo en línea). Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
 
 * [Cambiar la clave de cifrado de datos de servicio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**P:**  Autoricé a un dispositivo para que realizara un cambio de clave de cifrado de datos de servicio, pero no inicié el proceso de cambio de clave. ¿Cuál debo hacer?
+**P:** Autoricé a un dispositivo para que realizara un cambio de clave de cifrado de datos de servicio, pero no inicié el proceso de cambio de clave. ¿Cuál debo hacer?
 
 **R:** Si el periodo de espera expiró, deberá volver a autorizar al dispositivo para que realice el cambio de clave de cifrado de datos de servicio y que así pueda volver a comenzar el proceso.
 
-**P:**  Cambié la clave de cifrado de datos de servicio, pero no me fue posible actualizar los demás dispositivos en un plazo de 4 horas. ¿Es necesario empezar de nuevo?
+**P:** Cambié la clave de cifrado de datos de servicio, pero no me fue posible actualizar los demás dispositivos en un plazo de 4 horas. ¿Es necesario empezar de nuevo?
 
-**R:** El periodo de 4 horas solo es para iniciar el cambio. Una vez que inicie el proceso de actualización en el dispositivo de StorSimple autorizado, la autorización es válida hasta que se actualicen todos los dispositivos.
+**R:** El período de tiempo de 4 horas solo es para iniciar el cambio. Una vez que inicie el proceso de actualización en el dispositivo de StorSimple autorizado, la autorización es válida hasta que se actualicen todos los dispositivos.
 
 **P:** Nuestro administrador de StorSimple ya no trabaja en la empresa. ¿Cuál debo hacer?
 
@@ -258,7 +258,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 * [Cambiar la clave de cifrado de datos de servicio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurar CHAP para el dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
-**P:** Quiero proporcionar la contraseña de StorSimple Snapshot Manager a un host que se está conectando con un dispositivo StorSimple, pero la contraseña no se encuentra disponible. ¿Qué puedo hacer?
+**P:** Deseo proporcionar la contraseña de StorSimple Snapshot Manager a un host que se está conectando con un dispositivo StorSimple, pero la contraseña no se encuentra disponible. ¿Qué puedo hacer?
 
 **R:** Si olvidó la contraseña, debería crear una nueva. A continuación, asegúrese de informar a todos los usuarios existentes que la contraseña cambió y que deberán actualizar sus clientes para que usen la contraseña nueva. Para obtener instrucciones, vaya a:
 
@@ -267,15 +267,15 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** El certificado para acceso remoto a Windows PowerShell para StorSimple cambió en el dispositivo. ¿Cómo actualizo mis clientes de acceso remoto?
 
-**R:** Puede descargar el nuevo certificado desde el servicio StorSimple Device Manager y, luego, proporcionarlo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
+**R:** Puede descargar el nuevo certificado desde el servicio StorSimple Device Manager y, a continuación, proporcionarlo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
 
 * [Cmdlet Import-Certificate](/powershell/module/pkiclient/import-certificate)
 
 **P:** ¿Mis datos están protegidos si el servicio StorSimple Device Manager se pone en peligro?
 
-**R:** Los datos de configuración del servicio se cifran siempre con su clave pública cuando accede a ella desde un explorador web. Dado que el servicio no tiene acceso a la clave privada, el servicio no podrá ver ningún dato. Si el servicio StorSimple Device Manager se pone en peligro, no habrá ningún efecto, ya que no hay ninguna clave almacenada en dicho servicio.
+**P:** Los datos de configuración del servicio se cifran siempre con su clave pública cuando accede a ella desde un explorador web. Dado que el servicio no tiene acceso a la clave privada, el servicio no podrá ver ningún dato. Si el servicio StorSimple Device Manager se pone en peligro, no habrá ningún efecto, ya que no hay ninguna clave almacenada en dicho servicio.
 
-**P:** Si alguna persona accede al certificado de cifrado de datos, ¿se verán mis datos comprometidos?
+**P:** Si alguna persona obtiene acceso al certificado de cifrado de datos, ¿se verán mis datos comprometidos?
 
 **R:** Microsoft Azure almacena la clave de cifrado de datos del cliente (archivo .pfx) en un formato cifrado. Como el archivo .pfx está cifrado y el servicio StorSimple no cuenta con la clave de cifrado de datos de servicio para descifrar el archivo .pfx, el hecho de obtener acceso solo al archivo .pfx no expondrá ningún secreto.
 

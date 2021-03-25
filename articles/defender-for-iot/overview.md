@@ -1,23 +1,14 @@
 ---
 title: Introducción al servicio
 description: Obtenga más información sobre las características y servicios de Defender para IoT y descubra la forma en que Defender para IoT proporciona seguridad de IoT completa.
-services: defender-for-iot
-ms.service: azure
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 4590396b0e867a3e545577767581dd1a951bfc50
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 15772ee21587ed2bc010e31174af6daac71dfc12
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447391"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786845"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Bienvenido a Azure Defender para IoT
 

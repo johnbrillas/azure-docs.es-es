@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c7efedadbba196223db2ad5700035e27d37fb414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008464"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Conexión a Windows Virtual Desktop (clásico) con el cliente iOS
@@ -35,7 +35,7 @@ Para suscribirse a una fuente:
 1. En el centro de conexiones, pulse **+** y, después, pulse **Add Workspace** (Agregar área de trabajo).
 2. Escriba la dirección URL de la fuente en el campo **Feed URL** (Dirección URL de la fuente). La dirección URL de la fuente puede ser una dirección URL o una dirección de correo electrónico.
    - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com>.
-   - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
+   - Para usar un correo electrónico, escribe tu dirección de correo: Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
 3. Pulse **Next** (Siguiente).
 4. Escriba sus credenciales cuando se le solicite.
    - En **User Name** (Nombre de usuario), asigne al nombre de usuario permiso para acceder a los recursos.
@@ -45,7 +45,7 @@ Para suscribirse a una fuente:
 
 Después, el centro de conexiones debería mostrar los recursos remotos.
 
-Una vez que se haya suscrito a una fuente, el contenido de la misma se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
+Después de suscribirte a una fuente, el contenido de la fuente se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

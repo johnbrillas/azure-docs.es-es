@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014618"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code (versión preliminar)
@@ -63,7 +63,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Suscripción  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Subscription  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
    |Region  |  \<Select the region that is closest to your users\> | Seleccione la ubicación geográfica donde puede hospedar el centro de IoT. Use la ubicación más cercana a los usuarios. |
    |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para el centro de IoT.   |

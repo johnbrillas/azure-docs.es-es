@@ -11,27 +11,27 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545402"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Administración automática de dispositivos y módulos IoT mediante Azure Portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-La administración de dispositivos automática de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos. Con la administración de dispositivos automática, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración que se quiera y luego permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante una _configuración automática de dispositivos_ o una _configuración automática de módulos_ , que permite resumir la integridad y el cumplimiento, administrar combinaciones y conflictos e implementar configuraciones por fases.
+La administración de dispositivos automática de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos. Con la administración de dispositivos automática, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración que se quiera y luego permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante una _configuración automática de dispositivos_ o una _configuración automática de módulos_, que permite resumir la integridad y el cumplimiento, administrar combinaciones y conflictos e implementar configuraciones por fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-La administración automática de dispositivos funciona mediante la actualización de un conjunto de dispositivos o módulos gemelos con las propiedades deseadas y la elaboración de un informe de resumen basado en las propiedades notificadas de los gemelos.  Presenta una nueva clase y documento JSON, llamado *Configuración* , que tiene tres partes:
+La administración automática de dispositivos funciona mediante la actualización de un conjunto de dispositivos o módulos gemelos con las propiedades deseadas y la elaboración de un informe de resumen basado en las propiedades notificadas de los gemelos.  Presenta una nueva clase y documento JSON, llamado *Configuración*, que tiene tres partes:
 
 * La **condición de destino** define el ámbito de los dispositivos o módulos gemelos que se van a actualizar. La condición de destino se especifica como una consulta de las propiedades notificadas o de las etiquetas de los gemelos.
 
 * El **contenido de destino** define las propiedades deseadas que se van a agregar o actualizar en los dispositivos o módulos gemelos de destino. El contenido incluye una ruta de acceso a la sección de las propiedades que desea cambiar.
 
-* Las **métricas** definen el número de resúmenes de los distintos estados de configuración, como **Correcto** , **En curso** y **Error**. Las métricas personalizadas se especifican como consultas de las propiedades notificadas de los gemelos.  Las métricas del sistema son las métricas predeterminadas que miden el estado de actualización de los gemelos, como el número de gemelos de destino y el número de gemelos que se han actualizado correctamente.
+* Las **métricas** definen el número de resúmenes de los distintos estados de configuración, como **Correcto**, **En curso** y **Error**. Las métricas personalizadas se especifican como consultas de las propiedades notificadas de los gemelos.  Las métricas del sistema son las métricas predeterminadas que miden el estado de actualización de los gemelos, como el número de gemelos de destino y el número de gemelos que se han actualizado correctamente.
 
 Las configuraciones automáticas se ejecutan por primera vez poco después de crear la configuración y posteriormente en intervalos de cinco minutos. Las consultas de métricas se ejecutan cada vez que se ejecuta la configuración automática.
 
@@ -164,7 +164,7 @@ Para ver los detalles de una configuración y supervisar los dispositivos que la
 
    * **ID** (Identificador): nombre de la configuración.
 
-   * **Condición de destino** : consulta que se utiliza para definir los dispositivos o módulos de destino.
+   * **Condición de destino**: consulta que se utiliza para definir los dispositivos o módulos de destino.
 
    * **Priority** (Prioridad): el número de prioridad asignado a la configuración.
 
@@ -172,17 +172,17 @@ Para ver los detalles de una configuración y supervisar los dispositivos que la
 
    * **System metrics** (Métricas del sistema): las métricas calculadas por IoT Hub y que los desarrolladores no pueden personalizar. Los destinos especifican el número de dispositivos gemelos que coinciden con la condición de destino. Aplica el número especificado de dispositivos gemelos modificados por la configuración, que puede incluir modificaciones parciales en caso de que una configuración independiente de mayor prioridad también realice cambios. 
 
-   * **Métricas personalizadas** : métricas especificadas por el desarrollador como consultas de las propiedades notificadas de los gemelos.  Se pueden definir hasta cinco métricas personalizadas por configuración. 
+   * **Métricas personalizadas**: métricas especificadas por el desarrollador como consultas de las propiedades notificadas de los gemelos.  Se pueden definir hasta cinco métricas personalizadas por configuración. 
    
 4. Seleccione la configuración que desea supervisar.  
 
 5. Inspeccione los detalles de configuración. Puede utilizar las pestañas para ver detalles específicos sobre los dispositivos que han recibido la configuración.
 
-   * **Condición de destino** : dispositivos o módulos que coinciden con la condición de destino. 
+   * **Condición de destino**: dispositivos o módulos que coinciden con la condición de destino. 
 
    * **Metrics** (Métricas): una lista de métricas del sistema y métricas personalizadas.  Para ver una lista de los dispositivos o módulos que se tienen en cuenta para cada métrica, seleccione la métrica en el menú desplegable y luego seleccione **Ver dispositivos** o **Ver módulos**.
 
-   * **Configuración de dispositivos gemelos** : ajustes de los gemelos definidos en la configuración **.** 
+   * **Configuración de dispositivos gemelos**: ajustes de los gemelos definidos en la configuración **.** 
 
    * **Configuration Labels** (Etiquetas de configuración): pares clave-valor utilizados para describir una configuración.  Las etiquetas no tienen ningún impacto en la funcionalidad. 
 

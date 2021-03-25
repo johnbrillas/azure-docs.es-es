@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867260"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solución de problemas: la VPN de sitio a sitio de Azure se desconecta intermitentemente
 
@@ -56,9 +56,7 @@ La puerta de enlace de red virtual basada en directivas tiene un límite de 200 
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Paso 6: Comprobación de la dirección de la interfaz externa del dispositivo VPN local
 
-- Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Puerta de enlace de red local** en Azure, es posible que experimente desconexiones esporádicas.
-- La interfaz externa del dispositivo debe estar directamente en Internet. No debería haber ninguna traducción de direcciones de red (NAT) o firewall entre Internet y el dispositivo.
--  Si configura la agrupación en clústeres de firewall para que tenga una IP virtual, debe interrumpir el clúster y exponer el dispositivo VPN directamente a una interfaz pública con la que la puerta de enlace pueda interactuar.
+Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Puerta de enlace de red local** en Azure, es posible que experimente desconexiones esporádicas.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Paso 7: Comprobación de si el dispositivo VPN local cuenta con la característica Confidencialidad directa perfecta habilitada
 

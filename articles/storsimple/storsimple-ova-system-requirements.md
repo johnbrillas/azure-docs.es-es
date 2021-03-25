@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966180"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
@@ -49,7 +49,7 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | --- | --- |
 | Número mínimo de procesadores virtuales (núcleos) |4 |
 | Cantidad mínima de memoria (RAM) |8 GB <br> Para un servidor de archivos, 8 GB para menos de 2 millones de archivos y 16 GB para 2-4 millones de archivos|
-| Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB <br></br>Disco de datos: de 500 GB a 8 TB |
+| Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB  <br></br> Disco de datos: de 500 GB a 8 TB |
 | Número mínimo de interfaces de red |1 |
 | Ancho de banda de Internet<sup>2</sup> |Ancho de banda mínimo requerido: 5 Mbps <br> Ancho de banda recomendado: 100 Mbps <br> La velocidad de transferencia de datos se amplía con el ancho de banda de Internet. Por ejemplo, 100 GB de datos tardan dos días en transferirse a 5 Mbps, lo que generaría errores de copia de seguridad por el hecho de que las copias de seguridad no se completarían en un día. Con un ancho de banda de 100 Mbps, 100 GB de datos pueden transferirse en dos horas y media.   |
 
@@ -69,7 +69,7 @@ Los siguientes requisitos de software son para los iniciadores de iSCSI con acce
 
 | **Sistemas operativos compatibles** | **Versión requerida** | **Requisitos/notas adicionales** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial. Solo se admiten volúmenes de iSCSI de StorSimple para: <ul><li>Volúmenes simples en discos básicos de Windows.</li><li>NTFS de Windows para dar formato a un volumen.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial. Solo se admiten volúmenes de iSCSI de StorSimple para:  <ul><li>Volúmenes simples en discos básicos de Windows.</li><li>NTFS de Windows para dar formato a un volumen.</li> |
 
 Los siguientes requisitos de software son para los iniciadores de SMB con acceso a su matriz virtual de StorSimple (configurada como servidor de archivos).
 
@@ -102,7 +102,7 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
 > [!IMPORTANT]
-> Asegúrese de que el firewall no modifica ni descifra ningún tráfico TLS entre el dispositivo StorSimple y Azure.
+> Asegúrese de que el firewall no modifica ni descifra ningún tráfico TLS entre el dispositivo de StorSimple y Azure.
 > 
 > 
 

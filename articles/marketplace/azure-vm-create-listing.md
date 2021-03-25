@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629604"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Procedimientos para configurar los detalles las propiedades de la lista de ofertas de máquinas virtuales

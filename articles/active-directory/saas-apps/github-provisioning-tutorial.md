@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: Zhchia
 ms.openlocfilehash: f1600dfc5705ca97f16e8966a796b54fc556d216
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359269"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
@@ -65,19 +65,19 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Aprovisionamiento de GitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. En **Credenciales de administrador** , haga clic en **Autorizar**. Con esta operación se abre un cuadro de diálogo de autorización de GitHub en una nueva ventana del explorador. Tenga en cuenta que debe asegurarse de que está aprobado para autorizar el acceso. Siga las instrucciones descritas [aquí](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
+5. En **Credenciales de administrador**, haga clic en **Autorizar**. Con esta operación se abre un cuadro de diálogo de autorización de GitHub en una nueva ventana del explorador. Tenga en cuenta que debe asegurarse de que está aprobado para autorizar el acceso. Siga las instrucciones descritas [aquí](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
 
 6. En esa nueva ventana, inicie sesión en GitHub con su cuenta de administrador. En el cuadro de diálogo de autorización que aparece, seleccione el equipo de GitHub para el que desea habilitar el aprovisionamiento y, luego, seleccione **Autorizar**. Cuando termina, vuelva a Azure Portal para completar la configuración de aprovisionamiento.
 
     ![Captura de pantalla que muestra la página de inicio de sesión de GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tenga permisos de administrador y de que la **dirección URL del inquilino** se haya escrito correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: `https://api.github.com/scim/v2/organizations/<Organization_name>`, puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones** ).
+7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tenga permisos de administrador y de que la **dirección URL del inquilino** se haya escrito correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: `https://api.github.com/scim/v2/organizations/<Organization_name>`, puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones**).
 
     ![Captura de pantalla que muestra la página Organizaciones en GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
 10. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to GitHub** (Sincronizar usuarios de Azure Active Directory con GitHub).
 
@@ -85,7 +85,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 12. Para habilitar el servicio de aprovisionamiento de Azure AD para GitHub, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-13. Haga clic en **Save** (Guardar).
+13. Haga clic en **Save**(Guardar).
 
 Esta operación inicia la sincronización inicial de todos los usuarios y grupos asignados a GitHub en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento.
 
