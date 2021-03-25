@@ -4,15 +4,15 @@ description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651466"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617359"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -101,18 +101,16 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 1. En **Resource Group** (Grupo de recursos), elija el grupo de recursos donde quiere crear las máquinas virtuales. Puede ser un grupo de recursos diferente al que usó para el grupo de hosts.
 
-2. Elija la **ubicación de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
+2. A continuación, proporcione un **prefijo de nombre** para asignar un nombre a las máquinas virtuales que crea el proceso de configuración. El sufijo será `-` y los números comienzan a partir de 0.
 
-3. A continuación, elija el **tamaño de máquina virtual** que quiere usar. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para la carga de trabajo.
+3. Elija la **ubicación de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
+   
+4. A continuación, elija la opción de disponibilidad que mejor se adapte a sus necesidades. Para obtener más información sobre qué opción es la adecuada para usted, consulte [Opciones de disponibilidad para máquinas virtuales en Azure](../virtual-machines/availability.md) y [nuestras preguntas más frecuentes](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [Captura de pantalla del menú desplegable de zona de disponibilidad. La opción de "zona de disponibilidad" está resaltada.](media/availability-zone.png)
 
-4. En **Number of VMs** (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
-
-    >[!NOTE]
-    >En el proceso de configuración se pueden crear hasta 400 máquinas virtuales al configurar el grupo de hosts y cada proceso de configuración de máquina virtual crea cuatro objetos en el grupo de recursos. Dado que en el proceso de creación no se comprueba la cuota de la suscripción, asegúrese de que el número de máquinas virtuales que especifique se encuentra dentro de los límites de la máquina virtual y de la API de Azure del grupo de recursos y la suscripción. Después de terminar de crear el grupo de hosts, puede agregar más máquinas virtuales.
-
-5. A continuación, proporcione un **prefijo de nombre** para asignar un nombre a las máquinas virtuales que crea el proceso de configuración. El sufijo será `-` y los números comienzan a partir de 0.
-
-6. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage blob** (Blob de Storage).
+5. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage blob** (Blob de Storage).
 
     - Si elige **Gallery** (Galería), seleccione una de las imágenes recomendadas en el menú desplegable:
 
@@ -122,23 +120,30 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
       - Windows 10 Enterprise para sesiones múltiples, versión 2004
       - Windows 10 Enterprise para sesiones múltiples, versión 2004 + Aplicaciones de Microsoft 365
 
-     Si no ve la imagen que quiere, seleccione **Browse all images and disks** (Examinar todas las imágenes y discos), lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes. Asegúrese de que la imagen que elija es una de las [imágenes de sistema operativo compatibles](overview.md#supported-virtual-machine-os-images).
+      Si no ve la imagen que quiere, seleccione **Ver todas las imágenes**, lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes. Asegúrese de que la imagen que elija es una de las [imágenes de sistema operativo compatibles](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
 
-     También puede ir a **My Items** (Mis elementos) y elegir una imagen personalizada que ya haya cargado.
+      También puede ir a **My Items** (Mis elementos) y elegir una imagen personalizada que ya haya cargado.
 
-     > [!div class="mx-imgBorder"]
-     > ![Captura de pantalla de la pestaña "My Items" (Mis elementos).](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Captura de pantalla de la pestaña "My Items" (Mis elementos).](media/my-items.png)
 
-    - Si elige **Storage Blob**, puede aprovechar su propia imagen creada mediante Hyper-V o en una máquina virtual de Azure. Todo lo que tiene que hacer es escribir la ubicación de la imagen en el blob de almacenamiento como un URI.
+    - Si elige **Blob de almacenamiento**, puede usar su propia imagen creada mediante Hyper-V o en una máquina virtual de Azure. Todo lo que tiene que hacer es escribir la ubicación de la imagen en el blob de almacenamiento como un URI.
+   
+   La ubicación de la imagen es independiente de la opción de disponibilidad, pero la resistencia de la zona de la imagen determina si esa imagen se puede usar con la zona de disponibilidad. Si selecciona una zona de disponibilidad al crear la imagen, asegúrese de que está usando una imagen de la galería con la resistencia de zona habilitada. Para obtener más información sobre la opción de resistencia de zona que debe usar, consulte [las preguntas más frecuentes](faq.md#which-availability-option-is-best-for-me).
 
-7. Elija qué tipo de discos del sistema operativo quiere que usen las máquinas virtuales: SSD estándar, SSD Premium o HDD estándar.
+6. Después, elija el **tamaño de máquina virtual** que quiere usar. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para la carga de trabajo.
 
-8. En Network and security (Red y seguridad), seleccione la **red virtual** y la **subred** en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Los servidores DNS de la red virtual que seleccionó deben estar configurados para usar la dirección IP del controlador de dominio.
+7. En **Number of VMs** (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
 
-9. Luego, seleccione si quiere una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
+    >[!NOTE]
+    >En el proceso de configuración se pueden crear hasta 400 máquinas virtuales al configurar el grupo de hosts y cada proceso de configuración de máquina virtual crea cuatro objetos en el grupo de recursos. Dado que en el proceso de creación no se comprueba la cuota de la suscripción, asegúrese de que el número de máquinas virtuales que especifique se encuentra dentro de los límites de la máquina virtual y de la API de Azure del grupo de recursos y la suscripción. Después de terminar de crear el grupo de hosts, puede agregar más máquinas virtuales.
+
+8. Elija qué tipo de discos del sistema operativo quiere que usen las máquinas virtuales: SSD estándar, SSD Premium o HDD estándar.
+
+9. En Network and security (Red y seguridad), seleccione la **red virtual** y la **subred** en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Los servidores DNS de la red virtual que seleccionó deben estar configurados para usar la dirección IP del controlador de dominio.
 
 10. Seleccione el tipo de grupo de seguridad que desee: **Basic** (Básico), **Advanced** (Avanzado) o **None** (Ninguno).
 
@@ -154,9 +159,9 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 11. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. Opcionalmente, puede agregar una unidad organizativa específica en la que quiera que estén las máquinas virtuales. Si elige **No**, las máquinas virtuales se unirán al dominio que coincide con el sufijo del **nombre principal de usuario unido al dominio de AD**.
 
-  - Al especificar una unidad organizativa, asegúrese de usar la ruta de acceso completa (nombre distintivo) y sin comillas.
+    - Al especificar una unidad organizativa, asegúrese de usar la ruta de acceso completa (nombre distintivo) y sin comillas.
 
-12. En "Administrator account" (Cuenta de administrador), escriba las credenciales del administrador de dominio de Active Directory de la red virtual que ha seleccionado. Esta cuenta no puede tener habilitada la autenticación multifactor (MFA). Al unirse a un dominio de Azure Active Directory Domain Services (Azure AD DS), la cuenta debe formar parte del grupo administradores de Azure AD DC y la contraseña de la cuenta debe funcionar en Azure AD DS.
+12. En la cuenta de administrador del dominio, escriba las credenciales del administrador del Dominio de Active Directory de la red virtual que ha seleccionado. Esta cuenta no puede tener habilitada la autenticación multifactor (MFA). Al unirse a un dominio de Azure Active Directory Domain Services (Azure AD DS), la cuenta debe formar parte del grupo administradores de Azure AD DC y la contraseña de la cuenta debe funcionar en Azure AD DS.
 
 13. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 

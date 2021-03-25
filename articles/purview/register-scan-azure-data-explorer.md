@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896119"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registro y examen de Azure Data Explorer
@@ -24,7 +24,7 @@ Azure Data Explorer admite exámenes completos e incrementales para capturar los
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para obtener más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
+- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
 - Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
@@ -38,9 +38,9 @@ Solo hay una manera de configurar la autenticación de Azure Data Explorer:
 Para usar la autenticación de entidad de servicio para realizar exámenes, puede usar una existente o crear una nuevo. 
 
 > [!Note]
-> Si tiene que crear una entidad de servicio nueva, siga estos pasos:
+> Si tiene que crear una entidad de servicio, siga estos pasos:
 > 1. Acceda a [Azure Portal](https://portal.azure.com).
-> 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+> 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 > 1. Seleccione **App registrations** (Registros de aplicaciones).
 > 1. Seleccione **+ Nuevo registro de aplicaciones**.
 > 1. Escriba un nombre para la **aplicación** (el nombre de la entidad de servicio).
@@ -51,12 +51,12 @@ Para usar la autenticación de entidad de servicio para realizar exámenes, pued
 Es necesario obtener el id. de aplicación y el secreto de la entidad de servicio:
 
 1. Vaya a la entidad de servicio en [Azure Portal](https://portal.azure.com).
-1. Copie los valores del **id. de aplicación (cliente)** de la **Información general** y el **Secreto de cliente** que están en **Certificados y secretos**.
+1. Copie los valores de **Id. de aplicación (cliente)** de **Información general** y **Secreto de cliente** que están en **Certificados y secretos**.
 1. Vaya a almacén de claves.
 1. Seleccione **Configuración > Secretos**.
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** que quiera y el **valor** como **Secreto de cliente** de la entidad de servicio.
 1. Seleccione **Crear** para completar la acción.
-1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una nueva conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen.
 
 #### <a name="granting-the-service-principal-access-to-your-azure-data-explorer-instance"></a>Acceso de la entidad de servicio a la instancia de Azure Data Explorer
@@ -72,7 +72,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 Para registrar una nueva cuenta de Azure Data Explorer (Kusto) en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-1. Seleccione **Orígenes** en el panel de navegación izquierdo.
+1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure Data Explorer**.
 1. Seleccione **Continuar**
@@ -87,11 +87,11 @@ En la pantalla **Registrar orígenes (Azure Data Explorer [Kusto])** , haga lo s
    1. O bien, puede seleccionar **Escribir manualmente** y especificar un punto de conexión de servicio (URL).
 1. **Finalice** el proceso para registrar el origen de datos.
 
-:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="opciones de registro de orígenes" border="true":::
+:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="Opciones de registro de orígenes" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examinar el catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en Azure Purview Data Catalog](how-to-search-catalog.md)
+- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
+- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)

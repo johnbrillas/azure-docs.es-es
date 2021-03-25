@@ -2,17 +2,17 @@
 title: 'Tutorial: Eliminación de una nube privada de Azure VMware Solution'
 description: Aprenda a eliminar una nube privada de Azure VMware Solution que ya no se necesita.
 ms.topic: tutorial
-ms.date: 02/09/2021
-ms.openlocfilehash: b11b8f902691db4bd71fd3f52aaa67d46efea643
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.date: 03/13/2021
+ms.openlocfilehash: 453e7a3316c342cd724a951eafea0ae9fa045506
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100902"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103462106"
 ---
 # <a name="tutorial-delete-an-azure-vmware-solution-private-cloud"></a>Tutorial: Eliminación de una nube privada de Azure VMware Solution
 
-Si tiene una nube privada de Azure VMware Solution que ya no necesita, puede eliminarla. Una nube privada incluye un dominio de red aislado, uno o varios clústeres de vSphere aprovisionados en hosts de servidor dedicados y varias máquinas virtuales. Cuando se elimina una nube privada, se eliminan todas las máquinas virtuales, sus datos y los clústeres. Los hosts dedicados se borran de forma segura y se devuelven al grupo libre. También se elimina el dominio de red aprovisionado para el cliente.  
+Si tiene una nube privada de Azure VMware Solution que ya no necesita, puede eliminarla. Una nube privada incluye un dominio de red aislado, uno o varios clústeres de vSphere aprovisionados en hosts de servidor dedicados y varias máquinas virtuales. Cuando se elimina una nube privada, se eliminan todas las máquinas virtuales, sus datos y los clústeres. Los hosts de Azure VMware Solution dedicados se borran de forma segura y se devuelven al grupo libre. También se elimina el espacio de direcciones de red aprovisionado.  
 
 > [!CAUTION]
 > La eliminación de la nube privada es una operación irreversible. Una vez eliminada la nube privada, no se pueden recuperar los datos, ya que se finalizan todas las cargas de trabajo en ejecución, se eliminan los componentes y se destruyen todos los datos y valores de configuración de la nube privada, incluidas las direcciones IP públicas.

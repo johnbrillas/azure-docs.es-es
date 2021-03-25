@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500519"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579202"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -322,7 +322,7 @@ Los registros de auditoría para el registro y el restablecimiento de contraseñ
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticación: uso y conclusiones
 
-[El uso y las conclusiones](./howto-authentication-methods-usage-insights.md) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure AD MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
+[El uso y las conclusiones](./howto-authentication-methods-activity.md) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure AD MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -4,10 +4,10 @@ description: Use el control de acceso basado en roles (Azure RBAC) de Azure y la
 ms.topic: article
 ms.date: 10/14/2020
 ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207961"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
@@ -36,15 +36,15 @@ Cada vez que se aplican permisos, el procedimiento recomendado es proporcionar e
 
 ### <a name="cicd-solutions"></a>Soluciones de CI/CD
 
-Al automatizar comandos de `docker build` de soluciones de CI/CD, necesita funciones de `docker push`. En estos escenarios de servicios desatendidos, se recomienda asignar el rol **AcrPush** . Este rol, al contrario que el rol **Colaborador** (que es más amplio), impide que la cuenta pueda realizar otras operaciones de registro o que acceda a Azure Resource Manager.
+Al automatizar comandos de `docker build` de soluciones de CI/CD, necesita funciones de `docker push`. En estos escenarios de servicios desatendidos, se recomienda asignar el rol **AcrPush**. Este rol, al contrario que el rol **Colaborador** (que es más amplio), impide que la cuenta pueda realizar otras operaciones de registro o que acceda a Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Nodos de host de contenedor
 
-Del mismo modo, los nodos que ejecuten los contenedores han de tener asignado el rol **AcrPull** , pero no necesitan de forma obligatoria funciones de **Lector** .
+Del mismo modo, los nodos que ejecuten los contenedores han de tener asignado el rol **AcrPull**, pero no necesitan de forma obligatoria funciones de **Lector**.
 
 ### <a name="visual-studio-code-docker-extension"></a>Extensión de Docker de Visual Studio Code
 
-Para herramientas como la [extensión de Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, se necesita acceso adicional de proveedor de recursos para mostrar la lista de registros de contenedor de Azure. En este caso, proporcione a los usuarios acceso al rol **Lector** o **Colaborador** . Estos roles permiten `docker pull`, `docker push`, `az acr list`, `az acr build` y otras funciones. 
+Para herramientas como la [extensión de Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, se necesita acceso adicional de proveedor de recursos para mostrar la lista de registros de contenedor de Azure. En este caso, proporcione a los usuarios acceso al rol **Lector** o **Colaborador**. Estos roles permiten `docker pull`, `docker push`, `az acr list`, `az acr build` y otras funciones. 
 
 ## <a name="access-resource-manager"></a>Acceso a Resource Manager
 

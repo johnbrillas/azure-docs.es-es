@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ae80ac5833e90164fc4ff92010fd1830ae932cd2
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92174040"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
@@ -66,7 +66,7 @@ Esto es lo que nos dice este mensaje de mantenimiento:
 
 1. Todas las réplicas propiamente dichas están en buen estado: cada una tiene el elemento `AggregatedHealthState : Ok`.
 2. Actualmente se está infringiendo la restricción de distribución de dominios de actualización. Esto significa que un dominio de actualización concreto tiene más réplicas de esta partición de lo que debería.
-3. El nodo que contiene la réplica que produce la infracción. En este caso, es el nodo con el nombre *Node.8* .
+3. El nodo que contiene la réplica que produce la infracción. En este caso, es el nodo con el nombre *Node.8*.
 4. Si se está produciendo una actualización en esta partición ("Currently Upgrading -- false")
 5. La directiva de distribución de este servicio: "Distribution Policy -- Packing". Esta se rige por la `RequireDomainDistribution`[directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). _Packing_ indica que, en este caso, DomainDistribution *no* era necesario, así que sabemos que no se especificó ninguna directiva de selección de ubicación para este servicio. 
 6. Cuándo se produjo el informe (el 08/10/2015 a las 19:13:02).
@@ -83,12 +83,12 @@ En estos casos, los informes de mantenimiento de Cluster Resource Manager le ayu
 ## <a name="constraint-types"></a>Tipos de restricción:
 Vamos a hablar sobre cada una de las diferentes restricciones de estos informes de mantenimiento. Verá mensajes de mantenimiento relacionados con estas restricciones cuando no se puedan colocar réplicas.
 
-* **ReplicaExclusionStatic** y **ReplicaExclusionDynamic** : estas restricciones indican que se rechazó una solución porque dos objetos de servicio de la misma partición se tendrían que colocar en el mismo nodo. Esto no está permitido porque entonces el error de ese nodo afectaría demasiado a esa partición. ReplicaExclusionStatic y ReplicaExclusionDynamic son casi la misma regla y las diferencias no importan realmente. Si está viendo una secuencia de eliminación de restricciones que contiene las restricciones ReplicaExclusionStatic o ReplicaExclusionDynamic, Cluster Resource Manager considera que no hay suficientes nodos. En esta situación, el resto de soluciones debe usar estas selecciones de ubicación no válidas y que no se permiten. Las otras restricciones de la secuencia nos dirán normalmente por qué los nodos se eliminan en primer lugar.
-* **PlacementConstraint** : si ve este mensaje, significa que se eliminaron algunos nodos porque no coincidían con las restricciones de selección de ubicación del servicio. Realizamos el seguimiento de las restricciones de selección de ubicación configuradas actualmente como parte de este mensaje. Esto es normal si tiene definida una restricción de colocación. Sin embargo, si la restricción de colocación está provocando que demasiados nodos se eliminen, lo que es incorrecto, puede advertir esta situación de la manera siguiente.
-* **NodeCapacity** : esta restricción significa que Cluster Resource Manager no pudo colocar las réplicas en los nodos indicados porque, de hacerlo, habrían sobrepasado su capacidad.
-* **Affinity** : esta restricción indica que no pudimos colocar la réplica en los nodos afectados porque se produciría una infracción de la restricción de afinidad. Puede obtener más información sobre la afinidad en [este artículo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
-* **FaultDomain** y **UpgradeDomain** : estas restricciones eliminan nodos si el hecho de colocar la réplica en los nodos indicados provocaría el empaquetamiento en un determinado dominio de error o de actualización. En el tema sobre [las restricciones de dominio de error y de actualización y el comportamiento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation** : lo normal es no ver esta restricción al eliminar nodos de la solución dado que, de forma predeterminada, se ejecuta como una optimización. La restricción de ubicación preferida también está presente durante las actualizaciones, Durante la actualización, se usa para volver a colocar los servicios en el lugar en el que se encontraban cuando se inició la actualización.
+* **ReplicaExclusionStatic** y **ReplicaExclusionDynamic**: estas restricciones indican que se rechazó una solución porque dos objetos de servicio de la misma partición se tendrían que colocar en el mismo nodo. Esto no está permitido porque entonces el error de ese nodo afectaría demasiado a esa partición. ReplicaExclusionStatic y ReplicaExclusionDynamic son casi la misma regla y las diferencias no importan realmente. Si está viendo una secuencia de eliminación de restricciones que contiene las restricciones ReplicaExclusionStatic o ReplicaExclusionDynamic, Cluster Resource Manager considera que no hay suficientes nodos. En esta situación, el resto de soluciones debe usar estas selecciones de ubicación no válidas y que no se permiten. Las otras restricciones de la secuencia nos dirán normalmente por qué los nodos se eliminan en primer lugar.
+* **PlacementConstraint**: si ve este mensaje, significa que se eliminaron algunos nodos porque no coincidían con las restricciones de selección de ubicación del servicio. Realizamos el seguimiento de las restricciones de selección de ubicación configuradas actualmente como parte de este mensaje. Esto es normal si tiene definida una restricción de colocación. Sin embargo, si la restricción de colocación está provocando que demasiados nodos se eliminen, lo que es incorrecto, puede advertir esta situación de la manera siguiente.
+* **NodeCapacity**: esta restricción significa que Cluster Resource Manager no pudo colocar las réplicas en los nodos indicados porque, de hacerlo, habrían sobrepasado su capacidad.
+* **Affinity**: esta restricción indica que no pudimos colocar la réplica en los nodos afectados porque se produciría una infracción de la restricción de afinidad. Puede obtener más información sobre la afinidad en [este artículo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
+* **FaultDomain** y **UpgradeDomain**: estas restricciones eliminan nodos si el hecho de colocar la réplica en los nodos indicados provocaría el empaquetamiento en un determinado dominio de error o de actualización. En el tema sobre [las restricciones de dominio de error y de actualización y el comportamiento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: lo normal es no ver esta restricción al eliminar nodos de la solución dado que, de forma predeterminada, se ejecuta como una optimización. La restricción de ubicación preferida también está presente durante las actualizaciones, Durante la actualización, se usa para volver a colocar los servicios en el lugar en el que se encontraban cuando se inició la actualización.
 
 ## <a name="blocklisting-nodes"></a>Lista de bloqueo de nodos
 Otro mensaje de mantenimiento que notifica Cluster Resource Manager es cuando los nodos están en la lista de bloqueo. La lista de bloqueo se puede considerar como una restricción temporal que se le aplica automáticamente. Los nodos entran en la lista de bloqueo cuando experimentan errores repetidos al iniciar instancias de ese tipo de servicio. Los nodos se incluyen en la lista de bloqueo por tipo de servicio. Un nodo puede estar en la lista de bloqueo para un servicio pero no para otro. 

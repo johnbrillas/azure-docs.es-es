@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919445"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562491"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -306,7 +306,7 @@ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que s
 | Atributo | Descripción                                                                                        | Obligatorio | Valor predeterminado |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | N/D     |
-| número máximo | Entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | N/D     |
+| número máximo | Entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | No aplicable     |
 
 ### <a name="usage"></a>Uso
 
@@ -725,7 +725,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | Dirección URL del proxy en forma de http://host:port.             | Sí      | N/D     |
 | username="string" | Nombre de usuario que se usará para la autenticación con el servidor proxy. | No       | N/D     |
-| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | N/D     |
+| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
 
 ### <a name="usage"></a>Uso
 
@@ -830,7 +830,7 @@ En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autor
 | Atributo       | Descripción                                                | Obligatorio | Valor predeterminado |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="entero"  | Código de estado HTTP que se devuelve.                            | Sí      | N/D     |
-| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | N/D     |
+| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | No aplicable     |
 
 ### <a name="usage"></a>Uso
 
@@ -918,7 +918,7 @@ Las expresiones usadas en la directiva `set-variable` deben devolver uno de los 
 La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de recursos.
 
 -   La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](./api-management-howto-api-inspector.md) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento.
--   La directiva crea una telemetría [Trace](../azure-monitor/app/data-model-trace-telemetry.md) en Application Insights cuando está habilitada la integración de [Application Insights](./api-management-howto-app-insights.md) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico.
+-   La directiva crea telemetría de [seguimiento](../azure-monitor/app/data-model-trace-telemetry.md) en Application Insights cuando está habilitada la [integración de Application Insights](./api-management-howto-app-insights.md) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico.
 -   La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de recursos](./api-management-howto-use-azure-monitor.md#activity-logs) y el nivel de gravedad especificado en la directiva es igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
@@ -956,7 +956,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 | source    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje.                                   | Sí      | N/D     |
 | severity  | Especifica el nivel de gravedad del seguimiento. Los valores permitidos son `verbose`, `information` y `error` (de menor a mayor). | No       | Verbose |
 | name      | Nombre de la propiedad.                                                                                                     | Sí      | N/D     |
-| value     | Valor de la propiedad.                                                                                                    | Sí      | N/D     |
+| value     | Valor de la propiedad.                                                                                                    | Sí      | No aplicable     |
 
 ### <a name="usage"></a>Uso
 

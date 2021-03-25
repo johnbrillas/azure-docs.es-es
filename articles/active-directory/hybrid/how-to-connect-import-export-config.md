@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681962"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importación y exportación de opciones de configuración de Azure AD Connect 
@@ -77,10 +77,10 @@ Migración de la configuración:
 
    ![Captura de pantalla que muestra los directorios de Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** _ al nuevo servidor.
+1. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** * al nuevo servidor.
 
    ![Captura de pantalla que muestra el script en Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
+   ![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Haga doble clic en el icono de **Azure AD Connect** en el escritorio para iniciarlo. Acepte los términos de licencia del software de Microsoft y seleccione **Personalizar** en la siguiente página.
 1. Seleccione la casilla **Importar configuración de sincronización**. Seleccione **Examinar** para examinar la carpeta Exported-ServerConfiguration-* que se ha copiado. Seleccione MigratedPolicy.json para importar la configuración migrada.

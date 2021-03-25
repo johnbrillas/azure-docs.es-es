@@ -1,6 +1,6 @@
 ---
 title: Administración de recursos de proceso para un grupo de SQL dedicado (anteriormente SQL DW)
-description: Conozca las funcionalidades de escalabilidad horizontal del grupo de SQL dedicado (anteriormente SQL DW) de Azure Synapse Analytics. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el grupo de SQL dedicado para reducir los costos.
+description: Conozca las funcionalidades de escalabilidad horizontal del grupo de SQL dedicado (anteriormente SQL DW) de Azure Synapse Analytics. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el grupo de SQL dedicado para reducir los costos (anteriormente SQL DW).
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677044"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601821"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Administración del proceso para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 

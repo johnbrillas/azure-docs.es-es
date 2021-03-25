@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581293"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtención de credenciales para acceder a la API de Media Services
 
@@ -37,7 +37,7 @@ En este artículo se describen los pasos para obtener las credenciales para acce
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una cuenta de Azure. Si no tiene cuenta, comience con una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Una cuenta de Azure. Si no tiene cuenta, comience con una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Una cuenta de Media Services. Para más información, vea [Creación de una cuenta de Azure Media Services mediante Azure Portal](create-account-howto.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
@@ -47,7 +47,7 @@ En este artículo se describen los pasos para obtener las credenciales para acce
 La página **Acceso de API** le permite seleccionar el método de autenticación que desee usar para conectarse a la API. La página también proporciona los valores que necesita para conectarse a la API.
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Media Services.
-2. Seleccione la hoja **API access (new)** (Acceso a API [nuevo]) en la barra de navegación izquierda.
+2. Seleccione la hoja **Acceso de API** en la barra de navegación izquierda.
 3. En **Conectar con la API de Media Services**, seleccione la versión de Media Services API a la que desea conectarse (la versión 3 es la más reciente del servicio).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticación de la entidad de servicio (recomendada)

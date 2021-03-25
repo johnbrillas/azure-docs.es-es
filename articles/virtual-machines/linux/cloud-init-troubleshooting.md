@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582160"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solución de problemas de aprovisionamiento de VM con cloud-init
 
@@ -56,11 +56,11 @@ Cuando no se puede aprovisionar la VM, Azure mostrará el estado "creando", dura
 
 Mientras se ejecuta la VM, necesitará los registros de la VM para comprender por qué se produjo un error en el aprovisionamiento.  Para comprender por qué se produjo un error en el aprovisionamiento de la VM, no detenga la VM. Mantenga la VM en ejecución. Tendrá que mantener la VM con errores en ejecución para recopilar registros. Para recopilar los registros, use uno de los siguientes métodos:
 
-- [Consola serie](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Consola serie](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Habilitar los diagnósticos de arranque](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de crear la VM y, a continuación, [verlos](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante el arranque.
 
-- [Ejecute reparación de máquinas virtuales de AZ](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para conectar y montar el disco del sistema operativo, lo que le permitirá recopilar estos registros:
+- [Ejecute reparación de máquinas virtuales de AZ](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) para conectar y montar el disco del sistema operativo, lo que le permitirá recopilar estos registros:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Una vez que encuentre un error o una advertencia, lea en el registro de cloud-in
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Si tiene acceso a la [consola serie](../troubleshooting/serial-console-grub-single-user-mode.md), puede intentar volver a ejecutar el comando que cloud-init estaba intentando ejecutar.
+Si tiene acceso a la [consola serie](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), puede intentar volver a ejecutar el comando que cloud-init estaba intentando ejecutar.
 
 El registro de `/var/log/cloud-init.log` también se puede reconfigurar desde /etc/cloud/cloud.cfg.d/05_logging.cfg. Para más detalles sobre el registro de cloud-init, consulte la [documentación de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520647"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562729"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -37,7 +37,7 @@ Si prefiere una experiencia basada en código de Python, [configure sus experime
 
 ## <a name="get-started"></a>Introducción
 
-1. Inicie sesión en Azure Machine Learning en https://ml.azure.com. 
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Seleccione su suscripción y área de trabajo. 
 
@@ -199,6 +199,11 @@ Para obtener explicaciones de un modelo determinado:
 
 Una vez que tenga a mano el mejor modelo, es el momento de implementarlo como un servicio web para predecir los datos nuevos.
 
+>[!TIP]
+> Si va a implementar un modelo que se generó a través del paquete `automl` con el SDK de Python, debe [registrar el modelo](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) en el área de trabajo. 
+>
+> Una vez que se haya registrado el modelo, puede buscarlo en el estudio seleccionando **Modelos** en el panel izquierdo. Después de abrir el modelo, puede seleccionar el botón **Implementar** en la parte superior de la pantalla y, luego, seguir las instrucciones descritas en el **paso 2** de la sección **Implementación del modelo**.
+
 ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Tiene unas par de opciones de implementación. 
@@ -214,7 +219,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Valor
+    Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

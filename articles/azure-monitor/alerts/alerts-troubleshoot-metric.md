@@ -4,13 +4,13 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037870"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466504"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -138,11 +138,9 @@ Para evitar que se produzca un error en la implementación al intentar validar l
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportación de la plantilla de Azure Resource Manager de una regla de alertas de métricas mediante Azure Portal
 
 La exportación de la plantilla de Resource Manager de una regla de alertas de métricas le ayuda a conocer su sintaxis y sus propiedades JSON, y se puede usar para automatizar implementaciones futuras.
-1. Vaya a la sección **Grupos de recursos** en el portal y seleccione el grupo de recursos que contenga la regla.
-2. En la sección de información general, active la casilla **Mostrar tipos ocultos**.
-3. En el filtro **Tipo**, seleccione *microsoft.insights/metricalerts*.
-4. Seleccione la regla de regla apropiada para ver sus detalles.
-5. En **Configuración**, seleccione **Exportar plantilla**.
+1. En Azure Portal, abra la regla de alertas para ver sus detalles.
+2. Haga clic en **Propiedades**.
+3. En **Automatización**, seleccione **Exportar plantilla**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>La cuota de las reglas de alertas de métricas es demasiado baja
 

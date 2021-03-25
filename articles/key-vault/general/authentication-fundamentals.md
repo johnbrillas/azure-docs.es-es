@@ -7,18 +7,18 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535202"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103572815"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Aspectos básicos de la autenticación de Key Vault
 
 Azure Key Vault le permite almacenar y administrar de forma segura las credenciales de la aplicación, como secretos, claves y certificados, en un repositorio central y seguro en la nube. Key Vault elimina la necesidad de almacenar credenciales en las aplicaciones. Asimismo, las aplicaciones pueden autenticarse en Key Vault en tiempo de ejecución para recuperar las credenciales.
 
-Como administrador, puede controlar estrechamente qué usuarios y aplicaciones pueden acceder a su almacén de claves y puede limitar y auditar las operaciones que realicen. En este documento se explican los conceptos fundamentales del modelo de acceso del almacén de claves. Igualmente, le proporcionará un nivel de conocimientos introductorio y le mostrará todos los pasos necesarios para autenticar un usuario o una aplicación en el almacén de claves.
+Como administrador, puede controlar estrechamente qué usuarios y aplicaciones pueden acceder a su almacén de claves y puede limitar y auditar las operaciones que realicen. En este documento se explican los conceptos fundamentales del modelo de acceso del almacén de claves. Le proporcionará un nivel de conocimientos introductorio y le mostrará todos los pasos necesarios para autenticar un usuario o una aplicación en el almacén de claves.
 
 ## <a name="required-knowledge"></a>Conocimientos necesarios
 

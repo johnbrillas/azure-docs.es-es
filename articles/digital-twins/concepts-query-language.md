@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034683"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103490983"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
@@ -85,7 +85,7 @@ En esta sección se describen las limitaciones del lenguaje de consulta.
 * No se admiten subconsultas en la instrucción `FROM`.
 * No se admite la semántica `OUTER JOIN`, lo que significa que, si la relación tiene un rango de cero, se elimina toda la "fila" del conjunto de resultados de salida.
 * La profundidad transversal del grafo está restringida a cinco niveles `JOIN` por consulta.
-* El origen de las operaciones `JOIN` está restringido: la consulta debe declarar los gemelos donde comienza la consulta.
+* Las relaciones en Azure Digital Twins no se pueden consultar como entidades independientes; también debe proporcionar información sobre el gemelo de origen del que procede la relación. Esto significa que hay algunas restricciones en la operación `JOIN`, que se utiliza para consultar las relaciones, para tener la seguridad de que la consulta declara los gemelos donde esta comienza. Puede encontrar ejemplos de este escenario en [*Consulta por relación*](how-to-query-graph.md#query-by-relationship) en el artículo *Consulta del grafo de gemelos*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

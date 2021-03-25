@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046676"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634165"
 ---
 # <a name="enable-vm-insights-overview"></a>Información general sobre la habilitación de VM Insights
 
@@ -54,6 +54,7 @@ VM Insights admite cualquier sistema operativo que sea compatible con el agente 
 > [!IMPORTANT]
 > La característica de estado de invitado de VM Insights tiene una compatibilidad con sistemas operativos más limitada mientras se encuentra en versión preliminar pública. Consulte [Habilitación del estado de invitado de VM Insights (versión preliminar)](../vm/vminsights-health-enable.md) para obtener una lista detallada.
 
+### <a name="linux-considerations"></a>Consideraciones sobre Linux
 Consulte la siguiente lista de consideraciones sobre la compatibilidad de Linux de Dependency Agent que admite VM Insights:
 
 - Se admiten solo versiones de kernel SMP Linux y predeterminados.
@@ -61,7 +62,22 @@ Consulte la siguiente lista de consideraciones sobre la compatibilidad de Linux 
 - No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
 - Para distribuciones de Debian que no sean la versión 9.4, no se admite la característica de asignación y la característica de rendimiento solo está disponible en el menú de Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
 - Se admite el kernel de CentOSPlus.
-- El kernel de Linux debe revisarse para la vulnerabilidad de Spectre. Consulte al proveedor de distribución de Linux para más información.
+
+El kernel de Linux debe revisarse para las vulnerabilidades de Spectre y Meltdown. Consulte al proveedor de distribución de Linux para más información. Ejecute el comando siguiente para comprobar si se mitigaron las vulnerabilidades de Spectre/Meltdown:
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+La salida de este comando tendrá un aspecto similar al siguiente y especificará si un equipo es vulnerable a cualquier problema. Si faltan estos archivos, no se aplica la revisión a la máquina.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
 VM Insights requiere un área de trabajo Log Analytics. Consulte [Configuración del área de trabajo de Log Analytics para VM Insights](vminsights-configure-workspace.md) para conocer los detalles y requisitos de esta área de trabajo.
 ## <a name="agents"></a>Agentes

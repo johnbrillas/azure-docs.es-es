@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/18/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101e3ee9279d3560c0b561f0ea7ea695387bee15
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579389"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configuración de un Pase de acceso temporal en Azure AD para registrar métodos de autenticación sin contraseña (versión preliminar)
 
@@ -127,7 +127,7 @@ Tenga en cuenta las limitaciones siguientes:
 - Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) y el adaptador de los Servicios de federación de Active Directory (AD FS).
 - Cuando el inicio de sesión único de conexión directa está habilitado en el inquilino, se pide a los usuarios que escriban una contraseña. El vínculo **Use el Pase de acceso temporal en su lugar** estará disponible para que el usuario inicie sesión con un Pase de acceso temporal.
 
-![Captura de pantalla de la opción Use un Pase de acceso temporal en su lugar.](./media/how-to-authentication-temporary-access-pass/alternative.png)
+  ![Captura de pantalla de la opción Use un Pase de acceso temporal en su lugar.](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## <a name="troubleshooting"></a>Solución de problemas    
 

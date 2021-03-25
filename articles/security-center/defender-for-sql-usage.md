@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Defender para SQL
-description: Aprenda a usar el plan opcional de Azure Defender para SQL de Azure Security Center.
+description: Aprenda a habilitar el plan opcional de Azure Defender para SQL de Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590386"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465470"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL en máquinas 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Habilitación de Azure Defender para servidores de SQL en máquinas 
 
 Este plan de Azure Defender detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de obtener acceso a las bases de datos o de vulnerar su seguridad.
 
@@ -31,7 +31,7 @@ Verá alertas cuando haya actividades sospechosas en las bases de datos, posible
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|**Azure Defender para servidores SQL en máquinas** se factura como se indica en la [página de precios](security-center-pricing.md).|
+|Precios:|**Azure Defender para servidores de SQL en máquinas** se factura tal como se indica en la página de [precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).|
 |Versiones de SQL protegidas:|Azure SQL Server (todas las versiones cubiertas con el soporte técnico de Microsoft)|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
 |||
@@ -40,15 +40,14 @@ Verá alertas cuando haya actividades sospechosas en las bases de datos, posible
 
 Para habilitar este plan:
 
-* Aprovisione el agente de Log Analytics en el host de SQL Server. Así se proporciona la conexión a Azure.
+[Paso 1. Aprovisione el agente de Log Analytics en el host de SQL Server:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Habilite el plan opcional en la página de precios y configuración de Security Center.
+[Paso 2. Habilite el plan opcional en la página de precios y configuración de Security Center:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Ambos métodos se describen a continuación.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Paso 1. Aprovisione el agente de Log Analytics en el host de SQL Server:
 
-- **SQL Server en Azure VM**: si la máquina SQL se hospeda en una máquina virtual de Azure, puede [habilitar el aprovisionamiento automático del agente de Log Analytics <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Como alternativa, puede seguir el procedimiento manual para [incorporar máquinas virtuales de Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server en Azure VM**: si la máquina SQL se hospeda en una máquina virtual de Azure, puede [habilitar el aprovisionamiento automático del agente de Log Analytics <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Como alternativa, puede seguir el procedimiento manual para [incorporar máquinas virtuales a la instancia de Azure Stack Hub](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server en Azure Arc**: si el servidor SQL Server está administrado por servidores habilitados para [Azure Arc](../azure-arc/index.yml), puede implementar el agente de Log Analytics con la recomendación "El agente de Log Analytics debe estar instalado en las máquinas basadas en Windows de Azure Arc (versión preliminar)" de Security Center. Como alternativa, puede seguir los métodos de instalación que se describen en la [documentación de Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server local**: si el servidor SQL Server se hospeda en una máquina local de Windows sin Azure Arc, tiene dos opciones para conectarlo a Azure:
@@ -81,31 +80,6 @@ Ambos métodos se describen a continuación.
 1. Opcionalmente, configure notificaciones de alertas de seguridad por correo electrónico. 
     Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un vínculo directo a la alerta de Azure Security Center con todos los detalles pertinentes. Para más información, consulte el artículo sobre cómo [configurar las notificaciones por correo electrónico para recibir alertas](security-center-provide-security-contact-details.md).
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Exploración de los informes de evaluación de vulnerabilidades
-
-El servicio de evaluación de vulnerabilidades examina las bases de datos una vez a la semana. Los exámenes se ejecutan el mismo día de la semana en que se habilitó el servicio.
-
-El panel de evaluación de vulnerabilidades proporciona una visión general de los resultados de la evaluación en todas las bases de datos, junto con un resumen de las bases de datos correctas y en mal estado, además de un resumen general de las comprobaciones con errores en función de la distribución del riesgo.
-
-Puede ver los resultados de la evaluación de vulnerabilidades directamente desde Security Center.
-
-1. En la barra lateral de Security Center, abra la página **Recomendaciones** y seleccione la recomendación **Es necesario corregir las vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)** . Para más información, consulte [Recomendaciones de Security Center](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="Es necesario corregir los resultados de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)":::
-
-    Aparece la vista detallada de esta recomendación.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Vista detallada de la recomendación":::
-
-1. Para más detalles, explore en profundidad lo siguiente:
-
-    * Para obtener información general de los recursos examinados (bases de datos) y la lista de comprobaciones de seguridad que se probaron, seleccione el servidor que le interesa.
-
-    * Para obtener información general sobre las vulnerabilidades agrupadas por una base de datos SQL específica, seleccione la base de datos que le interesa.
-
-    En cada vista, las comprobaciones de seguridad se ordenan por **gravedad**. Haga clic en una comprobación de seguridad específica para ver un panel de detalles con una **descripción**, cómo **corregir** el problema y otra información relacionada como, por ejemplo, el **impacto** o el **banco de pruebas**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alertas de Azure Defender para SQL
 Las alertas se generan a partir de intentos inusuales y potencialmente dañinos para acceder a las máquinas SQL o aprovechar sus vulnerabilidades. Estos eventos pueden desencadenar alertas que se muestran en la [página de referencia de alertas](alerts-reference.md#alerts-sql-db-and-warehouse).

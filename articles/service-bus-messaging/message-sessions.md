@@ -4,10 +4,10 @@ description: En este artículo se explica cómo usar sesiones de para habilitar 
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680760"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
@@ -34,9 +34,9 @@ En el portal, establezca la marca con la casilla siguiente:
 ![Captura de pantalla del cuadro de diálogo Crear cola con la opción Habilitar sesiones seleccionada y resaltada en rojo.][2]
 
 > [!NOTE]
-> Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente **ya no** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
+> Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente ***ya no*** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
 
-Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un modelo imperativo que controla cuándo se reciben mensajes y sesiones, y un modelo basado en controlador, similar a _OnMessage*, que oculta la complejidad de la administración del bucle de recepción.
+Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un modelo imperativo que controla cuándo se reciben mensajes y sesiones, y un modelo basado en controlador, similar a *OnMessage*, que oculta la complejidad de la administración del bucle de recepción.
 
 ### <a name="session-features"></a>Características de las sesiones
 

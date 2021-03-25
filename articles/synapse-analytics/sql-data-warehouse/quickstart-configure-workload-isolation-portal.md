@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98677511"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Inicio rápido: Configuración del aislamiento de cargas de trabajo de un grupo de SQL dedicado mediante un grupo de cargas de trabajo en Azure Portal
@@ -83,7 +83,7 @@ Se le está cobrando por unidades de almacenamiento de datos y por los datos alm
 
 Siga estos pasos para limpiar los recursos.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione un grupo de SQL dedicado.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el grupo de SQL dedicado.
 
     ![Limpieza de recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 

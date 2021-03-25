@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582109"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamaños de máquina virtual de Azure sin disco temporal local 
 En este artículo se proporcionan respuestas a las preguntas frecuentes sobre los tamaños de máquina virtual de Azure que no tienen disco temporal local (por ejemplo, sin disco temporal local). Para más información sobre estos tamaños de máquina virtual, consulte [Especificaciones para las series Dv4 y Dsv4 (cargas de trabajo de uso general)](dv4-dsv4-series.md) o [Especificaciones para las series Ev4 y Esv4 (cargas de trabajo optimizadas para memoria)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Para realizar la migración, siga estos pasos:
    > Siga las instrucciones de la sección "Mover temporalmente el archivo pagefile.sys a la unidad C" de Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows para mover el archivo de paginación del disco temporal local (unidad D:) a la unidad C:. **La desviación de los pasos descritos dará lugar al mensaje de error: "No se puede cambiar el tamaño de la VM porque el cambio del tamaño de la VM de disco de recursos a disco que no es de recursos y viceversa no se permite.**
 
 3. Para realizar una instantánea de la máquina virtual, siga los pasos descritos en [Creación de una instantánea mediante el portal o la CLI de Azure](./linux/snapshot-copy-managed-disk.md). 
-4. Use la instantánea para crear una nueva máquina virtual sin disco (por ejemplo, de las series Dv4, Dsv4, Ev4, Esv4) siguiendo los pasos descritos en [Creación de una máquina virtual a partir de una instantánea con la CLI](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
+4. Use la instantánea para crear una nueva máquina virtual sin disco (por ejemplo, de las series Dv4, Dsv4, Ev4, Esv4) siguiendo los pasos descritos en [Creación de una máquina virtual a partir de una instantánea con la CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>¿Estos tamaños de máquina virtual admiten sistemas operativos (SO) Linux y Windows?
 Sí.

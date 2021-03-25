@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: fef3e3cc63fb9e1ca6aa64cf799a620f187db76f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744071"
 ---
 # <a name="azure-cloud-services-extended-support-definition-webrole-schema"></a>Esquema de rol web de definición de Azure Cloud Services (soporte extendido)
@@ -471,7 +471,7 @@ En la tabla siguiente se describen los atributos del elemento `SourceDirectory`:
 |path|string|Necesario. Ruta de acceso absoluta o relativa de un directorio local cuyo contenido se copiará en la máquina virtual de Azure. Se admite la expansión de variables de entorno en la ruta de acceso de directorio.|  
   
 ## <a name="see-also"></a>Vea también
-[Esquema de definición de Cloud Services (soporte extendido)](schema-csdef-file.md).
+[Esquema de definición Cloud Services (soporte extendido)](schema-csdef-file.md)
 
 
 

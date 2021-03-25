@@ -5,12 +5,12 @@ description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de ap
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574730"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739583"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -54,6 +54,8 @@ Para obtener las revisiones más recientes de los nodos de Windows, puede [actua
 
 Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes (avanzado) de Azure CNI. No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. El modelo de redes de Azure CNI requiere una planeación y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
 
+Los nodos de Windows en los clústeres de AKS también tienen habilitado [Direct Server Return (DSR)][dsr] de forma predeterminada cuando Calico está habilitado.
+
 ## <a name="is-preserving-the-client-source-ip-supported"></a>¿Se admite la conservación de la IP de origen del cliente?
 
 En este momento, la [conservación de la IP de origen del cliente][client-source-ip] no es compatible con los nodos de Windows.
@@ -91,7 +93,7 @@ El nombre debe tener un máximo de 6 (seis) caracteres. Esta es una limitación 
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>¿Son todas las características compatibles con los nodos de Windows?
 
-Las directivas de red y de kubenet no se admiten actualmente en los nodos de Windows.
+Kubenet actualmente no es compatible con los nodos de Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>¿Puedo ejecutar controladores de entrada en los nodos de Windows?
 
@@ -197,3 +199,4 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
