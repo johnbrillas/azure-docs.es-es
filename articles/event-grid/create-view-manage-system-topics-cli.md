@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo usar la CLI de Azure para crear,
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c847c7f25e3a656b798e186a408e560b9ee9e6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98633229"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Creación, visualización y administración de temas del sistema de Event Grid en la CLI de Azure

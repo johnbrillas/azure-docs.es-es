@@ -1,21 +1,16 @@
 ---
-title: Introducción a los microagentes independientes
-titleSuffix: Azure Defender for IoT
+title: Introducción al microagenrte independiente (versión preliminar)
 description: Los agentes de seguridad de Azure Defender para IoT permiten compilar la seguridad directamente en los nuevos dispositivos IoT y en proyectos de Azure IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/19/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: a3f71860801c7f611a10acd4ec4e8f8ed03ab20a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 5f8621c7d96d802ad2d32a6c71321bcd68854233
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120086"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779161"
 ---
-# <a name="standalone-micro-agent-overview"></a>Introducción a los microagentes independientes 
+# <a name="standalone-micro-agent-overview-preview"></a>Introducción al microagenrte independiente (versión preliminar)
 
 La seguridad es una preocupación casi universal para los implementadores de IoT. Los dispositivos IoT tienen necesidades únicas de supervisión de puntos de conexión, administración de la posición de seguridad y detección de amenazas, todo ello con requisitos de rendimiento muy concretos. 
 
@@ -47,4 +42,4 @@ El microagente de Azure Defender para IoT es fácil de implementar y tiene un im
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Métodos de autenticación de microagentes](concept-security-agent-authentication.md).
+Consulte [Métodos de autenticación de microagentes (versión preliminar)](concept-security-agent-authentication.md).

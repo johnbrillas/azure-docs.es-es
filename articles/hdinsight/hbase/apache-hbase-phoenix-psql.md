@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: d56c9b33d53be0e30769aef8934a2dbf43d06867
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1ddf69acda442212500200eb6dc326dcbcb3c1b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944830"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867804"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carga masiva de datos en Apache Phoenix mediante psql
 
@@ -26,11 +26,11 @@ La carga masiva con MapReduce se usa para volúmenes de datos mucho más grandes
 
 Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que la configuración de tiempo de espera de consulta es la prevista.  Acceda al panel de [Apache Ambari](https://ambari.apache.org/) del clúster de HDInsight, seleccione HBase y, después, la pestaña Configuración.  Desplácese hacia abajo para comprobar que Apache Phoenix está establecido en `enabled` tal como se muestra:
 
-![Configuración del clúster de Apache Phoenix HDInsight](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
+:::image type="content" source="./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png" alt-text="Configuración del clúster de Apache Phoenix HDInsight" border="true":::
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Usar `psql` para cargar tablas de forma masiva
 
-1. Cree un archivo llamado `createCustomersTable.sql` y copie el código siguiente en el archivo. Guarde y cierre el archivo.
+1. Cree un archivo llamado `createCustomersTable.sql` y copie el código siguiente en el archivo. Luego, guarde y cierre el archivo.
 
     ```sql
     CREATE TABLE Customers (
@@ -41,13 +41,13 @@ Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que
         Country varchar);
     ```
 
-1. Cree un archivo llamado `listCustomers.sql` y copie el código siguiente en el archivo. Guarde y cierre el archivo.
+1. Cree un archivo llamado `listCustomers.sql` y copie el código siguiente en el archivo. Luego, guarde y cierre el archivo.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. Cree un archivo llamado `customers.csv` y copie el código siguiente en el archivo. Guarde y cierre el archivo.
+1. Cree un archivo llamado `customers.csv` y copie el código siguiente en el archivo. Luego, guarde y cierre el archivo.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -55,7 +55,7 @@ Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que
     3,Anton,550150.0,42,Norway
     ```
 
-1. Cree un archivo llamado `customers2.csv` y copie el código siguiente en el archivo. Guarde y cierre el archivo.
+1. Cree un archivo llamado `customers2.csv` y copie el código siguiente en el archivo. Luego, guarde y cierre el archivo.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -181,6 +181,6 @@ Para las cargas de mayor rendimiento distribuidas en el clúster, use la herrami
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Bulk Data Loading with Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html) (Carga de datos masiva con Apache Phoenix)
-* [Usar Apache Phoenix con clústeres de Apache HBase basados en Linux en HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
-* [Salted Tables](https://phoenix.apache.org/salted.html) (Tablas cifradas)
+* [Uso de Apache Phoenix con clústeres de Apache HBase basados en Linux en HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
+* [Tablas cifradas con sal](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html) (Gramática de Apache Phoenix)

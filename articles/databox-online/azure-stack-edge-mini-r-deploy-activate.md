@@ -10,10 +10,10 @@ ms.date: 10/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
 ms.openlocfilehash: e5076888e692ad16e89f30d455e7f8c4e22a41b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96465103"
 ---
 # <a name="tutorial-activate-azure-stack-edge-mini-r"></a>Tutorial: Activación de Azure Stack Edge Mini R
@@ -50,7 +50,7 @@ Antes de configurar e instalar el dispositivo Azure Stack Edge Mini R, asegúre
     ![Página "Detalles de la nube" de la interfaz de usuario web local 1](./media/azure-stack-edge-mini-r-deploy-activate/activation-1.png)
     
 3. En el panel de **activación**:
-    1. Escriba la **clave de activación** que obtuvo en [Get the activation key for Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key) (Obtener la clave de activación para Azure Stack Edge Pro R).
+    1. Escriba la **clave de activación** que obtuvo en [Obtener la clave de activación para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
     1. Puede habilitar la recopilación proactiva de registros para que Microsoft recopile los registros según el estado de mantenimiento del dispositivo. Los registros recopilados de este modo se cargan en una cuenta de Azure Storage.
     

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
 ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935825"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
@@ -422,7 +422,7 @@ Pruebe las validaciones mediante el comando `SetTemperature`. Use los siguientes
 1. En el panel de la izquierda, seleccione el comando **SetTemperature**.
 1. En el panel central, seleccione **Temperatura**.
 1. En el panel de la derecha, seleccione **Add a validation** (Agregar una validación).
-1. En la ventana **New validation** (Nueva validación), configure la validación tal como se muestra en la tabla siguiente Después, seleccione **Crear**.
+1. En la ventana **New validation** (Nueva validación), configure la validación tal como se muestra en la tabla siguiente Seleccione **Crear**.
 
 
     | Configuración de parámetros | Valor sugerido | Descripción |

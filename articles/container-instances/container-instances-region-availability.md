@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
 ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573615"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
@@ -97,7 +97,7 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
 | Norte de Europa | 2 | 8 | 2 | 8 | 20 |
 | Centro-sur de EE. UU. | 2 | 3,5 | 2 | 8 | 20 |
-| Sudeste de Asia | No aplicable | No aplicable | 2 | 3,5 | 20 |
+| Sudeste de Asia | N/D | N/D | 2 | 3,5 | 20 |
 | Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
 | Centro-Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
@@ -122,7 +122,7 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Este de EE. UU. | 4 | 16 | 4 | 16 | 20 |
 | Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 | Centro de Francia | 4 | 16 | 4 | 16 | 20 |
-| Japón Oriental | No aplicable | N/D | 4 | 16 | 20 |
+| Japón Oriental | N/D | N/D | 4 | 16 | 20 |
 | Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
 | Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 20 |

@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927760"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar Azure Key Vault con Azure Policy
@@ -29,9 +29,9 @@ Escenarios de uso de ejemplo:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Tipos de instrucciones y efectos de directivas
 
-**Auditoría** : Cuando el efecto de una directiva se establece en auditoría, la directiva no producirá ningún cambio importante en el entorno. Solo le avisará de los componentes, como los certificados que no cumplan las definiciones de directiva dentro de un ámbito especificado, marcando estos componentes como no compatibles en el panel de cumplimiento de directivas. La auditoría es predeterminada si no se selecciona ningún efecto de directiva.
+**Auditoría**: Cuando el efecto de una directiva se establece en auditoría, la directiva no producirá ningún cambio importante en el entorno. Solo le avisará de los componentes, como los certificados que no cumplan las definiciones de directiva dentro de un ámbito especificado, marcando estos componentes como no compatibles en el panel de cumplimiento de directivas. La auditoría es predeterminada si no se selecciona ningún efecto de directiva.
 
-**Denegar** : Cuando el efecto de una directiva se establece en denegar, la directiva bloqueará la creación de nuevos componentes, como los certificados, así como el bloqueo de nuevas versiones de componentes existentes que no cumplen con la definición de la directiva. Los recursos existentes no compatibles dentro de un almacén de claves no se ven afectados. Las capacidades de ' auditoría ' seguirán funcionando.
+**Denegar**: Cuando el efecto de una directiva se establece en denegar, la directiva bloqueará la creación de nuevos componentes, como los certificados, así como el bloqueo de nuevas versiones de componentes existentes que no cumplen con la definición de la directiva. Los recursos existentes no compatibles dentro de un almacén de claves no se ven afectados. Las capacidades de ' auditoría ' seguirán funcionando.
 
 ## <a name="available-built-in-policy-definitions"></a>Definiciones de Directiva "Integradas" disponibles
 
@@ -91,9 +91,9 @@ El servicio puede experimentar una interrupción si un certificado que no se est
 
 Si desea asegurarse de que las claves no estén activas durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activa la clave.
 
-**Si la clave tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de activación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
+**Si la clave tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de activación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
 
-**Si la clave no tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de creación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
+**Si la clave no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** de la clave hasta la fecha actual. Si el número de días supera el umbral establecido, la clave se marcará como no compatible con la directiva.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Las claves deben ser del tipo criptográfico especificado, RSA o EC (versión preliminar)
 
@@ -139,9 +139,9 @@ Administre los requisitos de cumplimiento de su organización. Para ello, especi
 
 Si desea asegurarse de que los secretos no estén activos durante más tiempo que un número especificado de días, puede usar esta directiva para auditar cuánto tiempo ha estado activo el secreto.
 
-**Si el secreto tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de activación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
+**Si el secreto tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de activación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
 
-**Si el secreto no tiene establecida una fecha de activación** , esta directiva calculará el número de días transcurridos desde la **fecha de creación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
+**Si el secreto no tiene establecida una fecha de activación**, esta directiva calculará el número de días transcurridos desde la **fecha de creación** del secreto hasta la fecha actual. Si el número de días supera el umbral establecido, el secreto se marcará como no compatible con la directiva.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Los secretos deben tener establecido el tipo de contenido (versión preliminar)
 
@@ -165,7 +165,7 @@ Administre los requisitos de cumplimiento de su organización. Para ello, especi
 
 Puede administrar un almacén de claves usado por varios equipos que contengan 100 certificados y desea asegurarse de que ninguno de los certificados del almacén de claves sea válido durante más de 2 años.
 
-1. Asigne la directiva **Los certificados deben tener el período de validez máximo especificado** , especifique que el período de validez máximo de un certificado es de 24 meses y establezca el efecto de la directiva en "auditoría". 
+1. Asigne la directiva **Los certificados deben tener el período de validez máximo especificado**, especifique que el período de validez máximo de un certificado es de 24 meses y establezca el efecto de la directiva en "auditoría". 
 1. Puede ver el [informe de cumplimiento en el Azure Portal](#view-compliance-results) y detectar que 20 certificados son no compatibles y válidos durante > 2 años, y que los certificados restantes son conformes. 
 1. Se pone en contacto con los propietarios de estos certificados y comunican el nuevo requisito de seguridad que los certificados no pueden ser válidos durante más de 2 años. Algunos equipos responden y 15 de los certificados se renovaron con un período de validez máximo de 2 años o menos. Otros equipos no responden y todavía tiene 5 certificados no compatibles en el almacén de claves.
 1. Cambia el efecto de la directiva asignada a "denegar". Los 5 certificados no compatibles no se revocan y continúan funcionando. Sin embargo, no se pueden renovar con un período de validez superior a 2 años. 

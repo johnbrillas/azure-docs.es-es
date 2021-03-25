@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae7980137c1da5e1755450863af4f9029d6ed62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049141"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583469"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas basadas en registros de Application Insights
 
@@ -95,6 +95,8 @@ El SDK de JavaScript de Application Insights recopila las métricas de explorado
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tiempo de carga de página del explorador (browserTimings/totalDuration)
 
+Tiempo que transcurre entre la solicitud del usuario hasta que se cargan el DOM, las hojas de estilo, los scripts y las imágenes.
+
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|
 |---|---|---|
 |Milisegundos|Promedio, mín., máx.|None|
@@ -110,6 +112,8 @@ browserTimings
 ```
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Tiempo de procesamiento del cliente (browserTiming/processingDuration)
+
+Tiempo transcurrido entre la recepción del último byte de un documento hasta que se carga el DOM. Todavía se pueden procesar solicitudes asincrónicas.
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|
 |---|---|---|
@@ -127,6 +131,8 @@ browserTimings
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Tiempo de conexión de red de carga de página (browserTimings/networkDuration)
 
+Tiempo transcurrido entre la solicitud del usuario y la conexión de red. Incluye la búsqueda de DNS y la conexión de transporte.
+
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|
 |---|---|---|
 |Milisegundos|Promedio, mín., máx.|None|
@@ -143,6 +149,8 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Tiempo de respuesta de recepción (browserTimings/receiveDuration)
 
+Tiempo transcurrido entre el primer y el último byte, o hasta la desconexión.
+
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|
 |---|---|---|
 |Milisegundos|Promedio, mín., máx.|None|
@@ -158,6 +166,8 @@ browserTimings
 ```
 
 ### <a name="send-request-time-browsertimingssendduration"></a>Hora de envío de la solicitud (browserTimings/sendDuration)
+
+Tiempo transcurrido entre la conexión de red y la recepción del primer byte.
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|
 |---|---|---|

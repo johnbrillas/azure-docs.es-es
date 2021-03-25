@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
 ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263119"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperación de archivos de Azure en Windows Server
@@ -27,7 +27,7 @@ En este tutorial se da por supuesto que ya ha realizado los pasos necesarios par
 
 Un práctico asistente de interfaz de usuario denominado Microsoft Azure Backup se instala con el agente de Microsoft Azure Recovery Services (MARS). El asistente Microsoft Azure Backup funciona con el agente de Microsoft Azure Recovery Services (MARS) para recuperar datos de copia de seguridad desde los puntos de recuperación almacenados en Azure. Use el asistente Microsoft Azure Backup para identificar los archivos o las carpetas que quiere restaurar en Windows Server.
 
-1. Abra el complemento **Microsoft Azure Backup**. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
+1. Abra el complemento **Microsoft Azure Backup**. Para encontrarlo, busque **Microsoft Azure Backup** en la máquina.
 
     ![Complemento Microsoft Azure Backup](./media/tutorial-backup-restore-files-windows-server/mars.png)
 

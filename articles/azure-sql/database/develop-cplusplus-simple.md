@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674762"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conexión a SQL Database mediante C y C++
@@ -123,7 +123,7 @@ Lo último que queda por hacer antes de la compilación es agregar **odbc** como
 
 ![Adding ODBC as an input library](./media/develop-cplusplus-simple/lib.png)
 
-Para iniciar la aplicación, abra Linux Console desde el menú **Depurar** :
+Para iniciar la aplicación, abra Linux Console desde el menú **Depurar**:
 
 ![Linux Console](./media/develop-cplusplus-simple/linuxconsole.png)
 

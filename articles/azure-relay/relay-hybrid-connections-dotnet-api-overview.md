@@ -5,10 +5,10 @@ ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625138"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure
@@ -131,7 +131,7 @@ Para obtener más información sobre Azure Relay, visite estos vínculos:
 
 * [Referencia de Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
-* [Available Relay APIs ](relay-api-overview.md) (API de Relay disponibles)
+* [API de Relay disponibles](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
 [HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream

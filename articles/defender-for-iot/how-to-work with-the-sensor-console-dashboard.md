@@ -1,18 +1,14 @@
 ---
 title: Uso del panel de la consola del sensor
 description: El panel le permite ver rápidamente el estado de seguridad de la red. Proporciona información general de alto nivel sobre las amenazas para todo el sistema en una escala de tiempo junto con información sobre los dispositivos relacionados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e9bc650e9c306d12ef63994852816c96e1bdf40a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523641"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781541"
 ---
 # <a name="the-dashboard"></a>El panel
 
@@ -100,6 +96,6 @@ Seleccione la flecha hacia abajo **V** en la parte inferior de un cuadro de aler
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Se ha detectado una conexión a Internet no autorizada":::.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Uso de alertas en el sensor](how-to-work-with-alerts-on-your-sensor.md)

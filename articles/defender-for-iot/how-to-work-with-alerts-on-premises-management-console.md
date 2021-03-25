@@ -1,18 +1,14 @@
 ---
 title: Uso de alertas en la consola de administración local
 description: Use la consola de administración local para obtener una vista empresarial de las amenazas recientes de la red y comprender mejor cómo las controlan los usuarios del sensor.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526330"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781473"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Uso de alertas en la consola de administración local 
 

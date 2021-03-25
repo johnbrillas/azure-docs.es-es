@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097811"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creación de una aplicación de Angular con API de Azure Cosmos DB para MongoDB: uso de Mongoose para conectarse a Cosmos DB
@@ -51,7 +51,7 @@ Mongoose es una biblioteca de modelado de datos de objeto (ODM) para MongoDB y N
     npm i mongoose --save
     ```
 
-1. En la carpeta **server** , cree un archivo denominado **mongo.js**. Va a agregar los detalles de conexión de la cuenta de Azure Cosmos DB a este archivo.
+1. En la carpeta **server**, cree un archivo denominado **mongo.js**. Va a agregar los detalles de conexión de la cuenta de Azure Cosmos DB a este archivo.
 
 1. Copie el código siguiente en el archivo **mongo.js**. Este código proporciona la funcionalidad siguiente:
 
@@ -85,9 +85,9 @@ Mongoose es una biblioteca de modelado de datos de objeto (ODM) para MongoDB y N
      };
      ```
     
-1. En el panel Explorador, en **server** , cree una carpeta denominada **entorno**. En la carpeta **environment** , cree un archivo denominado **environment.js**.
+1. En el panel Explorador, en **server**, cree una carpeta denominada **entorno**. En la carpeta **environment**, cree un archivo denominado **environment.js**.
 
-1. En el archivo mongo.js, hay que incluir valores para los parámetros `dbName`, `key` y `cosmosPort`. Copie el código siguiente en el archivo **environment.js** :
+1. En el archivo mongo.js, hay que incluir valores para los parámetros `dbName`, `key` y `cosmosPort`. Copie el código siguiente en el archivo **environment.js**:
 
     ```javascript
     // TODO: replace if yours are different
@@ -105,13 +105,13 @@ Para conectar la aplicación a Azure Cosmos DB, tiene que actualizar las opcione
 
 1. En Azure Portal, obtenga el número de puerto, nombre de la cuenta de Azure Cosmos DB y los valores de clave principal de la cuenta de Azure Cosmos DB.
 
-1. En el archivo **environment.js** , cambie el valor de `port` a 10255. 
+1. En el archivo **environment.js**, cambie el valor de `port` a 10255. 
 
     ```javascript
     const port = 10255;
     ```
 
-1. En el archivo **environment.js** , cambie el valor de `accountName` por el nombre de la cuenta de Azure Cosmos DB que creó en la [parte 4](tutorial-develop-mongodb-nodejs-part4.md) del tutorial. 
+1. En el archivo **environment.js**, cambie el valor de `accountName` por el nombre de la cuenta de Azure Cosmos DB que creó en la [parte 4](tutorial-develop-mongodb-nodejs-part4.md) del tutorial. 
 
 1. Recupere la clave principal de la cuenta de Azure Cosmos DB mediante el siguiente comando de la CLI en la ventana del terminal: 
 
@@ -137,7 +137,7 @@ Luego tiene que definir el esquema de los datos que se van a almacenar en Azure 
    * Crea un nuevo esquema con un identificador, un nombre y un mensaje.
    * Crea un modelo con el esquema.
    * Exporta el modelo. 
-   * Asigne a la colección el nombre **Heroes** (en lugar de **Heros** , que es el nombre predeterminado de la colección según las reglas de nomenclatura de plurales de Mongoose).
+   * Asigne a la colección el nombre **Heroes** (en lugar de **Heros**, que es el nombre predeterminado de la colección según las reglas de nomenclatura de plurales de Mongoose).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -200,9 +200,9 @@ Cuando haya creado el modelo de Hero, tendrá que definir un servicio para leer 
 
 ## <a name="configure-routes"></a>Configuración de rutas
 
-Luego tiene que configurar rutas para controlar las direcciones URL para la obtención, creación, lectura y eliminación de solicitudes. Los métodos de enrutamiento especifican funciones de devolución de llamada (también denominadas _funciones de controlador_ ). Estas funciones se llaman cuando la aplicación recibe una solicitud para el punto de conexión especificado y el método HTTP. Siga estos pasos para agregar el servicio Hero y definir las rutas:
+Luego tiene que configurar rutas para controlar las direcciones URL para la obtención, creación, lectura y eliminación de solicitudes. Los métodos de enrutamiento especifican funciones de devolución de llamada (también denominadas _funciones de controlador_). Estas funciones se llaman cuando la aplicación recibe una solicitud para el punto de conexión especificado y el método HTTP. Siga estos pasos para agregar el servicio Hero y definir las rutas:
 
-1. En Visual Studio Code, en el archivo **routes.js** , convierta en comentario la función `res.send` que envía los datos de ejemplo de Hero. Agregue una línea para llamar a la función `heroService.getHeroes` en su lugar.
+1. En Visual Studio Code, en el archivo **routes.js**, convierta en comentario la función `res.send` que envía los datos de ejemplo de Hero. Agregue una línea para llamar a la función `heroService.getHeroes` en su lugar.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -213,19 +213,19 @@ Luego tiene que configurar rutas para controlar las direcciones URL para la obte
     });
     ```
 
-1. En el archivo **routes.js** , use `require` para el servicio Hero:
+1. En el archivo **routes.js**, use `require` para el servicio Hero:
 
     ```javascript
     const heroService = require('./hero.service'); 
     ```
 
-1. En el archivo **hero.service.js** , actualice la función `getHeroes` para tomar los parámetros `req` y `res`, tal y como se indica a continuación:
+1. En el archivo **hero.service.js**, actualice la función `getHeroes` para tomar los parámetros `req` y `res`, tal y como se indica a continuación:
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-Dediquemos un minuto a revisar y repasar el código anterior. En primer lugar, entramos en el archivo index.js, que configura el servidor de nodo. Tenga en cuenta que también configura y define las rutas. El archivo routes.js se comunica entonces con el servicio Hero y le indica que obtenga las funciones, como **getHeroes** , y pase la solicitud y la respuesta. El archivo hero.service.js obtiene el modelo y se conecta a Mongo. Luego ejecuta **getHeroes** cuando se llama y devuelve una respuesta de 200. 
+Dediquemos un minuto a revisar y repasar el código anterior. En primer lugar, entramos en el archivo index.js, que configura el servidor de nodo. Tenga en cuenta que también configura y define las rutas. El archivo routes.js se comunica entonces con el servicio Hero y le indica que obtenga las funciones, como **getHeroes**, y pase la solicitud y la respuesta. El archivo hero.service.js obtiene el modelo y se conecta a Mongo. Luego ejecuta **getHeroes** cuando se llama y devuelve una respuesta de 200. 
 
 ## <a name="run-the-app"></a>Ejecución la aplicación
 

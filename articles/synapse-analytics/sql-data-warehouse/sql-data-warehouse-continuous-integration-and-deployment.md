@@ -2,21 +2,21 @@
 title: Integración e implementación continuas para el grupo de SQL dedicado
 description: Experiencia de DevOps de bases de datos de clase empresarial para el grupo de SQL dedicado en Azure Synapse Analytics con compatibilidad integrada con integración e implementación continuas mediante Azure Pipelines.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cb80f2d21246a75d41fc5753e72995d409d5c6b4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119193"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585645"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración e implementación continuas para el grupo de SQL dedicado en Azure Synapse Analytics
 

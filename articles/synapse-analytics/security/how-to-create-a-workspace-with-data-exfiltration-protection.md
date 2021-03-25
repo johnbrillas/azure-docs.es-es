@@ -1,19 +1,19 @@
 ---
 title: Creación de un área de trabajo con la protección contra la filtración de datos habilitada
 description: En este artículo se explica cómo crear un área de trabajo con la protección contra la filtración de datos en Azure Synapse Analytics.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 59c2f5e5738b29aa11e9227b157f8b11d53f2b25
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096129"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598089"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Creación de un área de trabajo con la protección contra la filtración de datos habilitada
 En este artículo se describe cómo crear un área de trabajo con la protección contra la filtración de datos habilitada y cómo administrar los inquilinos de Azure AD aprobados para esta área de trabajo.

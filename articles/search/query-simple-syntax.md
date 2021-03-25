@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: f679d6fbab57bcbcccc09b722f6b2f670df49eb2
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516584"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta simple en Azure Cognitive Search
 
 Azure Cognitive Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). El analizador simple es más flexible e intentará interpretar una solicitud incluso si no está perfectamente compuesta. Debido a esta flexibilidad, es el valor predeterminado para las consultas en Azure Cognitive Search.
 
-La sintaxis simple se usa para las expresiones de consulta que se pasan en el parámetro **`search`** de una solicitud de [búsqueda de documentos (API de REST)](/rest/api/searchservice/search-documents); no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para las expresiones [ **`$filter`**](search-filters.md) y [ **`$orderby`** ](search-query-odata-orderby.md) de la misma solicitud. Los parámetros de OData tienen diferentes reglas y sintaxis para crear consultas, cadenas de escape y otros elementos.
+La sintaxis simple se usa para las expresiones de consulta que se pasan en el parámetro **`search`** de una solicitud de [búsqueda de documentos (API de REST)](/rest/api/searchservice/search-documents); no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para las expresiones [ **`$filter`**](search-filters.md) y [ **`$orderby`**](search-query-odata-orderby.md) de la misma solicitud. Los parámetros de OData tienen diferentes reglas y sintaxis para crear consultas, cadenas de escape y otros elementos.
 
 Aunque el analizador simple se basa en la clase del [analizador de consultas simples de Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html), la implementación en Cognitive Search excluye la búsqueda aproximada. Si necesita realizar una [búsqueda aproximada](search-query-fuzzy.md), considere la posibilidad de usar la [sintaxis de consulta completa de Lucene](query-lucene-syntax.md) alternativa en su lugar.
 

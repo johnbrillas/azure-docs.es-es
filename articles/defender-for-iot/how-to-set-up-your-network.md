@@ -1,18 +1,14 @@
 ---
 title: Configuración de la red
 description: Obtenga información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para asegurarse de que ha configurado correctamente la red para que funcione con dispositivos de Azure Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526517"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781813"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -22,7 +18,7 @@ Azure Defender para IoT ofrece supervisión continua de amenazas y detección de
 
 **Consola de administración local de Defender para IoT**: la consola de administración local proporciona una vista consolidada de todos los dispositivos de red. Ofrece una vista en tiempo real de las alertas y los indicadores de riesgo clave de OT e IoT en todas sus instalaciones. Al estar integrada estrechamente con los cuadernos de estrategias y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas. 
 
-**Defender para IoT para el portal de IoT**: la aplicación de Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, así como actualizar paquetes de TI. 
+**Portal de Defender para IoT**: la aplicación Defender para IoT puede ayudarle a comprar dispositivos de soluciones, instalar y actualizar software, y actualizar paquetes de TI. 
 
 En este artículo se proporciona información sobre la arquitectura de la solución, la preparación de la red, los requisitos previos y otra información necesaria para permitirle configurar correctamente la red a fin de que funcione con dispositivos de Defender para IoT. Los lectores que trabajan con la información de este artículo deben tener experiencia en el funcionamiento y la administración de redes de OT e IoT. Algunos ejemplos son ingenieros de automatización, jefes de planta, proveedores de servicios de infraestructura de red de OT, equipos de ciberseguridad, CISO o CIO.
 

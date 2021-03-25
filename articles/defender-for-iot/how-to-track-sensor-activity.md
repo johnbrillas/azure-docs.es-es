@@ -1,18 +1,14 @@
 ---
 title: Seguimiento de la actividad del sensor
 description: La escala de tiempo de eventos presenta una escala de tiempo de actividad detectada en la red, incluidas las alertas y las acciones de administración de alertas, los eventos de red y las operaciones de usuario como el inicio de sesión y la eliminación del usuario.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523607"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781626"
 ---
 # <a name="track-sensor-activity"></a>Seguimiento de la actividad del sensor
 
@@ -89,6 +85,6 @@ Para filtrar la escala de tiempo:
     
       El archivo PCAP contiene información técnica que puede ayudar a los ingenieros de redes a determinar los parámetros exactos del evento. Puede analizar el archivo PCAP con un analizador de protocolos de red como Wireshark, una aplicación de código abierto.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Visualización de alertas](how-to-view-alerts.md)

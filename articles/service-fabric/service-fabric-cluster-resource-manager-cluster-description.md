@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911773"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
@@ -64,7 +64,7 @@ Es mejor si hay el mismo número de nodos en cada nivel de profundidad de la jer
 
 En Azure, será su responsabilidad elegir qué dominio de error contendrá un nodo. Sin embargo, dependiendo del número de nodos que se aprovisionen, puede seguir obteniendo dominios de error con más nodos que otros.
 
-Por ejemplo, supongamos que tiene cinco dominios de error en el clúster, pero aprovisiona siete nodos para un determinado nodo ( **NodeType** ). En este caso, los dos primeros dominios de error acaban con más nodos. Si trata de implementar más instancias de **NodeType** con solo dos instancias, el problema será más grave. Por esta razón, se recomienda que el número de nodos en cada tipo de nodo sea un múltiplo del número de dominios de error.
+Por ejemplo, supongamos que tiene cinco dominios de error en el clúster, pero aprovisiona siete nodos para un determinado nodo (**NodeType**). En este caso, los dos primeros dominios de error acaban con más nodos. Si trata de implementar más instancias de **NodeType** con solo dos instancias, el problema será más grave. Por esta razón, se recomienda que el número de nodos en cada tipo de nodo sea un múltiplo del número de dominios de error.
 
 ## <a name="upgrade-domains"></a>Dominios de actualización
 
@@ -119,7 +119,7 @@ Por ejemplo, supongamos que tenemos un clúster con 6 nodos, configurado con 5 d
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Ahora supongamos que creamos un servicio con un valor **TargetReplicaSetSize** (o, para un servicio sin estado, un valor **InstanceCount** ) de cinco. Las réplicas se dirigen a N1-N5. De hecho, nunca se usará N6, independientemente del número de servicios como este que cree. Pero ¿por qué? Echemos un vistazo a la diferencia entre el diseño actual y lo que sucedería si se elige N6.
+Ahora supongamos que creamos un servicio con un valor **TargetReplicaSetSize** (o, para un servicio sin estado, un valor **InstanceCount**) de cinco. Las réplicas se dirigen a N1-N5. De hecho, nunca se usará N6, independientemente del número de servicios como este que cree. Pero ¿por qué? Echemos un vistazo a la diferencia entre el diseño actual y lo que sucedería si se elige N6.
 
 Este es el diseño que obtuvimos y el número total de las réplicas por dominio de error y de actualización:
 
@@ -363,7 +363,7 @@ Por ejemplo, podría escribir una restricción de ubicación como `"(NodeType ==
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Restricciones de ubicación y sintaxis de propiedades de nodo
 
-El valor especificado en la propiedad de nodo puede ser una cadena, un booleano ni de tipo Long con signo. La instrucción en el servicio se denomina " *restricción* de ubicación", ya que limita el lugar del clúster donde puede ejecutarse el servicio. La restricción puede ser cualquier instrucción booleana que opera en las propiedades del nodo en el clúster. Los selectores válidos de estas instrucciones booleanas son los siguientes:
+El valor especificado en la propiedad de nodo puede ser una cadena, un booleano ni de tipo Long con signo. La instrucción en el servicio se denomina "*restricción* de ubicación", ya que limita el lugar del clúster donde puede ejecutarse el servicio. La restricción puede ser cualquier instrucción booleana que opera en las propiedades del nodo en el clúster. Los selectores válidos de estas instrucciones booleanas son los siguientes:
 
 * Comprobaciones condicionales para crear instrucciones concretas:
 
@@ -566,7 +566,7 @@ También se puede especificar la capacidad de saturación para que sea infinita.
 
 No se pueden especificar las capacidades de saturación y del búfer del nodo a la vez para una métrica.
 
-A continuación, se muestra un ejemplo de cómo especificar las capacidades de saturación y del nodo del búfer en *ClusterManifest.xml* :
+A continuación, se muestra un ejemplo de cómo especificar las capacidades de saturación y del nodo del búfer en *ClusterManifest.xml*:
 
 ```xml
 <Section Name="NodeBufferPercentage">

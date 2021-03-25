@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552157"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587855"
 ---
 # <a name="securing-service-principals"></a>Protección de entidades de servicio
 
-Una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) de Azure Active Directory (Azure AD) es la representación local de un objeto de aplicación en un único inquilino o directorio.  Funciona como la identidad de la instancia de la aplicación. Las entidades de servicio definen quién puede tener acceso a la aplicación y a qué recursos puede tener acceso la aplicación. La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único globalmente. El inquilino protege el inicio de sesión y el acceso a los recursos de la entidad de servicio.  
+Una [entidad de servicio](../develop/app-objects-and-service-principals.md) de Azure Active Directory (Azure AD) es la representación local de un objeto de aplicación en un único inquilino o directorio.  Funciona como la identidad de la instancia de la aplicación. Las entidades de servicio definen quién puede tener acceso a la aplicación y a qué recursos puede tener acceso la aplicación. La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único globalmente. El inquilino protege el inicio de sesión y el acceso a los recursos de la entidad de servicio.  
 
 ### <a name="tenant-service-principal-relationships"></a>Relaciones de entidad de servicio del inquilino
 Una aplicación de un solo inquilino solamente tiene una entidad de servicio en su inquilino principal. Una API o aplicación web multiinquilino requiere una entidad de servicio en cada inquilino. Una entidad de servicio se crea cuando un usuario de ese inquilino ha dado su consentimiento al uso de la aplicación o de la API. Este consentimiento crea una relación de uno a varios entre la aplicación multiinquilino y sus entidades de servicio asociadas.
@@ -39,7 +39,7 @@ Una instancia de aplicación determinada tiene dos propiedades distintas: Applic
 
 El valor ApplicationID representa la aplicación global y es igual para todas las instancias de la aplicación en todos los inquilinos. El valor ObjectID es único para un objeto de aplicación y representa la entidad de servicio. Al igual que con usuarios, grupos y otros recursos, el valor ObjectID ayuda a identificar de forma exclusiva una instancia de aplicación en Azure AD.
 
-Para obtener información más detallada sobre este tema, consulte [Relación entre los objetos de aplicación y las entidades de servicio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Para obtener información más detallada sobre este tema, consulte [Relación entre los objetos de aplicación y las entidades de servicio](../develop/app-objects-and-service-principals.md).
 
 También puede crear una aplicación y su objeto de entidad de servicio (ObjectID) en un inquilino mediante Azure PowerShell, la CLI de Azure, Microsoft Graph, Azure Portal y otras herramientas. 
 
@@ -63,7 +63,7 @@ Los certificados son más seguros: use certificados de cliente si es posible. A 
 
 * contraseñas 
 
-Para obtener más información acerca de Azure Key Vault y cómo usarlo para la administración de certificados y secretos, consulte [Acerca de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) y [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Para obtener más información acerca de Azure Key Vault y cómo usarlo para la administración de certificados y secretos, consulte [Acerca de Azure Key Vault](../../key-vault/general/overview.md) y [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Desafíos y mitigaciones
 En la tabla siguiente se presentan las mitigaciones a los desafíos que puede encontrar al usar entidades de seguridad de servicio.
@@ -89,7 +89,7 @@ Usar PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Para obtener más información, consulte [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal).
+Para obtener más información, consulte [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
 ## <a name="assess-service-principal-security"></a>Evaluación de la seguridad de la entidad de servicio
 
@@ -105,7 +105,7 @@ No se puede administrar el inicio de sesión de entidades de servicio con acceso
 | El rol de RBAC de Azure predeterminado es Colaborador. |Evalúe las necesidades y aplique el rol con los mínimos permisos posibles para satisfacer esa necesidad.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Traslado de una cuenta de usuario a una entidad de servicio  
-Si utiliza una cuenta de usuario de Azure como entidad de servicio, evalúe si puede pasar a una [identidad administrada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) o a una entidad de servicio. Si no puede usar una identidad administrada, aprovisione una entidad de servicio que tenga solo los permisos y el ámbito suficientes para ejecutar las tareas necesarias. Puede crear una entidad de servicio mediante el [registro de una aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) o con [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+Si utiliza una cuenta de usuario de Azure como entidad de servicio, evalúe si puede pasar a una [identidad administrada](../../app-service/overview-managed-identity.md?tabs=dotnet) o a una entidad de servicio. Si no puede usar una identidad administrada, aprovisione una entidad de servicio que tenga solo los permisos y el ámbito suficientes para ejecutar las tareas necesarias. Puede crear una entidad de servicio mediante el [registro de una aplicación](../develop/howto-create-service-principal-portal.md) o con [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 Al usar Microsoft Graph, consulte la documentación de la API específica, [como en este ejemplo](/powershell/azure/create-azure-service-principal-azureps), y asegúrese de que el tipo de permiso para la aplicación se muestra como compatible.
 
@@ -115,7 +115,7 @@ Al usar Microsoft Graph, consulte la documentación de la API específica, [como
 
 [Creación de una entidad de servicio](../develop/howto-create-service-principal-portal.md)
 
- [Supervisión de inicios de sesión de entidad de servicio](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Supervisión de inicios de sesión de entidad de servicio](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Para obtener más información acerca de la protección de cuentas de servicio:**
 

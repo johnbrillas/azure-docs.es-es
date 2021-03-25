@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
 ms.openlocfilehash: 5b4aadc506b2f4a251ccef5e9488066b609ba5a5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130534"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
@@ -39,7 +39,7 @@ Para crear una nueva cuenta profesional para su empresa, siga los pasos a contin
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
 2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory** -> **Usuarios**.
-3. Seleccione **Nuevo usuario** y cree una nueva cuenta profesional de Azure escribiendo un nombre y una dirección de correo electrónico. Asegúrese de que el **Rol del directorio** está establecido en **Usuario** , seleccione la casilla **Mostrar contraseña** en la parte inferior para ver la contraseña generada automáticamente y tome nota de la misma.
+3. Seleccione **Nuevo usuario** y cree una nueva cuenta profesional de Azure escribiendo un nombre y una dirección de correo electrónico. Asegúrese de que el **Rol del directorio** está establecido en **Usuario**, seleccione la casilla **Mostrar contraseña** en la parte inferior para ver la contraseña generada automáticamente y tome nota de la misma.
 4. Seleccione **Crear** para guardar el nuevo usuario.
 
 La dirección de correo electrónico para la cuenta de usuario tiene que ser un nombre de dominio comprobado en el directorio. Puede ver una lista de todos los dominios comprobados en el directorio seleccionando **Azure Active Directory** -> **Nombres de dominio personalizados** en el menú de navegación de la izquierda.
