@@ -2,20 +2,20 @@
 title: Diseño de una estrategia de carga de datos de PolyBase para un grupo de SQL dedicado
 description: En lugar de un proceso de extracción, transformación y carga (ETL), diseñe uno de extracción, carga y transformación (ETL) para cargar datos con SQL dedicado.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a2cf0de94641c955ed72a48f28352d13115ef0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 850c03d5cbda8fb11bbc804f2cd2c848a5a2411f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667574"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589506"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diseño de una estrategia de carga de datos de PolyBase para un grupo de SQL dedicado en Azure Synapse Analytics
 

@@ -4,10 +4,10 @@ description: En este inicio rápido, se usa Azure Portal para crear un grupo de 
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592439"
 ---
 # <a name="quickstart-create-a-management-group"></a>Inicio rápido: Creación de un grupo de administración
@@ -18,7 +18,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 - Si la [protección de jerarquías](./how-to/protect-resource-hierarchy.md#setting---require-authorization) no está habilitada, cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin tener el permiso de escritura del grupo de administración asignado. Este nuevo grupo de administración pasa a ser un elemento secundario del grupo de administración raíz o del [grupo de administración predeterminado](./how-to/protect-resource-hierarchy.md#setting---default-management-group) y al creador se le asigna el rol de "Propietario". El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea. Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel raíz.
 
@@ -61,4 +61,4 @@ En este inicio rápido, ha creado un grupo de administración para organizar una
 Para más información acerca de los grupos de administración y cómo administrar la jerarquía de recursos, vaya a:
 
 > [!div class="nextstepaction"]
-> Administración de los recursos con grupos de administración
+> [Administración de los recursos con grupos de administración](./manage.md)

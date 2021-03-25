@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff7505e7c47b93f32efd9de60463873026247329
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724932"
 ---
 # <a name="resilience-through-developer-best-practices"></a>Resistencia mediante los procedimientos recomendados para desarrolladores
@@ -139,4 +139,4 @@ Se recomienda que el plan de pruebas incluya unas [pruebas de API completas](../
   - [Interfaces resistentes con procesos externos](resilient-external-processes.md)
   - [Resistencia mediante la supervisión y el análisis](resilience-with-monitoring-alerting.md)
 - [Aumento de la resistencia en la infraestructura de autenticación](resilience-in-infrastructure.md)
-- [Aumento de la resistencia de la autenticación y la autorización en las aplicaciones](resilience-app-development-overview.md)
+- [Aumento de la resistencia de la autenticación y autorización en las aplicaciones](resilience-app-development-overview.md)

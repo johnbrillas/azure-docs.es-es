@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 9d0e94cf2318db777bb44c15037f73531cd969fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593317"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491952"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensajes y conexiones de Azure SignalR Service
 
@@ -48,9 +48,16 @@ Si tiene tres clientes y un servidor de aplicaciones. Un cliente envía un mensa
 
 Existen conexiones de servidores y conexiones de cliente con Azure SignalR Service. De manera predeterminada, cada servidor de aplicaciones comienza con cinco conexiones iniciales por centro de conectividad y cada cliente tiene una conexión de cliente.
 
-El recuento de conexiones que se muestra en Azure Portal incluye conexiones de servidor y conexiones de cliente.
-
 Por ejemplo, suponga que tiene dos servidores de aplicaciones y define cinco centros en el código. El número de conexiones del servidor será 50: 2 servidores de aplicaciones * 5 centros * 5 conexiones por centro.
+
+El número de conexiones que se muestra en Azure Portal incluye conexiones de servidor, conexiones de cliente, conexiones de diagnóstico y conexiones de seguimiento en directo. Los tipos de conexión se definen en la siguiente lista:
+
+- **Conexión de servidor**: conecta Azure SignalR Service y el servidor de aplicaciones.
+- **Conexión de cliente**: conecta Azure SignalR Service y la aplicación cliente.
+- **Conexión de diagnóstico**: un tipo especial de conexión de cliente que puede generar un registro más detallado, lo que puede afectar al rendimiento. Este tipo de cliente está diseñado para la solución de problemas.
+- **Conexión de seguimiento en directo**: se conecta al punto de conexión de seguimiento activo y recibe seguimientos en directo de Azure SignalR Service. 
+ 
+Tenga en cuenta que las conexiones de seguimiento en directo no se consideran conexiones de cliente ni conexiones de servidor. 
 
 ASP.NET SignalR calcula las conexiones de los servidores de otra forma. Incluye un centro predeterminado además de los centros que defina. De forma predeterminada, cada servidor de aplicaciones necesita cinco conexiones de los servidores. El número de conexiones iniciales del centro predeterminado se mantiene igual que el de los otros centros.
 

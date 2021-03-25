@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 616829c3fc666bbc6a4c860d9fb5c4e9fff59d7a
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b83ec6b63d908483801a28ba89227c8431401424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449415"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integración de Azure Active Directory con AppDynamics
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar AppDynamics con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en AppDynamics con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -154,8 +154,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de AppDynamics y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de AppDynamics de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de AppDynamics de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado AppDynamics, podrá aplicar el control de sesión, que protege la información confidencial de su organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado AppDynamics, podrá aplicar el control de sesión, que protege la información confidencial de su organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

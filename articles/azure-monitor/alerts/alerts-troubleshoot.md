@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037853"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586325"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solución de problemas en las alertas de Azure Monitor
 
@@ -21,7 +21,7 @@ Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan c
 Si tiene un problema en el que a veces una alerta no se desencadena según lo esperado, consulte los artículos siguientes. Puede ver las alertas "desencadenadas" en Azure Portal.
 
 - [Solución de problemas con las alertas de métricas de Azure Monitor en Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Solución de problemas con las alertas de registro de Azure Monitor en Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Solución de problemas con las alertas de registro de Azure Monitor en Microsoft Azure](alerts-troubleshoot-log.md)
 
 Si la alerta se desencadena según lo previsto en Azure Portal, pero no se generan las notificaciones adecuadas, use la información que se encuentra a lo largo de este artículo para solucionar ese problema.
 

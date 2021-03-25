@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
 ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336221"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexación de datos geoespaciales con Azure Cosmos DB
@@ -19,7 +19,7 @@ ms.locfileid: "93336221"
 
 El motor de base de datos de Azure Cosmos DB se ha diseñado para que sea realmente independiente del esquema y proporcione una excelente compatibilidad con JSON. El motor de base de datos optimizado para escritura de Azure Cosmos DB también entiende de forma nativa los datos espaciales representados en el estándar GeoJSON.
 
-En pocas palabras, la geometría se proyecta a partir de coordenadas geodésicas en un plano 2D; después, se divide progresivamente en celdas con un **quadtree**. Estas celdas se asignan a 1D según la ubicación de la celda dentro de una **curva de Hilbert** , que conserva la localidad de los puntos. Además, al indexar los datos de ubicación, estos pasan por un proceso conocido como **teselación** ; es decir, todas las celdas que se cruzan en una ubicación se identifican y se almacenan como claves en el índice de Azure Cosmos DB. En el momento de la consulta, los argumentos como puntos y elementos Polygon también se teselan para extraer los intervalos de Id. de celda pertinentes, y luego se usan para recuperar los datos del índice.
+En pocas palabras, la geometría se proyecta a partir de coordenadas geodésicas en un plano 2D; después, se divide progresivamente en celdas con un **quadtree**. Estas celdas se asignan a 1D según la ubicación de la celda dentro de una **curva de Hilbert**, que conserva la localidad de los puntos. Además, al indexar los datos de ubicación, estos pasan por un proceso conocido como **teselación**; es decir, todas las celdas que se cruzan en una ubicación se identifican y se almacenan como claves en el índice de Azure Cosmos DB. En el momento de la consulta, los argumentos como puntos y elementos Polygon también se teselan para extraer los intervalos de Id. de celda pertinentes, y luego se usan para recuperar los datos del índice.
 
 Si especifica una directiva de indexación que incluye un índice espacial de `/*` (todas las rutas de acceso), todos los datos encontrados en el contenedor se indexan para que las consultas espaciales resulten eficaces.
 
@@ -36,11 +36,11 @@ Aquí se muestra cómo establecer la **Configuración geoespacial** en el **Expl
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Establecimiento de la configuración geoespacial":::
 
-También puede configurar `geospatialConfig` en el SDK de .NET para ajustar la **Configuración geoespacial** :
+También puede configurar `geospatialConfig` en el SDK de .NET para ajustar la **Configuración geoespacial**:
 
 Si no se especifica, la clase `geospatialConfig` tomará como valor predeterminado el tipo de datos geography. Si modificas la clase `geospatialConfig`, se volverán a indexar todos los datos geoespaciales existentes en el contenedor.
 
-A continuación se muestra un ejemplo de modificación del tipo de datos geoespaciales a `geometry`, mediante la definición de la propiedad `geospatialConfig` y la adición de un objeto **boundingBox** :
+A continuación se muestra un ejemplo de modificación del tipo de datos geoespaciales a `geometry`, mediante la definición de la propiedad `geospatialConfig` y la adición de un objeto **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -107,16 +107,16 @@ También puede [modificar la directiva de indexación](how-to-manage-indexing-po
 
 ## <a name="geometry-data-indexing-examples"></a>Ejemplos de indexación de datos de tipo geometry
 
-Con el tipo de datos **geometry** , similar al tipo de datos geography, debe especificar las rutas de acceso y los tipos pertinentes que se van a indexar. Además, también debe especificar un objeto `boundingBox` en la directiva de indexación para indicar el área deseada que se va a indexar para esa ruta de acceso específica. Cada ruta de acceso geoespacial requiere su propio objeto `boundingBox`.
+Con el tipo de datos **geometry**, similar al tipo de datos geography, debe especificar las rutas de acceso y los tipos pertinentes que se van a indexar. Además, también debe especificar un objeto `boundingBox` en la directiva de indexación para indicar el área deseada que se va a indexar para esa ruta de acceso específica. Cada ruta de acceso geoespacial requiere su propio objeto `boundingBox`.
 
 El cuadro de límite está formato por las propiedades siguientes:
 
-- **xmin** : la coordenada x indexada mínima
-- **ymin** : la coordenada y indexada mínima
-- **xmax** : la coordenada x indexada máxima
-- **ymax** : la coordenada y indexada máxima
+- **xmin**: la coordenada x indexada mínima
+- **ymin**: la coordenada y indexada mínima
+- **xmax**: la coordenada x indexada máxima
+- **ymax**: la coordenada y indexada máxima
 
-Se requiere un cuadro de límite porque los datos geométricos ocupan un plano que puede ser infinito. Sin embargo, los índices espaciales requieren un espacio finito. En el caso del tipo de datos **geography** , la Tierra es el límite y no es necesario establecer un cuadro de límite.
+Se requiere un cuadro de límite porque los datos geométricos ocupan un plano que puede ser infinito. Sin embargo, los índices espaciales requieren un espacio finito. En el caso del tipo de datos **geography**, la Tierra es el límite y no es necesario establecer un cuadro de límite.
 
 Cree un cuadro de límite que contenga todos los datos (o la mayoría). Solo las operaciones calculadas en los objetos que estén completamente dentro del cuadro de límite podrán utilizar el índice espacial. Si el cuadro de límite es más grande de lo necesario, afectará de manera negativa el rendimiento de la consulta.
 

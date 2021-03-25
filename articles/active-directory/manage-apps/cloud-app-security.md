@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259611"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Control y visibilidad de aplicaciones en la nube
@@ -24,14 +24,14 @@ Para sacar el máximo partido de las aplicaciones y los servicios en la nube, un
 
 ## <a name="discover-and-manage-shadow-it-in-your-network"></a>Detección y administración de shadow IT en la red
 
-Cuando se pregunta a los administradores de TI por el número de aplicaciones en la nube que piensan que utilizan los empleados, de media indican que 30 o 40 cuando, en realidad, el promedio es superior a 1000 aplicaciones independientes las que usan los empleados de su organización. Shadow IT le ayuda a conocer e identificar qué aplicaciones se están usando y cuál es su nivel de riesgo. El 80 % de los empleados usan aplicaciones no autorizadas que nadie ha revisado y que puede que no sean compatibles con las directivas de seguridad y cumplimiento. Y como los empleados pueden acceder a los recursos y aplicaciones desde fuera de la red corporativa, ya no es suficiente con tener reglas y directivas en los firewalls.
+Cuando se pregunta a los administradores de TI cuántas aplicaciones en la nube creen que usan sus empleados, la media es de 30 o 40. En realidad, la media de aplicaciones que usan los empleados de su organización es de más de 1000 aplicaciones distintas. Shadow IT le permite conocer e identificar qué aplicaciones se usan y cuál es el nivel de riesgo que suponen. El 80 % de los empleados usan aplicaciones no autorizadas que nadie ha revisado y que puede que no sean compatibles con las directivas de seguridad y cumplimiento. Además, debido a que los clientes pueden acceder a sus recursos y aplicaciones desde fuera de la red corporativa, ya no es suficiente disponer de reglas y directivas en los firewalls.
 
 Use Microsoft Cloud App Discovery (una característica de Azure Active Directory Premium P1) para detectar las aplicaciones que se usan, explorar el riesgo de estas aplicaciones, configurar directivas para identificar nuevas aplicaciones de riesgo y no autorizar estas aplicaciones para bloquearlas de forma nativa mediante el proxy o dispositivo de firewall.
 
-- Detección e identificación de Shadow IT
+- Detección e identificación de shadow IT
 - Evaluación y análisis
-- Administración de aplicaciones
-- Informes de detección avanzada de Shadow IT
+- Administración de las aplicaciones
+- Creación avanzada de informes sobre detección de Shadow IT
 - Control de aplicaciones autorizadas
  
 ### <a name="learn-more"></a>Más información
@@ -43,7 +43,7 @@ Use Microsoft Cloud App Discovery (una característica de Azure Active Directory
 
 En el área de trabajo actual, a menudo no basta con saber lo que ocurre en su entorno en la nube a posteriori. Desea detener las vulneraciones y fugas en tiempo real antes de que los empleados pongan en peligro los datos y la organización de forma intencionada o accidental. Junto con Azure Active Directory (Azure AD), Microsoft Cloud App Security ofrece estas funcionalidades en una experiencia completa que se integra con Control de aplicaciones de acceso condicional. 
 
-El control de sesión usa una arquitectura de proxy inverso y se integra de forma exclusiva con el acceso condicional de Azure AD. El acceso condicional de Azure AD permite exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones. Las condiciones definen quién (usuario o grupo de usuarios), qué (aplicaciones en la nube) y dónde (ubicaciones y redes) se aplica una directiva de acceso condicional. Después de determinar las condiciones, puede enrutar a los usuarios a Cloud App Security donde puede proteger los datos en tiempo real.  
+El control de sesión usa una arquitectura de proxy inverso y se integra de forma exclusiva con el acceso condicional de Azure AD. El acceso condicional de Azure AD permite exigir controles de acceso en las aplicaciones de la organización, en función de ciertas condiciones. Las condiciones definen quién (usuario o grupo de usuarios), qué (aplicaciones en la nube) y dónde (ubicaciones y redes) se aplica una directiva de acceso condicional. Después de determinar las condiciones, puede enrutar a los usuarios a Cloud App Security donde puede proteger los datos en tiempo real.  
 
 Con este control, puede:  
 - Controlar las descargas de archivos

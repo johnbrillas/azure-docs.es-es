@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: 1619622ad9594f252c3d4cf5551704c6a788f9f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579559"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -152,7 +152,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 
     En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. El algoritmo de cifrado debe ser *TripleDES-SHA1*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
 
-    Si realiza la exportación con el [cmdlet export-pfxcertificate de PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate), deberá pasar la marca *-CryptoAlgorithmOption* con TripleDES_SHA1.
+    Si realiza la exportación con el [cmdlet export-pfxcertificate de PowerShell](/powershell/module/pkiclient/export-pfxcertificate), deberá pasar la marca *-CryptoAlgorithmOption* con TripleDES_SHA1.
 
     ![Captura de pantalla que muestra cómo cifrar la contraseña](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -235,7 +235,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de las ventanas del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
-    | Configuración                           | Valor        |
+    | Configuración                           | Value        |
     |-----------------------------------|--------------|
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |

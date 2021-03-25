@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a995a110c4f777603e5b0273b6025cd68fe55b67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645536"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102532599"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -19,7 +19,7 @@ ms.locfileid: "100645536"
 Siga estos pasos para instalar la CLI de Voz en Windows:
 
 1. En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
-1. Instale el [SDK de .NET Core 3.1](/dotnet/core/install/linux).
+1. Instale el [SDK de .NET Core 3.1](/dotnet/core/install/windows).
 2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
    ```console
@@ -52,7 +52,7 @@ Las siguientes distribuciones de Linux son compatibles con las arquitecturas x64
 
 Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 
-1. Instale [.NET Core 3.1](/dotnet/core/install/linux).
+1. Instale el [SDK de .NET Core 3.1](/dotnet/core/install/linux).
 2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -67,7 +67,7 @@ Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 Siga estos pasos para instalar la CLI de Voz en un contenedor de Docker:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Instale Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para su plataforma si aún no está instalado.
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale Docker Desktop</a> para su plataforma si aún no está instalado.
 2. En un nuevo símbolo del sistema o terminal, escriba este comando: 
    ```console   
    docker pull msftspeech/spx
@@ -118,7 +118,7 @@ Para usar el comando `spx` instalado en un contenedor, escriba siempre el comand
 Por ejemplo, en Windows, este comando establece la clave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Para una interacción extendida con la herramienta de línea de comandos, puede iniciar un contenedor con un shell de Bash interactivo mediante la adición de un parámetro EntryPoint.
@@ -171,8 +171,8 @@ Si desea empezar a usar la CLI de Voz, debe especificar la clave de la suscripci
 Una vez que tenga la clave de suscripción y el identificador de región (p. ej., `eastus`, `westus`), ejecute los comandos siguientes.
 
 ```console
-spx config --set @key SUBSCRIPTION-KEY
-spx config --set @region REGION
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 La autenticación de la suscripción se almacena ahora para futuras solicitudes de SPX. Si tiene que quitar cualquiera de estos valores almacenados, ejecute `spx config @region --clear` o `spx config @key --clear`.

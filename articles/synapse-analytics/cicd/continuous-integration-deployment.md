@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624773"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561964"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -125,6 +125,140 @@ Use la extensión [Synapse workspace deployment](https://marketplace.visualstudi
 Después de guardar todos los cambios, puede seleccionar **Create release** (Crear versión) para crear manualmente una versión. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Selección de Crear versión](media/release-creation-manually.png)
+
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Uso de parámetros personalizados de la plantilla de área de trabajo 
+
+Usa integración continua y entrega continua automatizadas y desea cambiar algunas propiedades durante la implementación, pero las propiedades no están parametrizadas de forma predeterminada. En ese caso, puede invalidar la plantilla de parámetros predeterminada.
+
+Para ello, debe crear una plantilla de parámetros personalizada, un archivo denominado **template-parameters-definition.json**, en la carpeta raíz de la rama de colaboración de Git. Debe usar ese nombre de archivo exacto. Al realizar la publicación desde la rama de colaboración, el área de trabajo de Synapse leerá este archivo y usará su configuración para generar los parámetros. Si no se encuentra ningún archivo, se usa la plantilla de parámetros predeterminada.
+
+### <a name="custom-parameter-syntax"></a>Sintaxis de los parámetros personalizados
+
+A continuación, se indican algunas directrices para crear el archivo de parámetros personalizados:
+
+* Escriba la ruta de acceso de la propiedad en el tipo de entidad correspondiente.
+* El establecimiento de un nombre de propiedad en `*` indica que quiere parametrizar todas las propiedades que incluye (solo hasta el primer nivel, no de forma recursiva). También puede proporcionar excepciones a esta configuración.
+* El establecimiento del valor de una propiedad como una cadena indica que quiere parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
+   *  `<action>` puede ser uno de estos caracteres:
+      * `=` significa que el valor actual se debe conservar como el predeterminado para el parámetro.
+      * `-` significa que no se debe conservar el valor predeterminado para el parámetro.
+      * `|` es un caso especial para los secretos de Azure Key Vault para cadenas de conexión o claves.
+   * `<name>` es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un carácter `-`, el nombre está abreviado. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se abreviará a `AzureStorage1_connectionString`.
+   * `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Valores admitidos: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` y `array`.
+* Si se ha especificado una matriz en el archivo, significa que la propiedad coincidente de la plantilla es una matriz. Synapse itera todos los objetos de la matriz y usa la definición que se ha especificado. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
+* Una definición no puede ser específica de una instancia de recurso. Cualquier definición se aplica a todos los recursos de ese tipo.
+* De forma predeterminada, todas las cadenas seguras, como los secretos de Key Vault, las cadenas de conexión, las claves y los tokens, están parametrizadas.
+
+### <a name="parameter-template-definition-samples"></a>Ejemplos de definición de una plantilla de parámetros 
+
+Este es un ejemplo del aspecto de la definición de una plantilla de parámetros:
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+     "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+    },
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Esta es una explicación de cómo se construye la plantilla anterior, desglosada por tipo de recurso.
+
+#### <a name="notebooks"></a>Cuaderno 
+
+* Cualquier propiedad de la ruta de acceso `properties/bigDataPool/referenceName` se parametriza con su valor predeterminado. Puede parametrizar el grupo de Spark asociado en todos los archivos de cuaderno. 
+
+#### <a name="sql-scripts"></a>Scripts de SQL 
+
+* Las propiedades (poolName y databaseName) de la ruta de acceso `properties/content/currentConnection` se parametrizan como cadenas sin los valores predeterminados en la plantilla. 
+
+#### <a name="pipelines"></a>Procesos
+
+* Cualquier propiedad de la ruta de acceso `activities/typeProperties/waitTimeInSeconds` está parametrizada. Cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Será una entrada obligatoria durante la implementación de Resource Manager.
+* De forma similar, una propiedad denominada `headers` (por ejemplo, en una actividad `Web`) está parametrizada con el tipo `object` (Object). Tiene un valor predeterminado, que es el mismo que el de la factoría de origen.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Todas las propiedades bajo la ruta de acceso `typeProperties` están parametrizadas con sus valores predeterminados correspondientes. Por ejemplo, hay dos propiedades en las propiedades de tipo `IntegrationRuntimes`: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
+
+#### <a name="triggers"></a>Desencadenadores
+
+* En `typeProperties`, hay dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que tiene especificado un valor predeterminado y es de tipo `string`. Tiene el nombre de parámetro predeterminado `<entityName>_properties_typeProperties_maxConcurrency`.
+* La propiedad `recurrence` también está parametrizada. En ella, se especifica que todas las propiedades de ese nivel están parametrizadas como cadenas, con valores predeterminados y los nombres de parámetro. Una excepción es la propiedad `interval`, que está parametrizada como el tipo `int`. El sufijo del nombre del parámetro es `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la propiedad `freq` es una cadena y está parametrizada como una cadena. Sin embargo, la propiedad `freq` está parametrizada sin un valor predeterminado. El nombre está abreviado y con un sufijo. Por ejemplo, `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos tienen una gran variedad de tipos, puede proporcionar una personalización específica de tipo. En este ejemplo, para todos los servicios vinculados de tipo `AzureDataLakeStore`, se aplicará una plantilla específica. Para todos los demás (a través de `*`), se aplicará otra plantilla.
+* La propiedad `connectionString` se parametrizará como un valor `securestring`. No tendrá un valor predeterminado. Tendrá un nombre de parámetro abreviado con el sufijo `connectionString`.
+* La propiedad `secretAccessKey` resulta ser `AzureKeyVaultSecret` (por ejemplo, en un servicio vinculado de Amazon S3). Se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves configurado. También puede parametrizar el propio almacén de claves.
+
+#### <a name="datasets"></a>Conjuntos de datos
+
+* Aunque la personalización específica de tipos está disponible para conjuntos de datos, puede proporcionar configuración sin necesidad de una configuración explícita de nivel \*. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
+
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 

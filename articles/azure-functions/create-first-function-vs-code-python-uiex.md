@@ -6,10 +6,10 @@ ms.date: 11/04/2020
 ms.custom: devx-track-python
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 42f07b76cefed38aad53caba9ba35c74238540fe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031742"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Inicio rápido: Creación de una función en Azure con Python mediante Visual Studio Code
@@ -173,7 +173,7 @@ En esta sección se han creado los recursos de Azure y se ha implementado el có
 
 <br/>
 <details>
-<summary><strong>¿Qué recursos se crearon?</strong></summary>
+<summary><strong>¿Qué recursos se han creado?</strong></summary>
 
 Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones: 
 * **Grupo de recursos**: un grupo de recursos es un contenedor lógico para recursos relacionados de la misma región.
@@ -212,7 +212,7 @@ Para más información sobre los costos de Functions, consulte [Estimación de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Expansión de la función mediante la incorporación de un enlace de <abbr title="Una conexión declarativa entre una función y otros recursos. Un enlace de entrada proporciona datos a la función, mientras que un enlace de salida proporciona datos de la función a otros recursos.">salida</abbr>. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
+Expansión de la función mediante la incorporación de un enlace de <abbr title="Una conexión declarativa entre una función y otros recursos. Un enlace de entrada proporciona datos a la función, mientras que un enlace de salida proporciona datos de la función a otros recursos.">binding</abbr>. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
 
 > [!div class="nextstepaction"]
 > [Conexión a una cola de Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
