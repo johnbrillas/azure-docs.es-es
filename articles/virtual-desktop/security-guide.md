@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581404"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103014900"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -117,7 +117,6 @@ Para probar esta nueva característica:
 >[!NOTE]
 >Durante la versión preliminar, solo las conexiones de escritorio completo de los puntos de conexión de Windows 10 admiten esta característica.
 
-
 ### <a name="enable-endpoint-protection"></a>Habilitación de Endpoint Protection
 
 Para proteger la implementación frente a software malintencionado conocido, se recomienda habilitar Endpoint Protection en todos los hosts de la sesión. Puede usar el Antivirus de Windows Defender o un programa de terceros. Para obtener más información, consulte la [Guía de implementación para el Antivirus de Windows Defender en un entorno de VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
@@ -169,6 +168,52 @@ Al restringir las funcionalidades del sistema operativo, puede mejorar la seguri
 - Conceder permisos limitados a los usuarios cuando accedan a sistemas de archivos locales y remotos. Puede restringir los permisos al garantizar que los sistemas de archivos locales y remotos usan listas de control de acceso con privilegios mínimos. De este modo, los usuarios solo pueden tener acceso a lo que necesitan y no pueden cambiar ni eliminar recursos críticos.
 
 - Impedir que el software no deseado se ejecute en los hosts de sesión. Puede habilitar el Bloqueo de aplicación para mayor seguridad en los hosts de sesión. Así, se asegura de que solo las aplicaciones que habilite se pueden ejecutar en el host.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Compatibilidad de Windows Virtual Desktop con el inicio seguro
+
+El inicio seguro son máquinas virtuales de Azure de Gen2 con características de seguridad mejoradas cuyo fin es proteger contra amenazas de “parte inferior de la pila” a través de vectores de ataque como rootkits, kits de arranque y malware de nivel de kernel. A continuación se muestran las características de seguridad mejoradas del inicio seguro, que se admiten en su totalidad en Windows Virtual Desktop. Para obtener más información sobre el inicio seguro, visite [Inicio seguro para máquinas virtuales de Azure (versión preliminar)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Arranque seguro
+
+El arranque seguro es un modo que admite el firmware de la plataforma y protege el firmware de kits de arranque y rootkits basados en malware. Este modo solo permite que los controladores y sistemas operativos firmados para iniciar la máquina. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Supervisión de la integridad de arranque mediante atestación remota
+
+La atestación remota es una excelente forma de comprobar el estado de las máquinas virtuales. La atestación remota comprueba que los registros de arranque medido están presentes, son auténticos y se originan desde el Módulo de plataforma segura virtual (vTPM). Como comprobación de estado, proporciona certeza criptográfica de que una plataforma se ha iniciado correctamente. 
+
+### <a name="vtpm"></a>vTPM
+
+vTPM es una versión virtualizada de un Módulo de plataforma segura (TPM) de hardware, con una instancia virtual de un TPM por máquina virtual. vTPM habilita la atestación remota llevando a cabo una medida de integridad de toda la cadena de arranque de la máquina virtual (UEFI, sistema operativo, sistema y controladores). 
+
+Se recomienda habilitar vTPM para usar la atestación remota en las máquinas virtuales. Con vTPM habilitado, también puede habilitar la funcionalidad de BitLocker, que proporciona cifrado de volumen completo para proteger los datos en reposo. Cualquier característica que use vTPM producirá secretos enlazados a la máquina virtual específica. Cuando los usuarios se conectan al servicio de Windows Virtual Desktop en un escenario agrupado, los usuarios se pueden redirigir a cualquier máquina virtual en el grupo hosts. En función de cómo esté diseñada la característica, puede repercutir de una forma determinada.
+
+>[!NOTE]
+>No se debe usar BitLocker para cifrar el disco específico donde se almacenan los datos de perfiles de FSLogix.
+
+### <a name="virtualization-based-security"></a>Seguridad basada en virtualización
+
+La seguridad basada en virtualización (VBS) utiliza el hipervisor para crear y aislar una región segura de memoria que no es accesible para el sistema operativo. La integridad de código protegido por hipervisor (HVCI) y Credential Guard de Windows Defender usan VBS para proporcionar una mayor protección frente a vulnerabilidades. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Integridad de código protegido por hipervisor
+
+HVCI es una mitigación del sistema eficaz que usa VBS para proteger los procesos del modo kernel de Windows contra la inyección y la ejecución de código malintencionado o no comprobado.
+
+#### <a name="windows-defender-credential-guard"></a>Credential Guard de Windows Defender
+
+Credential Guard de Windows Defender utiliza VBS para aislar y proteger los secretos, de modo que solo el software del sistema con privilegios pueda acceder a ellos. Esto evita el acceso no autorizado a estos secretos y ataques de robo de credenciales, como los ataques Pass-the-Hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Implementación del inicio seguro en el entorno de Windows Virtual Desktop
+
+Windows Virtual Desktop no admite actualmente la configuración automática del inicio seguro durante el proceso de instalación del grupo de hosts. Para usar el inicio seguro en el entorno de Windows Virtual Desktop, tendrá que implementar el seguro de manera habitual y, a continuación, agregar manualmente la máquina virtual al grupo de hosts que desee.
+
+## <a name="nested-virtualization"></a>Virtualización anidada
+
+Los sistemas operativos siguientes admiten la ejecución de la virtualización anidada en Windows Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Sesión múltiple de Windows 10 Enterprise.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

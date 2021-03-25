@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92541526"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
@@ -84,7 +84,7 @@ Para probar enriquecimientos de mensajes, consulte el [tutorial sobre enriquecim
 
 * Las actualizaciones de un dispositivo gemelo pueden tardar hasta cinco minutos en quedar reflejadas en el valor de enriquecimiento correspondiente.
 
-* El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](monitor-iot-hub-reference.md#metrics) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar la métrica de *mensajes de telemetría incompatibles* ( *d2c.telemetry.egress.invalid* ) en las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics). Para obtener más información, vea [Supervisión de IoT Hub](monitor-iot-hub.md).
+* El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](monitor-iot-hub-reference.md#metrics) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar la métrica de *mensajes de telemetría incompatibles* (*d2c.telemetry.egress.invalid*) en las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics). Para obtener más información, vea [Supervisión de IoT Hub](monitor-iot-hub.md).
 
 * Los mensajes enriquecidos no se aplican a los eventos de cambio de gemelo digital.
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 6961c0ffc0d5b9c6559d20b00bfb5510f7247adb
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600988"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592190"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -36,7 +36,7 @@ Si no está familiarizado con Azure SQL, consulte el vídeo *¿Qué es Azure SQL
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
 > [!TIP]
-> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://aka.ms/AzureSQLSurvey).
+> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="overview"></a>Información general
 

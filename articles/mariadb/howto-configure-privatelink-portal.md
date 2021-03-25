@@ -3,14 +3,14 @@ title: 'Private Link en Azure Database for MariaDB: Azure Portal'
 description: Aprenda a configurar una instancia de Private Link para Azure Database for MariaDB desde Azure Portal
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659631"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante el portal
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -106,7 +106,7 @@ En esta sección, creará un servidor de Azure Database for MariaDB en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles del servidor** |  |
     |Nombre de servidor  | Escriba *miServidor*. Si el nombre ya existe, cree uno único.|
@@ -140,7 +140,7 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -152,7 +152,7 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforMariaDB/servers**. |
     | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *mariadbServer*.|

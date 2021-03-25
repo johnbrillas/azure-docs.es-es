@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017991"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Una introducción a StorSimple Snapshot Manager
@@ -56,11 +56,11 @@ Las copias de seguridad de Administrador de instantáneas StorSimple adoptan la 
 ## <a name="support-for-multiple-volume-types"></a>Compatibilidad con varios tipos de volumen
 Administrador de instantáneas StorSimple se puede usar para configurar y realizar copias de seguridad de los siguientes tipos de volúmenes: 
 
-* **Volúmenes básicos** : un volumen básico es una sola partición en un disco básico. 
-* **Volúmenes simples**: un volumen simple es un volumen dinámico que contiene el espacio en disco de un único disco dinámico. Un volumen simple se compone de una única región de un disco o varias regiones vinculadas entre sí en el mismo disco. (Los volúmenes simples solo se pueden crear en discos dinámicos.) Los volúmenes simples no son tolerantes a errores.
-* **Volúmenes dinámicos** : un volumen dinámico es un volumen creado en un disco dinámico. Los discos dinámicos usan una base de datos para controlar la información acerca de los volúmenes que se encuentran en los discos dinámicos de un equipo. 
-* **Volúmenes dinámicos con creación de reflejo** : los volúmenes dinámicos con creación de reflejo se basan en la arquitectura RAID 1. Con RAID 1, se escriben datos idénticos en dos o más discos, lo que genera un conjunto reflejado. De esa forma, las solicitudes de lectura las puede administrar cualquier disco que contenga los datos solicitados.
-* **Volúmenes compartidos de clúster** : con los volúmenes compartidos de clúster (CSV), varios nodos de un clúster de conmutación por error pueden leer el mismo disco de forma simultánea o escribir en él. La conmutación por error de un nodo a otro puede producirse rápidamente, sin necesidad de un cambio en la propiedad de la unidad ni de montar, desmontar y quitar un volumen. 
+* **Volúmenes básicos**: un volumen básico es una partición individual en un disco básico. 
+* **Volúmenes simples**: un volumen simple es un volumen dinámico que contiene espacio en disco de un disco dinámico individual. Un volumen simple se compone de una única región de un disco o varias regiones vinculadas entre sí en el mismo disco. (Los volúmenes simples solo se pueden crear en discos dinámicos.) Los volúmenes simples no son tolerantes a errores.
+* **Volúmenes dinámicos**: un volumen dinámico es un volumen creado en un disco dinámico. Los discos dinámicos usan una base de datos para controlar la información acerca de los volúmenes que se encuentran en los discos dinámicos de un equipo. 
+* **Volúmenes dinámicos con reflejo**: los volúmenes dinámicos con reflejo se crean en arquitecturas RAID 1. Con RAID 1, se escriben datos idénticos en dos o más discos, lo que genera un conjunto reflejado. De esa forma, las solicitudes de lectura las puede administrar cualquier disco que contenga los datos solicitados.
+* **Volúmenes compartidos de clúster**: en los volúmenes compartidos de clúster (CSV), varios nodos de un clúster de conmutación por error pueden leer o escribir simultáneamente en el mismo disco. La conmutación por error de un nodo a otro puede producirse rápidamente, sin necesidad de un cambio en la propiedad de la unidad ni de montar, desmontar y quitar un volumen. 
 
 > [!IMPORTANT]
 > No mezcle CSV y no CSV en la misma instantánea. No se admite la mezcla de CSV y no CSV en una instantánea. 
@@ -113,7 +113,7 @@ Con Administrador de instantáneas StorSimple puede realizar copias de seguridad
 Puede usar Administrador de instantáneas StorSimple para crear los siguientes tipos de copias de seguridad:
 
 * **Instantáneas locales** : las instantáneas locales son copias de los datos de un volumen que se realizan en un momento dado y que se almacenan en el dispositivo StorSimple. Normalmente, este tipo de copia de seguridad se puede crear y restaurar rápidamente. Puede usar una instantánea local como lo haría con una copia de seguridad local.
-* **Instantáneas en la nube** : las instantáneas en la nube son copias de los datos de un volumen que se realizan en un momento dado y que se almacenan en la nube. Una instantánea de nube es equivalente a una instantánea replicada en un sistema de almacenamiento externo. Las instantáneas en la nube son especialmente útiles en escenarios de recuperación ante desastres.
+* **Instantáneas en la nube**: una instantánea en la nube es una copia de los datos existentes en un volumen en un instante dado almacenada en la nube. Una instantánea de nube es equivalente a una instantánea replicada en un sistema de almacenamiento externo. Las instantáneas en la nube son especialmente útiles en escenarios de recuperación ante desastres.
 
 ### <a name="on-demand-and-scheduled-backups"></a>Copias de seguridad a petición y programadas
 Con Administrador de instantáneas StorSimple, puede iniciar una copia de seguridad única que se creará de inmediato, o bien puede usar una directiva de copia de seguridad para programar operaciones de copia de seguridad periódicas.
@@ -124,11 +124,11 @@ Puede usar Administrador de instantáneas StorSimple para configurar o volver a 
 
 Configure la siguiente información en cada directiva de copia de seguridad que cree:
 
-* **Nombre** : es el nombre único de la directiva de copia de seguridad seleccionada.
-* **Tipo** : es el tipo de directiva de copia de seguridad; bien instantánea local, o bien instantánea en la nube.
-* **Grupo de volúmenes** : es el grupo de volúmenes al que se asigna la directiva de copia de seguridad seleccionada.
-* **Retención** : es el número de copias de seguridad que se conservan. Si activa el cuadro **Todas** , todas las copias de seguridad se conservan hasta que se alcance el número máximo de copias de seguridad por volumen; en ese momento, se producirá un error en la directiva y se generará un mensaje de error. También puede especificar el número de copias de seguridad que se conservarán (entre 1 y 64).
-* **Fecha** : es la fecha en la que se creó la directiva de copia de seguridad.
+* **Nombre**: el nombre único de la directiva de copia de seguridad seleccionada.
+* **Tipo**: el tipo de directiva de copia de seguridad, que puede ser una instantánea local o en la nube.
+* **Grupo de volúmenes**: el grupo de volúmenes al que se asignará la directiva de copia de seguridad seleccionada.
+* **Retención**: el número de copias de seguridad que se conservarán. Si activa la casilla **Todas**, todas las copias de seguridad se conservarán hasta que se alcance el número máximo de copias de seguridad por volumen, momento en el que no se podrá ejecutar la directiva y se generará un mensaje de error. También puede especificar el número de copias de seguridad que se conservarán (entre 1 y 64).
+* **Fecha**: la fecha en que se creó esta directiva de copia de seguridad.
 
 Para obtener información acerca de la configuración de directivas de copia de seguridad, vaya a [Uso del Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 

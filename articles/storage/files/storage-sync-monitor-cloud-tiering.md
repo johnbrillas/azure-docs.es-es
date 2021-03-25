@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93e9d9a552ab1bff16ca15d6bb11faeb5d47a503
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c27916afb0d199bcb32db9d43202e552a4a04f53
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204254"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593142"
 ---
 # <a name="monitor-cloud-tiering"></a>Supervisión de la nube por niveles
 Existen dos maneras de supervisar la directiva de la nube por niveles: la hoja propiedades del punto de conexión de servidor y Azure Monitor.
@@ -55,7 +55,7 @@ Para ser más específico sobre lo que quiere que muestren los grafos, considere
  
 Para más información sobre los distintos tipos de métricas de Azure File Sync y cómo usarlos, consulte [Supervisión de Azure File Sync](storage-sync-files-monitoring.md).
 
-Para más información sobre el uso de métricas, consulte [Introducción al Explorador de métricas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+Para más información sobre el uso de métricas, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Si quiere cambiar la directiva de la nube por niveles, consulte [Elección de las directivas de nube por niveles](storage-sync-choose-cloud-tiering-policies.md).
 

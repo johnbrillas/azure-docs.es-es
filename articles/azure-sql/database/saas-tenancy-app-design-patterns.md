@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793235"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
@@ -62,7 +62,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
 
 - **Capacidad de personalización:** &nbsp; facilidad para admitir las personalizaciones del esquema que son específicas del inquilino o específicas de la clase de inquilino.
 
-El análisis de inquilinos se centra en la capa de *datos* .  Pero tenga en cuenta durante un momento la capa de *aplicación* .  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
+El análisis de inquilinos se centra en la capa de *datos*.  Pero tenga en cuenta durante un momento la capa de *aplicación*.  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicación de inquilino único independiente con base de datos de un solo inquilino
 

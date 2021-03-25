@@ -9,10 +9,10 @@ ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 8bdfceff562ae2501a9d95774f7134669e929b7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379410"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Storage Gen1 mediante Data Factory
@@ -92,7 +92,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | **servicePrincipalKey** | Especifique la clave de la aplicación. | Sí |
 | **tenant** | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 
-**Ejemplo: Autenticación de entidad de servicio**
+**Ejemplo: autenticación de la entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -124,7 +124,7 @@ También puede usar la autenticación de credenciales de usuario para copiar hac
 >- **Para usar Data Lake Store como receptor**, garantice al menos el permiso de acceso a datos de **escritura y ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para autorizar la copia (tanto el origen como el receptor están en la nube), para permitir a Data Factory detectar la región de Data Lake Storage, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si desea evitar este rol IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) con la ubicación de Data Lake Store en la actividad de copia.
 >- Si utiliza el **Asistente de copia para crear canalizaciones**, conceda al menos el rol de **lector** en el control de acceso a cuentas (IAM). Además, conceda al menos el permiso de **lectura y ejecución** para la raíz de Data Lake Store ("/") y sus elementos secundarios. De lo contrario, puede que aparezca el mensaje "Las credenciales proporcionadas no son válidas".
 
-**Ejemplo: Autenticación de credenciales de usuario**
+**Ejemplo: autenticación de credenciales de usuario**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -144,7 +144,7 @@ También puede usar la autenticación de credenciales de usuario para copiar hac
 #### <a name="token-expiration"></a>Expiración del token
 El código de autorización que se genera con el botón **Autorizar** expira transcurrido un período de tiempo determinado. El siguiente mensaje significa que expiró el token de autenticación:
 
-Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Identificador de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Identificador de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21-09-31Z.
+Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z.
 
 En la tabla siguiente se muestran los tiempos de expiración de los distintos tipos de cuentas de usuario:
 
@@ -186,18 +186,18 @@ Para más información sobre las clases de Data Factory que se usan en el códig
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
-**Síntoma**: cuando se copian datos **en** Azure Data Lake Store, la actividad de copia produce el siguiente error:
+**Síntoma:** cuando se copian datos **en** Azure Data Lake Store, la actividad de copia produce el siguiente error:
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**Causa principal:** existen 2 razones posibles.
+**Causa principal:** existen 2 razones posibles, que se indican a continuación.
 
 1. El elemento `resourceGroupName` o `subscriptionId` especificado en el servicio vinculado de Azure Data Lake Store no es correcto.
 2. El usuario o la entidad de servicio no tienen el permiso necesario.
 
-**Resolución:**
+**Solución:**
 
 1. Asegúrese de que los elementos `subscriptionId` y `resourceGroupName` que se especifican en el servicio vinculado `typeProperties` son los que pertenecen a su cuenta de Data Lake.
 
@@ -237,7 +237,7 @@ La sección **typeProperties** de un conjunto de datos de tipo **AzureDataLakeSt
 | **folderPath** |Ruta de acceso al contenedor y la carpeta de Data Lake Store. |Sí |
 | **fileName** |Nombre del archivo en Azure Data Lake Store. La propiedad **fileName** es opcional y distingue mayúsculas de minúsculas. <br/><br/>Si especifica **fileName**, la actividad (incluida la copia) funciona en el archivo específico.<br/><br/>Cuando no se especifica **fileName**, la copia incluye todos los archivos de **folderPath** en el conjunto de datos de entrada.<br/><br/>Cuando **fileName** no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se especifica en el receptor de la actividad, el nombre del archivo generado está en el formato `Data._Guid_.txt`. Por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |
 | **partitionedBy** |La propiedad **partitionedBy** es opcional. Puede usarla para especificar una ruta de acceso dinámica y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar **folderPath** por cada hora de datos. Para más información y ejemplos, consulte La propiedad partitionedBy. |No |
-| **format** | Se admiten los tipos de formato siguientes: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) del artículo [Formatos de compresión de archivos admitidos por Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección `format` en las definiciones de los conjuntos de datos de entrada y salida. |No |
+| **format** | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) del artículo [Formatos de compresión de archivos admitidos por Azure Data Factory](data-factory-supported-file-and-compression-formats.md). <br><br> Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección `format` en las definiciones de los conjuntos de datos de entrada y salida. |No |
 | **compression** | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [Formatos de compresión de archivos admitidos por Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### <a name="the-partitionedby-property"></a>La propiedad partitionedBy

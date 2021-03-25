@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537215"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Creación o modificación de un emparejamiento directo mediante Azure Portal
@@ -81,4 +81,4 @@ Como proveedor de servicios de Internet o proveedor de intercambio de Internet, 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Para más información, consulte las [preguntas frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

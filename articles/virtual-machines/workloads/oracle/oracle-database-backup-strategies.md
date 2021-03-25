@@ -10,10 +10,10 @@ ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
 ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101673219"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Estrategias de copia de seguridad de Oracle Database en máquinas virtuales Linux de Azure
@@ -111,7 +111,7 @@ En la versión preliminar de Azure Files NFS v4.1 también está restringida a l
 - Oeste de EE. UU. 2
 - Oeste de Europa
 - Sudeste de Asia
-- Sur de Reino Unido 2
+- Sur de Reino Unido
 - Este de Australia
 
 #### <a name="azure-files-smb-30"></a>Azure Files SMB 3.0

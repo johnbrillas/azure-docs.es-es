@@ -1,19 +1,14 @@
 ---
 title: Acerca de la integración con Splunk
-titleSuffix: Azure Defender for IoT
 description: Con el fin de solucionar la falta de visibilidad sobre la seguridad y la resistencia de las redes de tecnología operativa (TO), Defender para IoT desarrolló la aplicación de supervisión de amenazas de Defender para IoT, IIoT e ICS para Splunk, una integración nativa entre Defender para IoT y Splunk que permite un enfoque unificado sobre la seguridad de TI y TO.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556988"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785927"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Aplicación de supervisión de amenazas de Defender para IoT e ICS para Splunk
 
@@ -158,7 +153,7 @@ Para crear una regla de reenvío:
     | **Select Severity** (Seleccionar gravedad) | El incidente de nivel de seguridad mínimo que se va a reenviar. Por ejemplo, si selecciona Minor (Leve), se reenviarán las alertas de gravedad leve y todas las alertas por encima de este nivel de gravedad. |
     | **Protocolos** | De forma predeterminada, se seleccionan todos los protocolos. Para seleccionar un protocolo concreto, elija **Específico** y seleccione el protocolo al que se aplica esta regla. |
     | **Engines** (Motores) | De forma predeterminada, intervienen todos los motores de seguridad. Para seleccionar un motor de seguridad concreto al que se aplica esta regla, seleccione **Específico** y elija el motor. |
-    | **Notificaciones del sistema** | Estado en línea o sin conexión del sensor de reenvío. Esta opción solo está disponible si ha iniciado sesión en el administrador central. |                                            |
+    | **Notificaciones del sistema** | Estado en línea o sin conexión del sensor de reenvío. Esta opción solo está disponible si ha iniciado sesión en el administrador central. |
 
 1. Para indicar a Defender para IoT que envíe información de recursos a Splunk, seleccione **Acción** y, luego, elija **Send to Splunk Server** (Enviar al servidor de Splunk).
 

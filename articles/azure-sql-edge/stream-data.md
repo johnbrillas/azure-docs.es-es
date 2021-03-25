@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392119"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Streaming de datos en Azure SQL Edge
@@ -35,15 +35,15 @@ El streaming de T-SQL funciona exactamente de la misma manera que [Azure Stream 
 
 Un trabajo de Stream Analytics consta de lo siguiente:
 
-- **Entrada de flujo** : define las conexiones a un origen de datos del que se va a leer el flujo de datos. Actualmente Azure SQL Edge admite los siguientes tipos de entradas de flujo:
+- **Entrada de flujo**: define las conexiones a un origen de datos del que se va a leer el flujo de datos. Actualmente Azure SQL Edge admite los siguientes tipos de entradas de flujo:
     - Centro de Microsoft Edge
     - Kafka (la compatibilidad con las entradas de Kafka solo está disponible actualmente en las versiones Intel/AMD64 de Azure SQL Edge).
 
-- **Salida de flujo** : define las conexiones a un origen de datos en el que se va a escribir el flujo de datos. Azure SQL Edge actualmente admite los siguientes tipos de salidas de flujo:
+- **Salida de flujo**: define las conexiones a un origen de datos en el que se va a escribir el flujo de datos. Azure SQL Edge actualmente admite los siguientes tipos de salidas de flujo:
     - Centro de Microsoft Edge
     - SQL (la salida de SQL puede ser una base de datos local dentro de la instancia de Azure SQL Edge, o una instancia remota de SQL Server o Azure SQL Database). 
 
-- **Consulta de flujo** : define la transformación, las agregaciones, el filtro, la ordenación y las combinaciones que se deben aplicar al flujo de entrada antes de que se escriba en la salida de flujo. La consulta de flujo se basa en el mismo lenguaje de consulta que el utilizado por Stream Analytics. Para más información, consulte [Lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
+- **Consulta de flujo**: define la transformación, las agregaciones, el filtro, la ordenación y las combinaciones que se deben aplicar al flujo de entrada antes de que se escriba en la salida de flujo. La consulta de flujo se basa en el mismo lenguaje de consulta que el utilizado por Stream Analytics. Para más información, consulte [Lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
 > El streaming de T-SQL, a diferencia de Stream Analytics, no admite actualmente el [uso de datos de referencia para búsquedas](../stream-analytics/stream-analytics-use-reference-data.md) ni el [uso de UDF y UDA en un trabajo de streaming](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).

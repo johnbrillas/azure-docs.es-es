@@ -1,25 +1,20 @@
 ---
 title: Acerca de la integración con Forescout
-titleSuffix: Azure Defender for IoT
 description: La integración de Azure Defender para IoT con la plataforma Forescout proporciona un nuevo nivel de visibilidad, supervisión y control centralizados para el entorno de IoT y TO.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 07e5187970d193502b95b49c5517a8e3824767be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557008"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784074"
 ---
 # <a name="about-the-forescout-integration"></a>Acerca de la integración con Forescout
 
 Azure Defender para IoT ofrece una plataforma de ciberseguridad para ICS e IoT creada por expertos del equipo azul con una gran trayectoria en defensa de la infraestructura nacional crítica. Defender para IoT es la única plataforma con tecnología patentada de análisis de amenazas y aprendizaje automático compatible con ICS. Azure Defender para IoT ofrece:
 
-- Conclusiones inmediatas sobre el entorno de los dispositivos ICS con una amplia variedad de detalles sobre los atributos.
+- Información inmediata sobre el panorama de los dispositivos ICS con una amplia variedad de detalles sobre los atributos.
 - Conocimiento integrado profundo compatible con ICS de los protocolos, dispositivos y aplicaciones TO y sus comportamientos.
 - Conclusiones inmediatas sobre vulnerabilidades y amenazas conocidas y de día cero.
 - Tecnología de modelado automatizado de amenazas de ICS para predecir las rutas más probables de los ataques de ICS dirigidos mediante análisis de propiedad.

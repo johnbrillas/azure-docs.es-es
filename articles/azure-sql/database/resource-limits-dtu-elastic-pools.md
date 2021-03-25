@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780819"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
@@ -89,7 +89,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 
 | eDTU por grupo | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Almacenamiento incluido por grupo (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3000 |
+| Almacenamiento incluido por grupo (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2.500 | 3000 |
 | Almacenamiento máximo por grupo (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
 | Almacenamiento máximo de OLTP en memoria por grupo (GB) | N/D | N/D | N/D | N/D | N/D |
 | Número máximo de bases de datos por grupo <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |

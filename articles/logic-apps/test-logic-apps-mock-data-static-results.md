@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027710"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Probar aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos
@@ -78,7 +78,7 @@ Si la aplicación lógica tiene una ejecución anterior con salidas que se puede
 
 1. En el menú principal de la aplicación lógica, seleccione **Introducción**.
 
-1. En la sección **Historial de ejecuciones** , seleccione la ejecución de aplicación lógica que quiera.
+1. En la sección **Historial de ejecuciones**, seleccione la ejecución de aplicación lógica que quiera.
 
 1. En el flujo de trabajo de la aplicación lógica, busque y expanda la acción que tiene los resultados que quiera.
 
@@ -88,7 +88,7 @@ Si la aplicación lógica tiene una ejecución anterior con salidas que se puede
 
 1. Realice el procedimiento para abrir el cuadro **Resultado estático** de la acción descrito en la sección [Configurar resultados estáticos](#set-up-static-results).
 
-1. Cuando se abra el cuadro **Resultado estático** , elija uno de estos dos pasos:
+1. Cuando se abra el cuadro **Resultado estático**, elija uno de estos dos pasos:
 
    * Para pegar un objeto JSON completo, elija **Cambiar al modo JSON** (![Selección de "Cambiar al modo JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
 
@@ -112,9 +112,9 @@ En el historial de ejecuciones de la aplicación lógica se identifican las ejec
 
 1. En el menú principal de la aplicación lógica, seleccione **Introducción**. 
 
-1. En el panel derecho, bajo **Historial de ejecuciones** , busque la columna **Resultados estáticos**. 
+1. En el panel derecho, bajo **Historial de ejecuciones**, busque la columna **Resultados estáticos**. 
 
-   Las ejecuciones que incluyan acciones con resultados tienen la columna **Resultados estáticos** establecida en **Habilitado** , por ejemplo:
+   Las ejecuciones que incluyan acciones con resultados tienen la columna **Resultados estáticos** establecida en **Habilitado**, por ejemplo:
 
    ![Historial de ejecuciones: columna Resultados estáticos](./media/test-logic-apps-mock-data-static-results/run-history.png)
 

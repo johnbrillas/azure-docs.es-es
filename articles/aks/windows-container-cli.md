@@ -4,12 +4,12 @@ description: Aprenda a crear rápidamente un clúster de Kubernetes y a implemen
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 4d429b7136158723fa6110975326217c5540bc2e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181013"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200903"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -70,31 +70,34 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
 
 * El clúster se configura con dos nodos.
-* Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de los contenedores de Windows Server creados en el clúster y deben satisfacer los [requisitos de contraseña de Windows Server][windows-server-password].
+* Los parámetros `--windows-admin-password` y `--windows-admin-username` establecen las credenciales de administrador de los contenedores de Windows Server creados en el clúster y deben satisfacer los [requisitos de contraseña de Windows Server][windows-server-password]. Si no especifica el parámetro *windows-admin-password*, se le pedirá que proporcione un valor.
 * El grupo de nodos usa `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > Para asegurarse de que el clúster funcione de forma confiable, debe ejecutar al menos 2 (dos) nodos del grupo de nodos predeterminado.
 
-Proporcione su *PASSWORD_WIN* seguro propio (recuerde que los comandos de este artículo se han agregado a un shell de BASH):
+Cree un nombre de usuario para usarlo como credenciales de administrador para los contenedores de Windows Server en el clúster. Los comandos siguientes le solicitan un nombre de usuario y lo establecen en WINDOWS_USERNAME para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
 
+Cree el clúster y asegúrese de especificar el parámetro `--windows-admin-username`. El siguiente comando de ejemplo crea un clúster con el valor de *WINDOWS_USERNAME* establecido en el comando anterior. También, puede proporcionar un nombre de usuario diferente directamente en el parámetro, en lugar de usar *WINDOWS_USERNAME*. El siguiente comando también le pedirá que cree una contraseña para las credenciales de administrador para los contenedores de Windows Server en el clúster. Como alternativa, puede usar el parámetro *windows-admin-password* y especificar aquí su propio valor.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
 > [!NOTE]
-> Si recibe un error de validación de contraseña, compruebe que el parámetro *windows-admin-password* cumpla los [requisitos de contraseña de Windows Server][windows-server-password]. Si la contraseña cumple los requisitos, pruebe a crear el grupo de recursos en otra región. A continuación, intente crear el clúster con el nuevo grupo de recursos.
+> Si recibe un error de validación de contraseña, compruebe que el parámetro establecido cumple los [requisitos de contraseña de Windows Server][windows-server-password]. Si la contraseña cumple los requisitos, pruebe a crear el grupo de recursos en otra región. A continuación, intente crear el clúster con el nuevo grupo de recursos.
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos.
 

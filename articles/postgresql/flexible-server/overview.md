@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/03/2021
-ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/17/2021
+ms.openlocfilehash: 8e5c204709f0eadb6c1a4b6f479d4833f335b264
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439568"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594893"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL con la opción Servidor flexible
 
@@ -101,6 +101,8 @@ Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance glob
 | Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: | 
 | Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Japón Oriental | :heavy_check_mark: | :heavy_check_mark: | 
+| Este de Australia | :heavy_check_mark: | :heavy_check_mark: | 
+| Centro de Canadá | :heavy_check_mark: | :heavy_check_mark: | 
 
 Seguimos agregando regiones al servidor flexible.
 

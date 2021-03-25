@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 5a583d74ae0bf421a7a863a65442d250489a2f8f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366288"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775398"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receta: Mantenimiento predictivo con Cognitive Services para macrodatos
 
@@ -60,7 +60,7 @@ assert (location is not None)
 A continuación, vamos a leer el archivo IoTSignals en un DataFrame. Abra un nuevo cuaderno en el área de trabajo de Synapse y cree un elemento DataFrame desde el archivo.
 
 ```python
-df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
+df_signals = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
 ### <a name="run-anomaly-detection-using-cognitive-services-on-spark"></a>Ejecución de la detección de anomalías mediante Cognitive Services en Spark

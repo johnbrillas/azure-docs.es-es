@@ -255,8 +255,8 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Herramientas y proyectos de ejemplo
       items:
-        - name: Servicio de simulador de dispositivos
-          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Colección de Postman de Azure Digital Twins
+          href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Ejemplos de Azure Digital Twins de un extremo a otro
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Explorador de Azure Digital Twins (ejemplo)
@@ -275,6 +275,8 @@
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
         - name: Swaggers personalizados para el conector de Logic Apps
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+        - name: Servicio de simulador de dispositivos
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
     - name: DTDL
       items:
         - name: "Extensión DTDL para VS\_Code"

@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380073"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Azure Data Factory
@@ -48,7 +48,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de un origen de OData, consulte la sección [Ejemplo JSON: Copia de datos de un origen de OData a un blob de Azure](#json-example-copy-data-from-odata-source-to-azure-blob) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener un ejemplo con definiciones de JSON para entidades de Data Factory utilizadas con el fin de copiar los datos desde un origen OData, consulte la sección [Ejemplo de JSON: Copia de datos de un origen OData a un blob de Azure](#json-example-copy-data-from-odata-source-to-azure-blob) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de los orígenes OData:
 
@@ -57,7 +57,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| type |La propiedad type debe establecerse en: **OData** |Sí |
+| type |La propiedad type debe establecerse en **OData** |Sí |
 | url |Dirección URL del servicio de OData. |Sí |
 | authenticationType |Tipo de autenticación que se usa para conectarse al origen de OData. <br/><br/> Para OData en la nube, los valores posibles son Anonymous, Basic y OAuth (tenga en cuenta que Azure Data Factory en estos momentos solo admite la autenticación OAuth basada en Azure Active Directory). <br/><br/> Para OData local, los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
@@ -184,7 +184,7 @@ Al mover datos desde OData, se usan las asignaciones siguientes de tipos de ODat
 > [!Note]
 > Los tipos de datos complejos de OData, como por ejemplo, Object no se admiten.
 
-## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Ejemplo JSON: Copia de datos de un origen de OData a un blob de Azure
+## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de un origen OData a un blob de Azure
 En este ejemplo se proporcionan definiciones de JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos de un origen de OData en Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory. El ejemplo consta de las siguientes entidades de Data Factory:
 
 1. Un servicio vinculado de tipo [OData](#linked-service-properties).
@@ -368,7 +368,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
-La especificación de **query** en la definición de la canalización es opcional. La **Dirección URL** que el servicio Data Factory usa para recuperar los datos es: dirección URL especificada en el servicio vinculado (obligatorio) + ruta de acceso especificada en el conjunto de datos (opcional) + consulta en la canalización (opcional).
+La especificación de **query** en la definición de la canalización es opcional. Dirección **URL** que el servicio Data Factory usa para recuperar los datos: dirección URL especificada en el servicio vinculado (obligatorio) + ruta de acceso especificada en el conjunto de datos (opcional) + consulta en la canalización (opcional).
 
 ### <a name="type-mapping-for-odata"></a>Asignación de tipos para OData
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:

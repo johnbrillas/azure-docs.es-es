@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: understand-apache-spark-for-usql-developers
 ms.date: 10/15/2019
 ms.openlocfilehash: a66a82a6d2a5bb1f534ed211091793b2ab4d2a28
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221101"
 ---
 # <a name="understand-apache-spark-for-u-sql-developers"></a>Descripción de Apache Spark para desarrolladores de U-SQL
@@ -42,7 +42,7 @@ Incluye una serie de pasos que puede realizar y varias alternativas.
 - [Descripción de los formatos de datos de Spark para desarrolladores de U-SQL](understand-spark-data-formats.md)
 - [Descripción de los conceptos de código de Spark para desarrolladores de U-SQL](understand-spark-code-concepts.md)
 - [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
-- [.NET para Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [.NET para Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

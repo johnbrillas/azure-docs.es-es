@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915954"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Uso de una identidad administrada de Azure en ACR Tasks 
@@ -42,13 +42,13 @@ Puede habilitar uno de los dos tipos de identidad, o ambos, en una tarea de ACR.
 
 Siga estos pasos de alto nivel para usar una identidad administrada con una tarea de ACR.
 
-### <a name="1-optional-create-a-user-assigned-identity"></a>1. (Opcional) Creación de una identidad asignada por el usuario
+### <a name="1-optional-create-a-user-assigned-identity"></a>(Opcional) Creación de una identidad asignada por el usuario
 
 Si tiene previsto usar una identidad asignada por el usuario, use una identidad existente o créela mediante la CLI de Azure u otras herramientas de Azure. Por ejemplo, use el comando [az identity create][az-identity-create]. 
 
 Si planea usar solo una identidad asignada por el sistema, omita este paso. Al crear la tarea de ACR, puede crear también una identidad asignada por el sistema.
 
-### <a name="2-enable-identity-on-an-acr-task"></a>2. Habilitación de la identidad en una tarea de ACR
+### <a name="2-enable-identity-on-an-acr-task"></a>Habilitación de la identidad en una tarea de ACR
 
 Al crear una tarea de ACR, tiene la opción de habilitar una identidad asignada por el usuario o una identidad asignada por el sistema, o ambas. Por ejemplo, pase el parámetro `--assign-identity` al ejecutar el comando [az acr task create][az-acr-task-create] en la CLI de Azure.
 
@@ -64,7 +64,7 @@ az acr task create \
     --assign-identity
 ```
 
-Para habilitar una identidad asignada por el usuario, pase `--assign-identity` con un valor del *Id. de recurso*  de la identidad. El siguiente comando de ejemplo crea una tarea de Linux desde un repositorio de GitHub público que compila la imagen `hello-world` y habilita una identidad administrada asignada por el usuario:
+Para habilitar una identidad asignada por el usuario, pase `--assign-identity` con un valor del *Id. de recurso* de la identidad. El siguiente comando de ejemplo crea una tarea de Linux desde un repositorio de GitHub público que compila la imagen `hello-world` y habilita una identidad administrada asignada por el usuario:
 
 ```azurecli
 az acr task create \
@@ -82,7 +82,7 @@ Para obtener el Id. de recurso de la identidad, ejecute el comando [az Identity 
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
 ```
 
-### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Concesión de los permisos de identidad para acceder a otros recursos de Azure
+### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>Concesión de los permisos de identidad para acceder a otros recursos de Azure
 
 En función de los requisitos de la tarea, conceda los permisos de identidad necesarios para acceder a otros recursos de Azure. Algunos ejemplos son:
 
@@ -105,7 +105,7 @@ az role assignment create \
 
 Si la tarea necesita credenciales para extraer imágenes de otro registro personalizado o para insertarlas, o para acceder a otros recursos, agregue credenciales a la tarea. Ejecute el comando [az acr task credential add][az-acr-task-credential-add] para agregar credenciales y pase el parámetro `--use-identity` para indicar que la identidad puede acceder a ellas. 
 
-Por ejemplo, para agregar credenciales para que una identidad asignada por el sistema se autentique en el registro de contenedor de Azure *targetregistry* , pase `use-identity [system]`:
+Por ejemplo, para agregar credenciales para que una identidad asignada por el sistema se autentique en el registro de contenedor de Azure *targetregistry*, pase `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \
