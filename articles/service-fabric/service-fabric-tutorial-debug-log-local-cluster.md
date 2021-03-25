@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531997"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depuración de una aplicación de Java implementada en un clúster local de Service Fabric
@@ -30,7 +30,7 @@ En la segunda parte de la serie, se aprende a:
 > * Redirigir los registros a una ubicación configurable
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. En la ventana Import Projects (Importar proyectos), elija la opción **Select root directory** (Seleccionar directorio raíz) y seleccione el directorio **Voting**. Si ha seguido la parte uno de la serie de tutoriales, el directorio **Voting** se encuentra en el directorio **Eclipse-workspace**.
 
-4. Actualice el archivo entryPoint.sh del servicio que desea depurar para que comience el proceso de Java con parámetros de depuración remota. En este tutorial, se usa el front-end sin estado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. En este ejemplo, el puerto 8001 está establecido para depuración.
+4. Actualice el archivo entryPoint.sh del servicio que desea depurar para que comience el proceso de Java con parámetros de depuración remota. En este tutorial se usa el servidor front-end sin estado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. En este ejemplo, el puerto 8001 está establecido para depuración.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. Actualice el manifiesto de aplicación y establezca en 1 el recuento de instancias o el recuento de réplicas del servicio que se está depurando. Esta configuración evita conflictos en el puerto que se usa para depuración. Por ejemplo, para servicios sin estado, establezca ``InstanceCount="1"`` y, para los servicios con estado, establezca los tamaños del conjunto de réplicas mínimo y de destino en 1 de la manera siguiente: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
-6. En el IDE de Eclipse, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)** , presione el botón **New** (Nuevo), establezca las propiedades de la manera siguiente y haga clic en **Apply** (Aplicar).
+6. En el IDE de Eclipse, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)**, presione el botón **New** (Nuevo), establezca las propiedades de la manera siguiente y haga clic en **Apply** (Aplicar).
 
     ```
     Name: Voting
@@ -78,7 +78,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 9. En la ventana **Publish Application** (Publicar aplicación), seleccione **Local.json** en la lista desplegable y haga clic en **Publish** (Publicar).
 
-10. En el IDE de Eclipse IDE, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)** , haga clic en la configuración de **Voting** que ha creado y haga clic en **Debug** (Depurar).
+10. En el IDE de Eclipse IDE, seleccione **Run (Ejecutar) -> Debug Configurations (Configuraciones de depuración) -> Remote Java Application (Aplicación de Java remota)**, haga clic en la configuración de **Voting** que ha creado y haga clic en **Debug** (Depurar).
 
 11. Vaya a su explorador web y acceda a **localhost: 8080**. Alcanzará automáticamente el punto de interrupción y Eclipse escribirá la **perspectiva de depuración**.
 

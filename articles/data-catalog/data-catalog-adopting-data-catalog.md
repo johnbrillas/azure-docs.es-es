@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfaa59f1800da084d611f6e050a59da63a7f195
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72801886"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674757"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Este artículo le ayudará a empezar a adoptar **Azure Data Catalog** en su organización. Para adoptar correctamente **Azure Data Catalog**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto.
 
@@ -151,7 +153,7 @@ Reúnase con el equipo con regularidad para revisar algunas de las anotaciones. 
 
 Y la prueba final del proyecto es si los usuarios pueden detectar y comprender los orígenes de datos que necesitan usar. Los usuarios del proyecto piloto deben probar con regularidad el catálogo para asegurarse de que los orígenes de datos que usan para su trabajo diario son relevantes. Cuando un origen de datos requerido falta o no está anotado correctamente, debería servir como recordatorio para registrar orígenes de datos adicionales o para proporcionar anotaciones adicionales. Esta práctica no solo agrega valor a la iniciativa del proyecto piloto, sino que crea hábitos eficaces que se transmitirán a otros equipos una vez que se complete el proyecto piloto.
 
-### <a name="provide-training"></a>Formación
+### <a name="provide-training"></a>Aprendizaje
 
 El entrenamiento debe ser suficiente para que los usuarios empiecen a trabajar y estar adaptado a los objetivos específicos y el nivel de experiencia de los miembros del equipo piloto. Para empezar con la formación, puede seguir los pasos del artículo [Introducción a Azure Data Catalog](data-catalog-get-started.md) . Además, puede descargar la [presentación sobre la formación del proyecto piloto de Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Esta presentación en PowerPoint le ayudará a presentar Data Catalog a los miembros del equipo piloto.
 
@@ -165,4 +167,4 @@ Este artículo versa sobre cómo empezar con el **Azure Data Catalog** en su org
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)
+[Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)

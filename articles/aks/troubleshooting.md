@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 5a0e907ef27f125a9903b3d9e6079e3c8a288a97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714534"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952038"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -197,7 +197,7 @@ Cuando un clúster de Kubernetes en Azure (AKS o no) escala o reduce verticalmen
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-Estos errores de limitación se describen detalladamente [aquí](../azure-resource-manager/management/request-limits-and-throttling.md) y [aquí](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Estos errores de limitación se describen detalladamente [aquí](../azure-resource-manager/management/request-limits-and-throttling.md) y [aquí](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 El equipo de ingeniería de AKS recomienda que se asegure de estar ejecutando al menos la versión 1.18.x, que incluye muchas mejoras. Puede encontrar más detalles sobre estas mejoras [aquí](https://github.com/Azure/AKS/issues/1413) y [aquí](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 
@@ -253,7 +253,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 9747abb5b614c5a59b56159399c3386a831b3337
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-proprofs-knowledge-base"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ProProfs Knowledge Base
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar ProProfs Knowledge Base con Azure Active
 * Permitir que los usuarios inicien sesión automáticamente en ProProfs Knowledge Base con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

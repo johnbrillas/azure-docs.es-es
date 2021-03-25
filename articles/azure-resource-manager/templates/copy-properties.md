@@ -3,12 +3,12 @@ title: Definición de varias instancias de una propiedad
 description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1bee4fb672fc0794d5372a4af60b1270105f1755
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521668"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889015"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
@@ -25,7 +25,7 @@ El elemento copy tiene el siguiente formato general:
 ```json
 "copy": [
   {
-    "name": "<name-of-loop>",
+    "name": "<name-of-property>",
     "count": <number-of-iterations>,
     "input": <values-for-the-property>
   }

@@ -6,10 +6,10 @@ ms.date: 11/03/2020
 ms.custom: devx-track-csharp
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 2848ce6214d59ba2732dcfc148ccaf9936497f17
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121038"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de C# en Azure mediante Visual Studio Code
@@ -23,7 +23,7 @@ ms.locfileid: "102121038"
 > - [TypeScript](create-first-function-vs-code-typescript.md)
 > - [Otro (Go/Rust)](create-first-function-vs-code-other.md)
 
-En este artículo se usa Visual Studio Code para crear una función basada en biblioteca de clases de C# que responda a solicitudes HTTP. Después de probar el código localmente, lo implementará en el entorno <abbr title="Un entorno informático en tiempo de ejecución en el que todos los detalles del servidor son transparentes para los desarrolladores de aplicaciones. De este modo, se simplifica el proceso de implementación y administración de código.">sin servidor</abbr> entorno de <abbr title="Un servicio de Azure que proporciona un entorno informático sin servidor y de bajo costo dirigido a las aplicaciones.">Azure Functions</abbr>.
+En este artículo se usa Visual Studio Code para crear una función basada en biblioteca de clases de C# que responda a solicitudes HTTP. Después de probar el código localmente, lo implementará en el entorno <abbr title="Un entorno informático en tiempo de ejecución en el que todos los detalles del servidor son transparentes para los desarrolladores de aplicaciones. De este modo, se simplifica el proceso de implementación y administración de código.">sin servidor</abbr> de <abbr title="Un servicio de Azure que proporciona un entorno informático sin servidor y de bajo costo dirigido a las aplicaciones.">Azure Functions</abbr>.
 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
@@ -45,9 +45,9 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 
 ## <a name="2-create-your-local-project"></a><a name="create-an-azure-functions-project"></a>2. Creación del proyecto local
 
-En esta sección se usa Visual Studio Code para crear un <abbr title="Un contenedor lógico para una o varias funciones individuales que se pueden implementar y administrar juntas.">proyecto local de Azure Functions</abbr> en C#. Más adelante en este artículo, publicará el código de función en Azure.
+En esta sección se usa Visual Studio Code para crear un <abbr title="Un contenedor lógico para una o varias funciones individuales que se pueden implementar y administrar juntas.">local de Azure Functions</abbr> en C#. Más adelante en este artículo, publicará el código de función en Azure.
 
-1. Seleccione el icono de Azure en la barra de actividades. <abbr title="El grupo vertical de iconos ubicados en el lado izquierdo de la ventana de Visual Studio Code.">Barra de actividades</abbr>A continuación, en el área **Azure: Functions**, seleccione el icono de **Crear nuevo proyecto...**
+1. Seleccione el icono de Azure en la barra de actividades. <abbr title="El grupo vertical de iconos ubicados en el lado izquierdo de la ventana de Visual Studio Code.">barra de actividades</abbr>y, a continuación, en el área **Azure: Functions**, seleccione el icono **Crear proyecto...**
 
     ![Elija Crear un proyecto.](./media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -147,7 +147,7 @@ Para más información sobre los costos de Functions, consulte [Estimación de l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha usado Visual Studio Code para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, esa función se expande al incorporar un enlace de salida. <abbr title="Una conexión declarativa entre una función y otros recursos. Un enlace de entrada proporciona datos a la función. un enlace de salida proporciona datos de la función a otros recursos. Un enlace de salida proporciona datos de la función a otros recursos.">binding</abbr>. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
+Ha usado Visual Studio Code para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, esa función se expande al incorporar un enlace de salida. <abbr title="Una conexión declarativa entre una función y otros recursos. Un enlace de entrada proporciona datos a la función, mientras que un enlace de salida proporciona datos de la función a otros recursos.">binding</abbr>. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
 
 > [!div class="nextstepaction"]
 > [Conexión a una cola de Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: de6a94b36dab9dd5662062be99f4515d78558b5e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212457"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889661"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Preguntas más frecuentes sobre Azure Front Door
 
@@ -102,7 +102,7 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
 
 - Busque el valor de `Front Door ID` en la sección de información general de la página del portal de Front Door. Después, puede usar ese valor para filtrar el encabezado entrante "**X-Azure-FDID**" que Front Door envió al back-end para asegurarse de que solo se permite su propia instancia de Front Door específica (porque los intervalos IP anteriores se comparten con otras instancias de Front Door de otros clientes).
 
-- Aplique el filtrado de reglas en el servidor web back-end para restringir el tráfico basado en el valor del encabezado "X-Azure-FDID" resultante. Tenga en cuenta que algunos servicios como Azure App Service proporcionan esta funcionalidad de [filtrado basado en encabezados](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) sin necesidad de cambiar la aplicación o el host.
+- Aplique el filtrado de reglas en el servidor web back-end para restringir el tráfico basado en el valor del encabezado "X-Azure-FDID" resultante. Tenga en cuenta que algunos servicios como Azure App Service proporcionan esta funcionalidad de [filtrado basado en encabezados](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) sin necesidad de cambiar la aplicación o el host.
 
   Este es un ejemplo de [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

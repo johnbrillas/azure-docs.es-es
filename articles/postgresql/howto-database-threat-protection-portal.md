@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 5583e8423f0909936d9e55c6d87593835eded8f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489904"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection para Azure Database for PostgreSQL con un único servidor
@@ -32,7 +32,7 @@ Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada,
 3. En la página de configuración de **Advanced Threat Protection (versión preliminar)** :
 
    - Habilite Protección contra amenazas avanzada en el servidor.
-   - En **Configuración de Advanced Threat Protection** , en el cuadro de texto **Enviar alertas a** , proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
+   - En **Configuración de Advanced Threat Protection**, en el cuadro de texto **Enviar alertas a**, proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurar la detección de amenazas":::
 
@@ -42,15 +42,15 @@ Cuando se detecten actividades anómalas en las bases de datos, recibirá una no
     
 1. Haga clic en el vínculo **Ver las alertas recientes** del correo electrónico para iniciar Azure Portal y mostrar la página de alertas de Azure Security Center, que proporciona información general sobre amenazas activas detectadas en la base de datos de SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Informes de actividades anómalas":::
 
     Ver amenazas activas:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Amenazas activas":::
 
 2. Haga clic en una alerta específica para obtener detalles y acciones adicionales para investigar esta amenaza y solucionar amenazas futuras.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Configurar la detección de amenazas":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerta específica":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explorar alertas de detección de amenazas
 
@@ -58,7 +58,7 @@ Advanced Threat Protection integra sus alerta con [Azure Security Center](https:
 
 Haga clic en **Alertas de seguridad** en **PROTECCIÓN CONTRA AMENAZAS** para iniciar la página de alertas de Azure Security Center y obtener información general de las amenazas de SQL activas detectadas en la base de datos.
 
-  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Configurar la detección de amenazas":::
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Protección contra amenazas":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

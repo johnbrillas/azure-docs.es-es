@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371960"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
@@ -22,34 +22,34 @@ En este artículo se le ayudará a solucionar problemas al implementar y adminis
 
 La máquina de origen se registra con el servidor de configuración al instalar el agente de movilidad. Puede depurar los errores durante este paso siguiendo estas directrices:
 
-1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver** , en la sección **Mostrar/ocultar** , active la casilla **Elementos ocultos** ). Los errores podrían deberse a varios problemas.
+1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas.
 
-2. Busque la cadena **No se encuentra ninguna dirección IP válida** . Si se encuentra la cadena:
+2. Busque la cadena **No se encuentra ninguna dirección IP válida**. Si se encuentra la cadena:
    1. Compruebe que el identificador de host solicitado es el mismo que el identificador de host de la máquina de origen.
    2. Compruebe que la máquina de origen tiene al menos una dirección IP asignada a la NIC física. Para que el registro del agente con el servidor de configuración se realice correctamente, la máquina de origen debe tener al menos una dirección IPv4 asignada a la NIC física.
    3. Ejecute uno de los siguientes comandos en la máquina de origen para obtener todas las direcciones IP de la máquina de origen:
       - En Windows: `> ipconfig /all`
       - En Linux: `# ifconfig -a`
 
-3. Si no se encuentra la cadena **No se encuentra ninguna dirección IP válida** , busque la cadena **Motivo => NULL** . Se produce este error si la máquina de origen utiliza un host vacío para registrarse con el servidor de configuración. Si se encuentra la cadena:
+3. Si no se encuentra la cadena **No se encuentra ninguna dirección IP válida** , busque la cadena **Motivo => NULL**. Se produce este error si la máquina de origen utiliza un host vacío para registrarse con el servidor de configuración. Si se encuentra la cadena:
     - Tras resolver los problemas, siga las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para volver a intentar el registro manualmente.
 
-4. Si no se encuentra la cadena **Motivo => NULL** , en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver** , en la sección **Mostrar/ocultar** , active la casilla **Elementos ocultos** ). Los errores podrían deberse a varios problemas. 
+4. Si no se encuentra la cadena **Motivo => NULL**, en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas. 
 
-5. Busque la cadena **post request: (7) - Couldn't connect to server** . Si se encuentra la cadena:
+5. Busque la cadena **post request: (7) - Couldn't connect to server**. Si se encuentra la cadena:
     1. Resuelva los problemas de red entre el servidor de configuración y la máquina de origen. Compruebe que el servidor de configuración es accesible desde la máquina de origen con herramientas de red como ping, traceroute o un explorador web. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
     2. Compruebe si alguna regla de firewall de la máquina de origen bloquea la conexión entre el servidor de configuración y la máquina de origen. Trabaje con el administrador de red para desbloquear los problemas de conexión.
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.
     4. Cuando se resuelvan los problemas de red, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server** , en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates** . Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o protocolos posteriores. También puede producirse si un firewall bloquea la comunicación TLS entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
+6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server**, en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o protocolos posteriores. También puede producirse si un firewall bloquea la comunicación TLS entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
     1. Para resolverlo, conéctese a la dirección IP del servidor de configuración mediante un explorador web en la máquina de origen. Use la URI https:\/\/<dirección IP del servidor de configuración\>:443/. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
     2. Compruebe si es necesario agregar o quitar alguna regla de firewall de la máquina de origen para que la máquina de origen se comunique con el servidor de configuración. Dada la variedad de software de firewall que podría estar en uso, no podemos incluir todas las configuraciones de firewall necesarias. Trabaje con el administrador de red para desbloquear los problemas de conexión.
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.  
     4. Tras resolver los problemas, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** . La plataforma debe establecerse en **VmWare** o **Azure** . Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos: a. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices** .
-    b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services** .
+7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos: a. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
+    b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
     c. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
     d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
 

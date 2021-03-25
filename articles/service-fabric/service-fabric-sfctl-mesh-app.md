@@ -1,15 +1,15 @@
 ---
 title: 'CLI de Service Fabric de Azure: aplicación de sfctl mesh'
-description: Obtenga información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar los recursos de la aplicación de Service Fabric mesh.
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para administrar los recursos de la aplicación de Service Fabric mesh.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 835369116b07b74c666fba271476f1cba5a708b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86259954"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
@@ -21,7 +21,7 @@ Obtiene y elimina recursos de la aplicación.
 | --- | --- |
 | delete | Elimina el recurso de aplicación. |
 | list | Enumera todos los recursos de aplicación. |
-| show | Obtiene el recurso de aplicación con el nombre especificado. |
+| mostrar | Obtiene el recurso de aplicación con el nombre especificado. |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh app delete
 Elimina el recurso de aplicación.

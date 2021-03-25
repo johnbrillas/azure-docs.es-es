@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397933"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configuración de versiones de directivas TLS y conjuntos de cifrado en Application Gateway
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Actualización de una instancia de Application Gateway existente con una directiva TLS predefinida
 
-Para configurar una directiva TLS personalizada, pase los parámetros siguientes: **PolicyType** , **MinProtocolVersion** , **CipherSuite** y **ApplicationGateway**. Para configurar una directiva TLS predefinida, pase los parámetros siguientes: **PolicyType** , **PolicyName** y **ApplicationGateway**. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
+Para configurar una directiva TLS personalizada, pase los parámetros siguientes: **PolicyType**, **MinProtocolVersion**, **CipherSuite** y **ApplicationGateway**. Para configurar una directiva TLS predefinida, pase los parámetros siguientes: **PolicyType**, **PolicyName** y **ApplicationGateway**. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
 
 En el ejemplo siguiente, hay ejemplos de código para la directiva personalizada y la directiva predefinida. Quite la marca de comentario de la directiva que desea usar.
 

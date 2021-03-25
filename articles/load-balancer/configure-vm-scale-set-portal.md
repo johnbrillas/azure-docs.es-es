@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91439514"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure Portal
@@ -79,7 +79,7 @@ En esta sección, creará un conjunto de escalado de máquinas virtuales en Azur
     | Seleccionar un equilibrador de carga            | Seleccione **myLoadBalancer** o el equilibrador de carga existente. |
     | Seleccionar un grupo de back-end             | Seleccione **myBackendPool** o el grupo de back-end existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de pantalla que muestra la pestaña Aspectos básicos de Crear conjunto de escalado de máquinas virtuales." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de pantalla que muestra la pestaña Redes de Crear conjunto de escalado de máquinas virtuales." border="true":::
 
 6. Seleccione la pestaña **Administración**.
 

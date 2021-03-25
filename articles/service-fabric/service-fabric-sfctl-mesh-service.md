@@ -1,26 +1,26 @@
 ---
 title: 'CLI de Azure Service Fabric: sfctl mesh service'
-description: Obtenga información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para obtener los detalles de servicio de los recursos de una aplicación.
+description: Más información sobre sfctl, la interfaz de la línea de comandos de Azure Service Fabric. Incluye una lista de comandos para obtener los detalles de servicio de los recursos de una aplicación.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 68ea876d9951b49a6683cc74df8b9107fd942e51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245677"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Obtiene los detalles del servicio y muestra los servicios de un recurso de aplicación.
 
-## <a name="commands"></a>Comandos:
+## <a name="commands"></a>Comandos
 
-|Get-Help|Descripción|
+|Comando|Descripción|
 | --- | --- |
 | list | Enumera todos los recursos de servicio. |
-| show | Obtiene el recurso de servicio con el nombre especificado. |
+| mostrar | Obtiene el recurso de servicio con el nombre especificado. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl mesh service list
 Enumera todos los recursos de servicio.

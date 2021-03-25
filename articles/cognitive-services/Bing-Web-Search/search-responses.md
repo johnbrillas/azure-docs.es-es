@@ -12,16 +12,16 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380987"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
@@ -43,7 +43,7 @@ Cuando envía una solicitud de búsqueda a Bing Web Search, devuelve un objeto [
 }, ...
 ```
 
-Normalmente, Bing Web Search devuelve un subconjunto de las respuestas. Por ejemplo, si el término de consulta era *sailing dinghies* , la respuesta puede incluir `webPages`, `images` y `rankingResponse`. A menos que haya utilizado [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar las páginas web, la respuesta incluye siempre las respuestas `webpages` y `rankingResponse`.
+Normalmente, Bing Web Search devuelve un subconjunto de las respuestas. Por ejemplo, si el término de consulta era *sailing dinghies*, la respuesta puede incluir `webPages`, `images` y `rankingResponse`. A menos que haya utilizado [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar las páginas web, la respuesta incluye siempre las respuestas `webpages` y `rankingResponse`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -424,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>Respuesta de sugerencias ortográficas
 
-Si Bing determina que el usuario tenía la intención de buscar algo diferente, la respuesta incluye un objeto [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Por ejemplo, si el usuario busca *carlos pen* , Bing puede determinar que el usuario pretende probablemente en su lugar buscar Carlos Pena (en función de las búsquedas anteriores realizadas por otros usuarios de *carlos pen* ). A continuación se muestra un ejemplo de respuesta de sugerencia ortográfica.
+Si Bing determina que el usuario tenía la intención de buscar algo diferente, la respuesta incluye un objeto [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Por ejemplo, si el usuario busca *carlos pen*, Bing puede determinar que el usuario pretende probablemente en su lugar buscar Carlos Pena (en función de las búsquedas anteriores realizadas por otros usuarios de *carlos pen*). A continuación se muestra un ejemplo de respuesta de sugerencia ortográfica.
 
 ```json
 "spellSuggestions": {

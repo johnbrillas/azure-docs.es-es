@@ -4,10 +4,10 @@ description: Aprenda a agregar un repositorio de GIT de GitHub o Azure DevOps Se
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483149"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
@@ -56,7 +56,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
    3. En la lista **Cuentas accesibles**, seleccione **Todas las cuentas accesibles**.
    4. Seleccione la opción **Solo lectura**.
    5. Seleccione **Crear token**.
-9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token**y luego guarde el valor del token para usarlo más adelante.
+9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token** y luego guarde el valor del token para usarlo más adelante.
 10. Continúe con la sección [Conexión del laboratorio al repositorio](#connect-your-lab-to-the-repository) .
 
 ## <a name="connect-your-lab-to-the-repository"></a>Conexión del laboratorio al repositorio

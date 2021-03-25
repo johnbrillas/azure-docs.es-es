@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461828"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Escenario: Aislamiento personalizado para redes virtuales
@@ -33,7 +33,7 @@ En cada una de las celdas de la tabla anterior se describe si una conexión de V
 
 El número de patrones de fila diferentes será el número de tablas de enrutamiento que se necesitará en este escenario. En este caso, tres tablas de enrutamiento que llamaremos **RT_BLUE** y **RT_RED** para las redes virtuales y **Predeterminada** para las ramas. Recuerde que las ramas siempre tienen que estar asociadas a la tabla de enrutamiento Predeterminada.
 
-Las ramas deberán aprender los prefijos de las redes virtuales Rojas y Azules, para que todas las redes virtuales se propaguen a la tabla Predeterminada (además de **RT_BLUE** o **RT_RED** ). Las redes virtuales Azules y Rojas deberán aprender los prefijos de las ramas, para que las ramas se propaguen también a ambas tablas de enrutamiento **RT_BLUE** y **RT_RED**. En consecuencia, este es el diseño final:
+Las ramas deberán aprender los prefijos de las redes virtuales Rojas y Azules, para que todas las redes virtuales se propaguen a la tabla Predeterminada (además de **RT_BLUE** o **RT_RED**). Las redes virtuales Azules y Rojas deberán aprender los prefijos de las ramas, para que las ramas se propaguen también a ambas tablas de enrutamiento **RT_BLUE** y **RT_RED**. En consecuencia, este es el diseño final:
 
 * Redes virtuales Azules:
   * Tabla de enrutamiento asociada: **RT_BLUE**
@@ -43,7 +43,7 @@ Las ramas deberán aprender los prefijos de las redes virtuales Rojas y Azules, 
   * Propagación a tablas de enrutamiento: **RT_RED** y **Predeterminada**
 * Ramas:
   * Tabla de enrutamiento asociada: **Valor predeterminado**
-  * Propagación a tablas de enrutamiento: **RT_BLUE** , **RT_RED** y **Predeterminada**
+  * Propagación a tablas de enrutamiento: **RT_BLUE**, **RT_RED** y **Predeterminada**
 
 > [!NOTE]
 > Como todas las ramas deben estar asociadas a la tabla de enrutamiento Predeterminada, así como propagarse al mismo conjunto de tablas de enrutamiento, todas las ramas tendrán el mismo perfil de conectividad. En otras palabras, el concepto Rojo/Azul para redes virtuales no se puede aplicar a ramas.
@@ -55,7 +55,7 @@ Para más información sobre el enrutamiento de centros virtuales, vea [Acerca d
 
 ## <a name="workflow"></a><a name="architecture"></a>Flujo de trabajo
 
-En la **ilustración 1** , hay conexiones de red virtual azules y rojas.
+En la **ilustración 1**, hay conexiones de red virtual azules y rojas.
 
 * Las redes virtuales conectadas en azul pueden comunicarse entre sí, así como conectarse con todas las ramas (VPN/ER/P2S).
 * Las redes virtuales rojas pueden comunicarse entre sí, así como comunicarse con todas las ramas (VPN/ER/P2S).
@@ -63,9 +63,9 @@ En la **ilustración 1** , hay conexiones de red virtual azules y rojas.
 Tenga en cuenta los siguientes pasos al configurar el enrutamiento.
 
 1. Cree dos tablas de rutas personalizadas en Azure Portal, **RT_BLUE** y **RT_RED**.
-2. En el caso de la tabla de enrutamiento **RT_BLUE** , para la configuración siguiente:
-   * **Asociación** : seleccione todas las redes virtuales Azules.
-   * **Propagación** : en el caso de las ramas, seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de enrutamiento.
+2. En el caso de la tabla de enrutamiento **RT_BLUE**, para la configuración siguiente:
+   * **Asociación**: seleccione todas las redes virtuales Azules.
+   * **Propagación**: en el caso de las ramas, seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de enrutamiento.
 3. Repita los mismos pasos para la tabla de enrutamiento **RT_RED** para las redes virtuales Rojas y las ramas (VPN/ER/P2S).
 
 Esto hará que la configuración de enrutamiento cambie como se muestra en la figura siguiente.

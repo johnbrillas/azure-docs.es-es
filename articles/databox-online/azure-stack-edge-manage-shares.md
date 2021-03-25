@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/04/2021
 ms.author: alkohli
 ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898384"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro FPGA 
@@ -72,7 +72,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 ## <a name="add-a-local-share"></a>Incorporación de un recurso compartido local
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
    ![Seleccionar Agregar recurso compartido 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -102,7 +102,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge Pro, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
 
    ![Seleccionar recurso compartido 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 

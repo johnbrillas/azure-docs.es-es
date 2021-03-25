@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 198702f619e490e8000e4430aab23a7f6bfb6d85
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107229"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Creación de informes completos e interactivos de los datos de Security Center
@@ -39,7 +39,7 @@ Dentro de Azure Security Center, puede acceder a los informes integrados para re
 Con la funcionalidad integrada de los libros de Azure, Azure Security Center facilita la creación de sus propios informes personalizados e interactivos. Security Center también incluye una galería de libros con los siguientes informes listos para su personalización:
 
 - **Puntuación de seguridad a lo largo del tiempo**: Puede realizar el seguimiento de las puntuaciones de las suscripciones y de los cambios en las recomendaciones sobre sus recursos.
-- **Actualizaciones del sistema**: Puede ver las actualizaciones del sistema que faltan por recursos, sistema operativo, gravedad, etc.
+- **Actualizaciones del sistema**: puede ver las actualizaciones del sistema que faltan por recursos, sistema operativo, gravedad, etc.
 - **Conclusiones de la evaluación de vulnerabilidad**: Puede ver los resultados de los exámenes de vulnerabilidades de los recursos de Azure.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Galería de libros integrados en Azure Security Center":::

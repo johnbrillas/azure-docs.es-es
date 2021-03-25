@@ -1,5 +1,5 @@
 ---
-title: Requisitos del sistema de Microsoft Azure Stack Edge Pro | Microsoft Docs
+title: Requisitos del sistema de Microsoft Azure Stack Edge Pro | Microsoft Docs
 description: Obtenga información sobre los requisitos de software y de red de Azure Stack Edge Pro
 services: databox
 author: alkohli
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831593"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Pro
 
 En este artículo se describen los requisitos importantes del sistema de la solución Microsoft Azure Stack Edge Pro y de los clientes que se conectan a Azure Stack Edge Pro. Le recomendamos que examine detenidamente la información antes de implementar Azure Stack Edge Pro. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
 
-Los requisitos del sistema de Azure Stack Edge Pro son los siguientes: 
+Los requisitos del sistema de Azure Stack Edge Pro son: 
 
 - **Requisitos de software para hosts**: describe las plataformas compatibles, los exploradores de la interfaz de usuario de configuración local, los clientes SMB y los requisitos adicionales de los clientes que acceden al dispositivo.
 - **Requisitos de red para el dispositivo**: proporciona información acerca de los requisitos de red para el funcionamiento del dispositivo físico.
@@ -66,7 +66,7 @@ Para obtener información completa, vaya a [Reglas de configuración de puertos 
 
 ## <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
 
-Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo Azure Stack Edge Pro y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge Pro cuando sea necesario.
+Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo Azure Stack Edge Pro y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge Pro cuando sea necesario.
 
 Es recomendable configurar las reglas de firewall para el tráfico de salida en función de las direcciones IP fijas de Azure Stack Edge Pro, que pueden establecerse libremente en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
 
@@ -104,7 +104,7 @@ Es recomendable configurar las reglas de firewall para el tráfico de salida en 
 
 ## <a name="compute-sizing-considerations"></a>Consideraciones de tamaño de proceso
 
-Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo Azure Stack Edge Pro y que se obtiene un rendimiento óptimo del dispositivo.
+Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo Azure Stack Edge Pro y obtener un rendimiento óptimo del dispositivo.
 
 Debe considerar los siguientes factores:
 

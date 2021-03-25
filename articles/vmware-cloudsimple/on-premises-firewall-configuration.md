@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86998905"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acceso al entorno y las aplicaciones de la nube privada de CloudSimple desde el entorno local
@@ -24,7 +24,7 @@ Se puede configurar una conexión desde la red local a CloudSimple con Azure Exp
 
 Para acceder al vCenter de la nube privada y al administrador de NSX-T, los puertos definidos en la tabla siguiente deben estar abiertos en el firewall local.  
 
-| Port       | Source                           | Destination                      | Propósito                                                                                                                |
+| Puerto       | Source                           | Destination                      | Propósito                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | Servidores DNS locales          | Servidores DNS de la nube privada        | Se requiere para reenviar la búsqueda de DNS de *az.cloudsimple.io* a los servidores DNS de la nube privada desde la red local.       |
 | 53 (UDP)   | Servidores DNS de la nube privada        | Servidores DNS locales          | Se requiere para reenviar la búsqueda de DNS de los nombres de dominio locales del vCenter de la nube privada a los servidores DNS en el entorno local. |
@@ -37,7 +37,7 @@ Para acceder al vCenter de la nube privada y al administrador de NSX-T, los puer
 
 Para configurar Active Directory local como un origen de identidades en vCenter de la nube privada, los puertos definidos en la tabla deben estar abiertos.  Para ver los pasos de configuración, consulte el artículo sobre el [uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple](./azure-ad.md).
 
-| Port         | Source                           | Destination                                         | Propósito                                                                                                                                          |
+| Puerto         | Source                           | Destination                                         | Propósito                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | Servidores DNS de la nube privada        | Servidores DNS locales                             | Se requiere para reenviar la búsqueda de DNS de los nombres de dominio de Active Directory local del vCenter de la nube privada a los servidores DNS en el entorno local.          |
 | 389 (TCP/UDP) | Red de administración de la nube privada | Controladores de dominio de Active Directory local     | Se requiere para la autenticación de usuario, para la comunicación LDAP desde el servidor vCenter de la nube privada con los controladores de dominio de Active Directory.                |
@@ -49,7 +49,7 @@ Para configurar Active Directory local como un origen de identidades en vCenter 
 
 El acceso a las máquinas virtuales de carga de trabajo que se ejecutan en la nube privada requiere que se abran los puertos en el firewall local.  En la tabla siguiente se muestran algunos de los puertos comunes necesarios y su finalidad.  En cuanto a los requisitos de los puertos específicos de una aplicación, consulte la documentación pertinente de esta.
 
-| Port         | Source                         | Destination                          | Propósito                                                                              |
+| Puerto         | Source                         | Destination                          | Propósito                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | Red local            | Red de carga de trabajo de la nube privada       | Proteja el acceso del shell a las máquinas virtuales Linux que se ejecutan en la nube privada.              |
 | 3389 (TCP)    | Red local            | Red de carga de trabajo de la nube privada       | Escritorio remoto para máquinas virtuales Windows que se ejecutan en la nube privada.                 |

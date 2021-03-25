@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91291850"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemas conocidos/limitaciones de migración con el uso del modo híbrido
@@ -75,7 +75,7 @@ De forma predeterminada, el servicio Hybrid Worker de Azure Database Migration S
 
     b. Haga clic con el botón derecho en la entrada **DMS Hybrid App Key** (Clave de la aplicación híbrida de DMS), seleccione **Todas las tareas** y, a continuación, seleccione **Manage Private Keys** (Administrar claves privadas).
 
-    c. En la pestaña **Seguridad**, seleccione **Agregar**y, a continuación, escriba el nombre de la cuenta.
+    c. En la pestaña **Seguridad**, seleccione **Agregar** y, a continuación, escriba el nombre de la cuenta.
 
     d. Siga los mismos pasos para conceder el permiso de clave privada de la nueva cuenta al certificado **DMS Scenario Engine Key Pair** (Par de claves del motor de escenario de DMS).
 

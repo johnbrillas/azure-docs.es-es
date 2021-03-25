@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: a42790e079985b003776b381c74f837b0ba619b1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359211"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configuración de Tableau Online para el aprovisionamiento automático de usuarios
@@ -25,7 +25,7 @@ Este tutorial muestra los pasos que se deben realizar en Tableau Online y Azure 
 > [!NOTE]
 > En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -94,15 +94,15 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Modo de aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de dominio, nombre de usuario administrador, contraseña de administrador y dirección URL del contenido de la cuenta de Tableau Online:
+5. En la sección **Credenciales de administrador**, escriba los valores de dominio, nombre de usuario administrador, contraseña de administrador y dirección URL del contenido de la cuenta de Tableau Online:
 
-   * En el cuadro **Dominio** , rellene el subdominio según el paso 6.
+   * En el cuadro **Dominio**, rellene el subdominio según el paso 6.
 
-   * En el cuadro **Nombre de usuario administrador** , rellene el nombre de usuario de la cuenta de administrador del inquilino de Tableau Online. Un ejemplo es admin@contoso.com.
+   * En el cuadro **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Tableau Online. Un ejemplo es admin@contoso.com.
 
-   * En el cuadro **Contraseña de administrador** , rellene la contraseña de la cuenta de administrador correspondiente al nombre de usuario de administrador.
+   * En el cuadro **Contraseña de administrador**, rellene la contraseña de la cuenta de administrador correspondiente al nombre de usuario de administrador.
 
-   * En el cuadro **Dirección URL del contenido** , rellene el subdominio según el paso 6.
+   * En el cuadro **Dirección URL del contenido**, rellene el subdominio según el paso 6.
 
 6. Después de iniciar sesión en la cuenta administrativa de Tableau Online, puede obtener los valores de **Dominio** y **Dirección URL del contenido** de la dirección URL de la página de administración.
 
@@ -121,13 +121,13 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Prueba de conexión de Tableau Online](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-8. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Notificación por correo electrónico de Tableau Online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
 9. Seleccione **Guardar**.
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Tableau**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Tableau**.
 
     ![Sincronización de usuarios de Tableau Online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
@@ -135,7 +135,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Atributos de usuario coincidentes de Tableau Online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
-12. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Tableau**.
+12. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Tableau**.
 
     ![Sincronización de grupos de Tableau Online](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
@@ -149,7 +149,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Estado de aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-16. Defina los usuarios o grupos que quiere que se aprovisionen en Tableau Online. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito**.
+16. Defina los usuarios o grupos que quiere que se aprovisionen en Tableau Online. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
 
     ![Ámbito de Tableau Online](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 

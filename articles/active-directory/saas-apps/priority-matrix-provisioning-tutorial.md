@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
 ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357868"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: Configuración de Priority Matrix para el aprovisionamiento automático de usuarios
@@ -83,7 +83,7 @@ Para configurar Priority Matrix para el aprovisionamiento automático de usuario
 
     ![Priority Matrix en la lista de resultados](common/search-new-app.png)
 
-5. Seleccione el botón **Registrarse en Priority Matrix** ; se le redirigirá a la página de inicio de sesión de Priority Matrix. 
+5. Seleccione el botón **Registrarse en Priority Matrix**; se le redirigirá a la página de inicio de sesión de Priority Matrix. 
 
     ![Incorporación de OIDC de Priority Matrix](media/priority-matrix-provisioning-tutorial/signup.png)
 
@@ -120,17 +120,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://sync.appfluence.com/scim/v2/` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Priority Matrix en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Priority Matrix. Si la conexión no se establece, asegúrese de que la cuenta de Priority Matrix tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://sync.appfluence.com/scim/v2/` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Priority Matrix en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Priority Matrix. Si la conexión no se establece, asegúrese de que la cuenta de Priority Matrix tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Priority Matrix** (Sincronizar usuarios de Azure Active Directory con Priority Matrix).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Priority Matrix** (Sincronizar usuarios de Azure Active Directory con Priority Matrix).
 
     ![Asignaciones de usuario de Priority Matrix](media/priority-matrix-provisioning-tutorial/usermappings.png)
 
@@ -144,7 +144,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Priority Matrix.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Priority Matrix.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
