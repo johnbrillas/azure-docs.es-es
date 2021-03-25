@@ -3,12 +3,12 @@ title: Uso de la biblioteca cliente de Azure Batch para Node.js
 description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a2d86582c94804a20a3a9e952bc64d60414e25a5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737293"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656029"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
@@ -32,9 +32,9 @@ El siguiente diagrama muestra cómo se puede escalar el script de Python con Azu
 
 El cliente de node.js implementa un trabajo por lotes con una tarea de preparación (más adelante se explica con detalle) y un conjunto de tareas en función del número de contenedores de la cuenta de almacenamiento. Puede descargar los scripts del repositorio de GitHub.
 
-- [Cliente de Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [Scripts de shell de la tarea de preparación](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [Procesador Python de CSV a JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Cliente de Node.js](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Scripts de shell de la tarea de preparación](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Procesador Python de CSV a JSON](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > El cliente de Node.js del enlace especificado no contiene código específico para implementarse como una instancia de Azure Function App. Puede consultar los siguientes enlaces para obtener instrucciones de cómo crear una.

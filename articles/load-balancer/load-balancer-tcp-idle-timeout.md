@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747182"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configuración del tiempo de espera de inactividad y restablecimiento de TCP de Azure Load Balancer
@@ -45,7 +45,7 @@ Para establecer el tiempo de espera de inactividad y restablecimiento de una ins
 
 4. Seleccione el equilibrador de carga. En este ejemplo, el equilibrador de carga se denomina **myLoadBalancer**.
 
-5. En **Configuración** , seleccione **Reglas de equilibrio de carga**.
+5. En **Configuración**, seleccione **Reglas de equilibrio de carga**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edite las reglas del equilibrador de carga." border="true":::
 
@@ -53,7 +53,7 @@ Para establecer el tiempo de espera de inactividad y restablecimiento de una ins
 
 7. En la regla de equilibrio de carga, mueva el control deslizante hacia **Tiempo de espera de inactividad (minutos)** al valor de tiempo de espera.  
 
-8. En **Restablecimiento de TCP** , seleccione **Habilitado**.
+8. En **Restablecimiento de TCP**, seleccione **Habilitado**.
 
    :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Establezca el tiempo de espera de inactividad y el restablecimiento de TCP." border="true":::
 

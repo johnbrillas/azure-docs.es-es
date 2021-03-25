@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674275"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Preguntas más frecuentes: ¿Cuál es la relación entre SRE y DevOps?
@@ -30,7 +30,7 @@ Tanto SRE como DevOps son prácticas de operaciones modernas que se crearon y de
 
 Ambas prácticas de operaciones valoran la atención a los asuntos que son cruciales para abordar estos desafíos, como la supervisión u observabilidad, la automatización, la documentación y las herramientas colaborativas de desarrollo de software.
 
-Entre SRE y DevOps existe una superposición considerable en cuanto a las herramientas y áreas de trabajo. Como lo expresa _The Site Reliability Workbook_ , "SRE cree en lo mismo que DevOps, pero para razones ligeramente diferentes".
+Entre SRE y DevOps existe una superposición considerable en cuanto a las herramientas y áreas de trabajo. Como lo expresa _The Site Reliability Workbook_, "SRE cree en lo mismo que DevOps, pero para razones ligeramente diferentes".
 
 ## <a name="three-different-ways-to-compare-the-two-operations-practices"></a>Tres maneras distintas de comparar las dos prácticas de operaciones
 
@@ -60,7 +60,7 @@ De aquí que "SRE es a la confiabilidad lo que DevOps es a la entrega".
 
 ### <a name="direction-of-attention"></a>Dirección de la atención
 
-Esta respuesta está citada o algo parafraseada a partir de una contribución de Thomas Limoncelli al libro _Seeking SRE_ , mencionado en nuestra [lista de libros de recursos](../resources/books.md). Limoncelli observa que los ingenieros de DevOps se centran enormemente en la canalización del ciclo de vida de desarrollo de software, con responsabilidades ocasionales en las operaciones de producción, mientras que los ingenieros de SRE se centran en las operaciones de producción, con responsabilidades ocasionales en la canalización de SDLC.
+Esta respuesta está citada o algo parafraseada a partir de una contribución de Thomas Limoncelli al libro _Seeking SRE_, mencionado en nuestra [lista de libros de recursos](../resources/books.md). Limoncelli observa que los ingenieros de DevOps se centran enormemente en la canalización del ciclo de vida de desarrollo de software, con responsabilidades ocasionales en las operaciones de producción, mientras que los ingenieros de SRE se centran en las operaciones de producción, con responsabilidades ocasionales en la canalización de SDLC.
 
 Pero, lo que es más importante, también muestra un diagrama que comienza con el proceso de desarrollo de software en un lado y el trabajo de operaciones de producción en el otro. Los dos están conectados por la canalización habitual que se crea para tomar el código de un desarrollador, someterlo al número deseado de pruebas y fases y, a continuación, pasar el código a producción.
 

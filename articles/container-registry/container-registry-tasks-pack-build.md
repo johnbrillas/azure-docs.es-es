@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736627"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
@@ -45,7 +45,7 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-En este ejemplo se crea la imagen `node-app` con la etiqueta `1.0` y se inserta en el registro de contenedor *myregistry* . En este ejemplo, el nombre del registro de destino se antepone explícitamente al nombre de la imagen. Si no se especifica, el nombre del servidor de inicio de sesión del registro se antepone automáticamente al nombre de la imagen.
+En este ejemplo se crea la imagen `node-app` con la etiqueta `1.0` y se inserta en el registro de contenedor *myregistry*. En este ejemplo, el nombre del registro de destino se antepone explícitamente al nombre de la imagen. Si no se especifica, el nombre del servidor de inicio de sesión del registro se antepone automáticamente al nombre de la imagen.
 
 La salida del comando muestra el progreso de la compilación e inserción de la imagen. 
 
@@ -75,7 +75,7 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-En este ejemplo se crea la imagen `java-app` etiquetada con el identificador de ejecución del comando y se inserta en el registro de contenedor *myregistry* .
+En este ejemplo se crea la imagen `java-app` etiquetada con el identificador de ejecución del comando y se inserta en el registro de contenedor *myregistry*.
 
 La salida del comando muestra el progreso de la compilación e inserción de la imagen. 
 
@@ -85,7 +85,7 @@ Una vez que la imagen se crea correctamente, puede ejecutarla con Docker, si lo 
 az acr login --name myregistry
 ```
 
-Para ejecutar la imagen, puede sustituir la etiqueta de la imagen por *runid* :
+Para ejecutar la imagen, puede sustituir la etiqueta de la imagen por *runid*:
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

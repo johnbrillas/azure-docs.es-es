@@ -10,10 +10,10 @@ ms.date: 10/20/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 4f7656337b12cf477c5c71d861d031919e0d55d6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96464973"
 ---
 # <a name="tutorial-install-azure-stack-edge-mini-r"></a>Tutorial: Instalación de Azure Stack Edge Mini R
@@ -65,7 +65,7 @@ Antes de empezar:
 Este dispositivo se suministra como una única unidad. Realice los pasos siguientes para desempaquetar el dispositivo.
 
 1. Coloque la caja en una superficie plana y nivelada.
-2. Compruebe si la caja del dispositivo tiene daños. Abra la caja e inspeccione el dispositivo. Si la caja o el dispositivo parecen dañados, póngase en contacto con el equipo de soporte técnico de Microsoft para que le ayude a determinar si el dispositivo está en buen estado.
+2. Compruebe si la caja del dispositivo tiene daños. Abra la caja e inspeccione el dispositivo. Si la caja o el dispositivo parecen dañados, póngase en contacto con el servicio de soporte técnico de Microsoft para que le ayude a determinar si el dispositivo está en buen estado.
 3. Una vez abierta la caja, asegúrese de que dispone de los siguientes elementos:
     - Un dispositivo Azure Stack Edge Mini R portátil con protectores laterales adjuntos
     - Una batería y la cubierta trasera conectada al dispositivo. 

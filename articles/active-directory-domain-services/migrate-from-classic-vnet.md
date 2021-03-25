@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
 ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013046"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure Active Directory Domain Services desde el modelo de red virtual clásica a Resource Manager
@@ -153,7 +153,7 @@ La migración al modelo de implementación y la red virtual de Resource Manager 
 
 | Paso    | Se realiza en  | Tiempo estimado  | Tiempo de inactividad  | ¿Reversión o restauración? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Paso 1: Actualización y ubicación de la nueva red virtual](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutos | No se requiere tiempo de inactividad. | N/D |
+| [Paso 1: Actualización y ubicación de la nueva red virtual](#update-and-verify-virtual-network-settings) | Portal de Azure | 15 minutos | No se requiere tiempo de inactividad. | N/D |
 | [Paso 2: Preparación del dominio administrado para la migración](#prepare-the-managed-domain-for-migration) | PowerShell | De 15 a 30 minutos como media | El tiempo de inactividad de Azure AD DS comienza una vez finalizado este comando. | Reversión y restauración disponibles. |
 | [Paso 3: Traslado del dominio administrado a una red virtual existente](#migrate-the-managed-domain) | PowerShell | De 1 a 3 horas como media | Una vez finalizado este comando, está disponible un controlador de dominio. | En caso de error, están disponibles la reversión (autoservicio) y la restauración. |
 | [Paso 4: Prueba y espera del controlador de dominio de réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell y Azure Portal | 1 hora o más, en función del número de pruebas | Ambos controladores de dominio están disponibles y deben funcionar con normalidad, y finaliza el tiempo de inactividad. | N/D Una vez que la primera máquina virtual se ha migrado correctamente, no hay ninguna opción de reversión o restauración. |

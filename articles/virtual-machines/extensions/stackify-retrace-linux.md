@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 04/12/2018
 ms.openlocfilehash: 1fc437637fde524da125af9191bf9de79a2e9c37
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559008"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensión de agente de Linux para Stackify Retrace
@@ -32,7 +32,7 @@ Retrace es la ÚNICA herramienta que ofrece todas las funcionalidades siguientes
 
 Esta extensión proporciona una ruta de acceso de instalación para el agente de Linux para Retrace. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo 
 
@@ -186,7 +186,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Error de instalación | activationKey es obligatorio |
 | 51 | Error de instalación | La distribución del sistema operativo no se admite |
 | 60 | Error de instalación | environment es obligatorio |
-| 70 | Error de instalación | Desconocido |
+| 70 | Error de instalación | Unknown |
 | 80 | Error de habilitación | No se pudo configurar el servicio |
 | 90 | Error de habilitación | No se pudo iniciar el servicio |
 | 100 | Error de deshabilitación | No se pudo detener el servicio |

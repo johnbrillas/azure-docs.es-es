@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674815"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
@@ -52,24 +52,24 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 ## <a name="add-the-connector"></a>Incorporación del conector
 
 > [!IMPORTANT]
-> Este conector no tiene ningún desencadenador. Solo tiene acciones. Por lo tanto, cuando cree la aplicación lógica, agregue otro desencadenador para iniciar la aplicación lógica, como **Programación: periodicidad** o **Solicitud/Respuesta: respuesta** . 
+> Este conector no tiene ningún desencadenador. Solo tiene acciones. Por lo tanto, cuando cree la aplicación lógica, agregue otro desencadenador para iniciar la aplicación lógica, como **Programación: periodicidad** o **Solicitud/Respuesta: respuesta**. 
 
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco.
 
-2. Al principio de la aplicación lógica, seleccione el desencadenador **Solicitud/Respuesta: respuesta** : 
+2. Al principio de la aplicación lógica, seleccione el desencadenador **Solicitud/Respuesta: respuesta**: 
 
     ![Un cuadro de diálogo tiene un cuadro para buscar todos los desencadenadores. También se muestra un único desencadenador, "Solicitud/Respuesta: solicitud", con un botón de selección.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Seleccione **Guardar** . Cuando lo guarde, se generará automáticamente la URL de solicitud. 
+3. Seleccione **Guardar**. Cuando lo guarde, se generará automáticamente la URL de solicitud. 
 
-4. Seleccione **Nuevo paso** y seleccione **Agregar una acción** . Escriba en `oracle` para ver las acciones disponibles: 
+4. Seleccione **Nuevo paso** y seleccione **Agregar una acción**. Escriba en `oracle` para ver las acciones disponibles: 
 
     ![Un cuadro de búsqueda contiene "Oracle". La búsqueda produce un acierto con la etiqueta "Oracle Database". Hay una página con pestañas, una pestaña que muestra "DESENCADENADORES (0)", otra que muestra "ACCIONES (6)". Se muestran seis acciones. La primera de ellas es "Obtener fila (vista previa)".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Esta también es la forma más rápida para ver los desencadenadores y las acciones disponibles para cualquier conector. Escriba parte del nombre del conector, como `oracle`. El diseñador muestra todos los desencadenadores y las acciones. 
 
-5. Seleccione una de las acciones, como **Base de datos de Oracle: obtener fila** . Seleccione **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local). Escriba el nombre del servidor de Oracle, el método de autenticación, el nombre de usuario, la contraseña y seleccione la puerta de enlace:
+5. Seleccione una de las acciones, como **Base de datos de Oracle: obtener fila**. Seleccione **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local). Escriba el nombre del servidor de Oracle, el método de autenticación, el nombre de usuario, la contraseña y seleccione la puerta de enlace:
 
     ![El cuadro de diálogo se titula "Oracle Database: Obtener fila". Hay un cuadro, seleccionado, con la etiqueta "Conectar mediante puerta de enlace de datos local". A continuación se muestran los otros cinco cuadros de texto.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -83,12 +83,12 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
     ![Hay dos cuadros de diálogo. El cuadro "Enviar un correo electrónico" tiene cuadros para especificar "Cuerpo", "Asunto" y la dirección del destinatario del correo electrónico. El cuadro de diálogo "Agregar contenido dinámico" proporciona una búsqueda de contenido dinámico de las aplicaciones y los servicios del flujo.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Guarde** la aplicación lógica y, a continuación, seleccione **Ejecutar** . Cierre el diseñador y observe el historial de ejecuciones para el estado. Si se produce un error, seleccione la fila del mensaje con errores. El diseñador se abre y muestra en qué paso se produjo el error. También muestra la información de error. Si se realiza correctamente, debería recibir un correo electrónico con la información que agregó.
+8. **Guarde** la aplicación lógica y, a continuación, seleccione **Ejecutar**. Cierre el diseñador y observe el historial de ejecuciones para el estado. Si se produce un error, seleccione la fila del mensaje con errores. El diseñador se abre y muestra en qué paso se produjo el error. También muestra la información de error. Si se realiza correctamente, debería recibir un correo electrónico con la información que agregó.
 
 
 ### <a name="workflow-ideas"></a>Ideas de flujo de trabajo
 
-* Le recomendamos supervisar el hashtag #oracle y poner los tweets en una base de datos para que se pueden consultar y usar en otras aplicaciones. En una aplicación lógica, agregue el desencadenador `Twitter - When a new tweet is posted` y escriba el hashtag **#oracle** . A continuación, agregue la acción `Oracle Database - Insert row` y seleccione la tabla:
+* Le recomendamos supervisar el hashtag #oracle y poner los tweets en una base de datos para que se pueden consultar y usar en otras aplicaciones. En una aplicación lógica, agregue el desencadenador `Twitter - When a new tweet is posted` y escriba el hashtag **#oracle**. A continuación, agregue la acción `Oracle Database - Insert row` y seleccione la tabla:
 
     ![El cuadro de diálogo "Cuando se publica un tweet nuevo" muestra "hashtag Oracle" como texto de búsqueda y le permite especificar la frecuencia de comprobación. Este cuadro de diálogo conduce al cuadro de diálogo "Oracle Database" que le permite seleccionar la acción.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -98,21 +98,21 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
 ## <a name="common-errors"></a>Errores comunes
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Error** : No se puede acceder a la puerta de enlace
+#### <a name="error-cannot-reach-the-gateway"></a>**Error**: No se puede acceder a la puerta de enlace
 
-**Causa** : La puerta de enlace de datos local no puede conectarse con la nube. 
+**Causa**: La puerta de enlace de datos local no puede conectarse con la nube. 
 
-**Mitigación** : Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.    Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse.  También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
+**Mitigación**: Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.    Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse.  También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error** : El proveedor que utiliza está en desuso: "System.Data.OracleClient requiere la version 8.1.7 o posterior del software cliente de Oracle". Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) para instalar el proveedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que utiliza está en desuso: "System.Data.OracleClient requiere la version 8.1.7 o posterior del software cliente de Oracle". Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) para instalar el proveedor oficial.
 
-**Causa** : El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
+**Causa**: El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
 
 **Solución:** Descargue e instale el SDK del cliente Oracle en la misma máquina que la puerta de enlace de datos local.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Error** : La tabla "[Tablename]" no define las columnas clave.
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Error**: La tabla "[Tablename]" no define las columnas clave.
 
-**Causa** : La tabla no tiene ninguna clave principal.  
+**Causa**: La tabla no tiene ninguna clave principal.  
 
 **Solución:** El conector de Oracle Database requiere que se utilice una tabla con una columna de clave principal.
  

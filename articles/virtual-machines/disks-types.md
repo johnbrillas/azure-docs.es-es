@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500774"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
@@ -29,7 +29,7 @@ En la tabla siguiente se proporciona una comparación entre los discos Ultra, la
 |Escenario   |Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
 |Tamaño máximo del disco   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Rendimiento máx.   |2000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
-|IOPS máx.   |160 000    |20.000   |6,000   |2\.000   |
+|IOPS máx.   |160 000    |20 000   |6,000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
 

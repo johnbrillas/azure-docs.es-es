@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425636"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604073"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Vista previa: Introducción a Azure Image Builder
 
@@ -70,7 +70,7 @@ Azure VM Image Builder es un servicio de Azure totalmente administrado al que se
 
 Las configuraciones de plantilla se pueden pasar mediante PowerShell, la CLI de Azure, las plantillas de ARM y, si usa la tarea DevOps de Azure VM Image Builder al realizar el envío al servicio, se creará un recurso de plantilla de imagen. Cuando se cree el recurso de plantilla de imagen, verá un grupo de recursos de almacenamiento provisional creado en la suscripción, con el formato: IT_\<DestinationResourceGroup> _\<TemplateName>_ \(GUID). El grupo de recursos de almacenamiento provisional contiene archivos y scripts a los que se hace referencia en la personalización del archivo, del shell o de PowerShell en la propiedad ScriptURI.
 
-Para ejecutar la compilación, invocará `Run` en el recurso de plantilla de imagen. A continuación, el servicio implementará recursos adicionales para la compilación, como una VM, una red, un disco, un adaptador de red, etc. Si compila una imagen sin usar una instancia de Image Builder de red virtual, también se implementará una IP pública y un grupo NSG. El servicio se conectará a la VM de compilación mediante SSH o WinRM. Si selecciona una red virtual existente, el servicio se implementará con Azure Private Link y no se necesitará ninguna dirección IP pública. Para obtener más detalles sobre las redes de Image Builder, revise los [detalles](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Para ejecutar la compilación, invocará `Run` en el recurso de plantilla de imagen. A continuación, el servicio implementará recursos adicionales para la compilación, como una VM, una red, un disco, un adaptador de red, etc. Si compila una imagen sin usar una instancia de Image Builder de red virtual, también se implementará una IP pública y un grupo NSG. El servicio se conectará a la VM de compilación mediante SSH o WinRM. Si selecciona una red virtual existente, el servicio se implementará con Azure Private Link y no se necesitará ninguna dirección IP pública. Para obtener más detalles sobre las redes de Image Builder, revise los [detalles](./linux/image-builder-networking.md).
 
 Una vez finalizada la compilación, se eliminarán todos los recursos, salvo el grupo de recursos de almacenamiento provisional y la cuenta de almacenamiento. Para quitarlos, se eliminará el recurso de plantilla de imagen o se pueden dejar allí para volver a ejecutar la compilación.
 
@@ -84,7 +84,7 @@ Al registrarse para el (AIB), se concede al servicio AIB permiso para crear, adm
 
 Para permitir que Azure VM Image Builder distribuya imágenes a las imágenes administradas o a Shared Image Gallery, debe crear una identidad asignada por el usuario de Azure que tenga permisos para leer y escribir imágenes. Si está accediendo a Azure Storage, necesitará permisos para leer contenedores privados y públicos.
 
-Los permisos se explican con más detalle para [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell) y la [CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+Los permisos se explican con más detalle para [PowerShell](./linux/image-builder-permissions-powershell.md) y la [CLI de Azure](./linux/image-builder-permissions-cli.md).
 
 ## <a name="costs"></a>Costos
 Se incurrirá en algunos costos de procesos, redes y almacenamiento al crear, compilar y almacenar las imágenes con Azure Image Builder. Estos costos son similares a los que conlleva la creación manual de imágenes personalizadas. En el caso de los recursos, se le cargarán las tarifas que tenga en Azure. 
@@ -101,4 +101,3 @@ Actualmente, Image Builder solo admite de forma nativa la creación de imágenes
 ## <a name="next-steps"></a>Pasos siguientes 
  
 Para probar Azure Image Builder, consulte los artículos para la compilación de imágenes de [Linux](./linux/image-builder.md) o [Windows](./windows/image-builder.md).
-

@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514396"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restauración o eliminación de un usuario recientemente eliminado mediante Azure Active Directory
@@ -45,7 +45,7 @@ Puede ver a todos los usuarios que se eliminaron hace menos de 30 días. Estos u
 ### <a name="to-view-your-restorable-users"></a>Para ver a los usuarios que se pueden restaurar
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador global para la organización.
 
-2. Seleccione **Azure Active Directory** , **Usuarios** y, a continuación, seleccione **Usuarios eliminados**.
+2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione **Usuarios eliminados**.
 
     Revise la lista de usuarios que están disponibles para restaurar.
 
@@ -59,7 +59,7 @@ Al eliminarse una cuenta de usuario de la organización, esta está en estado su
 > Una vez que se restaura un usuario, también se restauran las licencias que se asignaron al usuario en el momento de la eliminación aunque no haya puestos disponibles para esas licencias. Si a partir de ese momento consume más licencias de las que adquirió, su organización podría incumplir temporalmente todo lo relativo al uso de licencias.
 
 ### <a name="to-restore-a-user"></a>Para restaurar a un usuario
-1. En la página **Usuarios - usuarios eliminados** , busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Mary Parker_.
+1. En la página **Usuarios - usuarios eliminados**, busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Mary Parker_.
 
 2. Seleccione **Restaurar usuario**.
 
@@ -73,7 +73,7 @@ Puede eliminar permanentemente un usuario desde la organización sin esperar a q
 
 ### <a name="to-permanently-delete-a-user"></a>Para eliminar un usuario permanentemente
 
-1. En la página **Usuarios - usuarios eliminados** , busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Rae Huff_.
+1. En la página **Usuarios - usuarios eliminados**, busque y seleccione uno de los usuarios disponibles. Por ejemplo, _Rae Huff_.
 
 2. Seleccione **Eliminar permanentemente**.
 

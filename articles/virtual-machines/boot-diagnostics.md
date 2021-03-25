@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738125"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607529"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -106,9 +106,9 @@ Todas las versiones de API posteriores a 2020-06-01 admiten los diagnósticos de
 - Los diagnósticos de arranque administrados no admiten máquinas virtuales con discos de sistema operativo no administrados.
 - Los diagnósticos de arranque no admiten cuentas de almacenamiento Premium. Si se usa una cuenta de almacenamiento Premium para los diagnósticos de arranque, los usuarios recibirán un error `StorageAccountTypeNotSupported` al iniciar la máquina virtual. 
 - Las cuentas de almacenamiento administradas se admiten en la API de Resource Manager versión "2020-06-01" y posteriores.
-- Actualmente, la consola serie de Azure no es compatible con una cuenta de almacenamiento administrada de los diagnósticos de arranque. Más información sobre la [consola serie de Azure](./troubleshooting/serial-console-overview.md).
+- Actualmente, la consola serie de Azure no es compatible con una cuenta de almacenamiento administrada de los diagnósticos de arranque. Más información sobre la [consola serie de Azure](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - El portal solo admite el uso de diagnósticos de arranque con una cuenta de almacenamiento administrada para máquinas virtuales de instancia única.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre la [consola serie de Azure](./troubleshooting/serial-console-overview.md) y cómo usar los diagnósticos de arranque para [solucionar problemas de máquinas virtuales en Azure](./troubleshooting/boot-diagnostics.md).
+Obtenga más información sobre la [consola serie de Azure](/troubleshoot/azure/virtual-machines/serial-console-overview) y cómo usar los diagnósticos de arranque para [solucionar problemas de máquinas virtuales en Azure](/troubleshoot/azure/virtual-machines/boot-diagnostics).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967982"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656828"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple
 
@@ -48,6 +48,8 @@ En la siguiente tabla se muestra un resumen de todas las tareas comunes de admin
 
 Para obtener más información sobre cada flujo de trabajo, haga clic en el procedimiento adecuado en la tabla.
 
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
+
 #### <a name="storsimple-device-manager-workflows"></a>Flujos de trabajo de StorSimple Device Manager
 
 | Si desea hacer esto... | Utilice este procedimiento. |
@@ -57,8 +59,8 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 | Cambiar la clave de cifrado de datos de servicio</br>Ver los registros de operaciones |[Panel de uso del servicio Administrador de dispositivos de StorSimple](storsimple-8000-service-dashboard.md) |
 | Desactivación de un dispositivo</br>Eliminar un dispositivo |[Desactivar o eliminar un dispositivo](storsimple-8000-deactivate-and-delete-device.md) |
 | Obtener información sobre recuperación ante desastres y conmutación por error</br>Conmutación por error a un dispositivo físico</br>Conmutación por error en un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR) |[Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-8000-device-failover-disaster-recovery.md) |
-| Enumerar copias de seguridad para un volumen</br>Seleccionar un conjunto de copia de seguridad</br>Eliminación de un conjunto de copia de seguridad |[Administrar copias de seguridad](storsimple-8000-manage-backup-catalog.md) |
-| Clonar un volumen |[Clonación de un volumen](storsimple-8000-clone-volume-u2.md) |
+| Enumerar copias de seguridad para un volumen</br>Seleccionar un conjunto de copia de seguridad</br>Eliminación de un conjunto de copia de seguridad |[Administración de copias de seguridad](storsimple-8000-manage-backup-catalog.md) |
+| Clonar un volumen |[Clonar un volumen](storsimple-8000-clone-volume-u2.md) |
 | Restaurar un conjunto de copias de seguridad |[Restaurar un conjunto de copias de seguridad](storsimple-8000-restore-from-backup-set-u2.md) |
 | Acerca de las cuentas de almacenamiento</br>Agregar una cuenta de almacenamiento</br>Editar una cuenta de almacenamiento</br>Eliminar una cuenta de almacenamiento</br>Rotación de claves de cuentas de almacenamiento |[Administrar cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md) |
 | Acerca de las plantillas de ancho de banda</br>Agregar una plantilla de ancho de banda</br>Editar una plantilla de ancho de banda</br>Eliminar una plantilla de ancho de banda</br>Usar una plantilla de ancho de banda predeterminada</br>Crear una plantilla de ancho de banda para todo el día que comience a una hora especificada |[Administrar plantillas de ancho de banda](storsimple-8000-manage-bandwidth-templates.md) |
@@ -76,9 +78,9 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 | Configurar CHAP para el dispositivo StorSimple |[Configurar CHAP para el dispositivo StorSimple](./storsimple-8000-configure-chap.md) |
 | Agregar una directiva de copia de seguridad</br>Incorporación o modificación de una programación</br>Eliminación de una directiva de copia de seguridad</br>Creación de una copia de seguridad manual</br>Creación de una directiva de copia de seguridad personalizada con varios volúmenes y programaciones |[Administrar directivas de copia de seguridad](storsimple-8000-manage-backup-policies-u2.md) |
 | Detener los controladores de dispositivo</br>Reiniciar los controladores de dispositivo</br>Apagar los controladores de dispositivo</br>Restablecer el dispositivo a los valores predeterminados de fábrica</br>(Lo anterior es solo para dispositivos locales) |[Administrar controladores de dispositivo StorSimple](storsimple-8000-manage-device-controller.md) |
-| Obtener información sobre los componentes de hardware de StorSimple</br>Supervisar el estado del hardware</br>(Lo anterior es solo para dispositivos locales) |[Supervisar componentes de hardware](storsimple-8000-monitor-hardware-status.md) |
+| Obtener información sobre los componentes de hardware de StorSimple</br>Supervisar el estado del hardware</br>(Lo anterior es solo para dispositivos locales) |[Supervisión de componentes de hardware](storsimple-8000-monitor-hardware-status.md) |
 | Crear un paquete de soporte |[Crear y administrar paquetes de soporte técnico](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
-| Instalación de actualizaciones de software |[Actualizar su dispositivo](storsimple-update-device.md) |
+| Instalación de actualizaciones de software |[Actualización de dispositivos](storsimple-update-device.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

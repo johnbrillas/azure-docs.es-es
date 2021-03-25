@@ -1,18 +1,18 @@
 ---
-title: Consulta de datos de telemetría ingeridos
+title: Consulta de los datos de telemetría ingeridos
 description: En este artículo se describe cómo consultar datos de telemetría ingeridos.
 author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677490"
 ---
-# <a name="query-ingested-telemetry-data"></a>Consulta de datos de telemetría ingeridos
+# <a name="query-ingested-telemetry-data"></a>Consulta de los datos de telemetría ingeridos
 
 En este artículo se describe cómo consultar datos de sensor ingeridos en Azure FarmBeats.
 
@@ -24,7 +24,7 @@ Antes de continuar con este artículo, asegúrese de que ha instalado FarmBeats 
 
 Para ingerir datos de telemetría de sensores, visite [Ingesta de datos de telemetría históricos](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Antes de continuar, también debe asegurarse de estar familiarizado con las API de REST de FarmBeats, ya que consultará la telemetría ingerida mediante las API. Para obtener más información sobre las API de FarmBeats, consulte [API de REST de FarmBeats](rest-api-in-azure-farmbeats.md). **Asegúrese de que puede realizar solicitudes de API a su punto de conexión del centro de datos de FarmBeats** .
+Antes de continuar, también debe asegurarse de estar familiarizado con las API de REST de FarmBeats, ya que consultará la telemetría ingerida mediante las API. Para obtener más información sobre las API de FarmBeats, consulte [API de REST de FarmBeats](rest-api-in-azure-farmbeats.md). **Asegúrese de que puede realizar solicitudes de API a su punto de conexión del centro de datos de FarmBeats**.
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Consulta de datos de telemetría de sensores ingeridos
 
@@ -115,8 +115,8 @@ Los datos de telemetría se reciben en EventHub y luego se procesan y se inserta
 
 Siga los pasos para visualizar datos en TSI:
 
-1. Vaya a **Azure Portal** > **FarmBeats DataHub resource group** (Grupo de recursos de centro de datos de FarmBeats) > seleccione el entorno de **Time Series Insights** (tsi-xxxx) > **Directivas de acceso a datos** . Agregue un usuario con acceso de lector o colaborador.
-2. Vaya a la página **Información general** del entorno de **Time Series Insights** (tsi-xxxx) y seleccione **URL del Explorador de Time Series Insights** . Ahora podrá visualizar la telemetría ingerida.
+1. Vaya a **Azure Portal** > **FarmBeats DataHub resource group** (Grupo de recursos de centro de datos de FarmBeats) > seleccione el entorno de **Time Series Insights** (tsi-xxxx) > **Directivas de acceso a datos**. Agregue un usuario con acceso de lector o colaborador.
+2. Vaya a la página **Información general** del entorno de **Time Series Insights** (tsi-xxxx) y seleccione **URL del Explorador de Time Series Insights**. Ahora podrá visualizar la telemetría ingerida.
 
 Además del almacenamiento, la consulta y la visualización de la telemetría, TSI también permite la integración en un panel de Power BI. Para más información, consulte [aquí]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 

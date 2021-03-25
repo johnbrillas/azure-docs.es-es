@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518983"
 ---
 # <a name="azure-role-based-access-control-for-storsimple"></a>Control de acceso basado en rol de Azure para StorSimple
@@ -33,9 +33,9 @@ Este artículo se aplica solo a los dispositivos de la serie StorSimple 8000 que
 
 RBAC de Azure puede asignarse en función de los roles. Los roles garantizan determinados niveles de permiso en función de los recursos disponibles en el entorno. Existen dos tipos de roles que pueden elegir los usuarios de StorSimple: integrado o personalizado.
 
-* **Roles integrados** : los roles integrados pueden ser propietario, colaborador, lector o administrador de acceso de usuario. Para más información, consulte [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md).
+* **Roles integrados**: los roles integrados pueden ser propietario, colaborador, lector o administrador de acceso de usuario. Para más información, consulte [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md).
 
-* **Roles personalizados** : si los roles integrados no sirven para sus necesidades, puede crear roles personalizados de Azure para StorSimple. Para crear un rol personalizado de Azure, comience con un rol integrado, edítelo y, a continuación, impórtelo de nuevo en el entorno. La descarga y la carga del rol se administran mediante Azure PowerShell o la CLI de Azure. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](../role-based-access-control/custom-roles.md).
+* **Roles personalizados**: si los roles integrados no sirven para sus necesidades, puede crear roles personalizados de Azure para StorSimple. Para crear un rol personalizado de Azure, comience con un rol integrado, edítelo y, a continuación, impórtelo de nuevo en el entorno. La descarga y la carga del rol se administran mediante Azure PowerShell o la CLI de Azure. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](../role-based-access-control/custom-roles.md).
 
 Para ver los distintos roles disponibles para usuarios de dispositivos StorSimple en Azure Portal, vaya a su servicio de administrador de dispositivos de StorSimple y, a continuación, vaya a **Control de acceso (IAM) > Roles**.
 
@@ -58,7 +58,7 @@ En el ejemplo siguiente, empezaremos con el rol integrado **lector** que permite
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Abra el archivo JSON en Visual Studio. Observará que un rol de Azure consta normalmente de tres secciones principales: **Actions** , **NotActions** y **AssignableScopes**.
+4. Abra el archivo JSON en Visual Studio. Observará que un rol de Azure consta normalmente de tres secciones principales: **Actions**, **NotActions** y **AssignableScopes**.
 
     En la sección **Action** se enumeran todas las operaciones permitidas para este rol. Cada acción se asigna desde un proveedor de recursos. En una infraestructura de administración de StorSimple, use el proveedor de recursos `Microsoft.StorSimple`.
 
@@ -68,9 +68,9 @@ En el ejemplo siguiente, empezaremos con el rol integrado **lector** que permite
 
     También puede comprobar todos los cmdlets de PowerShell disponibles para administrar los proveedores de recursos.
 
-    En las secciones **NotActions** , se enumeran todas las acciones restringidas para un rol determinado de Azure. En este ejemplo, ninguna acción está restringida.
+    En las secciones **NotActions**, se enumeran todas las acciones restringidas para un rol determinado de Azure. En este ejemplo, ninguna acción está restringida.
     
-    En la sección **AssignableScopes** , se enumeran los identificadores de la suscripción. Asegúrese de que el rol de Azure contenga los identificadores de suscripción explícitos donde se utilice. Si no se especifica el identificador de suscripción correcto, no se le permitirá importar el rol en su suscripción.
+    En la sección **AssignableScopes**, se enumeran los identificadores de la suscripción. Asegúrese de que el rol de Azure contenga los identificadores de suscripción explícitos donde se utilice. Si no se especifica el identificador de suscripción correcto, no se le permitirá importar el rol en su suscripción.
 
     Edite el archivo teniendo en cuenta las consideraciones anteriores.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94693756"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Traslado de un equilibrador de carga externo a otra región mediante Azure Portal
@@ -20,7 +20,7 @@ Hay varios escenarios en los que quizá quiera trasladar un equilibrador de carg
 En un sentido literal, no se puede trasladar un equilibrador de carga externo de Azure de una región a otra. Aunque se puede usar una plantilla de Azure Resource Manager para exportar la configuración y dirección IP pública actuales de un equilibrador de carga externo. Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la dirección IP pública a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que el equilibrador de carga externo de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 
@@ -182,7 +182,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
 
     1. En otra pestaña o ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de recursos**.
     2. Busque el grupo de recursos de destino que contiene la IP pública que trasladó en los pasos anteriores. Selecciónelo.
-    3. Seleccione **Configuración** > **Propiedades**.
+    3. Haga clic en **Configuración** > **Propiedades**.
     4. En la hoja de la derecha, resalte **Id. de recurso** y cópielo en el Portapapeles. También puede seleccionar **Copiar al Portapapeles** a la derecha de la ruta de acceso del **Id. de recurso**.
     5. Pegue el identificador de recurso en la propiedad **value** del editor **Editar parámetros** que está abierto en la otra ventana o pestaña del explorador:
 
@@ -333,7 +333,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
                     }
                 ]
         ```
-        Para completar la adición o eliminación de una regla NAT de entrada, esta debe agregarse o quitarse como propiedad **type** al final del archivo template.json:
+        Para completar la adición o eliminación de una regla NAT de entrada, esta debe agregarse o quitarse como una propiedad **type** al final del archivo template.json:
 
         ```json
         {

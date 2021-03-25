@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673875"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
@@ -53,7 +53,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
 1. Seleccione el recurso que desea administrar para abrir la página de información general de recursos.
 
-1. En **Administrar** , seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -71,7 +71,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
     ![Panel Seleccionar un miembro o grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. En la pestaña **Configuración** , en la lista **Tipo de asignación** , seleccione **Apto** o **Activo**.
+1. En la pestaña **Configuración**, en la lista **Tipo de asignación**, seleccione **Apto** o **Activo**.
 
     ![Panel Configuración de pertenencia](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -99,7 +99,7 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
 1. Seleccione el recurso que desea administrar para abrir su página de información general.
 
-1. En **Administrar** , seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure: seleccionar rol](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

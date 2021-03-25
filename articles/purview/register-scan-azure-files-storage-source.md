@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.openlocfilehash: a0bd7a4cd8afafc16f05b4a37cd5723304ad931e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551261"
 ---
 # <a name="register-and-scan-azure-files"></a>Registro y examen de Azure Files
@@ -61,5 +61,5 @@ Para configurar la autenticación del almacenamiento Azure Files mediante una cl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examinar el catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en Azure Purview Data Catalog](how-to-search-catalog.md)
+- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
+- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
 ms.openlocfilehash: d49047e9b3a65da90f4a5ac9e4b3cb1e32bd59a7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489989"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Aumento automático del almacenamiento con Azure Portal en Azure Database for PostgreSQL: servidor único
@@ -28,9 +28,9 @@ Siga estos pasos para establecer el aumento automático de almacenamiento en el 
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione un servidor existente de Azure Database for PostgreSQL.
 
-2. En la página del servidor de PostgreSQL, en **Configuración** , haga clic en **Plan de tarifa** para abrir la página de planes de tarifa.
+2. En la página del servidor de PostgreSQL, en **Configuración**, haga clic en **Plan de tarifa** para abrir la página de planes de tarifa.
 
-3. En la sección de **aumento automático** , seleccione **Sí** para habilitarlo para el almacenamiento.
+3. En la sección de **aumento automático**, seleccione **Sí** para habilitarlo para el almacenamiento.
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for PostgreSQL: Settings_Pricing_tier: aumento automático":::
 
@@ -38,7 +38,7 @@ Siga estos pasos para establecer el aumento automático de almacenamiento en el 
 
 5. Se enviara una notificación de confirmación de la habilitación del aumento automático.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL: Settings_Pricing_tier: aumento automático":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL: aumento automático correcto":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677719"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
@@ -29,7 +29,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="limits"></a>límites
 
-* De forma predeterminada, las acciones de Azure Blob Storage pueden leer o escribir archivos de *50 MB o más pequeños* . Para controlar los archivos mayores de 50 MB, pero hasta 1024 MB, las acciones de Azure Blob Storage admiten la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). La acción **Obtener contenido de blog** usa implícitamente la fragmentación.
+* De forma predeterminada, las acciones de Azure Blob Storage pueden leer o escribir archivos de *50 MB o más pequeños*. Para controlar los archivos mayores de 50 MB, pero hasta 1024 MB, las acciones de Azure Blob Storage admiten la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). La acción **Obtener contenido de blog** usa implícitamente la fragmentación.
 
 * Los desencadenadores de Azure Blob Storage no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 50 MB o menos. Para obtener archivos de más de 50 MB, siga este patrón:
 
@@ -65,7 +65,7 @@ En este ejemplo se muestra cómo se puede iniciar un flujo de trabajo de una apl
 
    Para este ejemplo, seleccione el contenedor y la carpeta que desea supervisar.
 
-   1. En el cuadro **Contenedor** , seleccione el icono de la carpeta.
+   1. En el cuadro **Contenedor**, seleccione el icono de la carpeta.
 
    2. En la lista de carpetas, elija el corchete angular derecho ( **>** ) y, después, desplácese hasta que encuentre y seleccione la carpeta que desee.
 
@@ -85,11 +85,11 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. En [Azure Portal](https://portal.azure.com) o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
-2. En el Diseñador de Logic Apps, en el desencadenador o la acción, elija **Nuevo paso** .
+2. En el Diseñador de Logic Apps, en el desencadenador o la acción, elija **Nuevo paso**.
 
    ![Agregar un paso nuevo al flujo de trabajo de la aplicación lógica](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción** .
+   Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "azure blob" como filtro. En la lista de acciones, seleccione la acción que desee.
 
@@ -102,7 +102,7 @@ O bien, si la conexión ya existe, especifique la información necesaria para la
 
    En este ejemplo, seleccione el archivo que desee.
 
-   1. En el cuadro **Blob** , seleccione el icono de la carpeta.
+   1. En el cuadro **Blob**, seleccione el icono de la carpeta.
   
       ![Seleccionar la carpeta de almacenamiento que se va a usar con la acción](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
@@ -131,7 +131,7 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
    ![Creación de una conexión de cuenta de Azure Blob Storage](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
-1. Cuando esté listo, seleccione **Crear** .
+1. Cuando esté listo, seleccione **Crear**.
 
 1. Después de crear la conexión, siga con [Agregar un desencadenador de Blob Storage](#add-trigger) o [Agregar una acción de Blob Storage](#add-action).
 
@@ -183,9 +183,9 @@ Para conceder a los servicios de confianza de Microsoft acceso a una cuenta de a
 
 Para configurar la excepción y la compatibilidad con identidad administrada, siga estos pasos generales:
 
-1. En la cuenta de almacenamiento, en **Configuración** , seleccione **Firewalls y redes virtuales** . En **Permitir acceso desde** , seleccione la opción **Redes seleccionadas** para que aparezca la configuración relacionada.
+1. En la cuenta de almacenamiento, en **Configuración**, seleccione **Firewalls y redes virtuales**. En **Permitir acceso desde**, seleccione la opción **Redes seleccionadas** para que aparezca la configuración relacionada.
 
-1. En **Excepciones** , seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** y seleccione **Guardar** .
+1. En **Excepciones**, seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** y seleccione **Guardar**.
 
    ![Selección de una excepción que permite los servicios de confianza de Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 

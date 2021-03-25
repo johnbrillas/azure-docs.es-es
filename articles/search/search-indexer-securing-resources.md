@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503494"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Acceso del indexador al contenido protegido por las características de seguridad de red de Azure (Azure Cognitive Search)
@@ -85,7 +85,7 @@ Esta funcionalidad solo está disponible en los servicios de búsqueda facturabl
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Paso 1: Creación de un punto de conexión privado al recurso seguro
 
-Los clientes deben llamar a la operación de administración de búsqueda, [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) de un **recurso de vínculo privado compartido** , a fin de crear una conexión de punto de conexión privado a su recurso seguro (por ejemplo, una cuenta de almacenamiento). El tráfico que atraviesa esta conexión de punto de conexión privado (saliente) solo se originará en la red virtual que se encuentre en el entorno de ejecución "privado" del indexador específico del servicio de búsqueda.
+Los clientes deben llamar a la operación de administración de búsqueda, [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) de un **recurso de vínculo privado compartido**, a fin de crear una conexión de punto de conexión privado a su recurso seguro (por ejemplo, una cuenta de almacenamiento). El tráfico que atraviesa esta conexión de punto de conexión privado (saliente) solo se originará en la red virtual que se encuentre en el entorno de ejecución "privado" del indexador específico del servicio de búsqueda.
 
 Azure Cognitive Search validará que los autores de llamada de esta API tengan permisos RBAC de Azure para aprobar las solicitudes de conexión de punto de conexión privado al recurso seguro. Por ejemplo, si solicita una conexión de punto de conexión privado a una cuenta de almacenamiento con permisos de solo lectura, se rechazará esta llamada.
 

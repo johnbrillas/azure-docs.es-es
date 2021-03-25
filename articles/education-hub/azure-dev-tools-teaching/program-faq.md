@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675694"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Preguntas frecuentes sobre el Centro de Education
@@ -149,7 +149,7 @@ Los créditos del curso de Azure solo cubren el uso desde el momento en que se a
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>¿Cómo sé si mi suscripción se encuentra en la oferta de créditos del curso de Azure?
 
-Si mira una suscripción concreta de la hoja suscripciones de Azure Portal, verá el **nombre de la oferta** como una de las propiedades. En el nombre de la oferta aparecerá **Patrocinio de Azure** si está conectada a los créditos del curso. Si no aparece **Patrocinio de Azure** , póngase en contacto con el servicio de soporte técnico para convertirla.
+Si mira una suscripción concreta de la hoja suscripciones de Azure Portal, verá el **nombre de la oferta** como una de las propiedades. En el nombre de la oferta aparecerá **Patrocinio de Azure** si está conectada a los créditos del curso. Si no aparece **Patrocinio de Azure**, póngase en contacto con el servicio de soporte técnico para convertirla.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -252,10 +252,10 @@ Si sigue sin poder iniciar sesión, póngase en contacto con el administrador de
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>¿Cómo encuentro mi identificador de suscriptor?
 
-- **La primera vez que se inscribe en el programa** : El número del identificador de suscriptor está en el correo electrónico de bienvenida de la suscripción que recibe.
-- **Si ha renovado la suscripción** : El identificador de suscriptor está en el correo electrónico de renovación que recibió el administrador de la suscripción.
+- **La primera vez que se inscribe en el programa**: El número del identificador de suscriptor está en el correo electrónico de bienvenida de la suscripción que recibe.
+- **Si ha renovado la suscripción**: El identificador de suscriptor está en el correo electrónico de renovación que recibió el administrador de la suscripción.
 
-El identificador de suscriptor también se encuentra en el portal de Visual Studio Subscription. Después de iniciar sesión, mire en **Mi suscripción** en la página **Mi cuenta** .
+El identificador de suscriptor también se encuentra en el portal de Visual Studio Subscription. Después de iniciar sesión, mire en **Mi suscripción** en la página **Mi cuenta**.
 
 Si necesita ayuda para buscar el identificador de suscriptor, [póngase en contacto con nosotros](https://azureforeducation.microsoft.com/institutions/Contact).
 
@@ -282,7 +282,7 @@ Si no recibe estos correos electrónicos y le preocupa que la suscripción esté
 
 O bien, vaya a la [página de renovación de Azure Dev Tools for Teaching](https://portal.azureforeducation.microsoft.com/) y complete el proceso de renovación.
 
-Para comprobar la fecha de expiración de la suscripción, vaya al [portal de administración de Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) y consulte **Suscripciones** .
+Para comprobar la fecha de expiración de la suscripción, vaya al [portal de administración de Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) y consulte **Suscripciones**.
 
 ### <a name="what-if-i-need-more-help"></a>¿Qué sucede si necesito más ayuda?
 

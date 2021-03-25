@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92735973"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cache for Redis mediante una plantilla de Resource Manager
@@ -26,8 +26,8 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Una cuenta de almacenamiento** : Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
+* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* **Una cuenta de almacenamiento**: Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -55,11 +55,11 @@ Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de A
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 1. Seleccione o escriba los siguientes valores:
 
-    * **Suscripción** : seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
-    * **Grupo de recursos** : seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
-    * **Ubicación** : seleccione una ubicación para el grupo de recursos. La cuenta de almacenamiento y Redis Caché deben estar en la misma región. Redis Caché utiliza de forma predeterminada la misma ubicación que el grupo de recursos. Por lo tanto, especifique la misma ubicación que la de la cuenta de almacenamiento.
-    * **Nombre de Redis Cache** : escriba un nombre para la introducir de Redis Caché.
-    * **Cuenta de almacenamiento de diagnósticos existente** : escriba el identificador de recurso de una cuenta de almacenamiento. La sintaxis es `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
+    * **Suscripción**: seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
+    * **Grupo de recursos**: seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
+    * **Ubicación**: seleccione una ubicación para el grupo de recursos. La cuenta de almacenamiento y Redis Caché deben estar en la misma región. Redis Caché utiliza de forma predeterminada la misma ubicación que el grupo de recursos. Por lo tanto, especifique la misma ubicación que la de la cuenta de almacenamiento.
+    * **Nombre de Redis Cache**: escriba un nombre para la introducir de Redis Caché.
+    * **Cuenta de almacenamiento de diagnósticos existente**: escriba el identificador de recurso de una cuenta de almacenamiento. La sintaxis es `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Use el valor predeterminado en el resto de la configuración.
 1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar**.

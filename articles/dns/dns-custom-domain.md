@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487405"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
@@ -28,7 +28,7 @@ Puede configurar un dominio personal o personalizado para [Azure Function Apps](
 
 Para configurar un dominio personalizado para las aplicaciones de función de Azure, se crea un registro CNAME, así como una configuración en la propia aplicación de función.
  
-Vaya a **Function App** y seleccione la aplicación de función. Haga clic en **Características de la plataforma** y, en **Redes** , haga clic en **Dominios personalizados**.
+Vaya a **Function App** y seleccione la aplicación de función. Haga clic en **Características de la plataforma** y, en **Redes**, haga clic en **Dominios personalizados**.
 
 ![hoja de aplicación de función](./media/dns-custom-domain/functionapp.png)
 
@@ -46,9 +46,9 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | adatumfunction.azurewebsites.net        | El nombre DNS para el que va a crear el alias, en este ejemplo es el nombre DNS adatumfunction.azurewebsites.net proporcionado de forma predeterminada para la aplicación de función.        |
 
-Regrese a la aplicación de función, haga clic en **Características de la plataforma** y, en **Redes** , haga clic en **Dominios personalizados** ; a continuación, en **Nombres de host personalizados** , haga clic en **+ Agregar nombre de host**.
+Regrese a la aplicación de función, haga clic en **Características de la plataforma** y, en **Redes**, haga clic en **Dominios personalizados**; a continuación, en **Nombres de host personalizados**, haga clic en **+ Agregar nombre de host**.
 
-En la hoja **Agregar nombre de host** , escriba el registro CNAME en el campo de texto **Nombre de host** y haga clic en **Validar**. Si se encuentra el registro, aparece el botón **Agregar nombre de host**. Haga clic en **Agregar nombre de host** para agregar el alias.
+En la hoja **Agregar nombre de host**, escriba el registro CNAME en el campo de texto **Nombre de host** y haga clic en **Validar**. Si se encuentra el registro, aparece el botón **Agregar nombre de host**. Haga clic en **Agregar nombre de host** para agregar el alias.
 
 ![hoja agregar nombre de host de aplicaciones de función](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -56,7 +56,7 @@ En la hoja **Agregar nombre de host** , escriba el registro CNAME en el campo de
 
 Para configurar un dominio personalizado para servicios que usan una dirección IP pública como, por ejemplo, Application Gateway, Load Balancer, Cloud Service, VM de Resource Manager y VM clásicas, se usa un registro A.
 
-Vaya a **Redes** > **Dirección IP pública** , seleccione el recurso de dirección IP pública y haga clic en **Configuración**. Anote la dirección IP.
+Vaya a **Redes** > **Dirección IP pública**, seleccione el recurso de dirección IP pública y haga clic en **Configuración**. Anote la dirección IP.
 
 ![hoja ip pública](./media/dns-custom-domain/publicip.png)
 
@@ -81,7 +81,7 @@ Una vez creado el registro A, ejecute `nslookup` para comprobar que el registro 
 
 Los pasos siguientes le guiarán en el proceso de configuración de un dominio personalizado para una instancia de App Service Web Apps.
 
-Vaya a **App Service** , seleccione el recurso para el que está configurando un nombre de dominio personalizado y haga clic en **Dominios personalizados**.
+Vaya a **App Service**, seleccione el recurso para el que está configurando un nombre de dominio personalizado y haga clic en **Dominios personalizados**.
 
 Observe la dirección URL actual de la hoja **Dominios personalizados**. Esta dirección se utiliza como alias para el registro DNS que se creó.
 
@@ -119,7 +119,7 @@ Si necesita adquirir un dominio personalizado, visite [Comprar un nombre de domi
 
 Los siguientes pasos le guiarán en el proceso de configuración de un registro CNAME para una cuenta de Blob Storage mediante el método asverify. Este método garantiza que no hay ningún tiempo de inactividad.
 
-Vaya a **Storage** > **Cuentas de almacenamiento** , seleccione la cuenta de almacenamiento y haga clic en **Dominio personalizado**. Anote el FQDN en el paso 2, este valor se utiliza para crear el primer registro CNAME
+Vaya a **Storage** > **Cuentas de almacenamiento**, seleccione la cuenta de almacenamiento y haga clic en **Dominio personalizado**. Anote el FQDN en el paso 2, este valor se utiliza para crear el primer registro CNAME
 
 ![dominio personalizado de blob storage](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -146,7 +146,7 @@ Para más información acerca de la asignación de un dominio personalizado a un
 
 Los siguientes pasos le guiarán en el proceso de configuración de un registro CNAME para un punto de conexión de CDN mediante el método cdnverify. Este método garantiza que no hay ningún tiempo de inactividad.
 
-Vaya a **Redes** > **Perfiles de CDN** , seleccione el perfil de CDN.
+Vaya a **Redes** > **Perfiles de CDN**, seleccione el perfil de CDN.
 
 Seleccione el punto de conexión con el que está trabajando y haga clic en **+ Dominio personalizado**. Observe el **nombre de host del punto de conexión** ya que este valor es el registro al que señala el registro CNAME.
 
