@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392085"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Implementación de Azure SQL Edge con Docker
@@ -83,7 +83,7 @@ El comando anterior extrae las imágenes de contenedor de Azure SQL Edge más re
     sudo docker ps -a
    ```
 
-4. Si la columna **ESTADO** muestra el estado **Activo** , esto indica que Azure SQL Edge se está ejecutando en el contenedor y que realiza escuchas en el puerto especificado en la columna **PUERTOS**. Si la columna **ESTADO** de su contenedor de Azure SQL Edge muestra **Cerrado** , consulte la sección Solución de problemas de la documentación de Azure SQL Edge.
+4. Si la columna **ESTADO** muestra el estado **Activo**, esto indica que Azure SQL Edge se está ejecutando en el contenedor y que realiza escuchas en el puerto especificado en la columna **PUERTOS**. Si la columna **ESTADO** de su contenedor de Azure SQL Edge muestra **Cerrado**, consulte la sección Solución de problemas de la documentación de Azure SQL Edge.
 
     El parámetro `-h` (nombre del host) también es útil, pero no se usa en este tutorial para simplificar el proceso. Esto cambia el nombre interno del contenedor a un valor personalizado. Este es el nombre que verá que se devuelve en la siguiente consulta de Transact-SQL:
 
@@ -114,7 +114,7 @@ La cuenta de **SA** es un administrador del sistema de la instancia de Azure SQL
 
 ## <a name="connect-to-azure-sql-edge"></a>Conexión a Azure SQL Edge
 
-En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQL Edge, **sqlcmd** , dentro del contenedor para conectarse a Azure SQL Edge.
+En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQL Edge, **sqlcmd**, dentro del contenedor para conectarse a Azure SQL Edge.
 
 > [!NOTE]
 > La herramienta sqlcmd no está disponible en la versión ARM64 de los contenedores de SQL Edge.
@@ -134,7 +134,7 @@ En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQ
    > [!TIP]
    > Puede omitir la contraseña en la línea de comandos para que se le solicite escribirla.
 
-3. Si se realiza correctamente, debe ver un símbolo de sistema de **sqlcmd** : `1>`.
+3. Si se realiza correctamente, debe ver un símbolo de sistema de **sqlcmd**: `1>`.
 
 ## <a name="create-and-query-data"></a>Creación y consulta de datos
 
@@ -144,7 +144,7 @@ Las secciones siguientes le guían en el uso de **sqlcmd** y Transact-SQL para c
 
 En los pasos siguientes se crea una base de datos denominada `TestDB`.
 
-1. En el símbolo del sistema de **sqlcmd** , pegue el comando Transact-SQL siguiente para crear una base de datos de prueba:
+1. En el símbolo del sistema de **sqlcmd**, pegue el comando Transact-SQL siguiente para crear una base de datos de prueba:
 
    ```sql
    CREATE DATABASE TestDB
@@ -162,7 +162,7 @@ En los pasos siguientes se crea una base de datos denominada `TestDB`.
 
 Luego cree una tabla, `Inventory`, e inserte dos filas nuevas.
 
-1. En el símbolo del sistema de **sqlcmd** , cambie el contexto a la nueva base de datos `TestDB`:
+1. En el símbolo del sistema de **sqlcmd**, cambie el contexto a la nueva base de datos `TestDB`:
 
    ```sql
    USE TestDB
@@ -190,7 +190,7 @@ Luego cree una tabla, `Inventory`, e inserte dos filas nuevas.
 
 Ahora ejecute una consulta para devolver datos desde la tabla `Inventory`.
 
-1. En el símbolo del sistema **sqlcmd** , escriba una consulta que devuelva filas desde la tabla `Inventory` donde la cantidad sea mayor que 152:
+1. En el símbolo del sistema **sqlcmd**, escriba una consulta que devuelva filas desde la tabla `Inventory` donde la cantidad sea mayor que 152:
 
    ```sql
    SELECT * FROM Inventory WHERE quantity > 152;
@@ -204,7 +204,7 @@ Ahora ejecute una consulta para devolver datos desde la tabla `Inventory`.
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Salida del símbolo del sistema de sqlcmd
 
-1. Para finalizar la sesión de **sqlcmd** , escriba `QUIT`:
+1. Para finalizar la sesión de **sqlcmd**, escriba `QUIT`:
 
    ```sql
    QUIT

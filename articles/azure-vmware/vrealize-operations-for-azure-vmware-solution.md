@@ -3,12 +3,12 @@ title: Configuración de vRealize Operations para Azure VMware Solution
 description: Aprenda a configurar vRealize Operations para una nube privada de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738436"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802495"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configuración de vRealize Operations para Azure VMware Solution
 
@@ -61,7 +61,7 @@ Una vez que se ha implementado la instancia, puede configurar vRealize Operation
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 
-- El usuario **cloudadmin\@vsphere.local** en Azure VMware Solution tiene [privilegios limitados](concepts-role-based-access-control.md).  Las máquinas virtuales de Azure VMware Solution no admiten la recopilación de la memoria de invitado con las herramientas de VMware.  El uso de memoria activa y consumida continúa funcionando en este caso.
+- El usuario **cloudadmin\@vsphere.local** en Azure VMware Solution tiene [privilegios limitados](concepts-identity.md).  Las máquinas virtuales de Azure VMware Solution no admiten la recopilación de la memoria de invitado con las herramientas de VMware.  El uso de memoria activa y consumida continúa funcionando en este caso.
 - La optimización de la carga de trabajo para la intención empresarial basada en host no funciona porque Azure VMware Solution administra configuraciones de clúster, incluida la configuración de DRS.
 - La optimización de la carga de trabajo para la colocación entre clústeres dentro de SDDC mediante la intención empresarial basada en clúster es totalmente compatible con vRealize Operations Manager 8.0 y versiones posteriores. Pero la optimización de la carga de trabajo no tiene en cuenta los grupos de recursos y coloca las máquinas virtuales en el nivel de clúster. Un usuario puede corregirlo manualmente en la interfaz de vCenter Server de Azure VMware Solution.
 - No se puede iniciar sesión en vRealize Operations Manager con las credenciales de vCenter Server de Azure VMware Solution. 

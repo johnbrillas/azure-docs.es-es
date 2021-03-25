@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487140"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
@@ -76,7 +76,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta.  
   
   
-|Nombre|Valor|Tipo|Obligatorio|  
+|Nombre|Value|Tipo|Obligatorio|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>count|El número de resultados para devolver, empezando por el índice especificado por el parámetro `offset`.|String|No|   
 |<a name="localCategories"></a>localCategories|Lista de las opciones que definen la búsqueda por categoría de empresa.  Consulte la [Búsqueda de categorías de empresas locales](local-categories.md)|String|No|  
@@ -113,7 +113,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|String|  
 |<a name="errors"></a>errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|  
@@ -123,7 +123,7 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="license"></a>Licencia  
 Define la licencia bajo la que se pueden usar el texto o la foto.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |name|Nombre de la licencia.|String|  
 |url|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|String|  
@@ -132,7 +132,7 @@ Define la licencia bajo la que se pueden usar el texto o la foto.
 ### <a name="link"></a>Vínculo  
 Define los componentes de un hipervínculo.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|String|  
 |text|Texto que se muestra.|String|  
@@ -146,7 +146,7 @@ Define un anunciante.
   
 Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o ambos.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |name|Nombre del publicador.|String|  
 |url|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|String|  
@@ -156,7 +156,7 @@ Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o a
 ### <a name="place"></a>Lugar  
 Define la información acerca de un negocio local como un restaurante o un hotel.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que puede establecerse en uno de los siguientes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |address|La dirección postal del lugar en el que se encuentra la entidad.|PostalAddress|  
@@ -180,21 +180,21 @@ Define el contexto de la consulta que Bing ha usado para la solicitud.
 
 ### <a name="identifiable"></a>Identifiable
 
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define un grupo de resultados de la búsqueda grupo, como línea principal.
 
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |-------------|-----------------|----------|
 |items|Una lista de resultados de la búsqueda que se muestran en el grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define un elemento del resultado de la búsqueda que se muestra.
 
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |-------------|-----------------|----------|
 |resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
 |answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|String|
@@ -215,7 +215,7 @@ Define el objeto de nivel superior que la respuesta incluye cuando la solicitud 
   
 Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realizará correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta estará vacío.  
   
-|Nombre|Valor|Tipo|  
+|Nombre|Value|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que se establece en SearchResponse.|String|  
 |places|Una lista de entidades que son pertinentes a la consulta de búsqueda.|Objeto JSON|  

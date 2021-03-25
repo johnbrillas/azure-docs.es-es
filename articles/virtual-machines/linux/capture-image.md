@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 6b345f159ca30d93e43aae8fe34e7d469c57795b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556662"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630629"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
@@ -40,7 +40,7 @@ Para una versión simplificada de este artículo, con fines de prueba, evaluaci�
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Paso 1: Desaprovisionar la máquina virtual
-En primer lugar, desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure para eliminar los archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro `-deprovision+user` en la máquina virtual Linux de origen. Consulte la [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md) para más información.
+En primer lugar, desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure para eliminar los archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro `-deprovision+user` en la máquina virtual Linux de origen. Consulte la [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md) para más información. Este proceso no se puede revertir.
 
 1. Conéctese a la máquina virtual Linux con un cliente de SSH.
 2. En la ventana de SSH, escriba el siguiente comando:

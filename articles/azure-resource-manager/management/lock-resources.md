@@ -2,14 +2,14 @@
 title: Bloqueo de recursos para impedir cambios
 description: Impida que los usuarios actualicen o eliminen recursos de Azure aplicando un bloqueo para todos los usuarios y roles.
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369482"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102619178"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -33,6 +33,10 @@ Los bloqueos de Resource Manager solo se aplican a las operaciones que se produc
 Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que el bloqueo ha bloqueado. Los bloqueos impedirán todas las operaciones que requieran una solicitud POST a la API de Azure Resource Manager. Algunos ejemplos comunes de las operaciones los bloqueos bloquean son:
 
 * Un bloqueo de solo lectura en una **cuenta de almacenamiento** impide que todos los usuarios muestren las claves de cuenta. La operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) de Azure Storage se controla a través de una solicitud POST para proteger el acceso a las claves de cuenta, que proporcionan acceso completo a los datos de la cuenta de almacenamiento. Cuando se configura un bloqueo de solo lectura para una cuenta de almacenamiento, los usuarios que no poseen las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos de blobs o colas. Un bloqueo de solo lectura también impide la asignación de roles de RBAC de Azure del ámbito a la cuenta de almacenamiento o a un contenedor de datos (contenedor de blobs o colas).
+
+* Un bloqueo de no se puede eliminar en una **cuenta de almacenamiento** no impide que se realicen eliminaciones o modificaciones dentro de esa cuenta. Este tipo de bloqueo solo evita que se elimine la cuenta de almacenamiento misma, pero no protege los datos de blobs, colas, tablas o archivos que se encuentran dentro de esa cuenta. 
+
+* Un bloqueo de solo lectura en una **cuenta de almacenamiento** no impide que se realicen eliminaciones o modificaciones dentro de esa cuenta. Este tipo de bloqueo solo evita que se elimine o modifique la cuenta de almacenamiento misma, pero no protege los datos de blobs, colas, tablas o archivos que se encuentran dentro de esa cuenta. 
 
 * Un bloqueo de solo lectura en un recurso de **App Service** evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
 

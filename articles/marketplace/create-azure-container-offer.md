@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459570"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creación de una oferta de contenedor de Azure en Azure Marketplace
@@ -54,7 +54,7 @@ En esta página se muestran diferentes vínculos según el estado actual de la o
 
 - Si la oferta es un borrador: Eliminación de una oferta borrador
 - Si la oferta está activa: [Detención de la venta de una oferta](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [publicar](review-publish-offer.md#previewing-and-approving-your-offer)
+- Si la oferta está en versión preliminar: [Publicación](review-publish-offer.md#previewing-and-approving-your-offer)
 - Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
@@ -199,11 +199,11 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
-- **Mediano** (90 x 90 píxeles, opcional)
-- **Pequeño** (48 x 48 píxeles, opcional)
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Mediano** (90 x 90 píxeles, opcional)
+- **Pequeño** (48 x 48 píxeles, opcional)
 
-Estos logotipos se usan en distintos lugares del anuncio:
+Estos logotipos se usan en distintos lugares de la publicación:
 
 [!INCLUDE [logos-azure-marketplace-only](./includes/logos-azure-marketplace-only.md)]
 

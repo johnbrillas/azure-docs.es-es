@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4e7b25315aaadffe7f34b28195c25b77a36fa5f8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705660"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872156"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
@@ -385,7 +385,7 @@ Las etiquetas de servicio simplifican la seguridad de las máquinas virtuales y 
 #### <a name="custom-ambari-db"></a>Base de datos de Ambari personalizada
 HDInsight ahora permite usar su propia base de datos SQL para Apache Ambari. Puede configurar esta base de datos de Ambari personalizada en Azure Portal o mediante una plantilla de Resource Manager.  Esta característica le permite elegir la base de datos SQL adecuada para sus necesidades de procesamiento y capacidad. También se puede actualizar fácilmente para cumplir los requisitos de crecimiento del negocio. Para más información, consulte [Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada](hdinsight-custom-ambari-db.md).
 
-![Base de datos de Ambari personalizada](./media/hdinsight-release-notes/custom-ambari-db.png)
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Base de datos de Ambari personalizada":::
 
 ### <a name="deprecation"></a>Desuso
 No hay elementos en desuso en esta versión. Para prepararse para las próximas entradas en desuso, consulte [Próximos cambios](#upcoming-changes).

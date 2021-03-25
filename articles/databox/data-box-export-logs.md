@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337515"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy para pedidos de exportación
@@ -26,7 +26,7 @@ En la tabla siguiente se muestra un resumen de los pasos del pedido de exportaci
 | Fase de pedido de exportación de Data Box       | Herramienta de seguimiento y auditoría                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Crear pedido               | [Configuración del control de acceso en el pedido a través de Azure RBAC](#set-up-access-control-on-the-order) <br> [Habilitación del registro detallado en el pedido](#enable-verbose-log-in-the-order)                                                    |
-| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Azure portal </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
+| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Portal de Azure </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)              |
 | Copia de datos del dispositivo        | [Revisión de los registros de copia](#copy-log) <br> [Revisión de los registros detallados](#verbose-log) antes de copiar los datos            |
 | Eliminación de datos del dispositivo   | [Visualización de los registros de la cadena de custodia](#get-chain-of-custody-logs-after-data-erasure), incluidos los registros de auditoría y el historial de pedidos                |

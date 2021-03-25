@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932054"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872054"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Creación de una canalización de datos de un extremo a otro para derivar información de ventas en Azure HDInsight
 
@@ -18,7 +18,7 @@ En este tutorial compilará una canalización de datos integral que realice oper
 
 Esta canalización de datos combina los datos de varios almacenes, quita los datos no deseados, y anexa nuevos datos y los carga de nuevo en su almacenamiento para visualizar información empresarial. Consulte [Extracción, transformación y carga de datos (ETL) a escala](./hadoop/apache-hadoop-etl-at-scale.md) para más información sobre las canalizaciones ETL.
 
-![Arquitectura de ETL](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="Arquitectura de ETL" border="false":::
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

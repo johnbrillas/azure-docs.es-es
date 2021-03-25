@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91263494"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Introducción a las API de Node para conexiones híbridas de Relay
@@ -121,7 +121,7 @@ Argumentos del constructor:
 - `server` (se requiere): el identificador URI completo de un nombre de conexión híbrida en la que se escucha, y que normalmente se construye con el método auxiliar WebSocket.createRelayListenUri().
 - `token` (se requiere): este argumento contiene una cadena de token emitida anteriormente o una función de devolución de llamada a la que se puede llamar para obtener este tipo de cadena de token. Se prefiere la opción de devolución de llamada, puesto que permite la renovación del token.
 
-#### <a name="events"></a>Eventos
+#### <a name="events"></a>Events
 
 Las instancias de `RelayedServer` emiten tres eventos que permiten controlar las solicitudes entrantes, establecer conexiones y detectar condiciones de error. Debe suscribirse al evento `connect` para controlar los mensajes. 
 
@@ -201,4 +201,4 @@ WebSocket.relayedConnect(
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Relay, visite estos vínculos:
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
-* [Available Relay APIs ](relay-api-overview.md) (API de Relay disponibles)
+* [API de Relay disponibles](relay-api-overview.md)

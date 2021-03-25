@@ -3,16 +3,16 @@ title: Actividad de la condición IF en Azure Data Factory
 description: La actividad de la condición IF le permite controlar el flujo de procesamiento basado en una condición.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c0dbda298cf808dd3caa7a767e0ec5e847c92108
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cd745f90598666e1fc5c849de335c81a2380d99f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385530"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786233"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

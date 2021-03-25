@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100094124"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Administración de organizaciones a las que tiene acceso en el portal Mi cuenta
@@ -32,7 +32,7 @@ La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar la
 >[!Important]
 >Este artículo está destinado a los usuarios que intentan actualizar la información de la organización a la que accede una cuenta profesional o educativa. Si observa un error al iniciar sesión con una cuenta Microsoft personal, puede acudir a su administrador para iniciar sesión con el nombre de dominio (por ejemplo, contoso.com) o el **identificador de inquilino** de la organización en una de las siguientes direcciones URL:
 >
->   - https://myaccount.microsoft.com?tenantId=*su_nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
 >   - https://myaccount.microsoft.com?tenant=*su_identificador_de_inquilino*
 >
 >Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../enterprise-users/index.yml).

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393435"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177868"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -232,6 +232,9 @@ Puede copiar un archivo de SharePoint Online si utiliza una **actividad web** pa
         - **Request method** (Método de solicitud): GET
         - **Additional header** (Encabezado adicional): use la siguiente expresión `@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`, que usa el token de portador generado por la actividad web ascendente como encabezado de autorización. Reemplace el nombre de la actividad web.
     - Configure el receptor de la actividad de copia como de costumbre.
+
+> [!NOTE]
+> Incluso si una aplicación de Azure AD tiene permisos `FullControl` en SharePoint Online, no puede copiar archivos de las bibliotecas de documentos con IRM habilitado.
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

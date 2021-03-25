@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705517"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configuración de aplicaciones de SaaS para la colaboración B2B
@@ -48,7 +48,7 @@ Para permitir que los usuarios inicien sesión con su cuenta de organización, e
 
    ![Configuración del inicio de sesión único para la aplicación](media/configure-saas-apps/configure-app-sso.png)
 
-4. Para descargar el certificado que se va a usar para la configuración de Dropbox, seleccione **Configurar DropBox**y, después, seleccione **SAML Single Sign On Service URL** (URL del servicio de inicio de sesión único de SAML) en la lista.
+4. Para descargar el certificado que se va a usar para la configuración de Dropbox, seleccione **Configurar DropBox** y, después, seleccione **SAML Single Sign On Service URL** (URL del servicio de inicio de sesión único de SAML) en la lista.
 
    ![Descarga del certificado para la configuración de Dropbox](media/configure-saas-apps/download-certificate.png)
 
@@ -92,7 +92,7 @@ Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cue
 
    e. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box para que configuren el inicio de sesión único.
 
-3. Para la instalación automática de usuarios de Azure AD, en el panel izquierdo, seleccione **Aprovisionamiento**y, después, **Autorizar**.
+3. Para la instalación automática de usuarios de Azure AD, en el panel izquierdo, seleccione **Aprovisionamiento** y, después, **Autorizar**.
 
    ![Autorizar a Azure AD para conectarse a Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 

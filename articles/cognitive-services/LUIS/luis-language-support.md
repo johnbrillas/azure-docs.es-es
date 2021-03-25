@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845455"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799334"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -44,7 +44,7 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Coreano |`ko-KR` |✔|-|-|Solo la frase clave|
 | Maratí | `mr-IN`|-|-|-|-|
 | Portugués (Brasil) |`pt-BR` |✔| ✔ |✔ |No todas las referencias culturales secundarias|
-| Español (México)|`es-MX` |-|-|✔|✔|
+| Español (México)|`es-MX` |-|✔|✔|✔|
 | Español (España) |`es-ES` |✔| ✔ |✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|

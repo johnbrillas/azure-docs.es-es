@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
-ms.openlocfilehash: 122a0a01c420d5efa12fa267a0d3605fc7a25960
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.reviewer: jburchel
+ms.openlocfilehash: 113829dd35c14b5efae39c55a8085dcd2c1ecef4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385343"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786165"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Actividad de establecimiento de variables en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

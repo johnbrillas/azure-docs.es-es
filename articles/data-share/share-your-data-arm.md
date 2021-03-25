@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487694"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Inicio rápido: Uso compartido de datos mediante Azure Data Share y una plantilla de Resource Manager
@@ -24,7 +24,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -69,11 +69,11 @@ Esto se debe a que la implementación intenta crear el conjunto de datos antes d
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Seleccione o escriba los siguientes valores:
 
-    * **Suscripción** : seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
-    * **Grupo de recursos** : seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
-    * **Ubicación** : seleccione una ubicación para el grupo de recursos.
-    * **Nombre del proyecto** : escriba un nombre de proyecto.  El nombre de proyecto se utiliza para generar nombres de recursos.  Vea las definiciones de las variables de la plantilla anterior.
-    * **Ubicación** : seleccione la ubicación para los recursos.  Puede usar la misma ubicación para el grupo de recursos.
+    * **Suscripción**: seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
+    * **Grupo de recursos**: seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
+    * **Ubicación**: seleccione una ubicación para el grupo de recursos.
+    * **Nombre del proyecto**: escriba un nombre de proyecto.  El nombre de proyecto se utiliza para generar nombres de recursos.  Vea las definiciones de las variables de la plantilla anterior.
+    * **Ubicación**: seleccione la ubicación para los recursos.  Puede usar la misma ubicación para el grupo de recursos.
     * **Invitation Email** (Correo electrónico de invitación): escriba la dirección de correo electrónico de inicio de sesión de Azure del destinatario del recurso compartido de datos.  El alias de correo electrónico no funciona.
 
     Use el valor predeterminado en el resto de la configuración.
@@ -84,7 +84,7 @@ Esto se debe a que la implementación intenta crear el conjunto de datos antes d
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Abra la cuenta de Data Share que creó.
 1. En el menú izquierdo, seleccione **Send Shares** (Enviar recursos compartidos).  Verá que la cuenta de almacenamiento en la lista.
-1. Seleccione la cuenta de almacenamiento.  En **Detalles** , verá el valor de sincronización que ha configurado en la plantilla.
+1. Seleccione la cuenta de almacenamiento.  En **Detalles**, verá el valor de sincronización que ha configurado en la plantilla.
 
     ![Configuración de sincronización de la cuenta de almacenamiento de Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Seleccione **Invitaciones** en la parte superior. Verá la dirección de correo electrónico que especificó al implementar la plantilla. El valor de **Estado** debe estar **Pendiente**.

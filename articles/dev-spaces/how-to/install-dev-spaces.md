@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Obtenga información sobre el proceso de habilitación de Azure Dev Spaces en un clúster de AKS y la instalación de las herramientas de cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202253"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitación de Azure Dev Spaces en un clúster de AKS e instalación de las herramientas de cliente

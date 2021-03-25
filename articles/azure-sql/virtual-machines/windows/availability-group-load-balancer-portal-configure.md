@@ -15,10 +15,10 @@ ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096436"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
@@ -117,7 +117,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 
 3. Configure el sondeo en la hoja **Agregar sondeo** . Utilice los valores siguientes para configurar el sondeo.
 
-   | Configuración | Valor |
+   | Configuración | Value |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
@@ -143,7 +143,7 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
 
 3. Utilice la hoja **Add load balancing rules** (Agregar reglas de equilibrio de carga) para configurar la regla de equilibrio de carga. Use la configuración siguiente: 
 
-   | Configuración | Valor |
+   | Configuración | Value |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
@@ -235,7 +235,7 @@ Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga
 
 7. Agregue un sondeo de estado mediante las siguientes opciones:
 
-   |Configuración |Valor
+   |Configuración |Value
    |:-----|:----
    |**Nombre** |Un nombre para identificar el sondeo.
    |**Protocolo** |TCP
@@ -249,7 +249,7 @@ Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga
 
 10. Configure la nueva regla de equilibrio de carga con los siguientes valores:
 
-    |Configuración |Valor
+    |Configuración |Value
     |:-----|:----
     |**Nombre** |Nombre para identificar la regla de equilibrio de carga. 
     |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
@@ -298,7 +298,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
 1. Cree la regla de equilibrio de carga con la configuración siguiente:
 
-   |Configuración |Valor
+   |Configuración |Value
    |:-----|:----
    |**Nombre** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
    |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.

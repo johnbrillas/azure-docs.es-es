@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484607"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180367"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
-Azure Storage cifra automáticamente los datos al guardarlos en la nube. El cifrado de Azure Storage protege los datos y le ayuda a satisfacer los requisitos de cumplimiento normativo y seguridad de la organización.
+Azure Storage usa el cifrado del lado servidor (SSE) para cifrar automáticamente los datos cuando se guardan en la nube. El cifrado de Azure Storage protege los datos y le ayuda a satisfacer los requisitos de cumplimiento normativo y seguridad de la organización.
 
 ## <a name="about-azure-storage-encryption"></a>Acerca del cifrado de Azure Storage
 
@@ -32,7 +32,7 @@ Todos los blobs en bloques, blobs en anexos o blobs en páginas que se escribier
 
 Para más información sobre de los módulos criptográficos subyacentes al cifrado de Azure Storage, vea [API de criptografía: última generación](/windows/desktop/seccng/cng-portal).
 
-Para más información sobre el cifrado y la administración de claves para Azure Managed Disks, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/disk-encryption.md) para máquinas virtuales Windows o [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/disk-encryption.md) para máquinas virtuales Linux.
+Para más información sobre el cifrado y la administración de claves de Azure Managed Disks, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/disk-encryption.md).
 
 ## <a name="about-encryption-key-management"></a>Información sobre la administración de claves de cifrado
 

@@ -4,10 +4,10 @@ description: Describe las propiedades y el esquema que se proporcionan para los 
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363413"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como origen de Event Grid
