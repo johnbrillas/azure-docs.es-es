@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: be632ba06edc858e7eadcd6e57a4f7769f69f2cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91321686"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Diseño de servicios disponibles globalmente con Azure SQL Database
@@ -36,7 +36,7 @@ En este escenario, las aplicaciones tienen las siguientes características:
 * El nivel web y la capa de datos deben colocarse para reducir la latencia y el costo de tráfico.
 * Básicamente, el tiempo de inactividad es un riesgo empresarial más alto para estas aplicaciones que la pérdida de datos.
 
-En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Azure Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Azure Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) se usa en este artículo únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de prioridad.

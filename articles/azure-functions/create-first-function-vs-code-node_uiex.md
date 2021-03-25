@@ -7,10 +7,10 @@ ms.custom:
 - devx-track-js
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3cf47d04da51db898e667ef8b31d42d79c9f354e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747782"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de JavaScript con Visual Studio Code
@@ -47,7 +47,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 
 ## <a name="2-create-your-local-functions-project"></a>2. <a name="create-an-azure-functions-project"></a>Creación de un proyecto local de Functions
 
-1. Seleccione el icono de Azure en la <abbr title="">barra de actividades</abbr>y, a continuación, en el área **Azure: Functions**, seleccione el icono **Create new project...** (Crear nuevo proyecto).
+1. Seleccione el icono de Azure en la <abbr title="">barra de actividades</abbr>y, a continuación, en el área **Azure: Functions**, seleccione el icono **Crear proyecto...**
 
     ![Elija Crear un proyecto.](./media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -140,7 +140,7 @@ La primera implementación de código incluye crear un recurso de función en la
 
 1. Escriba la siguiente información cuando se le indique:
 
-    + **Select folder** (Seleccionar carpeta): elija la carpeta que contiene la aplicación de funciones. 
+    + **Select folder** (Seleccionar carpeta): Elija la carpeta que contiene la aplicación de funciones. 
 
     + **Seleccione la suscripción**: elija la suscripción que desee usar. No se mostrará esta opción si solo tiene una suscripción.
 
@@ -174,7 +174,7 @@ En esta sección se han creado los recursos de Azure y se ha implementado el có
 Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones: 
 * **Grupo de recursos**: un grupo de recursos es un contenedor lógico para recursos relacionados de la misma región.
 * **Cuenta de Azure Storage**: un recurso de almacenamiento mantiene información de estado y de otro tipo sobre su proyecto.
-* **Plan de consumo**: un plan de consumo define el host subyacente para la aplicación de funciones sin servidor.
+* **Plan de consumo**: Un plan de consumo define el host subyacente para la aplicación de funciones sin servidor.
 * **Aplicación de funciones**: una aplicación de funciones proporciona el entorno para ejecutar el código de la función y las funciones de grupo como una unidad lógica.
 * **Application Insights**: Application Insights hace un seguimiento del uso de la función sin servidor.
 

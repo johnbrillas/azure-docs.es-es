@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85203000"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
@@ -76,7 +76,7 @@ El elemento **Precondition** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Mientras que otro elemento de valor contiene el valor que se va a comprobar.|
+| Valor | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Mientras que otro elemento de valor contiene el valor que se va a comprobar.|
 | Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de la **Action** está establecido en `SkipThisValidationTechnicalProfile`. Especifica que el perfil técnico de validación asociado no debe ejecutarse. |
 
 ### <a name="example"></a>Ejemplo

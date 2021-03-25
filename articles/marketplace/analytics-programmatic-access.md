@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583611"
 ---
 # <a name="programmatic-access-paradigm"></a>Paradigma del acceso mediante programación
@@ -45,7 +45,7 @@ En el ejemplo siguiente se muestra cómo crear una consulta personalizada para o
 
 *Sintaxis de la solicitud*
 
-| Método | URI de solicitud |
+| Método | URI de la solicitud |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries` |
 |||
@@ -141,7 +141,7 @@ Al crear una plantilla de informe personalizada correctamente y recibir el eleme
 
 *Sintaxis de la solicitud*
 
-| Método | URI de solicitud |
+| Método | URI de la solicitud |
 | ------------ | ------------- |
 | POST | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport` |
 |||
@@ -184,7 +184,7 @@ En esta tabla se proporcionan las definiciones clave de los elementos de la carg
 | Parámetro | Obligatorio | Descripción | Valores permitidos |
 | ------------ | ------------- | ------------- | ------------- |
 | `ReportName` | Sí | Nombre asignado al informe. | string |
-| `Description` | No | Descripción del informe creado. | string |
+| `Description` | No | Descripción del informe creado | string |
 | `QueryId` | Sí | Id. de consulta del informe. | string |
 | `StartTime` | Sí | Marca de tiempo UTC en la que comenzará la generación del informe.<br>El formato debe ser aaaa-MM-ddTHH:mm:ssZ. | string |
 | `RecurrenceInterval` | Sí | Frecuencia en horas en que se debe generar el informe.<br>El valor mínimo es 4 y el máximo es 90. | integer |

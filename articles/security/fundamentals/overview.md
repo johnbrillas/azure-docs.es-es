@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: a62326d99eee8407b65c0c640b4db8a6f051c758
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101195"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103564518"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 
@@ -201,6 +201,14 @@ Las redes de Azure admiten diversos escenarios de acceso remoto seguro. Algunos 
 - [Conexión de la red local a una instancia de Azure Virtual Network con un vínculo WAN dedicado](../../expressroute/expressroute-introduction.md)
 
 - [Conexión de instancias de Azure Virtual Network entre sí](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+
+### <a name="azure-private-link"></a>Azure Private Link
+
+[Azure Private Link](https://azure.microsoft.com/services/private-link/) le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) de la red virtual. La configuración y el consumo mediante Azure Private Link es coherente entre los servicios de asociados compartidos y propiedad del cliente de PaaS de Azure. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure.
+
+Los [puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El punto de conexión privado de Azure usa una dirección IP privada de la red virtual para conectarse de forma privada y segura a un servicio con tecnología de Azure Private Link, con lo que el servicio se integra en ella de manera eficaz. La exposición de la red virtual a la red pública de Internet ya no es necesaria para consumir los servicios PaaS de Azure. 
+
+Puede crear su propio servicio de vínculo privado en la red virtual. El [servicio Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-service-overview) es la referencia a su propio servicio con tecnología de Azure Private Link. El servicio que se ejecuta de forma subyacente a Azure Standard Load Balancer se puede habilitar para el acceso a Private Link de modo que los consumidores del servicio puedan tener acceso a este de forma privada desde sus propias redes virtuales. Sus clientes pueden crear un punto de conexión privado dentro de su red virtual y asignarlo a este servicio. Ya no es necesario exponer el servicio a la red pública de Internet para representar los servicios en Azure. 
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 

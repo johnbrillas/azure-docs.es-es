@@ -7,15 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198445"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579763"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -145,10 +146,11 @@ El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 | JourneyInsights | 0:1 | La clave de instrumentación de Application Insights de Azure que se va a usar. |
 | ContentDefinitionParameters | 0:1 | La lista de pares clave-valor que se anexará a la URI de carga de la definición de contenido. |
 |ScriptExecution| 0:1| Modos de ejecución de [JavaScript](javascript-and-page-layout.md) admitidos. Valores posibles: `Allow` o `Disallow` (valor predeterminado).
+| JourneyFraming | 0:1| Permite que la interfaz de usuario de esta directiva se cargue en un iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-El elemento **SingleSignOn** contiene el atributo siguiente:
+El elemento **SingleSignOn** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
@@ -165,7 +167,7 @@ El elemento **JourneyInsights** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sí | El valor tiene que ser `ApplicationInsights`. |
 | InstrumentationKey | Sí | Cadena que contiene la clave de instrumentación para el elemento de Application Insights. |
-| DeveloperMode | Sí | Valores posibles: `true` o `false`. Si es `true`, Application Insights acelera la telemetría a través de la canalización de procesamiento. Este valor es bueno para el desarrollo, pero está restringido en volúmenes elevados. Los registros de actividad descritos aquí están diseñados solo para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción. Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo. Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece. Estos registros detallados solo se recopilan cuando este valor se establece en `true`.|
+| DeveloperMode | Sí | Valores posibles: `true` o `false`. Si es `true`, Application Insights acelera la telemetría a través de la canalización de procesamiento. Este valor es bueno para el desarrollo, pero está restringido en volúmenes elevados. Los registros de actividad descritos aquí están diseñados solo para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción. Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo. Si se utilizan en producción, el programador asume la responsabilidad de la información personal recopilada en el registro de Application Insights que le pertenece. Estos registros detallados solo se recopilan cuando este valor se establece en `true`.|
 | ClientEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el script del lado cliente ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente. |
 | ServerEnabled | Sí | Valores posibles: `true` o `false`. Si es `true`, se envía el JSON UserJourneyRecorder existente como evento personalizado a Application Insights. |
 | TelemetryVersion | Sí | El valor tiene que ser `1.0.0`. |
@@ -193,6 +195,15 @@ El elemento **ContentDefinitionParameter** contiene el atributo siguiente:
 | Nombre | Sí | El nombre del par clave-valor. |
 
 Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
+
+### <a name="journeyframing"></a>JourneyFraming
+
+El elemento **JourneyFraming** contiene los siguientes atributos:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| habilitado | Sí | Habilita esta directiva para que se cargue en un iframe. Valores posibles: `false` (opción predeterminada) o `true`. |
+| Orígenes | Sí | Contiene los dominios que cargarán el iframe. Para más información, consulte cómo [cargar Azure B2C en un iframe](embedded-login.md). |
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

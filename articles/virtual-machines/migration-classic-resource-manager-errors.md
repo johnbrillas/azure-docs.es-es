@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 02bf0430892490b5d3cfe35a6da4bf0973373fd3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6d803d1a66c069f5eb42deead453a8526577f76b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676134"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615217"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>Errores que suelen producirse durante la migración del modelo clásico a Azure Resource Manager
 
@@ -42,7 +42,7 @@ En este artículo se catalogan los errores y las soluciones más comunes durante
 | La implementación {nombre-implementación} en HostedService {nombre-servicio-hospedado} contiene una máquina virtual {nombre-máquina-virtual} con el disco de datos {nombre-disco-datos} cuyos bytes de tamaño de blob físico {tamaño-blob-vhd-que-realiza-copia-seguridad-disco-datos} no coinciden con los del tamaño lógico del disco de datos de la máquina virtual {tamaño-disco-datos-especificado-en-api-máquina-virtual}. La migración continuará sin especificar un tamaño para el disco de datos de la máquina virtual de Azure Resource Manager. | Este error se produce si ha cambiado el tamaño del blob de disco duro virtual sin actualizar el tamaño en el modelo de la API de la máquina virtual. [A continuación](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes), se describen los pasos de mitigación detallados.|
 | Se produjo una excepción de almacenamiento durante la validación de datos de un disco {nombre de disco de datos} con el vínculo multimedia {URI de disco de datos} para la máquina virtual {nombre de máquina virtual} en el servicio en la nube {nombre del servicio en la nube}. Asegúrese de que esta máquina virtual puede acceder al vínculo de medios del VHD | Este error puede ocurrir si los discos de la máquina virtual se han eliminado o ya no son accesibles. Asegúrese de que existan los discos de la máquina virtual.|
 | La máquina virtual {vm-name} de HostedService {cloud-service-name} contiene un disco con MediaLink {vhd-uri} que tiene un nombre de blob {vhd-blob-name} que no se admite en Azure Resource Manager. | Este error se produce cuando el nombre del blob tiene un "/" que no admite actualmente el proveedor de recursos del proceso. |
-| No se permite la migración de la implementación {deployment-name} en HostedService {cloud-service-name} porque no se encuentra en el ámbito regional. Vea https:\//aka.ms/regionalscope para mover esta implementación a un ámbito regional. | En 2014, Azure anunció que los recursos de red se moverían de un ámbito de nivel de clúster a un ámbito regional. Para más información, consulte [https://aka.ms/regionalscope](https://aka.ms/regionalscope). Este error se produce cuando en la implementación que se va a migrar no se ha realizado ninguna operación de actualización que la mueva automáticamente a un ámbito regional. La mejor solución alternativa consiste en agregar un punto de conexión a una máquina virtual o un disco de datos a la máquina virtual y, después, volver a intentar la migración. <br> Vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) o [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](./linux/attach-disk-portal.md).|
+| No se permite la migración de la implementación {deployment-name} en HostedService {cloud-service-name} porque no se encuentra en el ámbito regional. Vea https:\//aka.ms/regionalscope para mover esta implementación a un ámbito regional. | En 2014, Azure anunció que los recursos de red se moverían de un ámbito de nivel de clúster a un ámbito regional. Para más información, consulte [https://aka.ms/regionalscope](https://aka.ms/regionalscope). Este error se produce cuando en la implementación que se va a migrar no se ha realizado ninguna operación de actualización que la mueva automáticamente a un ámbito regional. La mejor solución alternativa consiste en agregar un punto de conexión a una máquina virtual o un disco de datos a la máquina virtual y, después, volver a intentar la migración. <br> Vea [Configuración de puntos de conexión en una máquina virtual clásica en Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) o [Conexión de un disco de datos a una máquina virtual creada con el modelo de implementación clásica](./linux/attach-disk-portal.md).|
 | La migración no se admite para la red virtual {vnet-name} porque tiene implementaciones PaaS que no son de puerta de enlace. | Este error se produce cuando tiene implementaciones PaaS que no son de puerta de enlace como, por ejemplo, los servicios Application Gateway o API Management que están conectados a la red virtual.|
 
 

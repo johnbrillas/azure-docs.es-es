@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87027400"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migración de una directiva clásica en Azure Portal
@@ -49,7 +49,7 @@ El proceso de migración consta de los pasos siguientes:
    1. Si tiene grupos seleccionados en la directiva clásica, haga clic en **Seleccionar usuarios y grupos** y, después, seleccione los grupos y usuarios necesarios.
    1. Si tiene los grupos excluidos, haga clic en la pestaña **Excluir** y, después, seleccione los grupos y usuarios necesarios. 
    1. Seleccione **Listo**
-1. En la sección**Asignación**, haga clic en **Aplicaciones en la nube o acciones**.
+1. En la sección **Asignación**, haga clic en **Aplicaciones en la nube o acciones**.
 1. En la página **Aplicaciones en la nube o acciones**, siga estos pasos:
    1. Haga clic en **Seleccionar aplicaciones**.
    1. Haga clic en **Seleccionar**.

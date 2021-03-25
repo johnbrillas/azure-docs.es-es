@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525447"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596304"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Estados y facturación de Azure Virtual Machines
 
@@ -82,6 +82,6 @@ Los estados de aprovisionamiento del sistema operativo solo se aplican a máquin
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Revise la [documentación de Azure Cost Management y Facturación](https://docs.microsoft.com/azure/cost-management-billing/).
+- Revise la [documentación de Azure Cost Management y Facturación](../cost-management-billing/index.yml).
 - Use la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/) para planear las implementaciones.
-- Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../azure-monitor/vm/monitor-vm-azure.md).

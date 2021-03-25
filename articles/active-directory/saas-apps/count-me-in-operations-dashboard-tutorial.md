@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98727699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Count Me In - Operations Dashboard
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Meraki Dashboard con Azure Active Direct
 * Permitir que los usuarios inicien sesión automáticamente en Count Me In - Operations Dashboard con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

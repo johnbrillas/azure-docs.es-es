@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693721"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registro y examen de Azure Data Lake Storage Gen1
@@ -31,8 +31,8 @@ El origen de datos de Azure Data Lake Storage Gen1 admite la funcionalidad sigui
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal](create-catalog-portal.md).
-- Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
+- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
+- Tenga en cuenta que debe ser administrador de los orígenes de datos de Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 

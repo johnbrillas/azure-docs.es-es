@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945464"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat en HDInsight
@@ -38,7 +38,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 429
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | Ha superado el número máximo de solicitudes simultáneas atendidas por WebHCat por minuto (el valor predeterminado es 20) |Reduzca la carga de trabajo para asegurarse de que no envía más del número máximo de solicitudes simultáneas o aumenta el límite de solicitudes simultáneas al modificar `templeton.exec.max-procs`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 
@@ -46,7 +46,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 503
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | Este código de estado suele producirse durante la conmutación por error entre el nodo principal primario y secundario para el clúster. |Espere dos minutos y vuelva a intentar la operación. |
 
@@ -54,7 +54,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 400
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | Los detalles de los trabajos se han limpiado con el limpiador del historial de trabajos |El período de retención predeterminado para el historial de trabajos es de 7 días. El período de retención predeterminado puede cambiarse modificando `mapreduce.jobhistory.max-age-ms`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |
 | Se ha suprimido el trabajo debido a una conmutación por error. |Vuelva a intentar el envío de trabajos durante un tiempo máximo de dos minutos |
@@ -64,7 +64,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 **Código de estado HTTP**: 502
 
-| Causa | Resolución |
+| Causa | Solución |
 | --- | --- |
 | La recolección de elementos no utilizados internos se está produciendo en el proceso de WebHCat |Espere a que termine la recolección de elementos no utilizados o reinicie el servicio de WebHCat |
 | Tiempo de espera de una respuesta desde el servicio de ResourceManager. Este error se puede producir cuando el número de aplicaciones activas alcanza el máximo configurado (el valor predeterminado es 10.000) |Espere a que finalice los trabajos actualmente en ejecución o aumente el límite de trabajos simultáneos modificando `yarn.scheduler.capacity.maximum-applications`. Consulte [Modificación de la configuración](#modifying-configuration) para más información. |

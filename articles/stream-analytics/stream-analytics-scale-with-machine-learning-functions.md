@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013947"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574261"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo escalar de manera eficaz trabajos de Azure S
 
 Una función de Machine Learning Studio (clásico) en Stream Analytics puede utilizarse como una llamada de función normal en el lenguaje de consulta de Stream Analytics. No obstante, en segundo plano, estas llamadas de función son en realidad solicitudes de servicio web de Studio (clásico).
 
-Puede mejorar el rendimiento de las solicitudes de servicio web de Studio (clásico) al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/classic/consume-web-services.md). La compatibilidad con Studio (clásico) en Stream Analytics está en versión preliminar.
+Puede mejorar el rendimiento de las solicitudes de servicio web de Studio (clásico) al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/classic/consume-web-services.md). Compatibilidad de Studio (clásico) en Stream Analytics.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configuración de un trabajo de Stream Analytics con funciones de Studio (clásico)
 
@@ -51,7 +51,7 @@ Para procesar 200 000 eventos por segundo, el trabajo de Stream Analytics neces
 
 ![Escalado de Stream Analytics con funciones de Studio (clásico): dos ejemplos de trabajo](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Escalado de Stream Analytics con funciones de Studio (clásico): dos ejemplos de trabajo")
 
-En general, si **_B_* es el tamaño de lote y _*_L_*_ es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con _*_N_*_ SU es:
+En general, si ***B** _ es el tamaño de lote y _*_L_*_ es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con _ *_N_* SU es:
 
 ![Fórmula de escalado de Stream Analytics con funciones de Studio (clásico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Fórmula de escalado de Stream Analytics con funciones de Studio (clásico)")
 
@@ -62,7 +62,7 @@ Para obtener más información sobre esta configuración, consulte el [artículo
 ## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Stream Analytics con la función de análisis de opiniones de Studio (clásico), como se describe en el [tutorial de integración de Stream Analytics y Machine Learning Studio (clásico)](stream-analytics-machine-learning-integration-tutorial.md).
 
-La consulta es una consulta sencilla completamente particionada seguida de la función *sentiment**, tal como se muestra en el ejemplo siguiente:
+La consulta es una consulta sencilla completamente particionada seguida de la función **sentiment**, tal como se muestra en el ejemplo siguiente:
 
 ```SQL
     WITH subquery AS (
@@ -105,11 +105,11 @@ A continuación se muestra una tabla del rendimiento del trabajo de Stream Analy
 
 | Tamaño del lote (latencia de Aprendizaje automático) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unidad de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
-| **3 unidades de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
-| **6 unidades de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
+| **1 unidad de búsqueda** |2,500 |5\.000 |20.000 |30,000 |50.000 |
+| **3 unidades de búsqueda** |2,500 |5\.000 |20.000 |30,000 |50.000 |
+| **6 unidades de búsqueda** |2,500 |5\.000 |20.000 |30,000 |50.000 |
 | **12 unidades de búsqueda** |5\.000 |10 000 |40.000 |60 000 |100 000 |
-| **18 unidades de búsqueda** |7500 |15,000 |60 000 |90 000 |150 000 |
+| **18 unidades de búsqueda** |7 500 |15,000 |60 000 |90 000 |150 000 |
 | **24 unidades de búsqueda** |10 000 |20.000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 unidades de búsqueda** |25 000 |50.000 |200 000 |300 000 |500.000 |

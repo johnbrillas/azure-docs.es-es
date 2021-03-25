@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308231"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Selección de algoritmos para Azure Machine Learning
@@ -123,7 +123,7 @@ Los algoritmos de regresión lineal suponen que las tendencias de datos siguen u
 
 ![Límite de clase no lineal](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Límite de clase no lineal_* _: _la dependencia de un algoritmo de clasificación lineal se traduciría en una baja precisión.*
+***Límite de clase no lineal** _: _la dependencia de un algoritmo de clasificación lineal se traduciría en una baja precisión.*
 
 ![Datos con tendencia no lineal](./media/how-to-select-algorithms/nonlinear-trend.png)
 

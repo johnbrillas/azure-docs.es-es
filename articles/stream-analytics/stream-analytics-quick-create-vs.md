@@ -7,10 +7,10 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: 7a02d0914ae111d6e2e00493fe27613e27d836b1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012366"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio
@@ -115,7 +115,7 @@ Observe los elementos que se incluyen en un proyecto de Azure Stream Analytics.
    |Alias de entrada  |  Entrada   |  Escriba un nombre para identificar la entrada del trabajo.   |
    |Tipo de origen   |  Flujo de datos |  Elija el origen de entrada correspondiente: flujo de datos o datos de referencia.   |
    |Source  |  IoT Hub |  Elija el origen de entrada correspondiente.   |
-   |Recurso  | Selección del origen de datos desde la cuenta actual | Elija escribir los datos manualmente o seleccione una cuenta existente.   |
+   |Resource  | Selección del origen de datos desde la cuenta actual | Elija escribir los datos manualmente o seleccione una cuenta existente.   |
    |Subscription  |  \<Your subscription\>   | Seleccione la suscripción de Azure que tenga el centro de IoT Hub que ha creado.   |
    |IoT Hub  |  MyASAIoTHub   |  Elija o escriba el nombre de su instancia de IoT Hub. Los nombres de IoT Hub se detectan automáticamente si se crean en la misma suscripción.   |
    

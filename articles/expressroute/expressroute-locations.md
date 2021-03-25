@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 5fedb9d09e61540d0ee8a1fe21fbd25f31390f5d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0133d6cc54038a56847556a83242114c78e09321
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742456"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574415"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Asociados de conectividad de ExpressRoute y ubicaciones de emparejamiento
 
@@ -115,6 +115,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[GlobalConnect]()** | Compatible |Compatible | Oslo, Stavanger | 
 | **GTT** |Compatible |Compatible |Londres2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Compatible| Compatible | Chennai, Mumbai |
+| **[iAdvantage](https://www.scx.sunevision.com/)** | Compatible | Compatible | Hong Kong2 |
 | **Intelsat** | Compatible | Compatible | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Compatible |Compatible |Ámsterdam, Chicago, Fráncfort, Hong Kong, Londres, Nueva York, París, Silicon Valley, Singapur, Washington DC, Zúrich |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Compatible |Compatible |Chicago, Dallas, Silicon Valley, Washington DC |

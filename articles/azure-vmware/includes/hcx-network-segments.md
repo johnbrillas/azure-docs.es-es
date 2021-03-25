@@ -2,38 +2,33 @@
 title: Segmentos de red de VMware HCX
 description: Hay cuatro redes necesarias para VMware HCX.
 ms.topic: include
-ms.date: 11/23/2020
-ms.openlocfilehash: 48894c532c97b70cde1473fb8b81f406ded70343
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 03/13/2021
+ms.openlocfilehash: e9b37c125db82a95c137ede8d642888fba8b6c80
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999642"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622235"
 ---
 <!-- Used in avs-production-ready-deployment.md and tutorial-deploy-vmware-hcx.md -->
 
-Se necesitan cuatro redes para VMware HCX:
+Existen diferentes maneras de configurar los segmentos de red de VMware HCX en el entorno local. A continuación, se describe una configuración simple que admite un caso de uso de producción pequeña o piloto.  Al diseñar para cientos o miles de cargas de trabajo, es posible que sea necesario cambiar esta configuración, en función de las necesidades de la migración.  
 
-- **Red de administración:** normalmente, es la misma red de administración que se usa en el clúster de vSphere. Como mínimo, identifique dos direcciones IP en este segmento de red para VMware HCX. Es posible que necesite un número mayor en función de la implementación.
+Como preparación para que la implementación de VMware HCX admita el caso de uso de producción pequeña o piloto, identifique lo siguiente:
 
-   > [!NOTE]
-   > El método recomendado consiste en crear una red /26. En una red /26, puede usar hasta 10 mallas de servicio y 60 extensores de red (-1 por cada malla de servicio). Se pueden expandir ocho redes por cada extensor de red mediante nubes privadas de soluciones de Azure VMware Solution.
+- **Red de administración:** al implementar VMware HCX local, deberá definir una red de administración.  Normalmente, es la misma red de administración que usa el clúster de VMware local.  Como mínimo, identifique **dos** direcciones IP en este segmento de red para VMware HCX. Es posible que necesite números mayores, en función de la escala de la implementación más allá del caso de uso pequeño o piloto.
+
+> [!NOTE]
+   > El método recomendado es crear una red /26, porque puede usar hasta 10 mallas de servicio y 60 extensores de red (-1 por cada malla de servicio). Se pueden expandir **ocho** redes por cada extensor de red mediante nubes privadas de soluciones de Azure VMware Solution.
    >
    
-- **Red de vMotion:** normalmente, es la misma red de que se usa para vMotion en el clúster de vSphere.  Como mínimo, identifique dos direcciones IP en este segmento de red para VMware HCX. Es posible que necesite un número mayor en función de la implementación.  
+- **Red vMotion:** al implementar VMware HCX local, deberá definir una red vMotion.  Normalmente, es la misma red que usa el clúster de VMware local para vMotion.  Como mínimo, identifique **dos** direcciones IP en este segmento de red para VMware HCX. Es posible que necesite números mayores, en función de la escala de la implementación más allá del caso de uso pequeño o piloto.
 
-   La red de vMotion debe exponerse en un conmutador virtual distribuido o vSwitch0. Si no es así, modifique el entorno.
-
-   > [!NOTE]
-   > Esta red puede ser privada (no enrutada).
-
-- **Red de vínculo superior:** desea crear una nueva red para el vínculo superior de VMware HCX y extenderla al clúster de vSphere a través de un grupo de puertos. Como mínimo, identifique dos direcciones IP en este segmento de red para VMware HCX. Es posible que necesite un número mayor en función de la implementación.  
+   La red de vMotion debe exponerse en un conmutador virtual distribuido o vSwitch0. Si no es así, modifique el entorno para adaptarlo.
 
    > [!NOTE]
-   > El método recomendado consiste en crear una red /26. En una red /26, puede usar hasta 10 mallas de servicio y 60 extensores de red (-1 por cada malla de servicio). Se pueden expandir ocho redes por cada extensor de red mediante nubes privadas de soluciones de Azure VMware Solution.
-   >
+   > Muchos entornos de VMware utilizan segmentos de red no enrutados para vMotion, que no plantea ningún problema.
+
+- **Red de vínculo superior:** al implementar VMware HCX local, deberá definir una red de vínculo superior. Use la red de administración definida como red de vínculo superior.
    
-- **Red de replicación:** Esto es opcional. desea crear una nueva red para la replicación de VMware HCX y extender esa red al clúster de vSphere a través de un grupo de puertos. Como mínimo, identifique dos direcciones IP en este segmento de red para VMware HCX. Es posible que necesite un número mayor en función de la implementación.
-
-   > [!NOTE]
-   > Esta configuración solo es posible cuando los hosts del clúster local usan una red de VMkernel de replicación dedicada.  Si el clúster local no tiene definida una red de VMkernel de replicación dedicada, no es necesario crear la red.
+- **Red de replicación:** al implementar VMware HCX local, deberá definir una red de replicación. Use la red de administración definida como red de replicación.  Si los hosts del clúster local usan una red VMkernel de replicación dedicada, reserve **dos** direcciones IP en este segmento de red y use la red VMkernel de replicación para la red de replicación.

@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173005"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
@@ -67,7 +67,7 @@ Todas las métricas tienen algunas propiedades que las describen: un nombre, un 
     * SecondaryDefaultLoad: cantidad predeterminada de la métrica que este servicio consume cuando es secundario.
 
 > [!NOTE]
-> Si define métricas personalizadas y desea usar _también_ las métricas predeterminadas, tiene que volver a agregar estas últimas de forma _explícita_ . Esto es así porque tiene que definir claramente la relación entre las métricas predeterminadas y sus métricas personalizadas. Por ejemplo, puede que le preocupen más las métricas ConnectionCount o WorkQueueDepth que las de distribución principal. De forma predeterminada el peso de la métrica PrimaryCount es alto pero debe reducirlo a medio cuando agregue sus otras métricas, para asegurarse de que estas tienen prioridad.
+> Si define métricas personalizadas y desea usar _también_ las métricas predeterminadas, tiene que volver a agregar estas últimas de forma _explícita_. Esto es así porque tiene que definir claramente la relación entre las métricas predeterminadas y sus métricas personalizadas. Por ejemplo, puede que le preocupen más las métricas ConnectionCount o WorkQueueDepth que las de distribución principal. De forma predeterminada el peso de la métrica PrimaryCount es alto pero debe reducirlo a medio cuando agregue sus otras métricas, para asegurarse de que estas tienen prioridad.
 >
 
 ### <a name="defining-metrics-for-your-service---an-example"></a>Definición de las métricas del servicio: ejemplo
@@ -138,11 +138,11 @@ Ahora, vamos a analizar en detalle cada uno de estos valores y a hablar sobre lo
 ## <a name="load"></a>Cargar
 La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo:
 
-  - Carga se puede definir cuando se crea un servicio. Este tipo de configuración de carga se denomina _carga predeterminada_ .
+  - Carga se puede definir cuando se crea un servicio. Este tipo de configuración de carga se denomina _carga predeterminada_.
   - La información de la métrica, incluidas las cargas predeterminadas, para un servicio puede actualizarse después de crear el servicio. Esta actualización de la métrica se realiza al _actualizar un servicio_
-  - Las cargas para una partición determinada pueden restablecerse a los valores predeterminados para ese servicio. y se denomina _restablecimiento de la carga de partición_ .
-  - La carga se puede notificar en base a cada objeto de servicio de forma dinámica durante el tiempo de ejecución. Esta actualización de la métrica se denomina _notificación de la carga_ .
-  - La carga de las instancias o réplicas de la partición también se puede actualizar mediante la notificación de los valores de carga a través de una llamada API de Fabric. Esta actualización de la métrica se denomina _notificación de la carga para una partición_ .
+  - Las cargas para una partición determinada pueden restablecerse a los valores predeterminados para ese servicio. y se denomina _restablecimiento de la carga de partición_.
+  - La carga se puede notificar en base a cada objeto de servicio de forma dinámica durante el tiempo de ejecución. Esta actualización de la métrica se denomina _notificación de la carga_.
+  - La carga de las instancias o réplicas de la partición también se puede actualizar mediante la notificación de los valores de carga a través de una llamada API de Fabric. Esta actualización de la métrica se denomina _notificación de la carga para una partición_.
 
 Todas estas estrategias pueden usarse dentro del mismo servicio durante su vigencia.
 
@@ -236,7 +236,7 @@ OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
         cancellationToken);
 ```
 
-En este ejemplo, realizará una actualización de la última carga notificada para la partición _53df3d7f-5471-403b-b736-bde6ad584f42_ . La carga de la réplica principal de la métrica _CustomMetricName0_ se actualizará con el valor 100. Al mismo tiempo, la carga para la misma métrica de una réplica secundaria específica ubicada en el nodo _NodeName0_ se actualizará con el valor 200.
+En este ejemplo, realizará una actualización de la última carga notificada para la partición _53df3d7f-5471-403b-b736-bde6ad584f42_. La carga de la réplica principal de la métrica _CustomMetricName0_ se actualizará con el valor 100. Al mismo tiempo, la carga para la misma métrica de una réplica secundaria específica ubicada en el nodo _NodeName0_ se actualizará con el valor 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Actualización de la configuración de métrica de un servicio
 La lista de métricas asociado con el servicio y las propiedades de esas métricas se pueden actualizar dinámicamente mientras el servicio está activo. Esto permite experimentación y flexibilidad. Algunos ejemplos de cuándo esto resulta útil son:

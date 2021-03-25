@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718529"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588263"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 
@@ -132,7 +132,7 @@ Hay dos paquetes necesarios para la integración de Key Vault:
 * Azure.Core contiene las interfaces `IKeyEncryptionKey` y `IKeyEncryptionKeyResolver`. La biblioteca cliente de almacenamiento para .NET ya lo define como una dependencia.
 * Azure.Security.KeyVault.Keys (versión 4.x) contiene el cliente REST de Key Vault así como clientes criptográficos que se usan con el cifrado del lado cliente.
 
-Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. A partir de Azure.Security.KeyVault.Keys 4.1.0, no hay ninguna implementación `IKeyEncryptionKeyResolver` que admita el almacenamiento en caché de claves. Si el almacenamiento en caché es necesario debido a una limitación, se puede seguir [este ejemplo](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) para insertar una capa de almacenamiento en caché en una instancia de `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
+Key Vault está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada almacén de claves se diseñan teniendo en cuenta este aspecto. A partir de Azure.Security.KeyVault.Keys 4.1.0, no hay ninguna implementación `IKeyEncryptionKeyResolver` que admita el almacenamiento en caché de claves. Si el almacenamiento en caché es necesario debido a una limitación, se puede seguir [este ejemplo](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) para insertar una capa de almacenamiento en caché en una instancia de `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 

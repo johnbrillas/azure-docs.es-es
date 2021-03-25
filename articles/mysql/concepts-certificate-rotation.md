@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449890"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Descripción de los cambios en la entidad de certificación raíz para un solo servidor de Azure Database for MySQL
@@ -31,13 +31,13 @@ Según los requisitos de cumplimiento normativo del sector, los proveedores de C
 
 El nuevo certificado se ha implementado y ha entrado en vigor el 15 de febrero de 2021 (15/02/2021). 
 
-## <a name="what-change-was-performed-on-february-15-2021-02152021"></a>¿Qué cambio se ha realizado el 15 de febrero de 2021 (15/02/2021)?
+## <a name="what-change-was-performed-on-february-15-2021-02152021"></a>¿Qué cambio se realizó el 15 de febrero de 2021 (15/02/2021)?
 
-El 15 de febrero de 2021, el [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) se ha reemplazado por una **versión compatible** del mismo [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) para garantizar que los clientes existentes no tengan que cambiar nada, y que sus conexiones con el servidor no se vean afectadas. Durante este cambio, el [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) no se ha **reemplazado** por [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem), y se ha aplazado este cambio para que los clientes tengan más tiempo para realizarlo.
+El 15 de febrero de 2021, el [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) se reemplazó por una **versión compatible** del mismo [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) para garantizar que los clientes existentes no tengan que cambiar nada y que no afecte a sus conexiones con el servidor. Durante este cambio, el [certificado raíz BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) no se **reemplazó** por [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem); este cambio se ha aplazado para que los clientes tengan más tiempo para realizarlo.
 
 ## <a name="do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity"></a>¿Tengo que hacer algún cambio en mi cliente para mantener la conectividad?
 
-No se requiere ningún cambio en el lado cliente. Si ha seguido la recomendación anterior que se indica a continuación, todavía podrá seguir conectándose siempre y cuando **no se quite el certificado BaltimoreCyberTrustRoot** del certificado de CA combinado. **Se recomienda no quitar BaltimoreCyberTrustRoot del certificado de CA combinado hasta nuevo aviso para mantener la conectividad.**
+No se requiere ningún cambio en el lado cliente. Si ha seguido la recomendación anterior, que se indica a continuación, todavía podrá seguir conectándose siempre y cuando **no se quite el certificado BaltimoreCyberTrustRoot** del certificado de entidad de certificación combinado. **Se recomienda no quitar BaltimoreCyberTrustRoot del certificado de entidad de certificación combinado hasta nuevo aviso para mantener la conectividad**.
 
 ### <a name="previous-recommendation"></a>Recomendación anterior
 
@@ -88,9 +88,9 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
 > [!NOTE]
 > No elimine ni modifique el **certificado de Baltimore** hasta que se realice el cambio de certificado. Una vez realizado el cambio se va a enviar una comunicación, después de lo cual es seguro eliminar el certificado de Baltimore. 
 
-## <a name="why-was-baltimorecybertrustroot-certificate-not-replaced-to-digicertglobalrootg2-during-this-change-on-february-15-2021"></a>¿Por qué no reemplazó el certificado BaltimoreCyberTrustRoot por DigiCertGlobalRootG2 durante este cambio el 15 de febrero de 2021?
+## <a name="why-was-baltimorecybertrustroot-certificate-not-replaced-to-digicertglobalrootg2-during-this-change-on-february-15-2021"></a>¿Por qué no se reemplazó el certificado BaltimoreCyberTrustRoot por DigiCertGlobalRootG2 durante este cambio el 15 de febrero de 2021?
 
-Evaluamos la preparación de los clientes para aplicar este cambio y nos dimos cuenta de que muchos de ellos buscaban más tiempo para realizarlo. Con el fin de dar más tiempo a los clientes para que estuvieran preparados, decidimos aplazar el cambio de certificado a DigiCertGlobalRootG2 durante al menos un año, lo que proporciona un plazo de tiempo suficiente a los clientes y usuarios finales. 
+Evaluamos la preparación de los clientes para aplicar este cambio y nos dimos cuenta de que muchos de ellos buscaban un plazo adicional para realizarlo. Con el fin de dar más tiempo a los clientes para que estuvieran preparados, decidimos aplazar el cambio de certificado a DigiCertGlobalRootG2 durante al menos un año, lo que proporciona un plazo de tiempo suficiente a los clientes y usuarios finales. 
 
 Nuestra recomendación para los usuarios es que sigan los pasos mencionados anteriormente para crear un certificado combinado y se conecten al servidor, pero que no quiten el certificado BaltimoreCyberTrustRoot hasta que se envíe una comunicación para que lo hagan. 
 
@@ -142,11 +142,11 @@ No. Dado que el cambio aquí solo está en el lado del cliente para conectarse a
 
 ### <a name="8-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>8. Si creo un nuevo servidor después del 15 de febrero de 2021 (15/02/2021), ¿me afectará este cambio?
 
-En los servidores creados después del 15 de febrero de 2021 (15/02/2021), seguirá utilizando [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) para que las aplicaciones se conecten mediante SSL.
+En los servidores creados después del 15 de febrero de 2021 (15/02/2021), seguirá utilizando [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) para que las aplicaciones se conecten mediante SSL.
 
 ### <a name="9-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>9. ¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
 
-Estos certificados utilizados por Azure Database for MySQL provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados está ligada a la compatibilidad de estos certificados por parte de la entidad de certificación. El certificado [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) está programado para que expire en 2025, por lo que Microsoft deberá realizar un cambio de certificado antes de la expiración. Además, en caso de que se produzcan errores imprevistos en estos certificados predefinidos, Microsoft tendrá que realizar la rotación de certificados lo más pronto posible, de forma parecida al cambio realizado el 15 de febrero de 2021, para asegurarse de que el servicio sea seguro y compatible en todo momento.
+Estos certificados utilizados por Azure Database for MySQL provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados está ligada a la compatibilidad de estos certificados por parte de la entidad de certificación. El certificado [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) está programado para que expire en 2025, por lo que Microsoft deberá realizar un cambio de certificado antes de la expiración. Además, en caso de que se produzcan errores imprevistos en estos certificados predefinidos, Microsoft tendrá que realizar la rotación de certificados lo antes posible, de forma parecida al cambio realizado el 15 de febrero de 2021, para asegurarse de que el servicio sea seguro y compatible en todo momento.
 
 ### <a name="10-if-im-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>10. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor de origen o en las réplicas de lectura?
 

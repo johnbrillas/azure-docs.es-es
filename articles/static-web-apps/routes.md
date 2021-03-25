@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739651"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rutas en la versión preliminar de Azure Static Web Apps
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 El enrutamiento en Azure Static Web Apps define las reglas de enrutamiento del back-end y el comportamiento de autorización del contenido estático y las API<sup>1</sup>. Se definen como una matriz de reglas en el archivo _routes.json_.
 
@@ -29,6 +32,9 @@ El tema sobre el enrutamiento se superpone significativamente a los conceptos de
 Consulte el [archivo de ruta de ejemplo](#example-route-file) para ver los detalles.
 
 ## <a name="location"></a>Location
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 El archivo _routes.json_ debe encontrarse en la raíz de la carpeta de artefactos de compilación de la aplicación. Si la aplicación web incluye un paso de compilación que copia los archivos compilados de una carpeta específica a la carpeta de artefactos de compilación, el archivo _routes.json_ debe encontrarse en esa carpeta específica.
 
@@ -46,6 +52,9 @@ La tabla anterior solo es representativa de algunos marcos y bibliotecas compati
 
 ## <a name="defining-routes"></a>Definición de rutas
 
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
+
 Las rutas se definen en el archivo _routes.json_ como una matriz de reglas de ruta en la propiedad `routes`. Cada una se compone de un patrón de ruta, junto con una o varias de las propiedades de regla opcionales. Consulte el [archivo de ruta de ejemplo](#example-route-file) para ver ejemplos de uso.
 
 | Propiedad de regla  | Obligatorio | Valor predeterminado | Comentario                                                      |
@@ -56,6 +65,9 @@ Las rutas se definen en el archivo _routes.json_ como una matriz de reglas de ru
 | `statusCode`   | No       | 200           | Respuesta de [código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) de la solicitud. |
 
 ## <a name="securing-routes-with-roles"></a>Protección de rutas mediante roles
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 Las rutas están protegidas mediante la adición de uno o varios nombres de rol a la matriz `allowedRoles` de una regla. Consulte el [archivo de ruta de ejemplo](#example-route-file) para ver ejemplos de uso.
 
@@ -77,10 +89,13 @@ Puede crear nuevos roles según sea necesario en la matriz `allowedRoles`. Para 
 }
 ```
 
-- Tiene control total sobre los nombres de rol, ya que no hay ninguna lista maestra que los roles deban seguir.
+- Tiene control total sobre los nombres de rol, ya que no hay ninguna lista que los roles deban seguir.
 - Los usuarios individuales se asocian a los roles a través de [invitaciones](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Caracteres comodín
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 Las reglas de caracteres comodín coinciden con todas las solicitudes de un patrón de ruta determinado. Si define un valor `serve` en la regla, el archivo o la ruta de acceso mencionados se devuelven como respuesta.
 
@@ -109,6 +124,9 @@ También puede proteger las rutas con caracteres comodín. En el ejemplo siguien
 
 ## <a name="fallback-routes"></a>Rutas de reserva
 
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
+
 Las aplicaciones de una sola página, tanto si usan marcos de JavaScript de front-end, bibliotecas o plataformas WebAssembly como Blazor, suelen depender del enrutamiento del lado cliente para la navegación por la aplicación web. Estas reglas de enrutamiento del lado cliente actualizan la ubicación de la ventana del explorador sin realizar solicitudes al servidor. Si actualiza la página o navega directamente a las ubicaciones generadas por las reglas de enrutamiento del lado cliente, se necesita una ruta de reserva del lado servidor para proporcionar la página HTML adecuada.
 
 En el siguiente ejemplo se muestra una ruta de reserva común:
@@ -128,6 +146,9 @@ En el siguiente ejemplo se muestra una ruta de reserva común:
 La ruta de reserva debe aparecer en último lugar en la lista de reglas de enrutamiento, ya que se encarga de todas las solicitudes que no hayan detectado las reglas definidas anteriormente.
 
 ## <a name="redirects"></a>Redireccionamientos
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 Puede usar los códigos de estado HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) y [302](https://en.wikipedia.org/wiki/HTTP_302) para redirigir las solicitudes de una ruta a otra.
 
@@ -153,6 +174,9 @@ Los redireccionamientos también funcionan con rutas que no definen a archivos d
 
 ## <a name="custom-error-pages"></a>Páginas de error personalizadas
 
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
+
 Los usuarios pueden encontrar varias situaciones en las que se puede producir un error. Mediante el uso de la matriz `platformErrorOverrides`, puede proporcionar una experiencia personalizada en respuesta a estos errores. Consulte el [archivo de ruta de ejemplo](#example-route-file) para la selección de ubicación de la matriz en el archivo _routes.json_.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ En esta tabla se muestran las anulaciones de errores de plataforma que hay dispo
 | `Unauthorized_Unknown` | 401 | Problema desconocido al intentar autenticar al usuario. Una causa de este error puede ser que el usuario no se reconoce, ya que no dio su consentimiento a la aplicación.|
 
 ## <a name="custom-mime-types"></a>Tipos MIME personalizados
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 El objeto `mimeTypes`, que se muestra en el mismo nivel que la matriz `routes`, permite asociar [tipos MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) con extensiones de archivo.
 
@@ -194,6 +221,9 @@ Las siguientes consideraciones son importantes cuando se trabaja con tipos MIME:
 > Static Web Apps entiende las aplicaciones de Blazor y los tipos MIME previstos para los archivos WASM y DLL; no es necesario agregar asignaciones para ellos.
 
 ## <a name="default-headers"></a>Encabezados predeterminados
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 El objeto `defaultHeaders`, que se muestra en el mismo nivel que la matriz `routes`, permite agregar, modificar o quitar [encabezados de respuesta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -221,6 +251,9 @@ Las siguientes consideraciones son importantes cuando se trabaja con encabezados
 - Los encabezados definidos en _routes.json_ solo se aplican al contenido estático. Puede personalizar los encabezados de respuesta de un punto de conexión de API en el código de la función.
 
 ## <a name="example-route-file"></a>Archivo de ruta de ejemplo
+
+> [!IMPORTANT]
+> La funcionalidad definida en el archivo *routes.json* está ahora en desuso y se ha implementado mejor en el [archivo de configuración](./configuration.md#routes) de Azure Static Web Apps.
 
 En el ejemplo siguiente se muestra cómo crear reglas de ruta para las API y el contenido estático en un archivo _routes.json_. Algunas rutas usan la [carpeta del sistema _/.auth_](authentication-authorization.md) que accede a los puntos de conexión relacionados con la autenticación.
 

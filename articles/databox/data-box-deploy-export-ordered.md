@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789202"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box
@@ -175,11 +175,11 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     La configuración de **Tipo de cifrado** en la pantalla **Seguridad** muestra el almacén de claves y la clave.
 
-    ![Clave y almacén de claves para una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+    ![Clave y almacén de claves de una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
 15. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Select a user identity** (Seleccione una identidad de usuario). En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. Luego, elija **Seleccionar**.
 
-    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).  
+    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, consulte [Tipos de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md).  
 
     Si necesita crear una identidad administrada, siga la guía que se proporciona en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     

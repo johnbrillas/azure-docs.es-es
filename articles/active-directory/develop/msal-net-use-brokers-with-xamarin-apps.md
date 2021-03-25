@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103998"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199576"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Uso de Microsoft Authenticator o el Portal de empresa de Intune en aplicaciones de Xamarin
 
@@ -326,6 +326,8 @@ La barra diagonal (`/`) delante de la firma en el valor `android:path` es **obli
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Para obtener más información sobre la configuración de la aplicación con fines de compatibilidad con el explorador del sistema y Android 11, consulte la [actualización del manifiesto de Android para la compatibilidad con el explorador del sistema](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 También puede configurar MSAL para revertir al explorador incrustado, que no depende de un URI de redirección:
 
 ```csharp
@@ -344,22 +346,22 @@ A continuación se ofrecen algunas sugerencias sobre cómo evitar problemas al i
 
     Ejemplo: Si primero instala Microsoft Authenticator y, a continuación, instala Portal de empresa de Intune, la autenticación asincrónica *solo* se produce en Microsoft Authenticator.
 - **Registros**: si encuentra un problema con la autenticación asincrónica, ver los registros del agente podría ayudarle a diagnosticar la causa.
-  - Vea los registros de Microsoft Authenticator:
+  - Acceda a los registros de Microsoft Authenticator:
 
     1. Seleccione el botón de menú en la esquina superior derecha de la aplicación.
-    1. Seleccione **Ayuda** > **Enviar registros** > **Ver registros**.
-    1. Seleccione **Copiar todo** para copiar los registros del agente en el Portapapeles del dispositivo.
+    1. Seleccione **Enviar comentarios** >  **¿Tiene problemas?** .
+    1. En **¿Qué intenta hacer?** , seleccione una opción e incluya una descripción.
+    1. Para enviar los registros, seleccione la flecha situada en la esquina superior derecha de la aplicación.
 
-    La mejor manera de depurar con estos registros consiste en enviarlos por correo electrónico y verlos en el equipo de desarrollo. Quizá le resulte más fácil analizar los registros en el equipo, en lugar de hacerlo en el dispositivo que los genera. También puede usar un editor de prueba en Android para guardar los registros como un archivo de texto y, a continuación, usar un cable USB para copiar el archivo en un equipo.
+    Después de enviar los registros, un cuadro de diálogo mostrará el identificador del incidente. Registre el identificador de incidente y proporciónelo cuando solicite asistencia.
 
-  - Vea los registros del Portal de empresa de Intune:
+  - Acceda a los registros del Portal de empresa de Intune:
 
     1. Seleccione el botón de menú en la esquina superior izquierda de la aplicación.
-    1. Seleccione **Configuración** > **Datos de diagnóstico**.
-    1. Seleccione **Copiar registros** para copiar los registros del agente en la tarjeta SD del dispositivo.
-    1. Conecte el dispositivo a un equipo mediante un cable USB para ver los registros en el equipo de desarrollo.
+    1. Seleccione **Help** > **Email Support** (Ayuda >Soporte por correo electrónico).
+    1. Para enviar los registros, seleccione **Upload Logs Only** (Cargar solo registros).
 
-    Una vez que tenga los registros, podrá buscar los intentos de autenticación en ellos mediante el id. de correlación. El id. de correlación se adjunta a todas las solicitudes de autenticación. Para buscar los errores que ha devuelto el punto de conexión de autenticación de la plataforma de identidad de Microsoft, busque `AADSTS`.
+    Después de enviar los registros, un cuadro de diálogo mostrará el identificador del incidente. Registre el identificador de incidente y proporciónelo cuando solicite asistencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

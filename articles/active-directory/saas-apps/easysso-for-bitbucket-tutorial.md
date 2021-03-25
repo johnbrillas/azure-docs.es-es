@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 6fdc9c70d1c9fc67c38edfd794354f9e03321c73
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98731434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for BitBucket
@@ -142,7 +142,7 @@ En esta sección va a permitir que B.Simon acceda a EasySSO for BitBucket median
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
-2. Después de agregar la extensión al explorador, haga clic en **Set up Zoom** (Configurar Zoom) para ir a la aplicación del mismo nombre. Ahí, escriba las credenciales de administrador para iniciar sesión en Zoom. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos del 3 al 10.
+2. Después de agregar la extensión al explorador, haga clic en **Set up Zoom** (Configurar Zoom) para ir a la aplicación del mismo nombre. Ahí, escriba las credenciales de administrador para iniciar sesión en Zoom. La extensión del navegador configurará automáticamente la aplicación y automatizará los pasos del 3 al 10.
 
     ![Configuración](common/setup-sso.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377506"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101740039"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -224,7 +224,17 @@ Para supervisar la instancia de Azure-SSIS IR en Azure Portal, vaya a la página
 
 ![Supervisión de todos los entornos de ejecución de integración](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-A continuación, seleccione el nombre de la instancia de Azure-SSIS IR para abrir su página de supervisión, donde puede ver sus propiedades globales/específicas del nodo y estados. En esta página, en función de cómo defina la configuración general, la implementación y la configuración avanzada de Azure-SSIS IR, encontrará varios iconos de información o funcionales.  Los iconos informativos **TYPE** (Tipo) y **REGION** (Región) muestran el tipo y la región de Azure-SSIS IR, respectivamente. El icono informativo **NODE SIZE** (Tamaño del nodo) muestra la SKU (serie tier_VM edition_VM de SSIS), el número de núcleos de CPU y el tamaño de la RAM por nodo de Azure-SSIS IR. El icono informativo **RUNNING / REQUESTED NODE(S)** (Nodos solicitados/en ejecución) compara el número de nodos que se están ejecutando actualmente con el número total de nodos solicitados previamente para Azure-SSIS IR. Los iconos funcionales se describen con más detalle a continuación.
+A continuación, seleccione el nombre de la instancia de Azure-SSIS IR para abrir su página de supervisión, donde puede ver sus propiedades globales/específicas del nodo y estados. En esta página, en función de cómo defina la configuración general, la implementación y la configuración avanzada de Azure-SSIS IR, encontrará varios iconos de información o funcionales.
+
+Los iconos informativos **TYPE** (Tipo) y **REGION** (Región) muestran el tipo y la región de Azure-SSIS IR, respectivamente.
+
+El icono informativo **NODE SIZE** (Tamaño del nodo) muestra la SKU (serie tier_VM edition_VM de SSIS), el número de núcleos de CPU y el tamaño de la RAM por nodo de Azure-SSIS IR. 
+
+El icono informativo **RUNNING / REQUESTED NODE(S)** (Nodos solicitados/en ejecución) compara el número de nodos que se están ejecutando actualmente con el número total de nodos solicitados previamente para Azure-SSIS IR.
+
+El icono informativo **DUAL STANDBY PAIR / ROLE** (PAR/ROL EN ESPERA DUAL) muestra el nombre del par de Azure-SSIS IR en espera dual que funciona sincronizado con el grupo de conmutación por error de Azure SQL Database/Instancia administrada para la continuidad empresarial y la recuperación ante desastres (BCDR) y el rol principal/secundario actual de Azure-SSIS IR. Cuando se produce la conmutación por error de SSISDB, las instancias de Azure-SSIS IR principal y secundaria intercambiarán sus roles (consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres [BCDR]](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+Los iconos funcionales se describen con más detalle a continuación.
 
 ![Supervisión de la instancia de Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Si une la instancia de Azure-SSIS IR a una red virtual, verá el icono **VALIDAT
 
 En el icono **DIAGNOSTICAR CONECTIVIDAD** de la página de supervisión de Azure-SSIS IR, puede seleccionar el vínculo **Probar conexión** para mostrar una ventana, donde puede comprobar las conexiones entre la instancia de Azure-SSIS IR y los almacenes de paquetes, configuraciones y datos relevantes, así como los servicios de administración, a través de su dirección de nombre de dominio completo (FQDN)/IP y el puerto designado (consulte [Prueba de conexiones desde la instancia de Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Captura de pantalla que muestra dónde puede probar las conexiones entre Azure-SSIS IR y los almacenes de paquetes, configuración y datos pertinentes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Icono STATIC PUBLIC IP ADDRESSES (Direcciones IP públicas estáticas)
 
 Si trae sus propias direcciones IP públicas estáticas a Azure-SSIS IR, verá el icono **STATIC PUBLIC IP ADDRESSES** (Direcciones IP públicas estáticas) en la página de supervisión de Azure-SSIS IR (consulte la sección [Selección de direcciones IP públicas estáticas](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). En este icono, puede seleccionar los vínculos que designan las primeras/segunda direcciones IP públicas estáticas para Azure-SSIS IR para que aparezca una ventana, donde puede copiar el identificador de recurso (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) de un cuadro de texto. En la ventana emergente, también puede seleccionar el vínculo **See your first/second static public IP address settings** (Ver la configuración de la primera/segunda dirección IP pública estática) para administrar su primera y segunda dirección IP pública estática en Azure Portal.
 
-![Captura de pantalla que muestra dónde puede designar su primera y segunda dirección IP pública estática.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Supervisión de la instancia de Azure-SSIS IR: icono STATIC (ESTÁTICO)](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Icono PACKAGE STORES (Almacenes de paquetes)
 
@@ -272,7 +282,7 @@ Si usa el modelo de implementación de paquetes en el que los paquetes se almace
 
 Si hay problemas con el inicio, la detención, el mantenimiento o la actualización de su instancia de Azure-SSIS IR, verá un icono **ERRORES** adicional en la página de supervisión de Azure-SSIS IR. En este icono, puede seleccionar un vínculo que designe el número de errores generados por la instancia de Azure-SSIS IR para que se muestre una ventana, donde puede ver los errores con más detalles y copiarlos para encontrar las soluciones recomendadas en nuestra guía de solución de problemas (consulte [Solución de problemas de su instancia de Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Supervisión de la instancia de Azure-SSIS IR: icono ERROR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Supervisión de Azure-SSIS Integration Runtime con Azure Monitor
 

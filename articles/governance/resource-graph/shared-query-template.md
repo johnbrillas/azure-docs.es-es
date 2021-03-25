@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594323"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
@@ -50,7 +50,7 @@ El recurso definido en la plantilla es el siguiente:
 
    | Nombre | Value |
    |------|-------|
-   | Suscripción | Seleccione su suscripción a Azure. |
+   | Subscription | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la consulta | Deje el valor predeterminado: **Número de máquinas virtuales por sistema operativo**. |

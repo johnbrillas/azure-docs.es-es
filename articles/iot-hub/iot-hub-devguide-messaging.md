@@ -11,10 +11,10 @@ ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147630"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Envío de mensajes de dispositivo a nube y de nube a dispositivo con IoT Hub
@@ -47,4 +47,4 @@ Los mensajes de dispositivo a nube se utilizan para enviar telemetría y alertas
 
 * Información acerca del [enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) de IoT Hub.
 
-* Más información acerca de la [mensajería de nube a dispositivo](iot-hub-devguide-messages-c2d.md) de IoT Hub.
+* Obtenga más información acerca de la [mensajería de nube a dispositivo](iot-hub-devguide-messages-c2d.md) de IoT Hub.

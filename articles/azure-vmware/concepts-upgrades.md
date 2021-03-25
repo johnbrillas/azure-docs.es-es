@@ -2,13 +2,13 @@
 title: 'Conceptos: Actualizaciones y mejoras de la nube privada'
 description: Conozca los procesos de actualización y las características principales de Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.date: 03/17/2021
+ms.openlocfilehash: 9810de40944f70a4efb7ec81d17868ffdf256c7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634999"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586155"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Actualizaciones y mejoras de la nube privada de Azure VMware Solution
 
@@ -53,7 +53,9 @@ Azure VMware Solution también realiza una copia de seguridad de la configuraci�
 
 Cuando se produzcan errores, Azure VMware Solution puede restaurar estos componentes desde la copia de seguridad de la configuración. 
 
-Para más información sobre las versiones de software de VMware, consulte el [artículo sobre los conceptos de nubes privadas y clústeres](concepts-private-clouds-clusters.md) y las [preguntas frecuentes](faq.yml).
+## <a name="vmware-software-versions"></a>Versiones de software de VMware
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

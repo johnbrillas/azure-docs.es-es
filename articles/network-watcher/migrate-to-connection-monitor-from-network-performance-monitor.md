@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: e95f6fdff164a6f5f9d4af4f19b1876d1483a70c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038720"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010412"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migración a Connection Monitor desde Network Performance Monitor
 
@@ -37,6 +37,9 @@ La migración ayuda a generar los siguientes resultados:
 * Supervisión de datos:
    * **Datos en Log Analytics**: antes de la migración, los datos permanecen en el área de trabajo en la que se configura NPM en la tabla NetworkMonitoring. Después de la migración, los datos pasan a las tablas NetworkMonitoring, NWConnectionMonitorTestResult y NWConnectionMonitorPathResult en la misma área de trabajo. Una vez deshabilitadas las pruebas en NPM, los datos solo se almacenan en las tablas NWConnectionMonitorTestResult y NWConnectionMonitorPathResult.
    * **Alertas, paneles e integraciones basados en el registro**: debe editar manualmente las consultas en función de las nuevas tablas NWConnectionMonitorTestResult y NWConnectionMonitorPathResult. Para volver a crear las alertas en las métricas, consulte [Supervisión de la conectividad de red con Connection Monitor](./connection-monitor-overview.md#metrics-in-azure-monitor).
+* Para la supervisión de ExpressRoute:
+    * **Pérdida y latencia de un extremo a otro**: Connection Monitor realizará esta tarea y será más fácil que con NPM, ya que no es necesario que los usuarios configuren qué circuitos y emparejamientos se deben supervisar. Los circuitos de la ruta de acceso se detectarán automáticamente, los datos estarán disponibles en métricas (más rápido que LA, que era donde NPM almacenaba los resultados). La topología funcionará tal y como está.
+    * **Medidas de ancho de banda**: con el lanzamiento de las métricas relacionadas con el ancho de banda, el enfoque basado en análisis de registros de NPM no era efectivo para supervisar el ancho de banda para los clientes de ExpressRoute. Esta funcionalidad no está disponible en Connection Monitor.
     
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,7 +63,7 @@ Una vez iniciada la migración, tienen lugar los siguientes cambios:
    * Se crea un monitor de conexión por región y suscripción. En el caso de las pruebas con agentes locales, el nuevo nombre del monitor de conexión tiene el formato `<workspaceName>_"workspace_region_name"`. En el caso de las pruebas con agentes de Azure, el nuevo nombre del monitor de conexión tiene el formato `<workspaceName>_<Azure_region_name>`.
    * Los datos de supervisión ahora se almacenan en la misma área de trabajo de Log Analytics donde está habilitado NPM, en dos nuevas tablas llamadas NWConnectionMonitorTestResult y NWConnectionMonitorPathResult. 
    * El nombre de la prueba se mantiene como nombre del grupo de pruebas. No se migra la descripción de la prueba.
-   * Se crean puntos de conexión de origen y destino y se usan en el grupo de pruebas creado. En el caso de los agentes locales, el formato de los puntos de conexión es `<workspaceName>_<FQDN of on-premises machine>`.
+   * Se crean puntos de conexión de origen y destino y se usan en el grupo de pruebas creado. En el caso de los agentes locales, los puntos de conexión tienen el formato `<workspaceName>_<FQDN of on-premises machine>`. No se migra la descripción del agente.
    * El puerto de destino y el intervalo de sondeo se trasladan a las configuraciones de prueba llamadas `TC_<protocol>_<port>` y `TC_<protocol>_<port>_AppThresholds`. El protocolo se establece según los valores de puerto. En el caso de ICMP, las configuraciones de prueba se denominan `TC_<protocol>` y `TC_<protocol>_AppThresholds`. Si se establecen umbrales de éxito y otras propiedades opcionales, se migran; de lo contrario, se dejan en blanco.
    * Si las pruebas que se migran contienen agentes que no están en ejecución, debe habilitar los agentes y volver a migrarlas.
 * NPM no está deshabilitado, por lo que las pruebas migradas pueden seguir enviando datos a las tablas NetworkMonitoring, NWConnectionMonitorTestResult y NWConnectionMonitorPathResult. Este enfoque garantiza que las integraciones y alertas existentes basadas en el registro no resulten afectadas.

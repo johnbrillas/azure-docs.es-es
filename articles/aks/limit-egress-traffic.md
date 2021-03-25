@@ -4,14 +4,14 @@ description: Obtenga información sobre qué puertos y direcciones son necesario
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573836"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -214,6 +214,24 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esta dirección se usa para el funcionamiento correcto de Azure Policy.  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure China 21Vianet 
+
+Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de aplicación / FQDN siguientes.
+
+| FQDN                                          | Port      | Uso      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas de Kubernetes y para notificar el estado de cumplimiento del clúster en el servicio de directivas. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | Esta dirección se usa para extraer los artefactos de Gatekeeper de las directivas integradas. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorios para Azure US Government
+
+Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de aplicación / FQDN siguientes.
+
+| FQDN                                          | Port      | Uso      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas de Kubernetes y para notificar el estado de cumplimiento del clúster en el servicio de directivas. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | Esta dirección se usa para extraer los artefactos de Gatekeeper de las directivas integradas. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restricción del tráfico de salida mediante el firewall de Azure
 

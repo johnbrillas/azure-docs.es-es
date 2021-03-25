@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 487efce1fe57413dda740c42a7fd3d5ea91cfa49
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724966"
 ---
 # <a name="build-resilience-in-external-user-authentication"></a>Aumento de la resistencia en la autenticación de usuarios externos
@@ -61,16 +61,16 @@ Recursos de resistencia para administradores y arquitectos
  
 * [Aumento de la resistencia con la administración de credenciales](resilience-in-credentials.md)
 
-* [Aumento de la resistencia con los estados de dispositivos](resilience-with-device-states.md)
+* [Aumento de la resistencia con estados de dispositivos](resilience-with-device-states.md)
 
 * [Aumento de la resistencia mediante Evaluación continua de acceso (CAE)](resilience-with-continuous-access-evaluation.md)
 
 * [Aumento de la resistencia en la autenticación híbrida](resilience-in-hybrid.md)
 
-* [Aumento de la resistencia en el acceso a las aplicaciones con Application Proxy](resilience-on-premises-access.md)
+* [Aumento de la resistencia en el acceso a la aplicación con Application Proxy](resilience-on-premises-access.md)
 
 Recursos de resistencia para desarrolladores
 
-* [Aumento de la resistencia de IAM en las aplicaciones](resilience-app-development-overview.md)
+* [Aumento de la resistencia IAM en las aplicaciones](resilience-app-development-overview.md)
 
 * [Aumento de la resistencia en los sistemas CIAM](resilience-b2c.md)
