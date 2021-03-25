@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710590"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Emparejamiento de VNet y Azure Bastion (versión preliminar)
@@ -42,7 +42,7 @@ Esta ilustración muestra la arquitectura de una implementación de Azure Bastio
 1. Conexión a Azure Portal con cualquier explorador HTML5.
 2. Asegúrese de que tiene acceso de **lectura** tanto a la máquina virtual de destino como a la red virtual emparejada. Además, compruebe en IAM que el usuario tiene acceso de lectura a los recursos siguientes:
    * Rol Lector en la máquina virtual.
-   * Rol Lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
+   * Rol de lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
    * Rol Lector en el recurso de Azure Bastion.
    * Rol Lector en la red virtual (no es necesario si no hay ninguna red virtual emparejada).
 3. Para ver Bastion en el menú desplegable **Conectar**, debe seleccionar las suscripciones a las que tiene acceso en **Suscripción > Suscripción global**.

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779329"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de Azure CDN
@@ -33,7 +33,7 @@ En este documento se explican los informes de HTTP avanzados en Microsoft Azure 
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados** .  Haga clic en **Plataforma grande HTTP** .
+2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**.  Haga clic en **Plataforma grande HTTP**.
    
     ![Portal de administración de la red CDN: menú Informes avanzados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -201,6 +201,6 @@ Directamente debajo del gráfico de barras, se mostrará la información siguien
 
 ## <a name="see-also"></a>Consulte también
 * [Información general de Azure CDN](cdn-overview.md)
-* [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
+* [Estadísticas en tiempo real en Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](./cdn-verizon-premium-rules-engine.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)

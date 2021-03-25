@@ -4,10 +4,10 @@ description: Obtenga información acerca de cómo crear entornos de varias máqu
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88182415"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
@@ -45,7 +45,7 @@ Hay varias reglas que debe seguir para organizar las plantillas de Azure Resourc
 
 - Si quiere usar valores de parámetro definidos en un archivo de parámetros, este debe llamarse *azuredeploy.parameters.json*.
 
-  Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor de identificador URI parametersLink y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para obtener más información, consulte [Implementar plantillas anidadas de Azure Resource Manager para probar entornos](deploy-nested-template-environments.md).
+  Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor parametersLink URI y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para obtener más información, consulte [Implementar plantillas anidadas de Azure Resource Manager para probar entornos](deploy-nested-template-environments.md).
 
 - Puede definir metadatos para especificar el nombre para mostrar y la descripción de la plantilla en un archivo denominado *metadata.json*, como se indica a continuación:
 

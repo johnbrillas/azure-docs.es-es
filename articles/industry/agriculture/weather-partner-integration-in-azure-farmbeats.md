@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147086"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Integración de asociados de datos meteorológicos con FarmBeats
@@ -117,18 +117,18 @@ El programa Docker necesita dos componentes: el arranque y el trabajo. El progra
 
 El componente de arranque se debe ejecutar cuando el cliente inicia el registro de Docker en FarmBeats. Se pasan los siguientes argumentos (`arg1` y `arg2`) al programa:
 
-- **Punto de conexión de API de FarmBeats** : punto de conexión de API de FarmBeats para solicitudes de API. Este punto de conexión realiza llamadas API a la implementación de FarmBeats.
-- **Dirección URL de Azure Functions** : su propio punto de conexión. Esta dirección URL proporciona el token de acceso para las API de FarmBeats. Puede llamar a `GET` en esta dirección URL para capturar el token de acceso.
+- **Punto de conexión de API de FarmBeats**: punto de conexión de API de FarmBeats para solicitudes de API. Este punto de conexión realiza llamadas API a la implementación de FarmBeats.
+- **Dirección URL de Azure Functions**: su propio punto de conexión. Esta dirección URL proporciona el token de acceso para las API de FarmBeats. Puede llamar a `GET` en esta dirección URL para capturar el token de acceso.
 
 El arranque crea los metadatos que los usuarios necesitan para ejecutar los trabajos y obtener los datos meteorológicos. Para más información, consulte la [implementación de referencia](https://github.com/azurefarmbeats/noaa_docker). 
 
-Si actualiza el archivo *bootstrap_manifest.json* , el programa de arranque de referencia creará los metadatos necesarios automáticamente. El programa de arranque crea los siguientes metadatos: 
+Si actualiza el archivo *bootstrap_manifest.json*, el programa de arranque de referencia creará los metadatos necesarios automáticamente. El programa de arranque crea los siguientes metadatos: 
 
  > [!NOTE]
  > Si actualiza el archivo *bootstrap_manifest.json* tal como se describe en la [implementación de referencia](https://github.com/azurefarmbeats/noaa_docker), no es necesario que cree los metadatos siguientes. El programa de arranque usará el archivo de manifiesto para crear los metadatos necesarios.
 
-- /**WeatherDataModel** : Los metadatos de WeatherDataModel representan los datos meteorológicos. Corresponden a los conjuntos de datos proporcionados por el origen. Por ejemplo, un modelo DailyForecastSimpleModel podría proporcionar una información de temperatura, humedad y precipitación medias una vez al día. Por el contrario, un modelo DailyForecastAdvancedModel podría proporcionar mucha más información con una granularidad por hora. Puede crear cualquier número de modelos de datos meteorológicos.
-- /**JobType** : FarmBeats tiene un sistema de administración de trabajos extensible. Como proveedor de datos meteorológicos, tendrá varios conjuntos de datos y API (por ejemplo, GetDailyForecasts). Puede habilitar estos conjuntos de datos y API en FarmBeats mediante JobType. Una vez que se crea un tipo de trabajo, un cliente puede desencadenar trabajos de ese tipo a fin de obtener datos meteorológicos para su ubicación o granja de servidores de interés. Para más información, consulte JobType y las API de trabajo en [Swagger de FarmBeats](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel**: Los metadatos de WeatherDataModel representan los datos meteorológicos. Corresponden a los conjuntos de datos proporcionados por el origen. Por ejemplo, un modelo DailyForecastSimpleModel podría proporcionar una información de temperatura, humedad y precipitación medias una vez al día. Por el contrario, un modelo DailyForecastAdvancedModel podría proporcionar mucha más información con una granularidad por hora. Puede crear cualquier número de modelos de datos meteorológicos.
+- /**JobType**: FarmBeats tiene un sistema de administración de trabajos extensible. Como proveedor de datos meteorológicos, tendrá varios conjuntos de datos y API (por ejemplo, GetDailyForecasts). Puede habilitar estos conjuntos de datos y API en FarmBeats mediante JobType. Una vez que se crea un tipo de trabajo, un cliente puede desencadenar trabajos de ese tipo a fin de obtener datos meteorológicos para su ubicación o granja de servidores de interés. Para más información, consulte JobType y las API de trabajo en [Swagger de FarmBeats](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Trabajos
 

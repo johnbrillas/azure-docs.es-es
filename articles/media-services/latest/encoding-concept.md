@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455287"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617648"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
@@ -95,20 +95,25 @@ Media Services admite los siguientes valores preestablecidos de codificación in
 
 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) se usa para establecer un valor preestablecido integrado para codificar el vídeo de entrada con Standard Encoder.
 
-Actualmente se admiten los valores preestablecidos siguientes:
+Actualmente se admiten los valores preestablecidos integrados siguientes:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: genera un solo archivo MP4 que contiene únicamente audio estéreo codificado a 192 kbps.
-- **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Para más información, consulte [Generación automática de una escala de velocidad de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncoding**: expone un valor preestablecido para la codificación compatible con el contenido. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, vea [Codificación que tiene en cuenta el contenido](content-aware-encoding.md).
-
+- **EncoderNamedPreset.AdaptiveStreaming** (recomendado): admite la codificación de velocidad de bits adaptable H.264. Para más información, consulte [Generación automática de una escala de velocidad de bits](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset.H265AdaptiveStreaming**: similar al valor preestablecido AdaptiveStreaming, pero usa el códec HEVC (H.265). Genera un conjunto de archivos MP4 alineados con GOP con vídeo H.265 y audio AAC estéreo. Genera automáticamente una escala de velocidad de bits basada en la resolución de entrada, la tasa de bits y la velocidad de fotogramas. El valor preestablecido que se generó automáticamente nunca superará la resolución de entrada. Por ejemplo, si la entrada es 720p, la salida permanecerá en 720p en el mejor de los casos.
+- **EncoderNamedPreset.ContentAwareEncoding**: expone un valor preestablecido para la codificación compatible con el contenido H.264. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, vea [Codificación que tiene en cuenta el contenido](content-aware-encoding.md).
+- **EncoderNamedPreset. H265ContentAwareEncoding**: expone un valor preestablecido para la codificación compatible con el contenido HEVC (H.265). Genera un conjunto de archivos MP4 con alineación GOP mediante la codificación compatible con el contenido. Dado cualquier contenido de entrada, el servicio realiza un análisis ligero inicial del mismo y usa los resultados para determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Este valor predefinido resulta particularmente eficaz en los vídeos de complejidad baja y media, donde los archivos de salida tendrán velocidades de bits más lentas, pero una calidad que seguirá ofreciendo una buena experiencia a los espectadores. La salida contendrá archivos MP4 con el vídeo y audio intercalados.
   > [!NOTE]
-  > Asegúrese de usar **ContentAwareEncoding** en lugar de ContentAwareEncodingExperimental.
+  > Asegúrese de usar **ContentAwareEncoding** en lugar de ContentAwareEncodingExperimental, que está en desuso.
+
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: genera un conjunto de ocho archivos MP4 alineados con GOP, que abarcan desde 6000 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 1080p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: genera un conjunto de seis archivos MP4 alineados con GOP, que abarcan desde 3400 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 720p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD**: genera un conjunto de cinco archivos MP4 alineados con GOP, que abarcan desde 1600 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 480p y baja hasta 360p.
 - **EncoderNamedPreset.H264SingleBitrate1080p**: genera un archivo MP4 en el que el vídeo se codifica con el códec H.264 a 6750 kbps y una altura de imagen de 1080 píxeles y el audio estéreo se codifica con el códec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrate720p**: genera un archivo MP4 en el que el vídeo se codifica con el códec H.264 a 4500 kbps y una altura de imagen de 720 píxeles y el audio estéreo se codifica con el códec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrateSD**: genera un archivo MP4 en el que el vídeo se codifica con el códec H.264 a 2200 kbps y una altura de imagen de 480 píxeles y el audio estéreo se codifica con el códec AAC-LC a 64 kbps.
+- **EncoderNamedPreset.H265SingleBitrate720P**: genera un archivo MP4 en el que el vídeo se codifica con el códec HEVC (H.265) a 1800 kbps y una altura de imagen de 720 píxeles, y el audio estéreo se codifica con el códec AAC-LC a 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate1080p**: genera un archivo MP4 en el que el vídeo se codifica con el códec HEVC (H.265) a 3500 kbps y una altura de imagen de 1080 píxeles, y el audio estéreo se codifica con el códec AAC-LC a 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate4K**: genera un archivo MP4 en el que el vídeo se codifica con el códec HEVC (H.265) a 9500 kbps y una altura de imagen de 2160 píxeles, y el audio estéreo se codifica con el códec AAC-LC a 128 kbps.
 
 Para ver la lista más actualizada de valores preestablecidos, consulte los [valores preestablecidos integrados que se usarán para codificar vídeos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,6 +140,7 @@ Media Services es totalmente compatible con la personalización de todos los val
 - [Personalización de valores preestablecidos con la CLI](custom-preset-cli-howto.md)
 - [Personalización de valores preestablecidos con REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Esquema de valores preestablecidos
 
 En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API de REST](/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (o en otra documentación de referencia del SDK de Media Services v3).
@@ -142,6 +148,7 @@ En Media Services v3, los valores preestablecidos son entidades fuertemente tip
 ## <a name="scaling-encoding-in-v3"></a>Escalado de la codificación en v3
 
 Para escalar el procesamiento multimedia, consulte [Escalado con CLI](media-reserved-units-cli-how-to.md).
+En el caso de las cuentas que se crearon con la versión **2020-05-01** de la API o a través de Azure Portal, ya no se requieren unidades reservadas de multimedia ni el escalado. El escalado será automático y lo controlará internamente el servicio.
 
 ## <a name="billing"></a>Facturación
 

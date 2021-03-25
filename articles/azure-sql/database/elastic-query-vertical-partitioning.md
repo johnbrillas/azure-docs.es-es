@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792096"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
@@ -63,7 +63,7 @@ Sintaxis:
     CREDENTIAL = <credential_name> ) [;]
 
 > [!IMPORTANT]
-> El parámetro TYPE debe establecerse en **RDBMS** .
+> El parámetro TYPE debe establecerse en **RDBMS**.
 
 ### <a name="example"></a>Ejemplo
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 La consulta elástica amplía la sintaxis de la tabla externa existente para que incluya la definición de tablas externas que usan orígenes de datos externos de tipo RDBMS. La definición de tabla externa para el particionamiento vertical abarca los siguientes aspectos:
 
-* **Esquema** : el DDL de tabla externa define un esquema que las consultas pueden usar. El esquema proporcionado en la definición de tabla externa debe coincidir con el de las tablas de la base de datos remota donde se almacenan los datos en sí.
-* **Referencia a base de datos remota** : el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica el nombre del servidor y el nombre de la base de datos remota donde se almacenan los datos de la tabla.
+* **Esquema**: el DDL de tabla externa define un esquema que las consultas pueden usar. El esquema proporcionado en la definición de tabla externa debe coincidir con el de las tablas de la base de datos remota donde se almacenan los datos en sí.
+* **Referencia a base de datos remota**: el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica el nombre del servidor y el nombre de la base de datos remota donde se almacenan los datos de la tabla.
 
 Usando un origen de datos externo como se describe en la anterior sección, la sintaxis para crear tablas externas es la siguiente:
 
@@ -135,7 +135,7 @@ La siguiente instrucción DDL quita una definición de tabla externa existente d
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Permisos para CREATE/DROP EXTERNAL TABLE** : se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para el DDL de tabla externa que también se necesita para hacer referencia al origen de datos subyacente.  
+**Permisos para CREATE/DROP EXTERNAL TABLE**: se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para el DDL de tabla externa que también se necesita para hacer referencia al origen de datos subyacente.  
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 

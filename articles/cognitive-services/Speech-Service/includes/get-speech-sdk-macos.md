@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 4a4705647b90d29f47e37b88531f3432c6a2f448
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434555"
 ---
 Al desarrollar para macOS, hay tres SDK de voz disponibles.
@@ -18,7 +18,7 @@ Al desarrollar para macOS, hay tres SDK de voz disponibles.
 - El SDK de voz de Python está disponible como un módulo de PyPI.
 
 > [!TIP]
-> Para más información sobre el uso del SDK de voz de Objective-C con Swift, vea <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift </a>.
+> Para obtener más información sobre el uso del SDK de Voz de Objective-C con Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importación de Objective-C en Swift </a>.
 
 ### <a name="system-requirements"></a>Requisitos del sistema
 

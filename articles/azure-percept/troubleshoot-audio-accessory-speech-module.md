@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de los módulos de audio y voz de Azure Percept
-description: Vea sugerencias para la solución de algunos de los problemas más comunes que pueden surgir durante la experiencia de incorporación.
+title: Solución de problemas del módulo de audio y Azure Percept Audio
+description: Obtenga sugerencias para la solución de problemas de Azure Percept Audio y azureearspeechclientmodule.
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3877ea680e7b4c705f127c54e0fa10c45d3b51d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097982"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102635576"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Solución de problemas de los módulos de audio y voz de Azure Percept
 
@@ -23,13 +23,13 @@ Siga las instrucciones que se indican a continuación para solucionar problemas 
 Para ejecutar estos comandos, [conéctese al punto de acceso Wi-Fi de Azure Percept DK y al kit de desarrollo mediante SSH](./how-to-ssh-into-percept-dk.md), y escriba los comandos en el terminal SSH.
 
 ```console
- iotedge logs azureearspeechclientmodule
+sudo iotedge logs azureearspeechclientmodule
 ```
 
 Para redirigir cualquier salida a un archivo .txt para su posterior análisis, use la sintaxis siguiente:
 
 ```console
-[command] > [file name].txt
+sudo [command] > [file name].txt
 ```
 
 Después de redirigir la salida a un archivo .txt, copie el archivo en el equipo host a través de SCP:
@@ -52,18 +52,18 @@ Si el estado del entorno de ejecución de **azureearspeechclientmodule** no apar
 
 Puede usar indicadores LED para comprender en qué estado se encuentra el dispositivo. Normalmente, el módulo tarda aproximadamente 2 minutos en inicializarse por completo después de *encenderse*. A medida que recorra los pasos de inicialización, verá:
 
-1. 1 LED blanco en el centro: el dispositivo está encendido. 
-2. 1 LD blanco en el centro parpadeando: la autenticación está en curso. 
+1. 1 LED blanco en el centro: el dispositivo está encendido.
+2. 1 LD blanco en el centro parpadeando: la autenticación está en curso.
 3. Los tres indicadores LED cambiarán a azul una vez que el dispositivo esté autenticado y listo para usarse.
 
-|LED|   Estado del indicador LED|  Estado del módulo de sistema de escucha|
-|---|------------|----------------| 
-|L02|   1 blanco, estático activado |Encendido |
-|L02|   1 blanco, intermitencia de 0,5 Hz|  Autenticación en curso |
-|L01 & L02 & L03|   3 azules, estático activado|     Esperando palabra clave|
-|L01 & L02 & L03|   Intermitencia de la matriz LED, 20 fps | Escuchando o hablando|
-|L01 & L02 & L03|   Parpadeo rápido de la matriz LED, 20 fps|    Pensando|
-|L01 & L02 & L03|   3 rojos, estático activado | Silencio|
+|LED|Estado del indicador LED|Estado del módulo de sistema de escucha|
+|---|---------|--------------|
+|L02|1 blanco, estático activado|Encendido |
+|L02|1 blanco, intermitencia de 0,5 Hz|Autenticación en curso |
+|L01 & L02 & L03|3 azules, estático activado|Esperando palabra clave|
+|L01 & L02 & L03|Intermitencia de la matriz LED, 20 fps |Escuchando o hablando|
+|L01 & L02 & L03|Parpadeo rápido de la matriz LED, 20 fps|Pensando|
+|L01 & L02 & L03|3 rojos, estático activado |Silencio|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

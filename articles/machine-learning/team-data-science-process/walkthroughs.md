@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8a1af48d89fbf5d303c2a6b8ef85ca3117debd5a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93320089"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Tutoriales para ejecutar el proceso de ciencia de datos en equipo en Azure
@@ -40,6 +40,6 @@ Las siguientes son descripciones breves de lo que proporcionan estos ejemplos de
 
 Para obtener una explicación de los componentes clave que conforman el proceso de ciencia de datos en equipo, consulte [Información general del proceso de ciencia de datos en equipo](overview.md).
 
-Para una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
+Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
 
 Para obtener la información general, consulte el [proceso de ciencia de datos](./index.yml).

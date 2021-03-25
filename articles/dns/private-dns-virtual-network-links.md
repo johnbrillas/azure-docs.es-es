@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954348"
 ---
 # <a name="what-is-a-virtual-network-link"></a>¿Qué es un vínculo de red virtual?
@@ -31,7 +31,7 @@ Una zona DNS privada puede tener varias redes virtuales de registro; sin embargo
 Al crear un vínculo de red virtual en una zona DNS privada y elegir no habilitar el registro automático de los registros DNS, la red virtual se trata como una red virtual de solo resolución. Los registros DNS de las máquinas virtuales implementadas en estas redes no se crearán automáticamente en la zona DNS privada vinculada. Sin embargo, las máquinas virtuales implementadas en este tipo de red pueden consultar correctamente los registros DNS de la zona DNS privada. Puede crear estos registros manualmente o se pueden rellenar desde otras redes virtuales que se hayan vinculado como redes de registro con la zona DNS privada.
 Una zona DNS privada puede tener varias redes virtuales de resolución y una red virtual puede tener varias zonas de resolución asociadas.
 
-## <a name="limits"></a>límites
+## <a name="limits"></a>Límites
 
 Para conocer el número de redes de registro y de resolución que puede vincular a zonas DNS privadas, consulte [Límites de Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 

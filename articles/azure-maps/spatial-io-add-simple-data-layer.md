@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 90f3cb0ae44be176d3ae248988d098039c140c3e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896164"
 ---
 # <a name="add-a-simple-data-layer"></a>Adición de una capa de datos simple
@@ -159,7 +159,7 @@ Si la característica es un elemento `Polygon` o un elemento `MultiPolygon` y la
 | Opción de capa | Nombres de propiedades admitidos | Valor predeterminado |
 |--------------|----------------------------|---------------|
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
-| `fillOpacity` | `fillOpacity`, `fill-opacity` | `0.5` |
+| `fillOpacity` | `fillOpacity`, '`fill-opacity` | `0.5` |
 
 ### <a name="extruded-polygon-style-properties"></a>Propiedades de estilo de polígono extruido
 

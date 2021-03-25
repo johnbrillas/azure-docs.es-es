@@ -4,10 +4,10 @@ description: En este artículo se describe cómo crear alertas en métricas y op
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 48cb402e31435cb3e9390e8aeb461fcc5f90702f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572014"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Establecimiento de alertas en métricas y registros de actividad de Azure Event Grid

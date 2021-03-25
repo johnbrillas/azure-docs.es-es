@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896215"
 ---
 # <a name="add-a-tile-layer"></a>Adición de una capa de icono
@@ -25,7 +25,7 @@ La característica de capa de mosaico, como la característica de capa de refere
 
 Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes se pueden representar previamente o se pueden representar de forma dinámica. Las imágenes representadas previamente se almacenan como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entienda la capa de mosaico. Las imágenes representadas de forma dinámica usan un servicio para cargar las imágenes casi en tiempo real. Las capas de mosaico son una excelente manera de visualizar grandes conjuntos de datos en el mapa. No solo puede generarse una capa de mosaico a partir de una imagen, sino que también se pueden representar datos de vector como una capa de mosaico.
 
-El cuadro de límite y el rango de zoom de donde está disponible un servicio de mosaico se pueden pasar como configuración para limitar dónde se solicitan los mosaicos. Se trata de una mejora del rendimiento tanto para el objeto visual como para el servicio de mosaicos. A continuación se muestra información general de todas las opciones disponibles en el panel **Formato** que están disponibles en la sección **Capa de mosaico** .
+El cuadro de límite y el rango de zoom de donde está disponible un servicio de mosaico se pueden pasar como configuración para limitar dónde se solicitan los mosaicos. Se trata de una mejora del rendimiento tanto para el objeto visual como para el servicio de mosaicos. A continuación se muestra información general de todas las opciones disponibles en el panel **Formato** que están disponibles en la sección **Capa de mosaico**.
 
 | Configuración        | Descripción   |
 |----------------|---------------|
@@ -45,9 +45,9 @@ El cuadro de límite y el rango de zoom de donde está disponible un servicio de
 
 El objeto visual de Azure Maps admite tres convenciones de nomenclatura del servicio de mosaico diferentes:
 
--   **X, Y, notación Zoom** : X es la columna, Y es la posición de fila del mosaico en la cuadrícula de mosaico y la notación Zoom es un valor basado en el nivel de zoom.
--   **Notación Quadkey** : combina la información de zoom, x e y en un valor de cadena único. Este valor de cadena se convierte en un identificador único para un solo mosaico.
--   **Cuadro de límite** : Especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+-   **X, Y, notación Zoom**: X es la columna, Y es la posición de fila del mosaico en la cuadrícula de mosaico y la notación Zoom es un valor basado en el nivel de zoom.
+-   **Notación Quadkey**: combina la información de zoom, x e y en un valor de cadena único. Este valor de cadena se convierte en un identificador único para un solo mosaico.
+-   **Cuadro de límite**: Especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 La dirección URL del mosaico es una URL https a una plantilla de dirección URL de un mosaico, que usa los parámetros siguientes:
 

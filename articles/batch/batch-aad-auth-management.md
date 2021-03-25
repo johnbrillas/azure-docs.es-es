@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: ff49d5e88df7c56ed4dee0685f09e45eb372aa5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930220"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticación de soluciones de administración de Batch con Active Directory
@@ -39,7 +39,7 @@ A continuación, debe delegar el acceso a la aplicación a la API de Azure Resou
 
 Siga estos pasos en Azure Portal:
 
-1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
+1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**, haga clic en **Registros de aplicaciones** y, luego, en **Agregar**.
 2. Busque el nombre de la aplicación en la lista de registros de aplicación:
 
     ![Buscar el nombre de la aplicación](./media/batch-aad-auth-management/search-app-registration.png)

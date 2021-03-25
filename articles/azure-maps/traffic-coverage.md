@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896878"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfico en Azure Maps
@@ -63,7 +63,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todos 
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Austria     |✓         |✓         |
-|Bielorrusia    |✓         |✓         |
+|Belarús    |✓         |✓         |
 |Bélgica     |✓         |✓         |
 |Bosnia y Herzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |

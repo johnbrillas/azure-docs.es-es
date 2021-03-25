@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 8ca455a802b180163579f67104a61f455dd54f94
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109228"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de Python
@@ -26,7 +26,7 @@ ms.locfileid: "92109228"
 
 Con este artículo aprenderá a utilizar el SDK de Python para realizar operaciones de sistema de archivos en Azure Data Lake Storage Gen1. Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Storage Gen1 con Python, consulte [Operaciones de administración de cuentas en Data Lake Storage Gen1 con Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Python** Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
@@ -110,7 +110,7 @@ adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountNa
 adlsFileSystemClient.mkdir('/mysampledirectory')
 ```
 
-## <a name="upload-a-file"></a>Cargar un archivo
+## <a name="upload-a-file"></a>Carga de un archivo
 
 ```python
 ## Upload a file
@@ -135,7 +135,7 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 ## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de administración de cuentas en Data Lake Storage Gen1 con Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 * [Referencia de Azure Data Lake Storage Gen1 con Python (sistema de archivos)](/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Abrir aplicaciones de macrodatos de código abierto que funcionan con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

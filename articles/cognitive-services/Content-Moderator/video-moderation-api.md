@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853539"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Análisis de contenido de vídeo para detectar material inapropiado en C#
@@ -24,7 +24,7 @@ En este artículo se proporcionan información y ejemplos de código que le ayud
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="set-up-azure-resources"></a>Configuración de los recursos de Azure
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Una vez completado el trabajo de moderación de contenido, analice la respuesta JSON. Esta consta de estos elementos:
 
 - Resumen de información del vídeo
-- **Capturas**  denominadas "**fragmentos**".
-- **Fotogramas clave**  denominados "**eventos**" con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
-- Los valores **start**, **duration** , **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
+- **Capturas** denominadas "**fragmentos**".
+- **Fotogramas clave** denominados "**eventos**" con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
+- Los valores **start**, **duration**, **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
  
 > [!NOTE]
 > - `adultScore` representa la posible presencia y la puntuación de predicción de contenido que se pueda considerar sexualmente explícito o para adultos en ciertas situaciones.

@@ -14,20 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390647"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614418"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
-> [!IMPORTANT]
-> A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión. Las actualizaciones de VM, donde "Windows Update" aplica las revisiones del sistema operativo sin reemplazar el disco de este, no se admiten. 
+## <a name="automatic-os-image-upgrades"></a>Actualizaciones automáticas de las imágenes del sistema operativo
 
-> [!NOTE]
-> Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado. En los tipos de nodo con el nivel de durabilidad Bronce, no se admite; en este caso, use la aplicación de orquestación de revisiones.
+Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado.
+
+Requisitos para las actualizaciones automáticas de imágenes del sistema operativo por Virtual Machine Scale Sets
+-   El [nivel de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric es Plata u Oro, no Bronce.
+-   La extensión de Service Fabric en la definición del modelo de conjunto de escalado debe tener la versión 1.1 o posterior de TypeHandlerVersion.
+-   El nivel de durabilidad debe ser el mismo en el clúster de Service Fabric y la extensión Service Fabric de la definición del modelo de conjunto de escalado.
+- No es necesario realizar un sondeo de estado adicional o el uso de la extensión de estado de aplicación para Virtual Machine Scale Sets.
+
+Asegúrese de que la configuración de durabilidad coincida con la del clúster y la extensión de Service Fabric, ya que la falta de coincidencia produce errores de actualización. Los niveles de durabilidad se pueden modificar según las directrices que se describen en [esta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](#patch-orchestration-application ) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.
+
+> [!IMPORTANT]
+> Las actualizaciones de VM, donde "Windows Update" aplica las revisiones del sistema operativo sin reemplazar el disco de este, no se admiten en Azure Service Fabric.
+
+Hay dos pasos necesarios para habilitar correctamente la característica con Windows Update deshabilitado en el sistema operativo.
+
+1. Habilitar la actualización automática de la imagen del sistema operativo y deshabilitar la ARM de Windows Update 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Actualizar el modelo del conjunto de escalado: después de cambiar esta configuración, se necesita restablecer la imagen inicial para actualizar el modelo del conjunto de escalado para que el cambio surta efecto.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+Eche un vistazo a las [actualizaciones automáticas de la imagen del sistema operativo de Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para obtener más instrucciones.
+
+## <a name="patch-orchestration-application"></a>Aplicación de la orquestación de revisiones
+
+> [!IMPORTANT]
+> A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión.
 
 La aplicación de orquestación de revisiones (POA) es un contenedor alrededor del servicio Administrador de reparaciones de Azure Service Fabric, que habilita la programación de revisiones del sistema operativo basada en la configuración para clústeres que no están hospedados en Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante dominio de actualización para aplicar revisiones en los hosts de clúster de Service Fabric sin incurrir en tiempo de inactividad.
 
@@ -61,7 +120,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.

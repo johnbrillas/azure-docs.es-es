@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305945"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
@@ -50,7 +50,7 @@ Hay valores que faltan en las columnas numéricas y de categorías de este conju
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Ejemplos de tareas de predicción
 En este tutorial, se describen dos problemas de predicción de ejemplo:
 
-1. **Clasificación binaria** : predice si un usuario ha hecho clic o no en un anuncio:
+1. **Clasificación binaria**: predice si un usuario ha hecho clic o no en un anuncio:
 
    * Clase 0: no hace clic
    * Clase 1: Haga clic en
@@ -99,7 +99,7 @@ A la izquierda, aparece el icono de "Hadoop Command Line" (Línea de comandos de
 Ya cuenta con la configuración adecuada y está listo para comenzar la primera parte del tutorial, que es la exploración de datos mediante Hive y la preparación de estos para Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Creación de tablas y base de datos de Hive
-Para crear tablas de Hive para nuestro conjunto de datos de Criteo, abra la * *_Línea de comandos de Hadoop_* _ en el escritorio del nodo principal y especifique el directorio de Hive con el comando:
+Para crear tablas de Hive para nuestro conjunto de datos de Criteo, abra la ***Línea de comandos de Hadoop*** en el escritorio del nodo principal y especifique el directorio de Hive con este comando:
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Después de que aparezca Hive REPL con un signo "hive >", solo tendrá que corta
 
 El código siguiente crea una base de datos "criteo" y, a continuación, genera cuatro tablas:
 
-una *tabla para generar recuentos* , correspondientes a los días desde day\_00 a day\_20,
+* una *tabla para generar recuentos*, correspondientes a los días desde day\_00 a day\_20,
 * una *tabla que se usa como el conjunto de datos "train"* , correspondiente a day\_21, y
 * dos *tablas que se usan como los conjuntos de datos de prueba* correspondientes a day\_22 y day\_23, respectivamente.
 
@@ -161,7 +161,7 @@ Todas estas tablas son externas ya que señalan a ubicaciones de Azure Storage B
 
 **Hay dos maneras de ejecutar TODAS las consultas de Hive:**
 
-* **Usar la línea de comandos de REPL de Hive** : el primer método consiste en emitir un comando "hive" y, a continuación, copiar la consulta y pegarla en la línea de comandos de REPL de Hive:
+* **Usar la línea de comandos de REPL de Hive**: el primer método consiste en emitir un comando "hive" y, a continuación, copiar la consulta y pegarla en la línea de comandos de REPL de Hive:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Todas estas tablas son externas ya que señalan a ubicaciones de Azure Storage B
   ```
 
      Ahora, en la línea de comandos de REPL, la consulta se ejecuta al cortarla y pegarla.
-* **Guardar las consultas en un archivo y ejecutar el comando** : el segundo método consiste en guardar las consultas en un archivo ".hql" ( [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) y, después, emitir el comando siguiente para ejecutar la consulta:
+* **Guardar las consultas en un archivo y ejecutar el comando**: el segundo método consiste en guardar las consultas en un archivo ".hql" ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) y, después, emitir el comando siguiente para ejecutar la consulta:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -492,7 +492,7 @@ Nuestro proceso de creación de modelos con Azure Machine Learning consta de est
 Ahora ya está preparado para generar modelos en Azure Machine Learning Studio. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Use el módulo **Importar datos** de Azure Machine Learning para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster se proporcionan a continuación.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Paso 1: Obtención de los datos a partir de las tablas de Hive para Azure Machine Learning usando el módulo Importar datos y seleccionándolo para un experimento de aprendizaje automático
-Para empezar, seleccione **+NUEVO** -> **EXPERIMENTO** -> **Experimento en blanco**. A continuación, en el cuadro **Búsqueda** , en la parte superior izquierda, busque "Importar datos". Arrastre y coloque el módulo **Importar datos** en el lienzo del experimento (la parte central de la pantalla) para usar el módulo para acceder a los datos.
+Para empezar, seleccione **+NUEVO** -> **EXPERIMENTO** -> **Experimento en blanco**. A continuación, en el cuadro **Búsqueda**, en la parte superior izquierda, busque "Importar datos". Arrastre y coloque el módulo **Importar datos** en el lienzo del experimento (la parte central de la pantalla) para usar el módulo para acceder a los datos.
 
 Este es el aspecto del módulo **Importar datos** mientas está obteniendo los datos de la tabla de Hive:
 
@@ -501,14 +501,14 @@ Este es el aspecto del módulo **Importar datos** mientas está obteniendo los d
 Para el módulo **Importar datos** , los valores de los parámetros que se proporcionan en el gráfico son solo algunos ejemplos del tipo de valores que tiene que proporcionar. A continuación se ofrecen algunas instrucciones generales acerca de cómo rellenar el conjunto de parámetros para el módulo **Importar datos** .
 
 1. Elija "Consulta de Hive" como **Origen de datos**
-2. En el cuadro **Consulta de base de datos de Hive** , basta con seleccionar SELECT * FROM <nombre\_base\_datos.nombre\_tabla\_>.
+2. En el cuadro **Consulta de base de datos de Hive**, basta con seleccionar SELECT * FROM <nombre\_base\_datos.nombre\_tabla\_>.
 3. **URI del servidor de HCatalog** : Si el clúster es "abc", este valor simplemente será: https:\//abc.azurehdinsight.net
-4. **Nombre de la cuenta de usuario de Hadoop** : el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
-5. **Contraseña de cuenta de usuario de Hadoop** : la contraseña del nombre de usuario elegido en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
-6. **Ubicación de los datos de salida** : elija "Azure".
-7. **Nombre de la cuenta de Azure Storage** : cuenta de almacenamiento asociada con el clúster.
-8. **Clave de cuenta de Azure Storage** : clave de la cuenta de almacenamiento asociada con el clúster.
-9. **Nombre del contenedor de Azure** : si el nombre de clúster es "abc", este campo suele ser simplemente "abc".
+4. **Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
+5. **Contraseña de cuenta de usuario de Hadoop**: la contraseña del nombre de usuario elegido en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
+6. **Ubicación de los datos de salida**: elija "Azure".
+7. **Nombre de la cuenta de Azure Storage**: cuenta de almacenamiento asociada con el clúster.
+8. **Clave de cuenta de Azure Storage**: clave de la cuenta de almacenamiento asociada con el clúster.
+9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc".
 
 Una vez que el módulo **Importar datos** finaliza la obtención de datos (aparece una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
 
@@ -543,13 +543,13 @@ Aquí, opte por reemplazar todos los valores que faltan por un 0. Hay otras opci
 Puede haber millones de valores únicos para algunas características de categoría de grandes conjuntos de datos. El uso de métodos simples como la codificación "one-hot" para representar estas características de categorías no es viable. En este tutorial, se muestra cómo usar las características de recuento mediante módulos de Azure Machine Learning integrados para generar representaciones compactas de estas variables de categorías con una alta dimensionalidad. El resultado final es un tamaño de modelo más pequeño, tiempos de aprendizaje más rápidos y métricas de rendimiento similares al uso de otras técnicas.
 
 ##### <a name="building-counting-transforms"></a>Creación de transformaciones de recuento
-Para crear características de recuento, use el módulo **Crear transformación de recuento** , que está disponible en Azure Machine Learning. El módulo tiene este aspecto:
+Para crear características de recuento, use el módulo **Crear transformación de recuento**, que está disponible en Azure Machine Learning. El módulo tiene este aspecto:
 
 ![Propiedades del módulo Crear transformación de recuento](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Crear transformación de recuento](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
-> En el cuadro **Recuento de columnas** , especifique las columnas en las que desea realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Recuerde que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, se cuenta en todas ellas y se les dan sus índices (de 15 a 40 separados por comas, como se muestra).
+> En el cuadro **Recuento de columnas**, especifique las columnas en las que desea realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Recuerde que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, se cuenta en todas ellas y se les dan sus índices (de 15 a 40 separados por comas, como se muestra).
 >
 
 Para usar el módulo en el modo MapReduce (adecuado para grandes conjuntos de datos), se necesita acceso a un clúster de Hadoop de HDInsight (el que se usa para la exploración de categorías se puede reutilizar para este propósito) y sus credenciales. En las ilustraciones anteriores se muestra el aspecto de los valores rellenados (reemplace los valores de ejemplo por los que son relevantes para su propio caso de uso).
@@ -617,7 +617,7 @@ Para el entrenamiento, simplemente invoque un módulo **Entrenar modelo**. Las d
 ![Módulo Entrenar modelo](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>Puntuación del modelo
-Una vez que tenga un modelo entrenado, estará preparado para puntuar el conjunto de datos test y evaluar su rendimiento. Hágalo mediante el módulo **Puntuar modelo** mostrado en la siguiente ilustración, con un módulo **Evaluar modelo** :
+Una vez que tenga un modelo entrenado, estará preparado para puntuar el conjunto de datos test y evaluar su rendimiento. Hágalo mediante el módulo **Puntuar modelo** mostrado en la siguiente ilustración, con un módulo **Evaluar modelo**:
 
 ![Score Model module](./media/hive-criteo-walkthrough/fydcv6u.png)
 
@@ -680,7 +680,7 @@ Observe los dos vínculos a los servicios web en el lado izquierdo:
 * El servicio **Solicitud-respuesta** (o RRS) está destinado a predicciones únicas y es lo que se usa en este taller.
 * El servicio de **EJECUCIÓN POR LOTES** (BES) se usa para las predicciones por lotes y requiere que los datos de entrada usados para realizar predicciones residan en Azure Blob Storage.
 
-Al hacer clic en el vínculo **PETICIÓN-RESPUESTA** , accedemos a una página que nos proporciona un código predefinido en C#, Python y R. Este código puede usarse fácilmente para realizar llamadas al servicio web. Hay que utilizar la clave de API en esta página para la autenticación.
+Al hacer clic en el vínculo **PETICIÓN-RESPUESTA**, accedemos a una página que nos proporciona un código predefinido en C#, Python y R. Este código puede usarse fácilmente para realizar llamadas al servicio web. Hay que utilizar la clave de API en esta página para la autenticación.
 
 Se aconseja copiar este código python en una celda nueva en el cuaderno de IPython.
 

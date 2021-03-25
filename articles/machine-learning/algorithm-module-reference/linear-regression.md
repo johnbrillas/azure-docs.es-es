@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323657"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
@@ -29,7 +29,7 @@ La regresión lineal es un método estadístico habitual que se han adoptado en 
 
 Azure Machine Learning admite una variedad de modelos de regresión, además de la regresión lineal. Sin embargo, el término "regresión" se puede interpretar de manera imprecisa y algunos tipos de regresión que se proporcionan en otras herramientas no se admiten.
 
-+ El problema de regresión clásico implica una sola variable independiente y una variable dependiente. Esto se denomina *regresión simple* ,  que es lo que admite este módulo.
++ El problema de regresión clásico implica una sola variable independiente y una variable dependiente. Esto se denomina *regresión simple*,  que es lo que admite este módulo.
 
 + La *regresión lineal múltiple* implica dos o más variables independientes que contribuyen a una sola variable dependiente. Los problemas en los que se usan varias entradas para predecir un solo resultado numérico también se denominan *regresión lineal multivariante*.
 
@@ -65,7 +65,7 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
     Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y luego arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización.
 
-2. En la lista desplegable **Solution method** (Método de solución) del panel **Propiedades** , seleccione **Ordinary Least Squares** (Mínimos cuadrados). Esta opción especifica el método de cálculo que se utiliza para buscar la recta de regresión.
+2. En la lista desplegable **Solution method** (Método de solución) del panel **Propiedades**, seleccione **Ordinary Least Squares** (Mínimos cuadrados). Esta opción especifica el método de cálculo que se utiliza para buscar la recta de regresión.
 
 3. En **L2 regularization weight** (Peso de regularización L2), escriba el valor que se usará como peso de regularización L2. Se recomienda usar un valor distinto de cero para evitar el sobreajuste.
 
@@ -111,7 +111,7 @@ Una vez completado el entrenamiento:
 
 5. En **Number of training epochs** (Épocas de entrenamiento), escriba un valor que indique el número de veces que el algoritmo debe iterarse mediante ejemplos. Para conjuntos de datos con pocos ejemplos, este número debe ser grande para alcanzar la convergencia.
 
-6. **Normalizar las características** : si ya ha normalizado los datos numéricos que se usan para entrenar el modelo, puede anular la selección de esta opción. De forma predeterminada, el módulo normaliza todas las entradas numéricas a un intervalo de entre 0 y 1.
+6. **Normalizar las características**: si ya ha normalizado los datos numéricos que se usan para entrenar el modelo, puede anular la selección de esta opción. De forma predeterminada, el módulo normaliza todas las entradas numéricas a un intervalo de entre 0 y 1.
 
     > [!NOTE]
     > 

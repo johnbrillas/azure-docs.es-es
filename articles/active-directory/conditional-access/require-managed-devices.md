@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077768"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
@@ -54,9 +54,9 @@ En otras palabras, los dispositivos administrados son dispositivos que están ba
 
 Para registrar un dispositivo en Azure AD, tiene tres opciones: 
 
-- **Dispositivos registrados en Azure AD** : para registrar un dispositivo personal en Azure AD.
-- **Dispositivos unidos a Azure AD** : para registrar en Azure AD un dispositivo Windows 10 de la organización que no se haya unido a una instancia local de AD. 
-- **Dispositivos unidos a Azure AD híbrido** : para registrar en Azure AD un dispositivo Windows 10 o de nivel inferior compatible que esté unido a una instancia de AD local registrada.
+- **Dispositivos registrados en Azure AD**: para registrar un dispositivo personal en Azure AD.
+- **Dispositivos unidos a Azure AD**: para registrar en Azure AD un dispositivo Windows 10 de la organización que no se haya unido a una instancia local de AD. 
+- **Dispositivos unidos a Azure AD híbrido**: para registrar en Azure AD un dispositivo Windows 10 o de nivel inferior compatible que esté unido a una instancia de AD local registrada.
 
 Estas tres opciones se describen en el artículo [¿Qué es la identidad de dispositivos?](../devices/overview.md)
 
@@ -106,14 +106,14 @@ Las organizaciones deben completar los pasos siguientes en orden para exigir el 
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones** , seleccione **Usuarios y grupos**.
-   1. En **Incluir** , seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
+1. En **Asignaciones**, seleccione **Usuarios y grupos**.
+   1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
    1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir** , seleccione **Office 365**.
-1. En **Condiciones** , seleccione **Plataformas de dispositivo**.
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365**.
+1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
-1. En **Controles de acceso** > **Conceder** , seleccione las opciones siguientes:
+1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir que el dispositivo esté marcado como compatible**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.

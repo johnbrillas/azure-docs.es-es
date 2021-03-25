@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 647a8fc25f27ef7f441ed7459ecd543d4f35581e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895280"
 ---
 # <a name="show-search-results-on-the-map"></a>Presentación de los resultados de la búsqueda en el mapa
@@ -62,7 +62,7 @@ La solicitud de búsqueda, el origen de datos, la capa de símbolos y los límit
 > [!div class="nextstepaction"]
 > [Procedimientos recomendados de uso del servicio de búsqueda](how-to-use-best-practices-for-search.md)
 
-Más información sobre la **búsqueda aproximada** :
+Más información sobre la **búsqueda aproximada**:
 
 > [!div class="nextstepaction"]
 > [Fuzzy Search API de Azure Maps](/rest/api/maps/search/getsearchfuzzy)
