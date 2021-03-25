@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
 ms.openlocfilehash: 42efe2927b4d711f7fa66a96ebd25f1a62bf654a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563615"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Actualización de la extensión Network Watcher a la versión más reciente

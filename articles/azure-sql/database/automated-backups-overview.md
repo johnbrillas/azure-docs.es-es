@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690640"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609930"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -140,9 +140,12 @@ En el caso de SQL Database y SQL Managed Instance, se puede configurar una reten
 
 Para más información sobre LTR, vea [Retención de copias de seguridad a largo plazo](long-term-retention-overview.md).
 
-## <a name="storage-costs"></a>Costos de almacenamiento
+## <a name="backup-storage-costs"></a>Costos de almacenamiento de copia de seguridad
 
 El precio del almacenamiento de copia de seguridad varía y depende del modelo de compra (DTU o núcleo virtual), la opción de redundancia del almacenamiento de copia de seguridad elegida y también de su región. El almacenamiento de copia de seguridad se cobra por GB consumidos al mes. Para ver los precios, consulte la página de [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) y la página de [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!NOTE]
+> La factura de Azure solo mostrará el exceso de almacenamiento de copia de seguridad consumido, no todo el consumo de almacenamiento de copia de seguridad. Por ejemplo, en un escenario hipotético, si ha aprovisionado 4 TB de almacenamiento de datos, obtendrá 4 TB de espacio de almacenamiento de copia de seguridad disponible. En caso de que haya usado el total de 5,8 TB de espacio de almacenamiento de copia de seguridad, la factura de Azure solo mostrará 1,8 TB, ya que solo se cobra el exceso de almacenamiento de copia de seguridad.
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -446,7 +449,7 @@ Puede encontrar una lista completa de las definiciones de directiva integradas p
 Si quiere aplicar los requisitos de residencia de datos en el nivel de la organización, puede asignar estas directivas a una suscripción. Una vez que se asignan en una suscripción, los usuarios de esa suscripción no podrán crear una base de datos ni una instancia administrada con almacenamiento de copia de seguridad con redundancia geográfica a través de Azure Portal o Azure PowerShell. 
 
 > [!IMPORTANT]
-> Las directivas de Azure no se aplican cuando la base de datos se crea mediante T-SQL. Para aplicar la residencia de datos al crear una base de datos mediante T-SQL, [use "LOCAL" o "ZONE" como entrada del parámetro BACKUP_STORAGE_REDUNDANCY en la instrucción CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Las directivas de Azure no se aplican cuando la base de datos se crea mediante T-SQL. Para aplicar la residencia de datos al crear una base de datos mediante T-SQL, [use "LOCAL" o "ZONE" como entrada del parámetro BACKUP_STORAGE_REDUNDANCY en la instrucción CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Obtenga información sobre cómo asignar directivas mediante [Azure Portal](../../governance/policy/assign-policy-portal.md) o [Azure PowerShell](../../governance/policy/assign-policy-powershell.md).
 
@@ -458,4 +461,5 @@ Obtenga información sobre cómo asignar directivas mediante [Azure Portal](../.
 - Obtenga más información sobre cómo [restaurar una base de datos a un momento dado usando PowerShell](scripts/restore-database-powershell.md).
 - Para más información sobre cómo configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en Azure Blob Storage usando Azure Portal, vea [Administración de la retención de copia de seguridad a largo plazo mediante Azure Portal](long-term-backup-retention-configure.md).
 - Para más información sobre cómo configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en Azure Blob Storage usando PowerShell, vea [Administración de la retención de copia de seguridad a largo plazo mediante PowerShell](long-term-backup-retention-configure.md).
+- Para información sobre el consumo del almacenamiento de copia de seguridad en Azure SQL Managed Instance, consulte [Explicación del consumo de almacenamiento de copia de seguridad en Managed Instance](https://aka.ms/mi-backup-explained).
 - Para obtener información sobre cómo ajustar la retención y los costos de almacenamiento de copia de seguridad para Azure SQL Managed Instance, vea [Ajuste de la retención y los costos de almacenamiento de copia de seguridad en Managed Instance](https://aka.ms/mi-backup-tuning).

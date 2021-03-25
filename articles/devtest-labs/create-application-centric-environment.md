@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo crear un entorno centrado en apl
 ms.topic: how-to
 ms.date: 11/26/2020
 ms.openlocfilehash: 88244f268d5ed038e9bb7082d3d5cc1179e5ec4e
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94918041"
 ---
 # <a name="create-an-application-centric-environment"></a>Creación de un entorno centrado en aplicaciones

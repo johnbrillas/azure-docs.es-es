@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 33ad17e3024011368c909a89e9164ca06d044bad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369431"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612089"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrado geográfico en un dominio para Azure Front Door
 
@@ -214,4 +214,4 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
-- Aprenda a [configurar una directiva de WAF para el filtrado geográfico](front-door-tutorial-geo-filtering.md).
+- Aprenda a [configurar una directiva WAF de filtrado geográfico](front-door-tutorial-geo-filtering.md).

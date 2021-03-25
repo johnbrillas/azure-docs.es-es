@@ -8,10 +8,10 @@ author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: ecabbf88e14d17ac912065c2ed4aa95316efaf9f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387652"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
@@ -263,6 +263,6 @@ ORDER BY start_time DESC
 
 Para la administración y supervisión de las tareas relacionadas con Azure-SSIS Integration Runtime, consulte los siguientes artículos. Azure-SSIS Integration Runtime es el motor en tiempo de ejecución para los paquetes de SSIS almacenados en SSISDB en Azure SQL Database.
 
--   [Reconfiguración de Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
+-   [Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure](manage-azure-ssis-integration-runtime.md)
 
 -   [Supervisión de Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime)

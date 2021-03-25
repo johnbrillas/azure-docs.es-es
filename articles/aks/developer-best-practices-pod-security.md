@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900816"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
@@ -27,16 +27,16 @@ También puede consultar los procedimientos recomendados sobre la [seguridad del
 
 ## <a name="secure-pod-access-to-resources"></a>Protección del acceso del pod a los recursos
 
-**Guía de procedimiento recomendado** : para la ejecución como un usuario o grupo diferentes y limitar el acceso a los procesos y servicios del nodo subyacente, defina la configuración del contexto de seguridad del pod. Asigne el menor número de privilegios necesarios.
+**Guía de procedimiento recomendado**: para la ejecución como un usuario o grupo diferentes y limitar el acceso a los procesos y servicios del nodo subyacente, defina la configuración del contexto de seguridad del pod. Asigne el menor número de privilegios necesarios.
 
-Para que las aplicaciones se ejecuten correctamente, los pods se deben ejecutar como un usuario o grupo definidos y no como *root* . El elemento `securityContext` de un pod o un contenedor permite definir valores de configuración como *runAsUser* o *fsGroup* para asumir los permisos adecuados. Asigne solo los permisos de usuario o grupo necesarios y no utilice el contexto de seguridad como un medio para asumir permisos adicionales. El *runAsUser* , elevación de privilegios y otros valores de configuración de las capacidades de Linux solo están disponibles en los pods y los nodos de Linux.
+Para que las aplicaciones se ejecuten correctamente, los pods se deben ejecutar como un usuario o grupo definidos y no como *root*. El elemento `securityContext` de un pod o un contenedor permite definir valores de configuración como *runAsUser* o *fsGroup* para asumir los permisos adecuados. Asigne solo los permisos de usuario o grupo necesarios y no utilice el contexto de seguridad como un medio para asumir permisos adicionales. El *runAsUser*, elevación de privilegios y otros valores de configuración de las capacidades de Linux solo están disponibles en los pods y los nodos de Linux.
 
 Cuando se ejecuta como un usuario que no es root, los contenedores no se pueden enlazar a los puertos con privilegios inferiores al 1024. En este escenario, los servicios de Kubernetes se pueden utilizar para ocultar el hecho de que una aplicación se ejecuta en un puerto determinado.
 
 Un contexto de seguridad del pod también puede definir funcionalidades o permisos adicionales para el acceso a los procesos y servicios. Se pueden establecer las siguientes definiciones de contexto de seguridad comunes:
 
-* **allowPrivilegeEscalation** define si el pod puede asumir privilegios de usuario *root* . Diseñe las aplicaciones de modo que este valor siempre esté establecido en *false* .
-* **Funcionalidades de Linux** : permite el acceso del pod a los procesos de nodo subyacente. Tenga cuidado con la asignación de estas funcionalidades. Asigne el menor número de privilegios necesarios. Para más información, consulte las [funcionalidades de Linux][linux-capabilities].
+* **allowPrivilegeEscalation** define si el pod puede asumir privilegios de usuario *root*. Diseñe las aplicaciones de modo que este valor siempre esté establecido en *false*.
+* **Funcionalidades de Linux**: permite el acceso del pod a los procesos de nodo subyacente. Tenga cuidado con la asignación de estas funcionalidades. Asigne el menor número de privilegios necesarios. Para más información, consulte las [funcionalidades de Linux][linux-capabilities].
 * **Etiquetas SELinux** es un módulo de seguridad del kernel de Linux que le permite definir directivas para el acceso a los servicios, los procesos y el sistema de archivos. De nuevo, asigne el menor número de privilegios necesarios. Para más información, consulte las [opciones de SELinux disponibles en Kubernetes][selinux-labels].
 
 El siguiente ejemplo de manifiesto YAML de pod establece la configuración del contexto de seguridad para definir:
@@ -67,7 +67,7 @@ Colabore con el operador del clúster para determinar la configuración de conte
 
 ## <a name="limit-credential-exposure"></a>Limitación de la exposición de credenciales
 
-**Guía de procedimiento recomendado** : no defina las credenciales en el código de aplicación. Use identidades administradas para los recursos de Azure para permitir que el pod solicite acceso a otros recursos. Se debería usar también un almacén digital, como Azure Key Vault, para almacenar y recuperar las credenciales y claves digitales. Las identidades administradas de pod está pensadas para usar únicamente con pods de Linux y las imágenes de contenedor.
+**Guía de procedimiento recomendado**: no defina las credenciales en el código de aplicación. Use identidades administradas para los recursos de Azure para permitir que el pod solicite acceso a otros recursos. Se debería usar también un almacén digital, como Azure Key Vault, para almacenar y recuperar las credenciales y claves digitales. Las identidades administradas de pod está pensadas para usar únicamente con pods de Linux y las imágenes de contenedor.
 
 Para limitar el riesgo de exposición de las credenciales en el código de la aplicación, evite el uso de credenciales compartidas o fijas. Las credenciales y las claves no se deberían incluir directamente en el código. Si se exponen estas credenciales, la aplicación se debe actualizar y volver a implementar. Un enfoque mejor es dar a los pods sus propias identidades y formas para autenticarse a sí mismos o recuperar automáticamente las credenciales de un almacén digital.
 
@@ -97,7 +97,7 @@ El uso del proyecto de identidades de pods permite la autenticación en los serv
 
 Cuando las aplicaciones necesitan una credencial, se comunican con el almacén digital, recuperan el contenido de los secretos más reciente y luego se conectan al servicio solicitado. Azure Key Vault puede ser este almacén digital. El flujo de trabajo simplificado para recuperar una credencial de Azure Key Vault mediante identidades administradas de pods se muestra en el diagrama siguiente:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flujo de trabajo simplificado de la identidad administrada del pod en Azure":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flujo de trabajo simplificado para recuperar una credencial de Key Vault mediante una identidad administrada de pods":::
 
 Con Key Vault, puede almacenar y rotar periódicamente secretos como credenciales, claves de cuenta de almacenamiento o certificados. Puede integrar Azure Key Vault con un clúster de AKS mediante el [proveedor de Azure Key Vault para el controlador de CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). El controlador de CSI del almacén de secretos permite que el clúster de AKS pueda recuperar de forma nativa el contenido de los secretos de Key Vault y proporcionárselo de forma segura solo al pod solicitante. Trabaje con el operador de clúster para implementar el controlador de CSI del almacén de secretos en los nodos de trabajo de AKS. Puede usar una identidad administrada de pods para solicitar acceso a Key Vault y recuperar el contenido de los secretos que necesita mediante el controlador de CSI del almacén de secretos.
 

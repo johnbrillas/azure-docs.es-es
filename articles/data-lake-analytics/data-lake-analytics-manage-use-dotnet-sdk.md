@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/18/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a9ece3fe54ca8596f610439f8a0dd228ae1ef907
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220914"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Administración de Azure Data Lake Analytics mediante una aplicación .NET
@@ -19,7 +19,7 @@ ms.locfileid: "92220914"
 
 En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con una aplicación escrita mediante el SDK de Azure .NET. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado**.
 * **SDK de Microsoft Azure para .NET versión 2.5 o posterior**.  Instálelo usando el [instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx).

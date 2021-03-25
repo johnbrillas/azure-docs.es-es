@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144970"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Inicio rápido: Creación de un proveedor de Azure Attestation con una plantilla de Resource Manager
@@ -21,7 +21,7 @@ ms.locfileid: "92144970"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementar en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
@@ -49,11 +49,11 @@ Recursos de Azure definidos en la plantilla:
 
     A menos que se especifique otra cosa, utilice el valor predeterminado para crear el proveedor de atestación.
 
-    - **Nombre del proveedor de atestación** : seleccione un nombre para el proveedor de Azure Attestation.
-    - **Ubicación** : Seleccione una ubicación. Por ejemplo, **Centro de EE. UU** .
-    - **Etiquetas** : Seleccione una ubicación. Por ejemplo, **Centro de EE. UU** .
+    - **Nombre del proveedor de atestación**: seleccione un nombre para el proveedor de Azure Attestation.
+    - **Ubicación**: Seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
+    - **Etiquetas**: Seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
 
-1. Seleccione **Comprar** . Cuando el recurso de atestación se haya implementado correctamente, recibirá una notificación.
+1. Seleccione **Comprar**. Cuando el recurso de atestación se haya implementado correctamente, recibirá una notificación.
 
 Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md).
 

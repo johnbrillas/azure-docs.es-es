@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: bef59ea9e7de77e7f9a80cc3950762ea70238b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380503"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630794"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Prueba y publicación de una oferta de SaaS en el marketplace comercial
 
@@ -42,17 +42,19 @@ Cuando la oferta esté lista para su aprobación, le enviaremos un correo electr
 
 En la captura de pantalla siguiente se muestra la página **Información general de la oferta** de una oferta de SaaS, con dos vínculos de versión preliminar en el botón **Publicar**. Los pasos de validación que verá en esta página varían en función de las selecciones realizadas al crear la oferta.
 
-![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo.](media/publish-status-publisher-signoff.png)
+![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo. El vínculo Ver informe de validación también aparece en Validación automatizada.](./media/review-publish-offer/publish-status-saas.png)
 
 Siga estos pasos para obtener una versión preliminar de la oferta.
 
-1. En la página **Información general de la oferta**, seleccione un vínculo de versión preliminar en el botón **Publicar**. 
+1. En la página **Información general de la oferta**, seleccione un vínculo de versión preliminar en el botón **Publicar**.
 
 1. Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesen cargos.
 
 1. Si su oferta de SaaS admite la [facturación de uso medido mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md), revise y siga los procedimientos recomendados de prueba que se detallan en [API de facturación según uso de Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Revise y siga las instrucciones de prueba que se indican en [API de suministro de SaaS v2 en el marketplace comercial de Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) para que la oferta se integre correctamente con las API antes de publicarla.
+
+1. Si el paso de validación de la oferta generó advertencias, aparecerá un vínculo **Ver informe de validación** en la página **Información general de la oferta**. Asegúrese de revisar el informe y solucionar los problemas antes de seleccionar el botón **Publicar**. De lo contrario, probablemente se producirá un error en la certificación y se retrasará la publicación de la oferta.
 
 1. Si después obtener la versión preliminar de la oferta y probarla necesita realizar cambios, puede editarla y volver a enviarla para publicar una nueva versión preliminar. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
 
@@ -67,6 +69,6 @@ Ahora que ha decidido que la oferta esté disponible en el marketplace comercial
 
 Después de finalizar estas comprobaciones de validación, la oferta estará activa en el marketplace.
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
-[Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md)
+- [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md)

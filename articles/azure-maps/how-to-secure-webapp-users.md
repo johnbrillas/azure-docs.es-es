@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: ebdc4b219e0840c18e6bef8ebfe9b8eefa8faf3b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895581"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Protección de una aplicación web con el inicio de sesión de usuario
@@ -27,21 +27,21 @@ La siguiente guía pertenece a una aplicación que se hospeda en servidores web,
 
 Debe crear la aplicación web en Azure AD para que los usuarios inicien sesión. Esta aplicación web delegará el acceso de los usuarios a las API REST de Azure Maps.
 
-1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro** .  
+1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.  
 
     > [!div class="mx-imgBorder"]
     > ![Registro de aplicaciones](./media/how-to-manage-authentication/app-registration.png)
 
-2. Escriba un **nombre** , elija un **tipo de cuenta de soporte técnico** y proporcione un URI de redirección que represente la dirección URL en la que Azure AD emitirá el token y que sea la dirección URL donde se hospede el control de mapa. Para más información, consulte el [Escenario: Aplicación web que permite iniciar sesión a los usuarios](../active-directory/develop/scenario-web-app-sign-user-overview.md) de Azure AD. Complete los pasos proporcionados en el escenario de Azure AD.  
+2. Escriba un **nombre**, elija un **tipo de cuenta de soporte técnico** y proporcione un URI de redirección que represente la dirección URL en la que Azure AD emitirá el token y que sea la dirección URL donde se hospede el control de mapa. Para más información, consulte el [Escenario: Aplicación web que permite iniciar sesión a los usuarios](../active-directory/develop/scenario-web-app-sign-user-overview.md) de Azure AD. Complete los pasos proporcionados en el escenario de Azure AD.  
 
 3. Tras completar el registro de la aplicación, confirme que el inicio de sesión de la aplicación funciona para los usuarios. Una vez que el inicio de sesión funcione, a la aplicación se le puede conceder acceso delegado a las API REST de Azure Maps.
     
-4.  Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso** . En **API usadas en mi organización** , busque y seleccione **Azure Maps** .
+4.  Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso**. En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Adición de permisos de API a la aplicación](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos** .
+5. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos**.
 
     > [!div class="mx-imgBorder"]
     > ![Selección de permisos de API de la aplicación](./media/how-to-manage-authentication/select-app-permissions.png)

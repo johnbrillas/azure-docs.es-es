@@ -3,16 +3,16 @@ title: Invocar programa MapReduce desde Azure Data Factory
 description: Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f5ad917609d6f9ea401abc898f80631474a44475
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f1f54e972d59d3de3b0f93b3150ee1150eb6f612
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371080"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786403"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -45,10 +45,10 @@ Consulte [Pig](data-factory-pig-activity.md) y [Hive](data-factory-hive-activity
 En la definición de JSON para la actividad de HDInsight: 
 
 1. Establezca el **tipo** de la **actividad** en **HDInsight**.
-2. Especifique el nombre de la clase para la propiedad **className** .
-3. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath** .
-4. Especifique el servicio vinculado que hace referencia a Azure Blob Storage que contiene el archivo JAR de la propiedad **jarLinkedService** .   
-5. Especifique los argumentos para el programa de MapReduce en la sección **argumentos** . En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
+2. Especifique el nombre de la clase para la propiedad **className**.
+3. Especifique la ruta de acceso al archivo JAR, incluido el nombre del archivo para la propiedad **jarFilePath**.
+4. Especifique el servicio vinculado que hace referencia al Almacenamiento de blobs de Azure que contiene el archivo JAR para la propiedad **jarLinkedService**.   
+5. Especifique cualquier argumento para el programa MapReduce en la sección **arguments**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc., son opciones seguidas inmediatamente por sus valores).
 
     ```JSON   
     {

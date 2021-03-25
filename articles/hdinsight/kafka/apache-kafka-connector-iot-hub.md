@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: feada70c7a461bb4a9cd621c76b5606a7f0e19d5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932882"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865288"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Uso de Apache Kafka en HDInsight con Azure IoT Hub
 
@@ -22,11 +22,11 @@ Al extraer datos de IoT Hub, usará un conector de __origen__. Al insertar en Az
 
 En el siguiente diagrama se muestra el flujo de datos entre Azure IoT Hub y Kafka en HDInsight al usar el conector.
 
-![Imagen que muestra el flujo de datos de IoT Hub a Kafka mediante el conector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Imagen que muestra el flujo de datos de IoT Hub a Kafka mediante el conector" border="false":::
 
 Para más información sobre las API de Connect, consulte [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Kafka en HDInsight. Para más información, consulte el documento [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
@@ -120,7 +120,7 @@ Desde la conexión SSH en el nodo perimetral, siga estos pasos para configurar K
     |`bootstrap.servers=localhost:9092`|Reemplace el valor `localhost:9092` por los hosts de agente del paso anterior.|Realice la configuración independiente del nodo perimetral para encontrar los agentes de Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Este cambio permite probar mediante el productor de consola incluido con Kafka. Puede que necesite convertidores diferentes para otros productores y consumidores. Para información sobre el uso de otros valores de convertidor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Igual que el anterior.|
-    |N/D|`consumer.max.poll.records=10`|Agregue al final del archivo. Este cambio es para evitar tiempos de espera en el conector de receptor al limitarlo a 10 registros a la vez. Para más información, vea [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |N/D|`consumer.max.poll.records=10`|Agregue al final del archivo. Este cambio es para evitar tiempos de espera en el conector de receptor al limitarlo a 10 registros a la vez. Para más información, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para guardar el archivo, presione __Ctr+X__, luego, __Y__ y __Entrar__.
 
@@ -146,20 +146,20 @@ Para recuperar información de IoT Hub que usa el conector, siga estos pasos:
 
 1. Obtenga el punto de conexión compatible con el centro de eventos y el nombre del punto de conexión compatible con el centro de eventos de su centro de IoT. Para obtener esta información, use uno de los métodos siguientes:
 
-   * __En [Azure Portal](https://portal.azure.com/)__ , use los pasos siguientes:
+   * __En [Azure Portal](https://portal.azure.com/)__, use los pasos siguientes:
 
      1. Vaya a su instancia de IoT Hub y seleccione __Puntos de conexión__.
      2. En __Puntos de conexión integrados__, seleccione __Eventos__.
      3. En __Propiedades__, copie el valor de los campos siguientes:
 
          * __Nombre compatible con Event Hub__
-         * __Punto de conexión compatible con el centro de eventos__
+         * __Punto de conexión compatible con Event Hub__
          * __Particiones__
 
         > [!IMPORTANT]  
         > El valor del punto de conexión del portal puede contener texto adicional que no es necesario en este ejemplo. Extraiga el texto que coincida con este patrón `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __En la [CLI de Azure](/cli/azure/get-started-with-azure-cli)__ , use el comando siguiente:
+   * __En la [CLI de Azure](/cli/azure/get-started-with-azure-cli)__, use el comando siguiente:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -175,13 +175,13 @@ Para recuperar información de IoT Hub que usa el conector, siga estos pasos:
 
 2. Obtenga la __directiva de acceso compartido__ y la __clave__. En este ejemplo, use la clave __service__. Para obtener esta información, use uno de los métodos siguientes:
 
-    * __En [Azure Portal](https://portal.azure.com/)__ , use los pasos siguientes:
+    * __En [Azure Portal](https://portal.azure.com/)__, use los pasos siguientes:
 
         1. Seleccione __Directivas de acceso compartido__ y, luego, __service__.
         2. Copie el valor de __Clave principal__.
         3. Copie el valor __Connection string--primary key__.
 
-    * __En la [CLI de Azure](/cli/azure/get-started-with-azure-cli)__ , use el comando siguiente:
+    * __En la [CLI de Azure](/cli/azure/get-started-with-azure-cli)__, use el comando siguiente:
 
         1. Para obtener el valor de clave principal, use el comando siguiente:
 

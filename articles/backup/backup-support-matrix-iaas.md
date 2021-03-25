@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710675"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609794"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -72,6 +72,7 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux.
 Copia de seguridad de máquinas virtuales de Azure con Linux mediante el agente de máquina virtual de Azure para Linux | Copia de seguridad coherente con archivos.<br/><br/> Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Durante la restauración, puede crear una máquina virtual, restaurar un disco y usarlo para crear una máquina virtual, o restaurar un disco y usarlo para reemplazar un disco en una máquina virtual existente. También puede restaurar archivos y carpetas individuales.
 Copia de seguridad de máquinas virtuales de Azure con Linux mediante el agente de MARS | No compatible.<br/><br/> El agente MARS solo puede instalarse en máquinas Windows.
 Copia de seguridad de máquinas virtuales de Azure con Linux mediante DPM/MABS | No compatible.
+Copia de seguridad de máquinas virtuales de Azure en Linux con puntos de montaje de Docker | Actualmente, Azure Backup no admite la exclusión de puntos de montaje de Docker, ya que se montan en rutas de acceso diferentes cada vez.
 
 ## <a name="operating-system-support-linux"></a>Compatibilidad con sistema operativo (Linux)
 
@@ -170,6 +171,7 @@ Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtu
 [Discos compartidos](../virtual-machines/disks-shared-enable.md) | No compatible.
 Discos SSD Ultra | No compatible. Para obtener más información, consulte estas [limitaciones](selective-disk-backup-restore.md#limitations).
 [Discos temporales](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup no realiza copias de seguridad de los discos temporales.
+NVMe/discos efímeros | No compatible.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

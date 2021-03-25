@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379223"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL con la opción Servidor único
@@ -26,7 +26,7 @@ En este artículo, se proporcionará información general y una introducción a 
 
 ## <a name="overview"></a>Información general
 
-Servidor único es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de PostgreSQL 9.5, 9.6, 10 y 11. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Servidor único es un servicio de base de datos totalmente administrado con requisitos mínimos para las personalizaciones de la base de datos. La plataforma de servidor único está diseñada para administrar la mayoría de las funciones de administración de bases de datos, como las de aplicación de revisión, copias de seguridad, alta disponibilidad y seguridad con una configuración y un control mínimos para el usuario. La arquitectura está optimizada para proporcionar una disponibilidad del 99,99 % en una zona de disponibilidad única. Es compatible con la versión Community de PostgreSQL 9.5, 9.6, 10 y 11. El servicio está disponible con carácter general hoy en muchas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 Los servidores únicos son los más adecuados para las aplicaciones nativas en la nube diseñadas para controlar la aplicación automatizada de revisiones sin necesidad de un control granular sobre la programación de aplicación de revisión ni de una configuración personalizada de PostgreSQL.
 
@@ -75,7 +75,7 @@ Para obtener más información sobre las características de seguridad de Azure 
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-El servicio de servidor único está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio permite configurar registros de consultas lentas e incluye la característica diferenciada [Almacén de consultas](./concepts-query-store.md). El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el máximo rendimiento. Consulte [Supervisión](./concepts-monitoring.md) para obtener más información.
+El servicio de servidor único está equipado con características integradas de alertas y supervisión de rendimiento. Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. El servicio permite configurar registros de consultas lentas e incluye la característica diferenciada [Almacén de consultas](./concepts-query-store.md). El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Con estas herramientas, puede optimizar rápidamente sus cargas de trabajo y configurar el servidor para lograr el mejor rendimiento. Consulte [Supervisión](./concepts-monitoring.md) para obtener más información.
 
 ## <a name="migration"></a>Migración
 

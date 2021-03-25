@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790736"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Uso de grupos de confianza de servidor para configurar y administrar la confianza entre instancias de SQL Managed Instance
@@ -36,19 +36,19 @@ En la siguiente sección se describe la configuración del grupo de confianza de
 
 2. Vaya a la instancia de Azure SQL Managed Instance que tiene previsto agregar a un nuevo grupo de confianza del servidor.
 
-3. En la configuración de **Seguridad** , seleccione la pestaña **SQL trust groups** (Grupos de confianza SQL).
+3. En la configuración de **Seguridad**, seleccione la pestaña **SQL trust groups** (Grupos de confianza SQL).
 
    :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Grupos de confianza del servidor":::
 
-4. En la página de configuración del grupo de confianza del servidor, seleccione el icono **Nuevo grupo** .
+4. En la página de configuración del grupo de confianza del servidor, seleccione el icono **Nuevo grupo**.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Grupos de confianza del servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Nuevo grupo":::
 
-5. En la hoja de creación del **grupo de confianza de SQL** , defina el **Nombre del grupo** . Debe ser único en todas las regiones en que residen los miembros del grupo. El **ámbito de confianza** define el tipo de escenario entre instancias que se habilita con el grupo de confianza del servidor. En la vista previa, el único ámbito de confianza aplicable es **Transacciones distribuidas** , por lo que está preseleccionado y no se puede cambiar. Todos los **miembros del grupo** deben pertenecer a la misma **suscripción** , pero pueden estar en grupos de recursos distintos. Seleccione el **Grupo de recursos** y **SQL Server/instancia** para elegir la instancia de Azure SQL Managed Instance que será miembro del grupo.
+5. En la hoja de creación del **grupo de confianza de SQL**, defina el **Nombre del grupo**. Debe ser único en todas las regiones en que residen los miembros del grupo. El **ámbito de confianza** define el tipo de escenario entre instancias que se habilita con el grupo de confianza del servidor. En la vista previa, el único ámbito de confianza aplicable es **Transacciones distribuidas**, por lo que está preseleccionado y no se puede cambiar. Todos los **miembros del grupo** deben pertenecer a la misma **suscripción**, pero pueden estar en grupos de recursos distintos. Seleccione el **Grupo de recursos** y **SQL Server/instancia** para elegir la instancia de Azure SQL Managed Instance que será miembro del grupo.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Grupos de confianza del servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Hoja de creación de grupo de confianza del servidor":::
 
-6. Una vez que se hayan completado todos los campos obligatorios, haga clic en **Guardar** .
+6. Una vez que se hayan completado todos los campos obligatorios, haga clic en **Guardar**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Mantenimiento y eliminación de grupos de confianza del servidor
 
@@ -57,13 +57,13 @@ No se puede editar el grupo de confianza del servidor. Para quitar una instancia
 En la siguiente sección se describe el proceso de eliminación de grupos de confianza del servidor. 
 1. Vaya a Azure Portal.
 2. Navegue a una instancia administrada que pertenezca al grupo de confianza.
-3. En la configuración de **Seguridad** , seleccione la pestaña **SQL trust groups** (Grupos de confianza SQL).
+3. En la configuración de **Seguridad**, seleccione la pestaña **SQL trust groups** (Grupos de confianza SQL).
 4. Seleccione el grupo de recursos que quiere eliminar.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Grupos de confianza del servidor":::
-5. Haga clic en **Eliminar grupo** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Grupos de confianza del servidor":::
-6. Escriba el nombre del grupo de confianza del servidor para confirmar la eliminación y haga clic en **Eliminar** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Grupos de confianza del servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Seleccione el grupo de confianza del servidor":::
+5. Haga clic en **Eliminar grupo**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Eliminación del grupo de confianza del servidor":::
+6. Escriba el nombre del grupo de confianza del servidor para confirmar la eliminación y haga clic en **Eliminar**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirmación de la eliminación del grupo de confianza del servidor":::
 
 > [!NOTE]
 > Es posible que la eliminación del grupo de confianza del servidor no quite inmediatamente la confianza entre las dos instancias administradas. Para aplicar la eliminación de la confianza, puede invocar la [conmutación por error](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) de instancias administradas. Consulte los [Problemas conocidos](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) para obtener información actualizada sobre este tema.

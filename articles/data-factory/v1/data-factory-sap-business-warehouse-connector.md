@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 513d6b28908b99594eaa525e86690fa75bffb103
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386975"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
@@ -31,7 +31,7 @@ Puede copiar datos de un almacén de datos de SAP Business Warehouse local a cua
 Este conector es compatible con la versión 7.x de SAP Business Warehouse. Admite la copia de datos de InfoCubes y QueryCubes (incluidas las consultas BEx) mediante consultas MDX.
 
 Para habilitar la conectividad en la instancia de SAP BW, instale los componentes siguientes:
-- **Data Management Gateway** el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP Business Warehouse) mediante un componente denominado Data Management Gateway. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria aunque SAP Business Warehouse esté hospedado en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
+- **Data Management Gateway**: el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP Business Warehouse) mediante un componente denominado Data Management Gateway. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria aunque SAP Business Warehouse esté hospedado en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 - **Biblioteca SAP NetWeaver** en el equipo de la puerta de enlace. Puede obtener la biblioteca SAP Netweaver desde el administrador de SAP o directamente desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque la **nota 1025361 de SAP** para obtener la ubicación de descarga de la versión más reciente. Asegúrese de que la arquitectura de la biblioteca de SAP NetWeaver (32 bits o 64 bits) coincide con la instalación de la puerta de enlace. A continuación, instale todos los archivos incluidos en SAP NetWeaver RFC SDK según la nota de SAP. La biblioteca SAP NetWeaver también se incluye en la instalación de las herramientas de cliente de SAP.
 
 > [!TIP]
@@ -49,7 +49,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de una plataforma de SAP Business Warehouse local, consulte la sección [Ejemplo JSON: Copia de datos de SAP Business Warehouse a un blob de Azure](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de un almacén de datos de SAP Business Warehouse local, consulte la sección [Ejemplo con definiciones de JSON: copia de datos de SAP Business Warehouse a un blob de Azure](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) de este artículo. 
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de SAP BW:
 
@@ -84,7 +84,7 @@ Si el origen es del tipo **RelationalSource** (que incluye SAP BW), están dispo
 | Query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Consulta MDX. | Sí |
 
 
-## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP Business Warehouse a un blob de Azure
+## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Ejemplo con definiciones de JSON: copia de datos de SAP Business Warehouse a un blob de Azure
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP Business Warehouse local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
 
 > [!IMPORTANT]

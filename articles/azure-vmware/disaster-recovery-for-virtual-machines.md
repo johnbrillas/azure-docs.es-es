@@ -4,10 +4,10 @@ description: Este artículo muestra cómo realizar una recuperación ante desast
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779618"
 ---
 # <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Realización de una recuperación ante desastres de máquinas virtuales usando Azure VMware Solution
@@ -16,15 +16,15 @@ Este artículo contiene el proceso para realizar una recuperación ante desastre
 
 VMware HCX permite realizar varias operaciones que proporcionan el control y la granularidad precisos en las directivas de replicación. Las operaciones disponibles son las siguientes:
 
-- **Invertir** : Después de que se haya producido un desastre. Invertir ayuda a convertir el sitio B en el sitio de origen y el sitio A, donde reside la VM protegida.
+- **Invertir**: Después de que se haya producido un desastre. Invertir ayuda a convertir el sitio B en el sitio de origen y el sitio A, donde reside la VM protegida.
 
-- **Pausar** : Pausa la directiva de replicación actual asociada a la VM seleccionada.
+- **Pausar**: Pausa la directiva de replicación actual asociada a la VM seleccionada.
 
-- **Reanudar** : Reanuda la directiva de replicación actual asociada a la VM seleccionada.
+- **Reanudar**: Reanuda la directiva de replicación actual asociada a la VM seleccionada.
 
-- **Quitar** : Quita la directiva de replicación actual asociada a la VM seleccionada.
+- **Quitar**: Quita la directiva de replicación actual asociada a la VM seleccionada.
 
-- **Sincronizar ahora** : Sincronización fuera de los límites de la VM de origen con la VM protegida.
+- **Sincronizar ahora**: Sincronización fuera de los límites de la VM de origen con la VM protegida.
 
 En esta guía se cubren los siguientes escenarios de replicación:
 
@@ -50,7 +50,7 @@ En esta guía se cubren los siguientes escenarios de replicación:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Ventana proteger VM" border="true":::
 
-1. Si fuese necesario, seleccione las opciones de **replicación predeterminadas** :
+1. Si fuese necesario, seleccione las opciones de **replicación predeterminadas**:
 
    - **Habilitar compresión:** Recomendado para escenarios con un bajo rendimiento.
 
@@ -91,7 +91,7 @@ En esta guía se cubren los siguientes escenarios de replicación:
 ## <a name="complete-a-test-recover-of-vms"></a>Finalización de una recuperación de prueba de máquinas virtuales
 
 1. Inicie sesión en el **cliente de vSphere** en el sitio remoto, que es la nube privada de Azure VMware Solution. 
-1. En el **complemento de HCX** , en el área recuperación ante desastres, seleccione los puntos suspensivos verticales en cualquier VM para mostrar el menú operaciones y, luego, seleccione **Probar recuperar VM**.
+1. En el **complemento de HCX**, en el área recuperación ante desastres, seleccione los puntos suspensivos verticales en cualquier VM para mostrar el menú operaciones y, luego, seleccione **Probar recuperar VM**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Selección de Probar recuperar VM" border="true":::
 
@@ -99,7 +99,7 @@ En esta guía se cubren los siguientes escenarios de replicación:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Elección de una instantánea y selección de Probar" border="true":::
 
-1. Después de seleccionar **Probar** , comienza la operación de recuperación.
+1. Después de seleccionar **Probar**, comienza la operación de recuperación.
 
 1. Cuando termine, puede comprobar la nueva máquina virtual en el vCenter de la nube privada de Azure VMware Solution.
 

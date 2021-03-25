@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102565830"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
@@ -62,15 +62,15 @@ Instancia administrada de SQL garantiza el 99,99 % de disponibilidad incluso en
 
 #### <a name="in-memory-oltp-memory-optimized-tables"></a>OLTP en memoria (tablas optimizadas para memoria)
 
-SQL Server proporciona la funcionalidad OLTP en memoria que permite el uso de tablas optimizadas para memoria, tipos de tablas optimizadas para memoria y módulos SQL compilados de forma nativa para ejecutar cargas de trabajo con requisitos de procesamiento transaccional de alto rendimiento y latencia baja. 
+SQL Server proporciona la funcionalidad OLTP en memoria, que permite el uso de tablas optimizadas para memoria, tipos de tablas optimizadas para memoria y módulos SQL compilados de forma nativa para ejecutar cargas de trabajo con requisitos de procesamiento transaccional de alto rendimiento y latencia baja. 
 
 > [!IMPORTANT]
 > OLTP en memoria solo se admite en el nivel Crítico para la empresa en Azure SQL Managed Instance (y no se admite en el nivel De uso general).
 
-Si tiene tablas optimizadas para memoria o tipos de tablas optimizadas para memoria en la instancia de SQL Server local y está pensando en migrar a Azure SQL Managed Instance, debe:
+Si tiene tablas optimizadas para memoria o tipos de tablas optimizadas para memoria en la instancia de SQL Server local y está pensando en migrar a Azure SQL Managed Instance, debe:
 
-- Elegir el nivel Crítico para la empresa para la instancia de destino de Azure SQL Managed Instance que admite OLTP en memoria, o bien
-- Si quiere migrar al nivel De uso general en Azure SQL Managed Instance, quite las tablas optimizadas para memoria, los tipos de tablas optimizadas para memoria y los módulos SQL compilados de forma nativa que interactúan con los objetos optimizados para memoria antes de migrar las bases de datos. La siguiente consulta de T-SQL se puede usar para identificar todos los objetos que deben quitarse antes de la migración al nivel De uso general:
+- Elegir el nivel Crítico para la empresa para la instancia de destino de Azure SQL Managed Instance, que admite OLTP en memoria, o bien
+- Si quiere migrar al nivel De uso general en Azure SQL Managed Instance, quite las tablas optimizadas para memoria, los tipos de tablas optimizadas para memoria y los módulos SQL compilados de forma nativa que interactúan con los objetos optimizados para memoria antes de migrar las bases de datos. La siguiente consulta T-SQL se puede usar para identificar todos los objetos que deben quitarse antes de la migración al nivel De uso general:
 
 ```tsql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1

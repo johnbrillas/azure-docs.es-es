@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895824"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interacción y métodos abreviados de teclado en el módulo de herramientas de dibujo
@@ -131,7 +131,7 @@ Cuando el administrador de dibujo está en modo `draw-circle`, se pueden realiza
 **Cancelación del dibujo**
  - Presione la tecla `Escape`.
 
-## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
+## <a name="keyboard-shortcuts"></a>Métodos abreviados de teclado
 
 Las herramientas de dibujo admiten los métodos abreviados de teclado. Estos métodos abreviados de teclado son funcionales cuando el mapa tiene el foco.
 

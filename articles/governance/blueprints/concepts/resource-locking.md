@@ -4,10 +4,10 @@ description: Obtenga más información sobre las opciones de bloqueo de Azure Bl
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920197"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint

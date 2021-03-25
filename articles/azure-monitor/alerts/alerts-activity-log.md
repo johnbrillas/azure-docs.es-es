@@ -4,10 +4,10 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045537"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  

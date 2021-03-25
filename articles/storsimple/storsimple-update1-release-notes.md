@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956694"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 1.2 del dispositivo StorSimple serie 8000
@@ -67,7 +67,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en Upd
 | No. | Característica | Problema | Se ha corregido en la actualización | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell para StorSimple |Cuando un usuario accedió de manera remota al dispositivo StorSimple mediante Windows PowerShell para StorSimple y, a continuación, inició al Asistente para la instalación, se produjo un bloqueo en cuanto se introdujo la IP de Data 0. El error se ha corregido en la actualización 1. |Actualización 1 |Sí |Sí |
-| 2 |Restablecimiento de fábrica |En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple se bloqueó y apareció este mensaje: **El restablecimiento a los valores de fábrica está en curso (fase 8)** . Esto sucedía si se presionaba CTRL+C mientras el cmdlet estaba en curso. El error se ha corregido. |Actualización 1 |Sí |No |
+| 2 |Restablecimiento de fábrica |En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple se bloqueó y apareció este mensaje: **El restablecimiento a los valores de fábrica está en curso (fase 8)**. Esto sucedía si se presionaba CTRL+C mientras el cmdlet estaba en curso. El error se ha corregido. |Actualización 1 |Sí |No |
 | 3 |Restablecimiento de fábrica |Después de un error en el restablecimiento de fábrica de un controlador doble, se permitió continuar con el registro del dispositivo. Esto provocó una configuración no compatible del sistema. En la actualización 1, se muestra un mensaje de error y el registro se bloquea en los dispositivos en que se haya producido algún error al realizar un restablecimiento de fábrica. |Actualización 1 |Sí |No |
 | 4 |Restablecimiento de fábrica |En algunos casos, se han generado alertas de discrepancia que son falsos positivos. Dejarán de generarse alertas de falta de coincidencia incorrectas en los dispositivos con la actualización 1. |Actualización 1 |Sí |No |
 | 5 |Restablecimiento de fábrica |Si un restablecimiento de fábrica se interrumpió antes de finalizar, el dispositivo entró en modo de recuperación, lo que no permitió al usuario tener acceso a Windows PowerShell para StorSimple. El error se ha corregido. |Actualización 1 |Sí |No |
@@ -92,7 +92,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](./storsimple-8000-configure-web-proxy.md). |Sí |No |
 | 7 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |No |
 | 8 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |No |
-| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait**. |Sí |Sí |
+| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Encapsule el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sí |Sí |
 | 10 |Migración |Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. |Se recomienda migrar los contenedores de volúmenes de uno en uno. |Sí |No |
 | 11 |Migración |Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. |Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. |Sí |Sí |
 | 12 |Migración |Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. |Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. |Sí |No |
