@@ -3,12 +3,12 @@ title: Azure Media Services como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Media Services con Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: be56c383c8c2d755ef82d4caad5e779bef418a19
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363362"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591935"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como origen de Event Grid
 
@@ -1112,7 +1112,7 @@ Un evento tiene los siguientes datos de nivel superior:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Regístrese para los eventos de cambio de estado del trabajo](../media-services/latest/job-state-events-cli-how-to.md)
+[Regístrese para los eventos de cambio de estado del trabajo](../media-services/latest/monitoring/job-state-events-cli-how-to.md)
 
 ## <a name="see-also"></a>Consulte también
 

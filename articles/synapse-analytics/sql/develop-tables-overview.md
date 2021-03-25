@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674128"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585441"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Diseño de tablas mediante Synapse SQL en Azure Synapse Analytics
 
 En este documento se incluyen conceptos clave para diseñar tablas con un grupo de SQL dedicado y un grupo de SQL sin servidor.  
 
-Un [grupo de SQL sin servidor](on-demand-workspace-overview.md) es un servicio de consulta de los datos del lago de datos. No tiene almacenamiento local ni ingesta de datos. El [grupo de SQL dedicado](best-practices-sql-pool.md) representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado se determina mediante las unidades de almacenamiento de datos (DWU).
+Un [grupo de SQL sin servidor](on-demand-workspace-overview.md) es un servicio de consulta de los datos del lago de datos. No tiene almacenamiento local ni ingesta de datos. El [grupo de SQL dedicado](best-practices-dedicated-sql-pool.md) representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado se determina mediante las unidades de almacenamiento de datos (DWU).
 
 En la tabla siguiente se enumeran los temas que son pertinentes para un grupo de SQL dedicado frente a un grupo de SQL sin servidor:
 

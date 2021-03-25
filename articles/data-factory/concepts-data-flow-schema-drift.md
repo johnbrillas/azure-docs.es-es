@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027489"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
@@ -43,7 +43,7 @@ En una transformación de origen, el desfase de esquema se define como columnas 
 
 ![Origen de desfase de esquema](media/data-flow/schemadrift001.png "Origen de desfase de esquema")
 
-Cuando se habilita el desfase de esquema, todos los campos de entrada se leen desde el origen durante la ejecución y se pasan a través del flujo completo al receptor. De forma predeterminada, todas las columnas que se acaban de detectar (llamadas *columnas desfasadas* ) llegan como un tipo de datos String. Si desea que el flujo de datos infiera automáticamente los tipos de datos de las columnas desfasadas, active **Infer drifted column type** (Inferir tipos de columnas desfasadas) en la configuración de origen.
+Cuando se habilita el desfase de esquema, todos los campos de entrada se leen desde el origen durante la ejecución y se pasan a través del flujo completo al receptor. De forma predeterminada, todas las columnas que se acaban de detectar (llamadas *columnas desfasadas*) llegan como un tipo de datos String. Si desea que el flujo de datos infiera automáticamente los tipos de datos de las columnas desfasadas, active **Infer drifted column type** (Inferir tipos de columnas desfasadas) en la configuración de origen.
 
 ## <a name="schema-drift-in-sink"></a>Desfase de esquema en el receptor
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032370"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587838"
 ---
 # <a name="securing-managed-identities"></a>Protección de identidades administradas
 
@@ -50,11 +50,11 @@ Azure tiene un plano de control y un plano de datos. Los recursos se crean en el
 
 Una vez que el sistema de destino acepta el token para la autenticación, puede admitir distintos mecanismos de autorización para el plano de control y el plano de datos.
 
-Todas las operaciones del plano de control de Azure se administran mediante [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) y usan el [control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). En el plano de datos, cada sistema de destino tiene su propio mecanismo de autorización. Azure Storage admite Azure RBAC en el plano de datos. Por ejemplo, las aplicaciones que usan Azure App Service pueden leer los datos de Azure Storage, y las aplicaciones que usan Azure Kubernetes Service pueden leer los secretos almacenados en Azure Key Vault.
+Todas las operaciones del plano de control de Azure se administran mediante [Azure Resource Manager](../../azure-resource-manager/management/overview.md) y usan el [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md). En el plano de datos, cada sistema de destino tiene su propio mecanismo de autorización. Azure Storage admite Azure RBAC en el plano de datos. Por ejemplo, las aplicaciones que usan Azure App Service pueden leer los datos de Azure Storage, y las aplicaciones que usan Azure Kubernetes Service pueden leer los secretos almacenados en Azure Key Vault.
 
-Para más información sobre el plano de control y el plano de datos, vea [Operaciones en el plano de control y el plano de datos: Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Para más información sobre el plano de control y el plano de datos, vea [Operaciones en el plano de control y el plano de datos: Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-Finalmente, todos los servicios de Azure admitirán identidades administradas. Para más información, vea [Servicios que admiten identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Finalmente, todos los servicios de Azure admitirán identidades administradas. Para más información, vea [Servicios que admiten identidades administradas para recursos de Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -116,7 +116,7 @@ Puede evaluar la seguridad de las identidades administradas de las siguientes ma
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Asegúrese de que sabe a qué recursos tiene acceso la identidad administrada](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Asegúrese de que sabe a qué recursos tiene acceso la identidad administrada](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## <a name="move-to-managed-identities"></a>Traslado a identidades administradas
 
@@ -126,11 +126,11 @@ Si usa una entidad de servicio o una cuenta de usuario de Azure AD, evalúe si,
 
 **Para más información sobre cómo crear identidades administradas, vea:** 
 
-[Creación de una identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 
+[Creación de una identidad administrada asignada por el usuario](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 
 
-[Habilitación de una identidad administrada asignada por el sistema durante la creación del recurso](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Habilitación de una identidad administrada asignada por el sistema durante la creación del recurso](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Habilitación de una identidad administrada asignada por el sistema en un recurso existente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Habilitación de una identidad administrada asignada por el sistema en un recurso existente](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Para más información sobre las cuentas de servicio, vea:**
 
@@ -146,4 +146,3 @@ Si usa una entidad de servicio o una cuenta de usuario de Azure AD, evalúe si,
 
  
 
- 

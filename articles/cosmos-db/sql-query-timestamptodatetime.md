@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: af5e0eeb808835fd4f36a0eda79618f831248ad9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9a77ab0ac32d627d59e2cb0fa4a680f174a6833
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340777"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587243"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,17 +36,17 @@ Un valor numérico con signo, el número actual milisegundos que han transcurrid
 
 Devuelve el valor de cadena de fecha y hora UTC ISO 8601 con el formato `YYYY-MM-DDThh:mm:ss.fffffffZ`, donde:
   
-  |Formato|Descripción|
-  |-|-|
-  |AAAA|año con cuatro dígitos|
-  |MM|mes con dos dígitos (01 = enero, etc.)|
-  |DD|día con dos dígitos del mes (de 01 a 31)|
-  |T|indica el comienzo de los elementos de hora|
-  |hh|hora con dos dígitos (de 00 a 23)|
-  |MM|minutos con dos dígitos (de 00 a 59)|
-  |ss|segundos con dos dígitos (de 00 a 59)|
-  |.fffffff|fracciones de segundos de siete dígitos|
-  |Z|Indicador de UTC (hora universal coordinada)||
+|Formato|Descripción|
+|-|-|
+|AAAA|año con cuatro dígitos|
+|MM|mes con dos dígitos (01 = enero, etc.)|
+|DD|día con dos dígitos del mes (de 01 a 31)|
+|T|indica el comienzo de los elementos de hora|
+|hh|hora con dos dígitos (de 00 a 23)|
+|MM|minutos con dos dígitos (de 00 a 59)|
+|ss|segundos con dos dígitos (de 00 a 59)|
+|.fffffff|fracciones de segundos de siete dígitos|
+|Z|Indicador de UTC (hora universal coordinada)|
   
   Para más información sobre el formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

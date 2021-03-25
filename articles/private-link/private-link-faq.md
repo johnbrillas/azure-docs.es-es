@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709416"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496480"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre Azure Private Link
 
@@ -54,6 +54,11 @@ Sí. Los puntos de conexión privados pueden conectarse a recursos de PaaS de Az
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>¿Puedo modificar mi interfaz de red (NIC) de punto de conexión privado?
 Cuando se crea un punto de conexión privado, se asigna una NIC de solo lectura. Esto no se puede modificar y permanecerá durante el ciclo de vida del punto de conexión privado.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>¿Cómo conseguir disponibilidad mientras usa puntos de conexión privados en caso de errores regionales?
+
+Los puntos de conexión privados son recursos de alta disponibilidad con un Acuerdo de Nivel de Servicio del 99,99 % [[para Azure Private Link]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Sin embargo, dado que son recursos regionales, cualquier interrupción en la región de Azure puede afectar a la disponibilidad. Para lograr disponibilidad en caso de errores regionales, se pueden implementar varios puntos de conexión privados conectados al mismo recurso de destino en regiones diferentes. De este modo, si una región deja de funcionar, todavía puede enrutar el tráfico de los escenarios de recuperación a través de un punto de conexión privado de una región distinta para acceder al recurso de destino. Para más información sobre cómo se administran los errores regionales en el servicio de destino, consulte la documentación del servicio sobre conmutación por error y recuperación. El tráfico de Private Link sigue la resolución de Azure DNS del punto de conexión de destino. 
+
 
 ## <a name="private-link-service"></a>Servicio Private Link
  

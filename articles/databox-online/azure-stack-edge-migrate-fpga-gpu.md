@@ -6,36 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382827"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573290"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migración de las cargas de trabajo de Azure Stack Edge Pro con FPGA a Azure Stack Edge Pro con GPU
 
-En este artículo se describe cómo migrar las cargas de trabajo y los datos de un dispositivo Azure Stack Edge Pro con FPGA a un dispositivo Azure Stack Edge Pro con GPU. El procedimiento de migración implica una introducción a la migración, incluida una comparación entre los dos dispositivos, consideraciones sobre la migración, pasos detallados y comprobación seguida de la limpieza.
+En este artículo se describe cómo migrar las cargas de trabajo y los datos de un dispositivo Azure Stack Edge Pro con FPGA a un dispositivo Azure Stack Edge Pro con GPU. El proceso de migración comienza con una comparación de los dos dispositivos, un plan de migración y una revisión de las consideraciones de migración. El procedimiento de migración proporciona pasos detallados que finalizan con la comprobación y la limpieza del dispositivo.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>Información sobre la migración
 
 La migración es el proceso de mover cargas de trabajo y datos de aplicación de una ubicación de almacenamiento a otra. Implica realizar una copia exacta de los datos actuales de una organización de un dispositivo de almacenamiento en otro dispositivo, preferiblemente sin interrumpir ni deshabilitar aplicaciones activas, y luego redirigir toda la actividad de entrada o salida (E/S) al nuevo dispositivo. 
 
-En esta guía de migración se proporciona un tutorial detallado de los pasos necesarios para migrar datos de un dispositivo Azure Stack Edge Pro con FPGA a un dispositivo Azure Stack Edge Pro con GPU. Este documento está destinado a profesionales de tecnologías de la información (TI) y a los trabajadores del conocimiento responsables del funcionamiento, implementación y administración de dispositivos de Azure Stack Edge en el centro de datos. 
+En esta guía de migración se proporciona un tutorial detallado de los pasos necesarios para migrar datos de un dispositivo Azure Stack Edge Pro con FPGA a un dispositivo Azure Stack Edge Pro con GPU. Este documento está destinado a profesionales de tecnologías de la información (TI) y a los trabajadores del conocimiento responsables del funcionamiento, implementación y administración de dispositivos de Azure Stack Edge en el centro de datos.
 
 En este artículo, se hace referencia al dispositivo Azure Stack Edge Pro con FPGA como dispositivo de *origen* y el dispositivo Azure Stack Edge Pro con GPU como dispositivo de *destino*. 
 
 ## <a name="comparison-summary"></a>Resumen de comparación
 
-En esta sección se proporciona un resumen comparativo de las funcionalidades de los dispositivos Azure Stack Edge Pro con GPU y Azure Stack Edge Pro con FPGA. El hardware tanto en el dispositivo de origen como en el de destino es prácticamente idéntico y solo difiere respecto a la tarjeta de aceleración de hardware y la capacidad de almacenamiento. 
+En esta sección se proporciona un resumen comparativo de las funcionalidades de los dispositivos Azure Stack Edge Pro con GPU y Azure Stack Edge Pro con FPGA. El hardware tanto en el dispositivo de origen como en el de destino es prácticamente idéntico. Es posible que solo difiera respecto a la tarjeta de aceleración de hardware y la capacidad de almacenamiento.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Capacidad  | Azure Stack Edge Pro con GPU (dispositivo de destino)  | Azure Stack Edge Pro con FPGA (dispositivo de origen)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Aceleración de hardware: Una o dos GPU NVIDIA T4 <br> El proceso, la memoria, la interfaz de red, la unidad de fuente de alimentación, las especificaciones de cable de alimentación son idénticos al dispositivo con FPGA.  | Aceleración de hardware: Intel Arria 10 FPGA <br> El proceso, la memoria, la interfaz de red, la unidad de fuente de alimentación, las especificaciones de cable de alimentación son idénticos al dispositivo con GPU.          |
+| Hardware       | Aceleración de hardware: Una o dos GPU NVIDIA T4 <br> El proceso, la memoria, la interfaz de red, la unidad de fuente de alimentación y las especificaciones de cable de alimentación son idénticos al dispositivo con FPGA.  | Aceleración de hardware: Intel Arria 10 FPGA <br> El proceso, la memoria, la interfaz de red, la unidad de fuente de alimentación y las especificaciones de cable de alimentación son idénticos al dispositivo con GPU.          |
 | Almacenamiento utilizable | 4,19 TB <br> Después de reservar espacio para la resistencia de la paridad y el uso interno | 12,5 TB <br> Después de reservar espacio para el uso interno |
 | Seguridad       | Certificados |                                                     |
 | Cargas de trabajo      | Cargas de trabajo de IoT Edge <br> Cargas de trabajo de máquinas virtuales <br> Cargas de trabajo de Kubernetes| Cargas de trabajo de IoT Edge |
@@ -55,7 +55,7 @@ Para crear el plan de migración, tenga en cuenta la información siguiente:
 
 Antes de continuar con la migración, tenga en cuenta la siguiente información: 
 
-- No se puede activar un dispositivo Azure Stack Edge Pro con GPU en un recurso de Azure Stack Edge Pro con FPGA. Se debe crear un nuevo recurso para el dispositivo Azure Stack Edge Pro con GPU, tal como se describe en el artículo sobre [creación de un pedido de Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- No se puede activar un dispositivo Azure Stack Edge Pro con GPU en un recurso de Azure Stack Edge Pro con FPGA. Debe crear un nuevo recurso para el dispositivo Azure Stack Edge Pro con GPU, tal como se describe en [Creación de un pedido de Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - Los modelos de Machine Learning implementados en el dispositivo de origen que usó FPGA deberán cambiarse en el dispositivo de destino con GPU. Para obtener ayuda con los modelos, póngase en contacto con el servicio de soporte técnico de Microsoft. Los modelos personalizados implementados en el dispositivo de origen que no usaban FPGA (solo usaban CPU) deben funcionar tal cual en el dispositivo de destino (con CPU).
 - Los módulos de IoT Edge implementados en el dispositivo de origen pueden requerir cambios antes de que se puedan implementar correctamente en el dispositivo de destino. 
 - El dispositivo de origen admite los protocolos NFS 3.0 y 4.1. El dispositivo de destino solo admite el protocolo NFS 3.0.
@@ -99,7 +99,7 @@ Los recursos compartidos en la nube de Edge organizan los datos en capas desde e
 
 - Cree una lista de todos los recursos compartidos en la nube de Edge y de los usuarios que tenga en el dispositivo de origen.
 - Haga una lista de todas las programaciones de ancho de banda que tenga. Volverá a crear estas programaciones de ancho de banda en el dispositivo de destino.
-- En función del ancho de banda de red disponible, configure las programaciones de ancho de banda en el dispositivo para maximizar los datos en capas en la nube. Esto minimizaría los datos locales en el dispositivo.
+- En función del ancho de banda de red disponible, configure las programaciones de ancho de banda en el dispositivo para maximizar los datos en capas en la nube. Esta acción minimiza los datos locales en el dispositivo.
 - Asegúrese de que los recursos compartidos estén totalmente organizados en capas en la nube. Para confirmarlo, compruebe el estado del recurso compartido en Azure Portal.  
 
 #### <a name="data-in-edge-local-shares"></a>Datos de los recursos compartidos locales de Edge
@@ -157,9 +157,9 @@ Ahora se copiarán los datos del dispositivo de origen en los recursos compartid
 
 Siga estos pasos para sincronizar los datos en los recursos compartidos en la nube de Edge en el dispositivo de destino:
 
-1. [Agregue recursos compartidos](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondientes a los nombres de los recursos compartidos creados en el dispositivo de origen. Asegúrese de que, al crear recursos compartidos, la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
+1. [Agregue recursos compartidos](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondientes a los nombres de los recursos compartidos creados en el dispositivo de origen. Al crear recursos compartidos, asegúrese de que la opción **Seleccionar el contenedor de blobs** está establecida en **Utilizar existente** y luego seleccione el contenedor que se usó con el dispositivo anterior.
 1. [Agregue usuarios](azure-stack-edge-j-series-manage-users.md#add-a-user) que tenían acceso al dispositivo anterior.
-1. [Actualice los datos del recurso compartido](azure-stack-edge-j-series-manage-shares.md#refresh-shares) desde Azure. Esto despliega todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
+1. [Actualice los datos del recurso compartido](azure-stack-edge-j-series-manage-shares.md#refresh-shares) desde Azure. Al actualizar el recurso compartido, se desplegarán todos los datos en la nube desde el contenedor existente hasta los recursos compartidos.
 1. Vuelva a crear las programaciones de ancho de banda para asociarlas a sus recursos compartidos. Consulte [Adición de una programación de ancho de banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) para obtener pasos detallados.
 
 
@@ -172,10 +172,10 @@ Una vez configurado completamente el dispositivo de sustitución, habilítelo pa
 Siga estos pasos para recuperar los datos de recursos compartidos locales:
 
 1. [Configure el proceso en el dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Agregue todos los recursos compartidos locales en el dispositivo de destino. Consulte los pasos detallados en [Adición de un recurso compartido local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Agregue todos los recursos compartidos locales en el dispositivo de destino. Consulte los pasos detallados en [Adición de un recurso compartido local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. El acceso a los recursos compartidos de SMB en el dispositivo de origen usará las direcciones IP, mientras que en el dispositivo de destino usará el nombre del dispositivo. Consulte [Conexión a un recurso compartido de SMB en Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Para conectarse a los recursos compartidos de NFS en el dispositivo de destino, deberá usar las nuevas direcciones IP asociadas con el dispositivo. Consulte [Conexión a un recurso compartido de NFS en Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
-    Si ha copiado los datos del recurso compartido en un servidor intermedio mediante SMB o NFS, puede copiar estos datos en los recursos compartidos del dispositivo de destino. También puede copiar los datos directamente desde el dispositivo de origen si tanto el dispositivo de origen como el de destino están *en línea*.
+    Si ha copiado los datos del recurso compartido en un servidor intermedio mediante SMB o NFS, puede copiar estos datos en los recursos compartidos del dispositivo de destino. Si tanto el dispositivo de origen como el de destino están *en línea*, también puede copiar los datos directamente desde el dispositivo de origen.
 
     Si ha usado un software de terceros para hacer una copia de seguridad de los datos de los recursos compartidos locales, deberá ejecutar el procedimiento de recuperación proporcionado por la solución de protección de datos de su elección. Consulte las referencias en la tabla siguiente.
 

@@ -1,19 +1,19 @@
 ---
 title: Conexión a Synapse Studio mediante vínculos privados
 description: En este artículo se explica cómo conectarse a Azure Synapse Studio mediante vínculos privados.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586982"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586631"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Conexión a Azure Synapse Studio con centros de Azure Private Link 
 
@@ -37,7 +37,9 @@ Debe conectar su instancia de Azure Virtual Network al recurso de centro de vín
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Captura de pantalla que muestra la página de conexiones de punto de conexión privado.":::
 
-Asegúrese de elegir el tipo de recurso "Microsoft. Synapse/privateLinkHubs" en la pestaña "Recurso". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Captura de pantalla que muestra la página &quot;Crear un punto de conexión privado&quot; con &quot;Tipo de recurso&quot; resaltado.":::
+Asegúrese de elegir el tipo de recurso "Microsoft. Synapse/privateLinkHubs" en la pestaña "Recurso".
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Captura de pantalla que muestra la página &quot;Crear un punto de conexión privado&quot; con &quot;Tipo de recurso&quot; resaltado.":::
 
 Al realizar la integración con la red virtual y la zona DNS privada, en la pestaña "Configuración", seleccione "privatelink.azuresynapse.net" para las zonas DNS privadas.
 

@@ -2,13 +2,13 @@
 title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/11/2021
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183665"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563902"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -65,7 +65,7 @@ Al crear un grupo de Batch, se especifica la configuración de máquina virtual 
 Hay dos tipos de configuraciones de grupo disponibles en Batch.
 
 > [!IMPORTANT]
-> Los grupos deben configurarse con "Configuración de máquina virtual" y no con "Cloud Services Configuration" (Configuración de Cloud Services). Los grupos de "Configuración de máquina virtual" admiten todas las características de Batch, y se van a agregar nuevas características. Los grupos de "Cloud Services Configuration" (Configuración de Cloud Services) no admiten todas las características y no están previstas nuevas funcionalidades.
+> Aunque actualmente puede crear grupos con cualquier configuración, los grupos nuevos deben configurarse con la configuración de máquina virtual y no con la configuración de Cloud Services. Todas las características de Batch actuales y nuevas serán compatibles con los grupos de configuración de máquina virtual. Los grupos de configuración de Cloud Services no admiten todas las características y no están previstas nuevas funcionalidades. No podrá crear nuevos grupos "CloudServiceConfiguration" ni agregar nuevos nodos a los grupos existentes después del [29 de febrero de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 ### <a name="virtual-machine-configuration"></a>Configuración de máquina virtual
 
@@ -76,13 +76,13 @@ El [agente de nodo del servicio Batch](https://github.com/Azure/Batch/blob/maste
 ### <a name="cloud-services-configuration"></a>Configuración de Cloud Services
 
 > [!WARNING]
-> Los grupos de configuración del servicio en la nube están en desuso. En su lugar, use los grupos de configuración de máquina virtual.
+> Los grupos de configuración de Cloud Services están [en desuso](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). En su lugar, utilice los grupos de configuración de máquina virtual. Para más información, consulte [Migración de la configuración del grupo de Batch de Cloud Services a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 La **Configuración de Cloud Services** especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona solo nodos de proceso de Windows.
 
 Los sistemas operativos disponibles para los grupos de configuración de Cloud Services se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md), y los tamaños de nodo de proceso disponibles se enumeran en [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Cuando se crea un grupo que contiene nodos de Cloud Services, se especifica el tamaño del nodo y su *familia de sistema operativo* (que determina qué versiones de .NET se instalan con el sistema operativo). Cloud Services se implementa en Azure de forma más rápida que las máquinas virtuales que ejecutan Windows. Si desea grupos de nodos de proceso Windows, es posible que Cloud Services proporcione una mejora en el rendimiento en términos de tiempo de implementación.
 
-Al igual que con los roles de trabajo en Cloud Services, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la [introducción a Cloud Services](../cloud-services/cloud-services-choose-me.md)). Se recomienda especificar `Latest (*)` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
+Al igual que con los roles de trabajo en Cloud Services, puede especificar una *versión de SO*. Se recomienda especificar `Latest (*)` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
 
 ### <a name="node-agent-skus"></a>SKU de agentes de nodos
 
@@ -208,3 +208,4 @@ Si agrega un certificado a un grupo existente, tendrá que reiniciar sus nodos d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre [trabajos y tareas](jobs-and-tasks.md).
+- Obtenga información sobre cómo [detectar y evitar errores en las operaciones en segundo plano de grupo y nodo](batch-pool-node-error-checking.md).

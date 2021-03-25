@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 30be0343b7c3282e3ce4da165225ab8209d07f4a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452414"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601073"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>Conexión de Azure a las herramientas de ITSM mediante el la solución Administración de servicios de TI
 
@@ -90,7 +90,7 @@ Los grupos de acciones proporcionan una manera modular y reutilizable de desenca
 
 ## <a name="define-a-template"></a>Definición de una plantilla
 
-Algunos tipos de elemento de trabajo pueden utilizar plantillas que se definen en la herramienta de ITSM. Con el uso de plantillas, puede definir los campos que se rellenarán automáticamente en función de los valores fijos de un grupo de acciones. Puede definir qué plantilla le gustaría usar como parte de la definición de un grupo de acciones.
+Algunos tipos de elemento de trabajo pueden utilizar plantillas que se definen en la herramienta de ITSM. Con el uso de plantillas, puede definir los campos que se rellenarán automáticamente en función de los valores fijos de un grupo de acciones. Puede definir qué plantilla le gustaría usar como parte de la definición de un grupo de acciones. Puede encontrar información en los documentos de ServiceNow sobre cómo crear plantillas (aquí)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
 Para crear un grupo de acciones:
 

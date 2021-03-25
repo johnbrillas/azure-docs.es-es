@@ -1,18 +1,18 @@
 ---
-ms.openlocfilehash: 11b10817959a390b4ea0215d72f97513a6b23345
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c1b74b43c6ef884c68282dcaaae8dfc9a5541453
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486635"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103621927"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-net"></a>Incorporación de la identidad administrada a su solución de Communication Services (.NET)
 
 ### <a name="install-the-client-library-packages"></a>Instalación de los paquetes de la biblioteca cliente
 
 ```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
 dotnet add package Azure.Identity
 ```
 
@@ -24,6 +24,7 @@ Agregue las siguientes directivas `using` al código para usar las bibliotecas d
 using Azure.Identity;
 using Azure.Communication.Identity;
 using Azure.Communication.Sms;
+using Azure.Core;
 ```
 
 En los ejemplos siguientes se usa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Esta credencial es adecuada para entornos de producción y desarrollo.
@@ -37,16 +38,18 @@ En el ejemplo de código siguiente se muestra cómo crear un objeto de cliente d
 A continuación, use el cliente para emitir un token para un nuevo usuario:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
+     public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
+
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
-          var identityResponse = await client.CreateUserAsync();
+          var identityResponse = client.CreateUser();
+          var identity = identityResponse.Value;
 
-          var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+          var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
      }
@@ -57,19 +60,21 @@ A continuación, use el cliente para emitir un token para un nuevo usuario:
 En el ejemplo de código siguiente se muestra cómo crear un objeto de cliente de servicio SMS con una identidad administrada y, a continuación, usar el cliente para enviar un mensaje SMS:
 
 ```csharp
-     public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
-          smsClient.Send(
+          SmsSendResult sendResult = smsClient.Send(
                from: from,
                to: to,
                message: message,
-               new SendSmsOptions { EnableDeliveryReport = true } // optional
+               new SmsSendOptions(enableDeliveryReport: true) // optional
           );
-     }
+
+          return sendResult;
+      }
 ```
 

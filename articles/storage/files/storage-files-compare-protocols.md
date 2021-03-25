@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0ed41cc01fcf5aa35b3d2195518b8e2bb0f3b9c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711848"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588246"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de recurso compartido de archivos de Azure
 
@@ -26,7 +26,7 @@ Azure Files ofrece dos protocolos para conectar y montar los recursos compartido
 |Protocolos de acceso     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |SO recomendado     |Versión posterior a la 4.3 del kernel de Linux         |Posterior Windows 2008 R2, versión posterior a la 4.11+         |
 |[Niveles disponibles](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium Storage, optimizado para transacciones, acceso frecuente, acceso esporádico         |
-|Modelo de facturación         |[Pago por capacidad aprovisionada](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Pago por capacidad aprovisionada para el nivel Prémium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model) y [pago por uso para el nivel estándar](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
+|Modelo de facturación         |[Pago por capacidad aprovisionada](./understanding-billing.md#provisioned-model)         |[Pago por capacidad aprovisionada para el nivel Prémium](./understanding-billing.md#provisioned-model) y [pago por uso para el nivel estándar](./understanding-billing.md#pay-as-you-go-model)         |
 |[Redundancia](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Autenticación     |Solo autenticación basada en host        |Autenticación basada en identidad, autenticación basada en usuario         |
 |Permisos     |Permisos de estilo UNIX         |Permisos de estilo NTFS         |
