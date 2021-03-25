@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786588"
 ---
 # <a name="in-memory-sample"></a>Ejemplo en memoria
@@ -74,7 +74,7 @@ Un resultado de **0** significa que no se admite en memoria, mientras que un res
 
 ### <a name="about-the-created-memory-optimized-items"></a>Acerca de los elementos creados optimizados para memoria
 
-**Tablas** : el ejemplo contiene las siguientes tablas optimizadas para memoria:
+**Tablas**: el ejemplo contiene las siguientes tablas optimizadas para memoria:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Un resultado de **0** significa que no se admite en memoria, mientras que un res
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-Puede inspeccionar las tablas optimizadas para memoria a través del **Explorador de objetos** en SSMS. Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria** . El valor es igual a 1.
+Puede inspeccionar las tablas optimizadas para memoria a través del **Explorador de objetos** en SSMS. Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria**. El valor es igual a 1.
 
 O bien puede consultar las vistas de catálogo como:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procedimientos almacenados compilados de forma nativa** : puede inspeccionar SalesLT.usp_InsertSalesOrder_inmem mediante una consulta de la vista de catálogo:
+**Procedimientos almacenados compilados de forma nativa**: puede inspeccionar SalesLT.usp_InsertSalesOrder_inmem mediante una consulta de la vista de catálogo:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Para hacer que la versión *_ondisk* del script T-SQL anterior sirva para ostress.exe, hay que reemplazar ambas repeticiones de la subcadena *_inmem* por *_ondisk* . Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
+Para hacer que la versión *_ondisk* del script T-SQL anterior sirva para ostress.exe, hay que reemplazar ambas repeticiones de la subcadena *_inmem* por *_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Instalación de `ostress` y de utilidades de RML
 
@@ -207,7 +207,7 @@ Cuando finaliza `ostress.exe`, escribe la duración de la ejecución como la úl
 
 #### <a name="reset-edit-for-_ondisk-then-rerun"></a>Restablezca y edite *_ondisk* y, después, vuelva a ejecutarlo
 
-Una vez que tenga el resultado de la ejecución de *_inmem* , realice los pasos siguientes para la ejecución de *_ondisk* :
+Una vez que tenga el resultado de la ejecución de *_inmem*, realice los pasos siguientes para la ejecución de *_ondisk*:
 
 1. Restablezca la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que insertó la ejecución anterior:
 
@@ -215,7 +215,7 @@ Una vez que tenga el resultado de la ejecución de *_inmem* , realice los pasos 
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edite la línea de comandos de ostress.exe para reemplazar todos los *_inmem* con *_ondisk* .
+2. Edite la línea de comandos de ostress.exe para reemplazar todos los *_inmem* con *_ondisk*.
 
 3. Ejecute ostress.exe por segunda vez y capture el resultado de la duración.
 
@@ -246,7 +246,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
    - El script crea la tabla de dimensiones y dos tablas de hechos. Las tablas de hechos se rellenan con 3,5 millones de filas cada una.
    - El script podría tardar 15 minutos en completarse.
 
-3. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. La palabra clave **COLUMNSTORE** es crucial en la instrucción **CREATE INDEX** , como en:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. La palabra clave **COLUMNSTORE** es crucial en la instrucción **CREATE INDEX**, como en:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Establezca AdventureWorksLT en un nivel de compatibilidad 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
@@ -254,9 +254,9 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tablas e índices de almacén de columnas clave
 
-- dbo.FactResellerSalesXL_CCI es una tabla con un índice de almacén de columnas agrupado que tiene una compresión avanzada a nivel de *datos* .
+- dbo.FactResellerSalesXL_CCI es una tabla con un índice de almacén de columnas agrupado que tiene una compresión avanzada a nivel de *datos*.
 
-- dbo.FactResellerSalesXL_PageCompressed es una tabla con un índice agrupado equivalente normal, que se comprime solo a nivel de *página* .
+- dbo.FactResellerSalesXL_PageCompressed es una tabla con un índice agrupado equivalente normal, que se comprime solo a nivel de *página*.
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Consultas cruciales para comparar el índice de almacén de columnas
 

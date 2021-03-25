@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: bd04c692655161a2ba8d4ff51a8ff07e9b9bd374
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593023"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Conexión y supervisión de las métricas de nivel de aplicación de Azure Synapse Spark
 
@@ -65,15 +65,15 @@ Anote el identificador de la aplicación, la contraseña y el identificador de i
 
 1. Inicie sesión en el [área de trabajo de Azure Synapse Analytics](https://web.azuresynapse.net/) como administrador de Azure Synapse.
 
-2. En Synapse Studio, en el panel izquierdo, seleccione **Administrar > Control de acceso**.
+2. En Synapse Studio, en el panel de la izquierda, seleccione **Administrar > Control de acceso**.
 
 3. Haga clic en el botón Agregar situado en la parte superior izquierda para **agregar una asignación de roles**.
 
 4. Como ámbito, elija **Área de trabajo**.
 
-5. Escoja el rol **Operador de procesos de Synapse**.
+5. Seleccione el rol **Operador de procesos de Synapse**.
 
-6. En Seleccionar usuario, escriba el nombre de su entidad de seguridad de servicio en el campo **<service_principal_name>** y haga clic en su entidad de servicio.
+6. En Seleccionar usuario, escriba el **<nombre_de_la_entidad_de_servicio>** y haga clic en ella.
 
 7. Haga clic en **Aplicar** (espere 3 minutos para que se apliquen los permisos).
 
@@ -176,7 +176,7 @@ La respuesta tiene el siguiente aspecto:
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Enumeración de las aplicaciones en ejecución en el área de trabajo de Azure Synapse
 
-Para obtener una lista de las aplicaciones de Spark en un área de trabajo de Azure Synapse, consulte el artículo [Supervisión: obtención de la lista de trabajos de Spark](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+Para obtener una lista de las aplicaciones de Spark en un área de trabajo de Azure Synapse, consulte el artículo [Supervisión: obtención de la lista de trabajos de Spark](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Recopilación de métricas de aplicaciones de Spark con las API REST o de Prometheus

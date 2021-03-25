@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 16cd9c8c1cab8156cdc3384b01e991256b3b8c8e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 525df3a1ca7089c68e31f124e38c5dcc2ae7a5aa
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053715"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-validsign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ValidSign
 
@@ -150,10 +150,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * En Azure Portal, haga clic en **Probar esta aplicación**. Al hacerlo, debería iniciar sesión automáticamente en la instancia de ValidSign en la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Si hace clic en el icono de ValidSign de Aplicaciones y seleccionó el modo SP en la configuración, accederá automáticamente a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Por el contrario, si seleccionó el modo IDP, debería iniciar sesión automáticamente en la instancia de ValidSign en la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Si hace clic en el icono de ValidSign de Aplicaciones y seleccionó el modo SP en la configuración, accederá automáticamente a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Por el contrario, si seleccionó el modo IDP, debería iniciar sesión automáticamente en la instancia de ValidSign en la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado ValidSign, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez que haya configurado ValidSign, puede aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

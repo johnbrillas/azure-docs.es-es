@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
 ms.openlocfilehash: 2297364e8f1a531b4512f2497bc4d99963d61179
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386210"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Procesamiento de archivos de texto de longitud fija mediante flujos de datos de asignación de Data Factory
@@ -81,7 +81,7 @@ Mediante el uso de flujos de datos de asignación en Microsoft Azure Data Factor
 
     ![receptor de ancho fijo](media/data-flow/fwsink.png)
 
-    El resultado tendrá una apariencia similar a la siguiente:
+    Este es el aspecto de la salida:
 
     ![salida de ancho fijo](media/data-flow/fxdoutput.png)
 

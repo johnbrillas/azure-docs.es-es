@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92744158"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Si configura una opción de aplicación con el mismo nombre en App Service y en *web.config* , el valor de App Service tiene prioridad sobre el valor *web.config* . El valor de *web.config* local permite depurar la aplicación localmente, pero el valor de App Service permite la ejecución de la aplicación en el producto con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
+Si configura una opción de aplicación con el mismo nombre en App Service y en *web.config*, el valor de App Service tiene prioridad sobre el valor *web.config*. El valor de *web.config* local permite depurar la aplicación localmente, pero el valor de App Service permite la ejecución de la aplicación en el producto con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
 
 ## <a name="deploy-multi-project-solutions"></a>Implementar soluciones de varios proyectos
 

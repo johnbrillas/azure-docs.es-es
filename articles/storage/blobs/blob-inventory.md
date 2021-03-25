@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 7972385ba017059407b994029c37f347b919cad3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435127"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950933"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Uso del inventario de blobs de Azure Storage para administrar datos de blobs (versión preliminar)
 
@@ -26,7 +26,7 @@ La característica de inventario de blobs de Azure Storage proporciona informaci
 El inventario de blobs es compatible con las cuentas de almacenamiento de blob en bloques prémium y de uso general de la versión 2 (GPv2). Esta característica es compatible con la característica [espacio de nombres jerárquico](data-lake-storage-namespace.md) habilitada o sin esta.
 
 > [!IMPORTANT]
-> Bob inventory está actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> Inventario de blobs está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 ### <a name="preview-regions"></a>Regiones en versión preliminar
 
@@ -205,4 +205,5 @@ Evento de ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Cálculo del recuento y el tamaño total de los blobs por contenedor](calculate-blob-count-size.md)
+- [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)

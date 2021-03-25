@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
 ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588784"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Tutorial: Implementación de una aplicación de Node.js en una aplicación web de Azure mediante DevOps Starter para Acciones de GitHub
@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Configurar la supervisión de Azure Application Insights
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 

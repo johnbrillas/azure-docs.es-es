@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723782"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596015"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -82,7 +82,7 @@ Si una oferta de servicio no está disponible en una región específica, puede 
 | Recomendado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basado en la demanda | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativa | :heavy_check_mark: | :heavy_check_mark: | Basado en la demanda | Basado en la demanda | N/D | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Servicios por categoría con Availability Zones
+### <a name="services-by-category"></a>Servicios por categoría
 
 Como se mencionó anteriormente, Azure clasifica los servicios en tres categorías: fundamental, estándar y especializado. Las categorías de servicio se asignan en la disponibilidad general. A menudo, los servicios inician su ciclo de vida como un servicio especializado y, a medida que aumenta la demanda y el uso, se pueden promocionar a estándar o fundamental. En la tabla siguiente se muestra la categoría de los servicios como fundamental o estándar. Se debe tener en cuenta lo siguiente sobre la tabla:
 
@@ -101,7 +101,7 @@ Como se mencionó anteriormente, Azure clasifica los servicios en tres categorí
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP pública de Azure                        | Azure Cache for Redis                             | 
 > | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Azure SQL: de SQL DB           | Azure Cognitive Services                          | 
+> | Instancia administrada de Azure SQL             | Azure Cognitive Services                          | 
 > | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
 > | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
 > | Key Vault                              | Azure Cognitive Services: Caras                    | 

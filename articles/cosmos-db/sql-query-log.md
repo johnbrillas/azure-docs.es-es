@@ -9,10 +9,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 44a9d5b273e13886b0674b3b2e9f5f7a75e72fcc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93338584"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
@@ -42,7 +42,7 @@ LOG (<numeric_expr> [, <base>])
   
   De forma predeterminada, LOG() devuelve el logaritmo natural. Puede cambiar la base del logaritmo a otro valor mediante el parámetro base opcional.  
   
-  El logaritmo natural es el logaritmo en base **e** , donde **e** es una constante irracional aproximadamente igual a 2,718281828.  
+  El logaritmo natural es el logaritmo en base **e**, donde **e** es una constante irracional aproximadamente igual a 2,718281828.  
   
   El logaritmo natural del valor exponencial de un número es el mismo número: LOG (EXP [n]) = n. Y el valor exponencial del logaritmo natural de un número es el mismo número: EXP (LOG [n]) = n.
 

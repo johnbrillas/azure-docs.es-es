@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6013d14d7639bf4f7fe318c9a2da96e4d8acbcb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546291"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
@@ -29,7 +29,7 @@ En este inicio rápido, configurará una directiva de nomenclatura en la organiz
 * Ayudar a clasificar los grupos en la libreta de direcciones.
 * Impedir que determinadas palabras se usen en los nombres y alias de grupo.
 
-si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos en Azure Portal
 

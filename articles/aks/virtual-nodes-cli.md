@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1c673cae41fcbd3d54aa9b4062dd030ace9f0767
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508187"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577808"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -246,7 +246,7 @@ Se asigna una dirección IP interna al pod de la subred de red virtual de Azure 
 Para probar el pod que se ejecuta en el nodo virtual, vaya a la aplicación de demostración con un cliente web. Como se asigna una dirección IP interna al pod, puede probar rápidamente esta conectividad desde otro pod en el clúster de AKS. Cree un pod de prueba y asóciele una sesión de terminal:
 
 ```console
-kubectl run -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Instale `curl` en el pod mediante `apt-get`:

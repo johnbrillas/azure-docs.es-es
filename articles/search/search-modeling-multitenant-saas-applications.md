@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397375"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
@@ -28,7 +28,7 @@ Antes de analizar los patrones de diseño, es importante comprender algunos conc
 
 Al utilizar Azure Cognitive Search, el usuario se suscribe a un *servicio de búsqueda*. A medida que se cargan datos en Azure Cognitive Search, se almacenan en un *índice* dentro del servicio de búsqueda. Puede haber varios índices dentro de un único servicio. Para usar los conceptos de bases de datos que ya conocemos, el servicio de búsqueda se puede vincular a una base de datos, mientras que los índices de un servicio se pueden vincular a tablas dentro de una base de datos.
 
-Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de *campos*personalizables. Los datos se agregan a un índice de Azure Cognitive Search en forma de *documentos*individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Cognitive Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado.  Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
+Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de *campos* personalizables. Los datos se agregan a un índice de Azure Cognitive Search en forma de *documentos* individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Cognitive Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado.  Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
 
 ### <a name="scalability"></a>Escalabilidad
 Cualquier servicio de Azure Cognitive Search con el [plan de tarifa](https://azure.microsoft.com/pricing/details/search/) Estándar se puede escalar en dos dimensiones: almacenamiento y disponibilidad.
@@ -95,7 +95,7 @@ Si el número total de índices crece demasiado para un único servicio, se debe
 
 ## <a name="2-service-per-tenant"></a>2. Servicio por inquilino
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Una representación del modelo de índice por inquilino" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Una representación del modelo de servicio por inquilino" border="false":::
 
 En una arquitectura de servicio por inquilino, cada inquilino tiene su propio servicio de búsqueda.
 

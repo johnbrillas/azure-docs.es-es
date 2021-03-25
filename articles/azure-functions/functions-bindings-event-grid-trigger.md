@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98250135"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
@@ -432,7 +432,7 @@ El tipo `EventGridEvent` define solo las propiedades de nivel superior; la propi
 
 Para empezar a recibir solicitudes HTTP de Event Grid, cree una suscripción a Event Grid que especifique la dirección URL de punto de conexión que invoca la función.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 En el caso de las funciones que se desarrollen en Azure Portal con el desencadenador de Event Grid, seleccione **Integración** y, después, elija **Desencadenador de Event Grid** y seleccione **Crear suscripción de Event Grid**.
 

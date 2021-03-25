@@ -4,10 +4,10 @@ description: En este artículo, aprenderá las tareas comunes para administrar y
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703773"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad

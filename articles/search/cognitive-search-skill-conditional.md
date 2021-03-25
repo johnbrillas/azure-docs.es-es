@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792042"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666361"
 ---
 # <a name="conditional-cognitive-skill"></a>Aptitud cognitiva condicional
 
@@ -96,7 +96,7 @@ Hay una única salida que se denomina simplemente "salida". Devuelve el valor *w
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Ejemplo de definición 1 de la aptitud: Filtrar los documentos para devolver únicamente los documentos en francés
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Ejemplo de definición de aptitud 1: filtrar documentos para devolver solo documentos en francés
 
 La salida siguiente devuelve una matriz de oraciones ("/document/frenchSentences") si el idioma del documento es el francés. Si el idioma no es el francés, el valor se establece en *null*.
 
@@ -115,7 +115,7 @@ La salida siguiente devuelve una matriz de oraciones ("/document/frenchSentences
 Si se usa "/document/frenchSentences" como *contexto* de otra aptitud, dicha aptitud se ejecuta solo si "/document/frenchSentences" no está establecido en *null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Ejemplo de definición 2 de la aptitud: Establecer un valor predeterminado para un valor que no existe
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Ejemplo de definición de aptitud 2: establecer un valor predeterminado para un valor que no existe
 
 La salida siguiente crea una anotación ("/document/languageWithDefault") que se establece en el idioma del documento o en "es" si no se establece el idioma.
 
@@ -132,9 +132,9 @@ La salida siguiente crea una anotación ("/document/languageWithDefault") que se
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Ejemplo de definición 3 de la aptitud: Combinar los valores de dos campos en uno
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Ejemplo de definición de aptitud 3: combinar valores de dos campos en uno
 
-En este ejemplo, algunas oraciones tienen una propiedad *frenchSentiment*. Cada vez que la propiedad *frenchSentiment* sea null, querremos usar el valor *englishSentiment*. Asignamos la salida a un miembro denominado *sentiment* ("/document/sentiment/*/sentiment").
+En este ejemplo, algunas oraciones tienen una propiedad *frenchSentiment*. Cada vez que la propiedad *frenchSentiment* sea null, querremos usar el valor *englishSentiment*. Asignamos la salida a un miembro llamado *sentiment* ("/document/sentences/*/sentiment").
 
 ```json
 {
@@ -150,7 +150,7 @@ En este ejemplo, algunas oraciones tienen una propiedad *frenchSentiment*. Cada 
 ```
 
 ## <a name="transformation-example"></a>Ejemplo de transformación
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Ejemplo de definición 4 de la aptitud: Transformación de datos en un solo campo
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Ejemplo de definición de aptitud 4: transformación de datos en un único campo
 
 En este ejemplo, recibimos un *sentiment* que está entre 0 y 1. Queremos transformarlo para que esté entre -1 y 1. Podemos usar la aptitud condicional para realizar esta transformación menor.
 

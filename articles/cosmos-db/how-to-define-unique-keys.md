@@ -9,10 +9,10 @@ ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336629"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definición de claves únicas para un contenedor de Azure Cosmos
@@ -30,7 +30,7 @@ En este artículo se presentan las distintas formas de definir [claves únicas](
 
 1. Haga clic en **Nuevo contenedor**.
 
-1. En el cuadro de diálogo **Agregar contenedor** , haga clic en **+ Add unique key** (+ Agregar clave única) para agregar una única entrada de clave.
+1. En el cuadro de diálogo **Agregar contenedor**, haga clic en **+ Add unique key** (+ Agregar clave única) para agregar una única entrada de clave.
 
 1. Escriba la ruta o rutas de la restricción de clave única
 

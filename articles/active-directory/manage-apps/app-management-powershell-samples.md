@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/18/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 46297f7f0f648c8bebc887a9093e25dfea99f695
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f5f7ec8245a43440a400b9ca6b55bf1093eb62cc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561507"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102636195"
 ---
 # <a name="azure-active-directory-powershell-examples-for-application-management"></a>Ejemplos de PowerShell de Azure Active Directory para la administración de aplicaciones
 
@@ -31,5 +31,5 @@ Para obtener más información sobre los cmdlets utilizados en estos ejemplos, c
 |**Scripts de administración de aplicaciones**||
 | [Exportación de secretos y certificados (registros de aplicaciones)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Exporte de secretos y certificados para los registros de aplicaciones al inquilino de Azure Active Directory. |
 | [Exportación de secretos y certificados (aplicaciones empresariales)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md) | Exporte secretos y certificados para aplicaciones empresariales al inquilino de Azure Active Directory. |
-| [Exportación de secretos y certificados que expiran](scripts/powershell-export-apps-with-expriring-secrets.md) | Exporte aplicaciones con certificados y secretos que van a expirar al inquilino de Azure Active Directory. |
-| [Exportación de secretos y certificados que expiran después de la fecha requerida](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Exporte aplicaciones con secretos y certificados que expiran después de la fecha requerida al inquilino de Azure Active Directory. |
+| [Exportación de secretos y certificados que expiran](scripts/powershell-export-apps-with-expriring-secrets.md) | Exporte los registros de aplicaciones con secretos y certificados que van a expirar y sus propietarios en el inquilino de Azure Active Directory. |
+| [Exportación de secretos y certificados que expiran después de la fecha requerida](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Exporte aplicaciones con secretos y certificados que expiran después de la fecha requerida en el inquilino de Azure Active Directory. Usa el flujo de OAuth de Client_Credentials no interactivo. |
