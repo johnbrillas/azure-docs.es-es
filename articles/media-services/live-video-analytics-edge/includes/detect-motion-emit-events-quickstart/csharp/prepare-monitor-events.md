@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 882ba60e16f770651a1d9fe3b02b61be2b4c34c8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99530904"
 ---
 Va a utilizar el módulo de Live Video Analytics on IoT Edge para detectar el movimiento en la secuencia de vídeo en directo entrante y enviar eventos a IoT Hub. Para ver estos eventos, siga estos pasos:

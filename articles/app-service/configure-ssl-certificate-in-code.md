@@ -6,17 +6,17 @@ ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93126046"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Uso de un certificado TLS/SSL en el código de Azure App Service
 
 En el código de la aplicación, puede acceder a los [certificados públicos o privados que agregue a App Service](configure-ssl-certificate.md). El código de la aplicación puede actuar como un cliente y acceder a un servicio externo que requiere autenticación de certificado, o puede que tenga que realizar tareas criptográficas. Esta guía muestra cómo utilizar certificados públicos o privados en el código de aplicación.
 
-Este enfoque para el uso de certificados en el código usa la funcionalidad TLS de App Service, que requiere que la aplicación tenga el nivel **Básico** u otro superior. Si la aplicación está en los niveles **Gratis** o **Compartido** , puede [incluir el archivo de certificado en el repositorio de la aplicación](#load-certificate-from-file).
+Este enfoque para el uso de certificados en el código usa la funcionalidad TLS de App Service, que requiere que la aplicación tenga el nivel **Básico** u otro superior. Si la aplicación está en los niveles **Gratis** o **Compartido**, puede [incluir el archivo de certificado en el repositorio de la aplicación](#load-certificate-from-file).
 
 Cuando permite que App Service administre los certificados TLS/SSL, puede mantener por separado los certificados y el código de la aplicación y proteger así la información confidencial.
 

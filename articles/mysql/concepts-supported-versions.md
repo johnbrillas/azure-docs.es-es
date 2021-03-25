@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718784"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467721"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
@@ -25,9 +25,11 @@ Actualmente, Azure Database for MySQL admite las siguientes versiones principale
 
 | Versión | Servidor único <br/> Versión secundaria actual |Servidor flexible (versión preliminar) <br/> Versión secundaria actual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | No compatible|
+|MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (retirada) | No compatible|
 |MySQL versión 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL versión 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+
+Lea la directiva de compatibilidad de versiones para las versiones retiradas en la [documentación de la directiva de compatibilidad de versiones.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
 El servicio administra automáticamente la aplicación de partes para las actualizaciones de las versiones de corrección de errores. Por ejemplo, 5.7.20 a 5.7.21.  

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 45f0ef5366d97c275c40d4d436020dbaf3501d42
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456170"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Exposición de detalles de eventos personalizados de alertas en Azure Sentinel 

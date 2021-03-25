@@ -16,10 +16,10 @@ ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99090627"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
@@ -37,7 +37,7 @@ Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](htt
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Si no está familiarizado con las identidades administradas para los recursos de Azure, consulte [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, vea [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
 
 - Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles de Azure:
 

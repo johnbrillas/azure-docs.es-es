@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455508"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
@@ -99,7 +99,7 @@ En la escala de tiempo se incluyen los siguientes tipos de elementos:
  
 ### <a name="entity-insights"></a>Conclusiones sobre la entidad
  
-Las conclusiones sobre la entidad son consultas definidas por los investigadores de seguridad de Microsoft para ayudar a los analistas a investigar de manera más eficiente y eficaz. Las conclusiones se presentan como parte de la página de entidad y proporcionan información de seguridad valiosa sobre los hosts y los usuarios, en forma de gráficos y datos tabulares. Disponer aquí de la información significa que no tiene que desplazarse a Log Analytics. Las conclusiones incluyen datos sobre inicios de sesión, adiciones a grupos, eventos anómalos, etc., así como algoritmos avanzados de aprendizaje automático para detectar comportamientos anómalos. 
+Las conclusiones sobre la entidad son consultas definidas por los investigadores de seguridad de Microsoft para ayudar a los analistas a investigar de manera más eficiente y eficaz. Las conclusiones se presentan como parte de la página de entidad y proporcionan información de seguridad valiosa sobre los hosts y los usuarios, en forma de gráficos y datos tabulares. Disponer aquí de la información significa que no tiene que desplazarse a Log Analytics. Las conclusiones incluyen datos sobre inicios de sesión, adiciones a grupos, eventos anómalos, etc., así como algoritmos avanzados de Azure Machine Learning para detectar comportamientos anómalos. 
 
 Las conclusiones se basan en los siguientes orígenes de datos:
 - Syslog (Linux)
@@ -107,7 +107,7 @@ Las conclusiones se basan en los siguientes orígenes de datos:
 - AuditLogs (Azure AD)
 - SigninLogs (Azure AD)
 - OfficeActivity (Office 365)
-- BehaviorAnalytics (UEBA de Azure Sentinel)
+- BehaviorAnalytics (Azure Sentinel UEBA)
 - Heartbeat (agente de Azure Monitor)
 - CommonSecurityLog (Azure Sentinel)
 

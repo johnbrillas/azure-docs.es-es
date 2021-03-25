@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750130"
 ---
 Este tutorial requiere los siguientes recursos de Azure:
@@ -22,7 +22,7 @@ Para este inicio rápido, se recomienda usar el [script de configuración de rec
 1. En el menú desplegable del lado izquierdo de la ventana de Cloud Shell, seleccione el entorno **Bash**.
 
     ![Selector de entorno](../../../media/quickstarts/env-selector.png)
-1. Ejecute el siguiente comando.
+1. Ejecute el siguiente comando:
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"

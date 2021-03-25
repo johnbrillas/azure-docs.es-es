@@ -6,10 +6,10 @@ ms.date: 07/14/2020
 ms.author: v-demjoh
 ms.custom: devx-track-js
 ms.openlocfilehash: 58faca3d3b1b3a190432e2000d8619fcac1712d8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102444890"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
@@ -37,7 +37,7 @@ Además, en función del entorno de destino, use una de las siguientes:
 
 # <a name="script"></a>[script](#tab/script)
 
-Descargue y extraiga el archivo *microsoft.cognitiveservices.speech.sdk.bundle.js* de <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK para JavaScript</a>   y colóquelo en una carpeta accesible para el archivo HTML.
+Descargue y extraiga el archivo *microsoft.cognitiveservices.speech.sdk.bundle.js* de <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK para JavaScript</a> y colóquelo en una carpeta accesible para el archivo HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;

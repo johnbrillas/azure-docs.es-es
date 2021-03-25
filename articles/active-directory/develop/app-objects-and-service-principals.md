@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646408"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199609"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -63,11 +63,10 @@ El objeto de aplicación es la representación *global* de la aplicación para s
 
 El objeto de aplicación actúa como la plantilla a partir de la cual se *derivan* las propiedades comunes y predeterminadas para su uso en la creación de objetos de entidad de servicio correspondientes. Por lo tanto, un objeto de aplicación tiene una relación 1:1 con la aplicación de software y una relación 1:muchos con sus objetos de entidad de servicio correspondientes.
 
-Debe crearse una entidad de servicio en cada inquilino donde se usa la aplicación. Esto permite establecer una identidad para el inicio de sesión o el acceso a los recursos que va a proteger el inquilino. Una aplicación de inquilino único tendrá solo una entidad de servicio (en su inquilino principal), que normalmente se crea y se consiente para su uso durante el registro de la aplicación. Una API o aplicación web multiinquilino también tiene una entidad de servicio creada en cada inquilino donde un usuario de ese inquilino ha dado su consentimiento para su uso.
+Debe crearse una entidad de servicio en cada inquilino donde se usa la aplicación. Esto permite establecer una identidad para el inicio de sesión o el acceso a los recursos que va a proteger el inquilino. Una aplicación de inquilino único tendrá solo una entidad de servicio (en su inquilino principal), que normalmente se crea y se consiente para su uso durante el registro de la aplicación. Una aplicación multiinquilino también tiene una entidad de servicio creada en cada inquilino donde un usuario de ese inquilino ha dado su consentimiento para su uso.
 
-Los cambios que realice en el objeto de la aplicación, incluidas las eliminaciones, también se reflejarán en el objeto de entidad de servicio, pero solo en el inquilino principal de la aplicación (es decir, en el inquilino donde se registró). Para aplicaciones multiinquilino, los cambios realizados en el objeto de aplicación no se reflejan en los objetos de entidad de servicio del inquilino consumidor hasta que el acceso se quita a través del [panel de acceso de la aplicación](https://myapps.microsoft.com) y se concede de nuevo.
-
-De forma predeterminada, las aplicaciones nativas se registran como multiinquilino.
+### <a name="consequences-of-modifying-and-deleting-applications"></a>Consecuencias de la modificación y eliminación de aplicaciones
+Los cambios que realice en el objeto de aplicación también se reflejan en su objeto de entidad de servicio, solo en el inquilino principal de la aplicación (es decir, el inquilino en donde se registró). Esto significa que, al eliminar un objeto de la aplicación, también se eliminará su objeto de la entidad de servicio del inquilino principal.  Sin embargo, si restaura el objeto de la aplicación no se restaurará su entidad de servicio correspondiente. Para aplicaciones multiinquilino, los cambios realizados en el objeto de aplicación no se reflejan en los objetos de entidad de servicio del inquilino consumidor hasta que el acceso se quita a través del [panel de acceso de la aplicación](https://myapps.microsoft.com) y se concede de nuevo.
 
 ## <a name="example"></a>Ejemplo
 

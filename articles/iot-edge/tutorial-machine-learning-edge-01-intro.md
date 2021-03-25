@@ -8,16 +8,21 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932190"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463245"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Una solución integral con Azure Machine Learning y IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Con frecuencia, las aplicaciones de IoT buscan aprovechar las ventajas de la nube inteligente y la inteligencia perimetral. En este tutorial, te guiaremos por el entrenamiento de un modelo de Machine Learning con datos recopilados de los dispositivos de IoT en la nube, la implementación de ese modelo en IoT Edge y el mantenimiento y ajuste periódicos del modelo.
+
+>[!NOTE]
+>Los conceptos de este conjunto de tutoriales se aplican a todas las versiones de IoT Edge, pero el dispositivo de ejemplo que se crea para probar el escenario utiliza la versión 1.1 de IoT Edge.
 
 El objetivo principal de este tutorial es presentar el procesamiento de datos de IoT con aprendizaje automático, específicamente en el borde. Si bien se abordan muchos aspectos de un flujo de trabajo de aprendizaje automático general, este tutorial no está pensado como una introducción detallada del aprendizaje automático. En este caso puntual, no intentamos crear un modelo muy optimizado para el caso de uso, sino que hacemos lo suficiente para ilustrar el proceso de creación y uso de un modelo viable para el procesamiento de datos de IoT.
 
@@ -69,9 +74,9 @@ Los datos usados en este tutorial se toman del [conjunto de datos de simulación
 
 Del archivo Léame:
 
-***Escenario experimental**
+***Escenarios experimentales***
 
-Los conjuntos de datos constan de varias series temporales multivariantes. Cada conjunto de datos se divide en subconjuntos de entrenamiento y prueba. Cada serie temporal procede de un motor diferente, es decir, los datos se pueden considerar como provenientes de una flota de motores del mismo tipo. Cada motor se inicia con diferentes grados de desgaste inicial y variación de fabricación desconocida para el usuario. Este desgaste y variación se consideran normales, es decir, no se consideran una condición de error. Hay tres configuraciones operativas que tienen un efecto considerable en el rendimiento del motor. Estas configuraciones también se incluyen en los datos. Los datos están contaminados con ruido de sensores.*
+*Los conjuntos de datos constan de varias series temporales multivariantes. Cada conjunto de datos se divide en subconjuntos de entrenamiento y prueba. Cada serie temporal procede de un motor diferente, es decir, los datos se pueden considerar como provenientes de una flota de motores del mismo tipo. Cada motor se inicia con diferentes grados de desgaste inicial y variación de fabricación desconocida para el usuario. Este desgaste y variación se consideran normales, es decir, no se consideran una condición de error. Hay tres configuraciones operativas que tienen un efecto considerable en el rendimiento del motor. Estas configuraciones también se incluyen en los datos. Los datos están contaminados con ruido de los sensores.*
 
 *El motor funciona con normalidad al comienzo de cada serie temporal y desarrolla un error en algún momento durante la serie. En el conjunto de entrenamiento, el error aumenta en magnitud hasta convertirse en error del sistema. En el conjunto de prueba, la serie temporal finaliza un tiempo antes de un error del sistema. El objetivo de la competición es predecir el número de ciclos operativos restantes antes de un error en el conjunto de pruebas, es decir, el número de ciclos operativos después del último ciclo en los que el motor seguirá en funcionamiento. También proporciona un vector de valores verdaderos de vida útil restante (RUL) para los datos de prueba.*
 

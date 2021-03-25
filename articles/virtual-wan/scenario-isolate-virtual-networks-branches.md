@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: wellee
 ms.openlocfilehash: e8e5a5a1b9325f40fdd51133155a0daffaa55a7b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99396252"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Escenario: Aislamiento personalizado para redes virtuales y sucursales
@@ -49,7 +49,7 @@ En consecuencia, este es el diseño final:
   * Tabla de enrutamiento asociada: **RT_RED**
   * Propagación a tablas de rutas: **RT_RED** 
 * Ramas:
-  * Tabla de rutas asociada: **Valor predeterminado**
+  * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de rutas: **Valor predeterminado**
 * Rutas estáticas:
     * **Tabla de rutas predeterminada**: Espacios de direcciones de Virtual Network con el próximo salto Azure Firewall
@@ -98,7 +98,7 @@ Tenga en cuenta los siguientes pasos al configurar el enrutamiento.
 Esto hará que la configuración de enrutamiento cambie como se muestra en la figura siguiente.
 
 **Figura 1**
-[ ![Figura 1](./media/routing-scenarios/custom-branch-vnet/custom-branch.png) ](./media/routing-scenarios/custom-branch-vnet/custom-branch.png#lightbox)
+[ ![Figura 1](./media/routing-scenarios/custom-branch-vnet/custom-branch.png)](./media/routing-scenarios/custom-branch-vnet/custom-branch.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
 ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368300"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restricción del acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante Azure Portal.

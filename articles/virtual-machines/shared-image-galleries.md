@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551069"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609148"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -104,7 +104,7 @@ Las máquinas virtuales especializadas no han pasado por un proceso para quitar 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Todas las regiones públicas pueden ser regiones de destino, pero para replicar en Centro de Australia y Centro de Australia 2 debe tener la suscripción incluida en la lista de permitidos. Para solicitar que se agregue una suscripción a la lista de permitidos, vaya a: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
+Todas las regiones públicas pueden ser regiones de destino, pero ciertas regiones requieren que los clientes sigan un proceso de solicitud para obtener acceso. Para solicitar que se agregue una suscripción a la lista de permitidos para una región, como Centro de Australia y Centro de Australia 2, envíe [una solicitud de acceso](/troubleshoot/azure/general/region-access-request-process).
 
 ## <a name="limits"></a>Límites 
 

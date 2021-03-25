@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150230"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739515"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementación de una arquitectura de seguridad por capas con entornos de App Service
 Como los entornos de App Service proporcionan un entorno de tiempo de ejecución aislado que está implementado en una red virtual, los desarrolladores pueden crear una arquitectura de seguridad por capas que proporcione diferentes niveles de acceso a la red para cada capa de aplicación física.
@@ -66,7 +66,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Repetir para el segundo y tercer entorno de App Service ascendente ("fe2ase" y "fe3ase").
+Se aclara y se repite para el segundo y tercer entorno de App Service ascendente ("fe2ase" y "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629179"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470764"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: Configuración de permisos de nivel de directorio y de archivo en SMB 
 
@@ -93,9 +93,19 @@ Una vez montado el recurso compartido de archivos con la clave de la cuenta de a
 
 Si tiene directorios o archivos en servidores de archivos locales con ACL de Windows configuradas con identidades de AD DS, puede copiarlos en Azure Files, conservando las ACL con herramientas tradicionales de copia de archivos como Robocopy o [Azure AzCopy versión 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). Si los directorios y archivos están organizados en niveles en Azure Files a través de Azure File Sync, las ACL se trasladan y conservan en su formato nativo.
 
+### <a name="configure-windows-acls-with-icacls"></a>Configuración de ACL de Windows con icacls
+
+Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Para más información sobre cómo usar icacls para establecer ACL de Windows, así como sobre los distintos tipos de permisos admitidos, vea la [referencia de línea de comandos de icacls](/windows-server/administration/windows-commands/icacls).
+
 ### <a name="configure-windows-acls-with-windows-file-explorer"></a>Configuración de ACL de Windows con el Explorador de archivos de Windows
 
-Utilice el Explorador de archivos de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz.
+Utilice el Explorador de archivos de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. Si no puede cargar la información de dominio de AD correctamente en el Explorador de archivos de Windows, probablemente se deba a una configuración de confianza en el entorno de AD local. La máquina cliente no pudo comunicarse con el controlador de dominio de AD registrado para la autenticación Azure Files. En este caso, use icacls para la configuración de ACL de Windows.
 
 1. Abra el Explorador de archivos de Windows y haga clic con el botón derecho en el archivo o directorio, y seleccione **Propiedades**.
 1. Seleccione la pestaña **Seguridad** .
@@ -106,15 +116,6 @@ Utilice el Explorador de archivos de Windows para conceder permisos completos pa
 1.    En la pestaña **Seguridad**, seleccione todos los permisos que desea conceder al nuevo usuario.
 1.    Seleccione **Aplicar**.
 
-### <a name="configure-windows-acls-with-icacls"></a>Configuración de ACL de Windows con icacls
-
-Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Para más información sobre cómo usar icacls para establecer ACL de Windows, así como sobre los distintos tipos de permisos admitidos, vea la [referencia de línea de comandos de icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

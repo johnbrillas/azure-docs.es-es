@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dfedec85208ef9afaa58db2b200dc9f9988a845b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fc7892db2ca11ab7970835f8979360961ee01104
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709247"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463347"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adición de paquetes de idioma a una imagen multisesión de Windows 10
 
@@ -54,6 +54,7 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
           - [Windows 10, versión 2004 o 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
           - [Windows 10, versión 2004 o 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
           - [Windows 10, versión 2004 o 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, versión 2004 o 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
 
 - Un recurso compartido de Azure Files o un recurso compartido de archivos en una máquina virtual del servidor de archivos de Windows
 

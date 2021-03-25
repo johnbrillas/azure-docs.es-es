@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7234a8c45c20c64dddb43a52a099aa92f2d297d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321111"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Exploración de los datos de las tablas de Hive con consultas de Hive
@@ -24,7 +24,7 @@ Este artículo proporciona scripts de Hive de ejemplo que se usan para explorar 
 
 Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
@@ -36,7 +36,7 @@ En este artículo se supone que ha:
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Ejemplo de scripts de consulta de Hive para la exploración de datos
 1. Obtención del número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 2. Obtención del número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
-3. Obtención de los niveles de una columna de categorías  
+3. Obtención de los niveles de una columna de categorías   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. Obtención del número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Obtener la distribución para columnas numéricas  

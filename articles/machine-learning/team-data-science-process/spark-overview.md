@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314740"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
@@ -156,13 +156,13 @@ Puede iniciar Jupyter Notebook desde el portal de Azure. Busque el clúster de S
 
 ![Paneles de clúster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-También puede ir a * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ para acceder a las instancias de Jupyter Notebook. Reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
+También puede ir a ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** para tener acceso a las instancias de Jupyter Notebook. Reemplace la parte CLUSTERNAME de esta dirección URL por el nombre de su propio clúster. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
 
 ![Examinar cuadernos de Jupyter Notebook](./media/spark-overview/spark-jupyter-notebook.png)
 
 Seleccione PySpark para ver un directorio con algunos ejemplos de cuadernos preempaquetados que utilizan la API PySpark. Los cuadernos que contienen los ejemplos de código de este conjunto de temas de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-Puede cargar los cuadernos directamente desde [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) en el servidor de Jupyter Notebook, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón _ *Cargar* * de la parte derecha de la pantalla. Se abre un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**.
+Puede cargar los cuadernos directamente desde [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) en el servidor de Jupyter Notebook, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** de la parte derecha de la pantalla. Se abre un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**.
 
 Verá el nombre de archivo en la lista de archivos de Jupyter de nuevo con un botón **Cargar** . Haga clic en este botón **Cargar** . Ahora ya ha importado el cuaderno. Repita estos pasos para cargar los otros cuadernos de este tutorial.
 
@@ -192,4 +192,4 @@ Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuad
 
 **Consumo de modelos:** Para saber cómo puntuar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación y evaluación de modelos de aprendizaje automático creados con Spark](spark-model-consumption.md).
 
-**Validación cruzada y barrido de hiperparámetros** : Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) para saber cómo se pueden entrenar modelos con el barrido de hiperparámetros y la validación cruzada.
+**Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) para saber cómo se pueden entrenar modelos con el barrido de hiperparámetros y la validación cruzada.

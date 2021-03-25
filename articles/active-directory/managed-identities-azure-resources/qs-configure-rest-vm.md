@@ -16,10 +16,10 @@ ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f70229fabe4331adb7740cf09cf2bf8f3e3e4617
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587526"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
@@ -37,7 +37,7 @@ Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](htt
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Si no está familiarizado con las identidades administradas para los recursos de Azure, consulte [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, vea [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

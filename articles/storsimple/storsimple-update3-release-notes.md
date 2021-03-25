@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e081acc357c1b8872dd3a25c552d4cbe9785e212
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007076"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 3 del dispositivo StorSimple serie 8000
@@ -41,7 +41,7 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 3
 ## <a name="issues-fixed-in-update-3"></a>Problemas corregidos en Update 3
 En las tablas siguientes se ofrece un resumen de los problemas corregidos en Update 3.    
 
-| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No | Característica | Incidencia | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Migración de datos en el lado host |En la versión anterior, StorSimple Cloud Appliance permanecía sin conexión durante una migración de datos en el lado host. Este problema está corregido en esta versión. |No |Sí |
 | 2 |Volúmenes anclados localmente |En la versión anterior, hubo problemas relacionados con errores de E/S, errores de conversión de volumen y errores de ruta de acceso de datos para volúmenes anclados localmente. Estos problemas eran la causa raíz y se han solucionado en esta versión. |Sí |No |
@@ -53,7 +53,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en Upd
 ## <a name="known-issues-in-update-3"></a>Problemas conocidos de Update 3
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| No. | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No. | Característica | Incidencia | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Cuórum de disco |En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. |Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
 | 2 |Identificador de controlador incorrecto |Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. |No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. |Sí |No |

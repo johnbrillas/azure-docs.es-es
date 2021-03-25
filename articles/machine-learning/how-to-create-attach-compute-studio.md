@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031035"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103149365"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
@@ -147,7 +147,7 @@ Use los [pasos anteriores](#portal-create) para adjuntar un proceso.  Después, 
 
 1. Escriba un nombre para el destino de proceso. 
 1. Seleccione el tipo de proceso que va a adjuntar. No todos los tipos de proceso se pueden adjuntar desde Azure Machine Learning Studio. Los tipos de proceso que se pueden adjuntar actualmente para entrenamiento incluyen:
-    * Una máquina virtual remota
+    * Una máquina virtual de Azure (para asociar una instancia de Data Science Virtual Machine)
     * Azure Databricks (para su uso en las canalizaciones de aprendizaje automático)
     * Azure Data Lake Analytics (para su uso en las canalizaciones de aprendizaje automático)
     * HDInsight de Azure

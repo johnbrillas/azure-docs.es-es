@@ -1,17 +1,17 @@
 ---
-title: 'Compatibilidad de Linux con Windows Virtual Desktop: Azure'
-description: Una breve descripción general de la compatibilidad de Linux con Windows Virtual Desktop.
+title: 'Compatibilidad con clientes ligeros de Windows Virtual Desktop: Azure'
+description: Una breve descripción general de la compatibilidad de clientes ligeros con Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 502a89c5a2c0384e34ee35346332a4dd6adc38aa
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185434"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491476"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
@@ -23,10 +23,11 @@ Los siguientes asociados tienen clientes de Windows Virtual Desktop aprobados pa
 
 |Asociado|Documentación de asociado|Soporte técnico del asociado|
 |:------|:--------------------|:--------------|
-|![Logotipo de Dell](./media/partners/dell.png)|[Documentación del cliente de Dell](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Soporte técnico de Dell](https://www.dell.com/support)|
-|![Logotipo de IGEL](./media/partners/igel.png)|[Documentación del cliente de IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Soporte técnico de IGEL](https://www.igel.com/support/)|
-|![Logotipo de NComputing](./media/partners/ncomputing.png)|[Documentación del cliente de NComputing](https://www.ncomputing.com/microsoft)|[Soporte técnico de NComputing](https://www.ncomputing.com/support/support-options)|
-|![Logotipo de Stratodesk](./media/partners/stratodesk.png)|[Documentación del cliente de Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Soporte técnico de Stratodesk](https://www.stratodesk.com/support/)|
+|Dell |[Documentación del cliente de Dell](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Soporte técnico de Dell](https://www.dell.com/support)|
+|IGEL |[Documentación del cliente de IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Soporte técnico de IGEL](https://www.igel.com/support/)|
+|NComputing |[Documentación del cliente de NComputing](https://www.ncomputing.com/microsoft)|[Soporte técnico de NComputing](https://www.ncomputing.com/support/support-options)|
+|Stratodesk |[Documentación del cliente de Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Soporte técnico de Stratodesk](https://www.stratodesk.com/support/)|
+|HP |[Documentación del cliente de HP](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[Soporte técnico de HP](https://support.hp.com/us-en/products/workstations-thin-clients)|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Meraki Dashboard
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Meraki Dashboard con Azure Active Dire
 * Permitir que los usuarios inicien sesión automáticamente en Meraki Dashboard con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

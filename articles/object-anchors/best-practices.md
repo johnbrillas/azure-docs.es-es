@@ -3,15 +3,15 @@ title: Prácticas recomendadas
 description: Procedimientos recomendados para obtener resultados mejorados
 author: ariye
 ms.author: crtreasu
-ms.date: 02/17/2021
+ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: e287d8305b3fd85fc992417e1563b1e58e6f8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503052"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463007"
 ---
 # <a name="best-practices"></a>Procedimientos recomendados
 
@@ -19,7 +19,7 @@ Se recomienda probar algunos de estos pasos para obtener los mejores resultados.
 
 ## <a name="ingestion"></a>Ingesta de datos
 
-- Compruebe las dimensiones de los objetos físicos. Object Anchors funciona mejor con los objetos cuya dimensión más pequeña se encuentra en el intervalo recomendado de 1 a 10 metros.
+- Compruebe las dimensiones de los objetos físicos. Azure Object Anchors funciona mejor con los objetos cuya dimensión más pequeña se encuentra en el intervalo recomendado de 1 a 10 metros.
 - Inspeccione el modelo 3D en un programa de software como [**MeshLab**](https://www.meshlab.net/) para obtener los detalles siguientes.
   - Asegúrese de que el modelo 3D tenga una malla de triángulo y que los triángulos de la superficie exterior miren hacia afuera. Es decir, los vértices deben estar orientados para que las normales sigan la regla de la mano derecha en su orientación hacia afuera.
   - Asegúrese de que el modelo 3D se especifique con las unidades de escala correctas con respecto a los objetos físicos. Las unidades deben ser: ***centímetros, decímetros, pies, pulgadas, kilómetros, metros, milímetros, yardas***.
@@ -32,12 +32,12 @@ Se recomienda probar algunos de estos pasos para obtener los mejores resultados.
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - El SDK del entorno de ejecución proporcionado requiere una región de búsqueda proporcionada por el usuario para buscar y detectar los objetos físicos. La región de búsqueda podría ser un rectángulo delimitador, una esfera, el tronco de una vista o cualquier combinación de ellos. Para evitar una detección falsa, es preferible establecer una región de búsqueda lo suficientemente grande como para abarcar el objeto. Al usar las aplicaciones de ejemplo proporcionadas, puede pararse a un lado del objeto a aproximadamente 2 metros de la superficie más cercana e iniciar la aplicación.
-- Antes de iniciar la aplicación de Object Anchors en un dispositivo HoloLens 2, quite los hologramas en las proximidades de su área de trabajo a través de la configuración principal de sus dispositivos en ***Configuración -> Sistema -> Hologramas***.
+- Antes de iniciar la aplicación de Azure Object Anchors en un dispositivo HoloLens 2, quite los hologramas en las proximidades de su área de trabajo a través de la configuración principal de sus dispositivos en ***Configuración -> Sistema -> Hologramas***.
 
   Este paso garantiza que si un nuevo objeto, como un automóvil, se encuentra en el mismo espacio que ocupaba otro objeto anteriormente, o si el objeto se ha desplazado del espacio de destino, los hologramas antiguos e irrelevantes no se conservarán ni crearán una visualización confusa para el objeto actualmente en la vista.
 - Después de quitar los hologramas y antes de iniciar la aplicación, examine el objeto, por ejemplo, un automóvil, mirando al objeto y sosteniendo el dispositivo a aproximadamente 1 o 2 metros, y camine lentamente alrededor del objeto una o dos veces.
 
-  Este paso garantiza que las estimaciones de superficies residuales creadas en el espacio por objetos y exámenes anteriores se actualicen con las superficies del objeto de destino actual con el que va a trabajar. De lo contrario, es posible que la aplicación vea superficies fantasma dobles que conduzcan a una alineación inexacta del modelo 3D y los hologramas asociados. El examen previo del objeto también reducirá en gran medida la latencia de detección de AOA (ángulo de llegada), por ejemplo, de 30 a 5 segundos.
+  Este paso garantiza que las estimaciones de superficies residuales creadas en el espacio por objetos y exámenes anteriores se actualicen con las superficies del objeto de destino actual con el que va a trabajar. De lo contrario, es posible que la aplicación vea superficies fantasma dobles que conduzcan a una alineación inexacta del modelo 3D y los hologramas asociados. El examen previo del objeto también reducirá en gran medida la latencia de detección de Azure Object Anchors, por ejemplo, de 30 a 5 segundos.
 - En el caso de los objetos oscuros y muy reflectantes, puede que tenga que examinar el objeto a una distancia menor, y también moviendo la cabeza hacia arriba y abajo, y hacia la izquierda y la derecha para que el dispositivo vea las superficies de varios ángulos y varias distancias.
 - Cuando vea una detección de objetos incorrecta, por ejemplo, que se voltee la orientación, o que la posición es incorrecta, como un modelo inclinado, debe visualizar la asignación espacial. A menudo, los resultados incorrectos se deben a una reconstrucción deficiente o incompleta de la superficie. Puede quitar los hologramas, examinar el objeto y volver a ejecutar la detección de objetos en la aplicación.
 - El SDK del entorno de ejecución proporcionado ofrece algunos parámetros para que los usuarios puedan ajustar la detección, tal y como se muestra en las aplicaciones de ejemplo. Los parámetros predeterminados funcionan bien con la mayoría de los objetos. Si cree que necesita ajustarlos para objetos específicos, he aquí algunas recomendaciones:

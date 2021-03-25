@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241929"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio o detención de un servidor flexible de Azure Database for MySQL (versión preliminar)
@@ -24,13 +24,13 @@ En este artículo se proporciona un procedimiento detallado para iniciar y deten
 
 Para completar esta guía, necesita:
 
--   Debe tener un servidor flexible de Azure Database for MySQL.
+-   Debe tener Azure Database for MySQL: servidor flexible.
 
 ## <a name="stop-a-running-server"></a>Detención de un servidor en ejecución
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que quiera detener.
 
-2.  En la página **Información general** , haga clic en el botón **Detener** de la barra de herramientas.
+2.  En la página **Información general**, haga clic en el botón **Detener** de la barra de herramientas.
     
     :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Detenga el servidor flexible."::: 
 
@@ -45,7 +45,7 @@ Para completar esta guía, necesita:
 
 1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que desea iniciar.
 
-2.  En la página **Información general** , haga clic en el botón **Iniciar** de la barra de herramientas.
+2.  En la página **Información general**, haga clic en el botón **Iniciar** de la barra de herramientas.
 
     :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Inicie el servidor flexible.":::  
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316152"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
@@ -46,13 +46,13 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 En el artículo [Introducción a Azure Table Storage](table-storage-overview.md) se describen algunas de las características clave de Azure Table service que influyen directamente en el diseño de consultas. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
 
-* Una * **consulta de punto** * es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren una menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores _ *PartitionKey* * y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
-* La segunda opción más eficaz es una * **Consulta por rango** _ que use _ *PartitionKey* * y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
-* En tercer lugar, tiene un * **Examen de partición** _ que usa _ *PartitionKey* * y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'  
-* Un * **Recorrido de tabla** _ no incluye la _ *PartitionKey* * y es bastante ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
+* Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren una menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores _ *PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
+* La segunda opción más eficaz es una ***Consulta por rango** _ que use _ *PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
+* En tercer lugar, tiene un ***Examen de partición** _ que usa _ *PartitionKey** y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'  
+* Un ***Recorrido de tabla** _ no incluye la _ *PartitionKey** y es bastante ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
 * Las consultas que devuelven varias entidades las devuelven ordenadas en orden **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común.  
 
-Tenga en cuenta que si usa un " **or** " para especificar un filtro basado en valores **RowKey** , se generará un examen de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')  
+Tenga en cuenta que si usa un "**or**" para especificar un filtro basado en valores **RowKey**, se generará un examen de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')  
 
 Para obtener ejemplos de código de cliente que utilizan la biblioteca de clientes de Storage para ejecutar consultas eficaces, consulte:  
 
@@ -76,7 +76,7 @@ Un **PartitionKey** idóneo es el que permite utilizar consultas eficaces y que 
 > 
 > 
 
-Existen otros aspectos adicionales que se deben considerar al elegir **PartitionKey** , que están relacionados con la forma de insertar, actualizar y eliminar entidades. Para más información, consulte [Diseño para la modificación de datos](table-storage-design-for-modification.md).  
+Existen otros aspectos adicionales que se deben considerar al elegir **PartitionKey**, que están relacionados con la forma de insertar, actualizar y eliminar entidades. Para más información, consulte [Diseño para la modificación de datos](table-storage-design-for-modification.md).  
 
 ## <a name="optimizing-queries-for-the-table-service"></a>Optimización de consultas para Table service
 Table service indexará automáticamente las entidades mediante los valores **PartitionKey** y **RowKey** en un índice agrupado único, por lo tanto, este es el motivo por el que las consultas de punto son las más eficaces. Sin embargo, no hay ningún índice distinto del índice agrupado en **PartitionKey** y **RowKey**.

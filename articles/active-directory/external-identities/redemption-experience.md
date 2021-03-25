@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4cd0febe5ffbc1b17718043d5fc97b804f87cc46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199635"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199737"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -65,7 +65,7 @@ Cuando un usuario hace clic en el vínculo **Aceptar invitación** de un [correo
 
 ![Captura de pantalla que muestra el diagrama de flujo del canje](media/redemption-experience/invitation-redemption-flow.png)
 
-**Si el nombre principal de usuario (UPN) del usuario coincide con una cuenta existente de Azure AD y de MSA personal, se le pedirá al usuario que elija la cuenta con la que desea realizar el canje.*
+**Si el nombre principal de usuario (UPN) coincide con una cuenta existente de Azure AD y de MSA personal, se le pedirá al usuario que elija la cuenta con la que desea realizar el canje.*
 
 1. Azure AD realiza la detección basada en usuarios para determinar si el usuario existe en un [inquilino de Azure AD existente](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 

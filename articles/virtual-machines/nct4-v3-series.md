@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 2a799fed92bea627d5974f27d5328b6c62825556
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562408"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417814"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -28,7 +28,7 @@ Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [N
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
-Interconexión de NVIDIA NVLink: No compatible<br>
+Interconexión de NVIDIA NVLink: Compatible<br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
@@ -46,6 +46,8 @@ Interconexión de NVIDIA NVLink: No compatible<br>
 Para aprovechar las funcionalidades de GPU de las VM de la serie NCasT4_v3 de Azure que ejecutan Windows o Linux, deben instalarse controladores de GPU de NVIDIA.
 
 Para instalar manualmente los controladores de GPU de NVIDIA, consulte [Instalación de controladores de GPU de la serie N para Windows](./windows/n-series-driver-setup.md) para obtener información sobre los sistemas operativos y controladores compatibles, así como sobre los pasos de instalación y verificación.
+
+La extensión del controlador de GPU de NVIDIA de Azure implementará controladores CUDA en las máquinas virtuales de la serie NCasT4_v3. En el caso de las cargas de trabajo de visualización y gráficos, instale manualmente los controladores GRID compatibles con Azure.
 
 ## <a name="other-sizes"></a>Otros tamaños
 

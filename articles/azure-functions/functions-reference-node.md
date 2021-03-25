@@ -3,14 +3,14 @@ title: Referencia para desarrolladores de JavaScript para Azure Functions
 description: Obtenga información sobre cómo desarrollar funciones con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591039"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614911"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -507,20 +507,20 @@ En la tabla siguiente se muestran las versiones actuales de Node. js compatibles
 
 | Versión de Functions | Versión de Node (Windows) | Versión de Node (Linux) |
 |---|---| --- |
+| 3.x (recomendado) | `~14` (recomendado)<br/>`~12`<br/>`~10` | `node|14` (recomendado)<br/>`node|12`<br/>`node|10` |
+| 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2 (bloqueado por el entorno de tiempo de ejecución) | N/D |
-| 2.x  | `~8`<br/>`~10` (recomendado)<br/>`~12` | `node|8`<br/>`node|10` (recomendado)  |
-| 3.x | `~10`<br/>`~12` (recomendado)<br/>`~14` (versión preliminar)  | `node|10`<br/>`node|12` (recomendado)<br/>`node|14` (versión preliminar) |
 
 Puede ver la versión actual que el entorno de tiempo de ejecución usa mediante el registro de `process.version` desde cualquier función.
 
 ### <a name="setting-the-node-version"></a>Especificación de la versión de Node
 
-Para las aplicaciones de funciones de Windows, seleccione el destino de la versión en Azure estableciendo la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) `WEBSITE_NODE_DEFAULT_VERSION` en una versión compatible con LTS, como `~12`.
+Para las aplicaciones de funciones de Windows, seleccione el destino de la versión en Azure estableciendo la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) `WEBSITE_NODE_DEFAULT_VERSION` en una versión compatible con LTS, como `~14`.
 
 En el caso de las aplicaciones de funciones de Linux, ejecute el siguiente comando de la CLI de Azure para actualizar la versión de Node.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>Administración de dependencias
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>Módulos ECMAScript (versión preliminar)
+
+> [!NOTE]
+> Como los módulos ECMAScript tienen actualmente la etiqueta *experimental* en Node.js 14, están disponibles como una característica en versión preliminar de Node.js 14 en Azure Functions. Hasta que la compatibilidad con Node.js 14 para los módulos ECMAScript se vuelva *estable*, se esperan posibles cambios en su API o comportamiento.
+
+Los [módulos ECMAScript](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (módulos ES) son el nuevo sistema de módulos estándar oficial de Node.js. Hasta ahora, en los ejemplos de código de este artículo se usa la sintaxis CommonJS. Al ejecutar Azure Functions en Node.js 14, puede optar por escribir las funciones mediante la sintaxis de los módulos ES.
+
+Para usar los módulos ES en una función, cambie su nombre de archivo para usar una extensión `.mjs`. El siguiente archivo *index.mjs* es una función desencadenada por HTTP que usa la sintaxis de los módulos ES para importar la biblioteca `uuid` y devolver un valor.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 

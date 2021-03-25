@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/07/2021
 ms.topic: conceptual
 ms.openlocfilehash: e0088fb129e9c6558de7539ba754a45e067dc3d8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576844"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
@@ -83,7 +83,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 
 Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente. Una vez creados, estos runbooks se pueden eliminar de forma segura, en caso de que no se desee conservarlos. Las cuentas de ejecución pueden utilizarse para autenticarse con la cuenta en un runbook y deben conservarse a menos que se cree otra o que ya no sean necesarias. La siguiente tabla resume los recursos de la cuenta de ejecución.
 
-| Recurso | Descripción |
+| Resource | Descripción |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook gráfico de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución. El runbook obtiene todos los recursos de Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook de PowerShell de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución. El runbook obtiene todos los recursos de Resource Manager. |

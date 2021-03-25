@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003878"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -87,13 +87,13 @@ Use los pasos siguientes para instalar Administrador de instantáneas StorSimple
 
 #### <a name="to-install-storsimple-snapshot-manager"></a>Para instalar Administrador de instantáneas StorSimple
 1. Descargue el software Administrador de instantáneas StorSimple (vaya a [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220) en el Centro de descarga de Microsoft) y guárdelo localmente en el host.
-2. En el Explorador de archivos, haga clic en la carpeta comprimida y, a continuación, en **Extraer todo**.
-3. En la ventana **Extraer carpetas comprimidas (en zip)** , en el cuadro **Seleccionar un destino y extraer archivos**, escriba o busque la ruta de acceso donde desea extraer el archivo.
+2. En el Explorador de archivos, haga clic con el botón secundario en la carpeta comprimida y luego haga clic en **Extraer todo**.
+3. En la ventana **Extraer carpetas comprimidas (en zip)**, en el cuadro **Seleccionar un destino y extraer archivos**, escriba la ruta donde desea extraer el archivo o desplácese hasta ella.
    
     > [!IMPORTANT]
     > Debe instalar Administrador de instantáneas StorSimple en la unidad C:.
     
-4. Seleccione la casilla **Mostrar los archivos extraídos al completar** y, después, haga clic en **Extraer**.
+4. Seleccione la casilla **Mostrar los archivos extraídos al completar** y haga clic en **Extraer**.
    
     ![Extracción del cuadro de diálogo de archivos](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png) 
 5. Cuando finaliza la extracción, se abre la carpeta de destino. Haga doble clic en el icono de instalación de la aplicación que aparece en la carpeta de destino.
@@ -105,23 +105,23 @@ Use los pasos siguientes para instalar Administrador de instantáneas StorSimple
 Siga estos pasos para conectar Administrador de instantáneas StorSimple a un dispositivo StorSimple.
 
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>Para conectar Administrador de instantáneas StorSimple a un dispositivo
-1. Haga clic en el icono Administrador de instantáneas StorSimple en su escritorio. Aparecerá el cuadro de diálogo Administrador de instantáneas StorSimple. La ventana contiene un panel **Ámbito**, un panel **Resultados** y un panel **Acciones**. 
+1. Haga clic en el icono Administrador de instantáneas StorSimple en su escritorio. Aparecerá el cuadro de diálogo Administrador de instantáneas StorSimple. La ventana contiene los paneles **Ámbito**, **Resultados** y **Acciones**. 
    
     ![Interfaz de usuario de Administrador de instantáneas StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
    
-   * El panel **Ámbito** (panel izquierdo) contiene una lista de nodos organizados en una estructura de árbol. Puede expandir algunos nodos para seleccionar una vista o datos específicos relacionados con ese nodo. Haga clic en el icono de flecha para expandir o contraer un nodo. Haga clic en un elemento en el panel **Ámbito** para ver una lista de acciones disponibles para ese elemento.
-   * El panel **Resultados** (panel central) contiene información de estado detallada sobre el nodo o la vista, o bien sobre los datos que ha seleccionado en el panel **Ámbito**.
-   * El panel **Acciones** muestra las operaciones que puede realizar en el nodo o la vista, o bien en los datos que ha seleccionado en el panel **Ámbito**.
+   * El panel **Ámbito** de la izquierda contiene una lista de nodos organizados en una estructura de árbol. Puede expandir algunos nodos para seleccionar una vista o datos específicos relacionados con ese nodo. Haga clic en el icono de flecha para expandir o contraer un nodo. Haga clic con el botón secundario en un elemento del panel **Ámbito** para ver una lista de acciones disponibles para ese elemento.
+   * El panel **Resultados**, en el centro, contiene información detallada sobre el estado del nodo, vista o datos que ha seleccionado en el panel **Ámbito**.
+   * En el panel **Acciones** se enumeran las operaciones que puede realizar en el nodo, vista o datos que ha seleccionado en el panel **Ámbito**.
      
      Para obtener una descripción completa de la interfaz de usuario de Administrador de instantáneas StorSimple, consulte [Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md).
-2. En el panel **Ámbito**, haga clic con el botón derecho en el nodo **Dispositivos** y, después, haga clic en **Configurar un dispositivo**. Aparece el cuadro de diálogo **Configurar un dispositivo** .
+2. En el panel **Ámbito**, haga clic con el botón secundario en el nodo **Dispositivos** y luego haga clic en **Configurar un dispositivo**. Aparece el cuadro de diálogo **Configurar un dispositivo**.
    
     ![Configurar un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
 3. En el cuadro de lista **Dispositivo** , seleccione la dirección IP del dispositivo de Microsoft Azure StorSimple o el dispositivo virtual. En el cuadro de texto **Contraseña**, escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en Azure Portal. Haga clic en **OK**.
 4. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado. Si el dispositivo está disponible, Administrador de instantáneas StorSimple agrega una conexión. También puede [comprobar la conexión al dispositivo](#to-verify-the-connection) para confirmar que la conexión se agregó correctamente.
    
-    Si el dispositivo no está disponible por alguna razón, Administrador de instantáneas StorSimple devuelve un mensaje de error. Haga clic en **Aceptar** para cerrar el mensaje de error y, luego, haga clic en **Cancelar** para cerrar el cuadro de diálogo **Configurar un dispositivo**.
-5. Cuando se conecta a un dispositivo, Administrador de instantáneas StorSimple importa cada grupo de volúmenes configurado para ese dispositivo, siempre que los grupos de volumen tengan asociadas copias de seguridad. Los grupos de volúmenes que no tienen copias de seguridad asociadas no se importan. Además, las directivas de copia de seguridad que se crearon para un grupo de volúmenes no se importan. Para ver los grupos importados, en el panel **Ámbito** haga clic con el botón derecho en la parte superior del nodo **Grupos de volúmenes** y haga clic en **Alternar grupos importados**.
+    Si el dispositivo no está disponible por alguna razón, Administrador de instantáneas StorSimple devuelve un mensaje de error. Haga clic en **Aceptar** para cerrar el mensaje de error y luego haga clic en **Cancelar** para cerrar el cuadro de diálogo **Configurar un dispositivo**.
+5. Cuando se conecta a un dispositivo, Administrador de instantáneas StorSimple importa cada grupo de volúmenes configurado para ese dispositivo, siempre que los grupos de volumen tengan asociadas copias de seguridad. Los grupos de volúmenes que no tienen copias de seguridad asociadas no se importan. Además, las directivas de copia de seguridad que se crearon para un grupo de volúmenes no se importan. Para ver los grupos importados, haga clic con el botón secundario en el nodo **Grupos de volúmenes** que se encuentra en la parte superior del panel **Ámbito** y haga clic en **Alternar grupos importados**.
 
 ### <a name="step-3-verify-the-connection-to-the-device"></a>Paso 3: Comprobación de la conexión con el dispositivo
 Use los pasos siguientes para comprobar que Administrador de instantáneas StorSimple está conectado al dispositivo StorSimple.
@@ -130,7 +130,7 @@ Use los pasos siguientes para comprobar que Administrador de instantáneas StorS
 1. En el panel **Ámbito**, haga clic en el nodo **Dispositivos**.
    
     ![Estado del dispositivo de Administrador de instantáneas StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png) 
-2. Compruebe el panel **Resultados** : 
+2. Eche un vistazo al panel **Resultados**: 
    
    * Si aparece un indicador verde en el icono de dispositivo y **Disponible** en la columna **Estado**, el dispositivo está conectado. 
    * Si aparece un indicador rojo en el icono de dispositivo y No disponible en la columna **Estado** , el dispositivo no está conectado. 
@@ -151,16 +151,16 @@ Si va a actualizar o reinstalar Administrador de instantáneas StorSimple, siga 
 Use los pasos siguientes para desinstalar Administrador de instantáneas StorSimple.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Para desinstalar Administrador de instantáneas StorSimple
-1. En el equipo host, abra el **Panel de control**, haga clic en **Programas** y, después, en **Programas y características**.
+1. En el equipo host, abra el **Panel de control**, haga clic en **Programas** y luego haga clic en **Programas y características**
 2. En el panel izquierdo, haga clic en **Desinstalar o cambiar un programa**.
-3. Haga clic con el botón derecho en **StorSimple Snapshot Manager** y, después, haga clic en **Desinstalar**.
-4. Esto inicia el programa de instalación de Administrador de instantáneas StorSimple. Haga clic en **Modificar instalación** y, luego, haga clic en **Desinstalar**.
+3. Haga clic con el botón secundario en **Administrador de instantáneas StorSimple** y luego haga clic en **Desinstalar**.
+4. Esto inicia el programa de instalación de Administrador de instantáneas StorSimple. Haga clic en **Modificar instalación** y luego haga clic en **Desinstalar**.
    
    > [!NOTE]
-   > Si hay algún proceso de MMC en ejecución en segundo plano, como Administrador de instantáneas StorSimple o Administración de discos, la desinstalación fallará y recibirá un mensaje para cerrar todas las instancias de MMC antes de intentar desinstalar el programa. Seleccione **Cerrar las aplicaciones automáticamente e intentar reiniciarlas después de que la instalación se complete** y, luego, haga clic en **Aceptar**.
+   > Si hay algún proceso de MMC en ejecución en segundo plano, como Administrador de instantáneas StorSimple o Administración de discos, la desinstalación fallará y recibirá un mensaje para cerrar todas las instancias de MMC antes de intentar desinstalar el programa. Seleccione **Cerrar las aplicaciones automáticamente e intentar reiniciarlas después de que la instalación se complete** y luego haga clic en **Aceptar**.
    > 
    > 
-5. Cuando finalice el proceso de desinstalación, aparece un mensaje **La instalación se realizó correctamente** . Haga clic en **Cerrar**.
+5. Cuando finalice el proceso de desinstalación, aparecerá el mensaje **La instalación o desinstalación se realizó correctamente**. Haga clic en **Cerrar**.
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Paso 2: Copia de seguridad de la base de datos de Administrador de instantáneas StorSimple
 Use los pasos siguientes para crear y guardar una copia de la base de datos de Administrador de instantáneas StorSimple.
@@ -169,9 +169,9 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
 1. Detenga el servicio de administración de Microsoft StorSimple:
    
    1. Inicie el Administrador del servidor.
-   2. En el panel Administrador del servidor, en el menú **Herramientas**, seleccione **Servicios**.
-   3. En la página **Servicios**, seleccione **Microsoft StorSimple Management Service**.
-   4. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Detener el servicio**.
+   2. En el Panel del Administrador de servidores, en el menú **Herramientas**, seleccione **Servicios**.
+   3. En la página **Servicios**, seleccione **Servicio de administración de StorSimple de Microsoft**.
+   4. En el panel derecho, en **Servicio de administración de StorSimple de Microsoft**, haga clic en **Detener el servicio**.
       
         ![Detención del servicio StorSimple Device Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -184,9 +184,9 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
     ![Archivo de catálogo de copia de seguridad de StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
 4. Reinicie el servicio de administración de Microsoft StorSimple: 
    
-   1. En el panel Administrador del servidor, en el menú **Herramientas**, seleccione **Servicios**.
-   2. En la página **Servicios**, seleccione **Microsoft StorSimple Management Service**.
-   3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**. 
+   1. En el Panel del Administrador de servidores, en el menú **Herramientas**, seleccione **Servicios**.
+   2. En la página **Servicios**, seleccione el **Servicio de administración de StorSimple de Microsoft**.
+   3. En el panel derecho, en **Servicio de administración de StorSimple de Microsoft**, haga clic en **Reiniciar el servicio**. 
 
 ### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Paso 3: Instalación de Administrador de instantáneas StorSimple y restauración de la base de datos
 Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descritos en [Instalación de un nuevo Administrador de instantáneas StorSimple](#install-a-new-storsimple-snapshot-manager). A continuación, use el siguiente procedimiento para restaurar la base de datos de Administrador de instantáneas StorSimple.
@@ -195,9 +195,9 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 1. Detenga el servicio de administración de Microsoft StorSimple:
    
    1. Inicie el Administrador del servidor.
-   2. En el panel Administrador del servidor, en el menú **Herramientas**, seleccione **Servicios**.
-   3. En la página **Servicios**, seleccione **Microsoft StorSimple Management Service**.
-   4. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Detener el servicio**.
+   2. En el Panel del Administrador de servidores, en el menú **Herramientas**, seleccione **Servicios**.
+   3. En la página **Servicios**, seleccione **Servicio de administración de StorSimple de Microsoft**.
+   4. En el panel derecho, en **Servicio de administración de StorSimple de Microsoft**, haga clic en **Detener el servicio**.
 2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
    
    > [!NOTE]
@@ -207,9 +207,9 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 3. Elimine el archivo XML de catálogo y reemplácelo por la versión que guardó anteriormente.
 4. Reinicie el servicio de administración de Microsoft StorSimple: 
    
-   1. En el panel Administrador del servidor, en el menú **Herramientas**, seleccione **Servicios**.
-   2. En la página **Servicios**, seleccione **Microsoft StorSimple Management Service**.
-   3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**.
+   1. En el Panel del Administrador de servidores, en el menú **Herramientas**, seleccione **Servicios**.
+   2. En la página **Servicios**, seleccione **Servicio de administración de StorSimple de Microsoft**.
+   3. En el panel derecho, en **Servicio de administración de StorSimple de Microsoft**, haga clic en **Reiniciar el servicio**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información sobre Snapshot Manager de StorSimple, vaya a [¿Qué es Snapshot Manager de StorSimple?](storsimple-what-is-snapshot-manager.md)

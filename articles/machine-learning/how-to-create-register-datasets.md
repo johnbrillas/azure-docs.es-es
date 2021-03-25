@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522196"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417644"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 Para reutilizar y compartir conjuntos de datos en experimentos en el área de trabajo, [registre el conjunto de datos](#register-datasets).
 
+## <a name="wrangle-data"></a>Limpieza y transformación de datos
+Después de crear y [registrar](#register-datasets) el conjunto de datos, puede cargarlo en el cuaderno para limpiar y transformar los datos y [explorarlos](#explore-data) antes del entrenamiento del modelo. 
+
+Si no necesita realizar ninguna limpieza y transformación de datos, consulte cómo consumir los conjuntos de datos en los scripts de entrenamiento para enviar experimentos de aprendizaje automático en [Entrenamiento con conjuntos de datos](how-to-train-with-datasets.md).
+
+### <a name="filter-datasets-preview"></a>Filtrado de conjuntos de datos (versión preliminar)
+Las funcionalidades de filtrado dependen del tipo de conjunto de datos que tenga. 
+> [!IMPORTANT]
+> El filtrado de conjuntos de datos con el método de versión preliminar pública [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) es una característica en versión preliminar [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento. 
+> 
+**En el caso de TabularDatasets**, puede conservar o quitar columnas con los métodos [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) y [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-).
+
+Para filtrar las filas por un valor de columna específico en TabularDataset, use el método [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) (versión preliminar). 
+
+Los ejemplos siguientes devuelven un conjunto de datos no registrado basado en las expresiones especificadas.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**En FileDatasets**, cada fila corresponde a una ruta de acceso de un archivo, por lo que el filtrado por el valor de columna no resulta útil. Sin embargo, puede usar el método [filter()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) para filtrar las filas por metadatos, como CreationTime, Size, etc.
+
+Los ejemplos siguientes devuelven un conjunto de datos no registrado basado en las expresiones especificadas.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+Los **conjuntos de datos con etiqueta** creados a partir de [proyectos de etiquetado de datos](how-to-create-labeling-projects.md) son un caso especial. Estos conjuntos de datos son un tipo de TabularDataset formado por archivos de imagen. Con estos tipos de conjuntos de datos, puede usar el método [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) para filtrar imágenes por metadatos y por valores de columna como `label` y `image_details`.
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>Exploración de datos
 
-Una vez creado y [registrado](#register-datasets) el conjunto de datos, puede cargarlo en el cuaderno para explorar los datos antes del entrenamiento del modelo. Si no necesita realizar ninguna exploración de datos, consulte cómo usar los conjuntos de datos en los scripts de entrenamiento para enviar experimentos de ML en [Entrenamiento con conjuntos de datos](how-to-train-with-datasets.md).
+Después de haber limpiado y trasformado los datos, puede [registrar](#register-datasets) el conjunto de datos y, luego, cargarlo en el cuaderno para explorar los datos antes del entrenamiento del modelo.
 
 En el caso de FileDatasets, puede **montar** o **descargar** su conjunto de datos y aplicar las bibliotecas de Python que usaría normalmente para la exploración de datos. [Obtenga más información sobre la diferencia entre el montaje y la descarga](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Creación de conjuntos de datos mediante Azure Resource Manager
 
-Existen varias plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que se pueden usar para crear conjuntos de datos.
+Hay muchas plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que pueden usarse para crear conjuntos de datos.
 
 Para información sobre el uso de estas plantillas, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 

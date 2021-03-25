@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 9e0aa186e742318ab5793fa8390251d94327bf08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632714"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Conexión del Firewall de Barracuda CloudGen
 
 El conector del Firewall de Barracuda CloudGen (CGFW) le permite conectar fácilmente los registros de Barracuda CGFW con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. Esto le ofrece más información sobre la red de su organización y mejora las capacidades de las operaciones de seguridad.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324546"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
@@ -39,7 +39,7 @@ Implemente modelos con canalización de datos en un entorno de producción o sim
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 La tarea principal que se aborda en esta fase es la siguiente:
 
-**Uso del modelo** : implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
+**Uso del modelo**: implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
 
 ### <a name="operationalize-a-model"></a>Uso de modelos
 Cuando ya disponga de un conjunto de modelos que funcionan bien, los puede hacer operativos para que los consuman otras aplicaciones. Dependiendo de los requisitos empresariales, se realizan predicciones en tiempo real o por lotes. Para implementar modelos, los expone con una interfaz de API abierta. La interfaz permite que el modelo se utilice fácilmente por diferentes aplicaciones, como las siguientes:
@@ -52,7 +52,7 @@ Cuando ya disponga de un conjunto de modelos que funcionan bien, los puede hacer
 
 Para obtener información sobre cómo crear e implementar un servicio web de Azure Machine Learning, consulte [Implementación de un servicio web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md). Es un procedimiento recomendado compilar la telemetría y la supervisión en el modelo de producción y la canalización de datos que se implementan. Este procedimiento ayuda con las posteriores tareas de solución de problemas e informes de estado del sistema.  
 
-## <a name="artifacts"></a>Artefactos
+## <a name="artifacts"></a>Artifacts
 
 * Un panel de estado que muestra el estado del sistema y métricas clave.
 * Un informe de modelado final con detalles de implementación.

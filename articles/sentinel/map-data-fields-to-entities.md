@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: cb91d269f6b166510db54637d17d776e71137408
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456179"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Asignación de campos de datos a entidades en Azure Sentinel 
@@ -75,5 +75,5 @@ El procedimiento que se detalla a continuación forma parte del asistente para c
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido cómo asignar campos de datos a entidades en las reglas de análisis de Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga una visión completa en [Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas](tutorial-detect-threats-custom.md).
-- Más información en [Clasificación y análisis de datos mediante entidades en Azure Sentinel](entities-in-azure-sentinel.md).
+- Obtenga una visión completa de las [reglas de análisis de consultas programadas](tutorial-detect-threats-custom.md).
+- Obtenga más información sobre las [entidades en Azure Sentinel](entities-in-azure-sentinel.md).

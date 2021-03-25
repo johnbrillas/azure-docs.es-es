@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051198"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466718"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo usar los permisos concedidos por roles perso
 - [Asignación de un rol administrativo integrado](#assign-built-in-application-admin-roles) que conceda acceso para administrar la configuración de todas las aplicaciones en Azure AD. Esta es la manera recomendada de conceder a los expertos de TI acceso para administrar amplios permisos de configuración de aplicaciones sin conceder acceso para administrar otras partes de Azure AD no relacionadas con la configuración de aplicaciones.
 - [Creación de un rol](#create-and-assign-a-custom-role-preview) personalizado que defina permisos muy específicos y asignación a alguien en el ámbito de una sola aplicación como propietario limitado o en el ámbito de directorio (todas las aplicaciones) como administrador limitado.
 
-Es importante considerar la posibilidad de conceder acceso mediante uno de los métodos anteriores por dos motivos. En primer lugar, la delegación de la capacidad de realizar tareas administrativas reduce la sobrecarga del administrador global. En segundo lugar, el uso de permisos limitados mejora su nivel de seguridad y reduce la posibilidad de accesos no autorizados. En [Delegación de la administración en Azure Active Directory](concept-delegation.md), se describen problemas de delegación y criterios generales.
+Es importante considerar la posibilidad de conceder acceso mediante uno de los métodos anteriores por dos motivos. En primer lugar, la delegación de la capacidad de realizar tareas administrativas reduce la sobrecarga del administrador global. En segundo lugar, el uso de permisos limitados mejora su nivel de seguridad y reduce la posibilidad de accesos no autorizados. Para obtener instrucciones sobre el planeamiento de la seguridad de roles, consulte [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](security-planning.md).
 
 ## <a name="restrict-who-can-create-applications"></a>Restricción de quién puede crear aplicaciones
 

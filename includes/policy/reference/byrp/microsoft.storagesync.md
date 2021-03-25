@@ -1,0 +1,20 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 03/10/2021
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: ce13484aa085cef89ba34151824ee843dd3bd90e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "103419903"
+---
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Azure File Sync debe usar vínculo privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |Si crea un punto de conexión privado para el recurso del servicio de sincronización de almacenamiento indicado, podrá dirigirse al recurso del servicio de sincronización de almacenamiento desde el espacio de direcciones IP privadas de la red de la organización, en lugar de hacerlo a través del punto de conexión público accesible desde Internet. La creación de un punto de conexión privado por sí mismo no deshabilita el punto de conexión público. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
+|[Configurar Azure File Sync con puntos de conexión privados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |Se implementa un punto de conexión privado para el recurso del servicio de sincronización de almacenamiento indicado. Esto le permite direccionar el recurso del servicio de sincronización de almacenamiento desde el espacio de direcciones IP privadas de la red de su organización, en lugar de hacerlo a través del punto de conexión público accesible desde Internet. La existencia de uno o más puntos de conexión privados por sí solos no deshabilita el punto de conexión público. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
+|[Modificación: configurar Azure File Sync para deshabilitar el acceso a la red pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e07b2e9-6cd9-4c40-9ccb-52817b95133b) |La directiva de la organización deshabilita el punto de conexión público accesible a Internet de Azure File Sync. Todavía puede acceder al servicio de sincronización de almacenamiento a través de sus puntos de conexión privados. |Modificar, Deshabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_Modify.json) |
+|[El acceso a las redes públicas debe estar deshabilitado para Azure File Sync](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a8cd35-125e-4d13-b82d-2e19b7208bb7) |Deshabilitar el punto de conexión público le permite restringir el acceso al recurso del servicio de sincronización de almacenamiento a las solicitudes destinadas a puntos de conexión privados aprobados en la red de su organización. No hay nada que sea intrínsecamente inseguro en permitir solicitudes al punto de conexión público; no obstante, puede ser aconsejable deshabilitarlas para cumplir los requisitos normativos, legales o de directiva de la organización. Puede deshabilitar el punto de conexión público para un servicio de sincronización de almacenamiento estableciendo el valor de incomingTrafficPolicy del recurso en AllowVirtualNetworksOnly. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_AuditDeny.json) |

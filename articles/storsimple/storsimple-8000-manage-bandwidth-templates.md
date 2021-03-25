@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005901"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Uso del servicio StorSimple Device Manager para administrar plantillas de ancho de banda de StorSimple
@@ -40,9 +40,9 @@ Mediante programaciones de limitación de ancho de banda puede:
 
 La hoja **Plantillas de ancho de banda** tiene todas las plantillas de ancho de banda del servicio en formato tabular y contiene la siguiente información:
 
-* **Nombre** : nombre único asignado a la plantilla de ancho de banda cuando se creó.
-* **Programación** : número de programaciones contenidas en una plantilla de ancho de banda determinada.
-* **Usado por** : número de volúmenes que usan las plantillas de ancho de banda.
+* **Nombre**: un nombre único que se asignó a la plantilla de ancho de banda cuando se creó.
+* **Programación**: número de programaciones contenidas en una plantilla determinada de ancho de banda.
+* **Utilizado por**: el número de volúmenes que usan las plantillas de ancho de banda.
 
 También puede encontrar información adicional para ayudarle a configurar plantillas de ancho de banda en:
 
@@ -136,23 +136,23 @@ La programación compuesta se iniciará en el momento que desee y se ejecutará 
 
 **P**. ¿Qué les sucede a los controles de ancho de banda cuando se encuentra entre programaciones? (Una programación ha terminado y todavía no se ha iniciado otra).
 
-**R**. En estos casos, no se utilizará ningún control de ancho de banda. Esto significa que el dispositivo puede utilizar un ancho de banda ilimitado durante la disposición de datos a la nube.
+**A**. En estos casos, no se utilizará ningún control de ancho de banda. Esto significa que el dispositivo puede utilizar un ancho de banda ilimitado durante la disposición de datos a la nube.
 
 **P**. ¿Puede modificar las plantillas de ancho de banda en un dispositivo sin conexión?
 
-**R**. No podrá modificar las plantillas de ancho de banda de los contenedores de volúmenes si el dispositivo correspondiente está sin conexión.
+**A**. No podrá modificar las plantillas de ancho de banda de los contenedores de volúmenes si el dispositivo correspondiente está sin conexión.
 
 **P**. ¿Puede editar una plantilla de ancho de banda asociada a un contenedor de volúmenes cuando los volúmenes asociados están sin conexión?
 
-**R**. Puede modificar una plantilla de ancho de banda asociada a un contenedor de volúmenes cuyos volúmenes están sin conexión. Tenga en cuenta que cuando los volúmenes están sin conexión, no se pueden colocar datos desde el dispositivo en la nube.
+**A**. Puede modificar una plantilla de ancho de banda asociada a un contenedor de volúmenes cuyos volúmenes están sin conexión. Tenga en cuenta que cuando los volúmenes están sin conexión, no se pueden colocar datos desde el dispositivo en la nube.
 
 **P**. ¿Puede eliminar una plantilla predeterminada?
 
-**R**. Si bien puede eliminar una plantilla predeterminada, no es una buena idea hacerlo. Se realiza un seguimiento del uso de una plantilla predeterminada (incluidas las versiones modificadas). Los datos de seguimiento se analizan y en el transcurso del tiempo, se utilizan para mejorar la plantilla predeterminada.
+**A**. Si bien puede eliminar una plantilla predeterminada, no es una buena idea hacerlo. Se realiza un seguimiento del uso de una plantilla predeterminada (incluidas las versiones modificadas). Los datos de seguimiento se analizan y en el transcurso del tiempo, se utilizan para mejorar la plantilla predeterminada.
 
 **P**. ¿Cómo se determina que es necesario modificar las plantillas de ancho de banda?
 
-**R**. Uno de los síntomas que indican que debe modificar las plantillas de ancho de banda es cuando empiece a ver que la red se ralentiza o retrae varias veces al día. Si esto ocurre, supervise la red de almacenamiento y uso examinando los gráficos de rendimiento de E/S y de rendimiento de la red.
+**A**. Uno de los síntomas que indican que debe modificar las plantillas de ancho de banda es cuando empiece a ver que la red se ralentiza o retrae varias veces al día. Si esto ocurre, supervise la red de almacenamiento y uso examinando los gráficos de rendimiento de E/S y de rendimiento de la red.
 
 En los datos de rendimiento de la red, identifique la hora del día y los contenedores de volúmenes en los que se producen los cuello de botella de la red. Si esto sucede cuando se están colocando los datos en la nube (obtenga esta información del rendimiento de E/S de todos los contenedores de volúmenes del dispositivo a la nube), será necesario modificar las plantillas de ancho de banda asociadas a los contenedores de volúmenes.
 
@@ -160,7 +160,7 @@ Una vez que se utilizan las plantillas modificadas, deberá volver a supervisar 
 
 **P**. ¿Qué sucede si varios contenedores de volúmenes de mi dispositivo disponen de programaciones que se superponen pero se aplican límites distintos a cada una?
 
-**R**. Supongamos que tiene un dispositivo con 3 contenedores de volúmenes. Las programaciones asociadas a estos contenedores se superponen completamente. Para cada uno de estos contenedores, los límites de ancho de banda utilizados son 5, 10 y 15 Mbps respectivamente. Cuando se producen operaciones de E/S en todos estos contenedores al mismo tiempo, se puede aplicar el mínimo de 3 límites de ancho de banda: en este caso, 5 Mbps debido a que estas solicitudes de E/S de salida comparten la misma cola.
+**A**. Supongamos que tiene un dispositivo con 3 contenedores de volúmenes. Las programaciones asociadas a estos contenedores se superponen completamente. Para cada uno de estos contenedores, los límites de ancho de banda utilizados son 5, 10 y 15 Mbps respectivamente. Cuando se producen operaciones de E/S en todos estos contenedores al mismo tiempo, se puede aplicar el mínimo de 3 límites de ancho de banda: en este caso, 5 Mbps debido a que estas solicitudes de E/S de salida comparten la misma cola.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Prácticas recomendadas para plantillas de ancho de banda
 
