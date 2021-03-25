@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4374067fe0070c379a76ef5f59bb6aef5b29fc
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004677"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123112"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -101,7 +101,7 @@ Para más información sobre la creación de unidades administrativas, consulte 
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Actualizar o quitar una asignación de roles existente
 
-Siga estos pasos para actualizar o quiotar una asignación de roles existente.
+Siga estos pasos para actualizar o quiotar una asignación de roles existente. **Solo clientes con licencia de Azure AD P2**: No asigne un grupo como activo a un rol a través de Azure AD y Privileged Identity Management (PIM). Para obtener una explicación detallada, consulte [Problemas conocidos](../roles/groups-concept.md#known-issues).
 
 1. Abra **Azure AD Privileged Identity Management**.
 

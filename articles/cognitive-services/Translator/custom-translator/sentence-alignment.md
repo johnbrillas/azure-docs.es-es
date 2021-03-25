@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897958"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
@@ -37,8 +37,8 @@ Para que un entrenamiento se realice correctamente, en la tabla siguiente se mue
 | Tipo de documento   | Número mínimo sugerido de frases | Número máximo de frases |
 |------------|--------------------------------------------|--------------------------------|
 | Cursos   | 10 000                                     | No hay límite superior                 |
-| Ajuste     | 500                                      | 2500       |
-| Prueba    | 500                                      | 2500  |
+| Ajuste     | 500                                      | 2,500       |
+| Prueba    | 500                                      | 2,500  |
 | Diccionario | 0                                          | No hay límite superior                 |
 
 > [!NOTE]

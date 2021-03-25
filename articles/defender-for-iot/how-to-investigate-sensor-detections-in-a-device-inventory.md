@@ -1,18 +1,14 @@
 ---
 title: Obtener información sobre los dispositivos detectados por un sensor específico
 description: El inventario de dispositivos muestra una amplia gama de atributos de dispositivo que detecta un sensor.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4daec83f44a545d7837a7e73e847f56b1f5770e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523998"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782102"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigación de la detección de todos los sensores de la empresa en un inventario de dispositivos
 
@@ -223,7 +219,7 @@ Para exportar a un archivo CSV:
 
 - En el menú superior derecho del inventario de dispositivos, seleccione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. Se genera y se descarga el informe CSV.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Investigación de todas las detecciones de los sensores de empresa en un inventario de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

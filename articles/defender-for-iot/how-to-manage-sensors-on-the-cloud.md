@@ -1,18 +1,14 @@
 ---
 title: Incorporación y administración de sensores y suscripciones en el portal de Defender para IoT
 description: Aprenda a incorporar, ver y administrar sensores en el portal de Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5c529a5679e8b3d4879b003fa3d168e911f9b518
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733268"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781830"
 ---
 # <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Incorporación y administración de sensores y suscripciones en el portal de Defender para IoT
 

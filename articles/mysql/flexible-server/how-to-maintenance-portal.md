@@ -7,15 +7,15 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91315021"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Administración de la configuración del mantenimiento programado para un servidor flexible de Azure Database for MySQL
  
-En la suscripción de Azure puede especificar opciones de mantenimiento para cada servidor flexible. Las opciones incluyen la programación de mantenimiento y la configuración de notificación para eventos de mantenimiento próximos y finalizados.
+En la suscripción de Azure es posible especificar las opciones de mantenimiento de cada servidor flexible. Las opciones incluyen la programación del mantenimiento y la configuración de las notificaciones para eventos de mantenimiento próximos y finalizados.
 
 > [!IMPORTANT]
 > La opción de implementación Servidor flexible de Azure Database for MySQL está en versión preliminar.
@@ -24,10 +24,10 @@ En la suscripción de Azure puede especificar opciones de mantenimiento para cad
 Para completar esta guía, necesita:
 - Un [servidor flexible de Azure Database for MySQL](quickstart-create-server-portal.md).
  
-## <a name="specify-maintenance-schedule-options"></a>Especificación de opciones de programación de mantenimiento
+## <a name="specify-maintenance-schedule-options"></a>Especificación de las opciones de programación del mantenimiento
  
 1. En la página del servidor MySQL, bajo el título **Configuración**, elija **Mantenimiento** para abrir las opciones de mantenimiento programado.
-2. La programación predeterminada (administrada por el sistema) es un día de la semana aleatorio y una ventana de 60 minutos para el mantenimiento que se inicia entre las 23:00 y las 7:00 (hora del servidor local). Si quiere personalizar esta programación, elija **Programación personalizada**. Después, puede seleccionar el día de la semana que prefiera y una ventana de 60 minutos para la hora de inicio del mantenimiento.
+2. La programación predeterminada (administrada por el sistema) es un día de la semana aleatorio y una franja de 60 minutos para el mantenimiento que se inicia entre las 23:00 y las 7:00 (hora del servidor local). Si quiere personalizar esta programación, elija **Programación personalizada**. Después, puede seleccionar el día de la semana que prefiera y una ventana de 60 minutos para la hora de inicio del mantenimiento.
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notificaciones sobre eventos de mantenimiento programado
  
@@ -36,4 +36,4 @@ Puede usar Azure Service Health para [ver notificaciones](../../service-health/s
 ## <a name="next-steps"></a>Pasos siguientes  
  
 * Información sobre el [mantenimiento programado de un servidor flexible de Azure Database for MySQL](concepts-maintenance.md).
-* Información sobre [Azure Service Health](../../service-health/overview.md)
+* Información sobre [Azure Service Health](../../service-health/overview.md).

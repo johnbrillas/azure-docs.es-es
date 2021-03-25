@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94695000"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuración del equilibrador de carga solo de salida
@@ -179,7 +179,7 @@ Agregue la máquina virtual creada al grupo de back-end de cada uno.  A continua
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **myResourceGroupLB**, que creó en el paso anterior.|
     | Nombre                   | Escriba **myInternalLoadBalancer**.                                   |
     | Region         | Seleccione **Este de EE. UU. 2**.                                        |
@@ -201,7 +201,7 @@ Agregue la máquina virtual creada al grupo de back-end de cada uno.  A continua
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **MyResourceGroupLB** en el cuadro de texto.|
     | Nombre                   | Escriba **myPublicLoadBalancer**.                                   |
     | Region         | Seleccione **Este de EE. UU. 2**.                                        |

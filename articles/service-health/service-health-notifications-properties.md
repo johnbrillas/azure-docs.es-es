@@ -4,10 +4,10 @@ description: Las notificaciones de mantenimiento del servicio permiten ver los m
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86529019"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Use Azure Portal para ver las notificaciones de mantenimiento del servicio

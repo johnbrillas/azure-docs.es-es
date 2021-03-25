@@ -2,23 +2,18 @@
 title: Integración de soluciones de seguridad en Azure Security Center | Microsoft Docs
 description: Aprenda cómo Azure Security Center se integra con los asociados para mejorar la seguridad general de los recursos de Azure.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032684"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099257"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -39,7 +34,7 @@ Para más información sobre la integración de las herramientas de examen de vu
 
 Security Center también ofrece análisis de vulnerabilidades para:
 
-* SQL Database: consulte [Exploración de los informes de evaluación de vulnerabilidades en el panel de evaluación de vulnerabilidades](defender-for-sql-usage.md#explore-vulnerability-assessment-reports).
+* SQL Database: consulte [Exploración de los informes de evaluación de vulnerabilidades en el panel de evaluación de vulnerabilidades](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports).
 * Imágenes de Azure Container Registry: consulte [Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades](defender-for-container-registries-usage.md).
 
 ## <a name="how-security-solutions-are-integrated"></a>Integración de soluciones de seguridad
@@ -88,8 +83,7 @@ Seleccione **Ver** para más información y opciones adicionales, entre las que 
 Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Estas soluciones incluyen las de Azure, como [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) y soluciones de asociados.
 
 > [!NOTE]
-> Habilite **Azure Defender** en el nivel de suscripción para la característica de soluciones detectadas. Para más información sobre los planes de tarifa, consulte [Precios](security-center-pricing.md).
->
+> Habilite **Azure Defender** en el nivel de suscripción para la característica de soluciones detectadas. Obtenga más información en [Inicio rápido: habilitación de Azure Defender](enable-azure-defender.md).
 
 Seleccione **Conectar** en una solución para integrarla con Security Center y recibir alertas de seguridad.
 
@@ -103,7 +97,4 @@ La sección **Agregar orígenes de datos** incluye otros orígenes de datos disp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a integrar soluciones de asociados en Security Center. Para obtener más información relacionada, consulte los siguientes artículos:
-
-* [Exportación continua de alertas y recomendaciones de seguridad](continuous-export.md). Aprenda a configurar una integración con Azure Sentinel o cualquier otro SIEM.
-* [Supervisión del estado de seguridad en Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
+En este documento, ha aprendido a integrar soluciones de asociados en Security Center. Para obtener información sobre cómo configurar una integración con Azure Sentinel o cualquier otro SIEM, consulte [Exportación continua de datos de Security Center](continuous-export.md).

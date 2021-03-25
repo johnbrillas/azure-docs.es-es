@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: ca3a1083b512709ad5ef070b6f5bd0e363baf80b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720756"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099410"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Directiva de SQL Information Protection en Azure Security Center
  
@@ -32,7 +32,7 @@ El mecanismo de clasificación se basa en los siguientes dos elementos:
 Las opciones de la directiva de protección de la información dentro de Security Center proporcionan un conjunto predefinido de etiquetas y tipos de información que sirven como valores predeterminados para el motor de clasificación. Puede personalizar la directiva según las necesidades de su organización, tal y como se describe a continuación.
 
 > [!IMPORTANT]
-> Para personalizar la directiva de protección de la información de su inquilino de Azure, necesitará privilegios administrativos en el grupo de administración raíz del inquilino. Obtenga más información en [Obtención de visibilidad de todos los inquilinos en Azure Security Center](security-center-management-groups.md).
+> Para personalizar la directiva de protección de la información de su inquilino de Azure, necesitará privilegios administrativos en el grupo de administración raíz del inquilino. Obtenga más información en [Concesión y solicitud de visibilidad para todos los inquilinos](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="La página que muestra la directiva de SQL Information Protection":::
  
@@ -58,7 +58,7 @@ Cada una de ellas se muestra en la pestaña correspondiente a continuación.
 En la página **Precios y configuración** de Security Center, seleccione **SQL Information Protection**.
 
 > [!NOTE]
-> Esta opción solo aparece para los usuarios con permisos a nivel de inquilino. [Concesión de permisos de todo el inquilino a uno mismo](./security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+> Esta opción solo aparece para los usuarios con permisos a nivel de inquilino. [Concesión de permisos de todo el inquilino a uno mismo](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acceso a la directiva de SQL Information Protection desde la página Precios y configuración de Azure Security Center":::
 

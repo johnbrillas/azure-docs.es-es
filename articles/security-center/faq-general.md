@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341692"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095551"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Preguntas más frecuentes: preguntas generales sobre Azure Security Center
 
@@ -46,10 +46,10 @@ La página **Introducción a Security Center** muestra la posición de seguridad
 
 
 
-## <a name="what-is-a-security-policy"></a>¿Qué es una directiva de seguridad?
-Una directiva de seguridad define el conjunto de controles recomendados para los recursos de la suscripción específica. En Azure Security Center, se definen las directivas para las suscripciones de Azure de acuerdo con los requisitos de seguridad de la compañía y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
+## <a name="what-is-a-security-initiative"></a>¿Qué es una iniciativa de seguridad?
+Una iniciativa de seguridad define el conjunto de controles (directivas) recomendados para los recursos de una suscripción específica. En Azure Security Center, debe asignar iniciativas para las suscripciones de Azure de acuerdo con los requisitos de seguridad de la compañía y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
 
-Las directivas de seguridad habilitadas en Azure Security Center generan la supervisión y recomendaciones de seguridad. Para obtener más información sobre las directivas de seguridad, consulte [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md).
+Las directivas de seguridad habilitadas en Azure Security Center generan la supervisión y recomendaciones de seguridad. Obtenga más información en [¿Qué son las directivas de seguridad, las iniciativas y las recomendaciones?](security-policy-concept.md)
 
 
 ## <a name="who-can-modify-a-security-policy"></a>¿Quién puede modificar una directiva de seguridad?

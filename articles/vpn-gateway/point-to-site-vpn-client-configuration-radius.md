@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91440068"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
@@ -27,7 +27,7 @@ Con la autenticación RADIUS existen varias opciones de autenticación, por ejem
 El flujo de trabajo de configuración de la autenticación P2S RADIUS es el siguiente:
 
 1. [Configure la puerta de enlace de VPN de Azure para la conectividad P2S](point-to-site-how-to-radius-ps.md).
-2. [Configure el servidor RADIUS para la autenticación](point-to-site-how-to-radius-ps.md#radius). 
+2. [Configure el servidor RADIUS para la autenticación](point-to-site-how-to-radius-ps.md#radius). 
 3. **Obtenga la configuración de cliente VPN correspondiente a la opción de autenticación que prefiera y úsela para configurar el cliente VPN** (este artículo).
 4. [Complete la configuración de P2S y conéctese](point-to-site-how-to-radius-ps.md).
 
@@ -66,13 +66,13 @@ Genere archivos de configuración de cliente VPN para usar con la autenticación
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-La ejecución del comando devuelve un vínculo. Copie y pegue el vínculo en un explorador web para descargar **VpnClientConfiguration.zip**. Descomprima el archivo para ver las siguientes carpetas: 
+La ejecución del comando devuelve un vínculo. Copie y pegue el vínculo en un explorador web para descargar **VpnClientConfiguration.zip**. Descomprima el archivo para ver las siguientes carpetas: 
  
-* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
+* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
 * **Genérico**: esta carpeta contiene información general que se usa para crear su propia configuración de cliente VPN. Esta carpeta no es necesaria para las configuraciones de autenticación con nombre de usuario y contraseña.
 * **Mac**: si configuró IKEv2 al crear la puerta de enlace de red virtual, verá una carpeta llamada **Mac** con un archivo **mobileconfig**. Use este archivo para configurar clientes Mac.
 
-Si ya ha creado los archivos de configuración del cliente, puede recuperarlos con el cmdlet `Get-AzVpnClientConfiguration`. Pero si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, la configuración no se actualiza automáticamente. Deberá ejecutar el cmdlet  `New-AzVpnClientConfiguration` para crear otra descarga de configuración.
+Si ya ha creado los archivos de configuración del cliente, puede recuperarlos con el cmdlet `Get-AzVpnClientConfiguration`. Pero si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, la configuración no se actualiza automáticamente. Deberá ejecutar el cmdlet `New-AzVpnClientConfiguration` para crear otra descarga de configuración.
 
 Para recuperar los archivos de configuración de cliente generados anteriormente, use el comando siguiente:
 
@@ -96,7 +96,7 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
 
 1. Seleccione los archivos de configuración de cliente VPN que correspondan a la arquitectura del equipo Windows. Si la arquitectura de procesador es de 64 bits, elija el paquete del instalador **VpnClientSetupAmd64**. En caso de que sea de 32 bits, elija el paquete del instalador **VpnClientSetupX86**. 
 2. Haga doble clic en el paquete para instalarlo. Si ve una ventana emergente SmartScreen, seleccione **Más información** > **Ejecutar de todas formas**.
-3. En el equipo cliente, vaya a **Configuración de red** y seleccione **VPN**. La conexión VPN muestra el nombre de la red virtual a la que se conecta. 
+3. En el equipo cliente, vaya a **Configuración de red** y seleccione **VPN**. La conexión VPN muestra el nombre de la red virtual a la que se conecta. 
 
 #### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Configuración de un cliente VPN en Mac (OSX)
 
@@ -127,7 +127,7 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
 5. Seleccione **Continuar** para confiar en el emisor del perfil y proseguir con la instalación.
 
    ![Mensaje de confirmación](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
-6. Durante la instalación del perfil, tendrá la opción de especificar el nombre de usuario y la contraseña para la autenticación de VPN. No es obligatorio especificar esta información. Si lo hace, esta se guarda y se usa automáticamente al iniciar una conexión. Seleccione **Instalar** para continuar.
+6. Durante la instalación del perfil, tendrá la opción de especificar el nombre de usuario y la contraseña para la autenticación de VPN. No es obligatorio especificar esta información. Si lo hace, esta se guarda y se usa automáticamente al iniciar una conexión.  Seleccione **Instalar** para continuar.
 
    ![Cuadros de nombre de usuario y contraseña para VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
 7. Para instalar el perfil en el equipo, escriba un nombre de usuario y una contraseña para los privilegios necesarios. Seleccione **Aceptar**.
@@ -200,10 +200,10 @@ New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -Authen
 
 La ejecución del comando devuelve un vínculo. Copie y pegue el vínculo en un explorador web para descargar el archivo VpnClientConfiguration.zip. Descomprima el archivo para ver las siguientes carpetas:
 
-* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
+* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
 * **GenericDevice**: esta carpeta contiene información general que se usa para crear su propia configuración de cliente VPN.
 
-Si ya ha creado los archivos de configuración del cliente, puede recuperarlos con el cmdlet `Get-AzVpnClientConfiguration`. Pero si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, la configuración no se actualiza automáticamente. Deberá ejecutar el cmdlet  `New-AzVpnClientConfiguration` para crear otra descarga de configuración.
+Si ya ha creado los archivos de configuración del cliente, puede recuperarlos con el cmdlet `Get-AzVpnClientConfiguration`. Pero si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, la configuración no se actualiza automáticamente. Deberá ejecutar el cmdlet `New-AzVpnClientConfiguration` para crear otra descarga de configuración.
 
 Para recuperar los archivos de configuración de cliente generados anteriormente, use el comando siguiente:
 
@@ -249,7 +249,7 @@ Siga los pasos a continuación para configurar el cliente VPN nativo en equipos 
 4. En la carpeta **Genérico**, en el archivo **VpnSettings.xml**, copie el valor de la etiqueta **VpnServer**. Pegue este valor en los cuadros **Dirección del servidor** e **Id. remoto** del perfil. Deje en blanco el cuadro **Id. local**.
 
    ![Información de servidor](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
-5. Seleccione **Configuración de autenticación** y **Certificado**. 
+5. Seleccione **Configuración de autenticación** y **Certificado**. 
 
    ![Configuración de autenticación](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
 6. Haga clic en **Seleccionar** para elegir el certificado que quiere usar en la autenticación.

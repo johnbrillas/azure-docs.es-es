@@ -1,18 +1,14 @@
 ---
 title: Control del tráfico que se supervisa
 description: Los sensores realizan automáticamente una detección profunda de paquetes en el tráfico de TI y OT y resuelven la información sobre los dispositivos de red, como los atributos del dispositivo y el comportamiento de la red. Hay varias herramientas disponibles para controlar el tipo de tráfico que detecta cada sensor.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522400"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784448"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Control del tráfico que se supervisa
 
@@ -295,7 +291,7 @@ Para ver los resultados del examen:
 
 1. Una vez finalizado el examen, en el panel **Acciones**, seleccione **Ver resultados del examen**. Se descarga en el equipo el archivo CSV con los resultados del examen.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Investigación de las detecciones del sensor en un inventario de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Investigación de las detecciones del sensor en el mapa de dispositivos](how-to-work-with-the-sensor-device-map.md)

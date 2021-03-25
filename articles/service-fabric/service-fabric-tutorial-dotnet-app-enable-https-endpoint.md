@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326242"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
@@ -36,7 +36,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -68,7 +68,7 @@ Thumbprint                                Subject
 
 ## <a name="define-an-https-endpoint-in-the-service-manifest"></a>Definición de un punto de conexión HTTPS en el manifiesto de servicio
 
-Inicie Visual Studio como **administrador** y abra la solución de votación. En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. El manifiesto del servicio define los puntos de conexión del servicio.  Busque la sección **Puntos de conexión** y edite el punto de conexión "ServiceEndpoint" existente.  Cambie el nombre a "EndpointHttps", establezca el protocolo en *https*, el tipo en *Entrada*y el puerto en *443*.  Guarde los cambios.
+Inicie Visual Studio como **administrador** y abra la solución de votación. En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. El manifiesto del servicio define los puntos de conexión del servicio.  Busque la sección **Puntos de conexión** y edite el punto de conexión "ServiceEndpoint" existente.  Cambie el nombre a "EndpointHttps", establezca el protocolo en *https*, el tipo en *Entrada* y el puerto en *443*.  Guarde los cambios.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: bbd3e5774c6effa45888f6e59874d29f3b55b45f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545588"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670719"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Escalado para mejorar el rendimiento en Azure Cognitive Search
 
@@ -91,7 +91,7 @@ Como las réplicas son copias de los datos, tener varias réplicas permite que A
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 
-Las [zona de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview) dividen los centros de datos de una región en grupos de ubicaciones físicas distintos para proporcionar alta disponibilidad, dentro de la misma región. Por Cognitive Search, las réplicas individuales son las unidades de asignación de zona. Un servicio de búsqueda se ejecuta dentro de una región; sus réplicas se ejecutan en zonas diferentes.
+Las [zona de disponibilidad](../availability-zones/az-overview.md) dividen los centros de datos de una región en grupos de ubicaciones físicas distintos para proporcionar alta disponibilidad, dentro de la misma región. Por Cognitive Search, las réplicas individuales son las unidades de asignación de zona. Un servicio de búsqueda se ejecuta dentro de una región; sus réplicas se ejecutan en zonas diferentes.
 
 Puede agregar dos o más réplicas al servicio de búsqueda para utilizar Availability Zones con Azure Cognitive Search. Cada réplica se colocará en una zona de disponibilidad distinta dentro de la región. Si tiene más réplicas que zonas de disponibilidad, las réplicas se distribuirán entre esas zonas lo más uniformemente posible.
 
@@ -100,6 +100,7 @@ Actualmente, Azure Cognitive Search admite zonas de disponibilidad para los serv
 + Este de Australia (creado a partir del 30 de enero de 2021)
 + Centro de Canadá (creado a partir del 30 de enero de 2021)
 + Centro de EE. UU. (creado a partir del 4 de diciembre de 2020)
++ Este de EE. UU. (creado a partir del 27 de enero de 2021)
 + Este de EE. UU. 2 (creado a partir del 30 de enero de 2021)
 + Centro de Francia (creado a partir del 23 de octubre de 2020)
 + Este de Japón (creado a partir del 30 de enero de 2021)

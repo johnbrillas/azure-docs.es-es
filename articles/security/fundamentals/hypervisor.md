@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696122"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Seguridad del hipervisor en la flota de Azure
@@ -66,7 +66,7 @@ Todas las superficies expuestas a ataques de las máquinas virtuales son modelad
 > Obtenga más información sobre los [sólidos procesos de garantía de seguridad](../../azure-government/azure-secure-isolation-guidance.md#strong-security-assurance-processes) de Hyper-V.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
+Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
 - [Seguridad de firmware](firmware.md)
 - [Arranque seguro](secure-boot.md)

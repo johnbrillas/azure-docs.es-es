@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647926"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services manualmente
 
-La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de una plantilla de máquina virtual de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.  Para más información sobre la virtualización anidada y Azure Lab Services, consulte [Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
+La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de una máquina virtual de plantilla de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.  Para más información sobre la virtualización anidada y Azure Lab Services, consulte [Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
 En este artículo se explica cómo configurar la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services directamente con roles y herramientas de Windows.  Hay algunos aspectos a tener en cuenta para permitir que una clase use la virtualización anidada.  En los pasos siguientes se describe cómo configurar manualmente una plantilla de máquina virtual de Lab Services con Hyper-V.  Los pasos están pensados para Windows Server 2016 o Windows Server 2019.  
 
@@ -26,12 +26,12 @@ En este artículo se explica cómo configurar la virtualización anidada en una 
 En los pasos siguientes se describen las acciones necesarias para habilitar Hyper-V en Windows Server mediante el Administrador del servidor.  Una vez finalizada la instalación correctamente, el administrador de Hyper-V estará disponible para agregar, modificar y eliminar máquinas virtuales cliente.
 
 1. En el **Administrador del servidor**, en la página del panel, haga clic en **Agregar roles y características**.
-2. En la página **Antes de comenzar**, haga clic en **Siguiente**.
+2. En la página **Antes de comenzar** , haga clic en **Siguiente**.
 3. En la página **Seleccionar tipo de instalación**, conserve la selección predeterminada de Instalación basada en características o en roles y, a continuación, haga clic en **Siguiente**.
 4. En la página **Seleccionar el servidor de destino**, elija Seleccionar un servidor del grupo de servidores.   El servidor actual ya estará seleccionado.  Haga clic en Siguiente.
 5. En la pantalla **Seleccionar roles de servidor**, seleccione **Hyper-V**.  
 6. Aparecerá el elemento emergente **Asistente para agregar roles y características**.  Seleccione **Incluir herramientas de administración (si procede)** .  Haga clic en el botón **Agregar características**.
-7. En la página **Seleccionar roles de servidor**, haga clic en **Siguiente**.
+7. En la página **Seleccionar roles de servidor**, haz clic en **Siguiente**.
 8. En la página **Selección de características**, haga clic en **Siguiente**.
 9. En la página **Hyper-V**, haga clic en **Siguiente**.
 10. En la página **Crear conmutadores virtuales**, acepte los valores predeterminados y haga clic en **Siguiente**.
@@ -48,8 +48,8 @@ En los pasos siguientes se describen las acciones necesarias para habilitar Hype
 Todas las máquinas virtuales cliente de Hyper-V creadas necesitan una dirección IP en la red NAT.  Vamos a crear la red NAT más adelante.  Una manera de asignar direcciones IP es configurar el host, en este caso la plantilla de máquina virtual del laboratorio, como un servidor DHCP.  A continuación se indican los pasos necesarios para habilitar el rol de DHCP.
 
 1. En el **Administrador del servidor**, en la página del **panel**, haga clic en **Agregar roles y características**.
-2. En la página **Antes de comenzar**, haga clic en **Siguiente**.
-3. En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles** y, a continuación, haga clic en **Siguiente**.
+2. En la página **Antes de comenzar** , haga clic en **Siguiente**.
+3. En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles** y, a continuación, en **Siguiente**.
 4. En la página **Seleccionar el servidor de destino**, seleccione el servidor actual del grupo de servidores y haga clic en **Siguiente**.
 5. En la página **Seleccionar roles de servidor**, seleccione **Servidor DHCP**.  
 6. Aparecerá el elemento emergente **Asistente para agregar roles y características**.  Seleccione **Incluir herramientas de administración (si procede)** .  Haga clic en **Agregar características**.
@@ -57,28 +57,28 @@ Todas las máquinas virtuales cliente de Hyper-V creadas necesitan una direcció
     >[!NOTE]
     >Puede que aparezca un error de validación que indica que no se encontraron direcciones IP estáticas.  Esta advertencia se puede pasar por alto en nuestro escenario.
 
-7. En la página **Seleccionar roles de servidor**, haga clic en **Siguiente**.
-8. En la página **Selección de características**, haga clic en **Siguiente**.
+7. En la página **Seleccionar roles de servidor**, haz clic en **Siguiente**.
+8. En la página **Seleccionar características**, haz clic en **Siguiente**.
 9. En la página **Servidor DHCP**, haga clic en **Siguiente**.
-10. En la página **Confirmación selecciones de instalación**, haga clic en **Instalar**.
+10. En la página **Confirmar selecciones de instalación**, haga clic en **Instalar**.
 11. Espere a que la página **Progreso de la instalación** le indique que el rol de DHCP está completo.
 12. Haga clic en Cerrar.
 
 ## <a name="enable-routing-and-remote-access-role"></a>Habilitar rol de Enrutamiento y acceso remoto
 
 1. En el **Administrador del servidor**, en la página del **panel**, haga clic en **Agregar roles y características**.
-2. En la página **Antes de comenzar**, haga clic en **Siguiente**.
-3. En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles** y, a continuación, haga clic en **Siguiente**.
+2. En la página **Antes de comenzar** , haga clic en **Siguiente**.
+3. En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles** y, a continuación, en **Siguiente**.
 4. En la página **Seleccionar el servidor de destino**, seleccione el servidor actual del grupo de servidores y haga clic en **Siguiente**.
 5. En la página **Seleccionar roles de servidor**, seleccione **Acceso remoto**. Haga clic en **OK**.
-6. En la página **Selección de características**, haga clic en **Siguiente**.
+6. En la página **Seleccionar características**, haz clic en **Siguiente**.
 7. En la página **Acceso remoto**, haga clic en **Siguiente**.
 8. En la página **Servicios de rol**, seleccione **Enrutamiento**.
 9. Aparecerá el elemento emergente **Asistente para agregar roles y características**.  Seleccione **Incluir herramientas de administración (si procede)** .  Haga clic en **Agregar características**.
 10. Haga clic en **Next**.
-11. En la página **Rol de servidor web (IIS)** , haga clic en **Siguiente**.
-12. En la página **Seleccionar servicios de rol**, haga clic en **Siguiente**.
-13. En la página **Confirmación selecciones de instalación**, haga clic en **Instalar**.
+11. En la página **Rol Servidor web (IIS)**, haz clic en **Siguiente**.
+12. En la página **Seleccionar servicios de rol**, haz clic en **Siguiente**.
+13. En la página **Confirmar selecciones de instalación**, haga clic en **Instalar**.
 14. Espere a que la página **Progreso de la instalación** le indique que el rol de acceso remoto está completo.  
 15. Haga clic en **Cerrar**.
 
@@ -91,7 +91,7 @@ Ahora que se han instalado todos los roles necesarios, es hora de crear la red N
 1. Abra el **administrador de Hyper-V** desde Herramientas administrativas de Windows.
 2. Seleccione el servidor actual en el menú de navegación izquierdo.
 3. Haga clic en **Administrador de conmutadores virtuales...** en el menú **Acciones** situado a la derecha en el **administrador de Hyper-V**.
-4. En el elemento emergente **Administrador de conmutadores virtuales**, seleccione **Interno** como el tipo de conmutador que desea crear.  Haga clic en **Crear conmutador virtual**.
+4. En el elemento emergente **Administrador de conmutadores virtuales**, seleccione **Interno** como el tipo de conmutador que desea crear.  Haz clic en **Crear conmutador virtual**.
 5. Especifique un nombre para el conmutador virtual recién creado que sea fácil de recordar.  En este ejemplo, usaremos "LabServicesSwitch".  Haga clic en **OK**.
 6. Se creará un nuevo adaptador de red.  El nombre se parecerá a "vEthernet (LabServicesSwitch)".  Para comprobarlo, abra el **Panel de control**, haga clic en **Redes e Internet** y en **Ver el estado y las tareas de red**.  A la izquierda, haga clic en **Cambiar configuración del adaptador**.
 
@@ -127,7 +127,7 @@ El adaptador de red se asociará con la IP utilizada como dirección IP de la pu
 
 7. Haga clic en Aceptar.
 
-## <a name="create-dhcp-scope"></a>Creación de un ámbito de DHCP
+## <a name="create-dhcp-scope"></a>Crear ámbito DHCP
 
 Los pasos siguientes son instrucciones para agregar un ámbito de DHCP.  En este artículo, la red NAT es 192.168.0.0/24 en notación CIDR.  Esto permite crear un rango de direcciones IP utilizables que va desde 192.168.0.1 a 192.168.0.254.  El ámbito creado debe estar dentro del rango de direcciones utilizables sin incluir la dirección IP que se creó anteriormente.
 

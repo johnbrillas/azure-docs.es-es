@@ -5,21 +5,21 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f51a195f9ad43c7facb7dc413a4da83fc6b202b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531401"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demostración de la conmutación por error y el escalado de servicios de contenedor con Service Fabric
 
-Este tutorial es la tercera parte de una serie. En este tutorial, obtiene información sobre cómo se administra la conmutación por error en aplicaciones contenedoras de Service Fabric. Además, obtiene información sobre cómo escalar contenedores. En este tutorial, hizo lo siguiente:
+Este tutorial es la tercera parte de una serie. En este tutorial, obtiene información sobre cómo se administra la conmutación por error en aplicaciones contenedoras de Service Fabric. Además, obtiene información sobre cómo escalar contenedores. En este tutorial ha:
 
 > [!div class="checklist"]
 > * Obtener información sobre la conmutación por error del contenedor en un clúster de Service Fabric
 > * Escalar los contenedores de front-end web en una aplicación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 La aplicación de [Parte 2](service-fabric-tutorial-package-containers.md) se ejecuta en un clúster de Service Fabric activo.
 

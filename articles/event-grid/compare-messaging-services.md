@@ -4,10 +4,10 @@ description: 'Describe los tres servicios de mensajería de Azure: Azure Event G
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460412"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
@@ -52,7 +52,7 @@ Event Grid está totalmente integrado con los servicios de Azure y puede integra
 
 Event Grid admite colas de mensajes fallidos para los eventos que no se pueden entregar en un punto de conexión.
 
-Tiene las siguientes características:
+Tiene las características siguientes:
 
 * dinámicamente escalable
 * bajo costo
@@ -63,7 +63,7 @@ Tiene las siguientes características:
 
 Azure Event Hubs es una canalización de macrodatos. Facilita la captura, la retención y la reproducción de los datos de streaming de eventos y telemetría. Los datos pueden proceder de distintos orígenes simultáneos. Event Hubs permite que los datos de telemetría y eventos estén disponibles para una variedad de servicios de análisis e infraestructuras de procesamiento de streaming. Está disponible como transmisiones de datos o lotes de eventos agrupados. Este servicio proporciona una solución única que permite una recuperación de datos rápida para el procesamiento en tiempo real, así como una reproducción repetida de los datos sin procesar almacenados. Puede capturar los datos de streaming en un archivo para su procesamiento y análisis.
 
-Tiene las siguientes características:
+Tiene las características siguientes:
 
 * baja latencia
 * capacidad de recibir y procesar millones de eventos por segundo
@@ -75,7 +75,7 @@ Service Bus se ha diseñado para aplicaciones empresariales tradicionales. Estas
 
 Service Bus es un sistema de mensajería asincrónica. Almacena los mensajes en un "agente" (por ejemplo, una cola) hasta que la parte consumidora esté preparada para recibirlos.
 
-Tiene las siguientes características:
+Tiene las características siguientes:
 
 * entrega de mensajes asincrónica de confianza (mensajería empresarial como servicio) que requiere el sondeo.
 * características de mensajería avanzada, como FIFO, procesamiento por lotes o sesiones, transacciones, colas de mensajes fallidos, control temporal, enrutamiento y filtrado, y detección de duplicados

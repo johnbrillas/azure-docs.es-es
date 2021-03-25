@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555657"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122585"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configuración de Azure Attestation para el servidor lógico de Azure SQL
 
@@ -66,10 +66,14 @@ authorizationrules
 
 La directiva anterior comprueba lo siguiente:
 
-- El enclave dentro de Azure SQL Database no admite la depuración (lo que reduciría el nivel de protección que proporciona el enclave).
-- El identificador de producto de la biblioteca dentro del enclave es el identificador de producto asignado a Always Encrypted con enclaves seguros (4639).
-- El identificador de versión (SVN) de la biblioteca es mayor que 0.
+- El enclave de Azure SQL Database no admite la depuración. 
+  > Los enclaves se pueden cargar con la depuración deshabilitada o habilitada. La compatibilidad con la depuración está diseñada para permitir a los desarrolladores solucionar problemas del código que se ejecuta en un enclave. En un sistema de producción, la depuración podría permitir a un administrador examinar el contenido de enclave, lo que reduciría el nivel de protección que proporciona el enclave. La directiva recomendada deshabilita la depuración para asegurarse de que si un administrador malintencionado intenta activar la compatibilidad con la depuración mediante el uso de la máquina de enclave, se producirá un error en la atestación. 
+- El id. del producto del enclave coincide con el id. del producto asignado a Always Encrypted con enclaves seguros.
+  > Cada enclave tiene un id. del producto único que diferencia el enclave de otros enclaves. El id. del producto asignado al enclave de Always Encrypted es 4639. 
+- El número de versión de seguridad (SVN) de la biblioteca es mayor que 0.
+  > SVN permite a Microsoft responder a posibles errores de seguridad identificados en el código enclave. En caso de que se detecte y corrija un problema de seguridad, Microsoft implementará una nueva versión de enclave con un nuevo SVN (incrementado). La directiva recomendada anterior se actualizará para reflejar el nuevo SVN. Cuando actualiza la directiva para que coincida con la directiva recomendada, se asegura de que si un administrador malintencionado intenta cargar una enclave anterior e insegura, se producirá un error en la atestación.
 - La biblioteca del enclave se ha firmado con la clave de firma de Microsoft (el valor de la notificación x-ms-sgx-mrsigner es el hash de la clave de firma).
+  > Uno de los principales objetivos de la atestación es convencer a los clientes de que el binario que se ejecuta en el enclave es el binario que se supone que se ejecuta. Las directivas de atestación proporcionan dos mecanismos para este fin. Una es la notificación de **mrenclave**, que es el hash del archivo binario que se supone que se va a ejecutar en un enclave. El problema con **mrenclave** es que el hash binario cambia incluso con cambios triviales en el código, lo que dificulta la revisión del código que se ejecuta en el enclave. Por lo tanto, se recomienda el uso de **mrsigner**, que es un hash de una clave que se usa para firmar el binario del enclave. Cuando Microsoft revierte el enclave, **mrsigner** permanece igual, siempre y cuando la clave de firma no cambie. De esta manera, es factible implementar archivos binarios actualizados sin interrumpir las aplicaciones de los clientes. 
 
 > [!IMPORTANT]
 > Se crea un proveedor de atestación con la directiva predeterminada para enclaves de Intel SGX, lo cual no valida el código que se ejecuta dentro de enclave. Microsoft recomienda encarecidamente establecer la directiva recomendada anterior y no usar la directiva predeterminada para Always Encrypted con enclaves seguros.

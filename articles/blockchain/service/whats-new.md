@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94335033"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Novedades de Azure Blockchain Service
@@ -68,8 +68,8 @@ Las dos fases ayudan a optimizar los escenarios en los que se crea un miembro en
 
 En Quorum v2.6.0, las llamadas a la función *eth.estimateGas* sin proporcionar el parámetro *value* adicional provocan una excepción de *bloqueo del controlador del método*. Se ha notificado al equipo de Quorum y se espera una corrección a finales de julio del 2020. Puede usar las siguientes soluciones alternativas hasta que esté disponible una corrección:
 
-- Evite usar *eth.estimateGas* , ya que puede afectar al rendimiento. Para más información sobre los problemas de rendimiento de eth.estimateGas, consulte [La llamada a la función eth.estimateGs reduce el rendimiento](#calling-ethestimategas-function-reduces-performance). Incluya un valor de gas para cada transacción. La mayoría de las bibliotecas llamarán a eth.estimateGas si no se proporciona un valor de gas, lo que ocasiona que Quorum v2.6.0 se bloquee.
-- Si tiene que llamar a *eth.estimateGas* , como solución alternativa, el equipo de Quorum le sugiere que pase el parámetro adicional *value* como *0*.
+- Evite usar *eth.estimateGas*, ya que puede afectar al rendimiento. Para más información sobre los problemas de rendimiento de eth.estimateGas, consulte [La llamada a la función eth.estimateGs reduce el rendimiento](#calling-ethestimategas-function-reduces-performance). Incluya un valor de gas para cada transacción. La mayoría de las bibliotecas llamarán a eth.estimateGas si no se proporciona un valor de gas, lo que ocasiona que Quorum v2.6.0 se bloquee.
+- Si tiene que llamar a *eth.estimateGas*, como solución alternativa, el equipo de Quorum le sugiere que pase el parámetro adicional *value* como *0*.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>La minería de datos se detiene si hay menos de cuatro nodos de validador
 
@@ -117,7 +117,7 @@ Use el nivel *Estándar* si va a enviar un gran volumen de transacciones privada
 
 ### <a name="calling-ethestimategas-function-reduces-performance"></a>La llamada a la función eth.estimateGas reduce el rendimiento.
 
-Al llamar varias veces a la función *eth.estimateGas* , se reducen drásticamente las transacciones por segundo. No utilice la función *eth.estimateGas* para cada envío de transacción. La función *eth.estimateGas* consume mucha memoria.
+Al llamar varias veces a la función *eth.estimateGas*, se reducen drásticamente las transacciones por segundo. No utilice la función *eth.estimateGas* para cada envío de transacción. La función *eth.estimateGas* consume mucha memoria.
 
 Si es posible, use un valor de gas moderado para el envío de transacciones y reduzca al mínimo el uso de *eth.estimateGas*.
 

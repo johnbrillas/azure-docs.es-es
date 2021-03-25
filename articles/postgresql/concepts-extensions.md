@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485467"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
@@ -237,11 +237,11 @@ Mediante [Azure Portal](https://portal.azure.com/):
 
 1. Seleccione su servidor de Azure Database for PostgreSQL.
 
-2. En la barra lateral, seleccione **Parámetros del servidor** .
+2. En la barra lateral, seleccione **Parámetros del servidor**.
 
 3. Busque el parámetro `shared_preload_libraries`.
 
-4. Seleccione **TimescaleDB** .
+4. Seleccione **TimescaleDB**.
 
 5. Seleccione **Guardar** para conservar los cambios. Recibirá una notificación una vez que se haya guardado el cambio. 
 

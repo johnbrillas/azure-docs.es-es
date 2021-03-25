@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 0c8224bf84a2235086d941df7d02ab6f458f3f16
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92510005"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con SiteIntel
@@ -50,7 +50,7 @@ Para configurar la integración de SiteIntel en Azure AD, deberá agregar SiteI
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En el cuadro **Agregar desde la galería** , escriba **SiteIntel**.
+1. En el cuadro **Agregar desde la galería**, escriba **SiteIntel**.
 1. En la lista de resultados, seleccione **SiteIntel** y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-siteintel"></a>Configuración y prueba del inicio de sesión único de Azure AD para SiteIntel
@@ -75,28 +75,28 @@ Para configurar y probar el inicio de sesión único de Azure AD con SiteIntel,
 
 Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones **SiteIntel** , vaya a la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML** , junto a **Configuración básica de SAML** , seleccione **Editar** (icono del lápiz).
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones **SiteIntel**, vaya a la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, junto a **Configuración básica de SAML**, seleccione **Editar** (icono del lápiz).
 
    ![Captura de pantalla del panel "Configurar el inicio de sesión único con SAML"](common/edit-urls.png)
 
-1. Para configurar la aplicación en modo iniciado por IdP, en la sección **Configuración básica de SAML** , haga lo siguiente:
+1. Para configurar la aplicación en modo iniciado por IdP, en la sección **Configuración básica de SAML**, haga lo siguiente:
 
-    a. En el cuadro **Identificador** , escriba una dirección URL con el siguiente formato: `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`.
+    a. En el cuadro **Identificador**, escriba una dirección URL con el siguiente formato: `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`.
 
-    b. En el cuadro **URL de respuesta** , escriba una dirección URL con el siguiente formato: `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`.
+    b. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente formato: `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`.
 
-    c. En el cuadro **Estado de la retransmisión** , escriba una dirección URL con el siguiente formato: `https://<CLIENT>.siteintel.com`.
+    c. En el cuadro **Estado de la retransmisión**, escriba una dirección URL con el siguiente formato: `https://<CLIENT>.siteintel.com`.
 
 1. Para configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y, después, haga lo siguiente:
 
-   * En el cuadro **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: `https://<CLIENT>.siteintel.com`.
+   * En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<CLIENT>.siteintel.com`.
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con el identificador real, la dirección URL de respuesta, la dirección URL de inicio de sesión y el estado de la retransmisión. Póngase en contacto con el [equipo de soporte técnico de SiteIntel](mailto:support@intalytics.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el botón **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación**.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el botón **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación**.
 
     ![Captura de pantalla del botón Copiar de "Dirección URL de metadatos de federación de aplicación"](common/copy-metadataurl.png)
 
@@ -106,11 +106,11 @@ En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior del panel.
-1. En las propiedades de **Usuario** , haga lo siguiente:
+1. En las propiedades de **Usuario**, haga lo siguiente:
 
-   a. En el cuadro **Nombre** , escriba **B.Simon**.  
+   a. En el cuadro **Nombre**, escriba **B.Simon**.  
 
-   b. En el cuadro **Nombre de usuario** , escriba el nombre de usuario con el siguiente formato: `username@companydomain.extension` (por ejemplo, `B.Simon@contoso.com`).
+   b. En el cuadro **Nombre de usuario**, escriba el nombre de usuario con el siguiente formato: `username@companydomain.extension` (por ejemplo, `B.Simon@contoso.com`).
 
    c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
@@ -121,18 +121,18 @@ En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal
 En esta sección va a permitir que B.Simon acceda a SiteIntel mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
-1. En la lista de **aplicaciones** , seleccione **SiteIntel**.
+1. En la lista de **aplicaciones**, seleccione **SiteIntel**.
 1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**.
 
    ![Captura de pantalla del vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, en el panel **Agregar asignación** , **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** y, en el panel **Agregar asignación**, **Usuarios y grupos**.
 
     ![Captura de pantalla del botón "Agregar usuario"](common/add-assign-user.png)
 
-1. En el panel **Usuarios y grupos** , seleccione **B.Simon** y, a continuación, el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista y, a continuación, pulse el botón **Seleccionar**.
-1. En el panel **Agregar asignación** , seleccione el botón **Asignar**.
+1. En el panel **Usuarios y grupos**, seleccione **B.Simon** y, a continuación, el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista y, a continuación, pulse el botón **Seleccionar**.
+1. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
 
 ## <a name="configure-siteintel-sso"></a>Configuración del inicio de sesión único de SiteIntel
 
