@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080480"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
@@ -68,8 +68,8 @@ Para solucionar problemas de FTP:
 
 1. Compruebe que el nombre de host y las credenciales que ha especificado sean correctos. Para obtener información detallada sobre los distintos tipos de credenciales y cómo usarlas, vea [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenciales de implementación).
 2. Compruebe que los puertos FTP no estén bloqueados por un firewall. Los puertos deben tener estos valores de configuración:
-    * Puerto de conexión de control FTP: 21
-    * Puerto de conexión de datos FTP: 989, 10001-10300
+    * Puerto de conexión de control de FTP: 21
+    * Puerto de conexión de datos de FTP: 989, 10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>¿Cómo publico mi código en App Service?
 

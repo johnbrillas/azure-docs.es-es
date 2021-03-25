@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.openlocfilehash: e7ec71220b75647e789508c760e50957b3b497fa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090042"
 ---
 # <a name="how-to-request-quota-increase-for-azure-cosmos-db-resources"></a>Cómo solicitar un aumento de la cuota de recursos de Azure Cosmos DB
@@ -26,19 +26,19 @@ Para solicitar un aumento de la cuota, debe crear una nueva solicitud de soporte
 
 1. En el menú de la izquierda, seleccione **Ayuda y soporte técnico** y, a continuación, **Nueva solicitud de soporte técnico**.
 
-1. Escriba la siguiente información en la pestaña **Aspectos básicos** :
+1. Escriba la siguiente información en la pestaña **Aspectos básicos**:
 
-   * En **Tipo de problema** , seleccione **Límites de servicio y suscripción (cuotas)** .
-   * En **Suscripción** , seleccione la suscripción para la que quiere aumentar la cuota.
-   * En **Tipo de cuota** , seleccione **Cosmos DB**.
+   * En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
+   * En **Suscripción**, seleccione la suscripción para la que quiere aumentar la cuota.
+   * En **Tipo de cuota**, seleccione **Cosmos DB**.
 
    :::image type="content" source="./media/create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Crear una nueva solicitud de soporte técnico de Cosmos DB para aumentar la cuota":::
 
-1. En la pestaña **Detalles** , escriba los detalles correspondientes a la solicitud de cuota. La información proporcionada en esta pestaña se usarán para evaluar de forma más detallada el problema y ayudará al ingeniero de soporte técnico a solucionar el problema.
+1. En la pestaña **Detalles**, escriba los detalles correspondientes a la solicitud de cuota. La información proporcionada en esta pestaña se usarán para evaluar de forma más detallada el problema y ayudará al ingeniero de soporte técnico a solucionar el problema.
 
 1. Rellene los siguientes detalles en este formulario:
 
-   * **Descripción** : proporcione una breve descripción de la solicitud, como la carga de trabajo y el motivo por el que los valores predeterminados no son suficientes. En función del tipo de recurso para el que desea aumentar la cuota, es obligatorio proporcionar los detalles siguientes en el campo **Descripción** :
+   * **Descripción**: proporcione una breve descripción de la solicitud, como la carga de trabajo y el motivo por el que los valores predeterminados no son suficientes. En función del tipo de recurso para el que desea aumentar la cuota, es obligatorio proporcionar los detalles siguientes en el campo **Descripción**:
 
      **Regions requests** (Solicitudes de regiones). Si la solicitud es para agregar una región a la lista de permitidos, asegúrese de proporcionar los valores siguientes:
 
@@ -56,11 +56,11 @@ Para solicitar un aumento de la cuota, debe crear una nueva solicitud de soporte
        * Id. de suscripción
        * New database account limit (Nuevo límite de cuentas de la base de datos)
 
-   * **Carga de archivos** : cargue los archivos de diagnóstico o cualquier otro archivo que considere pertinente para la solicitud de soporte técnico. Para obtener más información sobre la guía de carga de archivos, consulte el artículo [Soporte técnico de Azure]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files).
+   * **Carga de archivos**: cargue los archivos de diagnóstico o cualquier otro archivo que considere pertinente para la solicitud de soporte técnico. Para obtener más información sobre la guía de carga de archivos, consulte el artículo [Soporte técnico de Azure]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files).
 
-   * **Gravedad** : elija uno de los niveles de gravedad disponibles en función del impacto en el negocio.
+   * **Gravedad**: elija uno de los niveles de gravedad disponibles en función del impacto en el negocio.
 
-   * **Método de contacto preferido** : las opciones de contacto disponibles son **Correo electrónico** y **Teléfono**.
+   * **Método de contacto preferido**: las opciones de contacto disponibles son **Correo electrónico** y **Teléfono**.
 
 1. Rellene los detalles restantes, como la disponibilidad, el idioma de soporte técnico, la información de contacto, el correo electrónico y el número de teléfono en el formulario.
 

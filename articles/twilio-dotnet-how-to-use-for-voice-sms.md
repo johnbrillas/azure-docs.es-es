@@ -14,10 +14,10 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003773"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Uso de Twilio para funciones de voz y SMS desde Azure
@@ -41,18 +41,18 @@ Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaj
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos de Twilio
 La API usa dos verbos de Twilio; por ejemplo, el verbo **&lt;Say&gt;** indica a Twilio que entregue de manera audible un mensaje en una llamada.
 
-A continuación se presenta una lista de verbos de Twilio.  Obtenga información sobre los demás verbos y las capacidades de Twilio a través de [Documentación de lenguaje de marcado de Twilio](https://www.twilio.com/docs/api/twiml).
+A continuación se presenta una lista de verbos de Twilio.  Obtenga información sobre los demás verbos y capacidades a través de la [documentación del lenguaje de marcado de Twilio](https://www.twilio.com/docs/api/twiml).
 
-* `<Dial>`: conecta la persona que llama con otro teléfono.
-* `<Gather>`: recopila los dígitos numéricos que se introdujeron en el teclado del teléfono.
-* `<Hangup>`: finaliza una llamada.
-* `<Play>`: reproduce un archivo de audio.
-* `<Pause>`: espera en silencio una cantidad de segundos especificada.
-* `<Record>`: graba la voz de la persona que llama y devuelve una dirección URL de un archivo que contiene la grabación.
-* `<Redirect>`: transfiere el control de una llamada o SMS al TwiML en una URL diferente.
-* `<Reject>`: rechaza una llamada entrante a su número de Twilio sin cobrarle.
-* `<Say>`: convierte texto en voz para hacer una llamada.
-* `<Sms>`: envía un mensaje SMS.
+* `<Dial>`: Conecta la persona que llama con otro teléfono.
+* `<Gather>`: Recopila los dígitos numéricos que se introdujeron en el teclado del teléfono.
+* `<Hangup>`: Finaliza una llamada.
+* `<Play>`: Reproduce un archivo de audio.
+* `<Pause>`: Espera en silencio una cantidad de segundos especificada.
+* `<Record>`: Graba la voz de la persona que llama y devuelve una dirección URL de un archivo que contiene la grabación.
+* `<Redirect>`: Transfiere el control de una llamada o SMS al TwiML en una URL diferente.
+* `<Reject>`: Rechaza una llamada entrante a su número de Twilio sin cobrarle.
+* `<Say>`: Convierte texto en voz para hacer una llamada.
+* `<Sms>`: Envía un mensaje SMS.
 
 ### <a name="twiml"></a>TwiML
 TwiML es un conjunto de instrucciones basadas en XML y en los verbos de Twilio que informan a Twilio sobre cómo procesar una llamada o un SMS.
@@ -114,7 +114,7 @@ De manera predeterminada, Microsoft Visual Studio 2010 instala la versión 1.2 d
 5. En el cuadro de búsqueda en línea, escriba *twilio*.
 6. Haga clic en **Instalar** en el paquete de Twilio.
 
-## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Procedimientos: Realización de una llamada saliente
+## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Realización de una llamada saliente
 A continuación se indica cómo realizar una llamada saliente con la clase **CallResource**. Este código también utiliza un sitio que proporciona Twilio para devolver la respuesta de lenguaje de marcado de Twilio (TwiML). Sustituya los valores de los números de teléfono **to** y **from**, y asegúrese de comprobar el número de teléfono **from** de la cuenta de Twilio antes de ejecutar el código.
 
 ```csharp
@@ -142,9 +142,9 @@ var call = CallResource.Create(
 
 Para más información sobre los parámetros pasados al método **CallResource.Create**, consulte [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. Podría en cambio usar su propio sitio para proporcionar la respuesta de TwiML. Para más información, vea: [Cómo: Entrega de respuestas de TwiML desde su propio sitio web](#howto_provide_twiml_responses).
+Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. Podría en cambio usar su propio sitio para proporcionar la respuesta de TwiML. Para más información, consulte [Entrega de respuestas de TwiML desde su propio sitio web](#howto_provide_twiml_responses).
 
-## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Procedimientos: Envío de un mensaje SMS
+## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Envío de un mensaje SMS
 A continuación se indica cómo enviar un mensaje SMS usando la clase **MessageResource**. El número **from** lo proporciona Twilio en las cuentas de evaluación para enviar mensajes SMS. El número **to** se debe comprobar en la cuenta de Twilio antes de ejecutar el código.
 
 ```csharp
@@ -171,8 +171,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedimientos: Entrega de respuestas de TwiML desde su propio sitio web
-Cuando la aplicación inicia una llamada a la API de Twilio, por ejemplo a través del método **CallResource.Create**, Twilio envía la solicitud a una dirección URL que debe devolver una respuesta de TwiML. En el ejemplo de [Instrucciones: Realización de una llamada saliente](#howto_make_call) usa la dirección URL [https://twimlets.com/message][twimlet_message_url] de Twilio para devolver la respuesta.
+## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedimientos: Suministro de respuestas de TwiML desde su propio sitio web
+Cuando la aplicación inicia una llamada a la API de Twilio, por ejemplo a través del método **CallResource.Create**, Twilio envía la solicitud a una dirección URL que debe devolver una respuesta de TwiML. El ejemplo de [Realización de una llamada saliente](#howto_make_call) usa la dirección URL [https://twimlets.com/message][twimlet_message_url] de Twilio para devolver la respuesta.
 
 > [!NOTE]
 > Aun cuando TwiML está diseñado para que lo usen los servicios web, puede ver el TwiML en su explorador. Por ejemplo, haga clic en [https://twimlets.com/message][twimlet_message_url] para ver un elemento `<Response>` vacío; en este otro ejemplo, haga clic en [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver un elemento `<Response>` que contiene un elemento &lt; Say&gt;.

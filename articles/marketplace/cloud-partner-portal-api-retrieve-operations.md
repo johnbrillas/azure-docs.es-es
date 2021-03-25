@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271950"
 ---
 # <a name="retrieve-operations"></a>Retrieve operations
 
 > [!NOTE]
-> Las API de Cloud Partner Portal están integradas y seguirán funcionando en el Centro de partners. La transición presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
+> Las API de Cloud Partner Portal están integradas y seguirán funcionando en el Centro de partners. La transición presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código siga funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Recupera todas las operaciones en la oferta u obtiene una determinada operación para el operationId especificado. El cliente puede utilizar los parámetros de consulta para filtrar según las operaciones de ejecución.
 

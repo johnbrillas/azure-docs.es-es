@@ -4,10 +4,10 @@ description: Use Azure Backup Server (MABS) para restaurar máquinas virtuales d
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263527"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restauración de máquinas virtuales de VMware
@@ -16,7 +16,7 @@ En este artículo se explica cómo usar Microsoft Azure Backup Server (MABS) pa
 
 * **Recuperación de ubicación original (OLR)** : use OLR para restaurar una máquina virtual protegida en la ubicación original correspondiente. Una máquina virtual se puede restaurar en su ubicación original únicamente si no se han agregado o eliminado discos desde que se hizo la copia de seguridad. Si se han agregado o eliminado discos, deberá usar otra forma de recuperación de ubicación.
 
-* **Recuperación de ubicación alternativa (ALR)** : si la máquina virtual original falta o no quiere suponer una molestia en la máquina virtual original, recupere la máquina virtual en una ubicación alternativa. Para recuperar una máquina virtual en una ubicación alternativa, debe proporcionar la ubicación de un host ESXi, un grupo de recursos de servidor, una carpeta y la ruta de acceso y el almacén de información de almacenamiento. Para poder diferenciar la máquina virtual restaurada de la máquina virtual original, MABS anexa "-Recuperado" al nombre de la máquina virtual.
+* **Recuperación de ubicación alternativa (ALR)** : cuando se omite la máquina virtual original o no desea interrumpirla, recupere la máquina virtual en una ubicación alternativa. Para recuperar una máquina virtual en una ubicación alternativa, debe proporcionar la ubicación de un host ESXi, un grupo de recursos de servidor, una carpeta y la ruta de acceso y el almacén de información de almacenamiento. Para poder diferenciar la máquina virtual restaurada de la máquina virtual original, MABS anexa "-Recuperado" al nombre de la máquina virtual.
 
 * **Recuperación de ubicación de archivo individual (ILR)** : si la máquina virtual protegida es una máquina virtual de Windows Server, se pueden recuperar archivos o carpetas individuales de la máquina virtual con la capacidad ILR de MABS. Para recuperar archivos individuales, vea el procedimiento correspondiente más adelante en este artículo.
 
@@ -36,7 +36,7 @@ En este artículo se explica cómo usar Microsoft Azure Backup Server (MABS) pa
 
 5. Seleccione **Siguiente** para ir a la pantalla **Especificar opciones de recuperación**.
 
-6. En la pantalla **Especificar opciones recuperación**, seleccione **Modificar** si quiere habilitar el límite de ancho de banda de red. Para dejar el límite de ancho de banda de red deshabilitado, seleccione **Siguiente**. No hay más opciones disponibles en esta pantalla del asistente para las máquinas virtuales de VMware. Si decide modificar el límite de ancho de banda de red, seleccione **Habilitar el límite de uso del ancho de banda de la red** en el cuadro de diálogo Limitación para activarla. Una vez habilitada, configure las opciones **Configuración** y **Programación de trabajos**.
+6. En la pantalla **Especificar opciones recuperación**, seleccione **Modificar** si quiere habilitar el límite de ancho de banda de red. Para dejar el límite de ancho de banda de red deshabilitado, seleccione **Siguiente**. No hay ninguna otra opción en esta pantalla del asistente que esté disponible para las máquinas virtuales VMware. Si elige modificar el límite de ancho de banda de red, en el cuadro de diálogo Límite, seleccione **Habilitar el límite de uso del ancho de banda de red** para activarlo. Una vez habilitada, configure las opciones **Configuración** y **Programación de trabajos**.
 
 7. En la pantalla **Seleccionar tipo de recuperación**, elija si quiere realizar la recuperación en la instancia original o en una nueva ubicación. Luego, seleccione **Siguiente**.
 
@@ -63,7 +63,7 @@ Puede restaurar archivos individuales desde un punto de recuperación de una má
 
 3. En el panel **Puntos de recuperación para:** , use el calendario para seleccionar la fecha que contiene los puntos de recuperación deseados. En función de cómo esté configurada la directiva de copia de seguridad, es posible que las fechas tengan más de un punto de recuperación. Una vez que haya seleccionado el día en que se tomó el punto de recuperación, asegúrese de elegir la **Hora de recuperación** adecuada. Si la fecha seleccionada tiene varios puntos de recuperación, elija el punto de recuperación seleccionándolo en el menú desplegable Hora de recuperación. Una vez elegido el punto de recuperación, la lista de elementos recuperables aparecerá en el panel **Ruta de acceso:** .
 
-4. Para buscar los archivos que desea recuperar, en el panel **Ruta de acceso**, haga doble clic en el elemento en la columna **Elemento recuperable** para abrirlo. Seleccione el archivo, los archivos o las carpetas que desea recuperar. Para seleccionar varios elementos, presione la tecla **Ctrl** mientras selecciona cada elemento. Use el panel **Ruta de acceso** para buscar la lista de archivos o carpetas que aparecen en la columna **Elemento recuperable**. La opción **Lista de búsqueda a continuación** no busca en las subcarpetas. Para buscar en las subcarpetas, haga doble clic en la carpeta. Use el botón **Subir** para pasar de una carpeta secundaria a la carpeta principal. Se pueden seleccionar varios elementos (archivos y carpetas), pero deben estar en la misma carpeta principal. No se pueden recuperar elementos de varias carpetas en el mismo trabajo de recuperación.
+4. Para buscar los archivos que desea recuperar, en el panel **Ruta de acceso**, haga doble clic en el elemento en la columna **Elemento recuperable** para abrirlo. Seleccione el archivo, los archivos o las carpetas que desea recuperar. Para seleccionar varios elementos, presione la tecla **Ctrl** mientras selecciona cada elemento. Use el panel **Ruta de acceso** para buscar la lista de archivos o carpetas que aparecen en la columna **Elemento recuperable**. La opción **Lista de búsqueda a continuación** no busca en las subcarpetas. Para buscar en las subcarpetas, haga doble clic en la carpeta. Use el botón **Arriba** para pasar de una carpeta secundaria a una carpeta principal. Se pueden seleccionar varios elementos (archivos y carpetas), pero deben estar en la misma carpeta principal. No se pueden recuperar elementos de varias carpetas en el mismo trabajo de recuperación.
 
     ![Revisar selección de recuperación](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 

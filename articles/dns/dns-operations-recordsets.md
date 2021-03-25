@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: f4e713f54ab4702b21763dc9fc6c7b606f94a945
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011598"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante Azure PowerShell
@@ -228,7 +228,7 @@ Para agregar un registro a un conjunto de registros existente, siga estos tres p
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-Al usar `Set-AzDnsRecordSet`, *se sustituye* el conjunto de registros existente en Azure DNS (y todos los registros que contiene) por el conjunto de registros especificado. Se usan [comprobaciones de ETag](dns-zones-records.md#etags) para garantizar que los cambios simultáneos no se sobrescriban. Puede usar el modificador `-Overwrite` opcional para suprimir estas comprobaciones.
+Al usar , `Set-AzDnsRecordSet` *se sustituye* el conjunto de registros existente en Azure DNS (y todos los registros que contiene) por el conjunto de registros especificado. Se usan [comprobaciones de ETag](dns-zones-records.md#etags) para garantizar que los cambios simultáneos no se sobrescriban. Puede usar el modificador `-Overwrite` opcional para suprimir estas comprobaciones.
 
 Esta secuencia de operaciones también se puede *canalizar*, es decir, pasar el objeto de conjunto de registros mediante la canalización en lugar de como un parámetro.
 

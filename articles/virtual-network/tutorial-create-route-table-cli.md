@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 043d450a1b968174ad263579d39de06a296a98e4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94741492"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
@@ -40,7 +40,7 @@ De forma predeterminada, Azure enruta automáticamente el tráfico entre todas l
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.28 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 

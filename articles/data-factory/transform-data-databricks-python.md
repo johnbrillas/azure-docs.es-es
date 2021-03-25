@@ -8,10 +8,10 @@ author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
 ms.openlocfilehash: 49dfe11ceb01471e3b5afadd30259dcd63e7b82a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373953"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks
@@ -118,7 +118,7 @@ Para más detalles, consulte la [documentación de Databricks](/azure/databricks
 
 ### <a name="or-you-can-use-the-databricks-cli"></a>O bien, puede usar la CLI de Databricks:
 
-1. Siga las instrucciones que se indican en [Copia de la biblioteca mediante la CLI de Databricks](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs).
+1. Siga [Copia de la biblioteca mediante la CLI de Databricks](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
 2. Uso de la CLI de Databricks [(pasos de instalación)](/azure/databricks/dev-tools/cli/#install-the-cli)
 

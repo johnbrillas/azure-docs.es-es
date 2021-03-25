@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100735"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
@@ -33,8 +33,8 @@ Antes de completar esta tarea, debe tener registrada una entidad de servicio en 
 Puede configurar administradores de servidor mediante SQL Server Management Studio (SSMS). Para completar esta tarea, debe tener permisos de [administrador del servidor](analysis-services-server-admins.md) en el servidor Azure AS. 
 
 1. En SSMS, conéctese a su servidor Azure AS.
-2. En **Propiedades del servidor** > **Seguridad** , haga clic en **Agregar**.
-3. En **Seleccione un usuario o grupo** , busque la aplicación registrada por su nombre, selecciónela y, a continuación, haga clic en **Agregar**.
+2. En **Propiedades del servidor** > **Seguridad**, haga clic en **Agregar**.
+3. En **Seleccione un usuario o grupo**, busque la aplicación registrada por su nombre, selecciónela y, a continuación, haga clic en **Agregar**.
 
     ![Búsqueda de la cuenta de la entidad de servicio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 

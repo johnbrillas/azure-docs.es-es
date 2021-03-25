@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783885"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
@@ -34,7 +34,7 @@ Para información sobre cómo ver las claves de acceso a la cuenta y copiar una 
 La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución para autorizar las solicitudes realizadas a Azure Storage. Tiene varias opciones para almacenar una cadena de conexión:
 
 * Puede almacenar la cadena de conexión en una variable de entorno.
-* Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config** . Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
+* Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
 * Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
 
 El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md) y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
@@ -57,7 +57,7 @@ Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Aunque Azure Storage admite HTTP y HTTPS en una cadena de conexión, *se recomienda encarecidamente utilizar HTTPS* .
+Aunque Azure Storage admite HTTP y HTTPS en una cadena de conexión, *se recomienda encarecidamente utilizar HTTPS*.
 
 > [!TIP]
 > Las cadenas de conexión de la cuenta de almacenamiento se pueden encontrar en [Azure Portal](https://portal.azure.com). Navegue a **CONFIGURACIÓN** > **Claves de acceso** en la hoja del menú de la cuenta de almacenamiento para ver las cadenas de conexión de las claves de acceso principal y secundaria.

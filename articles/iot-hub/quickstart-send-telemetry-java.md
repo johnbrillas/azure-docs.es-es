@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 01/27/2021
 ms.openlocfilehash: df6673f6e8e448b0208ee53c17cf86f55d6d9f8f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219172"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Inicio rápido: Envío de telemetría a una instancia de Azure IoT Hub y su lectura en una aplicación Java
@@ -29,7 +29,7 @@ ms.locfileid: "102219172"
 
 En este inicio rápido se envían datos de telemetría a Azure IoT Hub y se leen con una aplicación de Java. IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido se usan dos aplicaciones de Java escritas previamente: una para enviar datos de telemetría y la otra para leer datos de telemetría desde el centro. Antes de ejecutar estas dos aplicaciones, creará un centro de IoT Hub y registrará un dispositivo con el centro.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

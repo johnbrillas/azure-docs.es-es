@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83ab2c6b97435ace0d2bc508cbf522600391b60b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88926837"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintaxis de $orderby de OData en Azure Cognitive Search
 
- Puede usar el [parámetro **$orderby** de OData ](query-odata-filter-orderby-syntax.md) para aplicar un criterio de ordenación personalizado a los resultados de Azure Cognitive Search. En este artículo se describe con detalle la sintaxis de **$orderby**. Para más información general sobre cómo usar **$orderby** al presentar los resultados de la búsqueda, consulte [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
+ Puede usar el [parámetro **$orderby** de OData](query-odata-filter-orderby-syntax.md) para aplicar un criterio de ordenación personalizado a los resultados de Azure Cognitive Search. En este artículo se describe con detalle la sintaxis de **$orderby**. Para más información general sobre cómo usar **$orderby** al presentar los resultados de la búsqueda, consulte [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintaxis
 

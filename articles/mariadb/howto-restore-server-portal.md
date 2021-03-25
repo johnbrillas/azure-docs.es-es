@@ -3,14 +3,14 @@ title: Copia de seguridad y restauración en Azure Database for MariaDB mediante
 description: En este artículo se describe cómo restaurar un servidor en Azure Database for MariaDB mediante Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 06da58b5c82af39abbaa1cbc15a217c25d7808f9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664824"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante Azure Portal

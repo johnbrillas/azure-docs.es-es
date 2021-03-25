@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546558"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Información general de conexión y consulta de Azure Database for PostgreSQL: Servidor único
@@ -35,7 +35,7 @@ En el documento siguiente se incluyen vínculos a ejemplos que muestran cómo co
 
 ## <a name="tls-considerations-for-database-connectivity"></a>Consideraciones de TLS para la conectividad de bases de datos
 
-El protocolo Seguridad de capa de transporte (TLS) lo usan todos los controladores que Microsoft proporciona o admite para conectarse a bases de datos de Azure Database for PostgreSQL. No es necesaria ninguna configuración especial, pero se aplica TLS 1.2 para los servidores recientemente creados. Se recomienda que use TLS 1.0 y 1.1 y, después, actualice la versión de TLS para los servidores. Vea [ Procedimientos para configurar TLS](howto-tls-configurations.md)
+El protocolo Seguridad de capa de transporte (TLS) lo usan todos los controladores que Microsoft proporciona o admite para conectarse a bases de datos de Azure Database for PostgreSQL. No es necesaria ninguna configuración especial, pero se aplica TLS 1.2 para los servidores recientemente creados. Se recomienda que, si usa TLS 1.0 y 1.1, después actualice la versión de TLS para los servidores. Vea [ Procedimientos para configurar TLS](howto-tls-configurations.md)
 
 ## <a name="postgresql-extensions"></a>Extensiones de PostgreSQL
 

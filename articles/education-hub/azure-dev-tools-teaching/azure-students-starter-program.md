@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674977"
 ---
 # <a name="azure-for-students-starter"></a>Paquete de inicio de Azure for Students
@@ -29,7 +29,7 @@ Microsoft Azure for Students Starter está disponible para los alumnos comprobad
 
 Esta oferta no está disponible para su uso en un curso en línea masivo y abierto (MOOC) ni en otros cursos profesionales de organizaciones con ánimo de lucro.
 
-Esta oferta está limitada a una suscripción a Microsoft Azure for Students Starter por cliente cualificado. No es transferible y no se puede combinar con ninguna otra oferta, a menos que Microsoft lo permita.
+Esta oferta está limitada a una suscripción de Azure for Students Starter por cliente cualificado. No es transferible y no se puede combinar con ninguna otra oferta, a menos que Microsoft lo permita.
 
 No se requiere una tarjeta de crédito para la oferta de Microsoft Azure for Students Starter. Sin embargo, puede actualizar en cualquier momento a una suscripción de pago por uso para obtener acceso a todos los servicios de Azure mediante el [portal de la cuenta de Azure](https://account.azure.com/).
 

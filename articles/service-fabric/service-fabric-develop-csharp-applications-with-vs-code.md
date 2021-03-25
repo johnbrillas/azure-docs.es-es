@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92678335"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones C# de Service Fabric con Visual Studio Code
@@ -57,7 +57,7 @@ La aplicación ahora debería aparecer en el área de trabajo de VS Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implementación de la aplicación en el clúster local
 Después de haber compilado la aplicación, se puede implementar en el clúster local. 
 
-1. En la **paleta de comandos** , seleccione el comando **Service Fabric: Deploy Application (Localhost)** . La salida del proceso de instalación se envía al terminal integrado.
+1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)** . La salida del proceso de instalación se envía al terminal integrado.
 
    ![Comando de implementación de la aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Además de implementar la aplicación en el clúster local, también puede publi
 
 1. Asegúrese de haber compilado la aplicación según las instrucciones anteriores. Actualice el archivo de configuración generado `Cloud.json` con los detalles del clúster remoto en el que desea realizar la publicación.
 
-2. En la **paleta de comandos** , seleccione el comando **Service Fabric: Publicación de aplicación**. La salida del proceso de instalación se envía al terminal integrado.
+2. En la **paleta de comandos**, seleccione el comando **Service Fabric: Publicación de aplicación**. La salida del proceso de instalación se envía al terminal integrado.
 
    ![Comando Publicar aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 

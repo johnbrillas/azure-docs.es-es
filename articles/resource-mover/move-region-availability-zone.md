@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95543007"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Traslado de máquinas virtuales de Azure a una zona de disponibilidad de otra región

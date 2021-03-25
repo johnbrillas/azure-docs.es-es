@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011547"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegación de un subdominio de Azure DNS
@@ -20,7 +20,7 @@ Puede usar Azure Portal para delegar un subdominio DNS. Por ejemplo, si es propi
 
 Si lo prefiere, puede delegar un subdominio usando [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para delegar un subdominio de Azure DNS, primero debe delegar el dominio público en Azure DNS. Consulte [Delegación de un dominio en Azure DNS](./dns-delegate-domain-azure-dns.md) para obtener instrucciones sobre cómo configurar los servidores de nombres para su delegación. Una vez que el dominio se delega a la zona de Azure DNS, puede delegar el subdominio.
 

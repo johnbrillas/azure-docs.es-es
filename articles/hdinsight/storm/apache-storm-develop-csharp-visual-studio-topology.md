@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929164"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865458"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
 
@@ -128,7 +128,7 @@ Para crear un proyecto de topología C# en Visual Studio:
 
 1. En la ventana **Configure su nuevo proyecto**, en el campo **Nombre de proyecto**, escriba el nombre *WordCount*, vaya a o cree una ruta de acceso al directorio en **Ubicación** y luego seleccione **Crear**.
 
-    ![Aplicación Storm, cuadro de diálogo Configure su nuevo proyecto, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Aplicación Storm, cuadro de diálogo Configure su nuevo proyecto, Visual Studio" border="true":::
 
 Después de crear el proyecto, debe tener los siguientes archivos:
 
@@ -333,7 +333,7 @@ Ahora cree dos bolts Storm en este ejemplo:
 
 Los spouts y bolts se organizan en un gráfico, que define cómo fluyen los datos entre componentes. Para esta topología, el gráfico es como sigue:
 
-![Diagrama de organización de componentes de spout y bolt, topología de Storm](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Diagrama de organización de componentes de spout y bolt, topología de Storm" border="false":::
 
 Spout emite oraciones que se distribuyen a las instancias del bolt Splitter. El bolt divisor divide las frases en palabras, que se distribuyen en el bolt contador.
 
@@ -413,7 +413,7 @@ Ahora está listo para enviar la topología al clúster de HDInsight.
 
     Cuando la topología se envió correctamente, debe aparecer la ventana **Vista Topologías de Storm** del clúster. Seleccione la topología **WordCount** de la lista para consultar la información sobre la topología en ejecución.
 
-    ![Ventana Vista Topologías de Storm, clúster de HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Ventana Vista Topologías de Storm, clúster de HDInsight, Visual Studio" border="true":::
 
     > [!NOTE]  
     > También puede ver **topologías de Storm** desde el **Explorador de servidores**. Expanda **Azure** > **HDInsight**, haga clic con el botón derecho en un clúster de Storm en HDInsight y luego seleccione **Ver topologías de Storm**.
@@ -567,7 +567,7 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos, pu
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**. En las propiedades del proyecto. Luego, cambie el valor de **Tipo de salida** a **Aplicación de consola**.
 
-   ![Aplicación de Storm de HDInsight, propiedades del proyecto, tipo de salida](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="Aplicación de Storm de HDInsight, propiedades del proyecto, tipo de salida" border="true":::
 
    > [!NOTE]
    > No olvide cambiar el **tipo de salida** de nuevo a **Biblioteca de clases** antes de implementar la topología en un clúster.

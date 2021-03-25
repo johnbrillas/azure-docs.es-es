@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1c6b7ec6c4ef24ec00fbfc55a65a968e00561c2e
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632226"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865271"
 ---
 # <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Restauración con la herramienta Azure Application Consistent Snapshot (versión preliminar)
 
@@ -41,7 +41,7 @@ El comando `-c restore` tiene las siguientes opciones:
 - `--restore revertvolume` Revierte el volumen de destino a un estado anterior en función de la instantánea más reciente  mediante este comando como parte de la conmutación por error de recuperación ante desastres en la región de recuperación ante desastres emparejada. Este comando **detiene** la replicación de almacenamiento desde el sitio principal al sitio secundario y revierte los volúmenes de recuperación ante desastres de destino a su instantánea más reciente disponible en los volúmenes de recuperación ante desastres junto con los puntos de montaje del sistema de archivos recomendados para los volúmenes de recuperación ante desastres revertidos. Este comando debe ejecutarse en el sistema de Azure (instancias grandes) **de la región de recuperación ante desastres** (es decir, el sistema de conmutación por error de destino).
     > [!NOTE]
     > El subcomando (`--restore revertvolume`) solo está disponible para Azure (instancias grandes) y no está disponible para Azure NetApp Files.
-- `--hanasid <SAP HANA SID>` es el SID de SAP HANA que se selecciona del archivo de configuración al que se van a aplicar los comandos de restauración de volumen.
+- `--dbsid <SAP HANA SID>` es el SID de SAP HANA que se selecciona del archivo de configuración al que se van a aplicar los comandos de restauración de volumen.
 
 - `[--configfile <config filename>]` es un parámetro opcional que permite nombres de archivo de configuración personalizados.
 
@@ -64,7 +64,7 @@ El archivo de configuración (por ejemplo, `DR.json`) debe contener solo los vol
 ### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>Salida del comando `azacsnap -c restore --restore snaptovol` (para un escenario de un solo nodo)
 
 ```output
-> azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
+> azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.

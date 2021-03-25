@@ -1,18 +1,14 @@
 ---
 title: Uso de la asignación de dispositivos sensores
 description: La asignación de dispositivos ofrece una representación gráfica de los dispositivos de red detectados. Use la asignación para analizar y administrar la información de los dispositivos y los segmentos de red, y generar informes.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f7579cbca618baef404236556993c9831dd84bdf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523845"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784601"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigación de las detecciones de sensores en la asignación de dispositivos
 
@@ -709,6 +705,6 @@ Para realizar la exportación:
 
 1. Seleccione una opción de exportación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Investigación de las detecciones de sensores en un inventario de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

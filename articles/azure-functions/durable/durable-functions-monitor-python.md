@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434770"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Ejemplo de supervisión de problemas del escenario de supervisión en Durable Functions: GitHub
 
 El patrón de supervisión hace referencia a un proceso periódico flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. En este artículo se explica un ejemplo que usa Durable Functions para implementar la supervisión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Complete el artículo de inicio rápido](quickstart-python-vscode.md).
 * [Clone o descargue el proyecto de ejemplos de GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/).

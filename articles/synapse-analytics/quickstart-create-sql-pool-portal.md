@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462022"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de SQL dedicado mediante Azure Portal
@@ -24,7 +24,7 @@ En este inicio rápido aprenderá a crear un grupo de SQL dedicado en un área d
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse](./quickstart-create-workspace.md)

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240773"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL (versión preliminar)
@@ -68,8 +68,8 @@ La restauración a un momento dado es útil en diversos escenarios. Algunos de l
 
 Puede elegir entre el último punto de restauración y un punto de restauración personalizado a través de [Azure Portal](how-to-restore-server-portal.md).
 
--   **Último punto de restauración** : el último punto de restauración ayuda a restaurar el servidor a la última copia de seguridad realizada en el servidor de origen. La marca de tiempo para la restauración también se mostrará en el portal. Esta opción es útil para restaurar rápidamente el servidor al estado más actualizado.
--   **Personalizar el punto de restauración** : esto le permitirá elegir cualquier momento dentro del período de retención definido para este servidor flexible. Esta opción es útil para restaurar el servidor en el momento preciso de recuperación de un error de usuario.
+-   **Último punto de restauración**: el último punto de restauración ayuda a restaurar el servidor a la última copia de seguridad realizada en el servidor de origen. La marca de tiempo para la restauración también se mostrará en el portal. Esta opción es útil para restaurar rápidamente el servidor al estado más actualizado.
+-   **Personalizar el punto de restauración**: esto le permitirá elegir cualquier momento dentro del período de retención definido para este servidor flexible. Esta opción es útil para restaurar el servidor en el momento preciso de recuperación de un error de usuario.
 
 El tiempo estimado de recuperación depende de varios factores, entre los que se incluyen los tamaños de las bases de datos, el tamaño de la copia de seguridad del registro de transacciones, el tamaño de proceso de la SKU y la hora de la restauración. La recuperación del registro de transacciones es la parte más lenta del proceso de restauración. Si el momento de la restauración se elige más próximo a la programación de la copia de seguridad de instantáneas completa o diferencial, las restauraciones son más rápidas, ya que la aplicación del registro de transacciones es mínima. A fin de calcular el tiempo de recuperación preciso para el servidor, es muy recomendable probarla en el entorno, ya que tiene demasiadas variables específicas de entorno.
 
@@ -81,7 +81,7 @@ El tiempo estimado de recuperación depende de varios factores, entre los que se
 
 ## <a name="perform-post-restore-tasks"></a>Tareas posteriores a la restauración
 
-Cuando efectúe la restauración con el mecanismo de recuperación **último punto de restauración** o **punto de restauración personalizado** , deberá realizar las tareas siguientes para que los usuarios y las aplicaciones vuelvan a conectarse:
+Cuando efectúe la restauración con el mecanismo de recuperación **último punto de restauración** o **punto de restauración personalizado**, deberá realizar las tareas siguientes para que los usuarios y las aplicaciones vuelvan a conectarse:
 
 -   Si el servidor nuevo está destinado a reemplazar al servidor original, redirija a los clientes y las aplicaciones cliente al servidor nuevo.
 -   Asegúrese de aplicar reglas de red virtual y de firewall de nivel de servidor adecuadas para que se conecten los usuarios.

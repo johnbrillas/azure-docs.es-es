@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130024"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
@@ -28,13 +28,13 @@ Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory** , haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
+3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
 
     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
 
 4. En la página Crear, escriba la información de registro de la aplicación:
-    -   **Name** : Especifique un nombre de aplicación significativo.
-    -   **Tipo de aplicación** :  
+    -   **Name**: Especifique un nombre de aplicación significativo.
+    -   **Tipo de aplicación**:  
         
         Seleccione **Aplicación web/API** para las [aplicaciones cliente](../../active-directory/develop/developer-glossary.md#client-application) y las [aplicaciones de recursos/API](../../active-directory/develop/developer-glossary.md#resource-server) que están instaladas en un servidor seguro. Esta configuración se usa para [clientes web](../../active-directory/develop/developer-glossary.md#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](../../active-directory/develop/developer-glossary.md#user-agent-based-client) públicos.
         La misma aplicación también puede exponer tanto un cliente como un recurso o API.
@@ -84,7 +84,7 @@ Post<br>
 |  ---------------   |  ---------------  | ------------ |
 |  `grant_type`      |  True      |  Tipo de concesión. Mediante `"client_credentials"`. |
 |  `client_id`       |  True      |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD. |
-|  `client_secret`   |  True      |  Secreto asociado a la aplicación de Azure AD. |
+|  `client_secret`   |  True      |  Secreto asociado a la aplicación de Azure AD. |
 |  `resource`        |  True      |  Recurso de destino para el que se solicita el token. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` porque la API de SaaS de Marketplace es siempre el recurso de destino en este caso. |
 
 ##### <a name="response"></a>*Respuesta*

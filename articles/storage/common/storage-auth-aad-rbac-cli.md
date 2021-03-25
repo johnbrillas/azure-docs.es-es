@@ -12,17 +12,17 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375993"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas
 
 Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que engloban los conjuntos comunes de permisos que se usan para acceder a los datos de los blobs o de las colas.
 
-Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede a esa entidad de seguridad acceso a esos recursos. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 En este artículo se describe cómo usar la CLI de Azure para enumerar los roles integrados de Azure y asignarlos a los usuarios. Para obtener más información sobre cómo usar la CLI de Azure, vea [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure).
 
