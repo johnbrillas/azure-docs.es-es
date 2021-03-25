@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410545"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 
 La característica de sincronización de Azure AD Connect tiene dos componentes:
 
-* El componente local denominado **sincronización de Azure AD Connect** , también conocido como **motor de sincronización**.
+* El componente local denominado **sincronización de Azure AD Connect**, también conocido como **motor de sincronización**.
 * El servicio que se encuentra en Azure AD, también conocido como **servicio de sincronización de Azure AD Connect**
 
 En este tema se explica cómo funcionan las siguientes características del **servicio de sincronización de Azure AD Connect** y cómo puede configurarlas mediante Windows PowerShell.

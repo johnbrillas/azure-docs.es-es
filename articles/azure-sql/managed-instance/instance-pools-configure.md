@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793116"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementación de Instancia administrada de Azure SQL en un grupo de instancias
@@ -257,7 +257,7 @@ Si hay varias bases de datos, repita el proceso para cada base de datos.
 
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](../database/features-comparison.md).
 - Para obtener más información sobre la configuración de redes virtuales, vea [Configuración de una red virtual de Instancia administrada de SQL](connectivity-architecture-overview.md).
-- Para ver una guía de inicio rápido en la que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, vea [Creación de una instancia administrada](instance-create-quickstart.md).
-- Para consultar un tutorial sobre el uso de Azure Database Migration Service para la migración, vea [Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión mediante DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Para ver un inicio rápido en el que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](instance-create-quickstart.md).
+- Para consultar un tutorial sobre el uso de Azure Database Migration Service para la migración, consulte [Migración de Instancia administrada de SQL mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
 - Para obtener información sobre la supervisión avanzada del rendimiento de las bases de datos de Instancia administrada de SQL con inteligencia integrada para la solución de problemas, consulte [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Para obtener información sobre precios, vea la página de [precios de Instancia administrada de SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793473"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
@@ -49,7 +49,7 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 
 - **Dividir para aumentar**
 
-  Para aumentar la capacidad general de cara a controlar el crecimiento explosivo, cree capacidad adicional; para ello, particione los datos y distribúyalos entre más bases de datos de manera incremental hasta satisfacer las necesidades de capacidad. Este es un buen ejemplo de la característica de **división** .
+  Para aumentar la capacidad general de cara a controlar el crecimiento explosivo, cree capacidad adicional; para ello, particione los datos y distribúyalos entre más bases de datos de manera incremental hasta satisfacer las necesidades de capacidad. Este es un buen ejemplo de la característica de **división**.
 
 - **Combinar para reducir**
 

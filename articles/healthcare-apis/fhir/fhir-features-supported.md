@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020803"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048426"
 ---
 # <a name="features"></a>Características
 
@@ -35,14 +35,14 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | update with optimistic locking | Sí       | Sí       | Sí       |                                                     |
 | update (conditional)           | Sí       | Sí       | Sí       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| delete                         | Sí       | Sí       | Sí       |  Vea la nota siguiente                                                   |
+| delete                         | Sí       | Sí       | Sí       |  Vea la nota siguiente.                                   |
 | delete (conditional)           | No        | No        | No        |                                                     |
 | history                        | Sí       | Sí       | Sí       |                                                     |
 | create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
 | create (conditional)           | Sí       | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte a continuación                                           |
-| búsqueda encadenada                 | No        | Sí       | No        |                                                     |
-| búsqueda encadenada inversa         | No        | Sí       | No        |                                                     |
+| búsqueda                         | Parcial   | Parcial   | Parcial   | Vea la sección de búsqueda a continuación.                           |
+| búsqueda encadenada                 | Sí       | Sí       | Parcial   | Vea la nota 2 a continuación.                                   |
+| búsqueda encadenada inversa         | Sí       | Sí       | Parcial   | Vea la nota 2 a continuación.                                   |
 | capabilities                   | Sí       | Sí       | Sí       |                                                     |
 | proceso por lotes                          | Sí       | Sí       | Sí       |                                                     |
 | transaction                    | No        | Sí       | No        |                                                     |
@@ -50,7 +50,13 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | intermediaries                 | No        | No        | No        |                                                     |
 
 > [!Note]
-> La eliminación definida por la especificación FHIR requiere que después de la eliminación, las lecturas posteriores no específicas de la versión de un recurso devuelvan un código de Estado HTTP 410 y que el recurso ya no se encuentre en la búsqueda. La API de Azure para FHIR también le permite eliminar completamente (incluido todo el historial) el recurso. Para eliminar completamente el recurso, puede pasar una configuración de parámetros `hardDelete` a true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Si no pasa este parámetro o establece `hardDelete` en false, las versiones históricas del recurso seguirán estando disponibles.
+> La eliminación definida por la especificación FHIR requiere que, después de la eliminación, las lecturas posteriores no específicas de la versión de un recurso devuelvan un código de estado HTTP 410 y que el recurso ya no se encuentre en la búsqueda. La API de Azure para FHIR también le permite eliminar completamente (incluido todo el historial) el recurso. Para eliminar completamente el recurso, puede pasar una configuración de parámetros `hardDelete` a true (`DELETE {server}/{resource}/{id}?hardDelete=true`). Si no pasa este parámetro o establece `hardDelete` en false, las versiones históricas del recurso seguirán estando disponibles.
+
+
+ **Nota 2**
+* Agrega compatibilidad con MVP para la búsqueda encadenada y encadenada de FHIR en CosmosDB. 
+
+  En la API de Azure para FHIR y el servidor FHIR de código abierto con el respaldo de Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa es una implementación de MVP. Para realizar una búsqueda encadenada en Cosmos DB, la implementación recorre la expresión de búsqueda y emite subconsultas para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true` . Para obtener más información, consulte [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Search
 
@@ -102,7 +108,7 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | Parámetros de resultados de la búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_elements`             | Sí       | Sí       | Sí       | Problema [n.º 1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Sí       | Sí       | Sí       | `_count` está limitado a 1000 caracteres. Si se establece en un valor superior a 1000, solo se devolverán 1000 y se devolverá una advertencia en la agrupación. |
+| `_count`                | Sí       | Sí       | Sí       | `_count` tiene un límite de 1000 caracteres. Si se establece en un valor superior a 1000, solo se devolverán 1000 y una advertencia en el conjunto. |
 | `_include`              | Sí       | Sí       | Sí       |Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB no incluye compatibilidad con :iterate.|
 | `_revinclude`           | Sí       | Sí       | Sí       | Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB [no incluye compatibilidad con :iterate](https://github.com/microsoft/fhir-server/issues/1313). Problema [n.º 1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |

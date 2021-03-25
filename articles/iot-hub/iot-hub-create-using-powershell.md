@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: da021e3ba0fd93a182ea76a1ba4b7042b325aacc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142382"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Creación de una instancia de IoT Hub mediante el cmdlet New-AzlotHub
@@ -41,7 +41,7 @@ Login-AzAccount
 
 Necesita un grupo de recursos para implementar una instancia de IoT Hub. Puede usar un grupo de recursos existente o crear uno nuevo.
 
-Para crear un grupo de recursos para su instancia de IoT Hub, use el comando [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). En este ejemplo se crea un grupo de recursos denominado **MyIoTRG1** en la región **Este de EE. UU.** :
+Para crear un grupo de recursos para su instancia de IoT Hub, use el comando [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). En este ejemplo se crea un grupo de recursos denominado **MyIoTRG1** en la región **Este de EE. UU.**:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -49,7 +49,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Para crear una instancia de IoT Hub en el grupo de recursos que creó en el paso anterior, use el comando [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub). Este ejemplo crea un centro **S1** llamado **MyTestIoTHub** en la región **Este de EE. UU.** :
+Para crear una instancia de IoT Hub en el grupo de recursos que creó en el paso anterior, use el comando [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub). Este ejemplo crea un centro **S1** llamado **MyTestIoTHub** en la región **Este de EE. UU.**:
 
 ```azurepowershell-interactive
 New-AzIotHub `

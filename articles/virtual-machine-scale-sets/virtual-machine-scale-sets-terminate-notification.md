@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747749"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
@@ -28,13 +28,13 @@ Hay varias maneras de habilitar las notificaciones de terminación en las instan
 
 Los pasos siguientes habilitan la notificación de finalización al crear un nuevo conjunto de escalado. 
 
-1. Vaya a **Conjuntos de escalado de máquinas virtuales** .
+1. Vaya a **Conjuntos de escalado de máquinas virtuales**.
 1. Seleccione **+ Agregar** para crear un nuevo conjunto de escalado.
 1. Vaya a la pestaña **Administración** (Administración). 
-1. Busque la sección **Finalización de la instancia** .
-1. En **Instance termination notification** (Notificación de finalización de la instancia), seleccione **Activado** .
+1. Busque la sección **Finalización de la instancia**.
+1. En **Instance termination notification** (Notificación de finalización de la instancia), seleccione **Activado**.
 1. En **Retraso de la finalización (minutos)** , establezca el tiempo de espera predeterminado deseado.
-1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear** . 
+1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear**. 
 
 > [!NOTE]
 > No puede establecer las notificaciones de finalización en conjuntos de escalado existentes en Azure Portal
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-En el bloque anterior se especifica un tiempo de espera de 5 minutos (como se indica en *PT5M* ) para cualquier operación de finalización en todas las instancias del conjunto de escalado. El campo *notBeforeTimeout* puede tener cualquier valor entre 5 y 15 minutos en formato ISO 8601. Puede cambiar el tiempo de espera predeterminado de la operación de finalización modificando la propiedad *notBeforeTimeout* en *terminateNotificationProfile* como se ha descrito anteriormente.
+En el bloque anterior se especifica un tiempo de espera de 5 minutos (como se indica en *PT5M*) para cualquier operación de finalización en todas las instancias del conjunto de escalado. El campo *notBeforeTimeout* puede tener cualquier valor entre 5 y 15 minutos en formato ISO 8601. Puede cambiar el tiempo de espera predeterminado de la operación de finalización modificando la propiedad *notBeforeTimeout* en *terminateNotificationProfile* como se ha descrito anteriormente.
 
-Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de escalado y establecer el valor de *notBeforeTimeout* , actualice las instancias individuales al [modelo más reciente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para que se reflejen los cambios.
+Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de escalado y establecer el valor de *notBeforeTimeout*, actualice las instancias individuales al [modelo más reciente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para que se reflejen los cambios.
 
 > [!NOTE]
 >Las notificaciones de finalización de las instancias del conjunto de escalado solo se pueden habilitar con la versión 2019-03-01 o posteriores de la API.
@@ -137,7 +137,7 @@ Scheduled Events se deshabilitará para el conjunto de escalado si las instancia
 En el caso de las máquinas virtuales con red virtual habilitada, el servicio de metadatos está disponible desde una dirección IP no enrutable estática, 169.254.169.254.
 
 El punto de conexión completo de la versión más reciente de Scheduled Events es:
-> "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="query-response"></a>Respuesta de la consulta
 Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
@@ -186,7 +186,7 @@ También puede hacer referencia a los scripts de ejemplo para consultar y respon
 -   Eliminación obligatoria en tiempo de espera: la versión preliminar no proporciona ninguna funcionalidad para ampliar el valor del tiempo de espera una vez que se ha generado un evento. Una vez que expire el tiempo de espera, se procesará el evento de finalización pendiente y se eliminará la máquina virtual.
 -   Valor de tiempo de espera modificable: puede modificar el valor del tiempo de espera en cualquier momento antes de que se elimine una instancia. Para ello, modifique la propiedad *notBeforeTimeout* en el modelo del conjunto de escalado y actualice las instancias de máquina virtual al modelo más reciente.
 -   Aprobación de todas las eliminaciones pendientes: si hay una eliminación pendiente en VM_1 que no está aprobada y ha aprobado otro evento de finalización en VM_2, la máquina virtual VM_2 no se eliminará hasta que se apruebe el evento de finalización de VM_1 o se agote el tiempo de espera. Una vez aprobado el evento de finalización para VM_1, se eliminarán tanto VM_1 como VM_2.
--   Aprobación de todas las eliminaciones simultáneas: ampliando el ejemplo anterior, si VM_1 y VM_2 tienen el mismo tiempo especificado en *NotBefore* , se deben aprobar los dos eventos de finalización o no se eliminarán las máquinas virtuales antes de que expire el tiempo de espera.
+-   Aprobación de todas las eliminaciones simultáneas: ampliando el ejemplo anterior, si VM_1 y VM_2 tienen el mismo tiempo especificado en *NotBefore*, se deben aprobar los dos eventos de finalización o no se eliminarán las máquinas virtuales antes de que expire el tiempo de espera.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Error al habilitar scheduledEventsProfile
@@ -194,10 +194,10 @@ Si recibe un error "BadRequest" con un mensaje de error que indica que "no se pu
 
 ### <a name="failure-to-get-terminate-events"></a>Error al obtener los eventos de finalización
 Si no obtiene ningún evento de **finalización** a través de Scheduled Events, compruebe la versión de API que se usa para obtener los eventos. Se requiere Metadata Service API versión **2019-01-01** u otra posterior para los eventos de finalización.
->"http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+>'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obtención del evento de finalización con una hora de NotBefore incorrecta  
-Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de escalado y establecer el valor de *notBeforeTimeout* , actualice las instancias individuales al [modelo más reciente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para que se reflejen los cambios.
+Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de escalado y establecer el valor de *notBeforeTimeout*, actualice las instancias individuales al [modelo más reciente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para que se reflejen los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo [implementar la aplicación](virtual-machine-scale-sets-deploy-app.md) en conjuntos de escalado de máquinas virtuales.

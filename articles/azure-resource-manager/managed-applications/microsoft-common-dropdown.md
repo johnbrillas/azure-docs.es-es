@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92168348"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.DropDown
@@ -26,19 +26,19 @@ Cuando solo se permite la selección de un elemento, el control aparece como:
 
 Cuando se incluyen descripciones, el control aparece como:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selección única de Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selección única de Microsoft.Common.DropDown con descripciones":::
 
 Cuando la selección múltiple está habilitada, el control agrega una opción **Seleccionar todo** y casillas para activar más de un elemento:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selección única de Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selección múltiple de Microsoft.Common.DropDown":::
 
 Se pueden incluir descripciones con la selección múltiple habilitada.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Selección única de Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Captura de pantalla que muestra cómo se pueden incluir descripciones con la selección múltiple habilitada":::
 
 Cuando el filtrado está habilitado, el control incluye un cuadro de texto para agregar el valor de filtrado.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selección única de Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selección múltiple de Microsoft.Common.DropDown con descripciones":::
 
 ## <a name="schema"></a>Schema
 
@@ -87,7 +87,7 @@ Cuando el filtrado está habilitado, el control incluye un cuadro de texto para 
 - De forma predeterminada, `selectAll` es `true` cuando la selección múltiple está habilitada.
 - La propiedad `filter` permite a los usuarios buscar en una larga lista de opciones.
 - La etiqueta de `constraints.allowedValues` es el texto para mostrar de un elemento, y su valor es el valor de salida del elemento cuando se selecciona.
-- Si se especifica, el valor predeterminado debe ser una etiqueta presente en `constraints.allowedValues`. Si no se especifica, se selecciona el primer elemento de `constraints.allowedValues`. El valor predeterminado es **null** .
+- Si se especifica, el valor predeterminado debe ser una etiqueta presente en `constraints.allowedValues`. Si no se especifica, se selecciona el primer elemento de `constraints.allowedValues`. El valor predeterminado es **null**.
 - `constraints.allowedValues` debe tener al menos un elemento.
 - Para emular un valor que no es obligatorio, agregue un elemento con una etiqueta y el valor `""` (cadena vacía) a `constraints.allowedValues`.
 - La propiedad `defaultDescription` se usa para los elementos que no tienen una descripción.

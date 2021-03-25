@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851721"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
@@ -27,7 +27,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 Las plantillas de esta sección le permiten personalizar el contenido de las páginas de API en el portal para desarrolladores.  
   
--   [API list](#APIList)  
+-   [Lista de API](#APIList)  
 -   [operación](#Product)  
 -   [Ejemplos de código](#CodeSamples)  
     -   [Curl](#Curl)  

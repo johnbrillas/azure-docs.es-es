@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
 ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88798387"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Cambio de la configuración y del método de comprobación en dos pasos
@@ -128,7 +128,7 @@ Dependiendo de la configuración de la organización, es posible que vea una cas
 
 ### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Para volver a activar los avisos de verificación en dos fases en los dispositivos
 
-En la página [**Comprobación de seguridad adicional**, seleccione ](#to-get-to-the-additional-security-verification-page)Restaurar **Multi-Factor Authentication en dispositivos en los que se confió anteriormente**. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos fases.
+En la página [**Comprobación de seguridad adicional**, seleccione](#to-get-to-the-additional-security-verification-page)Restaurar **Multi-Factor Authentication en dispositivos en los que se confió anteriormente**. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos fases.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

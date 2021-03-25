@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
 ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537708"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ejecución manual de una función no desencadenada por HTTP
@@ -43,11 +43,11 @@ Puede usar la ubicación de esta solicitud en Postman junto con la clave maestra
 
 1. En la sección **Editar clave**, copie el valor de la clave en el portapapeles y, a continuación, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copie la clave maestra en el portapapeles." border="true":::
 
 1. Después de copiar la clave *_master*, seleccione **Código y prueba** y, a continuación, seleccione **Registros**. Aquí verá mensajes de la función que se registraron cuando ejecutó manualmente la función desde Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Captura de pantalla que muestra la página &quot;Code + test&quot; (Código + prueba) con un mensaje de los registros mostrados." border="true":::
 
 > [!CAUTION]  
 > Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en una aplicación. La clave solo se debe enviar a un punto de conexión HTTPS.
@@ -62,22 +62,22 @@ Abra Postman y siga estos pasos:
 1. Escriba **x-functions-key** como la primera clave y pegue la clave maestra (que está en el portapapeles) como el valor.
 1. Escriba **Content-Type** como la segunda clave y **application/json** como el valor.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Configuración de los encabezados de Postman." border="true":::
 
 1. Seleccione la pestaña **Cuerpo**.
 1. Escriba **{ "input": "test" }** como el cuerpo de la solicitud.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Configuración del cuerpo de Postman." border="true":::
 
 1. Seleccione **Enviar**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envíe una solicitud con Postman." border="true":::
 
     Postman luego notifica un estado de **202 - Aceptado**.
 
 1. A continuación, vuelva a la función en Azure Portal. Revise los registros y verá mensajes procedentes de la llamada manual a la función.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Vea los registros para ver los resultados de la prueba de clave maestra." border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

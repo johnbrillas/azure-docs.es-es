@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754270"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Creación de una oferta de servicios de consultoría en el marketplace comercial
@@ -31,7 +31,7 @@ Para publicar una oferta de servicios de consultoría, debe cumplir ciertos requ
 
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-consulting-service.png)
 
-4. En el cuadro de diálogo **Nueva oferta** , escriba un valor para **Id. de oferta**. Este identificador se puede ver en la dirección URL de la oferta en el marketplace comercial. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+4. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Este identificador se puede ver en la dirección URL de la oferta en el marketplace comercial. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Cada oferta de su cuenta debe tener un identificador único.
     * Use solo letras minúsculas y números. El id. de la oferta puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
@@ -47,8 +47,8 @@ Conecte el sistema de administración de relaciones con clientes (CRM) con la of
 Para configurar la administración de clientes potenciales en el Centro de partners:
 
 1.  En el Centro de partners, vaya a la pestaña **Configuración de la oferta**.
-2.  En **Clientes potenciales** , seleccione el vínculo **Conectar**.
-3.  En el cuadro de diálogo **Detalles de conexión** , seleccione un destino de cliente potencial de la lista.
+2.  En **Clientes potenciales**, seleccione el vínculo **Conectar**.
+3.  En el cuadro de diálogo **Detalles de conexión**, seleccione un destino de cliente potencial de la lista.
 4.  Rellene los campos que aparecen. Para más información, consulte los siguientes artículos:
 
     * [Configuración de la oferta para enviar clientes potenciales a la tabla de Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)

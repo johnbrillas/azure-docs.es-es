@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91762425"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Llamada a aplicaciones lógicas desde Power Automate y Power Apps
@@ -52,7 +52,7 @@ Antes de poder llamar a la aplicación lógica desde Power Automate o Power Apps
 
 1. En el panel **Exportar**, en **Nombre**, escriba un nombre para el conector personalizado a la aplicación lógica. En la lista **Entorno**, seleccione el entorno Power Automate o Power Apps desde el que desea llamar a la aplicación lógica. Cuando finalice, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Captura de pantalla de la página de la aplicación lógica en Azure Portal que muestra el menú con el botón &quot;Exportar&quot; seleccionado.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Captura de pantalla del panel de exportación de la aplicación lógica que muestra los campos obligatorios para el entorno y el nombre del conector personalizado.":::
 
 1. Para confirmar que la aplicación lógica se exportó correctamente, compruebe el panel de notificaciones.
 
@@ -80,7 +80,7 @@ Para conectarse a la aplicación lógica que exportó con el flujo de Power Auto
 
 1. En **Elegir una acción**, en el cuadro de búsqueda, escriba el nombre del conector de la aplicación lógica. Opcionalmente, para mostrar solo los conectores personalizados de su entorno, filtre los resultados seleccionando la pestaña **Personalizado**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Captura de pantalla de la página de la aplicación lógica en Azure Portal que muestra el menú con el botón &quot;Exportar&quot; seleccionado.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Captura de pantalla del editor de flujos de Power Automate que muestra la asignación de un nuevo paso para el conector personalizado y las acciones disponibles.":::
 
 1. Seleccione la acción que desea realizar con el conector de la aplicación lógica. 
 
@@ -102,7 +102,7 @@ Para conectarse a la aplicación lógica que exportó con el flujo de Power Auto
 
 1. En la lista, busque el conector personalizado y seleccione el botón de puntos suspensivos ( **...** ) &gt; **Eliminar**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Captura de pantalla de la página de la aplicación lógica en Azure Portal que muestra el menú con el botón &quot;Exportar&quot; seleccionado.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Captura de pantalla de la página &quot;Conectores personalizados&quot; de Power Automate que muestra los botones de administración de conectores personalizados de la aplicación lógica.":::
 
 1. Para confirmar la eliminación, haga clic en **Aceptar**.
 
@@ -122,7 +122,7 @@ Para conectarse a la aplicación lógica que exportó con el flujo de Power Apps
 
 1. En **Elegir una acción**, en el nuevo paso, escriba el nombre del conector de la aplicación lógica en el cuadro de búsqueda. Opcionalmente, filtre los resultados mediante la pestaña **Personalizado** para ver solamente los conectores personalizados de su entorno.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Captura de pantalla de la página de la aplicación lógica en Azure Portal que muestra el menú con el botón &quot;Exportar&quot; seleccionado.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Captura de pantalla del editor de flujos de Power Apps que muestra la asignación de un nuevo paso para el conector personalizado y las acciones disponibles.":::
 
 1. Seleccione la acción que desea realizar con el conector. 
 
@@ -144,7 +144,7 @@ Para conectarse a la aplicación lógica que exportó con el flujo de Power Apps
 
 1. En la lista, busque el conector personalizado y seleccione el botón de puntos suspensivos ( **...** ) &gt; **Eliminar**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Captura de pantalla de la página de la aplicación lógica en Azure Portal que muestra el menú con el botón &quot;Exportar&quot; seleccionado.":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Captura de pantalla de la página &quot;Conectores personalizados&quot; de Power Apps que muestra los botones de administración de conectores personalizados de la aplicación lógica.":::
 
 1. Para confirmar la eliminación, haga clic en **Aceptar**.
 

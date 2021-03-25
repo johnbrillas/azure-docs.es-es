@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92672488"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Inicio rápido: Uso de Visual Studio Code para conectarse y realizar consultas 
@@ -51,7 +51,7 @@ Asegúrese de haber instalado la versión más reciente de [Visual Studio Code](
 
 ### <a name="macos"></a>**macOS**
 
-En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .NET Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL** .
+En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .NET Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -76,9 +76,9 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL** .
+2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
 
-3. En la página **Información general** , revise el nombre completo del servidor junto a **Nombre del servidor** para Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar** .
+3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**.
 
 ## <a name="set-language-mode-to-sql"></a>Definición del modo de lenguaje en SQL
 
@@ -86,11 +86,11 @@ En Visual Studio Code, establezca el modo de lenguaje en **SQL** para habilitar 
 
 1. Abra una nueva ventana de Visual Studio Code.
 
-2. Presione **CTRL**+**N** . Se abre un nuevo archivo de texto sin formato.
+2. Presione **CTRL**+**N**. Se abre un nuevo archivo de texto sin formato.
 
 3. Seleccione **Texto sin formato** en la esquina inferior derecha de la barra de estado.
 
-4. En el menú desplegable **Seleccionar modo de lenguaje** que se abre, seleccione **SQL** .
+4. En el menú desplegable **Seleccionar modo de lenguaje** que se abre, seleccione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Conectarse a la base de datos
 
@@ -99,17 +99,17 @@ Use Visual Studio Code para establecer una conexión con su servidor.
 > [!IMPORTANT]
 > Antes de continuar, asegúrese de tener preparados el servidor y la información de inicio de sesión. Cuando comience a escribir la información de perfil de conexión, si cambia el foco de Visual Studio Code, tendrá que reiniciar la creación del perfil.
 
-1. En Visual Studio Code, presione **Ctrl+Mayús+P** (o **F1** ) para abrir la paleta de comandos.
+1. En Visual Studio Code, presione **Ctrl+Mayús+P** (o **F1**) para abrir la paleta de comandos.
 
-2. Seleccione **MS SQL:Connect** y elija **Entrar** .
+2. Seleccione **MS SQL:Connect** y elija **Entrar**.
 
-3. Seleccione **Crear perfil de conexión** .
+3. Seleccione **Crear perfil de conexión**.
 
 4. Siga las indicaciones y especifique las propiedades de conexión del perfil nuevo. Después de especificar cada valor, elija **Entrar** para continuar.
 
    | Propiedad       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net** . |
+   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
    | **Nombre de la base de datos** | mySampleDatabase | La base de datos a la que hay que conectarse. |
    | **Autenticación** | Inicio de sesión SQL| En este tutorial se usa la autenticación de SQL. |
    | **Nombre de usuario** | Nombre de usuario | El nombre de usuario de la cuenta de administrador del servidor que se usó para crear el servidor. |

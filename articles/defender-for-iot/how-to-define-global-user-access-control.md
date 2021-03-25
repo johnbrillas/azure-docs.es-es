@@ -1,18 +1,14 @@
 ---
 title: Definición del control de acceso de usuarios globales
 description: En las organizaciones grandes, los permisos de usuario pueden ser complejos y estar determinados por una estructura organizativa global, además de la estructura de la zona y del sitio estándar.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 81ede3506337e76c84e20203ac27a3d441fdcef8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522281"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784295"
 ---
 # <a name="define-global-access-control"></a>Definición del control de acceso global
 
@@ -88,6 +84,6 @@ Cuando cree reglas, tenga en cuenta la información siguiente:
 
 - Si no hay ninguna unidad de negocio o región seleccionada, los usuarios tendrán acceso a todas las unidades de negocio y regiones definidas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Acerca de los usuarios de la consola de Defender para IoT](how-to-create-and-manage-users.md)

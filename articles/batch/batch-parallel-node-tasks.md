@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 8bc9f03f05d52df6e400be5c57033ab2a38fa8eb
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92102972"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Ejecución simultánea de tareas para maximizar el uso de los nodos de proceso de Batch
@@ -20,13 +20,13 @@ Aunque algunos escenarios funcionan mejor con todos los recursos de un nodo dedi
 - **Reducción al mínimo de la transferencia de datos** de las tareas que pueden compartir datos. Puede reducir considerablemente los gastos de transferencia de datos copiando los datos compartidos en un número menor de nodos y ejecutando tareas en paralelo en cada nodo. Esto es válido especialmente si los datos que se copian en cada nodo deben transferirse entre regiones geográficas.
 - **Maximización del uso de memoria** para las tareas que requieren una gran cantidad de memoria, pero solo durante períodos breves y en momentos variables durante la ejecución. Puede emplear menos nodos de ejecución, pero de mayor tamaño y con más memoria, para controlar de forma eficaz dichos aumentos. Estos nodos tendrían varias tareas ejecutándose en paralelo en cada nodo, pero cada tarea aprovecharía la abundante memoria de los nodos en distintos momentos.
 - **Mitigación de los límites de número de nodos** cuando se requiere la comunicación entre nodos dentro de un grupo. Actualmente, los grupos configurados para la comunicación entre nodos están limitados a 50 nodos de ejecución. Si cada uno de los nodos de este tipo de grupo es capaz de ejecutar tareas en paralelo, el número de tareas que se podrán ejecutar simultáneamente será mayor.
-- **Replicación en un clúster de proceso local** , como cuando mueve por primera vez un entorno de procesos a Azure. Si la solución local existente ejecuta varias tareas en cada nodo de proceso, puede aumentar el número máximo de tareas de nodo para que refleje con mayor fidelidad esa configuración.
+- **Replicación en un clúster de proceso local**, como cuando mueve por primera vez un entorno de procesos a Azure. Si la solución local existente ejecuta varias tareas en cada nodo de proceso, puede aumentar el número máximo de tareas de nodo para que refleje con mayor fidelidad esa configuración.
 
 ## <a name="example-scenario"></a>Escenario de ejemplo
 
 Por ejemplo, imagine una aplicación de tarea con unos requisitos de CPU y memoria tales que unos nodos [Estándar\_D1](../cloud-services/cloud-services-sizes-specs.md) sean suficientes. Sin embargo, para ejecutar el trabajo en el tiempo requerido, se necesitan 1000 nodos de ese tipo.
 
-En lugar de utilizar nodos Standard\_D1 con un núcleo de CPU, podría utilizar nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) con 16 núcleos en cada nodo y habilitar la ejecución de tareas en paralelo. De este modo, se podría usar un *número de nodos 16 veces menor* ; es decir, en lugar de 1000 nodos, solo serían necesarios 63. Si se necesitan datos de referencia o archivos de aplicación de gran tamaño para cada nodo, la eficiencia y la duración del trabajo también se mejoran, ya que los datos se copian en solo 63 nodos.
+En lugar de utilizar nodos Standard\_D1 con un núcleo de CPU, podría utilizar nodos [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) con 16 núcleos en cada nodo y habilitar la ejecución de tareas en paralelo. De este modo, se podría usar un *número de nodos 16 veces menor*; es decir, en lugar de 1000 nodos, solo serían necesarios 63. Si se necesitan datos de referencia o archivos de aplicación de gran tamaño para cada nodo, la eficiencia y la duración del trabajo también se mejoran, ya que los datos se copian en solo 63 nodos.
 
 ## <a name="enable-parallel-task-execution"></a>Habilitación de la ejecución en paralelo de tareas
 
@@ -46,7 +46,7 @@ A la hora de habilitar tareas simultáneas, es importante especificar cómo dese
 
 Mediante la propiedad [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool), puede especificar que las tareas se deberían asignar de manera uniforme entre todos los nodos del grupo ("propagación"). O bien, puede especificar que se deberían asignar todas las tareas posibles a cada nodo antes de asignarlas a otro nodo del grupo ("empaquetado").
 
-Como ejemplo, considere el grupo de nodos [Estándar\_D14](../cloud-services/cloud-services-sizes-specs.md) (en el ejemplo anterior) configurado con un valor [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) de 16. Si [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) se configura con un [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) de *Pack* , se podría maximizar el uso de los 16 núcleos de cada nodo y permitir que un [grupo con escalabilidad automática](batch-automatic-scaling.md) elimine los nodos sin usar del grupo (nodos sin tareas asignadas). Esto minimiza el uso de recursos y permite ahorrar dinero.
+Como ejemplo, considere el grupo de nodos [Estándar\_D14](../cloud-services/cloud-services-sizes-specs.md) (en el ejemplo anterior) configurado con un valor [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) de 16. Si [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) se configura con un [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) de *Pack*, se podría maximizar el uso de los 16 núcleos de cada nodo y permitir que un [grupo con escalabilidad automática](batch-automatic-scaling.md) elimine los nodos sin usar del grupo (nodos sin tareas asignadas). Esto minimiza el uso de recursos y permite ahorrar dinero.
 
 ## <a name="define-variable-slots-per-task"></a>Definición de ranuras variables por tarea
 

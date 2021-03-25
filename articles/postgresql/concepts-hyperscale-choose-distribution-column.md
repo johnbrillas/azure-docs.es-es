@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929343"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Selección de las columnas de distribución en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)
@@ -37,7 +37,7 @@ El ámbito de las consultas en el modelo multiinquilino se limita a un inquilino
 
 #### <a name="best-practices"></a>Procedimientos recomendados
 
--   **Tablas que una\_ columna de**id. de inquilino distribuye en particiones. Por ejemplo, en una aplicación SaaS donde los inquilinos son empresas, el valor de tenant\_id será probablemente company\_id.
+-   **Tablas que una\_ columna de** id. de inquilino distribuye en particiones. Por ejemplo, en una aplicación SaaS donde los inquilinos son empresas, el valor de tenant\_id será probablemente company\_id.
 -   **Convierta pequeñas tablas entre inquilinos en tablas de referencia.** Cuando varios inquilinos comparten una pequeña tabla de información, distribúyala como una tabla de referencia.
 -   **Restrinja la opción para filtrar todas las consultas de las aplicaciones en función del id.\_del inquilino.** Cada consulta debe solicitar información para un inquilino a la vez.
 

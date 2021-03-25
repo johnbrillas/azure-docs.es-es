@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 1425b89e42450123c1696ddcee4458e1f69b8a6c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348575"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creación de una aplicación de MongoDB con React y Azure Cosmos DB  
@@ -36,7 +36,7 @@ En este tutorial de varias partes, se abordan las tareas siguientes:
 
 ¿Quiere crear esta misma aplicación con Angular? Consulte la [serie de vídeos del tutorial de Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Proyecto terminado

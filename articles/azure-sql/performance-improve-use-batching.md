@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792606"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Azure SQL Database e Instancia administrada de Azure SQL
@@ -42,7 +42,7 @@ En la primera parte del artículo, se examinan diversas técnicas de procesamien
 ### <a name="note-about-timing-results-in-this-article"></a>Nota sobre los tiempos resultantes en este artículo
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo** . Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observarse en una base de datos V12 con los nuevos [niveles de servicio de DTU](database/service-tiers-dtu.md) o los [niveles de servicio de núcleos virtuales](database/service-tiers-vcore.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
+> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observarse en una base de datos V12 con los nuevos [niveles de servicio de DTU](database/service-tiers-dtu.md) o los [niveles de servicio de núcleos virtuales](database/service-tiers-vcore.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
 
 ### <a name="transactions"></a>Transacciones
 
@@ -97,7 +97,7 @@ Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada l
 
 En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
-**Local a Azure** :
+**Local a Azure**:
 
 | Operaciones | Ninguna transacción (ms) | Transacción (ms) |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ Para obtener más información acerca de las transacciones en ADO.NET, consulte 
 
 ### <a name="table-valued-parameters"></a>Parámetros con valores de tabla
 
-Los parámetros con valores de tabla admiten tipos de tabla definidos por el usuario como parámetros en instrucciones Transact-SQL, procedimientos almacenados y funciones. Esta técnica de procesamiento por lotes del lado cliente permite enviar varias filas de datos dentro del parámetro con valores de tabla. Para usar parámetros con valores de tabla, primero debe definir un tipo de tabla. La siguiente instrucción Transact-SQL crea un tipo de tabla denominado **MyTableType** .
+Los parámetros con valores de tabla admiten tipos de tabla definidos por el usuario como parámetros en instrucciones Transact-SQL, procedimientos almacenados y funciones. Esta técnica de procesamiento por lotes del lado cliente permite enviar varias filas de datos dentro del parámetro con valores de tabla. Para usar parámetros con valores de tabla, primero debe definir un tipo de tabla. La siguiente instrucción Transact-SQL crea un tipo de tabla denominado **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-En el ejemplo anterior, el objeto **SqlCommand** inserta filas desde un parámetro con valores de tabla, **\@TestTvp** . El objeto **DataTable** creado antes se asigna a este parámetro con el método **SqlCommand.Parameters.Add** . El procesamiento por lotes de las inserciones en una llamada aumenta notablemente el rendimiento en comparación con las inserciones secuenciales.
+En el ejemplo anterior, el objeto **SqlCommand** inserta filas desde un parámetro con valores de tabla, **\@TestTvp**. El objeto **DataTable** creado antes se asigna a este parámetro con el método **SqlCommand.Parameters.Add**. El procesamiento por lotes de las inserciones en una llamada aumenta notablemente el rendimiento en comparación con las inserciones secuenciales.
 
 Para mejorar aún más el ejemplo anterior, use un procedimiento almacenado en lugar de un comando de texto. El siguiente comando Transact-SQL crea un procedimiento almacenado que acepta el parámetro con valores de tabla **SimpleTestTableType** .
 
@@ -201,7 +201,7 @@ En la tabla siguiente se muestran los resultados de pruebas ad hoc para el uso d
 | 10 |131 |25 |
 | 100 |338 |51 |
 | 1000 |2615 |382 |
-| 10 000 |23830 |3586 |
+| 10000 |23830 |3586 |
 
 > [!NOTE]
 > Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
@@ -212,7 +212,7 @@ Para obtener más información sobre los parámetros con valores de tabla, consu
 
 ### <a name="sql-bulk-copy"></a>Copia masiva de SQL
 
-La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en una base de datos de destino. Las aplicaciones .NET pueden usar la clase **SqlBulkCopy** para realizar operaciones de inserción masiva. **SqlBulkCopy** desempeña una función similar a la herramienta de línea de comandos **Bcp.exe** o la instrucción Transact-SQL **BULK INSERT** . En el ejemplo de código siguiente se muestra cómo realizar una copia masiva de las filas de la tabla de origen **DataTable** en la tabla de destino, MyTable.
+La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en una base de datos de destino. Las aplicaciones .NET pueden usar la clase **SqlBulkCopy** para realizar operaciones de inserción masiva. **SqlBulkCopy** desempeña una función similar a la herramienta de línea de comandos **Bcp.exe** o la instrucción Transact-SQL **BULK INSERT**. En el ejemplo de código siguiente se muestra cómo realizar una copia masiva de las filas de la tabla de origen **DataTable** en la tabla de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -239,7 +239,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesam
 | 10 |441 |32 |
 | 100 |636 |53 |
 | 1000 |2535 |341 |
-| 10 000 |21605 |2737 |
+| 10000 |21605 |2737 |
 
 > [!NOTE]
 > Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).

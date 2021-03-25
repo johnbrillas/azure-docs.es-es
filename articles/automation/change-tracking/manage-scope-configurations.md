@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6eb9a20920f0a340491459f0875fc85b90dfa193
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92209298"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limitación del ámbito de implementación de Change Tracking e Inventario
@@ -26,19 +26,19 @@ Para limitar el ámbito de la implementación de Change Tracking e Inventario:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Automation** . Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Cuentas de Automation** .
+2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Cuentas de Automation**.
 
 3. En la lista de cuentas de Automation, seleccione la cuenta que eligió al habilitar Seguimiento de cambios e inventario.
 
-4. En la cuenta de Automation, seleccione **Área de trabajo vinculada** , en **Recursos relacionados** .
+4. En la cuenta de Automation, seleccione **Área de trabajo vinculada**, en **Recursos relacionados**.
 
-5. Haga clic en **Ir a área de trabajo** .
+5. Haga clic en **Ir a área de trabajo**.
 
-6. Seleccione **Configuraciones de ámbito (versión preliminar)** en **Orígenes de datos del área de trabajo** .
+6. Seleccione **Configuraciones de ámbito (versión preliminar)** en **Orígenes de datos del área de trabajo**.
 
-7. Seleccione los puntos suspensivos a la derecha de la configuración del ámbito `MicrosoftDefaultScopeConfig-ChangeTracking` y haga clic en **Editar** .
+7. Seleccione los puntos suspensivos a la derecha de la configuración del ámbito `MicrosoftDefaultScopeConfig-ChangeTracking` y haga clic en **Editar**.
 
-8. En el panel de edición, seleccione **Seleccionar grupos de equipos** . En el panel Grupos de equipos se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito. La búsqueda guardada usada por Change Tracking e Inventario es:
+8. En el panel de edición, seleccione **Seleccionar grupos de equipos**. En el panel Grupos de equipos se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito. La búsqueda guardada usada por Change Tracking e Inventario es:
 
     |Nombre     |Category  |Alias  |
     |---------|---------|---------|

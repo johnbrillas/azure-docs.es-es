@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94412381"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
@@ -83,7 +83,7 @@ En las empresas modernas, los departamentos de TI no son a menudo conscientes de
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
 
-<em>" **Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Además de detectar TI en la sombra, MCAS también puede determinar el nivel de riesgo de las aplicaciones, impedir el acceso no autorizado a los datos corporativos, evitar una posible pérdida de datos y otros riesgos de seguridad inherentes a las aplicaciones.
 

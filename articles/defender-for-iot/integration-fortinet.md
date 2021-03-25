@@ -1,19 +1,14 @@
 ---
 title: Acerca de la integración de Fortinet
-titleSuffix: Azure Defender for IoT
 description: Defender para IoT y Fortinet han establecido una asociación tecnológica para detectar y detener ataques en redes de IoT y ICS.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: e2119a9e01a4e58cd9d2ca1b9b3384ec9629784c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556980"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784023"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Detección y prevención de amenazas de IIoT e ICS de Defender para IoT y Fortinet
 
@@ -244,4 +239,4 @@ Para establecer una regla de firewall de FortiGate que bloquee este origen malin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [reenviar información de alertas](how-to-forward-alert-information-to-partners.md).
+Más información sobre cómo [reenviar información de alertas](how-to-forward-alert-information-to-partners.md).

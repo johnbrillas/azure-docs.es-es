@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792232"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
@@ -37,7 +37,7 @@ En un entorno de base de datos particionada, hay un inquilino por base de datos 
 
 Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
-1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana** . De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](recovery-using-backups.md).
+1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](recovery-using-backups.md).
 2. Se produce un evento de conmutación por error geográfica. Para continuar, se debe actualizar el nombre del servidor y el nombre de la base de datos del administrador de mapas de particiones en la aplicación y luego actualizar los detalles de la asignación de particiones de todas las particiones de un mapa de particiones. Si hay una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales. Para descubrir las opciones de recuperación de una base de datos tras una posible interrupción del centro de datos, consulte los temas sobre la [continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md) y la [recuperación ante desastres](disaster-recovery-guidance.md).
 3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo. Para obtener información sobre la recuperación a un momento dado mediante copias de seguridad, consulte [este artículo](recovery-using-backups.md).
 

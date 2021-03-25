@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 5b1084cfdd5995b7983badcdce71460f7bdec3d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919461"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
@@ -38,7 +38,7 @@ A menudo, los trabajos de Batch requieren un conjunto común de datos como entra
 
 En un entorno de "grupo compartido", cuando no se dan de baja los nodos de proceso de un grupo entre los trabajos, puede ser necesario eliminar datos del trabajo entre ejecuciones. Puede ser necesario conservar espacio en disco en los nodos o cumplir las directivas de seguridad de su organización. Use una **tarea de liberación del trabajo** para eliminar los datos descargados por una tarea de preparación del trabajo o generados durante la ejecución de la tarea.
 
-**Retención de registro**
+**Retención de registros**
 
 Puede que desee conservar una copia de los archivos de registro generados por las tareas o quizás los archivos de volcado de memoria generados por aplicaciones con errores. Puede usar una **tarea de liberación del trabajo** en estos casos para comprimir y cargar estos datos en una cuenta de [Azure Storage][azure_storage].
 

@@ -4,10 +4,10 @@ description: Aprenda a usar Azure Portal para realizar copias de seguridad de re
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88890355"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
@@ -35,7 +35,7 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
 
 1. En [Azure Portal](https://portal.azure.com/), abra el almacén de Recovery Services que quiere usar para configurar la copia de seguridad del recurso compartido de archivos.
 
-1. En el panel **Almacén de Recovery Services**, seleccione **+Copia de seguridad**en el menú de la parte superior.
+1. En el panel **Almacén de Recovery Services**, seleccione **+Copia de seguridad** en el menú de la parte superior.
 
    ![Almacén de Recovery Services](./media/backup-afs/recovery-services-vault.png)
 

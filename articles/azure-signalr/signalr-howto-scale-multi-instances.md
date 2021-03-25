@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89439221"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>¿Cómo escalar SignalR Service con varias instancias?
@@ -220,13 +220,13 @@ El objeto `ServiceEndpoint` tiene una propiedad `EndpointType` con valor `primar
 
 Los puntos de conexión `primary` son los preferidos para recibir el tráfico de cliente y se considera que tienen conexiones de red más confiables; los puntos de conexión `secondary` se considera que tienen menos conexiones de red confiables y solo se usan para llevar el tráfico del servidor al cliente, por ejemplo, difundir mensajes, pero no del cliente al servidor.
 
-En los casos entre regiones, la red puede ser inestable. Para un servidor de aplicaciones ubicado en *Este de EE. UU.*, el punto de conexión de SignalR Service ubicado en esta misma región puede configurarse como `primary` y los puntos de conexión de otras regiones marcarse como `secondary`. En esta configuración, los puntos de conexión de servicio de otras regiones pueden **recibir** mensajes de este servidor de aplicaciones de *Este de EE. UU.* , pero no habrá ningún cliente **entre regiones** enrutado a este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
+En los casos entre regiones, la red puede ser inestable. Para un servidor de aplicaciones ubicado en *Este de EE. UU.* *,* el punto de conexión de SignalR Service ubicado en esta misma región puede configurarse como `primary` y los puntos de conexión de otras regiones marcarse como `secondary`. En esta configuración, los puntos de conexión de servicio de otras regiones pueden **recibir** mensajes de este servidor de aplicaciones de *Este de EE. UU.*, pero no habrá ningún cliente **entre regiones** enrutado a este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
 
 ![Infraestructura entre regiones geográficas](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
 Cuando un cliente intenta una acción de negociación (`/negotiate`) con el servidor de aplicaciones, con el enrutador predeterminado, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión `primary` disponibles. Cuando el punto de conexión principal está disponible, el SDK **selecciona aleatoriamente** de todos los puntos de conexión `secondary` disponibles. El punto de conexión se marca como **disponible** cuando la conexión entre el servidor y el punto de conexión de servicio está activa.
 
-En el escenario entre regiones, cuando un cliente intenta la acción de negociación (`/negotiate`) con el servidor de aplicaciones hospedado en *Este de EE. UU.* , siempre devuelve de forma predeterminada el punto de conexión `primary` ubicado en la misma región. Cuando no todos los puntos de conexión de *Este de EE. UU.* están disponibles, el cliente se redirige a los puntos de conexión de otras regiones. En la siguiente sección de conmutación por error se describe detalladamente el escenario.
+En el escenario entre regiones, cuando un cliente intenta la acción de negociación (`/negotiate`) con el servidor de aplicaciones hospedado en *Este de EE. UU.*, siempre devuelve de forma predeterminada el punto de conexión `primary` ubicado en la misma región. Cuando no todos los puntos de conexión de *Este de EE. UU.* están disponibles, el cliente se redirige a los puntos de conexión de otras regiones. En la siguiente sección de conmutación por error se describe detalladamente el escenario.
 
 ![Negociación normal](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 

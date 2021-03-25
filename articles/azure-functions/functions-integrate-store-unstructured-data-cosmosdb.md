@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91661166"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
@@ -42,11 +42,11 @@ Debe tener una cuenta de Azure Cosmos DB que use la API de SQL para poder crear 
 
 1. Seleccione **Integración** y **+ Agregar salida**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::.
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Adición de un enlace de salida de Azure Cosmos DB" border="true":::.
 
 1. Use la configuración de **Crear salida**, como se especifica en la tabla:
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::.
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configuración del enlace de salida de Azure Cosmos DB" border="true":::.
 
     | Configuración      | Valor sugerido  | Descripción                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -138,23 +138,23 @@ Este ejemplo de código lee las cadenas de consulta de la solicitud HTTP y las a
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Probar la función." border="true":::
 
 
 1. Seleccione **Ejecutar** y compruebe que se devuelve un estado 200.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Captura de pantalla del estado 200 del código de respuesta HTTP resaltado después de seleccionar Ejecutar." border="true":::
 
 
 1. En Azure Portal, busque y seleccione **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::.
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Búsqueda del servicio Cosmos DB" border="true":::.
 
 1. Elija la cuenta de Azure Cosmos DB y luego seleccione **Explorador de datos**.
 
 1. Expanda los nodos de **TaskCollection**, seleccione el nuevo documento y confirme que el documento contiene los valores de la cadena de consulta, junto con metadatos adicionales.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Seleccione su función Http en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verificar los valores de cadena del documento." border="true":::
 
 Ha agregado correctamente un enlace al desencadenador HTTP que almacena datos no estructurados en Azure Cosmos DB.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
 ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790192"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-El desencadenador inserta un registro en la tabla de seguimiento de cambios de esquema para cada comando ALTER TABLE. En este ejemplo se agrega un filtro para evitar replicar los cambios que se hicieron en el esquema **DataSync** , porque probablemente los hizo el servicio Data Sync. Agregue más filtros si solo quiere replicar ciertos tipos de cambios de esquema.
+El desencadenador inserta un registro en la tabla de seguimiento de cambios de esquema para cada comando ALTER TABLE. En este ejemplo se agrega un filtro para evitar replicar los cambios que se hicieron en el esquema **DataSync**, porque probablemente los hizo el servicio Data Sync. Agregue más filtros si solo quiere replicar ciertos tipos de cambios de esquema.
 
 También puede agregar más desencadenadores para replicar otros tipos de cambios de esquema. Por ejemplo, cree los desencadenadores CREATE_PROCEDURE, ALTER_PROCEDURE y DROP_PROCEDURE para replicar los cambios de procedimientos almacenados.
 

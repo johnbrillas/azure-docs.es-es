@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936136"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Ejemplo: Creación de una aptitud personalizada con Python
@@ -22,7 +22,7 @@ En este ejemplo de un conjunto de aptitudes de Azure Cognitive Search, aprender�
 
 La aptitud personalizada es sencilla por diseño (concatena dos cadenas) para que pueda centrarse en las herramientas y tecnologías que se usan para el desarrollo personalizado de aptitudes en Python. Una vez que crea correctamente una aptitud sencilla, puede atreverse con escenarios más complejos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Repase el artículo sobre la [interfaz de una aptitud personalizada](cognitive-search-custom-skill-interface.md) para ver una introducción sobre la interfaz de entrada/salida que debe implementar una aptitud personalizada.
 

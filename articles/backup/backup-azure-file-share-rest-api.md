@@ -4,10 +4,10 @@ description: Aprenda a usar la API REST para realizar copias de seguridad de rec
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824872"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Copia de seguridad de un recurso compartido de archivos de Azure con Azure Backup mediante API REST

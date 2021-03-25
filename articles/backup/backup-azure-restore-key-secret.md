@@ -4,10 +4,10 @@ description: Aprenda a restaurar la clave y el secreto de Key Vault en Azure Bac
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 456ce18f253ffa02cd6b13826a7839f18beecba7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88827093"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup
@@ -60,7 +60,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>Restauración del secreto
 
-Use el archivo JSON generado anteriormente para obtener el valor y nombre del secreto, y páselos para establecer el cmdlet del secreto para poner de nuevo el secreto (BEK) en el almacén de claves. Use estos cmdlets si la **VM está cifrada mediante BEK y KEK**.
+Use el archivo JSON generado anteriormente para obtener el valor y nombre del secreto, y páselos para establecer el cmdlet del secreto para poner de nuevo el secreto (BEK) en el almacén de claves.  Use estos cmdlets si la **VM está cifrada mediante BEK y KEK**.
 
 **Use estos cmdlets si la VM Windows está cifrada mediante BEK y KEK**.
 
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Use el archivo JSON generado anteriormente para obtener el valor y nombre del secreto, y páselos para establecer el cmdlet del secreto para poner de nuevo el secreto (BEK) en el almacén de claves. Use estos cmdlets si la **VM está cifrada mediante BEK** únicamente.
+Use el archivo JSON generado anteriormente para obtener el valor y nombre del secreto, y páselos para establecer el cmdlet del secreto para poner de nuevo el secreto (BEK) en el almacén de claves.  Use estos cmdlets si la **VM está cifrada mediante BEK** únicamente.
 
 ```powershell
 $secretDestination = 'C:\secret.blob'
