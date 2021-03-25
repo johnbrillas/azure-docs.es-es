@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a35442dd8af1cd4acf22de453c8d10460e1e39f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371535"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Actualización o eliminación de un rol personalizado de Azure AD asignado en Privileged Identity Management
@@ -49,7 +49,7 @@ Siga estos pasos para actualizar o eliminar una asignación de roles personaliza
     ![Selección de Roles para ver la lista de asignaciones de roles válidas](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
 1. Seleccione el rol que quiera actualizar o quitar.
-1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos** .
+1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos**.
 1. Seleccione **Actualizar** o **Quitar** para actualizar o quitar la asignación de roles.
 
     ![Selección de Quitar o Actualizar en la asignación de roles válida](./media/azure-ad-custom-roles-update-remove/remove-update.png)

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907390"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar la alta disponibilidad de Hiperescala (Citus)
@@ -29,7 +29,7 @@ Haga clic en el botón **Guardar** para aplicar la selección. La habilitación 
 
 En la pestaña **Introducción** del grupo de servidores se enumerarán todos los nodos y sus esperas, junto con una columna **Alta disponibilidad** que indica si la alta disponibilidad está habilitada correctamente para cada nodo.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="control de alta disponibilidad":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="Columna de alta disponibilidad en la información general del grupo de servidores":::
 
 ### <a name="next-steps"></a>Pasos siguientes
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203255"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120289"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -31,7 +31,7 @@ Agrega una notificación de cadena a una nueva notificación stringCollection de
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Elemento ClaimType que se agregará a la notificación de salida. |
-| InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
+| InputClaim | collection | stringCollection | El colección de cadena que se agregará a la notificación de salida. Si la colección contiene elementos, la transformación de notificaciones copia los elementos y agrega el elemento al final de la notificación de la colección de salida. |
 | OutputClaim | collection | stringCollection | Valor ClaimType que se genera después de que se haya invocado a esta transformación de notificaciones, con el valor especificado en la notificación de entrada. |
 
 Use esta transformación de notificaciones para agregar una cadena a una clase stringCollection nueva o existente. Se usa normalmente en un perfil técnico **AAD-UserWriteUsingAlternativeSecurityId**. Antes de crear una nueva cuenta de redes sociales, la transformación de notificaciones **CreateOtherMailsFromEmail** lee el ClaimType y agrega el valor al ClaimType **otherMails**.
@@ -64,7 +64,7 @@ Agrega un parámetro de cadena a una nueva notificación stringCollection de val
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
+| InputClaim | collection | stringCollection | El colección de cadena que se agregará a la notificación de salida. Si la colección contiene elementos, la transformación de notificaciones copia los elementos y agrega el elemento al final de la notificación de la colección de salida. |
 | InputParameter | item | string | El valor que se agregará a la notificación de salida. |
 | OutputClaim | collection | stringCollection | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones, con el valor especificado en el parámetro de entrada. |
 

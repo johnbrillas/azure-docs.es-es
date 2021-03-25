@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458207"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Maxient Conduct Manager Software
@@ -50,10 +50,10 @@ En este tutorial, configurará Azure AD para usarlo con Maxient Conduct Manager
 Para configurar la integración de Maxient Conduct Manager Software en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Maxient Conduct Manager Software** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Maxient Conduct Manager Software** en el cuadro de búsqueda.
 1. Seleccione **Maxient Conduct Manager Software** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
@@ -71,22 +71,22 @@ Para configurar y probar el inicio de sesión único de Azure AD con Maxient Co
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Maxient Conduct Manager Software** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Maxient Conduct Manager Software**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar** .
+1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://cm.maxient.com/<SCHOOLCODE>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Consulte al representante de soporte técnico o implementación de Maxient para obtener el valor.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.  Tendrá que proporcionar esta dirección URL al representante de soporte técnico o implementación de Maxient.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.  Tendrá que proporcionar esta dirección URL al representante de soporte técnico o implementación de Maxient.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -94,21 +94,21 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, proporcionará acceso para que todas las cuentas se autentiquen con el sistema de Azure en Maxient Conduct Manager Software.  Es importante tener en cuenta que este paso es **OBLIGATORIO** para que Maxient funcione correctamente.  Maxient utiliza el sistema de Azure AD para *autenticar* a los usuarios. La *autorización* de usuarios se realiza en el sistema de Maxient para la función concreta que están intentando realizar. Maxient no usa atributos de su directorio para tomar esas decisiones.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Maxient Conduct Manager Software** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Maxient Conduct Manager Software**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione todos los usuarios (o los grupos adecuados) y **asígnelos** para que puedan autenticarse con Maxient.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione todos los usuarios (o los grupos adecuados) y **asígnelos** para que puedan autenticarse con Maxient.
 
 ## <a name="test-with-maxient"></a>Prueba con Maxient 
 
-Si aún no se ha abierto una incidencia de soporte técnico con un representante de soporte técnico o implementación de Maxient, envíe un correo electrónico a [support@maxient.com](mailto:support@maxient.com) con el asunto "Campus Based Authentication/Azure Setup - \<\<School Name\>\>". En el cuerpo del correo electrónico, proporcione la **dirección URL de metadatos de federación de aplicación** . El personal de Maxient responderá con un vínculo de prueba para comprobar que se están lanzando los atributos adecuados.  
+Si aún no se ha abierto una incidencia de soporte técnico con un representante de soporte técnico o implementación de Maxient, envíe un correo electrónico a [support@maxient.com](mailto:support@maxient.com) con el asunto "Campus Based Authentication/Azure Setup - \<\<School Name\>\>". En el cuerpo del correo electrónico, proporcione la **dirección URL de metadatos de federación de aplicación**. El personal de Maxient responderá con un vínculo de prueba para comprobar que se están lanzando los atributos adecuados.  
     
 ## <a name="additional-resources"></a>Recursos adicionales
 

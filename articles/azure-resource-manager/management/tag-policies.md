@@ -4,10 +4,10 @@ description: Describe las instancias de Azure Policy que puede asignar para gara
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89293749"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Asignación de directivas para el cumplimiento de la etiqueta

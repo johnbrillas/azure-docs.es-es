@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014253"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775942"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Uso de Azure DevOps para crear una canalización de CI/CD para un trabajo de Stream Analytics
 
@@ -20,13 +20,13 @@ En este artículo, aprenderá a crear canalizaciones de [compilación](/azure/de
 
 ## <a name="commit-your-stream-analytics-project"></a>Confirmación del proyecto de Stream Analytics
 
-Antes de comenzar, confirme los proyectos de Stream Analytics completados como archivos de origen para un repositorio de [Azure DevOps](/azure/devops/user-guide/source-control). Puede hacer referencia a este [repositorio de ejemplo](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) y al [código fuente del proyecto de Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) en Azure Pipelines.
+Antes de comenzar, confirme los proyectos de Stream Analytics completados como archivos de origen para un repositorio de [Azure DevOps](/azure/devops/user-guide/source-control). Puede hacer referencia a este [repositorio de ejemplo](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) y al [código fuente del proyecto de Stream Analytics](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) en Azure Pipelines.
 
 En los pasos de este artículo se usa un proyecto de Visual Studio Code para Stream Analytics. Si usa un proyecto de Visual Studio, siga los pasos descritos en [Automatización de las compilaciones, las pruebas y las implementaciones de un trabajo de Azure Stream Analytics mediante herramientas de CI/CD](cicd-tools.md).
 
 ## <a name="create-a-build-pipeline"></a>Creación de una canalización de compilación
 
-En esta sección, aprenderá a crear una canalización de compilación. Puede hacer referencia a la [canalización de compilación y prueba automática](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) de este ejemplo en Azure DevOps.
+En esta sección, aprenderá a crear una canalización de compilación. Puede hacer referencia a la [canalización de compilación y prueba automática](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) de este ejemplo en Azure DevOps.
 
 1. Abra un explorador web y vaya al proyecto en Azure DevOps.  
 
@@ -55,6 +55,22 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
    ```
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Especificación de configuraciones para la tarea npm":::
+
+Siga los pasos siguientes si necesita usar el agente hospedado de Linux:
+1.  Seleccione la **Especificación del agente**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Captura de pantalla de la selección de la especificación del agente.":::
+
+2.  En la página **Tareas**, seleccione el signo más que aparece al lado de **Agent job 1**. Escriba *línea de comandos* en la búsqueda de tareas y seleccione **Línea de comandos**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Captura de pantalla de la tarea de búsqueda de línea de comandos.":::
+
+3.  Asigne a la tarea un **nombre para mostrar**. Escriba el comando siguiente en **Script**. Deje las restantes opciones predeterminadas.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Captura de pantalla de la escritura del script para la tarea cmd.":::
 
 ## <a name="add-a-build-task"></a>Adición de una tarea de compilación
 
@@ -139,7 +155,7 @@ El archivo de resumen de pruebas y los archivos de la plantilla de Azure Resourc
 
 ## <a name="release-with-azure-pipelines"></a>Publicación con Azure Pipelines
 
-En esta sección, aprenderá a crear una canalización de versión. Puede hacer referencia a la [canalización de versión](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) de este ejemplo en Azure DevOps.
+En esta sección, aprenderá a crear una canalización de versión. Puede hacer referencia a la [canalización de versión](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) de este ejemplo en Azure DevOps.
 
 Abra un explorador web y vaya al proyecto de Visual Studio Code de Azure Stream Analytics.
 

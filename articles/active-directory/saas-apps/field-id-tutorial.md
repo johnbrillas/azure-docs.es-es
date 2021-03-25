@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 55a66f3f287ffb50d932263e407772efffa839ba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Field iD
@@ -47,15 +47,15 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de Field iD en Azure AD, tiene que agregar Field iD desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el menú de navegación de la izquierda, seleccione **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una aplicación nueva, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Field iD** en el cuadro de búsqueda.
+1. En el menú de navegación de la izquierda, seleccione **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una aplicación nueva, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Field iD** en el cuadro de búsqueda.
 1. Seleccione **Field iD** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-field-id"></a>Configuración y prueba del inicio de sesión único de Azure AD para Field iD
 
-Configure y pruebe el inicio de sesión único de Azure AD con Field iD mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una vinculación entre un usuario de Azure AD y el usuario relacionado de Field iD.
+Configure y pruebe el inicio de sesión único de Azure AD con Field iD mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una vinculación entre un usuario de Azure AD y el usuario relacionado de Field iD.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Field iD, es preciso completar los siguientes pasos:
 
@@ -70,22 +70,22 @@ Para configurar y probar el inicio de sesión único de Azure AD con Field iD,
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Field iD** , busque la sección **Administrar** . Después, seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Field iD**, busque la sección **Administrar**. Después, seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Captura de pantalla de la página Configurar el inicio de sesión único con SAML con el icono de lápiz resaltado](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , siga estos pasos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-   a. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: `https://<tenantname>.fieldid.com/fieldid`.
+   a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.fieldid.com/fieldid`.
 
-   b. En el cuadro de texto **Dirección URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`.
+   b. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`.
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Field iD](mailto:support@ecompliance.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el icono de copia para copiar la **dirección URL de metadatos de federación de aplicación** . Guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el icono de copia para copiar la **dirección URL de metadatos de federación de aplicación**. Guárdelo en el equipo.
 
     ![Captura de pantalla de la sección Certificado de firma de SAML, con el icono de copia resaltado](common/copy-metadataurl.png)
 
@@ -93,31 +93,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En **Nombre** , escriba `B.Simon`.  
-   1. En **Nombre de usuario** , escriba el username@companydomain.extension (por ejemplo, `B.Simon@contoso.com`).
-   1. Seleccione la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Seleccione **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En **Nombre**, escriba `B.Simon`.  
+   1. En **Nombre de usuario**, escriba el username@companydomain.extension (por ejemplo, `B.Simon@contoso.com`).
+   1. Seleccione la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Field iD mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Field iD** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Field iD**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Captura de pantalla de la sección Administrar, con la opción Usuarios y grupos resaltada](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Captura de pantalla de Add user (Agregar usuario)](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista **Usuarios** y, después, elija **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y, después, elija **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ## <a name="configure-field-id-sso"></a>Configuración del inicio de sesión único de Field iD
 

@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021935"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674978"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Conexión a orígenes de datos
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introducción
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, **Azure Data Catalog** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Un aspecto clave de este escenario es el uso de los datos: cuando un usuario detecta un origen de datos y comprende su propósito, el paso siguiente es la conexión al origen de datos para utilizar sus datos.
 
@@ -59,5 +62,5 @@ Con el objetivo de simplificar las cosas para los usuarios que detecten un orige
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con **Azure Data Catalog**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catalog. Una vez que se registra y detecta un origen de datos, los usuarios pueden conectarse al origen de datos desde el menú "Abrir en…" del portal de **Azure Data Catalog** o con las herramientas de datos que prefieran.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.

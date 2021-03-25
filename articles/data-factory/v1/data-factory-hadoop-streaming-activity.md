@@ -3,16 +3,16 @@ title: 'Transformación de datos mediante Hadoop Streaming Activity: Azure'
 description: Aprenda cómo puede usar Hadoop Streaming Activity en Azure Data Factory para transformar datos mediante la ejecución de programas de Hadoop Streaming en un clúster de HDInsight propio o a petición.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 532ece3bcc8c62771511fb2608e824de846b54fe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 964af993fdcf17bca2caa812bf39ab63e650e807
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383099"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782629"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -91,13 +91,13 @@ Tenga en cuenta los siguientes puntos:
 
 1. Establezca **linkedServiceName** en el nombre del servicio vinculado que apunta al clúster de HDInsight en el que se va a ejecutar el trabajo de MapReduce de streaming.
 2. Establezca el tipo de la actividad en **HDInsightStreaming**.
-3. Para la propiedad **mapper** , especifique el nombre del ejecutable del asignador. En el ejemplo, cat.exe es el ejecutable del asignador.
+3. Para la propiedad **mapper**, especifique el nombre del archivo ejecutable del asignador. En el ejemplo, cat.exe es el ejecutable del asignador.
 4. Para la propiedad **reducer** , especifique el nombre del ejecutable del reductor. En el ejemplo, wc.exe es el ejecutable del reductor.
 5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample es el contenedor de blobs, example/data/Gutenberg es la carpeta y davinci.txt es el blob.
 6. Para la propiedad **output** type, especifique el archivo de salida (incluida la ubicación) para el reductor. La salida del trabajo de streaming de Hadoop se escribirá en la ubicación especificada para esta propiedad.
-7. En la sección **filePaths** , especifique las rutas de acceso para los archivos ejecutables del asignador y del reductor. En el ejemplo: "adfsample/example/apps/wc.exe", adfsample es el contenedor de blobs, example/apps es la carpeta y wc.exe es el ejecutable.
+7. En la sección **filePaths**, especifique las rutas de acceso para los archivos ejecutables de asignador y reductor. En el ejemplo: "adfsample/example/apps/wc.exe", adfsample es el contenedor de blobs, example/apps es la carpeta y wc.exe es el ejecutable.
 8. Para la propiedad **fileLinkedService** , especifique el servicio vinculado de Azure Storage que representa el almacenamiento de Azure que contiene los archivos especificados en la sección filePaths.
-9. Para la propiedad **arguments** , especifique los argumentos para el trabajo de streaming.
+9. Para la propiedad **arguments**, especifique los argumentos para el trabajo de streaming.
 10. La propiedad **getDebugInfo** es un elemento opcional. Cuando se establece en Failure, los registros solo se descargan en caso de error. Cuando se establece en Always, los registros se descargan siempre, sea cual sea el estado de ejecución.
 
 > [!NOTE]

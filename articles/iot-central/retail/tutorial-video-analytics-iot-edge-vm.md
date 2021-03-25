@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99832630"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (máquina virtual Linux)
@@ -48,7 +48,7 @@ Utilice la información de la tabla siguiente para completar el formulario de **
 
 | Campo | Value |
 | ----- | ----- |
-| Suscripción | Seleccione su suscripción a Azure. |
+| Subscription | Seleccione su suscripción a Azure. |
 | Resource group | *lva-rg*: grupo de recursos que ha creado en el tutorial anterior. |
 | Region       | *Este de EE. UU.* |
 | Prefijo de etiqueta DNS | Elija un prefijo DNS único para la máquina virtual. Debe contener solo caracteres alfabéticos, sin números ni caracteres especiales. |

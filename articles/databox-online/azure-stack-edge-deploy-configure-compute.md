@@ -10,10 +10,10 @@ ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97968812"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
@@ -53,7 +53,7 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
 1. En la hoja **Create IoT Edge service** (Crear servicio IoT Edge), escriba lo siguiente:
 
    
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |Suscripción     |Seleccione una suscripción para el recurso de IoT Hub. Puede emplear la misma suscripción que usa el recurso de Azure Stack Edge.         |
     |Resource group     |Seleccione un grupo de recursos para el recurso de IoT Hub. Puede emplear el mismo grupo de recursos que usa el recurso de Azure Stack Edge.         |
@@ -114,7 +114,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |

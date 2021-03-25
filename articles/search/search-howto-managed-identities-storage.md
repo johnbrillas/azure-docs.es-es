@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358378"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
@@ -34,7 +34,7 @@ Cuando se habilita una identidad administrada asignada por el sistema, Azure cre
 
 ![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activar la identidad administrada asignada por el sistema")
 
-Después de seleccionar **Guardar** , verá un identificador de objeto que se ha asignado al servicio de búsqueda.
+Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
 ![Id. de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "Id. de objeto")
  
@@ -77,7 +77,7 @@ Al realizar la indexación desde una cuenta de almacenamiento, el origen de dato
 * **credentials**
     * Cuando se usa una identidad administrada para la autenticación, el formato de **credenciales** es diferente a cuando no se usa. Aquí proporcionará un ResourceId que no tiene ninguna contraseña ni clave de cuenta. El ResourceId debe incluir el identificador de suscripción de la cuenta de almacenamiento, el grupo de recursos de la cuenta de almacenamiento y el nombre de la cuenta de almacenamiento.
     * Formato de identidad administrada: 
-        * *ResourceId=/subscriptions/ **id. de la suscripción** /resourceGroups/ **nombre del grupo de recursos** /providers/Microsoft.Storage/storageAccounts/ **nombre de la cuenta de almacenamiento** /;*
+        * *ResourceId=/subscriptions/**id. de la suscripción**/resourceGroups/**nombre del grupo de recursos**/providers/Microsoft.Storage/storageAccounts/**nombre de la cuenta de almacenamiento**/;*
 * **container** especifica un contenedor o un nombre de tabla en la cuenta de almacenamiento. De manera predeterminada, se pueden recuperar todos los blobs dentro del contenedor. Si solo desea indexar blobs en un directorio virtual determinado, puede especificar ese directorio. Para ello, use el parámetro opcional **query**.
 
 Ejemplo de cómo crear un objeto de origen de datos de blob mediante la [API de REST](/rest/api/searchservice/create-data-source):

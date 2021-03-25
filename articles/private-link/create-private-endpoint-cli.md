@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: bba912930a9dff0a79e0b0d81025b7524c238db0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f74a143859f0a6629c88f0dcb61a97697f49d0be
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368685"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889236"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Inicio rápido: Creación de un punto de conexión privado mediante la CLI de Azure
 
@@ -132,7 +132,7 @@ El host de Azure Bastion tarda unos minutos en implementarse.
 
 En esta sección, creará una máquina virtual que se utilizará para probar el punto de conexión privado.
 
-Cree una máquina virtual con  [az vm create](/cli/azure/vm#az_vm_create). Cuando se le solicite, proporcione una contraseña que se usará como credencial de inicio de sesión para la máquina virtual:
+Cree una máquina virtual con  [az vm create](/cli/azure/vm#az_vm_create). Cuando se le solicite, proporcione una contraseña que se usará como credenciales de inicio de sesión para la máquina virtual:
 
 * Denominada **myVM**.
 * En **CreatePrivateEndpointQS-rg**.
@@ -183,9 +183,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configuración de la zona DNS privada
 
-En esta sección, creará y configurará la zona DNS privada con [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+En esta sección, creará y configurará la zona DNS privada con [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Usará [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para crear el vínculo de red virtual en la zona DNS.
+Usará [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para crear el vínculo de red virtual en la zona DNS.
 
 Creará un grupo de zona DNS con [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
@@ -194,7 +194,7 @@ Creará un grupo de zona DNS con [az network private-endpoint dns-zone-group cre
 * En el grupo de recursos **CreatePrivateEndpointQS-rg**.
 * Vínculo DNS denominado **myDNSLink**.
 * Asociado a **myPrivateEndpoint**.
-* Grupo de zona denominado **MyZoneGroup**.
+* Grupo de zona llamado **MyZoneGroup**.
 
 ```azurecli-interactive
 az network private-dns zone create \

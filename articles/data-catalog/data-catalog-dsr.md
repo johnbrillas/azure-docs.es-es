@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d68a9539420c77cc23722e1b7b7175d08459e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674638"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Pueden publicarse metadatos mediante una API pública o una herramienta de registro con un solo clic, o mediante la especificación manual de información directamente en el portal web de Azure Data Catalog. En la siguiente tabla se resumen todos los orígenes que admite el catálogo actualmente y las funcionalidades de publicación de cada uno de ellos. También se enumeran las herramientas de datos externas que cada origen puede iniciar desde nuestra experiencia "abierta" del portal. La segunda tabla contiene una especificación más técnica de las propiedades de conexión de cada propiedad de la conexión del origen de datos.
 

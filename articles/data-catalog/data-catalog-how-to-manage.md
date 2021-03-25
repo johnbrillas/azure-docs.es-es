@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 9d035417b613c81487c493bde90cdcc461f04412
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0182f744e038bc8080b9fb96bfdb1eeda16b86c0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017294"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674859"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Administración de recursos de datos en Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introducción
 Azure Data Catalog está diseñado para la detección de orígenes de datos, lo que le permite detectar y comprender fácilmente los orígenes de datos que necesitan para realizar análisis y tomar decisiones. Estas funcionalidades de detección consiguen el mayor impacto cuando todos los usuarios puedan buscar y comprender la gama más amplia de orígenes de datos disponibles. Con estos elementos en mente, el comportamiento predeterminado de Data Catalog es que todos los orígenes de datos registrados sean visibles, y detectables, para todos los usuarios del catálogo.
 
@@ -36,7 +39,7 @@ Cuando un recurso de datos de Data Catalog tiene propietario, solo los usuarios 
 >
 >
 
-### <a name="take-ownership"></a>Toma de posesión
+### <a name="take-ownership"></a>Tomar posesión
 Los usuarios pueden tomar posesión de los recursos de datos mediante la selección de la opción **Tomar posesión** en Azure Data Catalog. No se necesitan permisos especiales para tomar posesión de un recurso de datos sin propietario. Cualquier usuario puede tomar posesión de un recurso de datos sin propietario.
 
 ### <a name="add-owners-and-co-owners"></a>Adición de propietarios y copropietarios

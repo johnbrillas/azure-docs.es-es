@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94353737"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Configuración de Harness para el aprovisionamiento automático de usuarios
@@ -90,7 +90,7 @@ Antes de configurar Harness para el aprovisionamiento automático de usuarios co
 
     ![Botón “Nueva aplicación”](common/add-new-app.png)
 
-1. En el cuadro de búsqueda, escriba **Harness** , seleccione **Harness** en la lista de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Harness**, seleccione **Harness** en la lista de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Harness en la lista de resultados](common/search-new-app.png)
 
@@ -118,47 +118,47 @@ Para configurar el aprovisionamiento automático de usuarios para Harness en Azu
 
     ![Botón de aprovisionamiento](common/provisioning.png)
 
-1. En la lista desplegable **Modo de aprovisionamiento** , seleccione **Automático**.
+1. En la lista desplegable **Modo de aprovisionamiento**, seleccione **Automático**.
 
     ![Lista desplegable "Modo de aprovisionamiento"](common/provisioning-automatic.png)
 
-1. En **Credenciales de administrador** , haga lo siguiente:
+1. En **Credenciales de administrador**, haga lo siguiente:
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. En el cuadro **URL de inquilino** , escriba **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Puede obtener el identificador de la cuenta de Harness con la dirección URL en el explorador cuando haya iniciado sesión en Harness.
-   b. En el cuadro **Token secreto** , escriba el valor del token de autenticación SCIM que guardó en el paso 6 de la sección "Configuración de Harness para el aprovisionamiento".  
+   a. En el cuadro **URL de inquilino**, escriba **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Puede obtener el identificador de la cuenta de Harness con la dirección URL en el explorador cuando haya iniciado sesión en Harness.
+   b. En el cuadro **Token secreto**, escriba el valor del token de autenticación SCIM que guardó en el paso 6 de la sección "Configuración de Harness para el aprovisionamiento".  
    c. Para asegurarse de que Azure AD puede conectarse a Harness, seleccione **Probar conexión**. Si la conexión no se establece, asegúrese de que la cuenta de Harness tiene permisos de *administrador* y pruebe otra vez.
 
-1. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+1. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Cuadro de texto "Correo electrónico de notificación"](common/provisioning-notification-email.png)
 
 1. Seleccione **Guardar**.
 
-1. En **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Harness** (Sincronizar usuarios de Azure Active Directory con Harness).
+1. En **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Harness** (Sincronizar usuarios de Azure Active Directory con Harness).
 
     ![Vínculo de sincronización de los usuarios de Azure Active Directory a Harness](media/harness-provisioning-tutorial/usermappings.png)
 
-1. En **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan desde Azure AD a Harness. Los atributos seleccionados como *Coincidencia* se usan para buscar coincidencias con las cuentas de usuario de Harness con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
+1. En **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan desde Azure AD a Harness. Los atributos seleccionados como *Coincidencia* se usan para buscar coincidencias con las cuentas de usuario de Harness con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     ![Panel "Asignaciones de atributos" del usuario de Harness](media/harness-provisioning-tutorial/userattributes.png)
 
-1. En **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Harness** (Sincronizar grupos de Azure Active Directory con Harness).
+1. En **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Harness** (Sincronizar grupos de Azure Active Directory con Harness).
 
     ![Vínculo de sincronización de los grupos de Azure Active Directory a Harness](media/harness-provisioning-tutorial/groupmappings.png)
 
-1. En **Asignaciones de atributos** , revise los atributos de grupo que se sincronizan desde Azure AD a Harness. Los atributos seleccionados como propiedades de *Coincidencia* se usan para establecer coincidencias con los grupos de Harness con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
+1. En **Asignaciones de atributos**, revise los atributos de grupo que se sincronizan desde Azure AD a Harness. Los atributos seleccionados como propiedades de *Coincidencia* se usan para establecer coincidencias con los grupos de Harness con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     ![Panel "Asignaciones de atributos" de grupo de Harness](media/harness-provisioning-tutorial/groupattributes.png)
 
 1. Para configurar los filtros de ámbito, consulte [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. En **Configuración** ", para habilitar el servicio de aprovisionamiento de Azure AD para Harness, cambie el conmutador **Estado de aprovisionamiento** a **Activado**.
+1. En **Configuración**", para habilitar el servicio de aprovisionamiento de Azure AD para Harness, cambie el conmutador **Estado de aprovisionamiento** a **Activado**.
 
     ![Conmutador Estado de aprovisionamiento cambiado a "Activado".](common/provisioning-toggle-on.png)
 
-1. En **Configuración** , en la lista desplegable **Ámbito** , seleccione el modo en que desea sincronizar los usuarios o grupos que está aprovisionando en Harness.
+1. En **Configuración**, en la lista desplegable **Ámbito**, seleccione el modo en que desea sincronizar los usuarios o grupos que está aprovisionando en Harness.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

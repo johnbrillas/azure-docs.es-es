@@ -3,19 +3,20 @@ title: Implementación de la oferta de Marketplace autoadministrada de OpenShift
 description: Implemente la oferta de Marketplace de OpenShift Container Platform 3.11 en Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374106"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670437"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
@@ -93,7 +94,7 @@ Escriba los valores para los parámetros de entrada y haga clic en **Aceptar**.
 
 **Cambiar el tamaño**
 
-Para seleccionar otro tamaño de máquina virtual, haga clic en ***Cambiar tamaño***.  Se abrirá la ventana de selección de máquina virtual.  Seleccione el tamaño de máquina virtual que quiera y haga clic en **Seleccionar**.
+Para seleccionar otro tamaño de máquina virtual, haga clic en ***Cambiar tamaño** _.  Se abrirá la ventana de selección de máquina virtual.  Seleccione el tamaño de máquina virtual que quiera y haga clic en _*Seleccionar**.
 
    ![Selección de un tamaño de máquina virtual](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

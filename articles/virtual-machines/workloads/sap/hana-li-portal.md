@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d32adab35852cd19933fe3877c2742a21ddc5f1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676993"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772083"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 
 >[!NOTE]
->Para la revisión 4.2, siga las instrucciones del tema [Administración de instancias de BareMetal mediante Azure Portal](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md).
+>Para la revisión 4.2, siga las instrucciones del tema [Administración de instancias de BareMetal mediante Azure Portal](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md).
 
 En este documento se describe la manera en que se presenta [HANA (instancias grandes)](./hana-overview-architecture.md) en [Azure Portal](https://portal.azure.com) y qué actividades se pueden realizar en este portal con las unidades de HANA (instancias grandes) que se implementan. La visibilidad de HANA (instancias grandes) en Azure Portal la proporciona un proveedor de recursos de Azure específico que actualmente está en versión preliminar pública.
 
