@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427741"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466418"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -167,7 +167,7 @@ No es necesario permitir explícitamente la conectividad a Internet para realiza
 1. El agente de MARS usa VSS para tomar una instantánea de un momento dado de los volúmenes seleccionados para la copia de seguridad.
     - El agente de MARS solo usa la operación de escritura del sistema Windows para capturar la instantánea.
     - Dado que el agente no usa instancias de VSS Writer de aplicaciones, no captura instantáneas coherentes con la aplicación.
-1. Después de tomar la instantánea con VSS, el agente de MARS crea un disco duro virtual en la carpeta de caché que especificó al configurar la copia de seguridad. El agente también almacena las sumas de comprobación para cada bloque de datos.
+1. Después de tomar la instantánea con VSS, el agente de MARS crea un disco duro virtual en la carpeta de caché que especificó al configurar la copia de seguridad. El agente también almacena las sumas de comprobación para cada bloque de datos. Estos se utilizan posteriormente para detectar los bloques modificados para las posteriores copias de seguridad incrementales.
 1. Se ejecutan copias de seguridad incrementales según la programación que especifique, a menos que ejecute una copia de seguridad a petición.
 1. En las copias de seguridad incrementales, se identifican los archivos modificados y se crea un disco duro virtual. Este disco se comprime y cifra, y se envía al almacén.
 1. Una vez finalizada la copia de seguridad incremental, el nuevo disco duro virtual se combina con el disco duro virtual creado después de la replicación inicial. Este disco duro virtual combinado proporciona el estado más reciente que se usará para la comparación de la copia de seguridad en curso.

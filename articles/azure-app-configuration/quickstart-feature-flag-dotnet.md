@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 10/19/2020
 ms.author: alkemper
 ms.openlocfilehash: 513c826e11ff9dfe6ea94349c67620da9d1bba48
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932054"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Inicio rápido: Agregar marcas de características a una aplicación en .NET Framework
@@ -27,7 +27,7 @@ En este inicio rápido, incorporará Azure App Configuration en una aplicación 
 
 Las bibliotecas de administración de características de .NET amplían la plataforma con compatibilidad con las marcas de características. Estas bibliotecas se compilan a partir del sistema de configuración de .NET. Se integran con App Configuration mediante su proveedor de configuración de .NET.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)

@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: a91123b22eaef4cbaf2e96c93200777c8a85abab
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092380"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Procedimiento de codificación con una transformación personalizada: CLI de Azure
@@ -32,7 +32,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 * Todos los valores de alto y ancho del contenido de AVC deben ser un múltiplo de 4.
 * En Azure Media Services v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto difiere de los valores preestablecidos en las API v2, en donde se usaban kilobits por segundo como unidad. Por ejemplo, si la velocidad de bits de v2 se especificaba como 128 (kilobits/segundo), en v3 se establecería en 128 000 (bits/segundo).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Cree una cuenta de Media Services](./create-account-howto.md).
 

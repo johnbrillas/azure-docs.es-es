@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547866"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103418086"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -260,7 +260,7 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : ¿Podrán mis empleados o alumnos usar Autorrellenar contraseñas en la aplicación Authenticator?
 
-**R.** : Sí, Autorrellenar ahora funciona para la mayoría de los usuarios empresariales, incluso cuando se agrega una cuenta profesional o educativa a la aplicación Authenticator. Puede rellenar un formulario para configurar (permitir o denegar) Autorrellenar para su organización y [enviarlo al equipo de Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator).
+**R.** : sí, Autorrellenar en sus [cuentas personales de Microsoft](https://go.microsoft.com/fwlink/?linkid=2144423) ahora funciona con la mayor parte de los usuarios empresariales, incluso cuando se agregan cuentas profesionales o educativas a la aplicación Authenticator. Puede rellenar un formulario para permitir o denegar Autorrellenar para su organización y [enviarlo al equipo de Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator). Autorrellenar no está disponible actualmente para las cuentas profesionales o educativas.
 
 **P.** : ¿Se sincronizarán automáticamente las contraseñas de la cuenta profesional o educativa de mis usuarios?
 

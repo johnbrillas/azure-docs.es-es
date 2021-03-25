@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
 ms.openlocfilehash: 70afa0a02f4e303105aec1884b966796854c6f49
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integración de Azure Active Directory con Zscaler Internet Access Administrator
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Zscaler Internet Access Administrator co
 * Permitir que los usuarios inicien sesión automáticamente en Zscaler Internet Access Administrator con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

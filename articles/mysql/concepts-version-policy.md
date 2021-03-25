@@ -1,5 +1,5 @@
 ---
-title: 'Directiva de versión de Azure Database for MySQL: servidor único y servidor flexible (versión preliminar)'
+title: 'Directiva de compatibilidad de versiones - Azure Database for MySQL: servidor único y servidor flexible (versión preliminar)'
 description: Aquí se describe la directiva relacionada con las versiones principales y secundarias de MySQL en Azure Database for MySQL
 author: sr-msft
 ms.author: srranga
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732877"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465664"
 ---
-# <a name="azure-database-for-mysql-versioning-policy"></a>Directiva de versión de Azure Database for MySQL
+# <a name="azure-database-for-mysql-version-support-policy"></a>Directiva compatibilidad de versión de Azure Database for MySQL
 
 En esta página se describe la directiva de versión de Azure Database for MySQL y se puede aplicar a los modos de implementación Azure Database for MySQL: servidor único y Azure Database for MySQL: servidor flexible (versión preliminar).
 
@@ -29,10 +29,11 @@ Actualmente, Azure Database for MySQL admite las siguientes versiones principale
 
 | Versión | Servidor único <br/> Versión secundaria actual |Servidor flexible (versión preliminar) <br/> Versión secundaria actual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | No compatible|
+|MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (retirada) | No compatible|
 |MySQL versión 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL versión 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+Lea la directiva de compatibilidad de versiones para las versiones retiradas en la [documentación de la directiva de compatibilidad de versiones.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="major-version-support"></a>Compatibilidad con la versión principal
 Cada versión principal de MySQL será compatible con Azure Database for MySQL a partir de la fecha en la que Azure comience a admitir la versión y hasta que la comunidad de MySQL retire la versión, tal como se proporciona en la [directiva de versión](https://www.mysql.com/support/eol-notice.html).

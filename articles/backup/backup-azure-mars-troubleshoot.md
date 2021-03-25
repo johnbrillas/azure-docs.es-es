@@ -3,12 +3,12 @@ title: Solución de problemas del agente de Azure Backup
 description: En este artículo se explica cómo solucionar problemas de instalación y registro del agente de Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: c08a146d91a128dc48fa4c379055b8c0efc1df0c
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3203d5604f1bd5db9cf579af01b2ae6f34032d89
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467619"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -41,7 +41,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Causa | Acciones recomendadas |
 | ---     | ---    |
-| **Las credenciales de almacén no son válidas** <br/> <br/> Es posible que los archivos de credenciales de almacén estén dañados, que hayan expirado o que tengan una extensión de archivo diferente de *.vaultCredentials*. (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota**: Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
+| **Las credenciales de almacén no son válidas** <br/> <br/> Es posible que los archivos de credenciales de almacén estén dañados, que hayan expirado o que tengan una extensión de archivo diferente de *.vaultCredentials*. (Por ejemplo, podrían haberse descargado más de 10 días antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota**: Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido los próximos 10 días. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
 | **El servidor proxy o el firewall están bloqueando el registro** <br/>or <br/>**No hay conectividad de Internet** <br/><br/> Si la máquina o servidor proxy tiene una conectividad de Internet limitada y el acceso a las direcciones URL necesarias no está garantizado, se producirá un error en el registro.| Siga estos pasos:<br/> <ul><li> Acuda al equipo de TI para asegurarse de que el sistema tiene conectividad de Internet.<li> Si no tiene un servidor proxy, asegúrese de que la opción de proxy no está seleccionada al registrar el agente. [Compruebe la configuración de proxy](#verifying-proxy-settings-for-windows).<li> Si tiene un servidor proxy o un firewall, acuda al equipo de red para asegurarse de que estas direcciones URL y direcciones IP tienen acceso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**Direcciones IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>Intente realizar el registro de nuevo después de completar los pasos de solución de problemas anteriores.<br></br> Si la conexión se realiza a través de Azure ExpressRoute, asegúrese de que la configuración esté definida como se describe en [Compatibilidad con Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **El software antivirus está bloqueando el registro** | Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> La carpeta temporal. La ubicación predeterminada es: C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch. <li> La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 

@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556815"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580392"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 
@@ -148,7 +148,7 @@ En este ejemplo, usamos el editor nano, así que cuando haya terminado de editar
 >
 > La opción *nofail* garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe en tiempo de arranque. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
 >
-> La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](../troubleshooting/serial-console-linux.md).
+> La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Compatibilidad de TRIM/UNMAP con Linux en Azure
 Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esta característica es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Además, le permitirá ahorrar dinero si crea archivos de gran tamaño y luego los elimina.

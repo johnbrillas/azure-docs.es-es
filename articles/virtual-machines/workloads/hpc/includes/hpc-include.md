@@ -9,16 +9,18 @@ ms.subservice: hpc
 ms.date: 03/05/2021
 ms.author: amverma
 ms.custom: include file
-ms.openlocfilehash: b07d0563a392cc3f86179f7bfa002f4bcf0d2300
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 3ed618d60a575fa6c747e1ddf9ebcc083cddbb20
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485714"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439144"
 ---
 ## <a name="get-started"></a>Introducción
 
 - [Información general](../overview.md) de HPC en las máquinas virtuales de las series H y N habilitadas para InfiniBand
 - [Configuración de máquinas virtuales](../configure.md) e imágenes de máquina virtual de HPC
-- [Habilitación de InfiniBand](../enable-infiniband.md).
+- [Habilitación de InfiniBand](../enable-infiniband.md)
 - [Configuración de MPI](../setup-mpi.md)
+- [Opciones de configuración del clúster](../../../sizes-hpc.md#cluster-configuration-options)
+- [Consideraciones de la implementación](../../../sizes-hpc.md#deployment-considerations)

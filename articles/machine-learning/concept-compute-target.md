@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503625"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574652"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -98,30 +98,30 @@ Hay algunas excepciones y limitaciones a la hora de elegir un tamaño de máquin
 
 Consulte la tabla siguiente para más información sobre las series admitidas y las restricciones.
 
-| **Series de maquinas virtuales compatibles**  | **Restricciones** |
-|------------|------------|
-| D | Ninguno. |
-| DDSv4 | Ninguno. |
-| Dv2 | Ninguno. |  
-| Dv3 | Ninguno.|
-| DSv2 | Ninguno. | 
-| DSv3 | Ninguno.|
-| EAv4 | Ninguno. |
-| Ev3 | Ninguno. |
-| FSv2 | Ninguno. | 
-| H | Ninguno. |
-| HB | Requiere aprobación. |
-| HBv2 | Requiere aprobación. |  
-| HCS | Requiere aprobación. |  
-| M | Requiere aprobación. |
-| NC | Ninguno. |  
-| NC Promo | Ninguno. |
-| NCsv2 | Requiere aprobación. |
-| NCsv3 | Requiere aprobación. |  
-| NDs | Requiere aprobación. |
-| NDv2 | Requiere aprobación. |
-| NV | Ninguno. |
-| NVv3 | Requiere aprobación. | 
+| **Series de maquinas virtuales compatibles**  | **Restricciones** | **Categoría** | **Compatible con** |
+|------------|------------|------------|------------|
+| D | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| DDSv4 | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| Dv2 | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| Dv3 | Ninguno.| Uso general | Clústeres de proceso e instancia |
+| DSv2 | Ninguno. | Uso general | Clústeres de proceso e instancia |
+| DSv3 | Ninguno.| Uso general | Clústeres de proceso e instancia |
+| EAv4 | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
+| Ev3 | Ninguno. | Memoria optimizada | Clústeres de proceso e instancia |
+| FSv2 | Ninguno. | Proceso optimizado | Clústeres de proceso e instancia |
+| H | Ninguno. | Informática de alto rendimiento | Clústeres de proceso e instancia |
+| HB | Requiere aprobación. | Informática de alto rendimiento | Clústeres de proceso e instancia |
+| HBv2 | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
+| HCS | Requiere aprobación. |  Informática de alto rendimiento | Clústeres de proceso e instancia |
+| M | Requiere aprobación. | Memoria optimizada | Clústeres de proceso e instancia |
+| NC | Ninguno. |  GPU | Clústeres de proceso e instancia |
+| NC Promo | Ninguno. | GPU | Clústeres de proceso e instancia |
+| NCsv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |
+| NCsv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia |  
+| NDs | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
+| NDv2 | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
+| NV | Ninguno. | GPU | Clústeres de proceso e instancia | 
+| NVv3 | Requiere aprobación. | GPU | Clústeres de proceso e instancia | 
 
 
 Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede que no estén disponibles en todas las regiones de Azure. Para comprobar si las series de máquinas virtuales están disponibles o no, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
