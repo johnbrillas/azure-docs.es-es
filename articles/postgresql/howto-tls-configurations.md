@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.openlocfilehash: 25be6b3c4e3172fc8ee14b97fd890b5948c284ba
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242371"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Configuración de TLS en el servidor único de Azure Database for PostgreSQL mediante Azure Portal
@@ -31,9 +31,9 @@ Siga estos pasos para establecer la versión de TLS mínima de PostgreSQL:
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione un servidor existente de Azure Database for PostgreSQL.
 
-1.  En la página del servidor único de Azure Database for PostgreSQL, en **Configuración** , haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
+1.  En la página del servidor único de Azure Database for PostgreSQL, en **Configuración**, haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
 
-1. En **Versión de TLS mínima** , seleccione **1.2** para denegar las conexiones con una versión de TLS inferior a TLS 1.2 para el servidor único de PostgreSQL.
+1. En **Versión de TLS mínima**, seleccione **1.2** para denegar las conexiones con una versión de TLS inferior a TLS 1.2 para el servidor único de PostgreSQL.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Configuración de TLS para el servidor único de Azure Database for PostgreSQL":::
 

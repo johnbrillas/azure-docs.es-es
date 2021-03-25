@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046132"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199631"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 En este artículo se proporcionan instrucciones para establecer una conexión de confianza entre dispositivos de bajada y puertas de enlace transparentes IoT Edge. En un escenario de puerta de enlace transparente, uno o varios dispositivos pueden pasar sus mensajes a través de un dispositivo de puerta de enlace único que mantiene la conexión con IoT Hub.
 
@@ -44,7 +46,19 @@ En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube Azure IoT Hub. En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. Sin embargo, otro dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube Azure IoT Hub. En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge.
+
+En este artículo se indican los pasos para conectar un dispositivo IoT como dispositivo de nivel inferior. Si tiene un dispositivo IoT Edge como dispositivo de nivel inferior, consulte [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md).
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >Los dispositivos IoT registrados en IOT Hub pueden usar [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) para aislar diferentes procesos, hardware o funciones en un único dispositivo. Las puertas de enlace de IoT Edge admiten conexiones de módulo inferiores mediante la autenticación de clave simétrica, pero no la autenticación de certificado X.509.

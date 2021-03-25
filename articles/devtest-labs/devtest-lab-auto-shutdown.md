@@ -4,10 +4,10 @@ description: Aprenda a establecer una directiva de apagado automático para un l
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318979"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
@@ -42,7 +42,7 @@ Para ver o cambiar las directivas de un laboratorio, siga estos pasos:
 3. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
      ![Detalles de apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 4. Si habilita esta directiva, especifique la hora local (y la zona horaria) para apagar todas las máquinas virtuales del laboratorio actual.
-5. Especifique **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí** , escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
+5. Especifique **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
 6. Seleccione **Guardar**.
 
     De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie la configuración de **Apagado automático**.
@@ -70,10 +70,10 @@ Si establece esta directiva para el laboratorio, los usuarios del laboratorio no
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Configuración del apagado automático de máquinas virtuales de proceso
 
-1. En la página **Máquina virtual** , seleccione **Apagado automático** en el menú de la izquierda de la sección **Operaciones**.
-2. En la página **Apagado automático** , seleccione **Activado** para habilitar esta directiva y **Desactivado** para deshabilitarla.
-3. Si habilita esta directiva, especifique la **hora** (y la **zona horaria** ) a la que se deben apagar las máquinas virtuales.
-4. Elija **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí** , escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
+1. En la página **Máquina virtual**, seleccione **Apagado automático** en el menú de la izquierda de la sección **Operaciones**.
+2. En la página **Apagado automático**, seleccione **Activado** para habilitar esta directiva y **Desactivado** para deshabilitarla.
+3. Si habilita esta directiva, especifique la **hora** (y la **zona horaria**) a la que se deben apagar las máquinas virtuales.
+4. Elija **Yes** (Sí) o **No** en la opción para enviar una notificación 30 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado. Para obtener más información, consulte la sección [Notificaciones](#notifications).
 5. Seleccione **Guardar**.
 
     ![Configuración del apagado automático de una máquina virtual de proceso](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
@@ -88,7 +88,7 @@ Al actualizar la configuración del apagado automático, verá la actividad que 
 4. Confirme que ve la operación **Agregar o modificar programaciones** en el registro de actividad. Si no lo ve, espere unos minutos y actualice el registro de actividad.
 
     ![Entrada de registro de actividad](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
-5. Seleccione la operación **Agregar o modificar programaciones** para ver la información siguiente en la página **Resumen** :
+5. Seleccione la operación **Agregar o modificar programaciones** para ver la información siguiente en la página **Resumen**:
 
     - Nombre de la operación (Agregar o modificar programaciones)
     - Fecha y hora en que se actualizó la configuración del apagado automático.
@@ -128,14 +128,14 @@ Para comenzar, cree una aplicación lógica en su suscripción de Azure siguiend
 1. Seleccione **+ Create a resource** (+ Crear un recurso) en el menú de la izquierda, seleccione **Integration** (Integración) y seleccione **Logic App** (Aplicación lógica).
 
     ![Nuevo menú de aplicaciones lógicas](./media/devtest-lab-auto-shutdown/new-logic-app.png)
-2. En la página **Aplicación lógica: crear** , siga estos pasos:
+2. En la página **Aplicación lógica: crear**, siga estos pasos:
     1. Escriba un **nombre** para la aplicación lógica.
     2. Selección la **suscripción** de Azure.
     3. Cree un **grupo de recursos** nuevo o seleccione uno existente.
     4. Seleccione una **ubicación** para la aplicación lógica.
 
         ![Aplicación lógica nueva: configuración](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. En las **notificaciones** , seleccione **Go to resource** (Ir al recurso) en la notificación.
+3. En las **notificaciones**, seleccione **Go to resource** (Ir al recurso) en la notificación.
 
     ![Ir al recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
 4. Seleccione **Logic app designer** (Diseñador de aplicaciones lógicas) en la categoría **Deployment Tools** (Herramientas de implementación).

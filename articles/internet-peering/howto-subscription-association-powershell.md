@@ -10,10 +10,10 @@ ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3b463293899dc2586404d68145943caff3105e89
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590195"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante PowerShell
@@ -63,7 +63,7 @@ New-AzPeerAsn `
 
 Una suscripción puede tener varios ASN. Actualice la información de emparejamiento de cada ASN y asegúrese de que cada uno tenga un nombre único.
 
-se espera que los elementos del mismo nivel tengan un perfil completo y actualizado en [PeeringDB](https://www.peeringdb.com). Usamos esta información durante el registro para validar los detalles del ASN del mismo nivel, como su información de NOC, sus datos de contacto técnico, su presencia en las instalaciones de emparejamiento, etc.
+Se espera que los elementos del mismo nivel tengan un perfil completo y actualizado en [PeeringDB](https://www.peeringdb.com). Usamos esta información durante el registro para validar los detalles del ASN del mismo nivel, como su información de NOC, sus datos de contacto técnico, su presencia en las instalaciones de emparejamiento, etc.
 
 Tenga en cuenta que, en lugar de **{subscriptionId}** en la salida anterior, se mostrará el identificador de la suscripción actual.
 
@@ -110,4 +110,4 @@ Actualmente no se admite la eliminación de PeerASN. Si necesita eliminar un Pee
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para más información, vea las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

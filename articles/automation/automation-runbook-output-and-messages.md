@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324418"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configuración de flujos de salida y de mensajes de runbooks
@@ -117,9 +117,9 @@ El runbook incluye el tipo de salida `Microsoft.Azure.Commands.Profile.Models.PS
 
 Aunque este runbook es muy simple, hay un elemento de configuración que se debe destacar. La última actividad ejecuta el cmdlet `Write-Output` para escribir datos de perfil en una variable mediante una expresión de PowerShell para el parámetro `Inputobject`. Este parámetro es obligatorio en el cmdlet `Write-Output`.
 
-El segundo runbook de este ejemplo, denominado **Test-ChildOutputType** , simplemente define dos actividades.<br> ![Runbook de tipo de salida secundario de ejemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+El segundo runbook de este ejemplo, denominado **Test-ChildOutputType**, simplemente define dos actividades.<br> ![Runbook de tipo de salida secundario de ejemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-La primera actividad llama al runbook **AuthenticateTo-Azure**. La segunda actividad ejecuta el cmdlet `Write-Verbose` con la opción **Origen de datos** establecida en **Resultado de la actividad**. Además, **Ruta de campo** se establece en **Context.Subscription.SubscriptionName** , la salida de contexto del runbook **AuthenticateTo-Azure**.<br> ![Origen de datos del parámetro del cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+La primera actividad llama al runbook **AuthenticateTo-Azure**. La segunda actividad ejecuta el cmdlet `Write-Verbose` con la opción **Origen de datos** establecida en **Resultado de la actividad**. Además, **Ruta de campo** se establece en **Context.Subscription.SubscriptionName**, la salida de contexto del runbook **AuthenticateTo-Azure**.<br> ![Origen de datos del parámetro del cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 La salida resultante es el nombre de la suscripción.<br> ![Resultados de Runbook de Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -189,7 +189,7 @@ Esto se debe a que la instrucción `$GLOBAL:DebugPreference="Continue"` indica a
 
 El flujo de mensajes detallados ofrece información general acerca del funcionamiento del runbook. Puesto que el flujo de depuración no está disponible para un runbook, este debe usar los mensajes detallados para la información de depuración.
 
-De forma predeterminada, el historial de trabajos no almacena mensajes detallados de runbooks publicados, por motivos de rendimiento. Para almacenar mensajes detallados, use la pestaña **Configurar** de Azure Portal con el valor **Registrar registros detallados** ; de este modo establece que los runbooks publicados registren mensajes detallados. Active esta opción solo para solucionar problemas o para depurar un runbook. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados.
+De forma predeterminada, el historial de trabajos no almacena mensajes detallados de runbooks publicados, por motivos de rendimiento. Para almacenar mensajes detallados, use la pestaña **Configurar** de Azure Portal con el valor **Registrar registros detallados**; de este modo establece que los runbooks publicados registren mensajes detallados. Active esta opción solo para solucionar problemas o para depurar un runbook. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados.
 
 Cuando se [prueba un runbook](./manage-runbooks.md), los mensajes detallados no se muestran aunque el runbook esté configurado para escribir registros detallados. Para mostrar mensajes detallados al [probar un runbook](./manage-runbooks.md), debe establecer la variable `VerbosePreference` en Continue. Cuando se establece este valor en la variable, los mensajes detallados se muestran en el panel de salida de la prueba de Azure Portal.
 
@@ -275,11 +275,11 @@ Sin embargo, a menos que necesite esta información para realizar un seguimiento
 **Para habilitar el seguimiento en el nivel de actividad:**
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. En **Automatización de procesos** , haga clic en **Runbooks** para abrir la lista de runbooks.
+2. En **Automatización de procesos**, haga clic en **Runbooks** para abrir la lista de runbooks.
 3. En la página Runbooks, seleccione un runbook gráfico de la lista.
-4. En **Configuración** , haga clic en **registro y seguimiento**.
-5. En la página Registro y seguimiento, en **Registrar registros detallados** , haga clic en **Activar** para habilitar el registro detallado.
-6. En **Seguimiento a nivel de actividad** , cambie el nivel de seguimiento a **Básico** o **Detallado** , en función del nivel de seguimiento que necesite.<br>
+4. En **Configuración**, haga clic en **registro y seguimiento**.
+5. En la página Registro y seguimiento, en **Registrar registros detallados**, haga clic en **Activar** para habilitar el registro detallado.
+6. En **Seguimiento a nivel de actividad**, cambie el nivel de seguimiento a **Básico** o **Detallado**, en función del nivel de seguimiento que necesite.<br>
 
    ![Página de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

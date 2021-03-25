@@ -9,10 +9,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336449"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migración de los datos de Oracle a una cuenta de Cassandra API de Azure Cosmos DB mediante Blitzz
@@ -20,11 +20,11 @@ ms.locfileid: "93336449"
 
 Cassandra API en Azure Cosmos DB se ha convertido en una excelente opción para cargas de trabajo empresariales que se ejecutan en Oracle por diversos motivos como, por ejemplo:
 
-* **Mejor escalabilidad y disponibilidad** : Evita los puntos únicos de error, lo que supone una mejor escalabilidad y disponibilidad para las aplicaciones.
+* **Mejor escalabilidad y disponibilidad**: Evita los puntos únicos de error, lo que supone una mejor escalabilidad y disponibilidad para las aplicaciones.
 
-* **Importante ahorro de costos** : puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias de Oracle aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad.
+* **Importante ahorro de costos**: puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias de Oracle aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad.
 
-* **No hay sobrecarga de administración y supervisión** : como servicio en la nube totalmente administrado, Azure Cosmos DB evita la sobrecarga de administrar y supervisar innumerables configuraciones.
+* **No hay sobrecarga de administración y supervisión**: como servicio en la nube totalmente administrado, Azure Cosmos DB evita la sobrecarga de administrar y supervisar innumerables configuraciones.
 
 Existen varias maneras de migrar las cargas de trabajo de base de datos de una plataforma a otra. [Blitzz](https://www.blitzz.io) es una herramienta que ofrece una forma segura y confiable de realizar una migración sin tiempo de inactividad desde una variedad de bases de datos a Azure Cosmos DB. En este artículo se describen los pasos necesarios para migrar datos de la base de datos de Oracle a Cassandra API de Azure Cosmos DB mediante Blitzz.
 
@@ -56,7 +56,7 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
 
 1. Puede obtener la instalación de Blitzz y los archivos binarios solicitando una demostración en el [sitio web de Blitzz](https://www.blitzz.io). También puede enviar un [correo electrónico](mailto:success@blitzz.io) al equipo.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Descarga de la herramienta de replicante de Blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Descarga de la herramienta replicante de Blitzz":::
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Archivos de replicante de Blitzz":::
 
@@ -119,11 +119,11 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
    use-ssl: false
    ```
 
-1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea** :
+1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea**:
 
-   * **Modo completo** : en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Oracle de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
+   * **Modo completo**: en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Oracle de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
 
-   * **Modo de instantánea** : en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
+   * **Modo de instantánea**: en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
 
 
    Mediante el uso de los dos modos anteriores, la migración se puede realizar sin tiempo de inactividad.

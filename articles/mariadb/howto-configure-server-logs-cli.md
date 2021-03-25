@@ -3,16 +3,16 @@ title: Acceso a registros de consultas lentos de Azure Database for MariaDB medi
 description: En este artículo se describe cómo acceder a los registros lentos de Azure Database for MariaDB mediante la utilidad de la línea de comandos de la CLI de Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c8f69f00ed4314fbe8b3fd1958b52c82ce55d99
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662396"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas de Azure Database for Maria DB mediante CLI de Azure.
@@ -27,7 +27,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging"></a>registro
 Puede configurar el servidor para acceder al registro de consultas lentas de MySQL con los pasos siguientes:
 1. Active el registro de consultas lentas al establecer el parámetro **slow\_query\_log** en ON.
-2. Seleccione la ubicación en la que se van a generar los registros con **log\_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **Archivo**. Para enviar registros solo a los registros de Azure Monitor, seleccione **Ninguno**.
+2. Seleccione la ubicación en la que se van a generar los registros con **log\_output**. Para enviar registros al almacenamiento local y a los registros de diagnóstico de Azure Monitor, seleccione **File** (Archivo). Para enviar registros solo a los registros de Azure Monitor, seleccione **Ninguno**.
 3. Ajuste otros parámetros, como **long\_query\_time** y **log\_slow\_admin\_statements**.
 
 Para aprender a establecer el valor de estos parámetros mediante la CLI de Azure, consulte [Cómo configurar parámetros del servidor](howto-configure-server-parameters-cli.md).

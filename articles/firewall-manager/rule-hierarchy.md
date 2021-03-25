@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331743"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Uso de la directiva de Azure Firewall para definir una jerarquía de reglas
@@ -48,7 +48,7 @@ Cree directivas para cada uno de los equipos de la aplicación:
 - Una directiva de firewall de base de datos. La directiva de firewall de base de datos hereda la directiva de firewall base.
 - Una directiva de firewall de ingeniería. La directiva de firewall de ingeniería también hereda la directiva de firewall base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipos y requisitos" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Jerarquía de directivas" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Creación de roles personalizados para acceder a los grupos de la colección de reglas 
 
@@ -91,7 +91,7 @@ Use el siguiente procedimiento general para definir roles personalizados:
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
    operación a la propiedad  **Actions** . Asegúrese de incluir una coma después de la operación de lectura. Esta acción permite al usuario crear y actualizar los grupos de la colección de reglas.
-6. En  **AssignableScopes** , agregue el identificador de suscripción con el formato siguiente: 
+6. En  **AssignableScopes**, agregue el identificador de suscripción con el formato siguiente: 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
@@ -132,11 +132,11 @@ Para enumerar todos los roles personalizados, use el comando Get-AzRoleDefinitio
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
-También puede ver el rol personalizado en Azure Portal. Vaya a su suscripción, seleccione **Control de acceso (IAM)** , **Roles** .
+También puede ver el rol personalizado en Azure Portal. Vaya a su suscripción, seleccione **Control de acceso (IAM)** , **Roles**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipos y requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipos y requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Permiso de lectura SalesAppPolicy":::
 
 Para más información, consulte el [Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 
@@ -145,8 +145,8 @@ Para más información, consulte el [Tutorial: Creación de un rol personalizado
 En el portal, puede agregar usuarios al rol AZFM Rule Collection Group Authors (Autores del grupo de la colección de reglas AZFM) y proporcionar acceso a las directivas de firewall.
 
 1. En el portal, seleccione la directiva de firewall del equipo de la aplicación (por ejemplo, SalesAppPolicy).
-2. Seleccione **Control de acceso** .
-3. Seleccione **Agregar asignación de roles** .
+2. Seleccione **Control de acceso**.
+3. Seleccione **Agregar asignación de roles**.
 4. Agregue usuarios o grupos de usuarios (por ejemplo, el equipo de ventas) al rol.
 
 Repita este procedimiento para las demás directivas de firewall.

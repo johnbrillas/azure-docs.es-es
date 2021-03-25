@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: d4a3805e50ce48d1439696a3d9015d6ba8571470
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011194"
 ---
 # <a name="widevine-license-template-overview"></a>Información general sobre las plantillas de licencias de Widevine
@@ -64,7 +64,7 @@ Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.
 ```
 
 ## <a name="json-message"></a>Mensaje JSON
-| Nombre | Valor | Descripción |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | payload |Cadena codificada en Base64 |La solicitud de licencia enviada por un cliente. |
 | content_id |Cadena codificada en Base64 |Identificador utilizado para derivar el id. de la clave y la clave de contenido de cada elemento content_key_specs.track_type. |
@@ -82,7 +82,7 @@ Si existe una directiva anterior, no es necesario especificar ninguno de los val
 
 Cada valor de content_key_specs debe especificarse en todas las pistas, independientemente de la opción use_policy_overrides_exclusively. 
 
-| Nombre | Valor | Descripción |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nombre de tipo de pista. Si se especifica content_key_specs en la solicitud de licencia, asegúrese de especificar todos los tipos de pista explícitamente. Si no lo hace, se producirán errores en la reproducción transcurridos 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define los requisitos de solidez del cliente para la reproducción. <br/> - Se requiere criptografía de caja blanca basada en software. <br/> - Se requiere criptografía de software y un descodificador de ofuscación. <br/> - Las operaciones de criptografía y material clave deben realizarse en un entorno de ejecución de confianza con respaldo del hardware. <br/> - La criptografía y la descodificación del contenido deben realizarse dentro de un entorno de ejecución de confianza con respaldo del hardware.  <br/> - La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de un entorno de ejecución de confianza con respaldo del hardware. |
@@ -91,7 +91,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | content_key_specs.key_id |Binario de cadena codificada en Base64, 16 bytes |Identificador único para la clave. |
 
 ## <a name="policy-overrides"></a>Invalidaciones de directivas
-| Nombre | Valor | Descripción |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | policy_overrides. can_play |Valor booleano (true o false) |Indica que la reproducción del contenido está permitida. El valor predeterminado es False. |
 | policy_overrides. can_persist |Valor booleano (true o false) |Indica que la licencia puede conservarse en el almacenamiento no volátil para su uso sin conexión. El valor predeterminado es False. |
@@ -106,7 +106,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | policy_overrides. renew_with_usage |Valor booleano (true o false) |Indica que la licencia se enviará para renovación cuando se inicie el uso. Este campo solo se usa si can_renew es "true". |
 
 ## <a name="session-initialization"></a>Inicialización de la sesión
-| Nombre | Valor | Descripción |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | provider_session_token |Cadena codificada en Base64 |Este token de sesión se pasa de nuevo en la licencia y existirá en renovaciones posteriores. El token de sesión no se conservará una vez agotadas las sesiones. |
 | provider_client_token |Cadena codificada en Base64 |Token de cliente para devolver en la respuesta de licencia. Si la solicitud de licencia contiene un token de cliente, este valor se omite. El token del cliente se conservará una vez agotadas las sesiones de licencia. |

@@ -3,14 +3,14 @@ title: 'Parámetros del servidor: Azure Database for MariaDB'
 description: En este tema se proporcionan instrucciones para configurar parámetros del servidor en Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ca1acfd6891c9389363fceb7eccec6f460537399
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 7797ee9d20b33a25c1b51289036651c7ad9f22a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664153"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parámetros del servidor en Azure Database for MariaDB
@@ -91,13 +91,13 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|262 144|128|268435455|
-|De uso general|4|262 144|128|536870912|
-|De uso general|8|262 144|128|1073741824|
-|De uso general|16|262 144|128|2147483648|
-|De uso general|32|262 144|128|4294967295|
-|De uso general|64|262 144|128|4294967295|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Uso general|2|262 144|128|268435455|
+|Uso general|4|262 144|128|536870912|
+|Uso general|8|262 144|128|1073741824|
+|Uso general|16|262 144|128|2147483648|
+|Uso general|32|262 144|128|4294967295|
+|Uso general|64|262 144|128|4294967295|
 |Memoria optimizada|2|262 144|128|536870912|
 |Memoria optimizada|4|262 144|128|1073741824|
 |Memoria optimizada|8|262 144|128|2147483648|
@@ -108,14 +108,14 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
-|De uso general|2|300|10|600|
-|De uso general|4|625|10|1250|
-|De uso general|8|1250|10|2.500|
-|De uso general|16|2.500|10|5000|
-|De uso general|32|5000|10|10000|
-|De uso general|64|10000|10|20000|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
+|Uso general|2|300|10|600|
+|Uso general|4|625|10|1250|
+|Uso general|8|1250|10|2.500|
+|Uso general|16|2.500|10|5000|
+|Uso general|32|5000|10|10000|
+|Uso general|64|10000|10|20000|
 |Memoria optimizada|2|625|10|1250|
 |Memoria optimizada|4|1250|10|2.500|
 |Memoria optimizada|8|2.500|10|5000|
@@ -140,13 +140,13 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|16777216|16384|268435455|
-|De uso general|4|16777216|16384|536870912|
-|De uso general|8|16777216|16384|1073741824|
-|De uso general|16|16777216|16384|2147483648|
-|De uso general|32|16777216|16384|4294967295|
-|De uso general|64|16777216|16384|4294967295|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Uso general|2|16777216|16384|268435455|
+|Uso general|4|16777216|16384|536870912|
+|Uso general|8|16777216|16384|1073741824|
+|Uso general|16|16777216|16384|2147483648|
+|Uso general|32|16777216|16384|4294967295|
+|Uso general|64|16777216|16384|4294967295|
 |Memoria optimizada|2|16777216|16384|536870912|
 |Memoria optimizada|4|16777216|16384|1073741824|
 |Memoria optimizada|8|16777216|16384|2147483648|
@@ -162,13 +162,13 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|0|0|16777216|
-|De uso general|4|0|0|33554432|
-|De uso general|8|0|0|67108864|
-|De uso general|16|0|0|134217728|
-|De uso general|32|0|0|134217728|
-|De uso general|64|0|0|134217728|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Uso general|2|0|0|16777216|
+|Uso general|4|0|0|33554432|
+|Uso general|8|0|0|67108864|
+|Uso general|16|0|0|134217728|
+|Uso general|32|0|0|134217728|
+|Uso general|64|0|0|134217728|
 |Memoria optimizada|2|0|0|33554432|
 |Memoria optimizada|4|0|0|67108864|
 |Memoria optimizada|8|0|0|134217728|
@@ -182,13 +182,13 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|524 288|32 768|4 194 304|
-|De uso general|4|524 288|32 768|8388608|
-|De uso general|8|524 288|32 768|16777216|
-|De uso general|16|524 288|32 768|33554432|
-|De uso general|32|524 288|32 768|33554432|
-|De uso general|64|524 288|32 768|33554432|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Uso general|2|524 288|32 768|4 194 304|
+|Uso general|4|524 288|32 768|8388608|
+|Uso general|8|524 288|32 768|16777216|
+|Uso general|16|524 288|32 768|33554432|
+|Uso general|32|524 288|32 768|33554432|
+|Uso general|64|524 288|32 768|33554432|
 |Memoria optimizada|2|524 288|32 768|8388608|
 |Memoria optimizada|4|524 288|32 768|16777216|
 |Memoria optimizada|8|524 288|32 768|33554432|
@@ -202,13 +202,13 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|16777216|1024|67108864|
-|De uso general|4|16777216|1024|134217728|
-|De uso general|8|16777216|1024|268435456|
-|De uso general|16|16777216|1024|536870912|
-|De uso general|32|16777216|1024|1073741824|
-|De uso general|64|16777216|1024|1073741824|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Uso general|2|16777216|1024|67108864|
+|Uso general|4|16777216|1024|134217728|
+|Uso general|8|16777216|1024|268435456|
+|Uso general|16|16777216|1024|536870912|
+|Uso general|32|16777216|1024|1073741824|
+|Uso general|64|16777216|1024|1073741824|
 |Memoria optimizada|2|16777216|1024|134217728|
 |Memoria optimizada|4|16777216|1024|268435456|
 |Memoria optimizada|8|16777216|1024|536870912|

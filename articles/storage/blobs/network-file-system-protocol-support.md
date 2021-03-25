@@ -9,12 +9,12 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428446"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224601"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
@@ -112,7 +112,7 @@ Las siguientes características de Azure Storage no se admiten cuando se habilit
   
 ## <a name="nfs-30-features-not-yet-supported"></a>Características de NFS 3.0 que aún no son compatibles
 
-Todavía no se admiten las siguientes características de NFS 3.0 con Azure Data Lake Storage Gen2.
+Todavía no se admiten las siguientes características de NFS 3.0.
 
 - NFS 3.0 a través de UDP. Solo se admite NFS 3.0 a través de TCP.
 
@@ -127,6 +127,12 @@ Todavía no se admiten las siguientes características de NFS 3.0 con Azure Dat
 - Vínculo físico
 
 - Exportación de un contenedor como de solo lectura.
+
+## <a name="nfs-30-clients-not-yet-supported"></a>Clientes de NFS 3.0 que aún no son compatibles
+
+Todavía no se admiten los siguientes clientes de NFS 3.0.
+
+- Cliente de Windows para NFS
 
 ## <a name="pricing"></a>Precios
 

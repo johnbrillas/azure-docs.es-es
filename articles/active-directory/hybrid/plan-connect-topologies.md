@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359839"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
@@ -62,7 +62,7 @@ Muchas organizaciones tienen entornos con varios bosques de Active Directory loc
 
 Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. El servidor debe estar unido a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ y subred filtrada).
 
-El asistente para la instalación de Azure AD Connect ofrece varias opciones para consolidar los usuarios representados en varios bosques. El objetivo es que un usuario esté representado solo una vez en Azure AD. Hay algunas topologías habituales que puede configurar en la ruta de acceso de instalación personalizada del Asistente para instalación. En la página **Identificación de forma exclusiva de usuarios** , seleccione la opción correspondiente que representa su topología. La consolidación solo se configura para los usuarios. Los grupos duplicados no se consolidan con la configuración predeterminada.
+El asistente para la instalación de Azure AD Connect ofrece varias opciones para consolidar los usuarios representados en varios bosques. El objetivo es que un usuario esté representado solo una vez en Azure AD. Hay algunas topologías habituales que puede configurar en la ruta de acceso de instalación personalizada del Asistente para instalación. En la página **Identificación de forma exclusiva de usuarios**, seleccione la opción correspondiente que representa su topología. La consolidación solo se configura para los usuarios. Los grupos duplicados no se consolidan con la configuración predeterminada.
 
 Las topologías comunes se describen en las secciones acerca de topologías independientes, [malla completa](#multiple-forests-full-mesh-with-optional-galsync) y la [topología de cuenta-recurso](#multiple-forests-account-resource-forest).
 
@@ -130,7 +130,7 @@ Si su organización es más grande, debería considerar la posibilidad de utiliz
 ## <a name="staging-server"></a>Servidor provisional
 ![Servidor de ensayo en una topología](./media/plan-connect-topologies/multiforeststaging.png)
 
-Azure AD Connect admite la instalación de un segundo servidor en *modo de ensayo* . Un servidor en este modo puede leer los datos de todos los directorios conectados, pero no puede escribir nada en ellos. Utiliza el ciclo de sincronización normal y, por lo tanto, tiene una copia actualizada de los datos de identidades.
+Azure AD Connect admite la instalación de un segundo servidor en *modo de ensayo*. Un servidor en este modo puede leer los datos de todos los directorios conectados, pero no puede escribir nada en ellos. Utiliza el ciclo de sincronización normal y, por lo tanto, tiene una copia actualizada de los datos de identidades.
 
 En caso de error del servidor principal, puede conmutar por error al servidor de ensayo. Puede hacerlo en el Asistente de Azure AD Connect. Este segundo servidor se puede ubicar preferiblemente en un centro de datos diferente porque no comparte ninguna infraestructura con el servidor principal. Cualquier cambio de configuración realizado en el servidor principal debe copiarlo manualmente en el segundo servidor.
 

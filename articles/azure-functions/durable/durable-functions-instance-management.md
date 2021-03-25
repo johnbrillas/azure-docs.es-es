@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430571"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199786"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
@@ -202,6 +202,9 @@ El método devuelve un objeto con las siguientes propiedades:
   * **Error**: se ha producido un error en la instancia.
   * **Finalizada**: la instancia se ha detenido abruptamente.
 * **History**: el historial de ejecución de la orquestación. Este campo solo se rellena si `showHistory` está establecido en `true`.
+
+> [!NOTE]
+> Los orquestadores no se marcan como `Completed` hasta que todas las tareas que tienen programadas han finalizado _y_ el orquestador ha vuelto. En otras palabras, no basta con que un orquestador alcance su instrucción `return` para que se marque como `Completed`. Esto es especialmente importante en aquellos casos en los que se usa `WhenAny`; estos orquestadores a menudo usan `return` antes de que se hayan ejecutado todas las tareas programadas.
 
 Este método devuelve `null` (.NET), `undefined` (JavaScript) o `None` (Python) si la instancia no existe.
 

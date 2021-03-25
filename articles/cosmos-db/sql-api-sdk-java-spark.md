@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097165"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Conector Azure Cosmos DB Apache Spark para Core (SQL) API: Notas de la versión y recursos
@@ -21,9 +21,9 @@ ms.locfileid: "93097165"
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
-> * [SDK de fuente de cambios de .NET v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
@@ -44,7 +44,7 @@ Este conector se puede usar con [Azure Databricks](https://azure.microsoft.com/s
 
 | Componente | Versión |
 |---------|-------|
-| Spark de Apache | 2.4. *x* , 2.3. *x* , 2.2. *x* y 2.1. *x* |
+| Spark de Apache | 2.4.*x*, 2.3.*x*, 2.2.*x* y 2.1.*x* |
 | Scala | 2.11 |
 | Azure Databricks (versión en tiempo de ejecución) | Posterior a la 3.4 |
 

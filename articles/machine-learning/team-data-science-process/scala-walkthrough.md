@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321379"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
@@ -39,7 +39,7 @@ Los pasos de instalación y el código de este artículo están diseñados para 
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 * Debe tener una suscripción de Azure. Si aún no tiene una, [consiga una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Necesita un clúster de Spark 1.6 con HDInsight de Azure 3.4 para completar los procedimientos siguientes. Para crear un clúster, consulte las instrucciones proporcionadas en [Introducción: creación de clústeres Apache Spark en HDInsight para Linux y ejecución de consultas interactivas mediante Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Establezca el tipo de clúster y la versión en el menú **Seleccionar tipo de clúster** .
 
@@ -62,7 +62,7 @@ También puede ir a https://&lt;nombreDeClúster&gt;.azurehdinsight.net/jupyter 
 
 Seleccione **Scala** para ver un directorio con algunos ejemplos de cuadernos preempaquetados que utilizan la API PySpark. La exploración de modelado y puntuación mediante el cuaderno de Scala.ipynb con muestras de código de este conjunto de temas Spark está disponible en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-Puede cargar el cuaderno directamente desde GitHub en el servidor de Jupyter Notebook del clúster de Spark. En la página principal de Jupyter, haga clic en el botón **Upload** (Cargar). En el Explorador de archivos, pegue la URL de GitHub (contenido sin procesar) del cuaderno Scala y haga clic en **Open** (Abrir). El cuaderno de Scala está disponible en la siguiente dirección URL:
+Puede cargar el cuaderno directamente desde GitHub en el servidor de Jupyter Notebook del clúster de Spark. En la página principal de Jupyter, haga clic en el botón **Upload** (Cargar). En el Explorador de archivos, pegue la URL de GitHub (contenido sin procesar) del cuaderno Scala y haga clic en **Open**(Abrir). El cuaderno de Scala está disponible en la siguiente dirección URL:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
@@ -259,7 +259,7 @@ sqlResultsDF.show(3)
 | --- | --- | --- | --- |
 |        13.5 |1.0 |2.9 |1.0 |
 |        16.0 |2.0 |3.4 |1.0 |
-|        10.5 |2.0 |1.0 |1.0 |
+|        10,5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualización y exploración de datos
 Una vez incorporados los datos en Spark, el siguiente paso del proceso de la ciencia de los datos es conocer mejor los datos mediante la exploración y la visualización. En esta sección se examinan los datos de taxi mediante consultas SQL. Después, se importan los resultados en una trama de datos para trazar las variables de destino y las posibles características para inspeccionarlas de manera visual mediante la característica de visualización automática de Jupyter.
@@ -301,10 +301,10 @@ sqlResults
  Tras ejecutar el código, el kernel de Spark visualiza automáticamente el resultado de las consultas SQL (HiveQL). Puede elegir entre varios tipos de visualizaciones:
 
 * Tabla
-* Circular
+* Gráfico circular
 * Línea
 * Área
-* Barra
+* Barras
 
 Este es el código para trazar los datos:
 
@@ -353,7 +353,7 @@ Para utilizar las funciones de modelado de árbol en SparkML y MLlib, el destino
 1. Creación de una nueva característica mediante la **discretización** de horas en ciclos de tráfico.
 2. Aplicación de **indexación y codificación "one-hot"** a características categóricas.
 3. **Muestreo y división de conjuntos de datos** en fracciones de entrenamiento y prueba.
-4. **Especificación de variables de entrenamiento y características** , y creación de tramas de datos o datos distribuidos resistentes (RDD) de punto con etiqueta de entrada para entrenamientos y pruebas mediante indexación o codificación "one-hot".
+4. **Especificación de variables de entrenamiento y características**, y creación de tramas de datos o datos distribuidos resistentes (RDD) de punto con etiqueta de entrada para entrenamientos y pruebas mediante indexación o codificación "one-hot".
 5. **Categorización y vectorización automáticas de características y destinos** con el objetivo de utilizarlas como entradas para los modelos de aprendizaje automático.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Creación de una nueva característica mediante la discretización de horas en cubos de tiempo de tráfico

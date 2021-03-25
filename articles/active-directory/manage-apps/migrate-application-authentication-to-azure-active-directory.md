@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453262"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952973"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migración de la autenticación de las aplicaciones a Azure Active Directory
 
@@ -61,7 +61,7 @@ Es probable que sus aplicaciones usen los siguientes tipos de autenticación:
 
 Azure AD tiene un [conjunto completo de funcionalidades de administración de identidades](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). La estandarización de la autorización y la autenticación de sus aplicaciones en Azure AD le permite obtener las ventajas que ofrecen estas funcionalidades.
 
-Consulte recursos de migración adicionales en la dirección [https://aka.ms/migrateapps](./migration-resources.md).
+Puede encontrar más recursos de migración en [https://aka.ms/migrateapps](./migration-resources.md).
 
 ## <a name="benefits-of-migrating-app-authentication-to-azure-ad"></a>Ventajas de migrar la autenticación de las aplicaciones a Azure AD
 
@@ -81,7 +81,7 @@ Para proteger las aplicaciones, es necesaria una vista completa de todos los fac
 
 ### <a name="manage-cost"></a>Administración de costos
 
-Su organización puede tener varias soluciones de Administración de acceso a identidades (IAM). La migración a una infraestructura de Azure AD es una oportunidad para reducir las dependencias de las licencias de IAM (locales o en la nube) y los costos de infraestructura. En los casos en los que ya haya pagado Azure AD a través de licencias de M365, no hay razón para pagar el costo adicional de otra solución IAM.
+Su organización puede tener varias soluciones de Administración de acceso a identidades (IAM). La migración a una infraestructura de Azure AD es una oportunidad para reducir las dependencias de las licencias de IAM (locales o en la nube) y los costos de infraestructura. En los casos en los que ya haya pagado Azure AD mediante licencias de Microsoft 365, no hay razón para pagar el costo adicional de otra solución IAM.
 
 **Con Azure AD, puede reducir los costos de infraestructura de la siguiente manera:**
 
@@ -95,7 +95,7 @@ Las ventajas económicas y de seguridad animan a las organizaciones a adoptar Az
 
 - Mejore la experiencia de [inicio de sesión único (SSO)](./what-is-single-sign-on.md) del usuario final con un acceso sin problemas y seguro a cualquier aplicación, desde cualquier dispositivo y cualquier ubicación.
 
-- Aproveche las funcionalidades de autoservicio de IAM, como el [autoservicio de restablecimiento de contraseña](../authentication/concept-sspr-howitworks.md) y el [autoservicio de administración de grupos](../enterprise-users/groups-self-service-management.md).
+- Use las funcionalidades de autoservicio de IAM, como el [autoservicio de restablecimiento de contraseña](../authentication/concept-sspr-howitworks.md) y el [autoservicio de administración de grupos](../enterprise-users/groups-self-service-management.md).
 
 - Reduzca la sobrecarga administrativa mediante la administración de una única identidad para cada usuario en todos los entornos locales y en la nube:
 
@@ -104,7 +104,7 @@ Las ventajas económicas y de seguridad animan a las organizaciones a adoptar Az
 
 - Permita a los desarrolladores proteger el acceso a sus aplicaciones y mejorar la experiencia del usuario final mediante el uso de la [plataforma de identidad de Microsoft](../develop/v2-overview.md) con la biblioteca de autenticación de Microsoft (MSAL).
 
-- Permita a sus asociados el acceso a los recursos en la nube mediante la [colaboración B2B de Azure AD](../external-identities/what-is-b2b.md). De este modo, se elimina la sobrecarga que supone configurar la federación de punto a punto con sus asociados.
+- Permita a sus asociados el acceso a los recursos en la nube mediante la [colaboración B2B de Azure AD](../external-identities/what-is-b2b.md). Los recursos en la nube eliminan la sobrecarga que supone configurar la federación de punto a punto con sus asociados.
 
 ### <a name="address-compliance-and-governance"></a>Control de cumplimiento y gobernanza
 
@@ -151,7 +151,7 @@ En la tabla siguiente, encontrará la comunicación mínima sugerida para manten
 
 | Comunicación      | Público                                          |
 | ------------------ | ------------------------------------------------- |
-| Difusión e importancia técnica/empresaral del proyecto | Todos excepto los usuarios finales |
+| Difusión e importancia técnica/empresaral del proyecto | Todos, excepto los usuarios finales |
 | Convocatoria para aplicaciones piloto | - Propietarios empresariales de la aplicación<br />- Propietarios técnicos de la aplicación<br />- Equipo de arquitectos e identidades |
 
 **Fase 1: detección y ámbito**:
@@ -276,7 +276,7 @@ Aplicaciones heredadas que elige modernizar
 
 En el caso de las aplicaciones heredadas que quiera modernizar, el traslado a Azure AD de la autenticación y la autorización principales desbloquea toda la eficacia y variedad de datos que ofrecen [Microsoft Graph](https://developer.microsoft.com/graph/gallery/?filterBy=Samples,SDKs) e [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence?rtc=1).
 
-Se recomienda **actualizar el código de la pila de autenticación** para estas aplicaciones del protocolo heredado (como la autenticación integrada de Windows, la delegación restringida de Kerberos, la autenticación basada en encabezados HTTP) a un protocolo moderno (como SAML u OpenID Connect).
+Se recomienda **actualizar el código de la pila de autenticación** para estas aplicaciones del protocolo heredado (como la autenticación integrada de Windows, la delegación restringida de Kerberos y la autenticación basada en encabezados HTTP) a un protocolo moderno (como SAML u OpenID Connect).
 
 ### <a name="legacy-apps-that-you-choose-not-to-modernize"></a>Aplicaciones heredadas que elige no modernizar
 
@@ -304,7 +304,7 @@ Las aplicaciones sin propietarios claros y sin un mantenimiento y supervisión c
 
 - no hay **ningún uso** claro
 
-Por supuesto, **no deje de usar aplicaciones críticas para la empresa con alto impacto**. En esos casos, trabaje con los propietarios de la empresa para determinar la estrategia correcta.
+Se recomienda **no dejar de usar aplicaciones críticas para la empresa con un gran impacto**. En esos casos, trabaje con los propietarios de la empresa para determinar la estrategia correcta.
 
 ### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
 
@@ -314,8 +314,8 @@ Esta fase se realiza correctamente con lo siguiente:
 
 - Una lista de aplicaciones que incluya lo siguiente:
 
-  - A qué sistemas se conectan esas aplicaciones o desde qué sistemas se conectan y en qué dispositivos acceden los usuarios.
-
+  - A qué sistemas se conectan dichas aplicaciones.
+  - Desde dónde y en qué dispositivos pueden acceder los usuarios a ellas.
   - Si se van a migrar, dejar en desuso o a conectarse con [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
 > [!NOTE]
@@ -365,7 +365,7 @@ La siguiente es información importante para tomar la decisión de migración:
 
 - **Nombre de la aplicación**: ¿cómo se conoce esta aplicación en la empresa?
 
-- **Tipo de aplicación**: ¿es una aplicación SaaS de terceros? ¿Es una aplicación web de línea de negocio personalizada? ¿Es una API?
+- **Tipo de aplicación**: ¿se trata de una aplicación SaaS de terceros? ¿Es una aplicación web de línea de negocio personalizada? ¿Es una API?
 
 - **Importancia para la empresa**: ¿su importancia es alta? ¿Es baja? ¿O está en el medio?
 
@@ -401,7 +401,7 @@ Una vez que haya clasificado la aplicación y haya documentado los detalles, ase
 
 Las aplicaciones que seleccione para el piloto deben representar los requisitos importantes de identidad y seguridad de la organización, y debe tener una participación clara de los propietarios de la aplicación. Los pilotos suelen ejecutarse en un entorno de prueba independiente. Consulte los [procedimientos recomendados para un piloto](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) en la página de planes de implementación.
 
-**No se olvide de los asociados externos.** Asegúrese de que participan en las programaciones y pruebas de migración. Por último, asegúrese de que tienen una manera de acceder al departamento de soporte técnico en caso de problemas importantes.
+**No se olvide de los asociados externos.** Asegúrese de que participan en las programaciones y pruebas de migración. Por último, asegúrese de que tienen una manera de acceder al departamento de soporte técnico si surgen problemas importantes.
 
 ### <a name="plan-for-limitations"></a>Preparación para las limitaciones
 
@@ -417,13 +417,13 @@ Las aplicaciones críticas para la empresa y usadas universalmente pueden necesi
 
 ### <a name="plan-the-security-posture"></a>Preparación de la postura de seguridad
 
-Antes de iniciar el proceso de migración, tómese un momento para examinar a fondo la postura de seguridad que quiere desarrollar para el sistema de identidades corporativas. Este se basará en los siguientes conjuntos de información valiosa: **Identidades y datos, quién accede a los datos, con qué dispositivos y en qué ubicaciones**.
+Antes de iniciar el proceso de migración, tómese un momento para examinar a fondo la postura de seguridad que quiere desarrollar para el sistema de identidades corporativas. Esto se basa en los siguientes conjuntos de información valiosa: **Identidades, dispositivos y ubicaciones que acceden a los datos**.
 
 ### <a name="identities-and-data"></a>Identidades y datos
 
 La mayoría de las organizaciones tienen requisitos específicos relacionados con la protección de datos e identidades que varían según el segmento del sector y las funciones del puesto en las organizaciones. Consulte el artículo de [configuraciones de identidad y acceso a dispositivos](/microsoft-365/enterprise/microsoft-365-policies-configurations) para conocer nuestras recomendaciones, incluido un conjunto de [directivas de acceso condicional](../conditional-access/overview.md) y funcionalidades relacionadas.
 
-Puede usar esta información para proteger el acceso a todos los servicios integrados con Azure AD. Estas recomendaciones están alineadas con la puntuación de seguridad de Microsoft, así como con la [puntuación de identidad de Azure AD](../fundamentals/identity-secure-score.md). La puntuación le ayuda a:
+Puede usar esta información para proteger el acceso a todos los servicios integrados con Azure AD. Estas recomendaciones están alineadas con la puntuación de seguridad de Microsoft y con la [puntuación de identidad de Azure AD](../fundamentals/identity-secure-score.md). La puntuación le ayuda a:
 
 - Medir de forma objetiva su nivel de seguridad de la identidad
 
@@ -443,7 +443,7 @@ Azure AD admite dos categorías principales de usuarios para las aplicaciones y
 
 Puede definir grupos para estos usuarios y cubrirlos de diversas maneras. Puede optar por que un administrador deba agregar miembros manualmente a un grupo o puede habilitar el autoservicio de pertenencia al grupo. Se pueden establecer reglas que agreguen miembros automáticamente a los grupos según los criterios especificados con [grupos dinámicos](../enterprise-users/groups-dynamic-membership.md).
 
-Los usuarios externos también pueden recomendar a los clientes que requieren de atención especial. El producto independiente denominado [Azure AD B2C](../../active-directory-b2c/overview.md) admite la autenticación del cliente. No obstante, eso no se explica en estas notas.
+Los usuarios externos también pueden hacer referencia a los clientes. El producto independiente denominado [Azure AD B2C](../../active-directory-b2c/overview.md) admite la autenticación del cliente. No obstante, eso no se explica en estas notas.
 
 ### <a name="devicelocation-used-to-access-data"></a>Dispositivo/ubicación usados para acceder a los datos
 
@@ -489,7 +489,7 @@ Después de la migración, puede optar por enviar la comunicación que informa a
 
 Durante el proceso de migración, es posible que la aplicación ya tenga un entorno de prueba que se usa durante las implementaciones normales. Puede seguir usando este entorno para las pruebas de migración. Si actualmente no hay disponible un entorno de prueba, quizá pueda configurar uno con Azure App Service o Azure Virtual Machines, en función de la arquitectura de la aplicación. Puede optar por configurar un inquilino de Azure AD de prueba independiente para usarlo cuando desarrolle las configuraciones de las aplicaciones. Este inquilino se iniciará en un estado limpio y no estará configurado para sincronizarse con ningún sistema.
 
-Para probar todas las aplicaciones, inicie sesión con un usuario de prueba y asegúrese de que todas las funcionalidades son las mismas que antes de la migración. Si durante las pruebas determina que los usuarios deberán actualizar la configuración de [MFA](/active-directory/authentication/howto-mfa-userstates) o [SSPR](../authentication/tutorial-enable-sspr.md), o si agrega esta funcionalidad durante la migración, asegúrese de agregarla al plan de comunicaciones para el usuario final. Consulte las plantillas de comunicación con el usuario final de [MFA](https://aka.ms/mfatemplates) y [SSPR](https://aka.ms/ssprtemplates).
+Para probar todas las aplicaciones, inicie sesión con un usuario de prueba y asegúrese de que todas las funcionalidades son las mismas que antes de la migración. Si durante las pruebas determina que los usuarios deberán actualizar la configuración de [MFA](/azure/active-directory/authentication/howto-mfa-userstates) o [SSPR](../authentication/tutorial-enable-sspr.md), o si agrega esta funcionalidad durante la migración, asegúrese de agregarla al plan de comunicaciones para el usuario final. Consulte las plantillas de comunicación con el usuario final de [MFA](https://aka.ms/mfatemplates) y [SSPR](https://aka.ms/ssprtemplates).
 
 Una vez que haya migrado las aplicaciones, vaya a [Azure Portal](https://aad.portal.azure.com/) para probar si la migración se realizó correctamente. Siga las instrucciones que se describen a continuación:
 
@@ -511,7 +511,7 @@ En función de cómo configure la aplicación, compruebe que el inicio de sesió
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-Si tiene problemas, consulte nuestra [Guía de solución de problemas de aplicaciones](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) para obtener ayuda. Consulte también [Problemas al iniciar sesión en aplicaciones desarrolladas de manera personalizada](./application-sign-in-problem-federated-sso-gallery.md).
+Si tiene problemas, consulte nuestra [Guía de solución de problemas de aplicaciones](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) para obtener ayuda. También puede consultar nuestros artículos de solución de problemas; vea [Problemas al iniciar sesión en aplicaciones configuradas de inicio de sesión único basadas en SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps).
 
 ### <a name="plan-rollback"></a>Planeamiento de la reversión
 
@@ -519,13 +519,13 @@ Si se produce un error en la migración, la mejor estrategia es la reversión y 
 
 - **Realice capturas de pantalla** de la configuración existente de la aplicación. Puede consultarlas si necesita volver a configurar la aplicación.
 
-- También puede **proporcionar vínculos a la autenticación heredada**, en caso de problemas con la autenticación en la nube.
+- También puede **proporcionar vínculos a la autenticación heredada** si surgen problemas con la autenticación en la nube.
 
 - Antes de completar la migración, **no cambie la configuración existente** con el proveedor de identidades anterior.
 
 - Comience por migrar **las aplicaciones que admiten varios IdP**. Si algo va mal, siempre puede cambiar a la configuración del IdP preferido.
 
-- Asegúrese de que la experiencia de la aplicación tenga un **botón Comentarios** o algo que redirija al **departamento de soporte técnico** en caso de problemas.
+- Asegúrese de que la experiencia de la aplicación tenga un botón **Comentarios** o punteros al **departamento de soporte técnico** en caso de problemas.
 
 ### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
 
@@ -573,7 +573,7 @@ Puede guiar a los usuarios en la búsqueda de sus aplicaciones:
 
 Los usuarios pueden descargar un **explorador administrado de Intune**:
 
-- **Para dispositivos Android**, desde [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+- **Para dispositivos Android**, desde [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune).
 
 - **Para dispositivos de Apple**, desde [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) o pueden descargar la [aplicación móvil Mis aplicaciones para iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653).
 
@@ -605,7 +605,7 @@ Azure AD proporciona una ubicación de acceso centralizada para administrar las
 
 También puede usar [Azure Portal](https://portal.azure.com/) para auditar todas las aplicaciones desde una ubicación centralizada.
 
-- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales** u obtenga acceso a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md) para integrarla en sus herramientas favoritas.
+- **Audite su aplicación** mediante la **auditoría de aplicaciones empresariales u obtenga acceso a la misma información de la [API de informes de Azure AD](../reports-monitoring/concept-reporting-api.md) para integrarla en sus herramientas favoritas.
 
 - **Vea los permisos de una aplicación** mediante los **permisos de aplicaciones empresariales** para las aplicaciones que usan OAuth u OpenID Connect.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305977"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
@@ -91,7 +91,7 @@ En los pasos siguientes, se implementa el almacén de análisis, que se denomina
 2. Establezca la variable $DemoScenario en el script para que coincida con el almacén de análisis elegido:
     - Para usar SQL Database sin almacenamiento de columnas, establezca **$DemoScenario** = **2**
     - Para usar SQL Database con almacenamiento de columnas, establezca **$DemoScenario** = **3**  
-3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1* ) que crea el almacén de análisis de inquilino. 
+3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1*) que crea el almacén de análisis de inquilino. 
 
 Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P\@ssword1*. Consulte el [tutorial de introducción](./saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
@@ -107,7 +107,7 @@ En el Explorador de objetos, siga estos pasos:
 Expanda el almacén de análisis para ver los siguientes elementos de la base de datos en el Explorador de objetos de SSMS:
 
 - Las tablas **TicketsRawData** y **EventsRawData** contienen datos sin procesar extraídos de las bases de datos de inquilino.
-- Las tablas del esquema de estrella son **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** y **dim_Dates**.
+- Las tablas del esquema de estrella son **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** y **dim_Dates**.
 - El procedimiento almacenado se usa para rellenar las tablas del esquema de estrella a partir de las tablas de datos sin procesar.
 
 ![Captura de pantalla de los elementos de base de datos que se muestran en el Explorador de objetos de SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -138,7 +138,7 @@ Cada trabajo extrae sus datos y los introduce en el almacén de análisis. Ahí,
 4. Presione F5 para ejecutar el script que crea y ejecuta el trabajo que extrae los datos de las entradas y los clientes de cada base de datos de inquilino. El trabajo guarda los datos en el almacén de análisis.
 5. Consulte la tabla TicketsRawData en la base de datos tenantanalytics, para asegurarse de que la tabla se rellena con la información de las entradas de todos los inquilinos.
 
-![En la captura de pantalla se muestra la base de datos ExtractTickets con el elemento dbo.TicketsRawData seleccionado en el Explorador de objetos.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![En la captura de pantalla se muestra la base de datos de ExtractTickets con el elemento dbo.TicketsRawData seleccionado en el Explorador de objetos.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Repita los pasos anteriores, excepto esta sustitución de tiempo de **\ExtractTickets.sql** por **\ExtractVenuesEvents.sql** en el paso 2.
 
@@ -170,7 +170,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
 1. Lance Power BI Desktop.
 2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…** en el menú.
-3. En la ventana **Obtener datos** , seleccione Azure SQL Database.
+3. En la ventana **Obtener datos**, seleccione Azure SQL Database.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (catalog-dpt-&lt;Usuario&gt;.database.windows.net). Seleccione **Importar** en **Modo Conectividad de datos** y después haga clic en Aceptar. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
@@ -179,7 +179,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
     ![En la captura de pantalla se muestra el cuadro de diálogo de la base de datos de SQL Server, desde donde puede especificar un nombre de usuario y una contraseña.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. En el panel **Navegador** , debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
+6. En el panel **Navegador**, debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
 
 Felicidades. Ha cargado los datos correctamente en Power BI. Ahora puede empezar a explorar visualizaciones interesantes para ayudar a obtener información sobre los inquilinos. Después, se ofrece orientación sobre cómo los análisis pueden permitirle proporcionar recomendaciones basadas en datos al equipo empresarial de Wingtip Tickets. Las recomendaciones pueden ayudarle a optimizar el modelo de negocio y la experiencia del cliente.
 
@@ -209,7 +209,7 @@ En el gráfico anterior de Contoso Concert Hall, se refleja que la desenfrenada 
 
 La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos tamaños de proceso. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
 
-Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold** :
+Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
