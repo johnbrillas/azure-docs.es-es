@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489522"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configuración de itsme OpenID Connect (OIDC) con Azure Active Directory B2C
@@ -135,7 +135,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
-1. En su inquilino de B2C, en **Directivas**, seleccione**Flujos de usuario**.
+1. En su inquilino de B2C, en **Directivas**, seleccione **Flujos de usuario**.
 
 2. Seleccione el flujo de usuario que creó anteriormente.
 
@@ -157,4 +157,4 @@ Para más información, consulte los artículos siguientes:
 
 * [Directivas personalizadas de Azure AD B2C](custom-policy-overview.md)
 
-* [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+* [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md?tabs=applications)

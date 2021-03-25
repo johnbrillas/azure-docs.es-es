@@ -1,18 +1,18 @@
 ---
 title: Inicio rápido para crear un clúster de Azure Stream Analytics
 description: Obtenga información sobre cómo crear un clúster de Azure Stream Analytics.
+ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.service: stream-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: eb36af5b3f1e142405b24ade16516d0268b4ab2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6b7a7c5feb6165f5b2c7c0ea052318a255e8025c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016565"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600231"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Azure Stream Analytics dedicado mediante Azure Portal
 
@@ -35,9 +35,9 @@ En esta sección, vamos a crear un recurso de clúster de Stream Analytics.
 
 1. En la página **Creación de un clúster de Stream Analytics**, escriba la configuración básica del nuevo clúster.
 
-   |Parámetro|Valor|Descripción |
+   |Parámetro|Value|Descripción |
    |---|---|---|
-   |Suscripción|Nombre de suscripción|Seleccione la suscripción a Azure que quiera usar para este clúster de Stream Analytics. |
+   |Subscription|Nombre de suscripción|Seleccione la suscripción a Azure que quiera usar para este clúster de Stream Analytics. |
    |Grupo de recursos|Definición de un nombre de grupo de recursos|Seleccione un grupo de recursos o seleccione **Crear nuevo** y escriba un nombre único para el grupo de recursos nuevo. |
    |Cluster Name|Un nombre único|Escriba un nombre para identificar su clúster de Stream Analytics.|
    |Location|Región más cercana a los orígenes de datos y los receptores|Seleccione una ubicación geográfica en la que pueda hospedar su clúster de Stream Analytics. Use la ubicación más cercana a los orígenes de datos y los receptores para el análisis de baja latencia.|

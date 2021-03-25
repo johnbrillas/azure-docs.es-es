@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 05/10/2018
 ms.openlocfilehash: e0e63762fc151d93cb34885c04dd4d03285c29f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102557053"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
@@ -92,7 +92,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-## <a name="delete-a-user"></a>Eliminación de un usuario
+## <a name="delete-a-user"></a>Eliminar un usuario
 En el ejemplo siguiente se elimina un usuario denominado "`myNewUser`" en la máquina virtual llamada "`myVM`":
 
 ```azurecli-interactive

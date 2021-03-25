@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eb1d59ae41b04be60dec90aaee4b2305b6d39ca6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576781"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095857"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Información detallada de glosario sobre los datos de Azure Purview
 
@@ -54,19 +54,27 @@ En Azure Purview, puede crear términos de glosario y asociarlos a los recursos.
 
 1. En el área **Insights** (Información detallada) :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false":::, seleccione **Glossary** (Glosario) para mostrar el informe **Glossary insights** (Información detallada de glosario).
 
-La página **Glossary Insights** (Información detallada de glosario) muestra las áreas siguientes:
-1. **High level KPIs** (KPI de alto nivel) para mostrar términos del glosario y usuarios del catálogo.
+**Glossary Insights** (Glosario de información detallada) le proporciona como usuario empresarial información valiosa para mantener un glosario bien definido para su organización.
 
-2. **Top glossary terms and count of assets** (Términos principales del glosario y recursos totales) muestra los cinco términos principales del glosario con los recursos asociados a ellos. Todos los demás recursos se contabilizan en la categoría "Other" (Otros) del gráfico.
+1. El informe comienza con las **KPI de alto nivel** que muestran el **_total de términos_ *_ en la cuenta de Purview, los _* _Términos aprobados sin recursos_ *_ y los _* _Términos expirados con recursos_**. Cada uno de estos valores le ayudará a identificar el estado de su glosario.
 
-3. **Glossary terms by term status** (Términos del glosario por estado) muestra la distribución de los términos del glosario por estado, como "Draft" (Borrador), "Approved" (Aprobado), "Alert" (Alerta) y "Expired" (Expirado). 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="Visualización de la KPI de la información del glosario"::: 
 
-1. Mantenga el puntero o haga clic en el segmento del gráfico de un estado y anote el total de términos con ese estado.
 
-1. **Distribution of roles by number of users** (Distribución de roles por número de usuarios) muestra la distribución de los roles por número de usuarios por rol en Purview.
+2. La sección **Snapshot of terms** (Instantánea de términos) que se mostró anteriormente, muestra el estado de la condición como **_Borrador_ *_, _* _Aprobada_ *_, _* _Alerta_ *_ y _* _Expirado_**  para los términos con recursos y los términos sin recursos.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="Visualización de información de glosarios":::
+3. Haga clic en **Ver más** para ver los nombres de los términos con varios estados y más detalles sobre los **_Administradores_ *_ y los _* _Expertos_**. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Instantánea de los términos con y sin recursos":::  
+
+4. Al hacer clic en "Ver más" en la opción de ***Términos aprobados con recursos**, la información detallada le permitirá navegar a la página de detalles de la sección _ *Glosario**, desde donde puede ir a la lista de activos con los términos adjuntos. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Información detallada del glosario"::: 
+
+4. En la página Detalles del glosario, podrá ver una distribución de **términos incompletos**, organizados por el tipo de información que falta. En el gráfico se muestra el recuento de términos con los campos **_Missing definition_ *_ (Definición que falta), _* _Missing Expert_ *_ (Experto que falta), _* _Missing steward_ *_ (Administrador que falta) y _* _Missing multiple_** (Faltan varios elementos).
+
+1. Haga clic en ***Ver más** _ en _ *Términos incompletos** para ver los términos que tienen la información que falta. Puede ir a la página de detalles de Términos de glosario para especificar la información que falta y asegurarse de que los términos del glosario estén completos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los informes de información detallada de Azure Purview con [Información detallada de recursos](./asset-insights.md)
+Más información sobre cómo crear un término de glosario mediante el [Glosario](./how-to-create-import-export-glossary.md).

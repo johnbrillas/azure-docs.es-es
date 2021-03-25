@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393826"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Precios de ofertas de máquinas virtuales
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código siga funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Hay tres maneras de especificar los precios de ofertas de máquina virtual: precios por núcleo personalizados, precios por núcleo y precios por hoja de cálculo.
 
@@ -137,7 +137,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | HU         | Hungría              | HUF               |
 | IS         | Islandia              | ISK               |
 | IN         | India                | INR               |
-| ID         | Indonesia            | IDR               |
+| id         | Indonesia            | IDR               |
 | IE         | Irlanda              | EUR               |
 | IL         | Israel               | ILS               |
 | IT         | Italia                | EUR               |

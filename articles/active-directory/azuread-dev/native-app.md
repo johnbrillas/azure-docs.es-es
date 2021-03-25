@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154804"
 ---
 # <a name="native-apps"></a>Aplicaciones nativas
@@ -48,7 +48,7 @@ Si usa las bibliotecas de autenticación de AD, la mayoría de los detalles del 
 
 Vea los ejemplos de código en escenarios de aplicación nativa a API web. Agregamos nuevos ejemplos continuamente, así que no olvide consultarlos con frecuencia. [Aplicación nativa a API web](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
-## <a name="app-registration"></a>Registro de aplicación
+## <a name="app-registration"></a>Registro de la aplicación
 
 Para registrar una aplicación con el punto de conexión v1.0 de Azure AD, consulte [Registro de una aplicación](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

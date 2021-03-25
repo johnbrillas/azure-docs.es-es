@@ -11,17 +11,17 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540593"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registro de una conexión de Peering Service mediante la CLI de Azure
 
 Azure Peering Service es un servicio de red que mejora la conectividad de los clientes a los servicios en la nube de Microsoft, como Microsoft 365, Dynamics 365, servicios de software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet. En este artículo, aprenderá a registrar una conexión de Peering Service mediante la CLI de Azure.
 
-- This article requires version 2.0.28 or later of the Azure CLI. Ejecute [az version](/cli/azure/reference-index#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index#az_upgrade).
+- En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Ejecute [az version](/cli/azure/reference-index#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -39,7 +39,7 @@ Asegúrese de que los proveedores de conectividad se asocien con Microsoft.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- This article requires version 2.0.28 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ### <a name="1-select-your-subscription"></a>Seleccione su suscripción.
 

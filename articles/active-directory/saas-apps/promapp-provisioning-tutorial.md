@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359127"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutorial: Configuración de Promapp para el aprovisionamiento automático de usuarios
@@ -84,7 +84,7 @@ Antes de configurar Promapp para el aprovisionamiento automático de usuarios co
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Promapp** , seleccione **Promapp** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Promapp**, seleccione **Promapp** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Promapp en la lista de resultados](common/search-new-app.png)
 
@@ -113,17 +113,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.promapp.com/api/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Promapp. Si la conexión no se establece, asegúrese de que la cuenta de Promapp tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba `https://api.promapp.com/api/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Promapp. Si la conexión no se establece, asegúrese de que la cuenta de Promapp tiene permisos de administrador y pruebe otra vez.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Promapp** (Sincronizar usuarios de Azure Active Directory con Promapp).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Promapp** (Sincronizar usuarios de Azure Active Directory con Promapp).
 
     ![Asignaciones de usuario de Promapp](media/promapp-provisioning-tutorial/usermappings.png)
 
@@ -137,7 +137,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Promapp.
+13. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Promapp.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

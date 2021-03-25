@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f7a37e761e37e295bbb92e442b1813ebded2a7cd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737462"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955285"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Ventaja híbrida de Azure: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,6 @@ Para establecer o actualizar el tipo de licencia mediante PowerShell:
 Para establecer o actualizar el tipo de licencia mediante la CLI de Azure:
 
 - [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
@@ -85,12 +84,12 @@ La Ventaja híbrida de Azure para SQL Server se diferencia de la movilidad de li
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server?
 
-Los clientes de SQL Database tendrán asociados los siguientes derechos con la Ventaja híbrida de Azure para SQL Server:
+Los clientes de SQL Database y SQL Managed Instance tendrán asociados los siguientes derechos con la Ventaja híbrida de Azure para SQL Server:
 
 |Superficie de licencia|¿Qué le permite obtener la Ventaja híbrida de Azure para SQL Server?|
 |---|---|
 |Clientes de núcleo de SQL Server Enterprise Edition con SA|<li>Puede pagar la tasa base sobre la SKU de Hiperescala, De uso general o Crítico para la empresa</li><br><li>1 núcleo local = 4 núcleos en la SKU de Hiperescala</li><br><li>1 núcleo local = 4 núcleos en la SKU De uso general</li><br><li>1 núcleo local = 1 núcleo en SKU Crítico para la empresa</li>|
-|Clientes de núcleo de SQL Server Standard Edition con SA|<li>Puede pagar la tasa base solo sobre la SKU de Hiperescala y De uso general</li><br><li>1 núcleo local = 1 núcleo en la SKU de Hiperescala</li><br><li>1 núcleo local = 1 núcleo en la SKU De uso general</li>|
+|Clientes de núcleo de SQL Server Standard Edition con SA|<li>Puede pagar la tasa base sobre la SKU de Hiperescala, De uso general o Crítico para la empresa</li><br><li>1 núcleo local = 1 núcleo en la SKU de Hiperescala</li><br><li>1 núcleo local = 1 núcleo en la SKU De uso general</li><br><li>4 núcleos locales = 1 núcleo en SKU Crítico para la empresa</li>|
 |||
 
 

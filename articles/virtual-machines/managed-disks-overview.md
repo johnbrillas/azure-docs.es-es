@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: eea5c800d7aa9c8d1e6c0c507136b86ab8bf21f3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504737"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604039"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -100,7 +100,7 @@ El disco tiene una capacidad máxima de 4095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./understand-vm-reboots.md) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
+La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./understand-vm-reboots.md) o cuando [vuelva a implementar una máquina virtual](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
 
 En máquinas virtuales Linux de Azure, el disco temporal normalmente es /dev/sdb, mientras que en máquinas virtuales Windows, el disco temporal es D: de forma predeterminada. El cifrado del lado servidor no cifra el disco temporal, a menos que habilite el cifrado en el host.
 

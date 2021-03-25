@@ -10,20 +10,20 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: be4bab10d369fcefe626bbe890acfff7fc7004b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079071"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Creación o modificación de un emparejamiento directo mediante PowerShell
 
 En este artículo se describe cómo crear un emparejamiento directo de Microsoft mediante cmdlets de PowerShell y el modelo de implementación de Azure Resource Manager. También se muestra cómo comprobar el estado del recurso, así como la forma de actualizarlo o eliminarlo y desaprovisionarlo.
 
-Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](howto-direct-portal.md).
+Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](howto-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Antes de comenzar la configuración, revise los [requisitos previos](prerequisites.md) y el [tutorial del emparejamiento directo](walkthrough-direct-all.md).
+* Revise los [requisitos previos](prerequisites.md) y el [Tutorial del emparejamiento directo](walkthrough-direct-all.md) antes de comenzar la configuración.
 * Si ya dispone de conexiones de emparejamiento directo con Microsoft que no convierten en recursos de Azure, consulte [Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell](howto-legacy-direct-powershell.md).
 
 ### <a name="work-with-azure-powershell"></a>Funcionamiento con Azure PowerShell
@@ -40,7 +40,7 @@ Si lo prefiere, puede realizar los pasos de esta guía mediante [Azure Portal](h
 ### <a name="create-a-direct-peering"></a><a name=create></a>Creación de un emparejamiento directo
 [!INCLUDE [direct-peering](./includes/direct-powershell-create-connection.md)]
 
-### <a name="verify-direct-peering"></a><a name=get></a>Verificación de un emparejamiento directo
+### <a name="verify-direct-peering"></a><a name=get></a>Comprobación del emparejamiento directo
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
 ## <a name="modify-a-direct-peering"></a><a name="modify"></a>Modificación de un emparejamiento directo
@@ -61,4 +61,4 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando el 
 Get-Help Get-AzPeering -detailed
 ```
 
-Para más información, consulte las [preguntas frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

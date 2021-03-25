@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 24f6052c436b73d0075371fa74160d21826e2209
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97865958"
 ---
 ## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Creación de un recurso de instancia de contenedor de Azure con Azure Portal
@@ -24,7 +24,7 @@ ms.locfileid: "97865958"
 
     |Configuración|Value|
     |--|--|
-    |Suscripción|Seleccione su suscripción.|
+    |Subscription|Seleccione su suscripción.|
     |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
     |Nombre del contenedor|Escriba un nombre como `cognitive-container-instance`. Este nombre debe estar en minúsculas.|
     |Location|Seleccione una región para la implementación.|

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686028"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122381"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,10 @@ Puede regular el acceso al servidor de API mediante control de acceso basado en 
 
 ## <a name="node-security"></a>Seguridad de nodos
 
-Los nodos de AKS son máquinas virtuales de Azure de los que usted realiza la administración y el mantenimiento. Los nodos de Linux ejecutan una distribución Ubuntu optimizada con el tiempo de ejecución del contenedor de Moby. Los nodos de Windows Server ejecutan una versión de Windows Server 2019 y también, el entorno de ejecución del contenedor de Moby. Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
+Los nodos de AKS son máquinas virtuales de Azure de los que usted realiza la administración y el mantenimiento. Los nodos de Linux ejecutan una distribución Ubuntu optimizada con `containerd` o el entorno de ejecución del contenedor de Moby. Los nodos de Windows Server ejecutan una versión de Windows Server 2019 optimizada y también usan `containerd` o el entorno de ejecución del contenedor de Moby. Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
+
+> [!NOTE]
+> Los clústeres de AKS que usan grupos de nodos con la versión 1.19 de Kubernetes y posterior usan `containerd` como entorno de ejecución del contenedor. Los clústeres de AKS que usan grupos de nodos con versiones anteriores a la 1.19 de Kubernetes usan [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución del contenedor.
 
 La plataforma Azure aplica automáticamente las revisiones de seguridad del sistema operativo a los nodos de Linux del clúster durante la noche. Si una actualización de seguridad del sistema operativo de Linux requiere un reinicio del host, este no se realiza automáticamente. Puede reiniciar manualmente los nodos de Linux o bien optar por un enfoque común que consiste en usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonsets] y supervisa cada nodo para comprobar la presencia de un archivo que indique que hace falta un reinicio. Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
 

@@ -4,10 +4,10 @@ description: Service Fabric admite el uso de Azure Files para realizar copias de
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247700"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Controlador de volumen de Azure Files para Service Fabric

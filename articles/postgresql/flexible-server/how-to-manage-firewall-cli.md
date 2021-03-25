@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 36249694c5a4de8a738853892f827c6d9e1e4aff
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489479"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for PostgreSQL: servidor flexible mediante la CLI de Azure
@@ -20,12 +20,12 @@ ms.locfileid: "92489479"
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: servidor flexible en versión preliminar
 
-Servidor flexible de Azure Database for PostgreSQL admite dos tipos de métodos de conectividad de red mutuamente excluyentes para conectarse al servidor flexible. Estas son las dos opciones:
+Azure Database for PostgreSQL: Servidor flexible admite dos tipos de métodos de conectividad de red mutuamente excluyentes para conectarse al servidor flexible. Las dos opciones son las siguientes:
 
 * Acceso público (direcciones IP permitidas)
 * Acceso privado (integración con red virtual)
 
-En este artículo, nos centraremos en la creación de un servidor PostgreSQL con **Acceso público (direcciones IP permitidas)** mediante la CLI de Azure y se proporcionará información general sobre los comandos de la CLI de Azure que puede usar para crear, actualizar, eliminar, enumerar y mostrar reglas de firewall después de la creación de un servidor. Con *Acceso público (direcciones IP permitidas)* , las conexiones con el servidor PostgreSQL están restringidas únicamente a las direcciones IP permitidas. Las direcciones IP del cliente se deben permitir en las reglas de firewall. Para más información al respecto, consulte [Acceso público (direcciones IP permitidas)](./concepts-networking.md#public-access-allowed-ip-addresses). Las reglas de firewall se pueden definir en el momento en que se crea el servidor (es lo recomendable), pero también se pueden agregar después.
+En este artículo, nos centraremos en la creación de un servidor PostgreSQL con **Acceso público (direcciones IP permitidas)** mediante la CLI de Azure y se proporcionará información general sobre los comandos de la CLI de Azure que puede usar para crear, actualizar, eliminar, enumerar y mostrar reglas de firewall después de la creación de un servidor. Con *Acceso público (direcciones IP permitidas)* , las conexiones con el servidor PostgreSQL están restringidas únicamente a las direcciones IP permitidas. Las direcciones IP del cliente se deben permitir en reglas de firewall. Para obtener más información al respecto, vea [Acceso público (direcciones IP permitidas)](./concepts-networking.md#public-access-allowed-ip-addresses). Las reglas de firewall se pueden definir en el momento de crear el servidor (recomendado), pero también se pueden agregar después.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -33,17 +33,17 @@ En este artículo, nos centraremos en la creación de un servidor PostgreSQL con
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
-Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Deberá iniciar sesión en la cuenta con el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad  **id** , que hace referencia al **identificador de suscripción** de su cuenta de Azure.
+Deberá iniciar sesión en la cuenta con el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **id. de suscripción** de su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 
 Puede usar el comando `az postgres flexible-server --public access` para crear el servidor flexible con la opción *Acceso público (direcciones IP permitidas)* y configurar las reglas de firewall durante la creación del mismo. Puede usar el modificador **--public-access** para especificar las direcciones IP permitidas que podrán conectarse al servidor. Puede especificar una sola dirección IP o el intervalo de direcciones IP que se van a incluir en la lista de direcciones IP permitidas. El intervalo de direcciones IP debe estar separado por guiones y no contener espacios. Existen varias opciones para crear un servidor flexible mediante la CLI, como se muestra en el ejemplo siguiente.
 
-En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará la lista completa de los parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos tiene la opción de especificar el grupo de recursos.
+Consulte la documentación de referencia de la CLI de Azure <!--FIXME --> para obtener la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
 
 - Cree un servidor flexible con acceso público y agregue la dirección IP del cliente para tener acceso al servidor.
     ```azurecli-interactive
@@ -87,13 +87,13 @@ En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará 
 El comando **az postgres flexible-server firewall-rule** se utiliza desde la CLI de Azure para crear, eliminar, enumerar, mostrar y actualizar reglas de firewall.
 
 Comandos:
-- **create** : crea una regla de firewall de servidor flexible.
-- **list** : enumera las reglas de firewall de servidor flexible.
-- **update** : actualiza una regla de firewall de servidor flexible.
-- **show** : muestra los detalles de una regla de firewall de servidor flexible.
-- **delete** : elimina una regla de firewall de servidor flexible.
+- **create**: crea una regla de firewall de servidor flexible.
+- **list**: enumera las reglas de firewall de servidor flexible.
+- **update**: actualiza una regla de firewall de servidor flexible.
+- **show**: muestra los detalles de una regla de firewall de servidor flexible.
+- **delete**: elimina una regla de firewall de servidor flexible.
 
-En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará la lista completa de los parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos tiene la opción de especificar el grupo de recursos.
+Consulte la documentación de referencia de la CLI de Azure <!--FIXME --> para obtener la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
 
 ### <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
 Use el comando `az postgres flexible-server firewall-rule create` para crear una regla de firewall en el servidor.
@@ -118,7 +118,7 @@ az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-
 Si se realiza correctamente, en la salida de cada comando create se mostrarán los detalles de la regla de firewall que ha creado, en formato JSON (de forma predeterminada). Si se produce un error, la salida muestra el texto del mensaje de error.
 
 ### <a name="list-firewall-rules"></a>Enumerar reglas de firewall 
-Use el comando `az postgres flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name** . 
+Use el comando `az postgres flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name**. 
 ```azurecli-interactive
 az postgres flexible-server firewall-rule list --name mydemoserver
 ```

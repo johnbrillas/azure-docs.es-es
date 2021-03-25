@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898052"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permisos de la nube privada de VMware vCenter de CloudSimple
@@ -32,7 +32,7 @@ Durante la implementación de una nube privada se crea un grupo denominado **Clo
 
 ### <a name="pre-created-groups"></a>Grupos creados previamente
 
-| Nombre del grupo | Propósito | Role |
+| Nombre del grupo | Finalidad | Role |
 | -------- | ------- | ------ |
 | Cloud-Owner-Group | Los miembros de este grupo tienen privilegios administrativos para el vCenter de la nube privada | [Cloud-Owner-Role](#cloud-owner-role) |
 | Cloud-Global-Cluster-Admin-Group | Los miembros de este grupo tienen privilegios administrativos para el clúster de vCenter de la nube privada | [Cloud-Cluster-Admin-Role](#cloud-cluster-admin-role) |
@@ -54,7 +54,7 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Alarmas** | Confirmar alarma <br> Crear alarma <br> Deshabilitar acción de alarma <br> Modificar alarma <br> Eliminar alarma <br> Establecer estado de la alarma |
 | **Permisos** | Permiso de modificación |
 | **Biblioteca de contenido** | Agregar elemento de biblioteca <br> Crear biblioteca local <br> Crear biblioteca suscrita <br> Eliminar elemento de biblioteca <br> Eliminar biblioteca local <br> Eliminar biblioteca suscrita <br> Descarga de archivos <br> Desalojar elemento de biblioteca <br> Desalojar biblioteca suscrita <br> Importar almacenamiento <br> Sondear información de suscripción <br> Leer en el almacenamiento <br> Sincronizar elemento de biblioteca <br> Sincronizar biblioteca suscrita <br> Escribir introspección <br> Actualizar valores de configuración <br> Actualizar archivos <br> Actualizar biblioteca <br> Actualizar elemento de biblioteca <br> Actualizar biblioteca local <br> Actualizar biblioteca suscrita <br> Ver valores de configuración |
-| **Operaciones criptográficas** | Agregar disco <br> Clonar <br> Descifrado <br> Acceso directo <br> Cifrado <br> Descifrar nuevo <br> Administrar KMS <br> Administrar directivas de cifrado <br> Administración de claves <br> Migrar <br> Volver a cifrar <br> Registrar máquina virtual <br> Registrar host |
+| **Operaciones criptográficas** | Agregar disco <br> Clonar <br> Descifrado <br> Direct Access <br> Cifrado <br> Descifrar nuevo <br> Administrar KMS <br> Administración de directivas de cifrado <br> Administración de claves <br> Migrar <br> Volver a cifrar <br> Registrar máquina virtual <br> Registrar host |
 | **Grupo dvPort** | Crear <br> Eliminar <br> Modificar <br> Operación de directiva <br> Operación de ámbito |
 | **Almacén de datos** | Asignar espacio <br> Examen de un almacén de datos <br> Configurar almacén de datos <br> Operaciones de archivo de bajo nivel <br> Mover almacén de datos <br> Eliminar almacén de datos <br> Quitar archivo <br> Cambiar nombre del almacén de datos <br> Actualizar archivos de máquina virtual <br> Actualizar metadatos de máquina virtual |
 | **ESX Agent Manager** | Config <br> Modificar <br> Ver |
@@ -76,7 +76,7 @@ Para conceder permisos a usuarios individuales para que administren la nube priv
 | **Almacenamiento controlado por perfiles** | Actualización del almacenamiento controlado por perfiles <br> Vista del almacenamiento controlado por perfiles |
 | **Vistas de almacenamiento** | Configurar servicio <br> Ver |
 | **Tareas** | Crear la tarea <br> Actualizar tarea |
-| **Servicio de transferencia**| Administrar <br> Supervisión |
+| **Servicio de transferencia**| Administración <br> Supervisión |
 | **vApp** | Agregar máquina virtual <br> Asignar grupo de recursos <br> Asignar vApp <br> Clonar <br> Crear <br> Eliminar <br> Exportación <br> Importar <br> Move <br> Apagado <br> Encendido <br> Cambiar nombre <br> Suspender <br> Unregister <br> Ver el entorno de OVF <br> Configuración de aplicaciones de vApp <br> Configuración de instancias de vApp <br> Configuración de managedBy de vApp <br> Configuración de recursos de vApp |
 | **VRMPolicy** | Consultar VRMPolicy <br> Actualizar VRMPolicy |
 | **Máquina virtual > Configuración** | Agregar disco existente <br> Agregar disco nuevo <br> Agregar o eliminar dispositivo <br> Avanzado <br> Cambiar cantidad de CPU <br> Cambiar recurso <br> Configurar managedBy <br> Seguimiento de cambios de disco <br> Concesión de disco <br> Mostrar configuración de conexión <br> Extender disco virtual <br> Hospedar dispositivo USB <br> Memoria <br> Modificar la configuración del dispositivo <br> Consultar compatibilidad con tolerancia a errores <br> Consultar archivos sin propietario <br> Dispositivo sin formato <br> Volver a cargar desde la ruta de acceso <br> Quitar disco <br> Cambiar nombre <br> Restablecer información de invitados <br> Establecer anotación <br> Configuración <br> Ubicación del archivo de intercambio <br> Alternar la bifurcación principal <br> Desbloquear máquina virtual <br> Actualizar compatibilidad con máquina virtual |

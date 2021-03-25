@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102558702"
 ---
 # <a name="azure-resource-logs"></a>Registros de recursos de Azure
@@ -42,7 +42,7 @@ Considere el ejemplo siguiente, donde se recopila la configuración de diagnóst
 
 La tabla AzureDiagnostics tendrá el siguiente aspecto:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Un  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -59,7 +59,7 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
  
 - Tabla *Service1AuditLogs*:
 
-    | Proveedor de recursos | Category | A | B | C |
+    | Proveedor de recursos | Category | Un | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |

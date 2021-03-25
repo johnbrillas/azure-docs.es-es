@@ -4,10 +4,10 @@ description: Describe cómo usar una definición de iniciativa para agrupar dire
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645524"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Cumplimiento normativo de Azure Policy
@@ -40,11 +40,11 @@ Al seleccionar un **control** se abre una página de detalles sobre ese control.
 > [!NOTE]
 > Un tipo de evaluación **Administrado por Microsoft** está destinado a la propiedad `type` de la definición de directiva establecida en [estático](./definition-structure.md#type) .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de pantalla de la información general de cumplimiento normativo de la definición integrada de NIST SP 800-53 R4 que muestra controles conformes y no conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de pantalla de los detalles de cumplimiento normativo para el control Protección de límites de la definición integrada NIST SP 800-53 R4.":::
 
 En la misma página de **control**, al cambiar a la pestaña **Compatibilidad de recursos** se muestran todos los recursos que se incluyen en las definiciones de directiva de este **control**. Los filtros están disponibles para el nombre o el identificador, el estado de cumplimiento, el tipo de recurso y la ubicación.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de pantalla de la información general de cumplimiento normativo de la definición integrada de NIST SP 800-53 R4 que muestra controles conformes y no conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de pantalla del cumplimiento de recursos para el control Protección de límites de la definición integrada NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Cumplimiento normativo en el SDK
 

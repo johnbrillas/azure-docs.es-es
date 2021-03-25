@@ -1,26 +1,24 @@
 ---
 title: Configuración del análisis de dependencias sin agente en Azure Migrate Server Assessment
 description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
-author: rashi-ms
-ms.author: rajosh
+author: vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: d84c85326c6f5d87189a2c24a3b13654f157cb05
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754290"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045860"
 ---
-# <a name="analyze-machine-dependencies-agentless"></a>Análisis de las dependencias de la máquina (sin agente)
+# <a name="analyze-server-dependencies-agentless"></a>Análisis de las dependencias del servidor (sin agente)
 
-En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre máquinas para la evaluación y la migración a Azure.
-
+En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate: evaluación de servidores. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre servidores para la evaluación y la migración a Azure.
 
 > [!IMPORTANT]
-> La visualización de dependencias sin agente se encuentra actualmente en versión preliminar para VM de VMware detectadas con la herramienta Azure Migrate:Server Assessment.
-> Las características pueden ser limitadas o estar incompletas.
+> El análisis de dependencias sin agente se encuentra actualmente en versión preliminar para los servidores que se ejecutan en el entorno de VMware, detectados con la herramienta Azure Migrate: evaluación de servidores.
 > Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -28,68 +26,74 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 
 - En la vista de análisis de dependencias, actualmente no se puede agregar o quitar un servidor de un grupo.
 - Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
-- En un proyecto de Azure Migrate, la recopilación de datos de dependencia se puede configurar simultáneamente para 1000 servidores. Se puede analizar un número mayor de servidores mediante la secuenciación en lotes de 1000.
+- En un proyecto de Azure Migrate, la recopilación de datos de dependencia se puede habilitar simultáneamente para 1000 servidores. Se puede analizar un número mayor de servidores mediante la secuenciación en lotes de 1000 servidores.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas los operativos compatibles y los permisos necesarios.
-- Asegúrese de lo siguiente:
-    - Tener un proyecto de Azure Migrate. Si no lo tiene, es el momento de [crearlo](./create-manage-projects.md).
-    - Compruebe que ha [agregado ](how-to-assess.md) la herramienta Azure Migrate:Server Assessment al proyecto.
-    - Configure un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. [Configuración de un dispositivo](how-to-set-up-appliance-vmware.md) para VM de VMware. El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
-- Compruebe que una versión de las herramientas de VMware posterior a 10.2 está instalada en cada VM que se quiera analizar.
+- Asegúrese de que ha [creado un proyecto de Azure Migrate](./create-manage-projects.md) con la herramienta Azure Migrate: evaluación de servidores agregada.
+- Revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el análisis de dependencias.
+- Revise los [requisitos del dispositivo](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) antes de configurarlo.
+- [Revise los requisitos del análisis de dependencias](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) antes de habilitarlo en los servidores.
 
+## <a name="deploy-and-configure-the-azure-migrate-appliance"></a>Implementación y configuración del dispositivo de Azure Migrate
 
-## <a name="create-a-user-account-for-discovery"></a>Creación de una cuenta de usuario para la detección
+1. [Revise](migrate-appliance.md#appliance---vmware) los requisitos para implementar el dispositivo de Azure Migrate.
+2. Revise las direcciones URL de Azure a las que el dispositivo necesitará acceder en las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+3. [Revise los datos](migrate-appliance.md#collected-data---vmware) que la aplicación recopila durante la detección y valoración.
+4. [Tenga en cuenta](migrate-support-matrix-vmware.md#port-access-requirements) los requisitos de acceso a puertos del dispositivo.
+5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server. Después de implementar el dispositivo, debe registrarlo en el proyecto de Azure Migrate y configurarlo para iniciar la detección.
+6. Al configurar el dispositivo, debe especificar lo siguiente en el administrador de configuración del dispositivo:
+    - Los detalles de la instancia de vCenter Server a la que se quiere conectar.
+    - Las credenciales de vCenter Server en el ámbito para detectar los servidores del entorno de VMware.
+    - Las credenciales del servidor, que pueden ser credenciales de dominio, Windows (no de dominio) o Linux (no de dominio). [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo administrarlas.
 
-Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM y detectar las dependencias. [Aprenda](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre los requisitos de cuenta para VM Windows y Linux.
+## <a name="verify-permissions"></a>Comprobar los permisos
 
+- Debe [crear una cuenta de vCenter Server de solo lectura](./tutorial-discover-vmware.md#prepare-vmware) para la detección y evaluación. La cuenta de solo lectura necesita tener habilitados los privilegios para **Virtual Machines** > **Guest Operations** (Operaciones de invitado), con el fin de interactuar con los servidores para recopilar los datos de dependencia.
+- Necesita una cuenta de usuario para que la evaluación de servidores pueda acceder al servidor para recopilar los datos de dependencia. [Obtenga información](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre los requisitos de la cuenta para servidores de Windows y Linux.
 
-## <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
+### <a name="add-credentials-and-initiate-discovery"></a>Adición de credenciales e inicio de la detección
 
-Agregue la cuenta de usuario al dispositivo.
+1. Abra el administrador de configuración del dispositivo, complete las comprobaciones de requisitos previos y el registro del dispositivo.
+2. Navegue hasta el panel **Administrar credenciales y orígenes de detección**.
+1.  En **Step 1: Provide vCenter Server credentials** (Paso 1: Proporcionar las credenciales de vCenter Server), haga clic en **Agregar credenciales** para proporcionar las credenciales de la cuenta de vCenter Server que el dispositivo usará para detectar los servidores que se ejecutan en vCenter Server.
+1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique **Dirección IP/FQDN** de la instancia de vCenter Server. :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 del administrador de configuración del dispositivo para los detalles de vCenter Server":::
+1. En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), haga clic en **Agregar credenciales** para proporcionar varias credenciales de servidor a fin de iniciar el inventario de software.
+1. Haga clic en **Iniciar detección** para iniciar la detección de vCenter Server.
 
-1. Abra la aplicación de administración del dispositivo. 
-2. Navegue hasta el panel **Provide vCenter details** (Proporcionar detalles de vCenter).
-3. En **Detectar aplicaciones y dependencias en VM**, haga clic en **Agregar credenciales**.
-3. Elija el **Sistema operativo**, proporcione un nombre descriptivo para la cuenta y especifique los valores de **Nombre de usuario**/**Contraseña**.
-6. Haga clic en **Save**(Guardar).
-7. Haga clic en **Guardar e iniciar la detección**.
-
-    ![Adición de una cuenta de usuario de VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+ Una vez completada la detección de vCenter Server, el dispositivo inicia la detección de las aplicaciones instaladas, los roles y las características (inventario de software). Durante el inventario de software, las credenciales de los servidores agregados se iterarán en los servidores y se validarán para el análisis de dependencias sin agente. Puede habilitar el análisis de dependencias sin agente para los servidores desde el portal. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el análisis de dependencias sin agente.
 
 ## <a name="start-dependency-discovery"></a>Inicio de la detección de dependencias
 
-Elija las máquinas en las que quiere habilitar la detección de dependencias. 
+Seleccione los servidores en los que quiere habilitar la detección de dependencias.
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
-2. Haga clic en el icono **Análisis de dependencias**.
-3. Haga clic en **Agregar servidores**.
-4. En la página **Agregar servidores**, elija el dispositivo que detecta las máquinas pertinentes.
-5. En la lista de máquinas, seleccione las máquinas.
-6. Haga clic en **Agregar servidores**.
+2. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
+1. Puede ver el estado de validación de los servidores en la columna **Dependencias (sin agente)** .
+1. Haga clic en el menú desplegable **Análisis de dependencias**.
+1. Haga clic en **Agregar servidores**.
+1. En la página **Agregar servidores**, seleccione los servidores en los que desea habilitar el análisis de dependencias. Puede habilitar la asignación de dependencias solo en los servidores en los que se superó la validación. El siguiente ciclo de validación se ejecutará 24 horas después de la marca de tiempo de la última validación.
+1. Después de seleccionar los servidores, haga clic en **Agregar servidores**.
 
-    ![Inicio de la detección de dependencias](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Inicio del análisis de dependencias":::
 
-Puede visualizar las dependencias aproximadamente 6 horas después de iniciar la detección de dependencias. Si desea habilitar varias máquinas, puede usar [PowerShell](#start-or-stop-dependency-discovery-using-powershell) para hacerlo.
+Podrá visualizar las dependencias unas seis horas después de habilitar el análisis de dependencias en los servidores. Si quiere habilitar simultáneamente varios servidores para el análisis de dependencias, puede usar [PowerShell](#start-or-stop-dependency-analysis-using-powershell) para hacerlo.
 
 ## <a name="visualize-dependencies"></a>Visualización de dependencias
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
-2. Busque la máquina que desea ver.
-3. En la columna **Dependencias**, haga clic en **Ver dependencias**.
-4. Cambie el período de tiempo del que quiere ver el mapa mediante el menú desplegable **Duración**.
-5. Expanda el grupo **Cliente** para mostrar las máquinas que tienen una dependencia en la máquina seleccionada.
-6. Expanda el grupo **Puerto** para mostrar las máquinas que tienen una dependencia de la máquina seleccionada.
-7. Para navegar a la vista de mapa de cualquiera de las máquinas dependientes, haga clic en el nombre de la máquina > **Cargar mapa del servidor**.
+1. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
+1. Busque el servidor cuyas dependencias quiera revisar.
+1. En la columna **Dependencias (sin agente)** , haga clic en **Ver dependencias**.
+1. Cambie el período de tiempo del que quiere ver el mapa mediante el menú desplegable **Duración**.
+1. Expanda el grupo **Cliente** para enumerar los servidores que tienen una dependencia en el servidor seleccionado.
+1. Expanda el grupo **Puerto** para mostrar las máquinas que tienen una dependencia del servidor seleccionado.
+1. Para navegar a la vista de mapa de cualquiera de los servidores dependientes, haga clic en el nombre del servidor > **Cargar mapa del servidor**
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Expansión del grupo de puertos del servidor y carga del mapa del servidor":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expansión del grupo de clientes":::
 
-    ![Expansión del grupo de puertos del servidor y carga del mapa del servidor](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
-
-    ![Expansión del grupo de clientes ](./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png)
-
-8. Expanda la máquina seleccionada para ver los detalles de nivel de proceso de cada dependencia.
-
-    ![Expansión del servidor para mostrar los procesos](./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png)
+8. Expanda el servidor seleccionado para ver los detalles de nivel de proceso de cada dependencia.
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expansión del servidor para mostrar los procesos":::
 
 > [!NOTE]
 > La información del proceso para una dependencia no siempre está disponible. Si no está disponible, la dependencia se representa con el proceso marcado como "Proceso desconocido".
@@ -97,53 +101,49 @@ Puede visualizar las dependencias aproximadamente 6 horas después de iniciar la
 ## <a name="export-dependency-data"></a>Exportar datos de dependencia
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
-2. Haga clic en el icono **Análisis de dependencias**.
-3. Haga clic en **Exportar las dependencias de la aplicación**.
-4. En la página **Exportar las dependencias de la aplicación**, elija el dispositivo que detecta las máquinas correspondientes.
+2. Haga clic en el menú desplegable **Análisis de dependencias**.
+3. Haga clic en **Exportar dependencias de aplicaciones**.
+4. En la página **Exportar dependencias de aplicaciones**, elija el nombre del dispositivo que detecta los servidores deseados.
 5. Seleccione la hora de inicio y la hora de finalización. Tenga en cuenta que solo puede descargar los datos de los últimos 30 días.
 6. Haga clic en **Exportar dependencia**.
 
-Los datos de dependencia se exportan y se descargan en formato CSV. El archivo descargado contiene los datos de dependencia en todas las máquinas habilitadas para el análisis de dependencias. 
-
-![Exportar dependencias](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+Los datos de dependencia se exportan y se descargan en formato CSV. El archivo descargado contiene los datos de dependencia en todos los servidores habilitados para el análisis de dependencias. 
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export.png" alt-text="Exportar dependencias":::
 
 ### <a name="dependency-information"></a>Información de dependencia
 
-Cada fila del CSV exportado corresponde a una dependencia observada en el intervalo de tiempo especificado. 
+Cada fila del CSV exportado corresponde a una dependencia observada en el intervalo de tiempo especificado.
 
 En la tabla siguiente se resumen los campos del CSV exportado. Tenga en cuenta que los campos del nombre del servidor, de la aplicación y del proceso solo se rellenan en los servidores que tienen habilitado el análisis de dependencia sin agente.
 
 **Nombre del campo** | **Detalles**
 --- | --- 
 Intervalo de tiempo | El intervalo de tiempo durante el cual se observó la dependencia. <br/> Los datos de dependencia se capturan en intervalos de 6 horas actualmente.
-Nombre de servidor de origen | Nombre de máquina de origen 
-Aplicación de origen | Nombre de la aplicación en la máquina de origen 
-Proceso de origen | Nombre del proceso en la máquina de origen 
-Nombre del servidor de destino | Nombre del máquina de destino
-IP de destino | Dirección IP de la máquina de destino
-Aplicación de destino | Nombre de la aplicación en la máquina de destino
-Proceso de destino | Nombre del proceso en la máquina de destino 
-Puerto de destino | Número de puerto en la máquina de destino
-
+Nombre de servidor de origen | Nombre del servidor de origen. 
+Aplicación de origen | Nombre de la aplicación en el servidor de origen.  
+Proceso de origen | Nombre del proceso en el servidor de origen.  
+Nombre del servidor de destino | Nombre del servidor de destino.
+IP de destino | Dirección IP del servidor de destino.
+Aplicación de destino | Nombre de la aplicación en el servidor de destino.
+Proceso de destino | Nombre del proceso en el servidor de destino.  
+Puerto de destino | Número de puerto en el servidor de destino.
 
 ## <a name="stop-dependency-discovery"></a>Detención de la detección de dependencias
 
-Elija las máquinas en las que quiere detener la detección de dependencias. 
+Seleccione los servidores en los que quiere detener la detección de dependencias.
 
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
-2. Haga clic en el icono **Análisis de dependencias**.
-3. Haga clic en **Quitar servidores**.
-3. En la página **Quitar servidores**, elija el **dispositivo** que está detectando las VM en las que quiere detener la detección de dependencias.
-4. En la lista de máquinas, seleccione las máquinas.
-5. Haga clic en **Quitar servidores**.
+1. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
+1. Haga clic en el menú desplegable **Análisis de dependencias**.
+1. Haga clic en **Quitar servidores**.
+1. En la página **Quitar servidores**, seleccione el servidor para el que quiere detener el análisis de dependencias.
+1. Después de seleccionar los servidores, haga clic en **Quitar servidores**.
 
-Si desea detener la dependencia en varias máquinas, puede usar [PowerShell](#start-or-stop-dependency-discovery-using-powershell) para hacerlo.
+Si quiere detener simultáneamente la dependencia en varios servidores, puede usar [PowerShell](#start-or-stop-dependency-analysis-using-powershell) para hacerlo.
 
-
-## <a name="start-or-stop-dependency-discovery-using-powershell"></a>Inicio o detención de la detección de dependencias con PowerShell
+## <a name="start-or-stop-dependency-analysis-using-powershell"></a>Inicio o detención del análisis de dependencias con PowerShell
 
 Descargue el módulo de PowerShell del repositorio de [ejemplos de Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) en GitHub.
-
 
 ### <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -171,23 +171,23 @@ Descargue el módulo de PowerShell del repositorio de [ejemplos de Azure PowerSh
 
 ### <a name="enable-or-disable-dependency-data-collection"></a>Habilitación o deshabilitación de la recopilación de datos de dependencia
 
-1. Obtenga la lista de máquinas virtuales de VMware detectadas en el proyecto de Azure Migrate con los siguientes comandos. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. La lista de máquinas se guardará en FabrikamDemo_VMs.csv.
+1. Obtenga la lista de servidores detectados en el proyecto de Azure Migrate con los siguientes comandos. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. La lista de servidores se guardará en FabrikamDemo_VMs.csv.
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
     ```
 
-    En el archivo, puede ver el nombre para mostrar de la máquina virtual, el estado actual de la recopilación de dependencias y el identificador de ARM de todas las máquinas virtuales detectadas. 
+    En el archivo, puede ver el nombre para mostrar del servidor, el estado actual de la recopilación de dependencias y el id. de ARM de todos los servidores detectados. 
 
-2. Para habilitar o deshabilitar las dependencias, cree un archivo CSV de entrada. El archivo debe tener una columna con el encabezado "ARM ID". Se omitirán los demás encabezados que pueda haber en el archivo CSV. Puede crear el CSV con el archivo generado en el paso anterior. Cree una copia del archivo que conserve las máquinas virtuales en las que desea habilitar o deshabilitar las dependencias. 
+2. Para habilitar o deshabilitar las dependencias, cree un archivo CSV de entrada. El archivo debe tener una columna con el encabezado "ARM ID". Se omitirán los demás encabezados que pueda haber en el archivo CSV. Puede crear el CSV con el archivo generado en el paso anterior. Cree una copia del archivo que conserve los servidores en los que quiere habilitar o deshabilitar las dependencias. 
 
-    En el ejemplo siguiente, se habilita el análisis de dependencias en la lista de máquinas virtuales del archivo de entrada FabrikamDemo_VMs_Enable.csv.
+    En el ejemplo siguiente, se habilita el análisis de dependencias en la lista de servidores del archivo de entrada FabrikamDemo_VMs_Enable.csv.
 
     ```PowerShell
     Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Enable.csv -Enable
     ```
 
-    En el ejemplo siguiente, se deshabilita el análisis de dependencias en la lista de máquinas virtuales del archivo de entrada FabrikamDemo_VMs_Disable.csv.
+    En el ejemplo siguiente, se deshabilita el análisis de dependencias en la lista de servidores del archivo de entrada FabrikamDemo_VMs_Disable.csv.
 
     ```PowerShell
     Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
@@ -200,23 +200,23 @@ Azure Migrate ofrece una plantilla de Power BI que puede usar para visualizar l
 1. Descargue el módulo de PowerShell y la plantilla de Power BI del repositorio de [ejemplos de Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) en GitHub.
 
 2. Inicie sesión en Azure con las siguientes instrucciones: 
-- Inicie sesión en su suscripción de Azure con el cmdlet Connect-AzAccount.
+    - Inicie sesión en su suscripción de Azure con el cmdlet Connect-AzAccount.
 
-    ```PowerShell
-    Connect-AzAccount
-    ```
+        ```PowerShell
+        Connect-AzAccount
+        ```
 
-- Si usa Azure Government, utilice el siguiente comando.
+    - Si usa Azure Government, utilice el siguiente comando.
 
-    ```PowerShell
-    Connect-AzAccount -EnvironmentName AzureUSGovernment
-    ```
+        ```PowerShell
+        Connect-AzAccount -EnvironmentName AzureUSGovernment
+        ```
 
-- Seleccione la suscripción en la que creó el proyecto de Azure Migrate. 
+    - Seleccione la suscripción en la que creó el proyecto de Azure Migrate.
 
-    ```PowerShell
-    select-azsubscription -subscription "Fabrikam Demo Subscription"
-    ```
+        ```PowerShell
+        select-azsubscription -subscription "Fabrikam Demo Subscription"
+        ```
 
 3. Importe el módulo de PowerShell AzMig_Dependencies descargado.
 
@@ -224,7 +224,7 @@ Azure Migrate ofrece una plantilla de Power BI que puede usar para visualizar l
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-4. Ejecute el siguiente comando: Este comando descarga los datos de dependencias en un CSV y los procesa para generar una lista de dependencias únicas que se puede usar para la visualización en Power BI. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. Se descargarán las dependencias de las máquinas detectadas por FabrikamAppliance. Las dependencias únicas se guardarán en FabrikamDemo_Dependencies.csv.
+4. Ejecute el siguiente comando: Este comando descarga los datos de dependencias en un CSV y los procesa para generar una lista de dependencias únicas que se puede usar para la visualización en Power BI. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. Se descargarán las dependencias de los servidores detectados por FabrikamAppliance. Las dependencias únicas se guardarán en FabrikamDemo_Dependencies.csv.
 
     ```PowerShell
     Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
@@ -245,7 +245,6 @@ Azure Migrate ofrece una plantilla de Power BI que puede usar para visualizar l
 
 7. Visualice el mapa de conexiones de red filtrando por servidores y procesos. Guarde el archivo.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Agrupación de máquinas](how-to-create-a-group.md) para su evaluación.
+[Agrupación de los servidores](how-to-create-a-group.md) para la evaluación.

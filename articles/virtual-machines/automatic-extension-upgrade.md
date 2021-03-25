@@ -3,16 +3,17 @@ title: Actualización automática de extensiones para máquinas virtuales y conj
 description: Aprenda a habilitar la actualización automática de extensiones para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales de Azure.
 author: mayanknayar
 ms.service: virtual-machines
+ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: acc014785105d14c3109cfa420f0e9402ca3f534
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa4fa1c43ab9d31b879bdec8e724e896bd16e14c
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416765"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123910"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Vista previa: Actualización automática de extensiones para máquinas virtuales y conjuntos de escalado en Azure
 
@@ -21,7 +22,7 @@ La actualización automática de extensiones está disponible en versión prelim
  La actualización automática de extensiones tiene las siguientes características:
 - Es compatible con máquinas virtuales de Azure y Azure Virtual Machine Scale Sets. No se admite actualmente Virtual Machine Scale Sets de Service Fabric.
 - Las actualizaciones se aplican según un modelo de implementación de orden de disponibilidad (se detalla a continuación).
-- Cuando se aplica a una instancia de Virtual Machine Scale Sets, no se actualizará más del 20% de las máquinas virtuales de dicha instancia en un único lote (de acuerdo con una máquina virtual por lote como mínimo).
+- En el caso de un conjunto de escalado de máquinas virtuales, no se actualizará más del 20 % de las máquinas virtuales del conjunto de escalado en un único lote. El tamaño mínimo de lote es una única máquina virtual.
 - Funciona con todos los tamaños de máquina virtual y con extensiones de Windows y Linux.
 - Puede optar a las actualizaciones automáticas en cualquier momento.
 - La actualización automática de extensiones se puede habilitar en una instancia de Virtual Machine Scale Sets de cualquier tamaño.
@@ -36,24 +37,9 @@ La actualización automática de extensiones está disponible en versión prelim
 
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>¿Cómo funciona la actualización automática de extensiones?
-Lo que hace el proceso de actualización de extensiones es reemplazar la versión de la extensión existente en una máquina virtual por la nueva versión que ha publicado el editor de la extensión. El estado de la máquina virtual se supervisa después de instalar la nueva extensión. Si la máquina virtual no tiene un estado correcto a los cinco minutos de finalizar la actualización, la nueva versión de la extensión se revierte a la versión anterior.
+El proceso de actualización de extensiones reemplaza la versión de la extensión existente en una máquina virtual por una nueva versión de la misma extensión que ha publicado el editor de la extensión. El estado de la máquina virtual se supervisa después de instalar la nueva extensión. Si el estado de la máquina virtual no es correcto a los cinco minutos de finalizar la actualización, la versión de la extensión se revierte a la versión anterior.
 
 Las actualizaciones de extensiones con errores se reintentan automáticamente. Los reintentos se realizan cada pocos días automáticamente sin la intervención del usuario.
-
-
-## <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Proceso de actualización de Virtual Machine Scale Sets
-1. Antes de comenzar el proceso de actualización, el orquestador se asegurará de que no haya más del 20 % de las máquinas virtuales de todo el conjunto de escalado en mal estado (por cualquier motivo).
-
-2. El orquestador de la actualización identifica el lote de instancias de máquina virtual que se va a actualizar, donde un lote puede tener como máximo el 20 % del número total de máquinas virtuales (sujeto a un tamaño de lote mínimo de una máquina virtual).
-
-3. En conjuntos de escalado que tienen configurados sondeos de estado de la aplicación o la extensión Estado de la aplicación, la actualización espera hasta cinco minutos (o la configuración de sondeo de estado definida) a que la máquina virtual tenga un estado correcto antes de pasar a actualizar el siguiente lote. Si una máquina virtual no recupera su estado después de una actualización, de forma predeterminada se vuelve a instalar la versión anterior de la extensión de la máquina virtual.
-
-4. El orquestador de la actualización también realiza un seguimiento del porcentaje de máquinas virtuales que tienen un estado incorrecto después de una actualización. La actualización se detendrá si más del 20 % de las instancias actualizadas pasan a tener un estado incorrecto durante el proceso de actualización.
-
-El proceso anterior continúa hasta que se han actualizado todas las instancias del conjunto de escalado.
-
-El orquestador de la actualización del conjunto de escalado comprueba el estado global del conjunto de escalado antes de actualizar cada lote. Al actualizar un lote, podría haber otras actividades de mantenimiento simultáneas planeadas o sin planear que podrían afectar al estado de las máquinas virtuales del conjunto de escalado. En tales casos, si más del 20 % de las instancias del conjunto de escalado tienen un estado incorrecto, la actualización del conjunto de escalado se detiene al final del lote actual.
-
 
 ### <a name="availability-first-updates"></a>Actualizaciones por orden de disponibilidad
 El modelo de orden de disponibilidad de las actualizaciones orquestadas de la plataforma garantizará que se respeten las configuraciones de disponibilidad en Azure de varios niveles.
@@ -62,7 +48,7 @@ En un grupo de máquinas virtuales que se vayan a actualizar, la plataforma Azur
 
 **Entre regiones:**
 - una actualización se moverá en Azure globalmente por fases para evitar errores de implementación en esta plataforma.
-- Una "fase" puede abarcar una o más regiones y una actualización pasa a la siguiente fase solo si las máquinas virtuales válidas de una fase se actualizan correctamente.
+- Una "fase" puede tener una o más regiones, y una actualización solo cambia de fase si las máquinas virtuales válidas de la fase anterior se actualizan correctamente.
 - Las regiones emparejadas geográficamente no se actualizan simultáneamente y no pueden estar en la misma fase regional.
 - El éxito de una actualización se mide realizando un seguimiento del estado de la máquina virtual después de la actualización. El seguimiento del estado de la máquina virtual se realiza a través de los indicadores de estado de la plataforma de la máquina virtual. En el caso de Virtual Machine Scale Sets, se realiza un seguimiento del estado de la máquina virtual a través de sondeos de estado de la aplicación o de la extensión Estado de la aplicación, si se aplica al conjunto de escalado.
 
@@ -75,6 +61,18 @@ En un grupo de máquinas virtuales que se vayan a actualizar, la plataforma Azur
 - Las máquinas virtuales de un conjunto de disponibilidad común se actualizan dentro de los límites del dominio de actualización y las máquinas virtuales de varios dominios de actualización no se actualizan simultáneamente.  
 - Las máquinas virtuales de un conjunto de escalado de máquinas virtuales común se agrupan en lotes y se actualizan en los límites del dominio de actualización.
 
+### <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Proceso de actualización de Virtual Machine Scale Sets
+1. Antes de comenzar el proceso de actualización, el orquestador se asegurará de que no haya más del 20 % de las máquinas virtuales de todo el conjunto de escalado en mal estado (por cualquier motivo).
+
+2. El orquestrador de actualización identifica el lote de instancias de máquina virtual que se va a actualizar. Un lote de actualización puede tener como máximo el 20 % del número total de máquinas virtuales (sujeto a un tamaño de lote mínimo de una máquina virtual).
+
+3. En conjuntos de escalado que tienen configurados sondeos de estado de la aplicación o la extensión Estado de la aplicación, la actualización espera hasta cinco minutos (o la configuración de sondeo de estado definida) a que la máquina virtual tenga un estado correcto antes de actualizar el siguiente lote. Si una máquina virtual no recupera su estado después de una actualización, de forma predeterminada se vuelve a instalar la versión anterior de la extensión de la máquina virtual.
+
+4. El orquestador de la actualización también realiza un seguimiento del porcentaje de máquinas virtuales que tienen un estado incorrecto después de una actualización. La actualización se detendrá si más del 20 % de las instancias actualizadas pasan a tener un estado incorrecto durante el proceso de actualización.
+
+El proceso anterior continúa hasta que se han actualizado todas las instancias del conjunto de escalado.
+
+El orquestador de la actualización del conjunto de escalado comprueba el estado global del conjunto de escalado antes de actualizar cada lote. Al actualizar un lote, podría haber otras actividades de mantenimiento simultáneas planeadas o sin planear que podrían afectar al estado de las máquinas virtuales del conjunto de escalado. En tales casos, si más del 20 % de las instancias del conjunto de escalado tienen un estado incorrecto, la actualización del conjunto de escalado se detiene al final del lote actual.
 
 ## <a name="supported-extensions"></a>Extensiones admitidas
 La versión preliminar de la actualización automática de extensiones admite las siguientes extensiones (y se agregan más periódicamente):
@@ -258,13 +256,13 @@ az vmss extension set \
 
 ## <a name="extension-upgrades-with-multiple-extensions"></a>Actualizaciones de extensiones con varias extensiones
 
-Una máquina virtual o un conjunto de escalado de máquinas virtuales pueden tener varias extensiones y tener habilitada la actualización automática de extensiones, además de otras extensiones sin esta funcionalidad.  
+Una máquina virtual o un conjunto de escalado de máquinas virtuales pueden tener varias extensiones y tener habilitada la actualización automática de extensiones. La misma máquina virtual o conjunto de escalado también puede tener otras extensiones sin tener habilitada la actualización automática de extensiones.  
 
-Si hay varias actualizaciones de extensiones disponibles para una máquina virtual, las actualizaciones se pueden agrupar por lotes. Sin embargo, cada actualización de extensión se aplica de forma individual en una máquina virtual. Un error en una extensión no afecta a las otras extensiones que puedan estar actualizándose. Por ejemplo, si hay dos extensiones programadas para una actualización y se produce un error en la actualización de la primera, la actualización de la segunda extensión sigue su curso.
+Si hay varias actualizaciones de extensiones disponibles para una máquina virtual, es posible que se procesen juntas por lotes, pero cada una se aplica individualmente en una máquina virtual. Un error en una extensión no afecta a las otras extensiones que puedan estar actualizándose. Por ejemplo, si hay dos extensiones programadas para una actualización y se produce un error en la actualización de la primera, la actualización de la segunda extensión sigue su curso.
 
-También se pueden aplicar actualizaciones automáticas de extensiones cuando una máquina virtual o un conjunto de escalado de máquinas virtuales tiene varias extensiones configuradas con la [secuenciación de extensiones](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). La secuenciación de extensiones es aplicable a la primera implementación de la máquina virtual; las posteriores actualizaciones de extensiones se aplican de forma independiente.
+También se pueden aplicar actualizaciones automáticas de extensiones cuando una máquina virtual o un conjunto de escalado de máquinas virtuales tiene varias extensiones configuradas con la [secuenciación de extensiones](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). La secuenciación de extensiones es aplicable a la primera implementación de la máquina virtual, y las posteriores actualizaciones de una extensión se aplican de forma independiente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Más información sobre la extensión Estado de la aplicación](./windows/automatic-vm-guest-patching.md)
+> [Más información sobre la extensión Estado de la aplicación](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743328"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure (clásico)

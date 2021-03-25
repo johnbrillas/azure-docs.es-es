@@ -4,10 +4,10 @@ description: Aprenda a diseñar la aplicación de Batch para una interrupción r
 ms.topic: how-to
 ms.date: 12/30/2020
 ms.openlocfilehash: 51bcb0cfa35aacd24c0f79082491ef1fc7040889
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831013"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>Diseño de la aplicación de Batch para una alta disponibilidad

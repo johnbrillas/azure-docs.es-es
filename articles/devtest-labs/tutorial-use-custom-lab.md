@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
 ms.openlocfilehash: b4477e0b98ef534b8170ee297edf88ac6fa62dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476451"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio en Azure DevTest Labs
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="claim-a-vm"></a>Reclamación de una máquina virtual
 
-1. En la lista de **Máquinas virtuales que se pueden reclamar**, seleccione **...**  (puntos suspensivos) y seleccione **Reclamar máquina**.
+1. En la lista de **Máquinas virtuales que se pueden reclamar**, seleccione **...** (puntos suspensivos) y seleccione **Reclamar máquina**.
 
     ![Reclamación de una máquina virtual](./media/tutorial-use-custom-lab/claim-virtual-machine.png)
 1. Confirme que ve la máquina virtual en la lista **Mis máquinas virtuales**.
@@ -51,7 +51,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     Para conectarse a una máquina virtual Linux, el acceso RDP o SSH debe estar habilitado para la máquina virtual. Para conocer el procedimiento de conexión a una máquina virtual Linux a través de RDP, consulte [Instalación y configuración de Escritorio remoto para conectarse a una máquina virtual Linux en Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
     > [!NOTE]
-    > Hay otras maneras de llegar a la página de la máquina virtual. Esta información incluye lo siguiente: 
+    > Hay otras maneras de llegar a la página de la máquina virtual. Estas son algunas de ellas: 
     > 
     > 1. Busque todas las máquinas virtuales de la suscripción. Seleccione la máquina virtual en la lista de máquinas virtuales para llegar a la página **Máquina virtual**.
     > 2. Vaya a la página **Grupo de recursos** para el grupo de recursos. A continuación, seleccione la máquina virtual de la lista de recursos del grupo de recursos para llegar a la página **Máquina virtual**. 

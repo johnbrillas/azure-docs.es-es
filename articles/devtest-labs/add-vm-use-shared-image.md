@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo agregar una máquina virtual (VM) 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483863"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Incorporación de una máquina virtual mediante una imagen de la galería de imágenes compartidas adjunta
 Con Azure DevTest Labs, puede adjuntar una galería de imágenes compartidas a su laboratorio y, luego, usar las imágenes de la galería como bases para las máquinas virtuales que crea en el laboratorio. Para información sobre cómo adjuntar una galería de imágenes compartidas a un laboratorio, consulte [Configuración de una galería de imágenes compartidas en Azure DevTest Labs](configure-shared-image-gallery.md). En este artículo se muestra cómo agregar una máquina virtual al laboratorio mediante una imagen de la galería de imágenes compartidas adjunta como base. 
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 En esta sección, aprenderá a usar Azure Portal para agregar una máquina virtual a su laboratorio en función de una imagen de la galería de imágenes compartidas adjunta. En esta sección no se proporcionan instrucciones detalladas paso a paso para crear una máquina virtual con Azure Portal. Para ver esos detalles, consulte [Creación de una máquina virtual: Azure Portal](devtest-lab-add-vm.md). Solo resalta los pasos en los que se selecciona una imagen de la galería de imágenes compartidas adjunta y una versión de la imagen que quiere usar. 
 
 Cuando agrega una máquina virtual al laboratorio, puede seleccionar una imagen de la galería de imágenes compartidas adjunta como imagen base: 
@@ -27,7 +27,7 @@ A continuación, en la pestaña **Configuración avanzada** de la página **Crea
 Puede cambiar para usar otra versión de la imagen después de que se crea la máquina virtual. 
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
-Si usa una plantilla de Azure Resource Manager para crear una máquina virtual con una imagen de la galería de imágenes compartidas, especifique un valor para **sharedImageId** en la sección **Propiedades**. Vea el ejemplo siguiente: 
+Si usa una plantilla de Azure Resource Manager para crear una máquina virtual con una imagen de la galería de imágenes compartidas, especifique un valor para **sharedImageId** en la sección **Propiedades**. Observe el ejemplo siguiente: 
 
 ```json
 "resources": [

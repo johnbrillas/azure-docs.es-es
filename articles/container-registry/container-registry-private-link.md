@@ -4,10 +4,10 @@ description: Configure un punto de conexión privado en un registro de contenedo
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93342307"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conexión privada a un registro de contenedor de Azure mediante Azure Private Link
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Si aún no los tiene, necesita los nombres de una red virtual y una subred para configurar un vínculo privado. En este ejemplo se usa la misma subred para la máquina virtual y el punto de conexión privado del registro. Pero en muchos escenarios se configuraría el punto de conexión en una subred independiente. 
 
-Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM* , el nombre predeterminado de la red virtual es *myDockerVMVNET* , con una subred llamada *myDockerVMSubnet*. Establezca estos valores en variables de entorno al ejecutar el comando [az network vnet list][az-network-vnet-list]:
+Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM*, el nombre predeterminado de la red virtual es *myDockerVMVNET*, con una subred llamada *myDockerVMSubnet*. Establezca estos valores en variables de entorno al ejecutar el comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -159,7 +159,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Creación de registros DNS en la zona privada
 
-Los siguientes comandos crean registros DNS en la zona privada para el punto de conexión del registro y su punto de conexión de datos. Por ejemplo, si tiene un registro denominado *myregistry* en la región *westeurope* , los nombres de punto de conexión son `myregistry.azurecr.io` y `myregistry.westeurope.data.azurecr.io`. 
+Los siguientes comandos crean registros DNS en la zona privada para el punto de conexión del registro y su punto de conexión de datos. Por ejemplo, si tiene un registro denominado *myregistry* en la región *westeurope*, los nombres de punto de conexión son `myregistry.azurecr.io` y `myregistry.westeurope.data.azurecr.io`. 
 
 > [!NOTE]
 > Si el registro es [con replicación geográfica](container-registry-geo-replication.md), cree registros DNS adicionales para la dirección IP del punto de conexión de datos de la réplica.
@@ -204,20 +204,20 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Creación de un punto de conexión privado: nuevo registro
 
-1. Al crear un registro en el portal, en la pestaña de **Basics** , en **SKU** , seleccione **Premium**.
+1. Al crear un registro en el portal, en la pestaña de **Basics**, en **SKU**, seleccione **Premium**.
 1. Seleccione la pestaña **Redes**.
-1. En **Conectividad de red** , seleccione **Punto de conexión privado** >  **+ Agregar**.
+1. En **Conectividad de red**, seleccione **Punto de conexión privado** >  **+ Agregar**.
 1. Escriba o seleccione la siguiente información:
 
     | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | Nombre | Escriba un nombre único. |
     | Subrecurso |Seleccione **registro**.|
     | **Redes** | |
     | Virtual network| Seleccione la red virtual en la que está implementada la máquina virtual, como *myDockerVMVNET*. |
-    | Subnet | Seleccione una subred, como *myDockerVMSubnet* , en la que está implementada la máquina virtual. |
+    | Subnet | Seleccione una subred, como *myDockerVMSubnet*, en la que está implementada la máquina virtual. |
     |**Integración de DNS privado**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
@@ -229,14 +229,14 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
 ### <a name="create-a-private-endpoint---existing-registry"></a>Creación de un punto de conexión privado: registro existente
 
 1. En el portal, vaya al registro de contenedor.
-1. En **Configuración** , seleccione **Redes**.
-1. En la pestaña **Puntos de conexión privados** , seleccione **+ Punto de conexión privado**.
-1. En la pestaña **Datos básicos** , escriba o seleccione la siguiente información:
+1. En **Configuración**, seleccione **Redes**.
+1. En la pestaña **Puntos de conexión privados**, seleccione **+ Punto de conexión privado**.
+1. En la pestaña **Datos básicos**, escriba o seleccione la siguiente información:
 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba un nombre. |
@@ -248,9 +248,9 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**.|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.ContainerRegistry/registries**. |
-    | Resource |Seleccione el nombre del registro.|
+    | Recurso |Seleccione el nombre del registro.|
     |Subrecurso de destino |Seleccione **registro**.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
@@ -260,20 +260,20 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | ------- | ----- |
     |**Redes**| |
     | Virtual network| Seleccione la red virtual en la que está implementada la máquina virtual, como *myDockerVMVNET*. |
-    | Subnet | Seleccione una subred, como *myDockerVMSubnet* , en la que está implementada la máquina virtual. |
+    | Subnet | Seleccione una subred, como *myDockerVMSubnet*, en la que está implementada la máquina virtual. |
     |**Integración de DNS privado**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(Nuevo) privatelink.azurecr.io*. |
     |||
 
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración. 
-2. Cuando reciba el mensaje **Validación superada** , seleccione **Crear**.
+1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
 Una vez creado el punto de conexión privado, la configuración DNS de la zona privada aparece en la página **Información general** del punto de conexión:
 
 1. En el portal, vaya al registro de contenedor y seleccione **Configuración > Redes**.
-1. En la pestaña **Puntos de conexión privados** , seleccione el punto de conexión privado que creó.
-1. En la página **información general** , revise la configuración del vínculo y la configuración de DNS personalizada.
+1. En la pestaña **Puntos de conexión privados**, seleccione el punto de conexión privado que creó.
+1. En la página **información general**, revise la configuración del vínculo y la configuración de DNS personalizada.
 
   ![Configuración DNS del punto de conexión](./media/container-registry-private-link/private-endpoint-overview.png)
 
@@ -298,7 +298,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Deshabilitación del acceso público: portal
 
 1. En el portal, vaya al registro de contenedor y seleccione **Configuración > Redes**.
-1. En la pestaña **Acceso público** , en **Permitir el acceso de red público** , seleccione **Deshabilitado**. Después, seleccione **Guardar**.
+1. En la pestaña **Acceso público**, en **Permitir el acceso de red público**, seleccione **Deshabilitado**. Después, seleccione **Guardar**.
 
 ## <a name="validate-private-link-connection"></a>Validación de una conexión de vínculo privado
 
@@ -381,7 +381,7 @@ Al configurar una conexión de punto de conexión privado mediante los pasos de 
 
 Como se muestra en este artículo, cuando se agrega una conexión de punto de conexión privado a un registro, los registros DNS de la zona `privatelink.azurecr.io` se crean para el registro y sus puntos de conexión de datos en las regiones en las que el registro está [replicado](container-registry-geo-replication.md). 
 
-Si posteriormente agrega una nueva réplica, debe agregar manualmente un nuevo registro de zona para el punto de conexión de datos en esa región. Por ejemplo, si crea una réplica de *myregistry* en la ubicación *northeurope* , agregue un registro de zona para `myregistry.northeurope.data.azurecr.io`. Para conocer los pasos, consulte [Crear registros de DNS en la zona privada](#create-dns-records-in-the-private-zone) en este artículo.
+Si posteriormente agrega una nueva réplica, debe agregar manualmente un nuevo registro de zona para el punto de conexión de datos en esa región. Por ejemplo, si crea una réplica de *myregistry* en la ubicación *northeurope*, agregue un registro de zona para `myregistry.northeurope.data.azurecr.io`. Para conocer los pasos, consulte [Crear registros de DNS en la zona privada](#create-dns-records-in-the-private-zone) en este artículo.
 
 ## <a name="dns-configuration-options"></a>Opciones de configuración de DNS
 

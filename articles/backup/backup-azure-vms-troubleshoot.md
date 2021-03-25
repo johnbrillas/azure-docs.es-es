@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831557"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Paso 3: Si los pasos 1 y 2 no resolvieron el problema, el error podría deberse a que se agota el tiempo de espera de VSS Writer debido a IOPS limitadas.<br>
 
-Para comprobarlo, vaya a los **registros de aplicaciones del sistema y del Visor de eventos** y busque el mensaje de error siguiente:<br>
-El proveedor de instantáneas superó el tiempo de espera mientras mantenía la escritura al volumen del que se estaba obteniendo la instantánea. Esto se debe probablemente a la actividad excesiva del volumen. Vuelva a intentarlo más tarde cuando se haya reducido la actividad en el volumen.<br>
+Para comprobarlo, vaya a los ***registros de aplicaciones del sistema y del Visor de eventos*** y busque el mensaje de error siguiente:<br>
+*El proveedor de instantáneas superó el tiempo de espera mientras limpiaba datos en el volumen del que se estaba obteniendo la instantánea. Esto se debe probablemente a la actividad excesiva del volumen. Vuelva a intentarlo más tarde cuando el volumen no se esté utilizando con tanta intensidad.*<br>
 
 Solución:
 

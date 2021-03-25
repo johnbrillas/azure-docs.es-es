@@ -4,10 +4,10 @@ description: Describe las diferencias entre el modelo de implementación del Adm
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185851"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementación mediante Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos

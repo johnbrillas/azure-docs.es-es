@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929171"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871578"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementación y administración de topologías de Apache Storm en Azure HDInsight
 
 En este documento, aprenderá los aspectos básicos de administración y supervisión de las topologías de [Apache Storm](https://storm.apache.org/) que se ejecutan en clústeres de Storm en HDInsight.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Storm en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Storm** como **Tipo de clúster**.
 
@@ -43,7 +43,7 @@ Puede usar las Herramientas de Data Lake para Visual Studio para enviar topolog�
 
 1. En la ventana **Configurar el nuevo proyecto**, escriba un **Nombre de proyecto** y vaya a una **Ubicación** donde guardar el nuevo proyecto o créela. Seleccione **Crear**.
 
-    ![Configuración de una nueva ventana de proyecto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Configuración de una nueva ventana de proyecto, Visual Studio" border="true":::
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en **Azure**, seleccione **Conectar a la suscripción de Microsoft Azure...** y complete el proceso de inicio de sesión.
 
@@ -71,7 +71,7 @@ Puede usar las Herramientas de Data Lake para Visual Studio para enviar topolog�
     Este comando inicia la topología WordCount de ejemplo en el clúster. Esta topología generará frases de forma aleatoria y contará la aparición de cada palabra en las oraciones.
 
     > [!NOTE]  
-    > Al enviar la topología al clúster, primero debe copiar el archivo .jar que contiene el clúster antes de usar el comando `storm`. Para copiar el archivo en el clúster, puede usar el comando `scp`. Por ejemplo, escriba `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`:
+    > Al enviar la topología al clúster, primero debe copiar el archivo .jar que contiene el clúster antes de usar el comando `storm`. Para copiar el archivo en el clúster, puede usar el comando `scp`. Por ejemplo, escriba `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
     > El ejemplo *WordCount* y otros ejemplos de Storm-Starter ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -83,7 +83,7 @@ Puede implementar mediante programación una topología con el servicio Nimbus. 
 
 Al enviar una topología con Visual Studio, aparece la ventana **Ver topologías de Storm**. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
 
-![Supervisión de una topología, ventana Ver topologías de Storm, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Supervisión de una topología, ventana Ver topologías de Storm, Visual Studio" border="true":::
 
 > [!NOTE]  
 > También puede ver **topologías de Storm** desde el **Explorador de servidores**. Expanda **Azure** > **HDInsight**, haga clic con el botón derecho en un clúster de Storm en HDInsight y luego seleccione **Ver topologías de Storm**.
@@ -160,7 +160,7 @@ storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-a-topology-using-the-storm-ui"></a>Supervisión y administración de una topología mediante la interfaz de usuario de Storm
 
-La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la interfaz de usuario de Storm, use un explorador web para abrir `https://CLUSTERNAME.azurehdinsight.net/stormui`, donde *CLUSTERNAME*, es el nombre del clúster.
+La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la IU de Storm, use un explorador web para abrir `https://CLUSTERNAME.azurehdinsight.net/stormui`, donde *CLUSTERNAME* es el nombre del clúster.
 
 > [!NOTE]  
 > Si se le pide que proporcione un nombre de usuario y una contraseña, escriba el nombre de usuario del administrador de clústeres y la contraseña que usó al crear el clúster.
@@ -174,12 +174,12 @@ La página principal de la interfaz de usuario de Storm ofrece la siguiente info
 | Resumen del clúster| información básica sobre el clúster de Storm. |
 | Resumen de Nimbus | Una lista de información básica de Nimbus. |
 | Resumen de las topologías | una lista de las topologías en ejecución. Para ver más información sobre una topología específica, seleccione su vínculo en la columna **Nombre**. |
-| Resumen de supervisor | información acerca del supervisor de Storm. Para ver los recursos de trabajo asociados a un supervisor específico, seleccione su vínculo en la columna **Host** o **Id.** . |
+| Resumen de supervisor | información acerca del supervisor de Storm. Para ver los recursos de trabajo asociados a un supervisor específico, seleccione su vínculo en la columna **Host** o **Id.**. |
 | Configuración de Nimbus | configuración de Nimbus del clúster. |
 
 La página principal de la interfaz de usuario de Storm es similar a esta página web:
 
-![Página principal, interfaz de usuario de Storm, topologías de Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Página principal, interfaz de usuario de Storm, topologías de Apache Storm, Azure" border="true":::
 
 #### <a name="topology-summary"></a>Resumen de las topologías
 
@@ -198,7 +198,7 @@ Si selecciona un vínculo desde la sección **Resumen de la topología** , se mo
 
 La página de resumen de la topología de Storm es similar a esta página web:
 
-![Página de resumen de la topología, interfaz de usuario de Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Página de resumen de la topología, interfaz de usuario de Storm, Apache Storm, Azure" border="true":::
 
 En la sección **Topology actions** (Acciones de topología), puede seleccionar los siguientes botones para realizar una acción:
 
@@ -208,7 +208,7 @@ En la sección **Topology actions** (Acciones de topología), puede seleccionar 
 | Desactivación | pausa una topología en ejecución. |
 | Reequilibrar | ajusta el paralelismo de la topología. Debe reequilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esta operación permite que la topología ajuste el paralelismo para compensar el número de nodos adicionales o reducidos del clúster.<br/><br/>Para más información, consulte la entrada de blog <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (Entender el paralelismo de una topología de Apache Storm).
 | Terminar | finaliza una topología de Storm tras el tiempo de espera especificado. |
-| Depurar | Inicia una sesión de depuración para la topología en ejecución. |
+| Depuración | Inicia una sesión de depuración para la topología en ejecución. |
 | Detener la depuración | Finaliza la sesión de depuración para la topología en ejecución. |
 | Nivel de registro de cambios | Modifica el nivel de registro de depuración. |
 
@@ -229,7 +229,7 @@ Si se selecciona un spout en la sección **Spouts** o **Bolts**, se muestra la s
 
 La página de resumen del bolt de Storm es similar a esta página web:
 
-![Página de resumen del bolt, interfaz de usuario de Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Página de resumen del bolt, interfaz de usuario de Storm, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Supervisión y administración de una topología mediante la API de REST
 

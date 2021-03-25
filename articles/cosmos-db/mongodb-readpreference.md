@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349051"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Cómo distribuir las lecturas globalmente con la API de Azure Cosmos DB para MongoDB
@@ -21,7 +21,7 @@ ms.locfileid: "96349051"
 
 En este artículo se muestra cómo distribuir globalmente las operaciones de lectura usando la configuración de las [preferencias de lectura de MongoDB](https://docs.mongodb.com/manual/core/read-preference/) con la API de Azure Cosmos DB para MongoDB.
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -44,7 +44,7 @@ Ejecute los comandos siguientes para clonar el repositorio de ejemplo. En funci�
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Ejecución de la aplicación
+## <a name="run-the-application"></a>Ejecutar la aplicación
 
 En función de la plataforma utilizada, instale los paquetes necesarios e inicie la aplicación. Para instalar las dependencias, siga el archivo Léame incluido en el repositorio de la aplicación de ejemplo. Por ejemplo, en la aplicación de ejemplo de NodeJS, utilice los comandos siguientes para instalar los paquetes necesarios e iniciar la aplicación.
 

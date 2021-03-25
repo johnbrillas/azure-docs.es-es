@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400020"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174672"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ El elemento **Preconditions** contiene el elemento siguiente:
 
 #### <a name="precondition"></a>Condición previa
 
+Los pasos de orquestación se pueden ejecutar de forma condicional en función de las condiciones previas definidas en el paso de orquestación. Hay dos tipos de condiciones previas:
+ 
+- **Claims exist** (Existen notificaciones): especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario.
+- **Claim equals** (La notificación es igual a): especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. La comprobación realiza una comparación ordinal con distinción entre mayúsculas y minúsculas. Al comprobar el tipo de notificación booleano, use `True` o `False`.
+
 El elemento **Precondition** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
-| `ExecuteActionsIf` | Sí | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. |
+| `ExecuteActionsIf` | Sí | Use una prueba `true` o `false` para decidir si se deben realizar las acciones de la condición previa. |
 
 El elemento **Precondition** contiene los siguientes elementos:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Un valor ClaimTypeReferenceId que se va a consultar. Otro elemento de valor contiene el valor que se va a comprobar.</li></ul>|
+| Valor | 1:2 | Identificador de un tipo de notificación. La notificación ya se ha definido en la sección del esquema de notificaciones del archivo de directiva o del archivo de directiva primario. Cuando la condición previa es de tipo `ClaimEquals`, un segundo elemento `Value` contiene el valor que se va a comprobar. |
 | Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. Si el valor de la `Action` está establecido en `SkipThisOrchestrationStep`, el `OrchestrationStep` asociado no debe ejecutarse. |
 
 #### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
@@ -189,9 +194,12 @@ Las condiciones previas pueden comprobar varias condiciones previas. En el ejemp
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="claims-provider-selection"></a>Selección del proveedor de notificaciones
 
-Un paso de orquestación de tipo `ClaimsProviderSelection` o `CombinedSignInAndSignUp` puede contener una lista de proveedores de notificaciones con los que un usuario puede iniciar sesión. El orden de los elementos dentro de los elementos `ClaimsProviderSelections` controla el orden de los proveedores de identidades que se presentan al usuario.
+La selección del proveedor de identidades permite a los usuarios seleccionar una acción de una lista de opciones. La selección del proveedor de identidades consta de un par de dos pasos de orquestación: 
+
+1. **Botones**: comienza con el tipo de `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, que contiene una lista de opciones entre las que puede elegir un usuario. El orden de las opciones dentro del elemento `ClaimsProviderSelections` controla el orden de los botones de inicio de sesión que se presentan al usuario.
+2. **Acciones**: seguido del tipo de `ClaimsExchange`. ClaimsExchange contiene una lista de acciones. La acción es una referencia a un perfil técnico, como [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [transformación de notificaciones](claims-transformation-technical-profile.md) o [autoafirmado](self-asserted-technical-profile.md). Cuando un usuario hace clic en uno de los botones, se ejecuta la acción correspondiente.
 
 El elemento **ClaimsProviderSelections** contiene el elemento siguiente:
 
@@ -212,7 +220,7 @@ El elemento **ClaimsProviderSelection** contiene los atributos siguientes:
 | TargetClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el siguiente paso de orquestación de la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo ValidationClaimsExchangeId, pero no ambos. |
 | ValidationClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el paso de orquestación actual para validar la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo TargetClaimsExchangeId, pero no ambos. |
 
-### <a name="claimsproviderselection-example"></a>Ejemplo de ClaimsProviderSelection
+### <a name="claims-provider-selection-example"></a>Ejemplo de selección del proveedor de notificaciones
 
 En el siguiente paso de orquestación, el usuario puede iniciar sesión con una cuenta local o con una cuenta de Facebook, LinkedIn, Twitter o Google. Si el usuario selecciona uno de los proveedores de identidades sociales, el segundo paso de orquestación se ejecuta con el intercambio de notificaciones seleccionado especificado en el atributo `TargetClaimsExchangeId`. El segundo paso de orquestación redirige al usuario al proveedor de identidades sociales para completar el proceso de inicio de sesión. Si el usuario decide iniciar sesión con la cuenta local, Azure AD B2C se mantiene en el mismo paso de orquestación (la misma página de registro o de inicio de sesión) y omite el segundo paso de orquestación.
 
@@ -242,7 +250,7 @@ En el siguiente paso de orquestación, el usuario puede iniciar sesión con una 
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>
