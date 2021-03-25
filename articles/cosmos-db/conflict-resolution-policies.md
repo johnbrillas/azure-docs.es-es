@@ -9,10 +9,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334385"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflicto y directivas de resolución al usar varias regiones de escritura
@@ -22,11 +22,11 @@ Los conflictos y las directivas de resolución de conflictos son aplicables si l
 
 En el caso de las cuentas de Azure Cosmos configuradas con varias regiones de escritura, se pueden producir conflictos de actualización cuando los objetos de escritura actualizan simultáneamente el mismo elemento en varias regiones. Los conflictos de actualización pueden ser de los tres tipos siguientes:
 
-* **Conflictos de inserción** : Estos conflictos pueden producirse cuando una aplicación inserta simultáneamente dos o más elementos con un mismo índice único en dos o más regiones. Por ejemplo, podría producirse este conflicto con una propiedad de identificador.
+* **Conflictos de inserción**: Estos conflictos pueden producirse cuando una aplicación inserta simultáneamente dos o más elementos con un mismo índice único en dos o más regiones. Por ejemplo, podría producirse este conflicto con una propiedad de identificador.
 
-* **Conflictos de reemplazo** : Estos conflictos pueden producirse cuando una aplicación actualiza simultáneamente el mismo elemento en dos o más regiones.
+* **Conflictos de reemplazo**: Estos conflictos pueden producirse cuando una aplicación actualiza simultáneamente el mismo elemento en dos o más regiones.
 
-* **Conflictos de eliminación** : Estos conflictos pueden producirse cuando una aplicación elimina simultáneamente un elemento de una región y lo actualiza en cualquier otra región.
+* **Conflictos de eliminación**: Estos conflictos pueden producirse cuando una aplicación elimina simultáneamente un elemento de una región y lo actualiza en cualquier otra región.
 
 ## <a name="conflict-resolution-policies"></a>Directivas de resolución de conflictos
 
@@ -41,7 +41,7 @@ Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para reso
 
   Para obtener más información, consulte los [ejemplos de uso de directivas de resolución de conflictos LWW](how-to-manage-conflicts.md).
 
-* **Personalizado** : esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
+* **Personalizado**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
 
   Si configura el contenedor con la opción de resolución personalizada y no registra un procedimiento de combinación en el contenedor o procedimiento de combinación lanza una excepción en tiempo de ejecución, los conflictos se escriben en la *fuente de conflictos*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md).
 

@@ -7,10 +7,10 @@ ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
 ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656927"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
@@ -102,7 +102,7 @@ Después de haber creado la aplicación de Service Fabric, siga estos pasos para
 
 3.  En el menú contextual, haga clic en **Implementar aplicación**.
 4.  Puede seguir el progreso de la operación de implementación en la ventana Consola.
-5.  Para comprobar que la aplicación se ejecuta, abra Service Fabric Explorer en el clúster local en una ventana del explorador `http://localhost:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
+5.  Para comprobar que la aplicación se está ejecutando, abra Service Fabric Explorer en el clúster local en una ventana del explorador `http://localhost:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
 
 Para obtener información sobre cómo depurar la aplicación en Eclipse mediante el clúster local, consulte [Depuración de la aplicación de Service Fabric para Java con Eclipse](./service-fabric-debugging-your-application-java.md).
 

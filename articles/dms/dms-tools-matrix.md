@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: reference
 ms.date: 03/03/2020
 ms.openlocfilehash: 258874ffdbc471305b76f7d52406d2f45e708829
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99575744"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Servicios y herramientas disponibles para escenarios de migración de datos
@@ -29,7 +29,7 @@ Las siguientes tablas identifican el servicio y las herramientas que puede usar 
 
 ## <a name="business-justification-phase"></a>Fase de justificación comercial
 
-| Source | Destino | Detectar /<br/>Inventario | Destino y SKU<br/>recomendación | TCO/ROI y<br/>Oportunidad de negocio |
+| Source | Destino | Detectar /<br/>Tema de | Destino y SKU<br/>recomendación | TCO/ROI y<br/>Oportunidad de negocio |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [MAP Toolkit](/previous-versions//bb977556(v=technet.10))<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
  SQL Server | Azure SQL DB MI | [MAP Toolkit](/previous-versions//bb977556(v=technet.10))<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |

@@ -7,10 +7,10 @@ ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508561"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
@@ -20,7 +20,7 @@ ms.locfileid: "102508561"
 
 El proceso de implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop es ligeramente diferente al de las máquinas virtuales que ejecutan versiones posteriores de Windows. En esta guía se explica cómo implementar Windows 7.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, siga las instrucciones de [Creación de un grupo hosts con PowerShell](create-host-pools-powershell.md) para crear un grupo de hosts. Si va a usar el portal, siga las instrucciones de los pasos 1 a 9 del artículo [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md). Después, seleccione **Revisar y crear** para crear un grupo de hosts vacío.
 

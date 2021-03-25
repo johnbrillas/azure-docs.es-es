@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725185"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Administración del acceso externo con la Administración de derechos 
@@ -151,7 +151,7 @@ Para más información, consulte [Gobernanza del acceso de los usuarios externos
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden de la lista.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 1. [Determinación de la posición de seguridad para el acceso externo](1-secure-access-posture.md)
 

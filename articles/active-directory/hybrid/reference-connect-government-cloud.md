@@ -11,11 +11,11 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504362"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Consideraciones al respecto de la identidad híbrida para la nube de Azure Government
@@ -24,9 +24,6 @@ En este artículo se describen las consideraciones para la integración de un en
 
 > [!NOTE]
 > Para integrar un entorno de Microsoft Azure Active Directory (local u hospedado en IaaS como parte de la misma instancia en la nube) con la nube de Azure Government, debe realizar la actualización a la versión más reciente de [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 Para obtener una lista completa de los puntos de conexión del Departamento de Defensa del Gobierno de Estados Unidos, consulte la [documentación](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 

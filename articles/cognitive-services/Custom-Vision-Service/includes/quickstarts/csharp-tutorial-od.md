@@ -4,10 +4,10 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.openlocfilehash: 6a09d435613a715d4ae4e162f42f59402d0bc5cd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102444478"
 ---
 Introducción a la biblioteca cliente de Custom Vision para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para crear un modelo de detección de objetos. Creará un proyecto, agregará etiquetas, entrenará el proyecto en las imágenes de ejemplo y usará la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
@@ -183,7 +183,7 @@ Este método carga la imagen de prueba, consulta el punto de conexión del model
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction)]
 
-## <a name="run-the-application"></a>Ejecutar la aplicación
+## <a name="run-the-application"></a>Ejecución de la aplicación
 
 #### <a name="visual-studio-ide"></a>[IDE de Visual Studio](#tab/visual-studio)
 

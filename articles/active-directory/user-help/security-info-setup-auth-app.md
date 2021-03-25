@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348303"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103197470"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configuración de la aplicación Microsoft Authenticator como método de comprobación
 
@@ -46,10 +46,10 @@ Los métodos de la información de seguridad se usan tanto para la comprobación
 
 Dependiendo de la configuración de su organización, es posible que pueda usar una aplicación autenticadora como uno de sus métodos de información de seguridad. Si no necesita usar la aplicación Microsoft Authenticator, puede elegir una aplicación diferente durante el proceso de configuración. Sin embargo, en este artículo se usa la aplicación Microsoft Authenticator.
 
->[!Important]
-> Si ha configurado la aplicación Microsoft Authenticator en cinco dispositivos diferentes o cinco tokens de hardware, no podrá configurar una sexta y es posible que se muestre el siguiente mensaje de error.
+> [!IMPORTANT]
+> Si ha configurado la aplicación Microsoft Authenticator en cinco dispositivos distintos o si ha usado cinco tokens de hardware, no podrá configurar un sexto dispositivo y es posible que vea el mensaje de error siguiente:
 > 
-> **No se puede configurar Microsoft Authenticator porque ya tiene cinco aplicaciones autenticadoras o cinco tokens de hardware. Póngase en contacto con su administrador para eliminar una de las aplicaciones de autenticación o los tokens de hardware.**
+> **No se puede configurar Microsoft Authenticator porque ya tiene cinco aplicaciones de autenticación o cinco tokens de hardware. Póngase en contacto con su administrador para eliminar una de las aplicaciones de autenticación o los tokens de hardware.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Pasos para configurar la aplicación Microsoft Authenticator
 
@@ -57,7 +57,7 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
     ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 
-2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
+2. Seleccione **información de seguridad** en el menú de la izquierda o use el vínculo del panel **Información de seguridad**. Si ya se ha registrado, se le solicitará que utilice la comprobación en dos pasos. A continuación, seleccione **Agregar método** en el panel de **Información de seguridad**.
 
     ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

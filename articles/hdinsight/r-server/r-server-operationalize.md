@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944014"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869485"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -53,31 +53,31 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
 
-    ![Selección en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="Selección en la utilidad de administración de R Server" border="true":::
 
 1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
 
-    ![Puesta en marcha en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="Puesta en marcha en la utilidad de administración de R Server" border="true":::
 
 1. Cuando se le solicite, escriba dos veces la contraseña de un usuario administrador local.
 
 1. Debería ver resultados que indican que la operación se realizó correctamente. También se le pedirá que seleccione otra opción del menú. Seleccione E para volver al menú principal.
 
-    ![Operación correcta en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="Operación correcta en la utilidad de administración de R Server" border="true":::
 
 1. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
 
     a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
 
-    ![Diagnóstico en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="Diagnóstico en la utilidad de administración de R Server" border="true":::
 
     b. En el menú de pruebas de diagnóstico, seleccione **A**. Cuando se le solicite, escriba la contraseña que ha proporcionado para el usuario administrador local.
 
-    ![Prueba en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="Prueba en la utilidad de administración de R Server" border="true":::
 
     c. Compruebe que el resultado muestra que el estado general es Pass (Aprobado).
 
-    ![Superación de prueba en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="Superación de prueba en la utilidad de administración de R Server" border="true":::
 
     d. En las opciones de menú que se muestran, escriba **E** para volver al menú principal y, luego, escriba **8** para salir de la utilidad de administración.
 
@@ -154,7 +154,7 @@ Siga estos pasos para retirar nodos de trabajo:
 
 1. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento**. Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
 
-   ![Activación de modo de mantenimiento en Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="Activación de modo de mantenimiento en Apache Ambari" border="true":::  
 
 * Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Retirar**.
 * Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Retirar**.

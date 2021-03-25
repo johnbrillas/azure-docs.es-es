@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320211"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Solución de problemas de grupos de servidores de Hiperescala de PostgreSQL
@@ -97,7 +97,7 @@ Implemente los pasos descritos en [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio: abrir cuaderno de solución de problemas de PostgreSQL":::
 
-Se abre el **cuaderno TSG100: solucionador de problemas de Hiperescala de PostgreSQL habilitada para Azure Arc**: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio: abrir cuaderno de solución de problemas de PostgreSQL":::
+Se abre el **cuaderno TSG100: solucionador de problemas de Hiperescala de PostgreSQL habilitada para Azure Arc**: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio: usar cuaderno de solución de problemas de PostgreSQL":::
 
 #### <a name="run-the-scripts"></a>Ejecución de los scripts
 Seleccione el botón "Ejecutar todo" situado en la parte superior para ejecutar todo el cuaderno de una vez o bien puede recorrerlo paso a paso y ejecutar cada celda de código una por una.

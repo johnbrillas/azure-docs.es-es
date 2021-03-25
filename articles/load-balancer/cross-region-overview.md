@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176729"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225632"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -94,19 +94,19 @@ El grupo de back-end del equilibrador de carga entre regiones contiene uno o var
 
 Agregue las implementaciones del equilibrador de carga existentes a un equilibrador de carga entre regiones para una implementación entre regiones altamente disponible.
 
-La **región principal** es aquella en la que se implementa el equilibrador de carga entre regiones. Esta región no afecta al modo en que se enrutará el tráfico. Si una región principal deja de funcionar, el flujo de tráfico no se ve afectado.
+La **región principal** es donde se implementa el equilibrador de carga entre regiones o la dirección IP pública del nivel global. Esta región no afecta al modo en que se enrutará el tráfico. Si una región principal deja de funcionar, el flujo de tráfico no se ve afectado.
 
 ### <a name="home-regions"></a>Regiones principales
 * Este de EE. UU. 2
 * Oeste de EE. UU.
 * Oeste de Europa
-* Sudeste Asiático
+* Sudeste de Asia
 * Centro de EE. UU.
 * Norte de Europa
 * Este de Asia
 
 > [!NOTE]
-> Solo puede implementar el equilibrador de carga entre regiones en una de las 8 regiones anteriores.
+> Solo puede implementar el equilibrador de carga entre regiones o la dirección IP pública de nivel global en una de las siete regiones anteriores.
 
 Una **región participante** es aquella en la que la dirección IP pública global del equilibrador de carga está disponible. 
 

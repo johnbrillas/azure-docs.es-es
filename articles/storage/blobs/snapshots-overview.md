@@ -10,10 +10,10 @@ ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: debce0a1b4c09bb89cdceb1cd29e59e1976c939a
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99539166"
 ---
 # <a name="blob-snapshots"></a>Instantáneas de blob
@@ -133,7 +133,7 @@ En el diagrama siguiente se muestra cómo se facturan los objetos cuando un blob
 
 :::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagrama que muestra cómo se facturan los objetos cuando un blob con instantáneas está explícitamente organizado en niveles.":::
 
-El establecimiento explícito del nivel para un blob, una versión o una instantánea no se puede deshacer. Si mueve un blob a un nuevo nivel y luego lo devuelve a su nivel original, se le cobrará la longitud completa del contenido del objeto incluso si comparte bloques con otros objetos del nivel original.
+El establecimiento explícito del nivel para un blob, una versión o una instantánea no se puede deshacer. Si mueve un blob a un nuevo nivel y luego lo vuelve a su nivel original, se le cobrará la longitud completa del contenido del objeto incluso si comparte bloques con otros objetos en el nivel original.
 
 Las operaciones que establecen explícitamente el nivel de un blob, una versión o una instantánea incluyen:
 
@@ -148,10 +148,10 @@ Cuando está habilitada la eliminación temporal del blob, si elimina o sobrescr
 
 En la tabla siguiente se describe el comportamiento de facturación de un blob que se elimina temporalmente, en función de si el control de versiones está habilitado o deshabilitado. Cuando el control de versiones está habilitado, se crea una versión cuando un blob se elimina temporalmente. Cuando el control de versiones está deshabilitado, la eliminación temporal de un blob crea una instantánea de eliminación temporal.
 
-| Cuando se sobrescribe un blob base con su nivel establecido explícitamente... | Se le factura entonces... |
+| Cuando sobrescribe un blob base con su nivel establecido explícitamente... | A continuación, se le facturará por... |
 |-|-|
-| Si la eliminación temporal del blob y el control de versiones están habilitados | Todas las versiones existentes con la longitud del contenido completo con independencia del nivel. |
-| Si la eliminación temporal del blob está habilitada, pero el control de versiones está deshabilitado | Todas las instantáneas de eliminación temporal existentes con una longitud de contenido completo con independencia del nivel. |
+| Si la eliminación temporal de blobs y el control de versiones están habilitados | Todas las versiones existentes en la longitud del contenido completo independientemente del nivel. |
+| Si la eliminación temporal de blobs está habilitada, pero el control de versiones está deshabilitado | Todas las instantáneas de eliminación temporal existentes con una longitud de contenido completo con independencia del nivel. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

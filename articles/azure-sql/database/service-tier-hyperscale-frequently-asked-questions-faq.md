@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 02/03/2021
 ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526829"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
@@ -40,7 +40,7 @@ El nivel de servicio Hiperescala solo está disponible para bases de datos únic
 
 Los niveles de servicio basados en núcleos virtuales se diferencian en función de la disponibilidad de la base de datos y del tipo de almacenamiento, el rendimiento y el tamaño máximo, tal como se describe en la tabla siguiente.
 
-| | Tipo de recurso | De uso general |  Hiperescala | Crítico para la empresa |
+| | Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** |All|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal rápido, restauración rápida de bases de datos.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Tipo de recurso** ||SQL Database / Instancia administrada de SQL | Base de datos única | SQL Database / Instancia administrada de SQL |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207846"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico ponderado en Traffic Manager
@@ -41,17 +41,17 @@ En este tutorial, obtendrá información sobre cómo:
 
 1. En la barra de búsqueda del portal, busque el nombre del **perfil de Traffic Manager** que creó en la sección anterior y seleccione el perfil de Traffic Manager en los resultados que aparecen.
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Búsqueda del perfil de Traffic Manager&quot;:::
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Búsqueda del perfil de Traffic Manager":::
 
 1. Seleccione **Configuración** y seleccione o escriba los siguientes valores:
 
     | Configuración         | Valor                                              |
     | ---             | ---                                                |
-    | Método de enrutamiento            | Seleccione **Ponderado** . |    
+    | Método de enrutamiento            | Seleccione **Ponderado**. |    
     | Período de vida de DNS (TTL) | Este valor controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará en el sistema de Traffic Manager las entradas DNS actualizadas. Cualquier cambio que se produzca con Traffic Manager, como cambios en el método de enrutamiento del tráfico o en la disponibilidad de los puntos de conexión agregados, tardará este tiempo en actualizarse en todo el sistema global de servidores DNS. |
     | Protocolo    | Seleccione un protocolo para la supervisión del punto de conexión. *Opciones: HTTP, HTTPS y TCP* |
     | Port | Especifique el número de puerto. |
-    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal &quot;/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). |
+    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). |
     | Configuración de encabezado personalizado | Configure los encabezados personalizados en formato de host: contoso.com,nuevoEncabezado:nuevoValor. Se admite un máximo de 8 pares. Aplicable para los protocolos HTTP y HTTPS. Aplicable para todos los puntos de conexión del perfil. |
     | Intervalos de códigos de estado esperados (valor predeterminado: 200) | Configure los intervalos de código de estado con el formato 200-299,301-301. Se admite un máximo de 8 intervalos. Aplicable para los protocolos HTTP y HTTPS. Aplicable para todos los puntos de conexión del perfil. |
     | Intervalo de sondeo | Configure el intervalo de tiempo entre los sondeos de estado del punto de conexión. Puede elegir 10 o 30 segundos. |
@@ -60,63 +60,23 @@ En este tutorial, obtendrá información sobre cómo:
 
 1. Seleccione **Guardar** para completar la configuración.
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Búsqueda del perfil de Traffic Manager&quot;:::
-
-1. Seleccione **Configuración** y seleccione o escriba los siguientes valores:
-
-    | Configuración         | Valor                                              |
-    | ---             | ---                                                |
-    | Método de enrutamiento            | Seleccione **Ponderado** . |    
-    | Período de vida de DNS (TTL) | Este valor controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará en el sistema de Traffic Manager las entradas DNS actualizadas. Cualquier cambio que se produzca con Traffic Manager, como cambios en el método de enrutamiento del tráfico o en la disponibilidad de los puntos de conexión agregados, tardará este tiempo en actualizarse en todo el sistema global de servidores DNS. |
-    | Protocolo    | Seleccione un protocolo para la supervisión del punto de conexión. *Opciones: HTTP, HTTPS y TCP* |
-    | Port | Especifique el número de puerto. |
-    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal &quot;/"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Configuración ponderada de Traffic Manager"::: 
 
 1. Seleccione **Punto de conexión** y configure la ponderación de cada punto de conexión. La ponderación puede estar entre 1 y 1000. Cuanto mayor sea la ponderación, mayor será la prioridad.  
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Búsqueda del perfil de Traffic Manager&quot;:::
-
-1. Seleccione **Configuración** y seleccione o escriba los siguientes valores:
-
-    | Configuración         | Valor                                              |
-    | ---             | ---                                                |
-    | Método de enrutamiento            | Seleccione **Ponderado** . |    
-    | Período de vida de DNS (TTL) | Este valor controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará en el sistema de Traffic Manager las entradas DNS actualizadas. Cualquier cambio que se produzca con Traffic Manager, como cambios en el método de enrutamiento del tráfico o en la disponibilidad de los puntos de conexión agregados, tardará este tiempo en actualizarse en todo el sistema global de servidores DNS. |
-    | Protocolo    | Seleccione un protocolo para la supervisión del punto de conexión. *Opciones: HTTP, HTTPS y TCP* |
-    | Port | Especifique el número de puerto. |
-    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal &quot;/"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Configuración de puntos de conexión ponderados de Traffic Manager"::: 
 
 ## <a name="use-the-traffic-manager-profile"></a>Uso del perfil de Traffic Manager
 
 La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este nombre (por ejemplo, mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan a cada punto de conexión según el método round-robin.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Búsqueda del perfil de Traffic Manager&quot;:::
-
-1. Seleccione **Configuración** y seleccione o escriba los siguientes valores:
-
-    | Configuración         | Valor                                              |
-    | ---             | ---                                                |
-    | Método de enrutamiento            | Seleccione **Ponderado** . |    
-    | Período de vida de DNS (TTL) | Este valor controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará en el sistema de Traffic Manager las entradas DNS actualizadas. Cualquier cambio que se produzca con Traffic Manager, como cambios en el método de enrutamiento del tráfico o en la disponibilidad de los puntos de conexión agregados, tardará este tiempo en actualizarse en todo el sistema global de servidores DNS. |
-    | Protocolo    | Seleccione un protocolo para la supervisión del punto de conexión. *Opciones: HTTP, HTTPS y TCP* |
-    | Port | Especifique el número de puerto. |
-    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal &quot;/"::: 
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Información general de la configuración ponderada de Traffic Manager"::: 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita el perfil de Traffic Manager, busque el perfil y seleccione **Eliminar perfil** .
+Si ya no necesita el perfil de Traffic Manager, busque el perfil y seleccione **Eliminar perfil**.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Búsqueda del perfil de Traffic Manager&quot;:::
-
-1. Seleccione **Configuración** y seleccione o escriba los siguientes valores:
-
-    | Configuración         | Valor                                              |
-    | ---             | ---                                                |
-    | Método de enrutamiento            | Seleccione **Ponderado** . |    
-    | Período de vida de DNS (TTL) | Este valor controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará en el sistema de Traffic Manager las entradas DNS actualizadas. Cualquier cambio que se produzca con Traffic Manager, como cambios en el método de enrutamiento del tráfico o en la disponibilidad de los puntos de conexión agregados, tardará este tiempo en actualizarse en todo el sistema global de servidores DNS. |
-    | Protocolo    | Seleccione un protocolo para la supervisión del punto de conexión. *Opciones: HTTP, HTTPS y TCP* |
-    | Port | Especifique el número de puerto. |
-    | Ruta de acceso | Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal &quot;/":::
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Eliminación del perfil ponderado de Traffic Manager":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

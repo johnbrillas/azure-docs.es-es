@@ -4,10 +4,10 @@ description: Se describe cómo implementar recursos en el ámbito de un inquilin
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491493"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
@@ -125,7 +125,7 @@ Para obtener información más detallada sobre los comandos de implementación y
 * [Implementación de recursos con Azure Portal y plantillas de Resource Manager](deploy-portal.md)
 * [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md)
 * [Implementación de recursos con las plantillas de ARM y Azure PowerShell](deploy-powershell.md)
-* [Implementación de recursos con plantillas de Resource Manager y la API de REST de Azure Resource Manager](deploy-rest.md)
+* [Implementación de recursos con plantillas de Resource Manager y la API REST de Azure Resource Manager](deploy-rest.md)
 * [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
 * [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
 

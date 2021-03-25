@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946417"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
@@ -35,7 +35,7 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para comenzar a trabajar con este artículo, es preciso tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos
@@ -75,7 +75,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 | Nombre de puerta de enlace | vnet1gw |
 | Tipo de puerta de enlace | VPN |
 | Tipo de VPN de la puerta de enlace | RouteBased |
-| SKU de puerta de enlace | Básica |
+| SKU de puerta de enlace | Básico |
 | Dirección IP de puerta de enlace | vnet1gwip |
 
 **Red virtual 2**
@@ -92,7 +92,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 | Nombre de puerta de enlace | vnet2gw |
 | Tipo de puerta de enlace | VPN |
 | Tipo de VPN de la puerta de enlace | RouteBased |
-| SKU de puerta de enlace | Básica |
+| SKU de puerta de enlace | Básico |
 | Dirección IP de puerta de enlace | vnet1gwip |
 
 ## <a name="setup-dns"></a>Configuración de DNS
@@ -102,7 +102,7 @@ En la última sección, la plantilla crea una máquina virtual de Ubuntu en cada
 Para instalar Bind, debe encontrar la dirección IP pública de las dos máquinas virtuales del DNS.
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Abra la máquina virtual del DNS seleccionando **Grupos de recursos > [nombre del grupo de recursos] > [vnet1DNS]** .  El nombre del grupo de recursos es el que creó en el último procedimiento. Los nombres predeterminados de las máquinas virtuales del DNS son *vnet1DNS* y *vnet2NDS*.
+2. Abra la máquina virtual del DNS seleccionando **Grupos de recursos > [nombre del grupo de recursos] > [vnet1DNS]**.  El nombre del grupo de recursos es el que creó en el último procedimiento. Los nombres predeterminados de las máquinas virtuales del DNS son *vnet1DNS* y *vnet2NDS*.
 3. Seleccione **Propiedades** para abrir la página de propiedades de la red virtual.
 4. Anote la **dirección IP pública** y compruebe también la **dirección IP privada**.  La dirección IP privada debe ser **10.1.0.4** para vnet1DNS y **10.2.0.4** para vnet2DNS.  
 5. Cambie los servidores DNS de ambas redes virtuales para usar servidores DNS predeterminados (proporcionados por Azure) para permitir el acceso de entrada y de salida para descargar los paquetes para instalar Bind en los pasos siguientes.
@@ -291,7 +291,7 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 5. Seleccione o escriba la siguiente información:
 
    1. **Nombre** especifique **Enable replication** (Habilitar replicación).
-   2. **URL de script de Bash**: escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   2. **URL de script de Bash**: escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
    3. **Principal**: asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
    4. **Parámetros**: los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
@@ -333,7 +333,7 @@ Una vez implementada correctamente la acción de script, puede usar SSH para con
 
 En la lista siguiente se muestran algunos casos de uso general y la configuración de parámetros:
 
-- **Habilitar la replicación en todas las tablas entre los dos clústeres**. En este escenario no es necesario copiar o migrar datos existentes de las tablas y no se usan tablas de Phoenix. Utilice los siguientes parámetros:
+- **Habilitar la replicación en todas las tablas entre los dos clústeres**. En este escenario no es necesario copiar o migrar datos existentes de las tablas y no se usan tablas de Phoenix. Use los parámetros siguientes:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
@@ -345,7 +345,7 @@ En la lista siguiente se muestran algunos casos de uso general y la configuraci�
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
-- **Habilitar la replicación en todas las tablas y replicar metadatos de Phoenix del origen al destino**. La replicación de metadatos de Phoenix no es perfecta. Úsela con precaución. Utilice los siguientes parámetros:
+- **Habilitar la replicación en todas las tablas y replicar metadatos de Phoenix del origen al destino**. La replicación de metadatos de Phoenix no es perfecta. Úsela con precaución. Use los parámetros siguientes:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
@@ -357,7 +357,7 @@ Hay dos scripts de acción de script independientes para copiar o migrar datos d
 
 - [Script para tablas grandes](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (tablas que se espera que tarden más de una hora en copiarse)
 
-Puede seguir el mismo procedimiento que se describe en [Habilitar replicación](#enable-replication) para llamar a la acción de script. Utilice los siguientes parámetros:
+Puede seguir el mismo procedimiento que se describe en [Habilitar replicación](#enable-replication) para llamar a la acción de script. Use los parámetros siguientes:
 
 `-m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]`
 
@@ -365,7 +365,7 @@ La sección `print_usage()` del [script](https://github.com/Azure/hbase-utils/bl
 
 ### <a name="scenarios"></a>Escenarios
 
-- **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)** :
+- **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)**:
 
   `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
@@ -379,7 +379,7 @@ La sección `print_usage()` del [script](https://github.com/Azure/hbase-utils/bl
 
 ## <a name="disable-replication"></a>Deshabilitar replicación
 
-Para deshabilitar la replicación, use otro script de acción de script de [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Puede seguir el mismo procedimiento que se describe en [Habilitar replicación](#enable-replication) para llamar a la acción de script. Utilice los siguientes parámetros:
+Para deshabilitar la replicación, use otro script de acción de script de [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Puede seguir el mismo procedimiento que se describe en [Habilitar replicación](#enable-replication) para llamar a la acción de script. Use los parámetros siguientes:
 
 `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">`
 
@@ -395,7 +395,7 @@ La sección `print_usage()` del [script](https://raw.githubusercontent.com/Azure
 
   `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
-- **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)** :
+- **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)**:
 
   `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 

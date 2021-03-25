@@ -7,10 +7,10 @@ ms.date: 2/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006343"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
@@ -142,7 +142,7 @@ servicefabric:/<section-name>/<setting-name>
 
 `<section-name>` es el nombre de la sección de configuración de Service Fabric, y `<setting-name>` es el conjunto de configuración que proporciona el valor que se usará para configurar una opción de EventFlow. Para leer más información sobre cómo realizar esto, vaya a [Support for Service Fabric settings and application parameters](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters) (Compatibilidad de los parámetros de la aplicación y la configuración de Service Fabric).
 
-## <a name="verification"></a>Comprobación
+## <a name="verification"></a>para complementos
 
 Inicie el servicio y observe la ventana de resultados de depuración de Visual Studio. Una vez iniciado el servicio, deberá comenzar a ver la evidencia de que el servicio está enviando registros a la salida configurada. Vaya a la plataforma de visualización y análisis de eventos y confirme que los registros han empezado a mostrarse, una operación que puede tardar algunos minutos.
 

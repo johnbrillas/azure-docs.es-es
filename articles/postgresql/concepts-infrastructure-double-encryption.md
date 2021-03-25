@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
 ms.openlocfilehash: 83635b732318a4ada76d1d71c1ce419cae8b35e9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98630153"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for PostgreSQL
@@ -58,7 +58,7 @@ Las funcionalidades de cifrado que proporciona Azure Database for PostgreSQL se 
 
 Para Azure Database for PostgreSQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa para **De uso general** y **Optimizados para memoria**.
+* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
 * Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte la [documentación de almacenamiento](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

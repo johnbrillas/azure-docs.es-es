@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433223"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103462684"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
@@ -36,8 +36,10 @@ Obtenga instancias de Digital Twins por **propiedades** (incluidos el identifica
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> El identificador de un gemelo digital se consulta con el campo de metadatos `$dtId`.
+Como se muestra en la consulta anterior, el identificador de un gemelo digital se consulta mediante el campo de metadatos `$dtId`.
+
+>[!TIP]
+> Cuando se usa Cloud Shell para ejecutar una consulta con campos de metadatos que comienzan por `$`, se debe usar un acento grave como carácter de escape para que Cloud Shell sepa que no es una variable y se debe consumir como literal en el texto de la consulta.
 
 También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
 
